@@ -1,18 +1,17 @@
 const ServiceModule = {
 
   getActiveBike() {
-
-    if (!window.MotorcycleDatabase) {
-      return null;
-    }
-
     return MotorcycleDatabase.getActive();
   },
 
 
-  ensureServices(bike) {
+  getServices() {
 
-    if (!bike.services) {
+    const bike = this.getActiveBike();
+
+    if (!bike) return [];
+
+    if (!Array.isArray(bike.services)) {
       bike.services = [];
     }
 
@@ -25,211 +24,274 @@ const ServiceModule = {
     const bike = this.getActiveBike();
 
     if (!bike) {
-      alert("Najpierw wybierz motocykl.");
+
+      alert(
+        "Najpierw wybierz motocykl."
+      );
+
       return false;
     }
 
-    this.ensureServices(bike);
 
-    const newService = {
+    if (!Array.isArray(bike.services)) {
+      bike.services = [];
+    }
 
-      id: Date.now(),
-
-      type: service.type || "Inne",
-
-      description:
-        service.description || "",
-
-      date:
-        service.date || "",
-
-      mileage:
-        Number(service.mileage || 0),
-
-      partsCost:
-        Number(service.partsCost || 0),
-
-      laborCost:
-        Number(service.laborCost || 0),
-
-      workshop:
-        service.workshop || "",
-
-      note:
-        service.note || "",
-
-      nextDate:
-        service.nextDate || "",
-
-      nextMileage:
-        Number(service.nextMileage || 0)
-    };
-
-
-    bike.services.unshift(newService);
-
-
-    if (!bike.history) {
+    if (!Array.isArray(bike.history)) {
       bike.history = [];
     }
 
 
-    bike.history.unshift({
+    const entry = {
 
-      id: Date.now() + 1,
+      id: Date.now(),
 
-      type: "SERWIS",
-
-      description:
-        newService.description,
-
-      date:
-        newService.date,
+      ...service,
 
       mileage:
-        newService.mileage
+        Number(
+          service.mileage || 0
+        ),
+
+      partsCost:
+        Number(
+          service.partsCost || 0
+        ),
+
+      laborCost:
+        Number(
+          service.laborCost || 0
+        )
+    };
+
+
+    bike.services.push(
+      entry
+    );
+
+
+    /*
+      Historia dostaje TEN SAM ID.
+      Dzięki temu edycja i usuwanie
+      zawsze znajdą właściwy wpis.
+    */
+
+    bike.history.push({
+      ...entry
     });
 
 
     MotorcycleDatabase.save();
 
-    return true;
-  },
-
-
-  updateService(serviceId, updatedData) {
-
-    const bike = this.getActiveBike();
-
-    if (!bike || !bike.services) {
-      return false;
-    }
-
-
-    const service =
-      bike.services.find(
-        item =>
-          item.id === serviceId
-      );
-
-
-    if (!service) {
-      return false;
-    }
-
-
-    service.type =
-      updatedData.type || "Inne";
-
-    service.description =
-      updatedData.description || "";
-
-    service.date =
-      updatedData.date || "";
-
-    service.mileage =
-      Number(updatedData.mileage || 0);
-
-    service.partsCost =
-      Number(updatedData.partsCost || 0);
-
-    service.laborCost =
-      Number(updatedData.laborCost || 0);
-
-    service.workshop =
-      updatedData.workshop || "";
-
-    service.note =
-      updatedData.note || "";
-
-    service.nextDate =
-      updatedData.nextDate || "";
-
-    service.nextMileage =
-      Number(updatedData.nextMileage || 0);
-
-
-    MotorcycleDatabase.save();
 
     return true;
   },
 
 
-  deleteService(serviceId) {
-
-    const bike = this.getActiveBike();
-
-    if (!bike || !bike.services) {
-      return false;
-    }
-
-
-    const service =
-      bike.services.find(
-        item =>
-          item.id === serviceId
-      );
-
-
-    if (!service) {
-      return false;
-    }
-
-
-    const confirmed =
-      confirm(
-        "Usunąć ten wpis serwisowy?"
-      );
-
-
-    if (!confirmed) {
-      return false;
-    }
-
-
-    bike.services =
-      bike.services.filter(
-        item =>
-          item.id !== serviceId
-      );
-
-
-    if (bike.history) {
-
-      bike.history =
-        bike.history.filter(
-          item =>
-            !(
-              item.type === "SERWIS" &&
-              item.description ===
-                service.description &&
-              item.date ===
-                service.date &&
-              item.mileage ===
-                service.mileage
-            )
-        );
-
-    }
-
-
-    MotorcycleDatabase.save();
-
-    return true;
-  },
-
-
-  getServices() {
+  updateService(
+    id,
+    service
+  ) {
 
     const bike =
       this.getActiveBike();
 
+
     if (!bike) {
-      return [];
+
+      alert(
+        "Najpierw wybierz motocykl."
+      );
+
+      return false;
     }
 
 
-    return this.ensureServices(bike);
+    if (!Array.isArray(
+      bike.services
+    )) {
+
+      bike.services = [];
+
+    }
+
+
+    if (!Array.isArray(
+      bike.history
+    )) {
+
+      bike.history = [];
+
+    }
+
+
+    const index =
+      bike.services.findIndex(
+        item =>
+          item.id === id
+      );
+
+
+    if (index === -1) {
+
+      alert(
+        "Nie znaleziono wpisu serwisowego."
+      );
+
+      return false;
+    }
+
+
+    const updated = {
+
+      ...bike.services[index],
+
+      ...service,
+
+      id,
+
+      mileage:
+        Number(
+          service.mileage || 0
+        ),
+
+      partsCost:
+        Number(
+          service.partsCost || 0
+        ),
+
+      laborCost:
+        Number(
+          service.laborCost || 0
+        )
+    };
+
+
+    /*
+      Aktualizujemy główną historię.
+    */
+
+    bike.services[index] =
+      updated;
+
+
+    /*
+      Aktualizujemy również
+      kopię w bike.history.
+    */
+
+    const historyIndex =
+      bike.history.findIndex(
+        item =>
+          item.id === id
+      );
+
+
+    if (
+      historyIndex !== -1
+    ) {
+
+      bike.history[
+        historyIndex
+      ] = {
+        ...updated
+      };
+
+    } else {
+
+      /*
+        Dla starszych wpisów,
+        które nie mają jeszcze
+        odpowiedniego wpisu
+        w history.
+      */
+
+      bike.history.push({
+        ...updated
+      });
+
+    }
+
+
+    MotorcycleDatabase.save();
+
+
+    return true;
+  },
+
+
+  deleteService(id) {
+
+    const bike =
+      this.getActiveBike();
+
+
+    if (!bike) {
+
+      alert(
+        "Najpierw wybierz motocykl."
+      );
+
+      return false;
+    }
+
+
+    if (!Array.isArray(
+      bike.services
+    )) {
+
+      bike.services = [];
+
+    }
+
+
+    if (!Array.isArray(
+      bike.history
+    )) {
+
+      bike.history = [];
+
+    }
+
+
+    const index =
+      bike.services.findIndex(
+        item =>
+          item.id === id
+      );
+
+
+    if (index === -1) {
+      return false;
+    }
+
+
+    /*
+      Usuwamy z głównej listy.
+    */
+
+    bike.services.splice(
+      index,
+      1
+    );
+
+
+    /*
+      Usuwamy ten sam wpis
+      z historii.
+    */
+
+    bike.history =
+      bike.history.filter(
+        item =>
+          item.id !== id
+      );
+
+
+    MotorcycleDatabase.save();
+
+
+    return true;
   },
 
 
@@ -241,29 +303,22 @@ const ServiceModule = {
       (a, b) => {
 
         const dateA =
-          new Date(a.date || 0);
+          a.date
+            ? new Date(
+                a.date
+              ).getTime()
+            : 0;
+
 
         const dateB =
-          new Date(b.date || 0);
+          b.date
+            ? new Date(
+                b.date
+              ).getTime()
+            : 0;
 
 
-        if (
-          dateA.getTime() !==
-          dateB.getTime()
-        ) {
-
-          return (
-            dateB.getTime() -
-            dateA.getTime()
-          );
-
-        }
-
-
-        return (
-          Number(b.mileage || 0) -
-          Number(a.mileage || 0)
-        );
+        return dateB - dateA;
 
       }
     );
@@ -274,17 +329,26 @@ const ServiceModule = {
 
     return this.getServices()
       .reduce(
-        (total, service) => {
+        (
+          sum,
+          service
+        ) => {
 
-          return total +
+          return (
+
+            sum +
 
             Number(
-              service.partsCost || 0
+              service.partsCost ||
+              0
             ) +
 
             Number(
-              service.laborCost || 0
-            );
+              service.laborCost ||
+              0
+            )
+
+          );
 
         },
         0
@@ -296,12 +360,18 @@ const ServiceModule = {
 
     return this.getServices()
       .reduce(
-        (total, service) => {
+        (
+          sum,
+          service
+        ) => {
 
-          return total +
+          return (
+            sum +
             Number(
-              service.partsCost || 0
-            );
+              service.partsCost ||
+              0
+            )
+          );
 
         },
         0
@@ -313,12 +383,18 @@ const ServiceModule = {
 
     return this.getServices()
       .reduce(
-        (total, service) => {
+        (
+          sum,
+          service
+        ) => {
 
-          return total +
+          return (
+            sum +
             Number(
-              service.laborCost || 0
-            );
+              service.laborCost ||
+              0
+            )
+          );
 
         },
         0
@@ -332,14 +408,26 @@ const ServiceModule = {
       this.getSortedServices();
 
 
-    if (!services.length) {
-      return null;
-    }
-
-
-    return services[0];
+    return services.length
+      ? services[0]
+      : null;
   },
 
+
+  /*
+    Najbliższy serwis:
+
+    1. Jeżeli istnieją terminy
+       kalendarzowe — wybieramy
+       najbliższą datę.
+
+    2. Jeżeli nie ma dat,
+       wybieramy najmniejszy
+       zaplanowany przebieg.
+
+    Nie porównujemy już
+    kilometrów z datami.
+  */
 
   getNextService() {
 
@@ -357,145 +445,69 @@ const ServiceModule = {
     }
 
 
-    const today =
-      new Date();
-
-
-    const currentMileage =
-      Number(
-        this.getActiveBike()
-          ?.mileage || 0
-      );
-
-
-    const upcoming =
+    const withDate =
       services
-        .map(service => {
 
-          let distance =
-            Infinity;
-
-          let days =
-            Infinity;
-
-
-          if (
-            service.nextMileage
-          ) {
-
-            distance =
-              service.nextMileage -
-              currentMileage;
-
-          }
-
-
-          if (
+        .filter(
+          service =>
             service.nextDate
-          ) {
+        )
 
-            const date =
-              new Date(
-                service.nextDate
-              );
-
-            days =
-              Math.ceil(
-                (
-                  date -
-                  today
-                ) /
-                86400000
-              );
-
-          }
-
-
-          return {
+        .map(
+          service => ({
 
             service,
-            distance,
-            days
 
-          };
+            time:
+              new Date(
+                service.nextDate
+              ).getTime()
 
-        })
+          })
+        )
+
+        .filter(
+          item =>
+            !Number.isNaN(
+              item.time
+            )
+        )
+
         .sort(
-          (a, b) => {
-
-            return Math.min(
-              a.distance,
-              a.days
-            ) -
-            Math.min(
-              b.distance,
-              b.days
-            );
-
-          }
+          (a, b) =>
+            a.time - b.time
         );
 
 
-    return upcoming.length
-      ? upcoming[0].service
-      : null;
-  },
-
-
-  formatMoney(value) {
-
-    return Number(
-      value || 0
-    ).toLocaleString(
-      "pl-PL",
-      {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      }
-    ) + " zł";
-
-  },
-
-
-  formatMileage(value) {
-
-    return Number(
-      value || 0
-    ).toLocaleString(
-      "pl-PL"
-    ) + " km";
-
-  },
-
-
-  formatDate(value) {
-
-    if (!value) {
-      return "—";
-    }
-
-
-    const date =
-      new Date(
-        value + "T00:00:00"
-      );
-
-
     if (
-      Number.isNaN(
-        date.getTime()
-      )
+      withDate.length
     ) {
 
-      return value;
+      return (
+        withDate[0]
+          .service
+      );
 
     }
 
 
-    return date.toLocaleDateString(
-      "pl-PL"
-    );
+    return services
+      .slice()
+      .sort(
+        (a, b) =>
 
+          Number(
+            a.nextMileage ||
+            Infinity
+          )
+
+          -
+
+          Number(
+            b.nextMileage ||
+            Infinity
+          )
+      )[0] || null;
   }
 
 };
