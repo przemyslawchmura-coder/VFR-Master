@@ -308,32 +308,44 @@ label{
 
 
 <!-- GARAGE -->
-<section id="garage" class="page">
+  <section id="garage" class="page">
 
   <div class="card">
-    <h2>🏍️ Mój motocykl</h2>
+    <h2>🏍️ Mój garaż</h2>
+
+    <div id="garageList"></div>
+  </div>
+
+  <div class="card">
+    <h3>➕ Dodaj motocykl</h3>
 
     <label>Marka</label>
-    <input id="brand" value="Honda">
+    <input id="garageBrand" placeholder="np. Honda">
 
     <label>Model</label>
-    <input id="model" value="VFR800 VTEC">
+    <input id="garageModel" placeholder="np. VFR800 VTEC">
 
     <label>Rok</label>
-    <input id="year" type="number" value="2002">
+    <input id="garageYear" type="number" placeholder="np. 2002">
 
     <label>Przebieg</label>
-    <input id="mileage" type="number" value="0">
+    <input id="garageMileage" type="number" placeholder="np. 85000">
 
     <label>VIN</label>
-    <input id="vin" placeholder="Wpisz VIN">
+    <input id="garageVin" placeholder="VIN">
 
-    <button class="primary" onclick="saveBike()">
-      💾 Zapisz dane motocykla
+    <label>Nazwa motocykla</label>
+    <input id="garageNickname" placeholder="np. Czerwona VFR">
+
+    <button class="primary" onclick="addMotorcycle()">
+      🏍️ Dodaj do garażu
     </button>
   </div>
 
 </section>
+
+
+    
 
 
 <!-- SERVICE -->
