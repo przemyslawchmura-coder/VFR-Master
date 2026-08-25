@@ -8,21 +8,28 @@ const VFRApp = {
     return MotorcycleDatabase.getAll();
   },
 
+  getActiveBike() {
+    return MotorcycleDatabase.getActive();
+  },
+
   renderGarage() {
 
-    const container = document.getElementById("garageList");
+    const container =
+      document.getElementById("garageList");
 
     if (!container) return;
 
     const bikes = this.getGarage();
 
     if (bikes.length === 0) {
+
       container.innerHTML = `
         <div class="empty">
           Garaż jest pusty.<br>
           Dodaj swój pierwszy motocykl.
         </div>
       `;
+
       return;
     }
 
@@ -52,7 +59,8 @@ const VFRApp = {
           <br>
 
           <span class="muted">
-            ${Number(bike.mileage || 0).toLocaleString("pl-PL")} km
+            ${Number(bike.mileage || 0)
+              .toLocaleString("pl-PL")} km
           </span>
 
           <button
@@ -62,6 +70,14 @@ const VFRApp = {
             ${active
               ? "✅ AKTYWNY MOTOCYKL"
               : "🏍️ USTAW JAKO AKTYWNY"}
+
+          </button>
+
+          <button
+            class="secondary"
+            onclick="openBikeCard(${bike.id})">
+
+            🔍 Otwórz kartę motocykla
 
           </button>
 
@@ -102,7 +118,11 @@ function addMotorcycle() {
     document.getElementById("garageNickname").value.trim();
 
   if (!brand || !model) {
-    alert("Podaj przynajmniej markę i model.");
+
+    alert(
+      "Podaj przynajmniej markę i model."
+    );
+
     return;
   }
 
@@ -110,12 +130,12 @@ function addMotorcycle() {
 
     id: Date.now(),
 
-    brand: brand,
-    model: model,
-    year: year,
-    mileage: mileage,
-    vin: vin,
-    nickname: nickname,
+    brand,
+    model,
+    year,
+    mileage,
+    vin,
+    nickname,
 
     services: [],
     costs: [],
@@ -133,7 +153,9 @@ function addMotorcycle() {
 
   VFRApp.renderGarage();
 
-  alert("Motocykl dodany do garażu 🏍️");
+  alert(
+    "Motocykl dodany do garażu 🏍️"
+  );
 }
 
 
@@ -147,6 +169,7 @@ function selectMotorcycle(id) {
     MotorcycleDatabase.getActive();
 
   if (bike) {
+
     alert(
       "Aktywny motocykl:\n\n" +
       bike.brand + " " + bike.model
@@ -155,9 +178,199 @@ function selectMotorcycle(id) {
 }
 
 
+function openBikeCard(id) {
+
+  MotorcycleDatabase.setActive(id);
+
+  const bike =
+    MotorcycleDatabase.getActive();
+
+  if (!bike) return;
+
+  showBikeCard(bike);
+}
+
+
+function showBikeCard(bike) {
+
+  const container =
+    document.getElementById("garageList");
+
+  if (!container) return;
+
+  container.innerHTML = `
+
+    <button
+      class="back"
+      onclick="VFRApp.renderGarage()">
+
+      ← Wróć do garażu
+
+    </button>
+
+    <div class="card hero">
+
+      <div class="logo">
+        AKTYWNY MOTOCYKL
+      </div>
+
+      <h2>
+        ${escapeHtml(
+          bike.nickname ||
+          `${bike.brand} ${bike.model}`
+        )}
+      </h2>
+
+      <div class="muted">
+
+        ${escapeHtml(bike.brand)}
+        ${escapeHtml(bike.model)}
+
+        •
+
+        ${escapeHtml(bike.year || "—")}
+
+      </div>
+
+    </div>
+
+
+    <div class="stats">
+
+      <div class="stat">
+
+        <div class="stat-value">
+
+          ${Number(bike.mileage || 0)
+            .toLocaleString("pl-PL")}
+
+        </div>
+
+        <div class="stat-label">
+          Przebieg km
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-value">
+
+          ${bike.services
+            ? bike.services.length
+            : 0}
+
+        </div>
+
+        <div class="stat-label">
+          Serwisy
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="grid">
+
+      <button
+        class="tile"
+        onclick="alert('Moduł serwisowy — następny etap 🔧')">
+
+        <span class="icon">🔧</span>
+
+        Serwis
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="alert('Moduł diagnostyczny — następny etap ⚡')">
+
+        <span class="icon">⚡</span>
+
+        Diagnostyka
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="alert('Baza techniczna — budujemy ją teraz 📖')">
+
+        <span class="icon">📖</span>
+
+        Dane techniczne
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="alert('Moduł kosztów — następny etap 💰')">
+
+        <span class="icon">💰</span>
+
+        Koszty
+
+      </button>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>📋 Informacje</h3>
+
+      <div class="list-item">
+
+        <span class="muted">
+          VIN
+        </span>
+
+        <br>
+
+        <b>
+          ${escapeHtml(
+            bike.vin || "Nie podano"
+          )}
+        </b>
+
+      </div>
+
+
+      <div class="list-item">
+
+        <span class="muted">
+          Rok produkcji
+        </span>
+
+        <br>
+
+        <b>
+          ${escapeHtml(
+            bike.year || "Nie podano"
+          )}
+        </b>
+
+      </div>
+
+    </div>
+
+  `;
+}
+
+
 function deleteMotorcycle(index) {
 
-  if (!confirm("Na pewno usunąć ten motocykl?")) {
+  if (
+    !confirm(
+      "Na pewno usunąć ten motocykl?"
+    )
+  ) {
+
     return;
   }
 
@@ -170,20 +383,43 @@ function deleteMotorcycle(index) {
 function escapeHtml(text) {
 
   return String(text)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
 }
 
 
-window.VFRApp = VFRApp;
+window.VFRApp =
+  VFRApp;
 
 
 document.addEventListener(
   "DOMContentLoaded",
   () => {
+
     VFRApp.init();
+
   }
 );
