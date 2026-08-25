@@ -1,16 +1,24 @@
 /* =========================================================
-   VFR MASTER — INTERFEJS BAZY TECHNICZNEJ
+   VFR MASTER
+   INTERFEJS BAZY TECHNICZNEJ
+   Honda VFR800 VTEC 2002
+   ========================================================= */
+/* =========================================================
+   OTWARCIE BAZY TECHNICZNEJ
    ========================================================= */
 function openTechnicalBase() {
   const container =
     document.getElementById("technical");
-  if (!container || !window.VFRTechnical) {
+  if (
+    !container ||
+    !window.VFRTechnical
+  ) {
     return;
   }
   const model =
-    VFRTechnical.getModel();
-  const data =
-    VFRTechnical.getAll();
+    VFRTechnical.model;
+  const categories =
+    VFRTechnical.getCategoryList();
   container.innerHTML = `
     <div class="card hero">
       <div class="logo">
@@ -29,30 +37,42 @@ function openTechnicalBase() {
         📖 Wybierz kategorię
       </h3>
       <div class="grid">
-        ${Object.entries(data)
-          .map(([key, section]) => `
-            <button
-              class="tile"
-              onclick="openTechnicalSection('${key}')">
-              <span class="icon">
-                ${section.icon}
-              </span>
-              ${escapeHtml(section.title)}
-            </button>
-          `)
-          .join("")}
+        ${categories.map(category => `
+          <button
+            class="tile"
+            onclick="openTechnicalSection('${escapeHtml(category.id)}')">
+            <span class="icon">
+              ${escapeHtml(category.icon)}
+            </span>
+            ${escapeHtml(category.title)}
+          </button>
+        `).join("")}
       </div>
     </div>
   `;
 }
+/* =========================================================
+   OTWARCIE KATEGORII
+   ========================================================= */
 function openTechnicalSection(sectionKey) {
   const section =
-    VFRTechnical.get(sectionKey);
+    VFRTechnical.getCategory(
+      sectionKey
+    );
   const container =
-    document.getElementById("technical");
-  if (!section || !container) {
+    document.getElementById(
+      "technical"
+    );
+  if (
+    !section ||
+    !container
+  ) {
     return;
   }
+  const items =
+    Object.entries(
+      section.items || {}
+    );
   container.innerHTML = `
     <button
       class="back"
@@ -64,32 +84,109 @@ function openTechnicalSection(sectionKey) {
         VFR MASTER
       </div>
       <h2>
-        ${section.icon}
+        ${escapeHtml(section.icon)}
         ${escapeHtml(section.title)}
       </h2>
     </div>
     <div class="card">
-      ${section.items
-        .map(item => `
-          <div class="list-item">
-            <span class="muted">
-              ${escapeHtml(item[0])}
-            </span>
-            <br>
-            <b>
-              ${escapeHtml(item[1])}
-            </b>
+      ${items.length
+        ? items.map(([key, item]) => `
+            <div
+              class="list-item"
+              onclick="openTechnicalItem(
+                '${escapeHtml(sectionKey)}',
+                '${escapeHtml(key)}'
+              )"
+              style="cursor:pointer;">
+              <b>
+                ${escapeHtml(item.name)}
+              </b>
+              <br>
+              <span class="muted">
+                ${escapeHtml(item.value)}
+              </span>
+            </div>
+          `).join("")
+        : `
+          <div class="empty">
+            Brak danych w tej kategorii.
           </div>
-        `)
-        .join("")}
+        `
+      }
+    </div>
+  `;
+}
+/* =========================================================
+   SZCZEGÓŁ PARAMETRU
+   ========================================================= */
+function openTechnicalItem(
+  sectionKey,
+  itemKey
+) {
+  const section =
+    VFRTechnical.getCategory(
+      sectionKey
+    );
+  if (!section) {
+    return;
+  }
+  const item =
+    section.items &&
+    section.items[itemKey];
+  if (!item) {
+    return;
+  }
+  const container =
+    document.getElementById(
+      "technical"
+    );
+  if (!container) {
+    return;
+  }
+  container.innerHTML = `
+    <button
+      class="back"
+      onclick="openTechnicalSection('${escapeHtml(sectionKey)}')">
+      ← Wróć do kategorii
+    </button>
+    <div class="card hero">
+      <div class="logo">
+        ${escapeHtml(section.icon)}
+        ${escapeHtml(section.title)}
+      </div>
+      <h2>
+        ${escapeHtml(item.name)}
+      </h2>
+    </div>
+    <div class="card">
+      <div class="list-item">
+        <span class="muted">
+          Wartość
+        </span>
+        <br>
+        <b style="
+          font-size:20px;
+          display:block;
+          margin-top:6px;
+        ">
+          ${escapeHtml(item.value)}
+        </b>
+      </div>
       ${
-        section.note
+        item.description
           ? `
             <div
               class="section-note"
-              style="margin-top:14px;">
+              style="
+                margin-top:14px;
+                padding:12px;
+                background:#0f1419;
+                border-radius:12px;
+              ">
               ℹ️
-              ${escapeHtml(section.note)}
+              ${escapeHtml(
+                item.description
+              )}
             </div>
           `
           : ""
@@ -98,25 +195,11 @@ function openTechnicalSection(sectionKey) {
   `;
 }
 /* =========================================================
-   PODPIĘCIE DO NAWIGACJI
+   GLOBAL
    ========================================================= */
-(function setupTechnicalUI() {
-  const originalNavigateTo =
-    window.navigateTo;
-  if (
-    typeof originalNavigateTo !==
-    "function"
-  ) {
-    return;
-  }
-  window.navigateTo =
-    function(pageId) {
-      originalNavigateTo(pageId);
-      if (
-        pageId ===
-        "technical"
-      ) {
-        openTechnicalBase();
-      }
-    };
-})();
+window.openTechnicalBase =
+  openTechnicalBase;
+window.openTechnicalSection =
+  openTechnicalSection;
+window.openTechnicalItem =
+  openTechnicalItem;
