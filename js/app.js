@@ -379,7 +379,263 @@ function deleteMotorcycle(index) {
   VFRApp.renderGarage();
 }
 
+function saveServiceEntry() {
 
+  const service = {
+
+    type:
+      document.getElementById(
+        "serviceType"
+      ).value,
+
+    description:
+      document.getElementById(
+        "serviceDescription"
+      ).value.trim(),
+
+    date:
+      document.getElementById(
+        "serviceDate"
+      ).value,
+
+    mileage:
+      document.getElementById(
+        "serviceMileage"
+      ).value,
+
+    partsCost:
+      document.getElementById(
+        "servicePartsCost"
+      ).value,
+
+    laborCost:
+      document.getElementById(
+        "serviceLaborCost"
+      ).value,
+
+    workshop:
+      document.getElementById(
+        "serviceWorkshop"
+      ).value.trim(),
+
+    note:
+      document.getElementById(
+        "serviceNote"
+      ).value.trim(),
+
+    nextDate:
+      document.getElementById(
+        "serviceNextDate"
+      ).value,
+
+    nextMileage:
+      document.getElementById(
+        "serviceNextMileage"
+      ).value
+  };
+
+
+  if (!service.description) {
+
+    alert(
+      "Napisz, co zostało zrobione."
+    );
+
+    return;
+  }
+
+
+  if (!service.date) {
+
+    alert(
+      "Wybierz datę serwisu."
+    );
+
+    return;
+  }
+
+
+  const saved =
+    ServiceModule.addService(
+      service
+    );
+
+
+  if (!saved) {
+    return;
+  }
+
+
+  clearServiceForm();
+
+  renderServiceHistory();
+
+  alert(
+    "Serwis zapisany 🔧"
+  );
+}
+
+
+function clearServiceForm() {
+
+  document.getElementById(
+    "serviceDescription"
+  ).value = "";
+
+  document.getElementById(
+    "serviceMileage"
+  ).value = "";
+
+  document.getElementById(
+    "servicePartsCost"
+  ).value = "";
+
+  document.getElementById(
+    "serviceLaborCost"
+  ).value = "";
+
+  document.getElementById(
+    "serviceWorkshop"
+  ).value = "";
+
+  document.getElementById(
+    "serviceNote"
+  ).value = "";
+
+  document.getElementById(
+    "serviceNextDate"
+  ).value = "";
+
+  document.getElementById(
+    "serviceNextMileage"
+  ).value = "";
+}
+
+
+function renderServiceHistory() {
+
+  const container =
+    document.getElementById(
+      "serviceHistory"
+    );
+
+  if (!container) {
+    return;
+  }
+
+
+  const services =
+    ServiceModule.getServices();
+
+
+  if (!services.length) {
+
+    container.innerHTML = `
+      <div class="empty">
+        Brak historii serwisowej.
+      </div>
+    `;
+
+    return;
+  }
+
+
+  container.innerHTML =
+    services.map(service => {
+
+      const total =
+        Number(service.partsCost || 0) +
+        Number(service.laborCost || 0);
+
+
+      return `
+
+        <div class="list-item">
+
+          <b>
+            ${escapeHtml(
+              service.description
+            )}
+          </b>
+
+          <br>
+
+          <span class="muted">
+
+            ${escapeHtml(
+              service.type
+            )}
+
+            •
+
+            ${escapeHtml(
+              service.date
+            )}
+
+            •
+
+            ${Number(
+              service.mileage || 0
+            ).toLocaleString("pl-PL")}
+            km
+
+          </span>
+
+          <br>
+
+          💰
+          <b>
+            ${total.toLocaleString(
+              "pl-PL",
+              {
+                minimumFractionDigits: 2
+              }
+            )} zł
+          </b>
+
+          ${
+            service.workshop
+              ? `<br>
+                 <span class="muted">
+                 🔧 ${escapeHtml(
+                   service.workshop
+                 )}
+                 </span>`
+              : ""
+          }
+
+          ${
+            service.note
+              ? `<br>
+                 <span class="muted">
+                 ${escapeHtml(
+                   service.note
+                 )}
+                 </span>`
+              : ""
+          }
+
+          ${
+            service.nextMileage
+              ? `<br>
+                 <span class="muted">
+                 🔔 Następny: ${
+                   Number(
+                     service.nextMileage
+                   ).toLocaleString(
+                     "pl-PL"
+                   )
+                 } km
+                 </span>`
+              : ""
+          }
+
+        </div>
+
+      `;
+
+    }).join("");
+}
 function escapeHtml(text) {
 
   return String(text)
