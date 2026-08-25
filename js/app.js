@@ -470,18 +470,24 @@ function editService(id) {
    USUWANIE SERWISU
    ===================================================== */
 function removeService(id) {
-  if (
-    !confirm(
-      "Usunąć ten wpis z historii serwisowej?"
-    )
-  ) {
+
+  const confirmed =
+    confirm(
+      "Usunąć ten wpis serwisowy?"
+    );
+
+  if (!confirmed) {
     return;
   }
+
   const deleted =
     ServiceModule.deleteService(id);
-  if (deleted) {
-    renderServiceHistory();
+
+  if (!deleted) {
+    return;
   }
+
+  renderServiceHistory();
 }
 /* =====================================================
    CZYSZCZENIE FORMULARZA
