@@ -1,162 +1,702 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VFR Master</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0b0d10">
+<title>VFR Master</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0b0d10;
-      color: white;
-    }
+:root{
+  --bg:#080a0d;
+  --card:#13171c;
+  --card2:#191e25;
+  --border:#292f38;
+  --text:#f5f7fa;
+  --muted:#8d96a3;
+  --accent:#e21d2f;
+  --green:#35c76f;
+  --yellow:#f4c542;
+}
 
-    .app {
-      max-width: 600px;
-      margin: auto;
-      min-height: 100vh;
-      padding: 20px;
-    }
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+}
 
-    header {
-      padding: 20px 0;
-    }
+.app{
+  max-width:650px;
+  margin:auto;
+  min-height:100vh;
+  padding-bottom:95px;
+}
 
-    h1 {
-      margin: 0;
-      font-size: 32px;
-    }
+header{
+  padding:calc(20px + env(safe-area-inset-top)) 20px 15px;
+}
 
-    .subtitle {
-      color: #8f98a3;
-      margin-top: 5px;
-    }
+.logo{
+  font-size:14px;
+  font-weight:800;
+  color:var(--accent);
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
 
-    .bike {
-      background: linear-gradient(145deg, #191d23, #101216);
-      border-radius: 22px;
-      padding: 20px;
-      margin: 15px 0 25px;
-      border: 1px solid #292e36;
-    }
+h1{
+  margin:5px 0 0;
+  font-size:32px;
+}
 
-    .bike-name {
-      font-size: 22px;
-      font-weight: 700;
-    }
+.page{
+  display:none;
+  padding:0 16px;
+}
 
-    .bike-info {
-      color: #9da5af;
-      margin-top: 6px;
-    }
+.page.active{
+  display:block;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:18px;
+  margin-bottom:14px;
+}
 
-    button {
-      border: none;
-      border-radius: 18px;
-      padding: 22px 12px;
-      background: #181c22;
-      color: white;
-      font-size: 16px;
-      font-weight: 600;
-      border: 1px solid #292e36;
-      cursor: pointer;
-      min-height: 110px;
-    }
+.hero{
+  background:linear-gradient(145deg,#1c2027,#101318);
+}
 
-    button:active {
-      transform: scale(0.97);
-      background: #242a32;
-    }
+.bike-title{
+  font-size:23px;
+  font-weight:800;
+}
 
-    .icon {
-      font-size: 30px;
-      display: block;
-      margin-bottom: 10px;
-    }
+.muted{
+  color:var(--muted);
+}
 
-    #status {
-      margin-top: 25px;
-      padding: 15px;
-      border-radius: 15px;
-      background: #15191f;
-      color: #aeb6c0;
-      text-align: center;
-    }
-  </style>
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:15px;
+}
+
+.stat{
+  background:var(--card2);
+  border-radius:15px;
+  padding:15px;
+}
+
+.stat-value{
+  font-size:23px;
+  font-weight:800;
+}
+
+.stat-label{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:4px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.tile{
+  min-height:120px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:18px;
+  color:white;
+  text-align:left;
+  font-size:16px;
+  font-weight:700;
+}
+
+.tile:active{
+  transform:scale(.97);
+  background:var(--card2);
+}
+
+.icon{
+  font-size:30px;
+  display:block;
+  margin-bottom:12px;
+}
+
+button{
+  font-family:inherit;
+  cursor:pointer;
+}
+
+.primary{
+  width:100%;
+  border:0;
+  border-radius:15px;
+  padding:15px;
+  background:var(--accent);
+  color:white;
+  font-weight:800;
+  font-size:16px;
+}
+
+.secondary{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:14px;
+  background:var(--card2);
+  color:white;
+  font-weight:700;
+  font-size:15px;
+  margin-top:10px;
+}
+
+input,select,textarea{
+  width:100%;
+  background:#0d1014;
+  color:white;
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:14px;
+  margin:7px 0 13px;
+  font-size:16px;
+}
+
+label{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.list-item{
+  padding:15px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.list-item:last-child{
+  border-bottom:0;
+}
+
+.bottom-nav{
+  position:fixed;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  width:min(650px,100%);
+  background:rgba(15,18,22,.94);
+  backdrop-filter:blur(20px);
+  border-top:1px solid var(--border);
+  padding:8px 8px calc(8px + env(safe-area-inset-bottom));
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  z-index:100;
+}
+
+.nav-btn{
+  border:0;
+  background:none;
+  color:var(--muted);
+  padding:8px 2px;
+  font-size:11px;
+}
+
+.nav-btn.active{
+  color:white;
+}
+
+.nav-icon{
+  display:block;
+  font-size:21px;
+  margin-bottom:3px;
+}
+
+.back{
+  border:0;
+  background:none;
+  color:var(--muted);
+  font-size:15px;
+  padding:5px 0 15px;
+}
+
+.empty{
+  text-align:center;
+  padding:35px 15px;
+  color:var(--muted);
+}
+
+.danger{
+  color:#ff5969;
+}
+</style>
 </head>
 
 <body>
 
-  <main class="app">
+<div class="app">
 
-    <header>
-      <h1>VFR Master</h1>
-      <div class="subtitle">Twój motocykl. Cała wiedza.</div>
-    </header>
+<header>
+  <div class="logo">VFR MASTER</div>
+  <h1 id="pageTitle">Dashboard</h1>
+</header>
 
-    <section class="bike">
-      <div class="bike-name">Honda VFR800 VTEC</div>
-      <div class="bike-info">2002 • RC46 • V4 782 cm³</div>
-    </section>
+<!-- DASHBOARD -->
+<section id="dashboard" class="page active">
 
-    <section class="grid">
+  <div class="card hero">
+    <div class="bike-title" id="dashBike">Honda VFR800 VTEC</div>
+    <div class="muted" id="dashBikeInfo">2002 • RC46 • V4 782 cm³</div>
 
-      <button onclick="openModule('Serwis')">
-        <span class="icon">🔧</span>
-        Serwis
-      </button>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value" id="dashMileage">0 km</div>
+        <div class="stat-label">Przebieg</div>
+      </div>
 
-      <button onclick="openModule('Serwisówka')">
-        <span class="icon">📖</span>
-        Serwisówka
-      </button>
+      <div class="stat">
+        <div class="stat-value" id="dashCost">0 zł</div>
+        <div class="stat-label">Koszty</div>
+      </div>
+    </div>
+  </div>
 
-      <button onclick="openModule('Diagnostyka')">
-        <span class="icon">⚡</span>
-        Diagnostyka
-      </button>
+  <div class="grid">
 
-      <button onclick="openModule('Części')">
-        <span class="icon">⚙️</span>
-        Części
-      </button>
+    <button class="tile" onclick="showPage('garage')">
+      <span class="icon">🏍️</span>
+      Mój motocykl
+    </button>
 
-      <button onclick="openModule('Koszty')">
-        <span class="icon">💰</span>
-        Koszty
-      </button>
+    <button class="tile" onclick="showPage('service')">
+      <span class="icon">🔧</span>
+      Serwis
+    </button>
 
-      <button onclick="openModule('Historia')">
-        <span class="icon">📋</span>
-        Historia
-      </button>
+    <button class="tile" onclick="showPage('technical')">
+      <span class="icon">📖</span>
+      Baza techniczna
+    </button>
 
-    </section>
+    <button class="tile" onclick="showPage('diagnostics')">
+      <span class="icon">⚡</span>
+      Diagnostyka
+    </button>
 
-    <div id="status">
-      Wybierz moduł
+    <button class="tile" onclick="showPage('costs')">
+      <span class="icon">💰</span>
+      Koszty
+    </button>
+
+    <button class="tile" onclick="showPage('history')">
+      <span class="icon">📋</span>
+      Historia
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- GARAGE -->
+<section id="garage" class="page">
+
+  <div class="card">
+    <h2>🏍️ Mój motocykl</h2>
+
+    <label>Marka</label>
+    <input id="brand" value="Honda">
+
+    <label>Model</label>
+    <input id="model" value="VFR800 VTEC">
+
+    <label>Rok</label>
+    <input id="year" type="number" value="2002">
+
+    <label>Przebieg</label>
+    <input id="mileage" type="number" value="0">
+
+    <label>VIN</label>
+    <input id="vin" placeholder="Wpisz VIN">
+
+    <button class="primary" onclick="saveBike()">
+      💾 Zapisz dane motocykla
+    </button>
+  </div>
+
+</section>
+
+
+<!-- SERVICE -->
+<section id="service" class="page">
+
+  <div class="card">
+    <h2>🔧 Serwis</h2>
+
+    <label>Co zostało zrobione?</label>
+    <input id="serviceName" placeholder="np. wymiana oleju">
+
+    <label>Przebieg</label>
+    <input id="serviceMileage" type="number">
+
+    <label>Koszt</label>
+    <input id="serviceCost" type="number">
+
+    <label>Notatka</label>
+    <textarea id="serviceNote" rows="3"></textarea>
+
+    <button class="primary" onclick="addService()">
+      + Dodaj serwis
+    </button>
+  </div>
+
+  <div class="card">
+    <h3>Historia serwisowa</h3>
+    <div id="serviceList"></div>
+  </div>
+
+</section>
+
+
+<!-- TECHNICAL -->
+<section id="technical" class="page">
+
+  <div class="card">
+    <h2>📖 Baza techniczna</h2>
+    <p class="muted">
+      Tutaj będziemy budować bazę danych motocykli,
+      parametrów technicznych i informacji serwisowych.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="list-item">
+      <b>VFR800 VTEC</b><br>
+      <span class="muted">RC46 • 2002</span>
     </div>
 
-  </main>
+    <div class="list-item">
+      Pojemność silnika<br>
+      <b>782 cm³</b>
+    </div>
 
-  <script>
-    function openModule(name) {
-      document.getElementById("status").textContent =
-        "Otworzyłeś moduł: " + name;
-    }
-  </script>
+    <div class="list-item">
+      Układ silnika<br>
+      <b>V4</b>
+    </div>
+
+    <div class="list-item">
+      Układ chłodzenia<br>
+      <b>Ciecz</b>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- DIAGNOSTICS -->
+<section id="diagnostics" class="page">
+
+  <div class="card">
+    <h2>⚡ Diagnostyka</h2>
+
+    <div class="list-item">
+      <b>PGM-FI</b><br>
+      <span class="muted">Diagnostyka układu wtryskowego</span>
+    </div>
+
+    <div class="list-item">
+      <b>Układ ładowania</b><br>
+      <span class="muted">Alternator / regulator / akumulator</span>
+    </div>
+
+    <div class="list-item">
+      <b>Czujniki</b><br>
+      <span class="muted">Lista czujników i wartości pomiarowych</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="muted">
+      W przyszłości tutaj dodamy komunikację z interfejsem
+      diagnostycznym Bluetooth/OBD.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- COSTS -->
+<section id="costs" class="page">
+
+  <div class="card">
+    <h2>💰 Koszty</h2>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value" id="totalCost">0 zł</div>
+        <div class="stat-label">Łącznie</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-value" id="serviceCount">0</div>
+        <div class="stat-label">Serwisów</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- HISTORY -->
+<section id="history" class="page">
+
+  <div class="card">
+    <h2>📋 Historia</h2>
+    <div id="historyList"></div>
+  </div>
+
+</section>
+
+
+<!-- NAVIGATION -->
+<nav class="bottom-nav">
+
+  <button class="nav-btn active" onclick="showPage('dashboard')">
+    <span class="nav-icon">🏠</span>
+    Start
+  </button>
+
+  <button class="nav-btn" onclick="showPage('garage')">
+    <span class="nav-icon">🏍️</span>
+    Garaż
+  </button>
+
+  <button class="nav-btn" onclick="showPage('service')">
+    <span class="nav-icon">🔧</span>
+    Serwis
+  </button>
+
+  <button class="nav-btn" onclick="showPage('technical')">
+    <span class="nav-icon">📖</span>
+    Baza
+  </button>
+
+</nav>
+
+</div>
+
+
+<script>
+
+const defaultData = {
+  bike:{
+    brand:"Honda",
+    model:"VFR800 VTEC",
+    year:"2002",
+    mileage:"0",
+    vin:""
+  },
+  services:[],
+  history:[]
+};
+
+let data = JSON.parse(
+  localStorage.getItem("vfrMasterData")
+) || defaultData;
+
+
+function saveData(){
+  localStorage.setItem(
+    "vfrMasterData",
+    JSON.stringify(data)
+  );
+}
+
+
+function showPage(page){
+
+  document.querySelectorAll(".page")
+    .forEach(p => p.classList.remove("active"));
+
+  document.getElementById(page)
+    .classList.add("active");
+
+  const titles={
+    dashboard:"Dashboard",
+    garage:"Mój motocykl",
+    service:"Serwis",
+    technical:"Baza techniczna",
+    diagnostics:"Diagnostyka",
+    costs:"Koszty",
+    history:"Historia"
+  };
+
+  document.getElementById("pageTitle")
+    .textContent=titles[page];
+
+  document.querySelectorAll(".nav-btn")
+    .forEach(b => b.classList.remove("active"));
+
+  updateUI();
+}
+
+
+function saveBike(){
+
+  data.bike={
+    brand:document.getElementById("brand").value,
+    model:document.getElementById("model").value,
+    year:document.getElementById("year").value,
+    mileage:document.getElementById("mileage").value,
+    vin:document.getElementById("vin").value
+  };
+
+  saveData();
+  updateUI();
+
+  alert("Dane motocykla zapisane 👍");
+}
+
+
+function addService(){
+
+  const name=document.getElementById("serviceName").value;
+
+  if(!name){
+    alert("Wpisz co zostało zrobione.");
+    return;
+  }
+
+  const item={
+    name:name,
+    mileage:document.getElementById("serviceMileage").value || 0,
+    cost:Number(document.getElementById("serviceCost").value || 0),
+    note:document.getElementById("serviceNote").value,
+    date:new Date().toLocaleDateString("pl-PL")
+  };
+
+  data.services.unshift(item);
+
+  data.history.unshift({
+    type:"Serwis",
+    text:name,
+    date:item.date
+  });
+
+  saveData();
+
+  document.getElementById("serviceName").value="";
+  document.getElementById("serviceMileage").value="";
+  document.getElementById("serviceCost").value="";
+  document.getElementById("serviceNote").value="";
+
+  updateUI();
+
+  alert("Serwis dodany 👍");
+}
+
+
+function updateUI(){
+
+  document.getElementById("brand").value=data.bike.brand;
+  document.getElementById("model").value=data.bike.model;
+  document.getElementById("year").value=data.bike.year;
+  document.getElementById("mileage").value=data.bike.mileage;
+  document.getElementById("vin").value=data.bike.vin;
+
+  document.getElementById("dashBike").textContent=
+    data.bike.brand+" "+data.bike.model;
+
+  document.getElementById("dashBikeInfo").textContent=
+    data.bike.year+" • RC46 • V4 782 cm³";
+
+  document.getElementById("dashMileage").textContent=
+    Number(data.bike.mileage).toLocaleString("pl-PL")+" km";
+
+  const total=data.services.reduce(
+    (sum,item)=>sum+Number(item.cost||0),0
+  );
+
+  document.getElementById("dashCost").textContent=
+    total.toLocaleString("pl-PL")+" zł";
+
+  document.getElementById("totalCost").textContent=
+    total.toLocaleString("pl-PL")+" zł";
+
+  document.getElementById("serviceCount").textContent=
+    data.services.length;
+
+  renderServices();
+  renderHistory();
+}
+
+
+function renderServices(){
+
+  const el=document.getElementById("serviceList");
+
+  if(data.services.length===0){
+    el.innerHTML=
+      '<div class="empty">Brak wpisów serwisowych</div>';
+    return;
+  }
+
+  el.innerHTML=data.services.map(item=>`
+    <div class="list-item">
+      <b>${escapeHtml(item.name)}</b><br>
+      <span class="muted">
+        ${item.date} • ${item.mileage} km • ${item.cost} zł
+      </span>
+      ${item.note ? `<br>${escapeHtml(item.note)}` : ""}
+    </div>
+  `).join("");
+}
+
+
+function renderHistory(){
+
+  const el=document.getElementById("historyList");
+
+  if(data.history.length===0){
+    el.innerHTML=
+      '<div class="empty">Historia jest jeszcze pusta</div>';
+    return;
+  }
+
+  el.innerHTML=data.history.map(item=>`
+    <div class="list-item">
+      <b>${escapeHtml(item.type)}</b><br>
+      ${escapeHtml(item.text)}<br>
+      <span class="muted">${item.date}</span>
+    </div>
+  `).join("");
+}
+
+
+function escapeHtml(text){
+
+  return String(text)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+
+updateUI();
+
+</script>
 
 </body>
 </html>
