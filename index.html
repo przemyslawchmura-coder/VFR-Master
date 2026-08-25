@@ -352,28 +352,139 @@ label{
 <section id="service" class="page">
 
   <div class="card">
-    <h2>🔧 Serwis</h2>
+
+    <h2>🔧 Serwis motocykla</h2>
+
+    <label>Rodzaj serwisu</label>
+
+    <select id="serviceType">
+
+      <option value="Olej">
+        🛢️ Olej
+      </option>
+
+      <option value="Filtry">
+        🔧 Filtry
+      </option>
+
+      <option value="Hamulce">
+        🛑 Hamulce
+      </option>
+
+      <option value="Opony">
+        🛞 Opony
+      </option>
+
+      <option value="Zawieszenie">
+        🏍️ Zawieszenie
+      </option>
+
+      <option value="Silnik">
+        ⚙️ Silnik
+      </option>
+
+      <option value="Elektryka">
+        ⚡ Elektryka
+      </option>
+
+      <option value="Inne">
+        🔩 Inne
+      </option>
+
+    </select>
+
 
     <label>Co zostało zrobione?</label>
-    <input id="serviceName" placeholder="np. wymiana oleju">
+
+    <input
+      id="serviceDescription"
+      placeholder="np. wymiana oleju i filtra">
+
+
+    <label>Data</label>
+
+    <input
+      id="serviceDate"
+      type="date">
+
 
     <label>Przebieg</label>
-    <input id="serviceMileage" type="number">
 
-    <label>Koszt</label>
-    <input id="serviceCost" type="number">
+    <input
+      id="serviceMileage"
+      type="number"
+      placeholder="np. 85000">
+
+
+    <label>Koszt części</label>
+
+    <input
+      id="servicePartsCost"
+      type="number"
+      step="0.01"
+      placeholder="0">
+
+
+    <label>Robocizna</label>
+
+    <input
+      id="serviceLaborCost"
+      type="number"
+      step="0.01"
+      placeholder="0">
+
+
+    <label>Serwis wykonany przez</label>
+
+    <input
+      id="serviceWorkshop"
+      placeholder="np. własny garaż">
+
 
     <label>Notatka</label>
-    <textarea id="serviceNote" rows="3"></textarea>
 
-    <button class="primary" onclick="addService()">
-      + Dodaj serwis
+    <textarea
+      id="serviceNote"
+      rows="3"
+      placeholder="Dodatkowe informacje">
+    </textarea>
+
+
+    <h3>🔔 Następny serwis</h3>
+
+
+    <label>Następna data</label>
+
+    <input
+      id="serviceNextDate"
+      type="date">
+
+
+    <label>Następny przebieg</label>
+
+    <input
+      id="serviceNextMileage"
+      type="number"
+      placeholder="np. 97000">
+
+
+    <button
+      class="primary"
+      onclick="saveServiceEntry()">
+
+      💾 Zapisz serwis
+
     </button>
+
   </div>
 
+
   <div class="card">
-    <h3>Historia serwisowa</h3>
-    <div id="serviceList"></div>
+
+    <h3>📋 Historia serwisowa</h3>
+
+    <div id="serviceHistory"></div>
+
   </div>
 
 </section>
