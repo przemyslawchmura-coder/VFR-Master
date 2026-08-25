@@ -4,13 +4,16 @@ const VFRApp = {
     this.renderGarage();
   },
 
+
   getGarage() {
     return MotorcycleDatabase.getAll();
   },
 
+
   getActiveBike() {
     return MotorcycleDatabase.getActive();
   },
+
 
   renderGarage() {
 
@@ -33,10 +36,12 @@ const VFRApp = {
       return;
     }
 
+
     container.innerHTML = bikes.map((bike, index) => {
 
       const active =
         bike.id === MotorcycleDatabase.activeMotorcycleId;
+
 
       return `
         <div class="list-item">
@@ -63,6 +68,7 @@ const VFRApp = {
               .toLocaleString("pl-PL")} km
           </span>
 
+
           <button
             class="secondary"
             onclick="selectMotorcycle(${bike.id})">
@@ -73,6 +79,7 @@ const VFRApp = {
 
           </button>
 
+
           <button
             class="secondary"
             onclick="openBikeCard(${bike.id})">
@@ -80,6 +87,7 @@ const VFRApp = {
             🔍 Otwórz kartę motocykla
 
           </button>
+
 
           <button
             class="secondary"
@@ -96,6 +104,10 @@ const VFRApp = {
   }
 };
 
+
+/* =====================================================
+   DODAWANIE MOTOCYKLA
+   ===================================================== */
 
 function addMotorcycle() {
 
@@ -117,6 +129,7 @@ function addMotorcycle() {
   const nickname =
     document.getElementById("garageNickname").value.trim();
 
+
   if (!brand || !model) {
 
     alert(
@@ -126,6 +139,7 @@ function addMotorcycle() {
     return;
   }
 
+
   const motorcycle = {
 
     id: Date.now(),
@@ -133,7 +147,10 @@ function addMotorcycle() {
     brand,
     model,
     year,
-    mileage,
+
+    mileage:
+      Number(mileage || 0),
+
     vin,
     nickname,
 
@@ -142,7 +159,9 @@ function addMotorcycle() {
     history: []
   };
 
+
   MotorcycleDatabase.add(motorcycle);
+
 
   document.getElementById("garageBrand").value = "";
   document.getElementById("garageModel").value = "";
@@ -151,7 +170,9 @@ function addMotorcycle() {
   document.getElementById("garageVin").value = "";
   document.getElementById("garageNickname").value = "";
 
+
   VFRApp.renderGarage();
+
 
   alert(
     "Motocykl dodany do garażu 🏍️"
@@ -159,14 +180,20 @@ function addMotorcycle() {
 }
 
 
+/* =====================================================
+   WYBÓR MOTOCYKLA
+   ===================================================== */
+
 function selectMotorcycle(id) {
 
   MotorcycleDatabase.setActive(id);
 
   VFRApp.renderGarage();
 
+
   const bike =
     MotorcycleDatabase.getActive();
+
 
   if (bike) {
 
@@ -178,6 +205,10 @@ function selectMotorcycle(id) {
 }
 
 
+/* =====================================================
+   KARTA MOTOCYKLA
+   ===================================================== */
+
 function openBikeCard(id) {
 
   MotorcycleDatabase.setActive(id);
@@ -185,7 +216,9 @@ function openBikeCard(id) {
   const bike =
     MotorcycleDatabase.getActive();
 
+
   if (!bike) return;
+
 
   showBikeCard(bike);
 }
@@ -196,7 +229,33 @@ function showBikeCard(bike) {
   const container =
     document.getElementById("garageList");
 
+
   if (!container) return;
+
+
+  const services =
+    bike.services || [];
+
+
+  let totalCost = 0;
+
+
+  services.forEach(service => {
+
+    totalCost +=
+      Number(service.partsCost || 0) +
+      Number(service.laborCost || 0);
+
+  });
+
+
+  const lastService =
+    ServiceModule.getLastService();
+
+
+  const nextService =
+    ServiceModule.getNextService();
+
 
   container.innerHTML = `
 
@@ -208,11 +267,13 @@ function showBikeCard(bike) {
 
     </button>
 
+
     <div class="card hero">
 
       <div class="logo">
         AKTYWNY MOTOCYKL
       </div>
+
 
       <h2>
         ${escapeHtml(
@@ -220,6 +281,7 @@ function showBikeCard(bike) {
           `${bike.brand} ${bike.model}`
         )}
       </h2>
+
 
       <div class="muted">
 
@@ -241,8 +303,9 @@ function showBikeCard(bike) {
 
         <div class="stat-value">
 
-          ${Number(bike.mileage || 0)
-            .toLocaleString("pl-PL")}
+          ${Number(
+            bike.mileage || 0
+          ).toLocaleString("pl-PL")}
 
         </div>
 
@@ -256,15 +319,53 @@ function showBikeCard(bike) {
       <div class="stat">
 
         <div class="stat-value">
-
-          ${bike.services
-            ? bike.services.length
-            : 0}
-
+          ${services.length}
         </div>
 
         <div class="stat-label">
           Serwisy
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-value">
+
+          ${totalCost.toLocaleString(
+            "pl-PL",
+            {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            }
+          )}
+
+        </div>
+
+        <div class="stat-label">
+          Koszty zł
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-value">
+
+          ${
+            lastService
+              ? escapeHtml(
+                  lastService.date
+                )
+              : "—"
+          }
+
+        </div>
+
+        <div class="stat-label">
+          Ostatni serwis
         </div>
 
       </div>
@@ -276,9 +377,11 @@ function showBikeCard(bike) {
 
       <button
         class="tile"
-        onclick="alert('Moduł serwisowy — następny etap 🔧')">
+        onclick="openServiceModule()">
 
-        <span class="icon">🔧</span>
+        <span class="icon">
+          🔧
+        </span>
 
         Serwis
 
@@ -287,9 +390,11 @@ function showBikeCard(bike) {
 
       <button
         class="tile"
-        onclick="alert('Moduł diagnostyczny — następny etap ⚡')">
+        onclick="navigateTo('diagnostics')">
 
-        <span class="icon">⚡</span>
+        <span class="icon">
+          ⚡
+        </span>
 
         Diagnostyka
 
@@ -298,9 +403,11 @@ function showBikeCard(bike) {
 
       <button
         class="tile"
-        onclick="alert('Baza techniczna — budujemy ją teraz 📖')">
+        onclick="navigateTo('technical')">
 
-        <span class="icon">📖</span>
+        <span class="icon">
+          📖
+        </span>
 
         Dane techniczne
 
@@ -309,9 +416,11 @@ function showBikeCard(bike) {
 
       <button
         class="tile"
-        onclick="alert('Moduł kosztów — następny etap 💰')">
+        onclick="showCosts()">
 
-        <span class="icon">💰</span>
+        <span class="icon">
+          💰
+        </span>
 
         Koszty
 
@@ -322,7 +431,73 @@ function showBikeCard(bike) {
 
     <div class="card">
 
-      <h3>📋 Informacje</h3>
+      <h3>
+        🔔 Najbliższy serwis
+      </h3>
+
+
+      ${
+        nextService
+
+          ? `
+
+            <div class="list-item">
+
+              <b>
+                ${escapeHtml(
+                  nextService.description
+                )}
+              </b>
+
+              <br>
+
+              <span class="muted">
+
+                ${
+                  nextService.nextDate
+                    ? "📅 " +
+                      escapeHtml(
+                        nextService.nextDate
+                      )
+                    : ""
+                }
+
+                ${
+                  nextService.nextMileage
+                    ? "<br>🏍️ " +
+                      Number(
+                        nextService.nextMileage
+                      ).toLocaleString(
+                        "pl-PL"
+                      ) +
+                      " km"
+                    : ""
+                }
+
+              </span>
+
+            </div>
+
+          `
+
+          : `
+
+            <div class="empty">
+              Brak zaplanowanego serwisu.
+            </div>
+
+          `
+      }
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        📋 Informacje
+      </h3>
+
 
       <div class="list-item">
 
@@ -363,6 +538,22 @@ function showBikeCard(bike) {
 }
 
 
+/* =====================================================
+   OTWARCIE MODUŁU SERWISOWEGO
+   ===================================================== */
+
+function openServiceModule() {
+
+  navigateTo("service");
+
+  renderServiceHistory();
+}
+
+
+/* =====================================================
+   USUWANIE MOTOCYKLA
+   ===================================================== */
+
 function deleteMotorcycle(index) {
 
   if (
@@ -374,10 +565,16 @@ function deleteMotorcycle(index) {
     return;
   }
 
+
   MotorcycleDatabase.remove(index);
 
   VFRApp.renderGarage();
 }
+
+
+/* =====================================================
+   ZAPIS SERWISU
+   ===================================================== */
 
 function saveServiceEntry() {
 
@@ -388,50 +585,60 @@ function saveServiceEntry() {
         "serviceType"
       ).value,
 
+
     description:
       document.getElementById(
         "serviceDescription"
       ).value.trim(),
+
 
     date:
       document.getElementById(
         "serviceDate"
       ).value,
 
+
     mileage:
       document.getElementById(
         "serviceMileage"
       ).value,
+
 
     partsCost:
       document.getElementById(
         "servicePartsCost"
       ).value,
 
+
     laborCost:
       document.getElementById(
         "serviceLaborCost"
       ).value,
+
 
     workshop:
       document.getElementById(
         "serviceWorkshop"
       ).value.trim(),
 
+
     note:
       document.getElementById(
         "serviceNote"
       ).value.trim(),
+
 
     nextDate:
       document.getElementById(
         "serviceNextDate"
       ).value,
 
+
     nextMileage:
       document.getElementById(
         "serviceNextMileage"
       ).value
+
   };
 
 
@@ -470,47 +677,50 @@ function saveServiceEntry() {
 
   renderServiceHistory();
 
+
   alert(
     "Serwis zapisany 🔧"
   );
 }
 
 
+/* =====================================================
+   CZYSZCZENIE FORMULARZA
+   ===================================================== */
+
 function clearServiceForm() {
 
-  document.getElementById(
-    "serviceDescription"
-  ).value = "";
+  const fields = [
 
-  document.getElementById(
-    "serviceMileage"
-  ).value = "";
-
-  document.getElementById(
-    "servicePartsCost"
-  ).value = "";
-
-  document.getElementById(
-    "serviceLaborCost"
-  ).value = "";
-
-  document.getElementById(
-    "serviceWorkshop"
-  ).value = "";
-
-  document.getElementById(
-    "serviceNote"
-  ).value = "";
-
-  document.getElementById(
-    "serviceNextDate"
-  ).value = "";
-
-  document.getElementById(
+    "serviceDescription",
+    "serviceMileage",
+    "servicePartsCost",
+    "serviceLaborCost",
+    "serviceWorkshop",
+    "serviceNote",
+    "serviceNextDate",
     "serviceNextMileage"
-  ).value = "";
+
+  ];
+
+
+  fields.forEach(id => {
+
+    const element =
+      document.getElementById(id);
+
+
+    if (element) {
+      element.value = "";
+    }
+
+  });
 }
 
+
+/* =====================================================
+   HISTORIA SERWISOWA
+   ===================================================== */
 
 function renderServiceHistory() {
 
@@ -519,123 +729,727 @@ function renderServiceHistory() {
       "serviceHistory"
     );
 
+
   if (!container) {
     return;
   }
 
 
-  const services =
-    ServiceModule.getServices();
+  const bike =
+    MotorcycleDatabase.getActive();
 
 
-  if (!services.length) {
+  if (!bike) {
 
     container.innerHTML = `
+
       <div class="empty">
-        Brak historii serwisowej.
+
+        Najpierw wybierz motocykl
+        w garażu.
+
       </div>
+
     `;
 
     return;
   }
 
 
-  container.innerHTML =
-    services.map(service => {
-
-      const total =
-        Number(service.partsCost || 0) +
-        Number(service.laborCost || 0);
+  const services =
+    ServiceModule.getSortedServices();
 
 
-      return `
+  const totalCost =
+    ServiceModule.getTotalCost();
 
-        <div class="list-item">
 
-          <b>
-            ${escapeHtml(
-              service.description
-            )}
-          </b>
+  const partsCost =
+    ServiceModule.getPartsCost();
 
-          <br>
 
-          <span class="muted">
+  const laborCost =
+    ServiceModule.getLaborCost();
 
-            ${escapeHtml(
-              service.type
-            )}
 
-            •
+  let html = `
 
-            ${escapeHtml(
-              service.date
-            )}
+    <div class="stats">
 
-            •
+      <div class="stat">
 
-            ${Number(
-              service.mileage || 0
-            ).toLocaleString("pl-PL")}
-            km
+        <div class="stat-value">
 
-          </span>
-
-          <br>
-
-          💰
-          <b>
-            ${total.toLocaleString(
-              "pl-PL",
-              {
-                minimumFractionDigits: 2
-              }
-            )} zł
-          </b>
-
-          ${
-            service.workshop
-              ? `<br>
-                 <span class="muted">
-                 🔧 ${escapeHtml(
-                   service.workshop
-                 )}
-                 </span>`
-              : ""
-          }
-
-          ${
-            service.note
-              ? `<br>
-                 <span class="muted">
-                 ${escapeHtml(
-                   service.note
-                 )}
-                 </span>`
-              : ""
-          }
-
-          ${
-            service.nextMileage
-              ? `<br>
-                 <span class="muted">
-                 🔔 Następny: ${
-                   Number(
-                     service.nextMileage
-                   ).toLocaleString(
-                     "pl-PL"
-                   )
-                 } km
-                 </span>`
-              : ""
-          }
+          ${services.length}
 
         </div>
 
-      `;
+        <div class="stat-label">
+          Wszystkie serwisy
+        </div>
 
-    }).join("");
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-value">
+
+          ${totalCost.toLocaleString(
+            "pl-PL",
+            {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            }
+          )}
+
+        </div>
+
+        <div class="stat-label">
+          Razem zł
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-value">
+
+          ${partsCost.toLocaleString(
+            "pl-PL",
+            {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            }
+          )}
+
+        </div>
+
+        <div class="stat-label">
+          Części zł
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-value">
+
+          ${laborCost.toLocaleString(
+            "pl-PL",
+            {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            }
+          )}
+
+        </div>
+
+        <div class="stat-label">
+          Robocizna zł
+        </div>
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  if (!services.length) {
+
+    html += `
+
+      <div class="empty">
+
+        Brak historii serwisowej.
+
+        <br><br>
+
+        Dodaj pierwszy wpis powyżej.
+
+      </div>
+
+    `;
+
+
+    container.innerHTML = html;
+
+    return;
+  }
+
+
+  html += services.map(service => {
+
+    const total =
+      Number(
+        service.partsCost || 0
+      ) +
+
+      Number(
+        service.laborCost || 0
+      );
+
+
+    return `
+
+      <div class="list-item">
+
+        <b>
+          ${escapeHtml(
+            service.description
+          )}
+        </b>
+
+
+        <br>
+
+
+        <span class="muted">
+
+          ${escapeHtml(
+            service.type || "Inne"
+          )}
+
+          •
+          
+          ${escapeHtml(
+            service.date || "—"
+          )}
+
+          •
+
+          ${Number(
+            service.mileage || 0
+          ).toLocaleString(
+            "pl-PL"
+          )}
+
+          km
+
+        </span>
+
+
+        <br><br>
+
+
+        💰
+
+        <b>
+
+          ${total.toLocaleString(
+            "pl-PL",
+            {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            }
+          )}
+
+          zł
+
+        </b>
+
+
+        <br>
+
+
+        <span class="muted">
+
+          Części:
+          ${Number(
+            service.partsCost || 0
+          ).toLocaleString(
+            "pl-PL",
+            {
+              minimumFractionDigits: 2
+            }
+          )} zł
+
+          •
+
+          Robocizna:
+          ${Number(
+            service.laborCost || 0
+          ).toLocaleString(
+            "pl-PL",
+            {
+              minimumFractionDigits: 2
+            }
+          )} zł
+
+        </span>
+
+
+        ${
+          service.workshop
+
+            ? `
+
+              <br>
+
+              <span class="muted">
+
+                🔧
+                ${escapeHtml(
+                  service.workshop
+                )}
+
+              </span>
+
+            `
+
+            : ""
+        }
+
+
+        ${
+          service.note
+
+            ? `
+
+              <br><br>
+
+              <span class="muted">
+
+                📝
+                ${escapeHtml(
+                  service.note
+                )}
+
+              </span>
+
+            `
+
+            : ""
+        }
+
+
+        ${
+          service.nextDate ||
+          service.nextMileage
+
+            ? `
+
+              <br><br>
+
+              <span class="muted">
+
+                🔔
+                Następny serwis:
+
+                ${
+                  service.nextDate
+                    ? "📅 " +
+                      escapeHtml(
+                        service.nextDate
+                      )
+                    : ""
+                }
+
+                ${
+                  service.nextMileage
+                    ? "<br>🏍️ " +
+                      Number(
+                        service.nextMileage
+                      ).toLocaleString(
+                        "pl-PL"
+                      ) +
+                      " km"
+                    : ""
+                }
+
+              </span>
+
+            `
+
+            : ""
+        }
+
+
+        <button
+          class="secondary"
+          onclick="editService(${service.id})">
+
+          ✏️ Edytuj
+
+        </button>
+
+
+        <button
+          class="danger"
+          onclick="removeService(${service.id})">
+
+          🗑️ Usuń wpis
+
+        </button>
+
+      </div>
+
+    `;
+
+  }).join("");
+
+
+  container.innerHTML =
+    html;
 }
+
+
+/* =====================================================
+   EDYCJA SERWISU
+   ===================================================== */
+
+function editService(id) {
+
+  const services =
+    ServiceModule.getServices();
+
+
+  const service =
+    services.find(
+      item => item.id === id
+    );
+
+
+  if (!service) {
+
+    alert(
+      "Nie znaleziono wpisu."
+    );
+
+    return;
+  }
+
+
+  document.getElementById(
+    "serviceType"
+  ).value =
+    service.type || "Inne";
+
+
+  document.getElementById(
+    "serviceDescription"
+  ).value =
+    service.description || "";
+
+
+  document.getElementById(
+    "serviceDate"
+  ).value =
+    service.date || "";
+
+
+  document.getElementById(
+    "serviceMileage"
+  ).value =
+    service.mileage || "";
+
+
+  document.getElementById(
+    "servicePartsCost"
+  ).value =
+    service.partsCost || "";
+
+
+  document.getElementById(
+    "serviceLaborCost"
+  ).value =
+    service.laborCost || "";
+
+
+  document.getElementById(
+    "serviceWorkshop"
+  ).value =
+    service.workshop || "";
+
+
+  document.getElementById(
+    "serviceNote"
+  ).value =
+    service.note || "";
+
+
+  document.getElementById(
+    "serviceNextDate"
+  ).value =
+    service.nextDate || "";
+
+
+  document.getElementById(
+    "serviceNextMileage"
+  ).value =
+    service.nextMileage || "";
+
+
+  window.editingServiceId =
+    id;
+
+
+  const saveButton =
+    document.querySelector(
+      '#service button.primary'
+    );
+
+
+  if (saveButton) {
+
+    saveButton.innerHTML =
+      "💾 Zapisz zmiany";
+
+  }
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* =====================================================
+   ZMIANA ZAPISU SERWISU
+   ===================================================== */
+
+const originalSaveServiceEntry =
+  saveServiceEntry;
+
+
+saveServiceEntry = function() {
+
+  if (!window.editingServiceId) {
+
+    originalSaveServiceEntry();
+
+    return;
+  }
+
+
+  const service = {
+
+    type:
+      document.getElementById(
+        "serviceType"
+      ).value,
+
+
+    description:
+      document.getElementById(
+        "serviceDescription"
+      ).value.trim(),
+
+
+    date:
+      document.getElementById(
+        "serviceDate"
+      ).value,
+
+
+    mileage:
+      document.getElementById(
+        "serviceMileage"
+      ).value,
+
+
+    partsCost:
+      document.getElementById(
+        "servicePartsCost"
+      ).value,
+
+
+    laborCost:
+      document.getElementById(
+        "serviceLaborCost"
+      ).value,
+
+
+    workshop:
+      document.getElementById(
+        "serviceWorkshop"
+      ).value.trim(),
+
+
+    note:
+      document.getElementById(
+        "serviceNote"
+      ).value.trim(),
+
+
+    nextDate:
+      document.getElementById(
+        "serviceNextDate"
+      ).value,
+
+
+    nextMileage:
+      document.getElementById(
+        "serviceNextMileage"
+      ).value
+
+  };
+
+
+  if (!service.description) {
+
+    alert(
+      "Napisz, co zostało zrobione."
+    );
+
+    return;
+  }
+
+
+  if (!service.date) {
+
+    alert(
+      "Wybierz datę serwisu."
+    );
+
+    return;
+  }
+
+
+  const saved =
+    ServiceModule.updateService(
+      window.editingServiceId,
+      service
+    );
+
+
+  if (!saved) {
+
+    alert(
+      "Nie udało się zaktualizować wpisu."
+    );
+
+    return;
+  }
+
+
+  window.editingServiceId =
+    null;
+
+
+  clearServiceForm();
+
+
+  const saveButton =
+    document.querySelector(
+      '#service button.primary'
+    );
+
+
+  if (saveButton) {
+
+    saveButton.innerHTML =
+      "💾 Zapisz serwis";
+
+  }
+
+
+  renderServiceHistory();
+
+
+  alert(
+    "Wpis został zaktualizowany ✏️"
+  );
+
+};
+
+
+/* =====================================================
+   USUWANIE SERWISU
+   ===================================================== */
+
+function removeService(id) {
+
+  const deleted =
+    ServiceModule.deleteService(id);
+
+
+  if (deleted) {
+
+    renderServiceHistory();
+
+  }
+
+}
+
+
+/* =====================================================
+   KOSZTY
+   ===================================================== */
+
+function showCosts() {
+
+  const bike =
+    MotorcycleDatabase.getActive();
+
+
+  if (!bike) {
+
+    alert(
+      "Najpierw wybierz motocykl."
+    );
+
+    return;
+  }
+
+
+  const total =
+    ServiceModule.getTotalCost();
+
+
+  const parts =
+    ServiceModule.getPartsCost();
+
+
+  const labor =
+    ServiceModule.getLaborCost();
+
+
+  alert(
+
+    "💰 KOSZTY MOTOCYKLA\n\n" +
+
+    "Razem: " +
+    total.toLocaleString(
+      "pl-PL",
+      {
+        minimumFractionDigits: 2
+      }
+    ) +
+    " zł\n\n" +
+
+    "Części: " +
+    parts.toLocaleString(
+      "pl-PL",
+      {
+        minimumFractionDigits: 2
+      }
+    ) +
+    " zł\n\n" +
+
+    "Robocizna: " +
+    labor.toLocaleString(
+      "pl-PL",
+      {
+        minimumFractionDigits: 2
+      }
+    ) +
+    " zł"
+
+  );
+
+}
+
+
+/* =====================================================
+   BEZPIECZNE HTML
+   ===================================================== */
+
 function escapeHtml(text) {
 
   return String(text)
@@ -664,8 +1478,98 @@ function escapeHtml(text) {
       "'",
       "&#039;"
     );
+
 }
 
+
+/* =====================================================
+   NAWIGACJA
+   ===================================================== */
+
+function navigateTo(pageId) {
+
+  document
+    .querySelectorAll(".page")
+    .forEach(page => {
+
+      page.classList.remove(
+        "active"
+      );
+
+    });
+
+
+  const page =
+    document.getElementById(
+      pageId
+    );
+
+
+  if (page) {
+
+    page.classList.add(
+      "active"
+    );
+
+  }
+
+
+  document
+    .querySelectorAll(".nav-btn")
+    .forEach(button => {
+
+      button.classList.toggle(
+        "active",
+        button.dataset.page ===
+          pageId
+      );
+
+    });
+
+
+  if (
+    pageId === "garage" &&
+    window.VFRApp
+  ) {
+
+    VFRApp.renderGarage();
+
+  }
+
+
+  if (
+    pageId === "service"
+  ) {
+
+    renderServiceHistory();
+
+  }
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* =====================================================
+   START SERWISU
+   ===================================================== */
+
+function openServiceForActiveBike() {
+
+  navigateTo(
+    "service"
+  );
+
+}
+
+
+/* =====================================================
+   START APLIKACJI
+   ===================================================== */
 
 window.VFRApp =
   VFRApp;
