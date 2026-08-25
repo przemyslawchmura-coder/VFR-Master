@@ -1,66 +1,43 @@
 const VFRApp = {
 
   init() {
-    console.log("VFR Master uruchomiony");
-
-    if (window.VFR800_2002) {
-      console.log(
-        "Załadowano bazę:",
-        VFR800_2002.manufacturer,
-        VFR800_2002.model,
-        VFR800_2002.year
-      );
-    }
-
-    if (window.MotorcycleDatabase) {
-      console.log(
-        "Liczba motocykli:",
-        MotorcycleDatabase.getAll().length
-      );
-    }
-
     this.renderGarage();
   },
 
-  getBikeData() {
-    return window.VFR800_2002;
-  },
-
   getGarage() {
-    return window.MotorcycleDatabase.getAll();
+    return MotorcycleDatabase.getAll();
   },
 
   renderGarage() {
 
-    const container =
-      document.getElementById("garageList");
+    const container = document.getElementById("garageList");
 
     if (!container) return;
 
-    const bikes =
-      this.getGarage();
+    const bikes = this.getGarage();
 
     if (bikes.length === 0) {
-
       container.innerHTML = `
         <div class="empty">
           Garaż jest pusty.<br>
           Dodaj swój pierwszy motocykl.
         </div>
       `;
-
       return;
     }
 
-    container.innerHTML =
-      bikes.map((bike,index) => `
+    container.innerHTML = bikes.map((bike, index) => {
 
+      const active =
+        bike.id === MotorcycleDatabase.activeMotorcycleId;
+
+      return `
         <div class="list-item">
 
           <b>
             ${escapeHtml(
               bike.nickname ||
-              bike.brand + " " + bike.model
+              `${bike.brand} ${bike.model}`
             )}
           </b>
 
@@ -69,33 +46,37 @@ const VFRApp = {
           <span class="muted">
             ${escapeHtml(bike.brand)}
             ${escapeHtml(bike.model)}
-            • ${escapeHtml(bike.year)}
+            • ${escapeHtml(bike.year || "")}
           </span>
 
           <br>
 
           <span class="muted">
-            ${Number(bike.mileage || 0)
-              .toLocaleString("pl-PL")} km
+            ${Number(bike.mileage || 0).toLocaleString("pl-PL")} km
           </span>
 
           <button
-  class="secondary"
-  onclick="selectMotorcycle(${bike.id})">
-  ${bike.id === MotorcycleDatabase.activeMotorcycleId
-    ? "✅ Aktualnie wybrany"
-    : "🏍️ Użyj tego motocykla"}
-</button>
+            class="secondary"
+            onclick="selectMotorcycle(${bike.id})">
 
-<button
-  class="secondary"
-  onclick="deleteMotorcycle(${index})">
-  🗑️ Usuń
-</button>
+            ${active
+              ? "✅ AKTYWNY MOTOCYKL"
+              : "🏍️ USTAW JAKO AKTYWNY"}
+
+          </button>
+
+          <button
+            class="secondary"
+            onclick="deleteMotorcycle(${index})">
+
+            🗑️ Usuń
+
+          </button>
 
         </div>
+      `;
 
-      `).join("");
+    }).join("");
   }
 };
 
@@ -121,11 +102,7 @@ function addMotorcycle() {
     document.getElementById("garageNickname").value.trim();
 
   if (!brand || !model) {
-
-    alert(
-      "Podaj przynajmniej markę i model."
-    );
-
+    alert("Podaj przynajmniej markę i model.");
     return;
   }
 
@@ -133,21 +110,19 @@ function addMotorcycle() {
 
     id: Date.now(),
 
-    brand,
-    model,
-    year,
-    mileage,
-    vin,
-    nickname,
+    brand: brand,
+    model: model,
+    year: year,
+    mileage: mileage,
+    vin: vin,
+    nickname: nickname,
 
     services: [],
     costs: [],
     history: []
   };
 
-  MotorcycleDatabase.add(
-    motorcycle
-  );
+  MotorcycleDatabase.add(motorcycle);
 
   document.getElementById("garageBrand").value = "";
   document.getElementById("garageModel").value = "";
@@ -158,10 +133,9 @@ function addMotorcycle() {
 
   VFRApp.renderGarage();
 
-  alert(
-    "Motocykl dodany do garażu 🏍️"
-  );
+  alert("Motocykl dodany do garażu 🏍️");
 }
+
 
 function selectMotorcycle(id) {
 
@@ -172,20 +146,20 @@ function selectMotorcycle(id) {
   const bike =
     MotorcycleDatabase.getActive();
 
-  alert(
-    "Aktywny motocykl:\n" +
-    bike.brand + " " +
-    bike.model
-  );
+  if (bike) {
+    alert(
+      "Aktywny motocykl:\n\n" +
+      bike.brand + " " + bike.model
+    );
+  }
 }
+
+
 function deleteMotorcycle(index) {
 
-  const confirmed =
-    confirm(
-      "Na pewno usunąć ten motocykl?"
-    );
-
-  if (!confirmed) return;
+  if (!confirm("Na pewno usunąć ten motocykl?")) {
+    return;
+  }
 
   MotorcycleDatabase.remove(index);
 
@@ -196,12 +170,11 @@ function deleteMotorcycle(index) {
 function escapeHtml(text) {
 
   return String(text)
-
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
 
@@ -211,8 +184,6 @@ window.VFRApp = VFRApp;
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-
     VFRApp.init();
-
   }
 );
