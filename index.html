@@ -1,1 +1,162 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VFR Master</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b0d10;
+      color: white;
+    }
+
+    .app {
+      max-width: 600px;
+      margin: auto;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    header {
+      padding: 20px 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    .subtitle {
+      color: #8f98a3;
+      margin-top: 5px;
+    }
+
+    .bike {
+      background: linear-gradient(145deg, #191d23, #101216);
+      border-radius: 22px;
+      padding: 20px;
+      margin: 15px 0 25px;
+      border: 1px solid #292e36;
+    }
+
+    .bike-name {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .bike-info {
+      color: #9da5af;
+      margin-top: 6px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    button {
+      border: none;
+      border-radius: 18px;
+      padding: 22px 12px;
+      background: #181c22;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      border: 1px solid #292e36;
+      cursor: pointer;
+      min-height: 110px;
+    }
+
+    button:active {
+      transform: scale(0.97);
+      background: #242a32;
+    }
+
+    .icon {
+      font-size: 30px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    #status {
+      margin-top: 25px;
+      padding: 15px;
+      border-radius: 15px;
+      background: #15191f;
+      color: #aeb6c0;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="app">
+
+    <header>
+      <h1>VFR Master</h1>
+      <div class="subtitle">Twój motocykl. Cała wiedza.</div>
+    </header>
+
+    <section class="bike">
+      <div class="bike-name">Honda VFR800 VTEC</div>
+      <div class="bike-info">2002 • RC46 • V4 782 cm³</div>
+    </section>
+
+    <section class="grid">
+
+      <button onclick="openModule('Serwis')">
+        <span class="icon">🔧</span>
+        Serwis
+      </button>
+
+      <button onclick="openModule('Serwisówka')">
+        <span class="icon">📖</span>
+        Serwisówka
+      </button>
+
+      <button onclick="openModule('Diagnostyka')">
+        <span class="icon">⚡</span>
+        Diagnostyka
+      </button>
+
+      <button onclick="openModule('Części')">
+        <span class="icon">⚙️</span>
+        Części
+      </button>
+
+      <button onclick="openModule('Koszty')">
+        <span class="icon">💰</span>
+        Koszty
+      </button>
+
+      <button onclick="openModule('Historia')">
+        <span class="icon">📋</span>
+        Historia
+      </button>
+
+    </section>
+
+    <div id="status">
+      Wybierz moduł
+    </div>
+
+  </main>
+
+  <script>
+    function openModule(name) {
+      document.getElementById("status").textContent =
+        "Otworzyłeś moduł: " + name;
+    }
+  </script>
+
+</body>
+</html>
