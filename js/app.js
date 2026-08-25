@@ -68,7 +68,7 @@ const VFRApp = {
   }
 };
 /* =====================================================
-   MOTOCYKL
+   DODAWANIE MOTOCYKLA
    ===================================================== */
 function addMotorcycle() {
   const brand =
@@ -117,6 +117,9 @@ function addMotorcycle() {
   VFRApp.renderGarage();
   alert("Motocykl dodany do garażu 🏍️");
 }
+/* =====================================================
+   WYBÓR MOTOCYKLA
+   ===================================================== */
 function selectMotorcycle(id) {
   MotorcycleDatabase.setActive(id);
   VFRApp.renderGarage();
@@ -139,11 +142,7 @@ function openBikeCard(id) {
   showBikeCard(bike);
 }
 function deleteMotorcycle(index) {
-  if (
-    !confirm(
-      "Na pewno usunąć ten motocykl?"
-    )
-  ) {
+  if (!confirm("Na pewno usunąć ten motocykl?")) {
     return;
   }
   MotorcycleDatabase.remove(index);
@@ -333,54 +332,37 @@ function showBikeCard(bike) {
   `;
 }
 /* =====================================================
-   SERWIS
+   SERWIS — ZAPIS
    ===================================================== */
-function openServiceModule() {
-  navigateTo("service");
-  renderServiceHistory();
-}
 function saveServiceEntry() {
+  const getValue = id => {
+    const element =
+      document.getElementById(id);
+    return element
+      ? element.value
+      : "";
+  };
   const service = {
     type:
-      document.getElementById(
-        "serviceType"
-      ).value,
+      getValue("serviceType"),
     description:
-      document.getElementById(
-        "serviceDescription"
-      ).value.trim(),
+      getValue("serviceDescription").trim(),
     date:
-      document.getElementById(
-        "serviceDate"
-      ).value,
+      getValue("serviceDate"),
     mileage:
-      document.getElementById(
-        "serviceMileage"
-      ).value,
+      getValue("serviceMileage"),
     partsCost:
-      document.getElementById(
-        "servicePartsCost"
-      ).value,
+      getValue("servicePartsCost"),
     laborCost:
-      document.getElementById(
-        "serviceLaborCost"
-      ).value,
+      getValue("serviceLaborCost"),
     workshop:
-      document.getElementById(
-        "serviceWorkshop"
-      ).value.trim(),
+      getValue("serviceWorkshop").trim(),
     note:
-      document.getElementById(
-        "serviceNote"
-      ).value.trim(),
+      getValue("serviceNote").trim(),
     nextDate:
-      document.getElementById(
-        "serviceNextDate"
-      ).value,
+      getValue("serviceNextDate"),
     nextMileage:
-      document.getElementById(
-        "serviceNextMileage"
-      ).value
+      getValue("serviceNextMileage")
   };
   if (!service.description) {
     alert(
@@ -423,6 +405,9 @@ function saveServiceEntry() {
     "Serwis zapisany 🔧"
   );
 }
+/* =====================================================
+   EDYCJA SERWISU
+   ===================================================== */
 function editService(id) {
   const service =
     ServiceModule
@@ -467,8 +452,7 @@ function editService(id) {
         element.value = value;
       }
     });
-  window.editingServiceId =
-    id;
+  window.editingServiceId = id;
   const button =
     document.querySelector(
       "#service button.primary"
@@ -482,13 +466,26 @@ function editService(id) {
     behavior: "smooth"
   });
 }
+/* =====================================================
+   USUWANIE SERWISU
+   ===================================================== */
 function removeService(id) {
   if (
-    ServiceModule.deleteService(id)
+    !confirm(
+      "Usunąć ten wpis z historii serwisowej?"
+    )
   ) {
+    return;
+  }
+  const deleted =
+    ServiceModule.deleteService(id);
+  if (deleted) {
     renderServiceHistory();
   }
 }
+/* =====================================================
+   CZYSZCZENIE FORMULARZA
+   ===================================================== */
 function clearServiceForm() {
   [
     "serviceDescription",
@@ -593,8 +590,6 @@ function renderServiceHistory() {
     html += `
       <div class="empty">
         Brak historii serwisowej.
-        <br><br>
-        Dodaj pierwszy wpis powyżej.
       </div>
     `;
     container.innerHTML = html;
@@ -820,34 +815,19 @@ function navigateTo(pageId) {
     behavior: "smooth"
   });
 }
+/* =====================================================
+   POMOCNICZE
+   ===================================================== */
 function openServiceForActiveBike() {
   navigateTo("service");
 }
-/* =====================================================
-   BEZPIECZNE HTML
-   ===================================================== */
 function escapeHtml(text) {
   return String(text)
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 window.VFRApp =
   VFRApp;
