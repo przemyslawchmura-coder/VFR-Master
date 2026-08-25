@@ -80,10 +80,18 @@ const VFRApp = {
           </span>
 
           <button
-            class="secondary"
-            onclick="deleteMotorcycle(${index})">
-            Usuń
-          </button>
+  class="secondary"
+  onclick="selectMotorcycle(${bike.id})">
+  ${bike.id === MotorcycleDatabase.activeMotorcycleId
+    ? "✅ Aktualnie wybrany"
+    : "🏍️ Użyj tego motocykla"}
+</button>
+
+<button
+  class="secondary"
+  onclick="deleteMotorcycle(${index})">
+  🗑️ Usuń
+</button>
 
         </div>
 
@@ -155,7 +163,21 @@ function addMotorcycle() {
   );
 }
 
+function selectMotorcycle(id) {
 
+  MotorcycleDatabase.setActive(id);
+
+  VFRApp.renderGarage();
+
+  const bike =
+    MotorcycleDatabase.getActive();
+
+  alert(
+    "Aktywny motocykl:\n" +
+    bike.brand + " " +
+    bike.model
+  );
+}
 function deleteMotorcycle(index) {
 
   const confirmed =
