@@ -4,35 +4,22 @@ const MotorcycleDatabase = {
 
   activeMotorcycleId: null,
 
-  add(motorcycle) {
+  lastError: null,
 
-    this.motorcycles.push(motorcycle);
+  legacyServiceData: {},
 
-    if (this.activeMotorcycleId === null) {
-      this.activeMotorcycleId = motorcycle.id;
+  legacyServiceStorageKey:
+    "vfrMasterLegacyServiceData",
+
+  setError(error, fallbackMessage) {
+    this.lastError =
+      error && error.message
+        ? error.message
+        : fallbackMessage;
+
+    if (error) {
+      console.error(error);
     }
-
-    this.save();
-  },
-
-  remove(index) {
-
-    const removed =
-      this.motorcycles[index];
-
-    this.motorcycles.splice(index, 1);
-
-    if (
-      removed &&
-      removed.id === this.activeMotorcycleId
-    ) {
-      this.activeMotorcycleId =
-        this.motorcycles.length
-          ? this.motorcycles[0].id
-          : null;
-    }
-
-    this.save();
   },
 
   getAll() {
@@ -40,70 +27,325 @@ const MotorcycleDatabase = {
   },
 
   getActive() {
-
     return this.motorcycles.find(
       bike =>
         bike.id === this.activeMotorcycleId
     ) || null;
   },
 
-  setActive(id) {
+  loadLegacyServiceData() {
+    try {
+      const saved = localStorage.getItem(
+        this.legacyServiceStorageKey
+      );
 
-    this.activeMotorcycleId = id;
+      this.legacyServiceData = saved
+        ? JSON.parse(saved)
+        : {};
+    } catch (error) {
+      this.legacyServiceData = {};
+      this.setError(
+        error,
+        "Nie udało się wczytać lokalnych danych serwisowych."
+      );
+    }
+  },
 
-    this.save();
+  attachLegacyServiceData(motorcycle) {
+    const serviceData =
+      this.legacyServiceData[motorcycle.id] || {};
+
+    return {
+      ...motorcycle,
+      services:
+        Array.isArray(serviceData.services)
+          ? serviceData.services
+          : [],
+      costs:
+        Array.isArray(serviceData.costs)
+          ? serviceData.costs
+          : [],
+      history:
+        Array.isArray(serviceData.history)
+          ? serviceData.history
+          : []
+    };
   },
 
   save() {
+    const bike = this.getActive();
 
-    localStorage.setItem(
-      "vfrMasterMotorcycles",
-      JSON.stringify(this.motorcycles)
-    );
+    if (!bike) {
+      return;
+    }
 
-    localStorage.setItem(
-      "vfrMasterActiveMotorcycle",
-      String(
-        this.activeMotorcycleId ?? ""
-      )
-    );
+    this.legacyServiceData[bike.id] = {
+      services: bike.services || [],
+      costs: bike.costs || [],
+      history: bike.history || []
+    };
+
+    try {
+      localStorage.setItem(
+        this.legacyServiceStorageKey,
+        JSON.stringify(this.legacyServiceData)
+      );
+    } catch (error) {
+      this.setError(
+        error,
+        "Nie udało się zapisać lokalnych danych serwisowych."
+      );
+    }
   },
 
-  load() {
-
-    const saved =
-      localStorage.getItem(
-        "vfrMasterMotorcycles"
+  async getSession() {
+    if (!window.supabaseClient) {
+      this.setError(
+        null,
+        "Klient Supabase nie jest dostępny."
       );
 
-    if (saved) {
-      this.motorcycles =
-        JSON.parse(saved);
+      return null;
     }
 
-    const active =
-      localStorage.getItem(
-        "vfrMasterActiveMotorcycle"
+    try {
+      const {
+        data,
+        error
+      } = await window.supabaseClient.auth.getSession();
+
+      if (error) {
+        this.setError(
+          error,
+          "Nie udało się sprawdzić sesji Supabase."
+        );
+
+        return null;
+      }
+
+      if (!data.session) {
+        this.setError(
+          null,
+          "Brak zalogowanej sesji Supabase."
+        );
+
+        return null;
+      }
+
+      return data.session;
+    } catch (error) {
+      this.setError(
+        error,
+        "Nie udało się połączyć z Supabase."
       );
 
-    if (active) {
-      this.activeMotorcycleId =
-        Number(active);
+      return null;
+    }
+  },
+
+  async load() {
+    this.lastError = null;
+    this.loadLegacyServiceData();
+
+    const session = await this.getSession();
+
+    if (!session) {
+      this.motorcycles = [];
+      this.activeMotorcycleId = null;
+
+      return false;
     }
 
-    if (
-      !this.activeMotorcycleId &&
-      this.motorcycles.length
-    ) {
-      this.activeMotorcycleId =
-        this.motorcycles[0].id;
+    try {
+      const {
+        data,
+        error
+      } = await window.supabaseClient
+        .from("motorcycles")
+        .select(
+          "id, user_id, brand, model, year, mileage, vin, nickname, created_at"
+        )
+        .order("created_at", {
+          ascending: true
+        });
 
-      this.save();
+      if (error) {
+        this.setError(
+          error,
+          "Nie udało się wczytać motocykli z Supabase."
+        );
+
+        return false;
+      }
+
+      this.motorcycles = (data || []).map(
+        motorcycle =>
+          this.attachLegacyServiceData(motorcycle)
+      );
+
+      this.activeMotorcycleId =
+        this.motorcycles.length
+          ? this.motorcycles[0].id
+          : null;
+
+      return true;
+    } catch (error) {
+      this.setError(
+        error,
+        "Nie udało się połączyć z Supabase."
+      );
+
+      return false;
     }
+  },
+
+  async add(motorcycle) {
+    this.lastError = null;
+
+    const session = await this.getSession();
+
+    if (!session) {
+      return null;
+    }
+
+    const payload = {
+      user_id: session.user.id,
+      brand: motorcycle.brand,
+      model: motorcycle.model,
+      year:
+        motorcycle.year === "" ||
+        motorcycle.year === undefined
+          ? null
+          : Number(motorcycle.year),
+      mileage: Number(motorcycle.mileage || 0),
+      vin: motorcycle.vin || null,
+      nickname: motorcycle.nickname || null
+    };
+
+    try {
+      const {
+        data,
+        error
+      } = await window.supabaseClient
+        .from("motorcycles")
+        .insert(payload)
+        .select(
+          "id, user_id, brand, model, year, mileage, vin, nickname, created_at"
+        )
+        .single();
+
+      if (error) {
+        this.setError(
+          error,
+          "Nie udało się dodać motocykla do Supabase."
+        );
+
+        return null;
+      }
+
+      const savedMotorcycle =
+        this.attachLegacyServiceData(data);
+
+      this.motorcycles.push(savedMotorcycle);
+
+      if (this.activeMotorcycleId === null) {
+        this.activeMotorcycleId =
+          savedMotorcycle.id;
+      }
+
+      return savedMotorcycle;
+    } catch (error) {
+      this.setError(
+        error,
+        "Nie udało się połączyć z Supabase."
+      );
+
+      return null;
+    }
+  },
+
+  async remove(id) {
+    this.lastError = null;
+
+    const session = await this.getSession();
+
+    if (!session) {
+      return false;
+    }
+
+    try {
+      const { error } = await window.supabaseClient
+        .from("motorcycles")
+        .delete()
+        .eq("id", id);
+
+      if (error) {
+        this.setError(
+          error,
+          "Nie udało się usunąć motocykla z Supabase."
+        );
+
+        return false;
+      }
+
+      this.motorcycles = this.motorcycles.filter(
+        bike =>
+          bike.id !== id
+      );
+
+      delete this.legacyServiceData[id];
+
+      try {
+        localStorage.setItem(
+          this.legacyServiceStorageKey,
+          JSON.stringify(this.legacyServiceData)
+        );
+      } catch (error) {
+        this.setError(
+          error,
+          "Motocykl usunięto, ale nie udało się usunąć lokalnych danych serwisowych."
+        );
+      }
+
+      if (this.activeMotorcycleId === id) {
+        this.activeMotorcycleId =
+          this.motorcycles.length
+            ? this.motorcycles[0].id
+            : null;
+      }
+
+      return true;
+    } catch (error) {
+      this.setError(
+        error,
+        "Nie udało się połączyć z Supabase."
+      );
+
+      return false;
+    }
+  },
+
+  async setActive(id) {
+    const bike = this.motorcycles.find(
+      item =>
+        item.id === id
+    );
+
+    if (!bike) {
+      this.setError(
+        null,
+        "Nie znaleziono motocykla."
+      );
+
+      return null;
+    }
+
+    this.lastError = null;
+    this.activeMotorcycleId = id;
+
+    return bike;
   }
 };
-
-MotorcycleDatabase.load();
 
 window.MotorcycleDatabase =
   MotorcycleDatabase;

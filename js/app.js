@@ -1,6 +1,16 @@
 const VFRApp = {
-  init() {
+  async init() {
+    const loaded =
+      await MotorcycleDatabase.load();
+
     this.renderGarage();
+
+    if (!loaded) {
+      alert(
+        MotorcycleDatabase.lastError ||
+        "Nie udało się wczytać motocykli."
+      );
+    }
   },
   getGarage() {
     return MotorcycleDatabase.getAll();
@@ -45,7 +55,7 @@ const VFRApp = {
           </span>
           <button
             class="secondary"
-            onclick="selectMotorcycle(${bike.id})">
+            onclick="selectMotorcycle('${bike.id}')">
             ${
               active
                 ? "✅ AKTYWNY MOTOCYKL"
@@ -54,12 +64,12 @@ const VFRApp = {
           </button>
           <button
             class="secondary"
-            onclick="openBikeCard(${bike.id})">
+            onclick="openBikeCard('${bike.id}')">
             🔍 Otwórz kartę motocykla
           </button>
           <button
             class="danger"
-            onclick="deleteMotorcycle(${index})">
+            onclick="deleteMotorcycle('${bike.id}')">
             🗑️ Usuń
           </button>
         </div>
@@ -70,7 +80,7 @@ const VFRApp = {
 /* =====================================================
    DODAWANIE MOTOCYKLA
    ===================================================== */
-function addMotorcycle() {
+async function addMotorcycle() {
   const brand =
     document.getElementById("garageBrand").value.trim();
   const model =
@@ -88,18 +98,24 @@ function addMotorcycle() {
     return;
   }
   const motorcycle = {
-    id: Date.now(),
     brand,
     model,
     year,
     mileage: Number(mileage || 0),
     vin,
-    nickname,
-    services: [],
-    costs: [],
-    history: []
+    nickname
   };
-  MotorcycleDatabase.add(motorcycle);
+  const savedMotorcycle =
+    await MotorcycleDatabase.add(motorcycle);
+
+  if (!savedMotorcycle) {
+    alert(
+      MotorcycleDatabase.lastError ||
+      "Nie udało się dodać motocykla."
+    );
+
+    return;
+  }
   [
     "garageBrand",
     "garageModel",
@@ -120,32 +136,79 @@ function addMotorcycle() {
 /* =====================================================
    WYBÓR MOTOCYKLA
    ===================================================== */
-function selectMotorcycle(id) {
-  MotorcycleDatabase.setActive(id);
-  VFRApp.renderGarage();
+async function selectMotorcycle(id) {
   const bike =
-    MotorcycleDatabase.getActive();
-  if (bike) {
+    await MotorcycleDatabase.setActive(id);
+
+  if (!bike) {
     alert(
-      "Aktywny motocykl:\n\n" +
-      bike.brand +
-      " " +
-      bike.model
+      MotorcycleDatabase.lastError ||
+      "Nie udało się wybrać motocykla."
+    );
+
+    return;
+  }
+
+  const loaded =
+    await ServiceModule.loadServices(bike.id);
+
+  if (!loaded) {
+    alert(
+      ServiceModule.lastError ||
+      "Nie udało się wczytać historii serwisowej."
     );
   }
+
+  VFRApp.renderGarage();
+  alert(
+    "Aktywny motocykl:\n\n" +
+    bike.brand +
+    " " +
+    bike.model
+  );
 }
-function openBikeCard(id) {
-  MotorcycleDatabase.setActive(id);
+async function openBikeCard(id) {
   const bike =
-    MotorcycleDatabase.getActive();
-  if (!bike) return;
+    await MotorcycleDatabase.setActive(id);
+
+  if (!bike) {
+    alert(
+      MotorcycleDatabase.lastError ||
+      "Nie udało się otworzyć motocykla."
+    );
+
+    return;
+  }
+
+  const loaded =
+    await ServiceModule.loadServices(bike.id);
+
+  if (!loaded) {
+    alert(
+      ServiceModule.lastError ||
+      "Nie udało się wczytać historii serwisowej."
+    );
+  }
+
   showBikeCard(bike);
 }
-function deleteMotorcycle(index) {
+async function deleteMotorcycle(id) {
   if (!confirm("Na pewno usunąć ten motocykl?")) {
     return;
   }
-  MotorcycleDatabase.remove(index);
+
+  const deleted =
+    await MotorcycleDatabase.remove(id);
+
+  if (!deleted) {
+    alert(
+      MotorcycleDatabase.lastError ||
+      "Nie udało się usunąć motocykla."
+    );
+
+    return;
+  }
+
   VFRApp.renderGarage();
 }
 /* =====================================================
@@ -334,7 +397,7 @@ function showBikeCard(bike) {
 /* =====================================================
    SERWIS — ZAPIS
    ===================================================== */
-function saveServiceEntry() {
+async function saveServiceEntry() {
   const getValue = id => {
     const element =
       document.getElementById(id);
@@ -379,17 +442,24 @@ function saveServiceEntry() {
   let saved;
   if (window.editingServiceId) {
     saved =
-      ServiceModule.updateService(
+      await ServiceModule.updateService(
         window.editingServiceId,
         service
       );
   } else {
     saved =
-      ServiceModule.addService(
+      await ServiceModule.addService(
         service
       );
   }
-  if (!saved) return;
+  if (!saved) {
+    alert(
+      ServiceModule.lastError ||
+      "Nie udało się zapisać serwisu."
+    );
+
+    return;
+  }
   window.editingServiceId = null;
   clearServiceForm();
   const button =
@@ -400,7 +470,7 @@ function saveServiceEntry() {
     button.innerHTML =
       "💾 Zapisz serwis";
   }
-  renderServiceHistory();
+  await renderServiceHistory(false);
   alert(
     "Serwis zapisany 🔧"
   );
@@ -469,7 +539,7 @@ function editService(id) {
 /* =====================================================
    USUWANIE SERWISU
    ===================================================== */
-function removeService(id) {
+async function removeService(id) {
 
   const confirmed =
     confirm(
@@ -481,13 +551,18 @@ function removeService(id) {
   }
 
   const deleted =
-    ServiceModule.deleteService(id);
+    await ServiceModule.deleteService(id);
 
   if (!deleted) {
+    alert(
+      ServiceModule.lastError ||
+      "Nie udało się usunąć serwisu."
+    );
+
     return;
   }
 
-  renderServiceHistory();
+  await renderServiceHistory(false);
 }
 /* =====================================================
    CZYSZCZENIE FORMULARZA
@@ -513,7 +588,7 @@ function clearServiceForm() {
 /* =====================================================
    HISTORIA SERWISOWA
    ===================================================== */
-function renderServiceHistory() {
+async function renderServiceHistory(loadFromSupabase = true) {
   const container =
     document.getElementById(
       "serviceHistory"
@@ -529,6 +604,24 @@ function renderServiceHistory() {
       </div>
     `;
     return;
+  }
+  const motorcycleId = bike.id;
+  const loaded = loadFromSupabase
+    ? await ServiceModule.loadServices(motorcycleId)
+    : true;
+
+  if (
+    MotorcycleDatabase.activeMotorcycleId !==
+    motorcycleId
+  ) {
+    return;
+  }
+
+  if (!loaded) {
+    alert(
+      ServiceModule.lastError ||
+      "Nie udało się wczytać historii serwisowej."
+    );
   }
   const services =
     ServiceModule.getSortedServices();
@@ -721,12 +814,12 @@ function renderServiceHistory() {
         }
         <button
           class="secondary"
-          onclick="editService(${service.id})">
+          onclick="editService('${service.id}')">
           ✏️ Edytuj
         </button>
         <button
           class="danger"
-          onclick="removeService(${service.id})">
+          onclick="removeService('${service.id}')">
           🗑️ Usuń wpis
         </button>
       </div>
@@ -784,7 +877,7 @@ function showCosts() {
 /* =====================================================
    NAWIGACJA
    ===================================================== */
-function navigateTo(pageId) {
+async function navigateTo(pageId) {
   document
     .querySelectorAll(".page")
     .forEach(page => {
@@ -814,7 +907,13 @@ function navigateTo(pageId) {
     VFRApp.renderGarage();
   }
   if (pageId === "service") {
-    renderServiceHistory();
+    await renderServiceHistory();
+  }
+  if (
+    pageId === "technical" &&
+    window.openTechnicalBase
+  ) {
+    openTechnicalBase();
   }
   window.scrollTo({
     top: 0,
@@ -837,9 +936,147 @@ function escapeHtml(text) {
 }
 window.VFRApp =
   VFRApp;
+
+function setAuthMessage(message) {
+  const element =
+    document.getElementById("authMessage");
+
+  if (element) {
+    element.textContent = message || "";
+  }
+}
+
+function showAuthPanel(message = "") {
+  document.getElementById("authPanel").hidden = false;
+  document.getElementById("appHeader").hidden = true;
+  document.getElementById("appContent").hidden = true;
+  document.getElementById("bottomNav").hidden = true;
+  setAuthMessage(message);
+}
+
+function showApplication() {
+  document.getElementById("authPanel").hidden = true;
+  document.getElementById("appHeader").hidden = false;
+  document.getElementById("appContent").hidden = false;
+  document.getElementById("bottomNav").hidden = false;
+  setAuthMessage("");
+}
+
+function getAuthCredentials() {
+  return {
+    email: document
+      .getElementById("authEmail")
+      .value.trim(),
+    password: document
+      .getElementById("authPassword")
+      .value
+  };
+}
+
+function validateAuthCredentials(email, password) {
+  if (!email || !password) {
+    setAuthMessage("Podaj email i hasło.");
+    return false;
+  }
+
+  return true;
+}
+
+async function handleSignIn() {
+  const { email, password } = getAuthCredentials();
+
+  if (!validateAuthCredentials(email, password)) return;
+
+  setAuthMessage("Logowanie...");
+
+  try {
+    await window.signIn(email, password);
+    showApplication();
+    await VFRApp.init();
+  } catch (error) {
+    showAuthPanel(
+      error && error.message
+        ? error.message
+        : "Nie udało się zalogować. Sprawdź połączenie z siecią."
+    );
+  }
+}
+
+async function handleSignUp() {
+  const { email, password } = getAuthCredentials();
+
+  if (!validateAuthCredentials(email, password)) return;
+
+  setAuthMessage("Tworzenie konta...");
+
+  try {
+    const data = await window.signUp(email, password);
+
+    if (data.session) {
+      showApplication();
+      await VFRApp.init();
+      return;
+    }
+
+    showAuthPanel(
+      "Konto utworzone. Sprawdź email i potwierdź rejestrację."
+    );
+  } catch (error) {
+    showAuthPanel(
+      error && error.message
+        ? error.message
+        : "Nie udało się utworzyć konta. Sprawdź połączenie z siecią."
+    );
+  }
+}
+
+function clearRuntimeCache() {
+  MotorcycleDatabase.motorcycles = [];
+  MotorcycleDatabase.activeMotorcycleId = null;
+  MotorcycleDatabase.lastError = null;
+  MotorcycleDatabase.legacyServiceData = {};
+  ServiceModule.servicesByMotorcycleId = {};
+  ServiceModule.lastError = null;
+  window.editingServiceId = null;
+}
+
+async function handleSignOut() {
+  try {
+    await window.signOut();
+    clearRuntimeCache();
+    showAuthPanel();
+  } catch (error) {
+    alert(
+      error && error.message
+        ? error.message
+        : "Nie udało się wylogować. Sprawdź połączenie z siecią."
+    );
+  }
+}
+
+async function initializeAuth() {
+  try {
+    const session = await window.getCurrentSession();
+
+    if (!session) {
+      showAuthPanel();
+      return;
+    }
+
+    showApplication();
+    await VFRApp.init();
+  } catch (error) {
+    showAuthPanel(
+      error && error.message
+        ? error.message
+        : "Nie udało się sprawdzić sesji. Sprawdź połączenie z siecią."
+    );
+  }
+}
+
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-    VFRApp.init();
+    initializeAuth();
   }
 );

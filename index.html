@@ -318,7 +318,10 @@
 
 <body>
 
-<header class="app-header">
+<header
+  id="appHeader"
+  class="app-header"
+  hidden>
 
   <div class="brand">
     🏍️ VFR Master
@@ -328,10 +331,58 @@
     Twój cyfrowy garaż i serwis motocykla
   </div>
 
+  <button
+    class="secondary"
+    onclick="handleSignOut()">
+    Wyloguj
+  </button>
+
 </header>
 
 
-<main>
+<main id="authPanel">
+
+  <div class="card">
+
+    <h2>Zaloguj się</h2>
+
+    <label for="authEmail">Email</label>
+
+    <input
+      id="authEmail"
+      type="email"
+      autocomplete="email">
+
+    <label for="authPassword">Hasło</label>
+
+    <input
+      id="authPassword"
+      type="password"
+      autocomplete="current-password">
+
+    <button
+      class="primary"
+      onclick="handleSignIn()">
+      Zaloguj
+    </button>
+
+    <button
+      class="secondary"
+      onclick="handleSignUp()">
+      Utwórz konto
+    </button>
+
+    <p
+      id="authMessage"
+      class="section-note"
+      role="status"></p>
+
+  </div>
+
+</main>
+
+
+<main id="appContent" hidden>
 
 
   <!-- START -->
@@ -706,7 +757,10 @@
 
 <!-- BOTTOM NAV -->
 
-<nav class="bottom-nav">
+<nav
+  id="bottomNav"
+  class="bottom-nav"
+  hidden>
 
   <button
     class="nav-btn active"
@@ -760,6 +814,10 @@
 
 <!-- APPLICATION MODULES -->
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
 <script src="data/vfr800-2002.js"></script>
 
 <script src="js/database.js"></script>
@@ -776,78 +834,6 @@
 <!-- NAVIGATION -->
 
 <script>
-
-function navigateTo(pageId) {
-
-  document
-    .querySelectorAll(".page")
-    .forEach(page => {
-
-      page.classList.remove("active");
-
-    });
-
-
-  const page =
-    document.getElementById(pageId);
-
-
-  if (page) {
-
-    page.classList.add("active");
-
-  }
-
-
-  document
-    .querySelectorAll(".nav-btn")
-    .forEach(button => {
-
-      button.classList.toggle(
-        "active",
-        button.dataset.page === pageId
-      );
-
-    });
-
-
-  if (
-    pageId === "garage" &&
-    window.VFRApp
-  ) {
-
-    VFRApp.renderGarage();
-
-  }
-
-
-  if (
-    pageId === "service" &&
-    window.renderServiceHistory
-  ) {
-
-    renderServiceHistory();
-
-  }
-
-
-  if (
-    pageId === "technical" &&
-    window.openTechnicalBase
-  ) {
-
-    openTechnicalBase();
-
-  }
-
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-
-}
-
 
 function openServiceForActiveBike() {
 
