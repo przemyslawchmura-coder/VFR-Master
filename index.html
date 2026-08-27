@@ -458,32 +458,79 @@
         ➕ Dodaj motocykl
       </h2>
 
-      <label for="garageBrand">
+      <label for="garageCatalogBrand">
         Marka
       </label>
 
-      <input
-        id="garageBrand"
-        placeholder="np. Honda">
+      <select
+        id="garageCatalogBrand"
+        onchange="handleCatalogBrandChange()">
+        <option value="">Wybierz markę</option>
+      </select>
 
+      <div id="garageCatalogFields" hidden>
+        <label for="garageCatalogModel">
+          Model
+        </label>
 
-      <label for="garageModel">
-        Model
-      </label>
+        <select
+          id="garageCatalogModel"
+          onchange="handleCatalogModelChange()"
+          disabled>
+          <option value="">Wybierz model</option>
+        </select>
 
-      <input
-        id="garageModel"
-        placeholder="np. VFR800 VTEC">
+        <label for="garageCatalogVariant">
+          Wariant
+        </label>
 
+        <select
+          id="garageCatalogVariant"
+          onchange="handleCatalogVariantChange()"
+          disabled>
+          <option value="">Wybierz wariant</option>
+        </select>
 
-      <label for="garageYear">
-        Rok
-      </label>
+        <label for="garageCatalogYear">
+          Rok
+        </label>
 
-      <input
-        id="garageYear"
-        type="number"
-        placeholder="np. 2002">
+        <select
+          id="garageCatalogYear"
+          disabled>
+          <option value="">Wybierz rok</option>
+        </select>
+      </div>
+
+      <div id="garageManualFields" hidden>
+        <label for="garageBrand">
+          Marka — wpisz ręcznie
+        </label>
+
+        <input
+          id="garageBrand"
+          placeholder="np. Suzuki"
+          disabled>
+
+        <label for="garageModel">
+          Model — wpisz ręcznie
+        </label>
+
+        <input
+          id="garageModel"
+          placeholder="np. GSX-R750"
+          disabled>
+
+        <label for="garageYear">
+          Rok — wpisz ręcznie
+        </label>
+
+        <input
+          id="garageYear"
+          type="number"
+          placeholder="np. 2008"
+          disabled>
+      </div>
 
 
       <label for="garageMileage">
@@ -822,6 +869,8 @@
 
 <script src="js/database.js"></script>
 
+<script src="js/motorcycle-catalog.js?v=motorcycle-catalog-1"></script>
+
 <script src="js/service.js"></script>
 
 <script src="js/technical-database.js?v=technical-registry-2"></script>
@@ -832,7 +881,7 @@
 
 <script src="js/technical-ui.js?v=technical-registry-2"></script>
 
-<script src="js/app.js?v=a05ad1e"></script>
+<script src="js/app.js?v=motorcycle-catalog-1"></script>
 
 
 <!-- NAVIGATION -->

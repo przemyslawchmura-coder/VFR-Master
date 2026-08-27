@@ -80,27 +80,170 @@ const VFRApp = {
 /* =====================================================
    DODAWANIE MOTOCYKLA
    ===================================================== */
+function setSelectOptions(select, placeholder, options) {
+  select.innerHTML = "";
+
+  const placeholderOption = document.createElement("option");
+  placeholderOption.value = "";
+  placeholderOption.textContent = placeholder;
+  select.appendChild(placeholderOption);
+
+  options.forEach(option => {
+    const element = document.createElement("option");
+    element.value = option.value;
+    element.textContent = option.label;
+    select.appendChild(element);
+  });
+}
+
+function setManualMotorcycleFields(enabled) {
+  const container = document.getElementById("garageManualFields");
+  container.hidden = !enabled;
+
+  ["garageBrand", "garageModel", "garageYear"].forEach(id => {
+    document.getElementById(id).disabled = !enabled;
+  });
+}
+
+function resetCatalogSelect(selectId, placeholder) {
+  const select = document.getElementById(selectId);
+  setSelectOptions(select, placeholder, []);
+  select.disabled = true;
+}
+
+function handleCatalogBrandChange() {
+  const brandId = document.getElementById("garageCatalogBrand").value;
+  const manualMode = brandId === MotorcycleCatalog.manualBrandId;
+  const catalogFields = document.getElementById("garageCatalogFields");
+
+  resetCatalogSelect("garageCatalogModel", "Wybierz model");
+  resetCatalogSelect("garageCatalogVariant", "Wybierz wariant");
+  resetCatalogSelect("garageCatalogYear", "Wybierz rok");
+  catalogFields.hidden = !brandId || manualMode;
+  setManualMotorcycleFields(manualMode);
+
+  if (!brandId || manualMode) return;
+
+  const modelSelect = document.getElementById("garageCatalogModel");
+  setSelectOptions(
+    modelSelect,
+    "Wybierz model",
+    MotorcycleCatalog.getModels(brandId).map(model => ({
+      value: model.id,
+      label: model.name
+    }))
+  );
+  modelSelect.disabled = false;
+}
+
+function handleCatalogModelChange() {
+  const brandId = document.getElementById("garageCatalogBrand").value;
+  const modelId = document.getElementById("garageCatalogModel").value;
+
+  resetCatalogSelect("garageCatalogVariant", "Wybierz wariant");
+  resetCatalogSelect("garageCatalogYear", "Wybierz rok");
+
+  if (!modelId) return;
+
+  const variantSelect = document.getElementById("garageCatalogVariant");
+  setSelectOptions(
+    variantSelect,
+    "Wybierz wariant",
+    MotorcycleCatalog.getVariants(brandId, modelId).map(variant => ({
+      value: variant.id,
+      label: variant.name
+    }))
+  );
+  variantSelect.disabled = false;
+}
+
+function handleCatalogVariantChange() {
+  const brandId = document.getElementById("garageCatalogBrand").value;
+  const modelId = document.getElementById("garageCatalogModel").value;
+  const variantId = document.getElementById("garageCatalogVariant").value;
+
+  resetCatalogSelect("garageCatalogYear", "Wybierz rok");
+
+  if (!variantId) return;
+
+  const yearSelect = document.getElementById("garageCatalogYear");
+  setSelectOptions(
+    yearSelect,
+    "Wybierz rok",
+    MotorcycleCatalog.getYears(brandId, modelId, variantId)
+      .map(year => ({ value: String(year), label: String(year) }))
+  );
+  yearSelect.disabled = false;
+}
+
+function initializeMotorcycleForm() {
+  const brandSelect = document.getElementById("garageCatalogBrand");
+
+  setSelectOptions(
+    brandSelect,
+    "Wybierz markę",
+    [
+      ...MotorcycleCatalog.brands.map(brand => ({
+        value: brand.id,
+        label: brand.name
+      })),
+      {
+        value: MotorcycleCatalog.manualBrandId,
+        label: "Inna / wpisz ręcznie"
+      }
+    ]
+  );
+  brandSelect.value = "";
+  handleCatalogBrandChange();
+}
+
+function getMotorcycleFormSelection() {
+  const brandId = document.getElementById("garageCatalogBrand").value;
+
+  if (brandId === MotorcycleCatalog.manualBrandId) {
+    const brand = document.getElementById("garageBrand").value.trim();
+    const model = document.getElementById("garageModel").value.trim();
+    const year = document.getElementById("garageYear").value.trim();
+
+    if (!brand || !model) {
+      alert("Podaj markę i model motocykla.");
+      return null;
+    }
+
+    return { brand, model, year };
+  }
+
+  const modelId = document.getElementById("garageCatalogModel").value;
+  const variantId = document.getElementById("garageCatalogVariant").value;
+  const year = document.getElementById("garageCatalogYear").value;
+  const selection = MotorcycleCatalog.resolve(
+    brandId,
+    modelId,
+    variantId,
+    year
+  );
+
+  if (!selection) {
+    alert("Wybierz markę, model, wariant i rok motocykla.");
+    return null;
+  }
+
+  return selection;
+}
+
 async function addMotorcycle() {
-  const brand =
-    document.getElementById("garageBrand").value.trim();
-  const model =
-    document.getElementById("garageModel").value.trim();
-  const year =
-    document.getElementById("garageYear").value.trim();
+  const selection = getMotorcycleFormSelection();
+
+  if (!selection) return;
+
   const mileage =
     document.getElementById("garageMileage").value.trim();
   const vin =
     document.getElementById("garageVin").value.trim();
   const nickname =
     document.getElementById("garageNickname").value.trim();
-  if (!brand || !model) {
-    alert("Podaj przynajmniej markę i model.");
-    return;
-  }
   const motorcycle = {
-    brand,
-    model,
-    year,
+    ...selection,
     mileage: Number(mileage || 0),
     vin,
     nickname
@@ -117,9 +260,6 @@ async function addMotorcycle() {
     return;
   }
   [
-    "garageBrand",
-    "garageModel",
-    "garageYear",
     "garageMileage",
     "garageVin",
     "garageNickname"
@@ -130,6 +270,10 @@ async function addMotorcycle() {
       element.value = "";
     }
   });
+  ["garageBrand", "garageModel", "garageYear"].forEach(id => {
+    document.getElementById(id).value = "";
+  });
+  initializeMotorcycleForm();
   VFRApp.renderGarage();
   alert("Motocykl dodany do garażu 🏍️");
 }
@@ -1077,6 +1221,11 @@ async function initializeAuth() {
 document.addEventListener(
   "DOMContentLoaded",
   () => {
+    initializeMotorcycleForm();
     initializeAuth();
   }
 );
+
+window.handleCatalogBrandChange = handleCatalogBrandChange;
+window.handleCatalogModelChange = handleCatalogModelChange;
+window.handleCatalogVariantChange = handleCatalogVariantChange;

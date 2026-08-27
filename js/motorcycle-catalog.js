@@ -1,0 +1,118 @@
+/* =========================================================
+   VFR MASTER
+   CENTRALNY KATALOG MOTOCYKLI
+
+   Następne marki, modele i warianty dodajemy tutaj. Pole
+   storedModel musi odpowiadać nazwie z TechnicalDatabase.
+   ========================================================= */
+const MotorcycleCatalog = {
+  manualBrandId: "manual",
+
+  brands: [
+    {
+      id: "honda",
+      name: "Honda",
+      models: [
+        {
+          id: "vfr800",
+          name: "VFR800",
+          variants: [
+            {
+              id: "vtec",
+              name: "VTEC",
+              storedModel: "VFR800 VTEC",
+              yearFrom: 2002,
+              yearTo: 2002
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "yamaha",
+      name: "Yamaha",
+      models: [
+        {
+          id: "fz1",
+          name: "FZ1",
+          variants: [
+            {
+              id: "n",
+              name: "N",
+              storedModel: "FZ1-N",
+              yearFrom: 2006,
+              yearTo: 2015
+            },
+            {
+              id: "s",
+              name: "S / Fazer",
+              storedModel: "FZ1-S",
+              yearFrom: 2006,
+              yearTo: 2015
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+  getBrand(brandId) {
+    return this.brands.find(brand => brand.id === brandId) || null;
+  },
+
+  getModels(brandId) {
+    const brand = this.getBrand(brandId);
+    return brand ? brand.models : [];
+  },
+
+  getModel(brandId, modelId) {
+    return this.getModels(brandId)
+      .find(model => model.id === modelId) || null;
+  },
+
+  getVariants(brandId, modelId) {
+    const model = this.getModel(brandId, modelId);
+    return model ? model.variants : [];
+  },
+
+  getVariant(brandId, modelId, variantId) {
+    return this.getVariants(brandId, modelId)
+      .find(variant => variant.id === variantId) || null;
+  },
+
+  getYears(brandId, modelId, variantId) {
+    const variant = this.getVariant(brandId, modelId, variantId);
+
+    if (!variant) return [];
+
+    return Array.from(
+      { length: variant.yearTo - variant.yearFrom + 1 },
+      (_, index) => variant.yearFrom + index
+    );
+  },
+
+  resolve(brandId, modelId, variantId, year) {
+    const brand = this.getBrand(brandId);
+    const model = this.getModel(brandId, modelId);
+    const variant = this.getVariant(brandId, modelId, variantId);
+    const normalizedYear = Number(year);
+
+    if (
+      !brand ||
+      !model ||
+      !variant ||
+      !this.getYears(brandId, modelId, variantId)
+        .includes(normalizedYear)
+    ) {
+      return null;
+    }
+
+    return {
+      brand: brand.name,
+      model: variant.storedModel,
+      year: normalizedYear
+    };
+  }
+};
+
+window.MotorcycleCatalog = MotorcycleCatalog;
