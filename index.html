@@ -491,45 +491,17 @@
           <option value="">Wybierz wariant</option>
         </select>
 
-        <label for="garageCatalogYear">
-          Rok
-        </label>
+        <div id="garageCatalogYearField">
+          <label for="garageCatalogYear">
+            Rok
+          </label>
 
-        <select
-          id="garageCatalogYear"
-          disabled>
-          <option value="">Wybierz rok</option>
-        </select>
-      </div>
-
-      <div id="garageManualFields" hidden>
-        <label for="garageBrand">
-          Marka — wpisz ręcznie
-        </label>
-
-        <input
-          id="garageBrand"
-          placeholder="np. Suzuki"
-          disabled>
-
-        <label for="garageModel">
-          Model — wpisz ręcznie
-        </label>
-
-        <input
-          id="garageModel"
-          placeholder="np. GSX-R750"
-          disabled>
-
-        <label for="garageYear">
-          Rok — wpisz ręcznie
-        </label>
-
-        <input
-          id="garageYear"
-          type="number"
-          placeholder="np. 2008"
-          disabled>
+          <select
+            id="garageCatalogYear"
+            disabled>
+            <option value="">Najpierw wybierz wariant</option>
+          </select>
+        </div>
       </div>
 
 
@@ -867,11 +839,11 @@
 
 <script src="data/vfr800-2002.js"></script>
 
-<script src="js/database.js?v=migration-test-executor-1"></script>
+<script src="js/database.js?v=catalog-garage-1"></script>
 
 <script src="data/motorcycle-catalog.js?v=catalog-variant-key-1"></script>
 
-<script src="js/motorcycle-catalog.js?v=legacy-analysis-1"></script>
+<script src="js/motorcycle-catalog.js?v=catalog-garage-1"></script>
 
 <script src="js/service.js"></script>
 
@@ -883,7 +855,7 @@
 
 <script src="js/technical-ui.js?v=technical-registry-2"></script>
 
-<script src="js/app.js?v=motorcycle-catalog-1"></script>
+<script src="js/app.js?v=catalog-garage-1"></script>
 
 
 <!-- NAVIGATION -->

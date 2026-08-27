@@ -35,6 +35,16 @@ function checkUnique(items, property, scope) {
 }
 
 assert.ok(catalog, "MotorcycleCatalog nie jest dostępny globalnie");
+assert.deepEqual(
+  JSON.parse(JSON.stringify(catalog.getBrands().map(brand => brand.name))),
+  [...catalog.getBrands().map(brand => brand.name)].sort((a, b) =>
+    a.localeCompare(b, "pl-PL")
+  )
+);
+assert.equal(new Set(catalog.getBrands().map(brand => brand.name)).size,
+  catalog.getBrands().length);
+assert.ok(catalog.getBrands().some(brand => brand.name === "Honda"));
+assert.ok(catalog.getBrands().some(brand => brand.name === "Yamaha"));
 checkUnique(catalog.brands, "id", "katalog");
 checkUnique(catalog.brands, "name", "katalog");
 
@@ -162,6 +172,33 @@ assert.deepEqual(
     catalogVariantKey: "honda.vfr800.rc46.vtec.gen1"
   }
 );
+
+const hondaVariant = catalog.getVariantByKey(
+  "honda.vfr800.rc46.vtec.gen1"
+);
+assert.ok(hondaVariant);
+assert.equal(hondaVariant.brand.name, "Honda");
+assert.equal(hondaVariant.model.name, "VFR800");
+assert.equal(hondaVariant.variant.storedModel, "VFR800 VTEC");
+
+const yamahaVariant = catalog.getVariantByKey("yamaha.fz1.gen2.s");
+assert.ok(yamahaVariant);
+assert.equal(yamahaVariant.brand.name, "Yamaha");
+assert.equal(yamahaVariant.variant.storedModel, "FZ1-S");
+assert.equal(catalog.getVariantByKey("missing.variant"), null);
+
+assert.equal(catalog.validateMotorcycleSelection({
+  brand: "Honda",
+  model: "VFR800 VTEC",
+  year: 2002,
+  catalogVariantKey: "honda.vfr800.rc46.vtec.gen1"
+}), true);
+assert.equal(catalog.validateMotorcycleSelection({
+  brand: "Honda",
+  model: "FZ1-S",
+  year: 2006,
+  catalogVariantKey: "yamaha.fz1.gen2.s"
+}), false);
 assert.deepEqual(
   JSON.parse(JSON.stringify(
     catalog.resolve("yamaha", "fz1", "n", 2010)

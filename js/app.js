@@ -96,15 +96,6 @@ function setSelectOptions(select, placeholder, options) {
   });
 }
 
-function setManualMotorcycleFields(enabled) {
-  const container = document.getElementById("garageManualFields");
-  container.hidden = !enabled;
-
-  ["garageBrand", "garageModel", "garageYear"].forEach(id => {
-    document.getElementById(id).disabled = !enabled;
-  });
-}
-
 function resetCatalogSelect(selectId, placeholder) {
   const select = document.getElementById(selectId);
   setSelectOptions(select, placeholder, []);
@@ -113,22 +104,21 @@ function resetCatalogSelect(selectId, placeholder) {
 
 function handleCatalogBrandChange() {
   const brandId = document.getElementById("garageCatalogBrand").value;
-  const manualMode = brandId === MotorcycleCatalog.manualBrandId;
   const catalogFields = document.getElementById("garageCatalogFields");
 
-  resetCatalogSelect("garageCatalogModel", "Wybierz model");
-  resetCatalogSelect("garageCatalogVariant", "Wybierz wariant");
-  resetCatalogSelect("garageCatalogYear", "Wybierz rok");
-  catalogFields.hidden = !brandId || manualMode;
-  setManualMotorcycleFields(manualMode);
+  resetCatalogSelect("garageCatalogModel", "Najpierw wybierz markę");
+  resetCatalogSelect("garageCatalogVariant", "Najpierw wybierz model");
+  resetCatalogSelect("garageCatalogYear", "Najpierw wybierz wariant");
+  document.getElementById("garageCatalogYearField").hidden = false;
+  catalogFields.hidden = !brandId;
 
-  if (!brandId || manualMode) return;
+  if (!brandId) return;
 
   const modelSelect = document.getElementById("garageCatalogModel");
   setSelectOptions(
     modelSelect,
     "Wybierz model",
-    MotorcycleCatalog.getModels(brandId).map(model => ({
+    MotorcycleCatalog.getModelsByBrand(brandId).map(model => ({
       value: model.id,
       label: model.name
     }))
@@ -149,9 +139,9 @@ function handleCatalogModelChange() {
   setSelectOptions(
     variantSelect,
     "Wybierz wariant",
-    MotorcycleCatalog.getVariants(brandId, modelId).map(variant => ({
-      value: variant.id,
-      label: variant.name
+    MotorcycleCatalog.getVariantsByBrandModel(brandId, modelId).map(variant => ({
+      value: variant.key,
+      label: `${variant.name} (${variant.yearFrom}–${variant.yearTo})`
     }))
   );
   variantSelect.disabled = false;
@@ -160,20 +150,31 @@ function handleCatalogModelChange() {
 function handleCatalogVariantChange() {
   const brandId = document.getElementById("garageCatalogBrand").value;
   const modelId = document.getElementById("garageCatalogModel").value;
-  const variantId = document.getElementById("garageCatalogVariant").value;
+  const catalogVariantKey =
+    document.getElementById("garageCatalogVariant").value;
 
   resetCatalogSelect("garageCatalogYear", "Wybierz rok");
 
-  if (!variantId) return;
+  if (!catalogVariantKey) return;
+
+  const match = MotorcycleCatalog.getVariantByKey(catalogVariantKey);
+  if (!match || match.brand.id !== brandId || match.model.id !== modelId) return;
 
   const yearSelect = document.getElementById("garageCatalogYear");
+  const years = MotorcycleCatalog.getYears(
+    brandId,
+    modelId,
+    match.variant.id
+  );
   setSelectOptions(
     yearSelect,
     "Wybierz rok",
-    MotorcycleCatalog.getYears(brandId, modelId, variantId)
-      .map(year => ({ value: String(year), label: String(year) }))
+    years.map(year => ({ value: String(year), label: String(year) }))
   );
-  yearSelect.disabled = false;
+  yearSelect.disabled = years.length === 1;
+  yearSelect.value = years.length === 1 ? String(years[0]) : "";
+  document.getElementById("garageCatalogYearField").hidden =
+    years.length === 1;
 }
 
 function initializeMotorcycleForm() {
@@ -182,16 +183,10 @@ function initializeMotorcycleForm() {
   setSelectOptions(
     brandSelect,
     "Wybierz markę",
-    [
-      ...MotorcycleCatalog.brands.map(brand => ({
-        value: brand.id,
-        label: brand.name
-      })),
-      {
-        value: MotorcycleCatalog.manualBrandId,
-        label: "Inna / wpisz ręcznie"
-      }
-    ]
+    MotorcycleCatalog.getBrands().map(brand => ({
+      value: brand.id,
+      label: brand.name
+    }))
   );
   brandSelect.value = "";
   handleCatalogBrandChange();
@@ -200,30 +195,18 @@ function initializeMotorcycleForm() {
 function getMotorcycleFormSelection() {
   const brandId = document.getElementById("garageCatalogBrand").value;
 
-  if (brandId === MotorcycleCatalog.manualBrandId) {
-    const brand = document.getElementById("garageBrand").value.trim();
-    const model = document.getElementById("garageModel").value.trim();
-    const year = document.getElementById("garageYear").value.trim();
-
-    if (!brand || !model) {
-      alert("Podaj markę i model motocykla.");
-      return null;
-    }
-
-    return { brand, model, year };
-  }
-
   const modelId = document.getElementById("garageCatalogModel").value;
-  const variantId = document.getElementById("garageCatalogVariant").value;
+  const catalogVariantKey =
+    document.getElementById("garageCatalogVariant").value;
   const year = document.getElementById("garageCatalogYear").value;
-  const selection = MotorcycleCatalog.resolve(
+  const selection = MotorcycleCatalog.resolveByKey(
     brandId,
     modelId,
-    variantId,
+    catalogVariantKey,
     year
   );
 
-  if (!selection) {
+  if (!selection || !MotorcycleCatalog.validateMotorcycleSelection(selection)) {
     alert("Wybierz markę, model, wariant i rok motocykla.");
     return null;
   }
@@ -242,9 +225,16 @@ async function addMotorcycle() {
     document.getElementById("garageVin").value.trim();
   const nickname =
     document.getElementById("garageNickname").value.trim();
+  const normalizedMileage = Number(mileage || 0);
+
+  if (!Number.isFinite(normalizedMileage) || normalizedMileage < 0) {
+    alert("Przebieg musi być liczbą większą lub równą 0.");
+    return;
+  }
+
   const motorcycle = {
     ...selection,
-    mileage: Number(mileage || 0),
+    mileage: normalizedMileage,
     vin,
     nickname
   };
@@ -269,9 +259,6 @@ async function addMotorcycle() {
     if (element) {
       element.value = "";
     }
-  });
-  ["garageBrand", "garageModel", "garageYear"].forEach(id => {
-    document.getElementById(id).value = "";
   });
   initializeMotorcycleForm();
   VFRApp.renderGarage();
@@ -370,6 +357,12 @@ function showBikeCard(bike) {
     ServiceModule.getLastService();
   const nextService =
     ServiceModule.getNextService();
+  const catalogMatch = window.MotorcycleCatalog
+    ? MotorcycleCatalog.getVariantByKey(bike.catalogVariantKey)
+    : null;
+  const catalogVariantName = catalogMatch
+    ? catalogMatch.variant.name
+    : null;
   container.innerHTML = `
     <button
       class="back"
@@ -392,6 +385,11 @@ function showBikeCard(bike) {
         •
         ${escapeHtml(bike.year || "—")}
       </div>
+      ${catalogVariantName ? `
+        <div class="muted">
+          Wariant: ${escapeHtml(catalogVariantName)}
+        </div>
+      ` : ""}
     </div>
     <div class="stats">
       <div class="stat">

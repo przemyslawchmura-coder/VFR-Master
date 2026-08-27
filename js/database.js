@@ -510,6 +510,20 @@ const MotorcycleDatabase = {
   async add(motorcycle) {
     this.lastError = null;
 
+    if (
+      !window.MotorcycleCatalog ||
+      !window.MotorcycleCatalog.validateMotorcycleSelection(motorcycle)
+    ) {
+      this.lastError = "Motocykl nie jest zgodny z katalogiem.";
+      return null;
+    }
+
+    const mileage = Number(motorcycle.mileage || 0);
+    if (!Number.isFinite(mileage) || mileage < 0) {
+      this.lastError = "Przebieg musi być liczbą większą lub równą 0.";
+      return null;
+    }
+
     const session = await this.getSession();
 
     if (!session) {
@@ -526,19 +540,6 @@ const MotorcycleDatabase = {
         data,
         error
       } = await this.insertMotorcycle(payload);
-
-      if (this.isMissingCatalogVariantKeyColumnError(error)) {
-        const legacyPayload = this.serializeMotorcycle(
-          motorcycle,
-          session.user.id,
-          false
-        );
-
-        ({ data, error } = await this.insertMotorcycle(
-          legacyPayload,
-          false
-        ));
-      }
 
       if (error) {
         this.setError(

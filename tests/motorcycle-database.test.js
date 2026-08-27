@@ -101,6 +101,11 @@ assert.equal(payload.brand, "Honda");
 assert.equal(payload.model, "VFR800 VTEC");
 assert.equal(payload.year, 2002);
 
+const roundTrip = database.deserializeMotorcycle(
+  database.serializeMotorcycle(honda, "user-1")
+);
+assert.equal(roundTrip.catalogVariantKey, honda.catalogVariantKey);
+
 const deserialized = database.deserializeMotorcycle({
     id: "bike-1",
     catalog_variant_key: "honda.vfr800.rc46.vtec.gen1"
@@ -144,10 +149,7 @@ const savedLegacyRow = {
   created_at: "2026-01-01"
 };
 const fallbackMock = createSupabaseMock({
-  insertResponses: [
-    { data: null, error: missingColumnError },
-    { data: savedLegacyRow, error: null }
-  ]
+  insertResponses: [{ data: null, error: missingColumnError }]
 });
 context.supabaseClient = fallbackMock.client;
 database.motorcycles = [];
@@ -155,17 +157,23 @@ database.activeMotorcycleId = null;
 
 (async () => {
   const saved = await database.add(honda);
-  assert.ok(saved);
-  assert.equal(saved.catalogVariantKey, null);
-  assert.equal(fallbackMock.inserts.length, 2);
+  assert.equal(saved, null);
+  assert.equal(fallbackMock.inserts.length, 1);
   assert.equal(
     fallbackMock.inserts[0].catalog_variant_key,
     "honda.vfr800.rc46.vtec.gen1"
   );
-  assert.equal(
-    Object.hasOwn(fallbackMock.inserts[1], "catalog_variant_key"),
-    false
-  );
+
+  const invalidSelection = await database.add({
+    ...honda,
+    catalogVariantKey: "missing.variant"
+  });
+  assert.equal(invalidSelection, null);
+  assert.equal(fallbackMock.inserts.length, 1);
+
+  const negativeMileage = await database.add({ ...honda, mileage: -1 });
+  assert.equal(negativeMileage, null);
+  assert.equal(fallbackMock.inserts.length, 1);
 
   const unrelatedError = {
     code: "42501",
@@ -211,10 +219,13 @@ database.activeMotorcycleId = null;
     legacyNull: true,
     legacyMissingProperty: true,
     technicalDatabaseLegacyMatching: true,
-    missingColumnInsertFallback: true,
+    missingColumnInsertRejected: true,
     missingColumnLoadFallback: true,
     unrelatedErrorsNotMasked: true,
     fallbackRestrictedToCatalogColumn: true,
+    catalogValidationBeforeInsert: true,
+    mileageValidationBeforeInsert: true,
+    catalogVariantKeyRoundTrip: true,
     status: "OK"
   }, null, 2));
 })().catch(error => {

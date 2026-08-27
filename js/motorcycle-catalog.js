@@ -4,8 +4,13 @@
    Sam katalog nie rejestruje żadnej bazy TechnicalDatabase.
    ========================================================= */
 const MotorcycleCatalog = {
-  manualBrandId: "manual",
   brands: window.MotorcycleCatalogData || [],
+
+  getBrands() {
+    return [...this.brands].sort((a, b) =>
+      a.name.localeCompare(b.name, "pl-PL")
+    );
+  },
 
   normalizeLegacyText(value) {
     return String(value ?? "")
@@ -32,6 +37,12 @@ const MotorcycleCatalog = {
     return brand ? brand.models : [];
   },
 
+  getModelsByBrand(brandId) {
+    return [...this.getModels(brandId)].sort((a, b) =>
+      a.name.localeCompare(b.name, "pl-PL")
+    );
+  },
+
   getModel(brandId, modelId) {
     return this.getModels(brandId)
       .find(model => model.id === modelId) || null;
@@ -40,6 +51,26 @@ const MotorcycleCatalog = {
   getVariants(brandId, modelId) {
     const model = this.getModel(brandId, modelId);
     return model ? model.variants : [];
+  },
+
+  getVariantsByBrandModel(brandId, modelId) {
+    return [...this.getVariants(brandId, modelId)].sort((a, b) =>
+      a.name.localeCompare(b.name, "pl-PL")
+    );
+  },
+
+  getVariantByKey(key) {
+    const normalizedKey = String(key ?? "").trim();
+    if (!normalizedKey) return null;
+
+    for (const brand of this.brands) {
+      for (const model of brand.models) {
+        const variant = model.variants.find(item => item.key === normalizedKey);
+        if (variant) return { brand, model, variant };
+      }
+    }
+
+    return null;
   },
 
   getVariant(brandId, modelId, variantId) {
@@ -143,6 +174,29 @@ const MotorcycleCatalog = {
       year: normalizedYear,
       catalogVariantKey: variant.key
     };
+  },
+
+  resolveByKey(brandId, modelId, catalogVariantKey, year) {
+    const match = this.getVariantByKey(catalogVariantKey);
+    if (!match || match.brand.id !== brandId || match.model.id !== modelId) {
+      return null;
+    }
+
+    return this.resolve(brandId, modelId, match.variant.id, year);
+  },
+
+  validateMotorcycleSelection({ brand, model, year, catalogVariantKey } = {}) {
+    const match = this.getVariantByKey(catalogVariantKey);
+    const normalizedYear = this.normalizeLegacyYear(year);
+
+    return Boolean(
+      match &&
+      match.brand.name === brand &&
+      match.variant.storedModel === model &&
+      normalizedYear !== null &&
+      normalizedYear >= match.variant.yearFrom &&
+      normalizedYear <= match.variant.yearTo
+    );
   }
 };
 
