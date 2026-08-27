@@ -127,6 +127,78 @@ const MotorcycleDatabase = {
     return report;
   },
 
+  prepareLegacyMigration(motorcycles) {
+    const analysis = this.analyzeLegacyMotorcycles(motorcycles);
+    const plan = {
+      total: analysis.total,
+      safeToMigrate: 0,
+      skippedAlreadyMigrated: 0,
+      skippedAmbiguous: 0,
+      skippedNotFound: 0,
+      skippedMissingId: 0,
+      operations: [],
+      skipped: []
+    };
+
+    analysis.results.forEach(result => {
+      const hasId =
+        result.id !== null &&
+        result.id !== undefined &&
+        String(result.id).trim() !== "";
+      const hasTargetKey =
+        typeof result.proposedCatalogVariantKey === "string" &&
+        result.proposedCatalogVariantKey.trim() !== "";
+      const hasCurrentKey =
+        typeof result.currentCatalogVariantKey === "string" &&
+        result.currentCatalogVariantKey.trim() !== "";
+
+      if (
+        result.status === "unique" &&
+        hasId &&
+        hasTargetKey &&
+        !hasCurrentKey
+      ) {
+        plan.operations.push({
+          id: result.id,
+          fromCatalogVariantKey: result.currentCatalogVariantKey,
+          toCatalogVariantKey: result.proposedCatalogVariantKey
+        });
+        plan.safeToMigrate += 1;
+        return;
+      }
+
+      let reason = result.status;
+
+      if (result.status === "unique" && hasCurrentKey) {
+        reason = "current_key_present";
+        plan.skippedAlreadyMigrated += 1;
+      } else if (result.status === "unique" && !hasId) {
+        reason = "missing_id";
+        plan.skippedMissingId += 1;
+      } else if (result.status === "unique" && !hasTargetKey) {
+        reason = "missing_target_key";
+        plan.skippedNotFound += 1;
+      } else if (result.status === "already_migrated") {
+        plan.skippedAlreadyMigrated += 1;
+      } else if (result.status === "ambiguous") {
+        plan.skippedAmbiguous += 1;
+      } else {
+        plan.skippedNotFound += 1;
+      }
+
+      plan.skipped.push({
+        id: result.id,
+        brand: result.brand,
+        model: result.model,
+        year: result.year,
+        status: result.status,
+        reason
+      });
+    });
+
+    return plan;
+  },
+
   async fetchMotorcycles(includeCatalogVariantKey = true) {
     return window.supabaseClient
       .from("motorcycles")
