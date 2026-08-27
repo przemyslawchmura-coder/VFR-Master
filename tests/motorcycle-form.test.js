@@ -110,6 +110,23 @@ elements.garageCatalogVariant.value = "missing.variant";
 elements.garageCatalogYear.value = "2006";
 assert.equal(vm.runInContext("getMotorcycleFormSelection()", context), null);
 
+assert.equal(vm.runInContext(
+  "getServicePlanStatus({ mileage: 1000 }, { nextMileage: 5000 }, new Date('2026-01-01')).key",
+  context
+), "ok");
+assert.equal(vm.runInContext(
+  "getServicePlanStatus({ mileage: 1000 }, { nextMileage: 1900 }, new Date('2026-01-01')).key",
+  context
+), "warning");
+assert.equal(vm.runInContext(
+  "getServicePlanStatus({ mileage: 1000 }, { nextMileage: 900 }, new Date('2026-01-01')).key",
+  context
+), "danger");
+assert.equal(vm.runInContext(
+  "getServicePlanStatus({ mileage: 1000 }, null, new Date('2026-01-01')).key",
+  context
+), "empty");
+
 const selection = catalog.resolveByKey(
   "honda",
   "vfr800",

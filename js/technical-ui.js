@@ -1,5 +1,5 @@
 /* =========================================================
-   VFR MASTER
+   REVLOG
    INTERFEJS BAZY TECHNICZNEJ AKTYWNEGO MOTOCYKLA
    ========================================================= */
 let activeTechnicalRegistrationKey = null;
@@ -82,7 +82,7 @@ function openTechnicalBase() {
           Rok: ${escapeHtml(bike.year || "—")}
         </p>
         <p class="section-note">
-          Ten model nie został jeszcze dodany do bazy VFR Master.
+          Ten model nie został jeszcze dodany do bazy technicznej.
         </p>
       </div>
     `;
@@ -95,7 +95,7 @@ function openTechnicalBase() {
   container.innerHTML = `
     <div class="card hero">
       <div class="logo">
-        VFR MASTER • BAZA TECHNICZNA
+        REVLOG • BAZA TECHNICZNA
       </div>
       <h2>
         ${escapeHtml(model.brand)}
@@ -154,7 +154,7 @@ function openTechnicalSection(sectionKey) {
     </button>
     <div class="card hero">
       <div class="logo">
-        VFR MASTER
+        REVLOG
       </div>
       <h2>
         ${escapeHtml(section.icon)}

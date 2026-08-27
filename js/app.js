@@ -1,9 +1,68 @@
+function getFriendlyVariantName(bike) {
+  const match = window.MotorcycleCatalog && MotorcycleCatalog.getVariantByKey
+    ? MotorcycleCatalog.getVariantByKey(bike && bike.catalogVariantKey)
+    : null;
+  return match ? match.variant.name : "Wariant katalogowy niedostępny";
+}
+
+function getServicePlanStatus(bike, nextService, today = new Date()) {
+  if (!bike || !nextService) return { key: "empty", label: "Brak danych do oceny" };
+  const dueByMileage = nextService.nextMileage && Number(nextService.nextMileage) <= Number(bike.mileage || 0);
+  const dueByDate = nextService.nextDate && new Date(nextService.nextDate).getTime() <= today.getTime();
+  if (dueByMileage || dueByDate) return { key: "danger", label: "Serwis do wykonania" };
+  const kmLeft = nextService.nextMileage ? Number(nextService.nextMileage) - Number(bike.mileage || 0) : Infinity;
+  const daysLeft = nextService.nextDate ? (new Date(nextService.nextDate).getTime() - today.getTime()) / 86400000 : Infinity;
+  if (kmLeft <= 1000 || daysLeft <= 30) return { key: "warning", label: "Serwis zbliża się" };
+  return { key: "ok", label: "Plan serwisowy OK" };
+}
+
+function formatNextService(nextService, bike) {
+  if (!nextService) return "Brak zaplanowanego serwisu";
+  if (nextService.nextMileage) {
+    const left = Number(nextService.nextMileage) - Number(bike.mileage || 0);
+    return left > 0 ? `za ${left.toLocaleString("pl-PL")} km` : "do wykonania";
+  }
+  return nextService.nextDate ? `do ${nextService.nextDate}` : "zaplanowany";
+}
+
+function renderDashboard() {
+  const container = document.getElementById("dashboardContent");
+  if (!container) return;
+  const bike = MotorcycleDatabase.getActive();
+  if (!bike) {
+    container.innerHTML = `<div class="card hero-dashboard"><div class="hero-kicker">RevLog</div><h1>Twój garaż zaczyna się tutaj.</h1><p class="hero-meta">Dodaj pierwszy motocykl i zacznij budować jego historię.</p><button class="primary" onclick="navigateTo('garage')">🏍️ Dodaj motocykl</button></div>`;
+    return;
+  }
+  const services = ServiceModule.getSortedServices();
+  const nextService = ServiceModule.getNextService();
+  const status = getServicePlanStatus(bike, nextService);
+  const variant = getFriendlyVariantName(bike);
+  const recent = services.slice(0, 3);
+  container.innerHTML = `<div class="dashboard-grid">
+    <div class="card hero-dashboard dashboard-wide">
+      <div class="hero-kicker">Aktywny motocykl</div>
+      <h1>${escapeHtml(bike.nickname || `${bike.brand} ${bike.model}`)}</h1>
+      <div class="hero-meta">${escapeHtml(bike.brand)} ${escapeHtml(bike.model)} · ${escapeHtml(bike.year || "—")} · ${escapeHtml(variant)}</div>
+      <div class="hero-mileage">${Number(bike.mileage || 0).toLocaleString("pl-PL")} <small>km przebiegu</small></div>
+      <div class="status-row status-${status.key}"><span class="status-dot"></span>${escapeHtml(status.label)}</div>
+    </div>
+    <div><div class="dashboard-section-title"><h2>Najbliższy serwis</h2><span>plan</span></div><div class="card next-service-card"><div><b>${nextService ? escapeHtml(nextService.description) : "Brak zaplanowanego serwisu"}</b><div class="muted">${nextService && nextService.nextDate ? escapeHtml(nextService.nextDate) : ""}</div></div><div class="next-service-value">${escapeHtml(formatNextService(nextService, bike))}</div></div></div>
+    <div><div class="dashboard-section-title"><h2>Szybkie akcje</h2></div><div class="quick-actions"><button class="quick-action" onclick="openServiceForActiveBike()"><span class="icon">＋</span>Dodaj serwis<small>Nowy wpis</small></button><button class="quick-action" onclick="navigateTo('service')"><span class="icon">📓</span>Historia<small>RevLog</small></button><button class="quick-action" onclick="navigateTo('technical')"><span class="icon">📖</span>Techniczne<small>Dane modelu</small></button><button class="quick-action" onclick="navigateTo('garage')"><span class="icon">🏍️</span>Garaż<small>Wszystkie motocykle</small></button></div></div>
+    <div class="dashboard-wide"><div class="dashboard-section-title"><h2>Ostatnia aktywność</h2><span>${services.length ? `${services.length} wpisów` : "RevLog"}</span></div><div class="card">${recent.length ? recent.map(service => `<div class="activity-item"><span>🔧</span><div><b>${escapeHtml(service.description || service.type || "Serwis")}</b><div class="muted">${escapeHtml(service.date || "—")} · ${Number(service.mileage || 0).toLocaleString("pl-PL")} km</div></div></div>`).join("") : `<div class="empty">Nie masz jeszcze historii serwisowej.<br><button class="secondary" onclick="openServiceForActiveBike()">Dodaj pierwszy wpis</button></div>`}${services.length > 3 ? `<button class="secondary" onclick="navigateTo('service')">Zobacz całą historię</button>` : ""}</div></div>
+  </div>`;
+}
+
 const VFRApp = {
   async init() {
     const loaded =
       await MotorcycleDatabase.load();
 
     this.renderGarage();
+    const activeBike = MotorcycleDatabase.getActive();
+    if (activeBike) {
+      await ServiceModule.loadServices(activeBike.id);
+    }
+    renderDashboard();
 
     if (!loaded) {
       alert(
@@ -48,6 +107,7 @@ const VFRApp = {
             ${escapeHtml(bike.model)}
             • ${escapeHtml(bike.year || "—")}
           </span>
+          <br><span class="muted">${escapeHtml(getFriendlyVariantName(bike))}</span>
           <br>
           <span class="muted">
             ${Number(bike.mileage || 0)
@@ -262,6 +322,7 @@ async function addMotorcycle() {
   });
   initializeMotorcycleForm();
   VFRApp.renderGarage();
+  renderDashboard();
   alert("Motocykl dodany do garażu 🏍️");
 }
 /* =====================================================
@@ -291,6 +352,7 @@ async function selectMotorcycle(id) {
   }
 
   VFRApp.renderGarage();
+  renderDashboard();
   alert(
     "Aktywny motocykl:\n\n" +
     bike.brand +
@@ -341,6 +403,7 @@ async function deleteMotorcycle(id) {
   }
 
   VFRApp.renderGarage();
+  renderDashboard();
 }
 /* =====================================================
    KARTA MOTOCYKLA
@@ -836,12 +899,12 @@ async function renderServiceHistory(loadFromSupabase = true) {
     container.innerHTML = html;
     return;
   }
-  html += services.map(service => {
+  html += `<div class="timeline">` + services.map(service => {
     const total =
       Number(service.partsCost || 0) +
       Number(service.laborCost || 0);
     return `
-      <div class="list-item">
+      <div class="timeline-item">
         <b>
           ${escapeHtml(
             service.description
@@ -966,7 +1029,7 @@ async function renderServiceHistory(loadFromSupabase = true) {
         </button>
       </div>
     `;
-  }).join("");
+  }).join("") + `</div>`;
   container.innerHTML =
     html;
 }
@@ -1047,6 +1110,9 @@ async function navigateTo(pageId) {
     });
   if (pageId === "garage") {
     VFRApp.renderGarage();
+  }
+  if (pageId === "home") {
+    renderDashboard();
   }
   if (pageId === "service") {
     await renderServiceHistory();
