@@ -38,6 +38,9 @@ function renderDashboard() {
   const status = getServicePlanStatus(bike, nextService);
   const variant = getFriendlyVariantName(bike);
   const recent = services.slice(0, 3);
+  const nextServiceMarkup = nextService
+    ? `<div class="card next-service-card"><div><b>${escapeHtml(nextService.description)}</b><div class="muted">${nextService.nextDate ? escapeHtml(nextService.nextDate) : ""}</div></div><div class="next-service-value">${escapeHtml(formatNextService(nextService, bike))}</div></div>`
+    : `<div class="card"><b>Brak zaplanowanego serwisu</b><p class="muted">Dodaj plan, aby RevLog mógł przypomnieć Ci o kolejnym serwisie.</p><button class="secondary" onclick="openServiceForActiveBike()">＋ Zaplanuj serwis</button></div>`;
   container.innerHTML = `<div class="dashboard-grid">
     <div class="card hero-dashboard dashboard-wide">
       <div class="hero-kicker">Aktywny motocykl</div>
@@ -46,7 +49,7 @@ function renderDashboard() {
       <div class="hero-mileage">${Number(bike.mileage || 0).toLocaleString("pl-PL")} <small>km przebiegu</small></div>
       <div class="status-row status-${status.key}"><span class="status-dot"></span>${escapeHtml(status.label)}</div>
     </div>
-    <div><div class="dashboard-section-title"><h2>Najbliższy serwis</h2><span>plan</span></div><div class="card next-service-card"><div><b>${nextService ? escapeHtml(nextService.description) : "Brak zaplanowanego serwisu"}</b><div class="muted">${nextService && nextService.nextDate ? escapeHtml(nextService.nextDate) : ""}</div></div><div class="next-service-value">${escapeHtml(formatNextService(nextService, bike))}</div></div></div>
+    <div><div class="dashboard-section-title"><h2>Najbliższy serwis</h2><span>plan</span></div>${nextServiceMarkup}</div>
     <div><div class="dashboard-section-title"><h2>Szybkie akcje</h2></div><div class="quick-actions"><button class="quick-action" onclick="openServiceForActiveBike()"><span class="icon">＋</span>Dodaj serwis<small>Nowy wpis</small></button><button class="quick-action" onclick="navigateTo('service')"><span class="icon">📓</span>Historia<small>RevLog</small></button><button class="quick-action" onclick="navigateTo('technical')"><span class="icon">📖</span>Techniczne<small>Dane modelu</small></button><button class="quick-action" onclick="navigateTo('garage')"><span class="icon">🏍️</span>Garaż<small>Wszystkie motocykle</small></button></div></div>
     <div class="dashboard-wide"><div class="dashboard-section-title"><h2>Ostatnia aktywność</h2><span>${services.length ? `${services.length} wpisów` : "RevLog"}</span></div><div class="card">${recent.length ? recent.map(service => `<div class="activity-item"><span>🔧</span><div><b>${escapeHtml(service.description || service.type || "Serwis")}</b><div class="muted">${escapeHtml(service.date || "—")} · ${Number(service.mileage || 0).toLocaleString("pl-PL")} km</div></div></div>`).join("") : `<div class="empty">Nie masz jeszcze historii serwisowej.<br><button class="secondary" onclick="openServiceForActiveBike()">Dodaj pierwszy wpis</button></div>`}${services.length > 3 ? `<button class="secondary" onclick="navigateTo('service')">Zobacz całą historię</button>` : ""}</div></div>
   </div>`;
@@ -94,13 +97,14 @@ const VFRApp = {
       const active =
         bike.id === MotorcycleDatabase.activeMotorcycleId;
       return `
-        <div class="list-item">
-          <b>
+        <div class="list-item garage-card">
+          ${active ? `<span class="active-badge">AKTYWNY</span>` : ""}
+          <h3>
             ${escapeHtml(
               bike.nickname ||
               `${bike.brand} ${bike.model}`
             )}
-          </b>
+          </h3>
           <br>
           <span class="muted">
             ${escapeHtml(bike.brand)}
@@ -113,25 +117,11 @@ const VFRApp = {
             ${Number(bike.mileage || 0)
               .toLocaleString("pl-PL")} km
           </span>
-          <button
-            class="secondary"
-            onclick="selectMotorcycle('${bike.id}')">
-            ${
-              active
-                ? "✅ AKTYWNY MOTOCYKL"
-                : "🏍️ USTAW JAKO AKTYWNY"
-            }
-          </button>
-          <button
-            class="secondary"
-            onclick="openBikeCard('${bike.id}')">
-            🔍 Otwórz kartę motocykla
-          </button>
-          <button
-            class="danger"
-            onclick="deleteMotorcycle('${bike.id}')">
-            🗑️ Usuń
-          </button>
+          <div class="garage-actions">
+            ${active ? "" : `<button class="secondary" onclick="selectMotorcycle('${bike.id}')">Ustaw aktywny</button>`}
+            <button class="secondary" onclick="openBikeCard('${bike.id}')">Otwórz kartę</button>
+            <button class="danger" aria-label="Usuń motocykl" title="Usuń motocykl" onclick="deleteMotorcycle('${bike.id}')">×</button>
+          </div>
         </div>
       `;
     }).join("");
@@ -1017,16 +1007,10 @@ async function renderServiceHistory(loadFromSupabase = true) {
             `
             : ""
         }
-        <button
-          class="secondary"
-          onclick="editService('${service.id}')">
-          ✏️ Edytuj
-        </button>
-        <button
-          class="danger"
-          onclick="removeService('${service.id}')">
-          🗑️ Usuń wpis
-        </button>
+        <div class="service-actions">
+          <button class="secondary" onclick="editService('${service.id}')">Edytuj</button>
+          <button class="danger" onclick="removeService('${service.id}')">Usuń wpis</button>
+        </div>
       </div>
     `;
   }).join("") + `</div>`;
