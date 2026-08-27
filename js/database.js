@@ -78,6 +78,55 @@ const MotorcycleDatabase = {
     };
   },
 
+  analyzeLegacyMotorcycles(motorcycles) {
+    const source = Array.isArray(motorcycles) ? motorcycles : [];
+    const report = {
+      total: source.length,
+      alreadyMigrated: 0,
+      unique: 0,
+      ambiguous: 0,
+      notFound: 0,
+      results: []
+    };
+
+    report.results = source.map(motorcycle => {
+      const analysis =
+        window.MotorcycleCatalog.analyzeLegacyMotorcycle(motorcycle);
+      const currentCatalogVariantKey =
+        String(motorcycle.catalogVariantKey ?? "").trim()
+          ? motorcycle.catalogVariantKey
+          : null;
+      const proposedCatalogVariantKey =
+        analysis.status === "unique"
+          ? analysis.catalogVariantKey
+          : null;
+
+      if (analysis.status === "already_migrated") {
+        report.alreadyMigrated += 1;
+      } else if (analysis.status === "unique") {
+        report.unique += 1;
+      } else if (analysis.status === "ambiguous") {
+        report.ambiguous += 1;
+      } else {
+        report.notFound += 1;
+      }
+
+      return {
+        id: motorcycle.id ?? null,
+        brand: motorcycle.brand ?? null,
+        model: motorcycle.model ?? null,
+        year: motorcycle.year ?? null,
+        currentCatalogVariantKey,
+        status: analysis.status,
+        proposedCatalogVariantKey,
+        candidateCount: analysis.candidateCount,
+        candidates: analysis.candidates
+      };
+    });
+
+    return report;
+  },
+
   async fetchMotorcycles(includeCatalogVariantKey = true) {
     return window.supabaseClient
       .from("motorcycles")
