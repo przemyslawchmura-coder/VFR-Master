@@ -485,3 +485,12 @@ const VFRTechnical = {
 =========================================================
 */
 window.VFRTechnical = VFRTechnical;
+
+// Rejestracje kolejnych modeli umieszczamy w ich osobnych
+// plikach, ładowanych po technical-database.js.
+window.TechnicalDatabase.register({
+  brand: "Honda",
+  model: "VFR800 VTEC",
+  year: 2002,
+  database: VFRTechnical
+});

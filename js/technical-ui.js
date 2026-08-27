@@ -1,24 +1,82 @@
 /* =========================================================
    VFR MASTER
-   INTERFEJS BAZY TECHNICZNEJ
-   Honda VFR800 VTEC 2002
+   INTERFEJS BAZY TECHNICZNEJ AKTYWNEGO MOTOCYKLA
    ========================================================= */
+let activeTechnicalRegistrationKey = null;
+
+function getActiveTechnicalContext() {
+  const container = document.getElementById("technical");
+  const bike = window.MotorcycleDatabase
+    ? MotorcycleDatabase.getActive()
+    : null;
+  const registration =
+    bike && window.TechnicalDatabase
+      ? TechnicalDatabase.getRegistrationForMotorcycle(bike)
+      : null;
+
+  return {
+    container,
+    bike,
+    registration,
+    database: registration ? registration.database : null
+  };
+}
+
+function hasCurrentTechnicalContext(context) {
+  return Boolean(
+    context.registration &&
+    context.registration.key === activeTechnicalRegistrationKey
+  );
+}
+
 /* =========================================================
    OTWARCIE BAZY TECHNICZNEJ
    ========================================================= */
 function openTechnicalBase() {
-  const container =
-    document.getElementById("technical");
-  if (
-    !container ||
-    !window.VFRTechnical
-  ) {
+  const context = getActiveTechnicalContext();
+  const { container, bike, registration, database } = context;
+
+  activeTechnicalRegistrationKey = registration
+    ? registration.key
+    : null;
+
+  if (!container) return;
+
+  if (!bike) {
+    container.innerHTML = `
+      <div class="card">
+        <div class="empty">
+          Najpierw wybierz motocykl w garażu.
+        </div>
+      </div>
+    `;
     return;
   }
-  const model =
-    VFRTechnical.model;
-  const categories =
-    VFRTechnical.getCategoryList();
+
+  if (!database) {
+    container.innerHTML = `
+      <div class="card hero">
+        <h2>
+          Brak danych technicznych dla:
+        </h2>
+        <h3>
+          ${escapeHtml(bike.brand)}
+          ${escapeHtml(bike.model)}
+        </h3>
+        <p class="section-note">
+          Rok: ${escapeHtml(bike.year || "—")}
+        </p>
+        <p class="section-note">
+          Ten model nie został jeszcze dodany do bazy VFR Master.
+        </p>
+      </div>
+    `;
+    return;
+  }
+
+  const model = database.model;
+  const categories = database.getCategoryList();
+
   container.innerHTML = `
     <div class="card hero">
       <div class="logo">
@@ -29,7 +87,7 @@ function openTechnicalBase() {
         ${escapeHtml(model.model)}
       </h2>
       <p class="section-note">
-        Rok ${escapeHtml(model.year)}
+        Rok ${escapeHtml(bike.year)}
       </p>
     </div>
     <div class="card">
@@ -51,28 +109,28 @@ function openTechnicalBase() {
     </div>
   `;
 }
+
 /* =========================================================
    OTWARCIE KATEGORII
    ========================================================= */
 function openTechnicalSection(sectionKey) {
-  const section =
-    VFRTechnical.getCategory(
-      sectionKey
-    );
-  const container =
-    document.getElementById(
-      "technical"
-    );
-  if (
-    !section ||
-    !container
-  ) {
+  const context = getActiveTechnicalContext();
+
+  if (!hasCurrentTechnicalContext(context)) {
+    openTechnicalBase();
     return;
   }
-  const items =
-    Object.entries(
-      section.items || {}
-    );
+
+  const { container, database } = context;
+  const section = database.getCategory(sectionKey);
+
+  if (!section || !container) {
+    openTechnicalBase();
+    return;
+  }
+
+  const items = Object.entries(section.items || {});
+
   container.innerHTML = `
     <button
       class="back"
@@ -116,33 +174,29 @@ function openTechnicalSection(sectionKey) {
     </div>
   `;
 }
+
 /* =========================================================
    SZCZEGÓŁ PARAMETRU
    ========================================================= */
-function openTechnicalItem(
-  sectionKey,
-  itemKey
-) {
-  const section =
-    VFRTechnical.getCategory(
-      sectionKey
-    );
-  if (!section) {
+function openTechnicalItem(sectionKey, itemKey) {
+  const context = getActiveTechnicalContext();
+
+  if (!hasCurrentTechnicalContext(context)) {
+    openTechnicalBase();
     return;
   }
-  const item =
-    section.items &&
-    section.items[itemKey];
-  if (!item) {
+
+  const { container, database } = context;
+  const section = database.getCategory(sectionKey);
+  const item = section && section.items
+    ? section.items[itemKey]
+    : null;
+
+  if (!section || !item || !container) {
+    openTechnicalBase();
     return;
   }
-  const container =
-    document.getElementById(
-      "technical"
-    );
-  if (!container) {
-    return;
-  }
+
   container.innerHTML = `
     <button
       class="back"
@@ -184,9 +238,7 @@ function openTechnicalItem(
                 border-radius:12px;
               ">
               ℹ️
-              ${escapeHtml(
-                item.description
-              )}
+              ${escapeHtml(item.description)}
             </div>
           `
           : ""
@@ -194,12 +246,10 @@ function openTechnicalItem(
     </div>
   `;
 }
+
 /* =========================================================
    GLOBAL
    ========================================================= */
-window.openTechnicalBase =
-  openTechnicalBase;
-window.openTechnicalSection =
-  openTechnicalSection;
-window.openTechnicalItem =
-  openTechnicalItem;
+window.openTechnicalBase = openTechnicalBase;
+window.openTechnicalSection = openTechnicalSection;
+window.openTechnicalItem = openTechnicalItem;
