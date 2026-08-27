@@ -54,6 +54,21 @@ function openTechnicalBase() {
   }
 
   if (!database) {
+    const ambiguity = window.TechnicalDatabase
+      ? TechnicalDatabase.getAmbiguityForMotorcycle(bike)
+      : null;
+
+    if (ambiguity) {
+      container.innerHTML = `
+        <div class="card">
+          <div class="empty">
+            ${escapeHtml(ambiguity.message)}
+          </div>
+        </div>
+      `;
+      return;
+    }
+
     container.innerHTML = `
       <div class="card hero">
         <h2>

@@ -4,6 +4,7 @@
    ========================================================= */
 const TechnicalDatabase = {
   registrations: [],
+  ambiguities: [],
 
   normalize(value) {
     return String(value ?? "")
@@ -32,6 +33,7 @@ const TechnicalDatabase = {
     year,
     yearFrom,
     yearTo,
+    aliases = [],
     database
   }) {
     const normalizedBrand = this.normalize(brand);
@@ -80,6 +82,9 @@ const TechnicalDatabase = {
       key,
       brand,
       model,
+      models: [model, ...aliases].map(
+        value => this.normalize(value)
+      ),
       yearFrom: normalizedYearFrom,
       yearTo: normalizedYearTo,
       database
@@ -112,7 +117,7 @@ const TechnicalDatabase = {
     return this.registrations
       .filter(registration =>
         this.normalize(registration.brand) === brand &&
-        this.normalize(registration.model) === model &&
+        registration.models.includes(model) &&
         year >= registration.yearFrom &&
         year <= registration.yearTo
       )
@@ -127,6 +132,60 @@ const TechnicalDatabase = {
       this.getRegistrationForMotorcycle(bike);
 
     return registration ? registration.database : null;
+  },
+
+  registerAmbiguity({
+    brand,
+    model,
+    aliases = [],
+    yearFrom,
+    yearTo,
+    message
+  }) {
+    const ambiguity = {
+      brand: this.normalize(brand),
+      models: [model, ...aliases].map(
+        value => this.normalize(value)
+      ),
+      yearFrom: this.normalizeYear(yearFrom),
+      yearTo: this.normalizeYear(yearTo),
+      message
+    };
+
+    if (
+      !ambiguity.brand ||
+      !ambiguity.models[0] ||
+      ambiguity.yearFrom === null ||
+      ambiguity.yearTo === null ||
+      ambiguity.yearFrom > ambiguity.yearTo ||
+      !message
+    ) {
+      throw new Error(
+        "Nieprawidłowa definicja niejednoznacznego modelu."
+      );
+    }
+
+    this.ambiguities.push(ambiguity);
+    return ambiguity;
+  },
+
+  getAmbiguityForMotorcycle(bike) {
+    if (!bike) return null;
+
+    const brand = this.normalize(bike.brand);
+    const model = this.normalize(bike.model);
+    const year = this.normalizeYear(bike.year);
+
+    if (!brand || !model || year === null) {
+      return null;
+    }
+
+    return this.ambiguities.find(ambiguity =>
+      ambiguity.brand === brand &&
+      ambiguity.models.includes(model) &&
+      year >= ambiguity.yearFrom &&
+      year <= ambiguity.yearTo
+    ) || null;
   }
 };
 
