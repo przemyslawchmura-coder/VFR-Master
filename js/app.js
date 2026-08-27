@@ -49,7 +49,7 @@ function renderDashboard() {
       <div class="hero-mileage">${Number(bike.mileage || 0).toLocaleString("pl-PL")} <small>km przebiegu</small></div>
       <div class="status-row status-${status.key}"><span class="status-dot"></span>${escapeHtml(status.label)}</div>
     </div>
-    <div><div class="dashboard-section-title"><h2>Najbliższy serwis</h2><span>plan</span></div>${nextServiceMarkup}</div>
+    <div><div class="dashboard-section-title"><h2>Najbliższy serwis</h2></div>${nextServiceMarkup}</div>
     <div><div class="dashboard-section-title"><h2>Szybkie akcje</h2></div><div class="quick-actions"><button class="quick-action" onclick="openServiceForActiveBike()"><span class="icon">＋</span>Dodaj serwis<small>Nowy wpis</small></button><button class="quick-action" onclick="navigateTo('service')"><span class="icon">📓</span>Historia<small>RevLog</small></button><button class="quick-action" onclick="navigateTo('technical')"><span class="icon">📖</span>Techniczne<small>Dane modelu</small></button><button class="quick-action" onclick="navigateTo('garage')"><span class="icon">🏍️</span>Garaż<small>Wszystkie motocykle</small></button></div></div>
     <div class="dashboard-wide"><div class="dashboard-section-title"><h2>Ostatnia aktywność</h2><span>${services.length ? `${services.length} wpisów` : "RevLog"}</span></div><div class="card">${recent.length ? recent.map(service => `<div class="activity-item"><span>🔧</span><div><b>${escapeHtml(service.description || service.type || "Serwis")}</b><div class="muted">${escapeHtml(service.date || "—")} · ${Number(service.mileage || 0).toLocaleString("pl-PL")} km</div></div></div>`).join("") : `<div class="empty">Nie masz jeszcze historii serwisowej.<br><button class="secondary" onclick="openServiceForActiveBike()">Dodaj pierwszy wpis</button></div>`}${services.length > 3 ? `<button class="secondary" onclick="navigateTo('service')">Zobacz całą historię</button>` : ""}</div></div>
   </div>`;
@@ -105,22 +105,15 @@ const VFRApp = {
               `${bike.brand} ${bike.model}`
             )}
           </h3>
-          <br>
-          <span class="muted">
-            ${escapeHtml(bike.brand)}
-            ${escapeHtml(bike.model)}
-            • ${escapeHtml(bike.year || "—")}
-          </span>
-          <br><span class="muted">${escapeHtml(getFriendlyVariantName(bike))}</span>
-          <br>
-          <span class="muted">
-            ${Number(bike.mileage || 0)
-              .toLocaleString("pl-PL")} km
-          </span>
+          <div class="garage-meta muted">
+            <span>${escapeHtml(bike.brand)} ${escapeHtml(bike.model)} · ${escapeHtml(bike.year || "—")}</span>
+            <span>${escapeHtml(getFriendlyVariantName(bike))}</span>
+            <span>${Number(bike.mileage || 0).toLocaleString("pl-PL")} km</span>
+          </div>
           <div class="garage-actions">
             ${active ? "" : `<button class="secondary" onclick="selectMotorcycle('${bike.id}')">Ustaw aktywny</button>`}
             <button class="secondary" onclick="openBikeCard('${bike.id}')">Otwórz kartę</button>
-            <button class="danger" aria-label="Usuń motocykl" title="Usuń motocykl" onclick="deleteMotorcycle('${bike.id}')">×</button>
+            <button class="danger" aria-label="Usuń motocykl" title="Usuń motocykl" onclick="deleteMotorcycle('${bike.id}')"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16m-10 4v6m4-6v6M9 7V4h6v3m-9 0 1 14h10l1-14"/></svg></button>
           </div>
         </div>
       `;
@@ -827,7 +820,7 @@ async function renderServiceHistory(loadFromSupabase = true) {
   const labor =
     ServiceModule.getLaborCost();
   let html = `
-    <div class="stats">
+    <div class="stats service-stats">
       <div class="stat">
         <div class="stat-value">
           ${services.length}
@@ -917,9 +910,7 @@ async function renderServiceHistory(loadFromSupabase = true) {
           )}
           km
         </span>
-        <br><br>
-        💰
-        <b>
+        <div class="service-cost"><b>
           ${total.toLocaleString(
             "pl-PL",
             {
@@ -928,8 +919,7 @@ async function renderServiceHistory(loadFromSupabase = true) {
             }
           )}
           zł
-        </b>
-        <br>
+        </b></div>
         <span class="muted">
           Części:
           ${Number(
