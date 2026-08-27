@@ -199,6 +199,113 @@ const MotorcycleDatabase = {
     return plan;
   },
 
+  async executeLegacyMigrationPlan(plan, client) {
+    if (!plan || !Array.isArray(plan.operations)) {
+      throw new Error("Plan migracji musi zawierać tablicę operations.");
+    }
+
+    if (!client || typeof client.from !== "function") {
+      throw new Error("Executor migracji wymaga jawnie przekazanego klienta.");
+    }
+
+    const catalogVariantKeyPattern =
+      /^[a-z0-9]+(?:[.-][a-z0-9]+)*$/;
+    const operationIds = new Set();
+
+    plan.operations.forEach(operation => {
+      const hasId =
+        operation &&
+        operation.id !== null &&
+        operation.id !== undefined &&
+        String(operation.id).trim() !== "";
+      const hasTargetKey =
+        operation &&
+        typeof operation.toCatalogVariantKey === "string" &&
+        catalogVariantKeyPattern.test(
+          operation.toCatalogVariantKey
+        );
+      const hasEmptySourceKey =
+        operation &&
+        (
+          operation.fromCatalogVariantKey === null ||
+          operation.fromCatalogVariantKey === undefined ||
+          (
+            typeof operation.fromCatalogVariantKey === "string" &&
+            operation.fromCatalogVariantKey.trim() === ""
+          )
+        );
+
+      if (!hasId || !hasTargetKey || !hasEmptySourceKey) {
+        throw new Error("Plan migracji zawiera niepoprawną operację.");
+      }
+
+      const normalizedId = String(operation.id).trim();
+
+      if (operationIds.has(normalizedId)) {
+        throw new Error("Plan migracji zawiera zduplikowane id.");
+      }
+
+      operationIds.add(normalizedId);
+    });
+
+    const report = {
+      total: plan.operations.length,
+      migrated: 0,
+      skipped: 0,
+      failed: 0,
+      results: []
+    };
+
+    for (const operation of plan.operations) {
+      try {
+        const { data, error } = await client
+          .from("motorcycles")
+          .update({
+            catalog_variant_key: operation.toCatalogVariantKey
+          })
+          .eq("id", operation.id)
+          .is("catalog_variant_key", null)
+          .select("id, catalog_variant_key");
+
+        if (error) {
+          report.failed += 1;
+          report.results.push({
+            id: operation.id,
+            toCatalogVariantKey: operation.toCatalogVariantKey,
+            status: "failed",
+            reason: error.message || "update_failed"
+          });
+        } else if (!Array.isArray(data) || data.length !== 1) {
+          report.skipped += 1;
+          report.results.push({
+            id: operation.id,
+            toCatalogVariantKey: operation.toCatalogVariantKey,
+            status: "skipped",
+            reason: "no_match"
+          });
+        } else {
+          report.migrated += 1;
+          report.results.push({
+            id: operation.id,
+            toCatalogVariantKey: operation.toCatalogVariantKey,
+            status: "migrated",
+            reason: null
+          });
+        }
+      } catch (error) {
+        report.failed += 1;
+        report.results.push({
+          id: operation.id,
+          toCatalogVariantKey: operation.toCatalogVariantKey,
+          status: "failed",
+          reason: error.message || "update_failed"
+        });
+      }
+    }
+
+    return report;
+  },
+
   async fetchMotorcycles(includeCatalogVariantKey = true) {
     return window.supabaseClient
       .from("motorcycles")
