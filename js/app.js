@@ -298,7 +298,7 @@ function showBikeCard(bike) {
     <div class="grid">
       <button
         class="tile"
-        onclick="openServiceModule()">
+        onclick="openServiceForActiveBike()">
         <span class="icon">🔧</span>
         Serwis
       </button>
