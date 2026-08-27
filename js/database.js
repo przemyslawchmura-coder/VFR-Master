@@ -1,5 +1,12 @@
 const MotorcycleDatabase = {
 
+  motorcycleColumns:
+    "id, user_id, brand, model, year, mileage, vin, nickname, " +
+    "catalog_variant_key, created_at",
+
+  legacyMotorcycleColumns:
+    "id, user_id, brand, model, year, mileage, vin, nickname, created_at",
+
   motorcycles: [],
 
   activeMotorcycleId: null,
@@ -20,6 +27,80 @@ const MotorcycleDatabase = {
     if (error) {
       console.error(error);
     }
+  },
+
+  isMissingCatalogVariantKeyColumnError(error) {
+    if (!error || !["PGRST204", "42703"].includes(error.code)) {
+      return false;
+    }
+
+    const errorText = [
+      error.message,
+      error.details,
+      error.hint
+    ].filter(Boolean).join(" ").toLowerCase();
+
+    return errorText.includes("catalog_variant_key");
+  },
+
+  serializeMotorcycle(motorcycle, userId, includeCatalogVariantKey = true) {
+    const payload = {
+      user_id: userId,
+      brand: motorcycle.brand,
+      model: motorcycle.model,
+      year:
+        motorcycle.year === "" ||
+        motorcycle.year === undefined
+          ? null
+          : Number(motorcycle.year),
+      mileage: Number(motorcycle.mileage || 0),
+      vin: motorcycle.vin || null,
+      nickname: motorcycle.nickname || null
+    };
+
+    if (includeCatalogVariantKey) {
+      payload.catalog_variant_key =
+        motorcycle.catalogVariantKey || null;
+    }
+
+    return payload;
+  },
+
+  deserializeMotorcycle(motorcycle) {
+    const {
+      catalog_variant_key: catalogVariantKey,
+      ...applicationMotorcycle
+    } = motorcycle;
+
+    return {
+      ...applicationMotorcycle,
+      catalogVariantKey: catalogVariantKey ?? null
+    };
+  },
+
+  async fetchMotorcycles(includeCatalogVariantKey = true) {
+    return window.supabaseClient
+      .from("motorcycles")
+      .select(
+        includeCatalogVariantKey
+          ? this.motorcycleColumns
+          : this.legacyMotorcycleColumns
+      )
+      .order("created_at", {
+        ascending: true
+      });
+  },
+
+  async insertMotorcycle(payload, includeCatalogVariantKey = true) {
+    return window.supabaseClient
+      .from("motorcycles")
+      .insert(payload)
+      .select(
+        includeCatalogVariantKey
+          ? this.motorcycleColumns
+          : this.legacyMotorcycleColumns
+      )
+      .single();
   },
 
   getAll() {
@@ -157,17 +238,14 @@ const MotorcycleDatabase = {
     }
 
     try {
-      const {
+      let {
         data,
         error
-      } = await window.supabaseClient
-        .from("motorcycles")
-        .select(
-          "id, user_id, brand, model, year, mileage, vin, nickname, created_at"
-        )
-        .order("created_at", {
-          ascending: true
-        });
+      } = await this.fetchMotorcycles();
+
+      if (this.isMissingCatalogVariantKeyColumnError(error)) {
+        ({ data, error } = await this.fetchMotorcycles(false));
+      }
 
       if (error) {
         this.setError(
@@ -180,7 +258,9 @@ const MotorcycleDatabase = {
 
       this.motorcycles = (data || []).map(
         motorcycle =>
-          this.attachLegacyServiceData(motorcycle)
+          this.attachLegacyServiceData(
+            this.deserializeMotorcycle(motorcycle)
+          )
       );
 
       this.activeMotorcycleId =
@@ -208,31 +288,29 @@ const MotorcycleDatabase = {
       return null;
     }
 
-    const payload = {
-      user_id: session.user.id,
-      brand: motorcycle.brand,
-      model: motorcycle.model,
-      year:
-        motorcycle.year === "" ||
-        motorcycle.year === undefined
-          ? null
-          : Number(motorcycle.year),
-      mileage: Number(motorcycle.mileage || 0),
-      vin: motorcycle.vin || null,
-      nickname: motorcycle.nickname || null
-    };
+    const payload = this.serializeMotorcycle(
+      motorcycle,
+      session.user.id
+    );
 
     try {
-      const {
+      let {
         data,
         error
-      } = await window.supabaseClient
-        .from("motorcycles")
-        .insert(payload)
-        .select(
-          "id, user_id, brand, model, year, mileage, vin, nickname, created_at"
-        )
-        .single();
+      } = await this.insertMotorcycle(payload);
+
+      if (this.isMissingCatalogVariantKeyColumnError(error)) {
+        const legacyPayload = this.serializeMotorcycle(
+          motorcycle,
+          session.user.id,
+          false
+        );
+
+        ({ data, error } = await this.insertMotorcycle(
+          legacyPayload,
+          false
+        ));
+      }
 
       if (error) {
         this.setError(
@@ -244,7 +322,9 @@ const MotorcycleDatabase = {
       }
 
       const savedMotorcycle =
-        this.attachLegacyServiceData(data);
+        this.attachLegacyServiceData(
+          this.deserializeMotorcycle(data)
+        );
 
       this.motorcycles.push(savedMotorcycle);
 

@@ -1,60 +1,11 @@
 /* =========================================================
-   VFR MASTER
-   CENTRALNY KATALOG MOTOCYKLI
-
-   Następne marki, modele i warianty dodajemy tutaj. Pole
-   storedModel musi odpowiadać nazwie z TechnicalDatabase.
+   VFR MASTER — CENTRALNY KATALOG MOTOCYKLI
+   Dane katalogowe są ładowane z data/motorcycle-catalog.js.
+   Sam katalog nie rejestruje żadnej bazy TechnicalDatabase.
    ========================================================= */
 const MotorcycleCatalog = {
   manualBrandId: "manual",
-
-  brands: [
-    {
-      id: "honda",
-      name: "Honda",
-      models: [
-        {
-          id: "vfr800",
-          name: "VFR800",
-          variants: [
-            {
-              id: "vtec",
-              name: "VTEC",
-              storedModel: "VFR800 VTEC",
-              yearFrom: 2002,
-              yearTo: 2002
-            }
-          ]
-        }
-      ]
-    },
-    {
-      id: "yamaha",
-      name: "Yamaha",
-      models: [
-        {
-          id: "fz1",
-          name: "FZ1",
-          variants: [
-            {
-              id: "n",
-              name: "N",
-              storedModel: "FZ1-N",
-              yearFrom: 2006,
-              yearTo: 2015
-            },
-            {
-              id: "s",
-              name: "S / Fazer",
-              storedModel: "FZ1-S",
-              yearFrom: 2006,
-              yearTo: 2015
-            }
-          ]
-        }
-      ]
-    }
-  ],
+  brands: window.MotorcycleCatalogData || [],
 
   getBrand(brandId) {
     return this.brands.find(brand => brand.id === brandId) || null;
@@ -82,7 +33,6 @@ const MotorcycleCatalog = {
 
   getYears(brandId, modelId, variantId) {
     const variant = this.getVariant(brandId, modelId, variantId);
-
     if (!variant) return [];
 
     return Array.from(
@@ -98,11 +48,8 @@ const MotorcycleCatalog = {
     const normalizedYear = Number(year);
 
     if (
-      !brand ||
-      !model ||
-      !variant ||
-      !this.getYears(brandId, modelId, variantId)
-        .includes(normalizedYear)
+      !brand || !model || !variant ||
+      !this.getYears(brandId, modelId, variantId).includes(normalizedYear)
     ) {
       return null;
     }
@@ -110,7 +57,8 @@ const MotorcycleCatalog = {
     return {
       brand: brand.name,
       model: variant.storedModel,
-      year: normalizedYear
+      year: normalizedYear,
+      catalogVariantKey: variant.key
     };
   }
 };
