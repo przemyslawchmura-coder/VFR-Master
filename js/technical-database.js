@@ -34,6 +34,7 @@ const TechnicalDatabase = {
     yearFrom,
     yearTo,
     aliases = [],
+    catalogVariantKeys = [],
     database
   }) {
     const normalizedBrand = this.normalize(brand);
@@ -82,6 +83,9 @@ const TechnicalDatabase = {
       key,
       brand,
       model,
+      catalogVariantKeys: catalogVariantKeys.map(
+        value => String(value ?? "").trim()
+      ),
       models: [model, ...aliases].map(
         value => this.normalize(value)
       ),
@@ -90,9 +94,31 @@ const TechnicalDatabase = {
       database
     };
 
+    if (registration.catalogVariantKeys.some(value => !value)) {
+      throw new Error(
+        "Klucz wariantu katalogowego nie może być pusty."
+      );
+    }
+
     const existingIndex = this.registrations.findIndex(
       item => item.key === key
     );
+
+    const conflictingRegistration = this.registrations.find(
+      (item, index) =>
+        index !== existingIndex &&
+        item.catalogVariantKeys.some(catalogVariantKey =>
+          registration.catalogVariantKeys.includes(catalogVariantKey)
+        ) &&
+        item.yearFrom <= registration.yearTo &&
+        registration.yearFrom <= item.yearTo
+    );
+
+    if (conflictingRegistration) {
+      throw new Error(
+        "Klucz wariantu katalogowego ma nakładające się profile techniczne."
+      );
+    }
 
     if (existingIndex >= 0) {
       this.registrations[existingIndex] = registration;
@@ -106,13 +132,31 @@ const TechnicalDatabase = {
   getRegistrationForMotorcycle(bike) {
     if (!bike) return null;
 
+    const catalogVariantKey =
+      String(bike.catalogVariantKey ?? "").trim();
+    const hasCatalogVariantKey = Boolean(catalogVariantKey);
     const brand = this.normalize(bike.brand);
     const model = this.normalize(bike.model);
     const year = this.normalizeYear(bike.year);
 
-    if (!brand || !model || year === null) {
+    if (year === null) {
       return null;
     }
+
+    if (hasCatalogVariantKey) {
+      return this.registrations
+        .filter(registration =>
+          registration.catalogVariantKeys.includes(catalogVariantKey) &&
+          year >= registration.yearFrom &&
+          year <= registration.yearTo
+        )
+        .sort((a, b) =>
+          (a.yearTo - a.yearFrom) -
+          (b.yearTo - b.yearFrom)
+        )[0] || null;
+    }
+
+    if (!brand || !model) return null;
 
     return this.registrations
       .filter(registration =>

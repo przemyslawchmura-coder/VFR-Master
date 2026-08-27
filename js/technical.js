@@ -492,5 +492,8 @@ window.TechnicalDatabase.register({
   brand: "Honda",
   model: "VFR800 VTEC",
   year: 2002,
+  catalogVariantKeys: [
+    "honda.vfr800.rc46.vtec.gen1"
+  ],
   database: VFRTechnical
 });

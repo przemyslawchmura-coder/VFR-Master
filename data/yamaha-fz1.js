@@ -393,6 +393,7 @@ window.TechnicalDatabase.register({
   aliases: ["FZ1 N", "FZ1N", "FZ1 Naked"],
   yearFrom: 2006,
   yearTo: 2015,
+  catalogVariantKeys: ["yamaha.fz1.gen2.n"],
   database: YamahaFZ1NTechnical
 });
 
@@ -402,6 +403,7 @@ window.TechnicalDatabase.register({
   aliases: ["FZ1 S", "FZ1S", "FZ1 Fazer", "Fazer FZ1"],
   yearFrom: 2006,
   yearTo: 2015,
+  catalogVariantKeys: ["yamaha.fz1.gen2.s"],
   database: YamahaFZ1STechnical
 });
 
