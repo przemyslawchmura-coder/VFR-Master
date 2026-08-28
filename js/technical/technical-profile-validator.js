@@ -1,11 +1,15 @@
 (function attachTechnicalProfileValidator(root, factory) {
   let unitsApi = root && root.RevLogTechnicalProfileUnits;
+  let sourcesApi = root && root.RevLogTechnicalProfileSources;
 
   if (!unitsApi && typeof module === "object" && module.exports) {
     unitsApi = require("./technical-profile-units.js");
   }
+  if (!sourcesApi && typeof module === "object" && module.exports) {
+    sourcesApi = require("./technical-profile-sources.js");
+  }
 
-  const api = factory(unitsApi);
+  const api = factory(unitsApi, sourcesApi);
 
   if (typeof module === "object" && module.exports) {
     module.exports = api;
@@ -14,7 +18,10 @@
   if (root) {
     root.RevLogTechnicalProfileValidator = api;
   }
-})(typeof globalThis !== "undefined" ? globalThis : this, function createValidator(unitsApi) {
+})(typeof globalThis !== "undefined" ? globalThis : this, function createValidator(
+  unitsApi,
+  sourcesApi
+) {
   "use strict";
 
   const SCHEMA_VERSION = "revlog-technical-profile/v1";
@@ -62,6 +69,7 @@
   const profileStatusSet = new Set(PROFILE_STATUSES);
   const valueTypeSet = new Set(VALUE_TYPES);
   const stableIdPattern = /^[a-z0-9]+(?:[.-][a-z0-9]+)*$/;
+  const regionPattern = /^(?:ALL|[A-Z][A-Z0-9-]{1,15})$/;
 
   function validateTechnicalProfile(profile) {
     const errors = [];
@@ -200,6 +208,30 @@
         addError
       );
     }
+
+    validateRegions(
+      applicability.regions,
+      "motorcycle.applicability.regions",
+      addError
+    );
+
+    if (
+      applicability.abs !== undefined &&
+      applicability.abs !== null &&
+      typeof applicability.abs !== "boolean"
+    ) {
+      addError(
+        "INVALID_ABS_CONDITION",
+        "motorcycle.applicability.abs",
+        "ABS applicability must be true, false, or null."
+      );
+    }
+
+    validateStringArray(
+      applicability.equipment,
+      "motorcycle.applicability.equipment",
+      addError
+    );
   }
 
   function validateYearRange(years, path, addError) {
@@ -283,7 +315,9 @@
 
   function validateSources(documents, citations, addError, addWarning) {
     const documentIds = new Set();
+    const declaredDocumentIds = new Set();
     const citationIds = new Set();
+    const declaredCitationIds = new Set();
 
     if (!isPlainObject(documents)) {
       addError(
@@ -301,11 +335,41 @@
           return;
         }
 
+        if (declaredDocumentIds.has(document.id)) {
+          addError(
+            "DUPLICATE_DOCUMENT_ID",
+            `${path}.id`,
+            `Duplicate document id: ${String(document.id)}`
+          );
+        } else if (isNonEmptyString(document.id)) {
+          declaredDocumentIds.add(document.id);
+        }
+
         if (document.id !== key) {
           addError(
             "DOCUMENT_ID_MISMATCH",
             `${path}.id`,
             `Document id must match its map key: ${key}`
+          );
+        }
+
+        if (!sourcesApi || !sourcesApi.isKnownDocumentType(document.type)) {
+          addError(
+            "UNKNOWN_DOCUMENT_TYPE",
+            `${path}.type`,
+            `Unknown document type: ${String(document.type)}`
+          );
+        }
+
+        if (
+          sourcesApi &&
+          sourcesApi.isOemDocumentType(document.type) &&
+          !isNonEmptyString(document.manufacturer)
+        ) {
+          addError(
+            "OEM_DOCUMENT_WITHOUT_MANUFACTURER",
+            `${path}.manufacturer`,
+            "An OEM document must identify its manufacturer."
           );
         }
 
@@ -316,6 +380,38 @@
             `Document ${key} has no title.`
           );
         }
+
+        if (document.url !== undefined && document.url !== null) {
+          if (!isValidHttpUrl(document.url)) {
+            addError(
+              "INVALID_DOCUMENT_URL",
+              `${path}.url`,
+              `Invalid HTTP(S) document URL: ${String(document.url)}`
+            );
+          }
+        }
+
+        if (document.years !== undefined) {
+          validateYearRange(document.years, `${path}.years`, addError);
+        }
+
+        validateRegions(document.regions, `${path}.regions`, addError);
+
+        ["publicationId", "edition", "revision", "language", "notes"].forEach(
+          field => {
+            if (
+              document[field] !== undefined &&
+              document[field] !== null &&
+              typeof document[field] !== "string"
+            ) {
+              addError(
+                "INVALID_DOCUMENT_FIELD",
+                `${path}.${field}`,
+                `Document ${field} must be a string or null.`
+              );
+            }
+          }
+        );
       });
     }
 
@@ -337,6 +433,16 @@
         return;
       }
 
+      if (declaredCitationIds.has(citation.id)) {
+        addError(
+          "DUPLICATE_CITATION_ID",
+          `${path}.id`,
+          `Duplicate citation id: ${String(citation.id)}`
+        );
+      } else if (isNonEmptyString(citation.id)) {
+        declaredCitationIds.add(citation.id);
+      }
+
       if (citation.id !== key) {
         addError(
           "CITATION_ID_MISMATCH",
@@ -356,6 +462,34 @@
           "UNKNOWN_DOCUMENT_REFERENCE",
           `${path}.documentId`,
           `Unknown document id: ${citation.documentId}`
+        );
+      }
+
+      ["section", "subsection", "table", "figure", "notes"].forEach(field => {
+        if (
+          citation[field] !== undefined &&
+          citation[field] !== null &&
+          typeof citation[field] !== "string"
+        ) {
+          addError(
+            "INVALID_CITATION_FIELD",
+            `${path}.${field}`,
+            `Citation ${field} must be a string or null.`
+          );
+        }
+      });
+
+      if (
+        citation.pages !== undefined &&
+        (
+          !Array.isArray(citation.pages) ||
+          citation.pages.some(page => !isNonEmptyString(page))
+        )
+      ) {
+        addError(
+          "INVALID_CITATION_PAGES",
+          `${path}.pages`,
+          "Citation pages must be an array of non-empty strings."
         );
       }
     });
@@ -446,6 +580,7 @@
 
       validateStringArray(entry.tags, `${path}.tags`, addError);
       validateStringArray(entry.aliases, `${path}.aliases`, addError);
+      validateEntryApplicability(entry.applicability, `${path}.applicability`, addError);
       validateRelatedEntries(
         entry.relatedEntryIds,
         `${path}.relatedEntryIds`,
@@ -589,8 +724,10 @@
           `${path}.when`,
           "Variant when condition is required."
         );
-      } else if (variant.when.years !== undefined) {
-        validateYearRange(variant.when.years, `${path}.when.years`, addError);
+      }
+
+      if (isPlainObject(variant.when)) {
+        validateEntryApplicability(variant.when, `${path}.when`, addError);
       }
 
       if (!isPlainObject(variant.patch)) {
@@ -600,7 +737,30 @@
           "Variant patch is required."
         );
       } else {
-        validateEmbeddedQuantities(variant.patch, `${path}.patch`, addError);
+        const forbiddenFields = [
+          "id",
+          "type",
+          "categoryId",
+          "variants",
+          "applicability"
+        ];
+        forbiddenFields.forEach(field => {
+          if (Object.hasOwn(variant.patch, field)) {
+            addError(
+              "FORBIDDEN_VARIANT_PATCH_FIELD",
+              `${path}.patch.${field}`,
+              `Variant patch must not change entry identity field: ${field}`
+            );
+          }
+        });
+
+        validateValueTree(variant.patch.value, `${path}.patch.value`, addError);
+        validateEmbeddedQuantities(
+          variant.patch,
+          `${path}.patch`,
+          addError,
+          new Set(["value"])
+        );
       }
 
       if (variant.status !== undefined || variant.sourceIds !== undefined) {
@@ -776,6 +936,75 @@
         path,
         "Value must be an array of non-empty strings."
       );
+    }
+  }
+
+  function validateEntryApplicability(applicability, path, addError) {
+    if (applicability === undefined) return;
+
+    if (!isPlainObject(applicability)) {
+      addError("INVALID_APPLICABILITY", path, "Applicability must be an object.");
+      return;
+    }
+
+    validateStringArray(
+      applicability.catalogVariantKeys,
+      `${path}.catalogVariantKeys`,
+      addError
+    );
+    validateRegions(applicability.regions, `${path}.regions`, addError);
+    validateStringArray(applicability.equipment, `${path}.equipment`, addError);
+
+    if (applicability.years !== undefined) {
+      validateYearRange(applicability.years, `${path}.years`, addError);
+    }
+
+    if (
+      applicability.abs !== undefined &&
+      applicability.abs !== null &&
+      typeof applicability.abs !== "boolean"
+    ) {
+      addError(
+        "INVALID_ABS_CONDITION",
+        `${path}.abs`,
+        "ABS condition must be true, false, or null."
+      );
+    }
+  }
+
+  function validateRegions(regions, path, addError) {
+    if (regions === undefined) return;
+
+    if (
+      !Array.isArray(regions) ||
+      regions.length === 0 ||
+      regions.some(region => !isNonEmptyString(region) || !regionPattern.test(region))
+    ) {
+      addError(
+        "INVALID_REGIONS",
+        path,
+        "regions must be a non-empty array of canonical uppercase region IDs."
+      );
+      return;
+    }
+
+    if (new Set(regions).size !== regions.length) {
+      addError("DUPLICATE_REGION", path, "regions must not contain duplicates.");
+    }
+
+    if (regions.includes("ALL") && regions.length > 1) {
+      addError("INVALID_REGIONS", path, "ALL cannot be combined with other regions.");
+    }
+  }
+
+  function isValidHttpUrl(value) {
+    if (!isNonEmptyString(value)) return false;
+
+    try {
+      const url = new URL(value);
+      return url.protocol === "http:" || url.protocol === "https:";
+    } catch (error) {
+      return false;
     }
   }
 

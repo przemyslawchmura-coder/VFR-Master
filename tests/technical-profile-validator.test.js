@@ -198,7 +198,121 @@ test("duplicate variant id is rejected", () => {
   expectError(
     profile,
     "DUPLICATE_VARIANT_ID",
-    "entries[2].variants[1].id"
+    "entries[2].variants[3].id"
+  );
+});
+
+test("variant patch cannot change entry identity", () => {
+  const profile = cloneFixture();
+  profile.entries[2].variants[0].patch.id = "replacement.identity";
+
+  expectError(
+    profile,
+    "FORBIDDEN_VARIANT_PATCH_FIELD",
+    "entries[2].variants[0].patch.id"
+  );
+});
+
+test("duplicate declared document id is rejected", () => {
+  const profile = cloneFixture();
+  profile.documents["doc.fixture.duplicate-key"] = {
+    ...structuredClone(profile.documents["doc.fixture.synthetic-manual"])
+  };
+
+  expectError(
+    profile,
+    "DUPLICATE_DOCUMENT_ID",
+    "documents.doc.fixture.duplicate-key.id"
+  );
+});
+
+test("duplicate declared citation id is rejected", () => {
+  const profile = cloneFixture();
+  profile.citations["cite.fixture.duplicate-key"] = {
+    ...structuredClone(profile.citations["cite.fixture.synthetic-manual.general"])
+  };
+
+  expectError(
+    profile,
+    "DUPLICATE_CITATION_ID",
+    "citations.cite.fixture.duplicate-key.id"
+  );
+});
+
+test("citation with unknown documentId is rejected", () => {
+  const profile = cloneFixture();
+  profile.citations["cite.fixture.synthetic-manual.general"].documentId =
+    "doc.fixture.missing";
+
+  expectError(
+    profile,
+    "UNKNOWN_DOCUMENT_REFERENCE",
+    "citations.cite.fixture.synthetic-manual.general.documentId"
+  );
+});
+
+test("unknown document type is rejected", () => {
+  const profile = cloneFixture();
+  profile.documents["doc.fixture.synthetic-manual"].type = "internet-rumour";
+
+  expectError(
+    profile,
+    "UNKNOWN_DOCUMENT_TYPE",
+    "documents.doc.fixture.synthetic-manual.type"
+  );
+});
+
+test("OEM document without manufacturer is rejected", () => {
+  const profile = cloneFixture();
+  delete profile.documents["doc.fixture.synthetic-manual"].manufacturer;
+
+  expectError(
+    profile,
+    "OEM_DOCUMENT_WITHOUT_MANUFACTURER",
+    "documents.doc.fixture.synthetic-manual.manufacturer"
+  );
+});
+
+test("invalid document URL is rejected", () => {
+  const profile = cloneFixture();
+  profile.documents["doc.fixture.synthetic-manual"].url = "not a URL";
+
+  expectError(
+    profile,
+    "INVALID_DOCUMENT_URL",
+    "documents.doc.fixture.synthetic-manual.url"
+  );
+});
+
+test("document without URL remains valid", () => {
+  const profile = cloneFixture();
+  delete profile.documents["doc.fixture.synthetic-manual"].url;
+
+  assert.equal(validator.validate(profile).valid, true);
+});
+
+test("invalid document year range is rejected", () => {
+  const profile = cloneFixture();
+  profile.documents["doc.fixture.synthetic-manual"].years = {
+    from: 2100,
+    to: 2099
+  };
+
+  expectError(
+    profile,
+    "INVALID_YEAR_RANGE",
+    "documents.doc.fixture.synthetic-manual.years"
+  );
+});
+
+test("invalid document regions are rejected", () => {
+  const profile = cloneFixture();
+  profile.documents["doc.fixture.synthetic-manual"].regions = ["eu"];
+
+  expectError(
+    profile,
+    "INVALID_REGIONS",
+    "documents.doc.fixture.synthetic-manual.regions"
   );
 });
 

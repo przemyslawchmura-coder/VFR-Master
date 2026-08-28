@@ -27,6 +27,19 @@ Source authority, in descending order, is:
 
 A lower-ranked source must never be presented as an OEM source. Aftermarket catalogues may support an aftermarket replacement record, but cannot establish an OEM part number or OEM technical value.
 
+The runtime authority ranks are defined centrally in `technical-profile-sources.js`:
+
+```text
+1  oem-service-manual
+2  oem-owners-manual
+3  oem-parts-catalogue
+4  oem-supplement / oem-technical-bulletin / oem-wiring-diagram
+5  verified-secondary
+6  aftermarket-catalogue
+```
+
+Lower rank numbers mean stronger authority. Authority rank is metadata for review and presentation; it MUST NOT automatically resolve conflicting values. When accepted sources disagree, the entry or variant should use `conflicting-sources` until a human resolves and documents the conflict.
+
 ## 3. Top-level profile contract
 
 ```js
@@ -270,7 +283,7 @@ documents: {
 Allowed document types initially are:
 
 - `oem-service-manual`
-- `oem-owner-manual`
+- `oem-owners-manual`
 - `oem-parts-catalogue`
 - `oem-supplement`
 - `oem-technical-bulletin`
@@ -405,7 +418,16 @@ Recognized condition fields reserved by v1 are:
 - `equipment`
 - `marketCodes`
 
-The resolver, specificity rules, conflict detection, and patch application are intentionally deferred. Foundation validation only checks structural invariants that do not require resolution.
+The resolver implements deterministic specificity, missing-context reporting, conflict detection, and restricted object merging. Search and UI integration remain deferred.
+
+The resolution layer returns explicit states rather than guessing:
+
+- profile: `profile-applicable`, `profile-not-applicable`, or `ambiguous-context`;
+- entry: `resolved`, `not-applicable`, `ambiguous-context`, or `ambiguous`;
+- missing region, ABS, year, equipment, or catalogue identity is never treated as a default value;
+- the most specific matching variant wins;
+- equally specific variants with different patches produce `ambiguous`;
+- resolution includes a developer trace and never mutates profile data.
 
 ## 14. Maintenance and diagnostics readiness
 
@@ -421,7 +443,21 @@ interval: {
 
 Diagnostic measurements should keep symptom, component, measurement conditions, expected result, procedure reference, and next-test relationships separate. v1 does not implement the diagnostic flow, but profiles MUST avoid flattening all of these into one display string.
 
-## 15. Validation policy
+## 15. Authoring and Import Pipeline
+
+Adding a newly released motorcycle should eventually be a data operation, not a change to RevLog application logic. The target pipeline is:
+
+1. **Motorcycle catalogue** — add or confirm the stable `catalogVariantKey`, identity, variant, and year coverage.
+2. **Technical Profile** — author a pure-data v1 profile with stable category and entry IDs.
+3. **Documents and sources** — register documents once, add precise citations, and attach `sourceIds` to verified values.
+4. **Validation** — run the DOM-independent validator, applicability checks, relationship checks, and canonical-unit validation.
+5. **Quality report** — produce coverage, verification, missing-source, conflict, and warning statistics without silently changing data.
+6. **Manifest/import** — a future `import-technical-profile` tool validates and places the profile in the repository; a future manifest exposes it to loading infrastructure.
+7. **Ready** — only validated, reviewed profiles are eligible for production registration.
+
+The future `validate-all-profiles` command should discover profile files, load them one at a time, validate them with the same public modules used by tests, and produce a deterministic CI report. The future importer MUST consume the documented v1 object without requiring a schema change. Neither tool is implemented in this stage.
+
+## 16. Validation policy
 
 The validator returns a report and never mutates or silently repairs a profile:
 

@@ -36,10 +36,14 @@ const technicalProfileV1Fixture = {
   documents: {
     "doc.fixture.synthetic-manual": {
       id: "doc.fixture.synthetic-manual",
-      type: "verified-secondary",
+      type: "oem-service-manual",
       title: "Synthetic Technical Profile Test Manual",
       manufacturer: "Fixture Motor Company",
       publicationId: "FIXTURE-ONLY-001",
+      edition: "Test edition",
+      revision: "1",
+      language: "en",
+      years: { from: 2099, to: 2099 },
       regions: ["ALL"],
       url: null,
       notes: "Fictional document used only by automated tests."
@@ -51,7 +55,10 @@ const technicalProfileV1Fixture = {
       id: "cite.fixture.synthetic-manual.general",
       documentId: "doc.fixture.synthetic-manual",
       section: "Synthetic test values",
+      subsection: "Fixture records",
       pages: ["TEST-1"],
+      table: "Fixture table 1",
+      figure: null,
       notes: "Fixture citation; not a real technical source."
     }
   },
@@ -66,6 +73,7 @@ const technicalProfileV1Fixture = {
       specification: "FIXTURE-OIL",
       tags: ["olej", "fixture"],
       aliases: ["testowy olej"],
+      applicability: { regions: ["ALL"] },
       relatedEntryIds: ["consumables.oil-filter"],
       status: "verified",
       sourceIds: ["cite.fixture.synthetic-manual.general"]
@@ -97,10 +105,31 @@ const technicalProfileV1Fixture = {
       aliases: ["krótkie światła"],
       variants: [
         {
-          id: "lighting.headlight.low-beam.fixture-market",
-          when: { regions: ["FIXTURE"] },
+          id: "lighting.headlight.low-beam.eu",
+          when: { regions: ["EU"] },
+          patch: {
+            power: { type: "quantity", amount: 55, unit: "W" }
+          },
+          status: "verified",
+          sourceIds: ["cite.fixture.synthetic-manual.general"]
+        },
+        {
+          id: "lighting.headlight.low-beam.usa",
+          when: { regions: ["USA"] },
           patch: {
             power: { type: "quantity", amount: 60, unit: "W" }
+          },
+          status: "verified",
+          sourceIds: ["cite.fixture.synthetic-manual.general"]
+        },
+        {
+          id: "lighting.headlight.low-beam.usa-2099",
+          when: {
+            regions: ["USA"],
+            years: { from: 2099, to: 2099 }
+          },
+          patch: {
+            power: { type: "quantity", amount: 65, unit: "W" }
           },
           status: "verified",
           sourceIds: ["cite.fixture.synthetic-manual.general"]
@@ -119,6 +148,22 @@ const technicalProfileV1Fixture = {
       location: "Synthetic fuse box",
       tags: ["bezpiecznik", "główny"],
       aliases: ["main fuse"],
+      variants: [
+        {
+          id: "fuses.main.abs",
+          when: { abs: true },
+          patch: { value: { type: "quantity", amount: 40, unit: "A" } },
+          status: "verified",
+          sourceIds: ["cite.fixture.synthetic-manual.general"]
+        },
+        {
+          id: "fuses.main.non-abs",
+          when: { abs: false },
+          patch: { value: { type: "quantity", amount: 30, unit: "A" } },
+          status: "verified",
+          sourceIds: ["cite.fixture.synthetic-manual.general"]
+        }
+      ],
       status: "verified",
       sourceIds: ["cite.fixture.synthetic-manual.general"]
     },
@@ -131,6 +176,15 @@ const technicalProfileV1Fixture = {
       location: "Synthetic cylinder head",
       tags: ["moment", "świeca"],
       aliases: ["dokręcanie świecy"],
+      variants: [
+        {
+          id: "torque.engine.spark-plug.my2099",
+          when: { years: { from: 2099, to: 2099 } },
+          patch: { value: { type: "quantity", amount: 14, unit: "N·m" } },
+          status: "verified",
+          sourceIds: ["cite.fixture.synthetic-manual.general"]
+        }
+      ],
       relatedEntryIds: ["ignition.spark-plug.primary"],
       status: "verified",
       sourceIds: ["cite.fixture.synthetic-manual.general"]
@@ -168,6 +222,15 @@ const technicalProfileV1Fixture = {
       replacements: [],
       tags: ["filtr oleju", "część"],
       aliases: ["oil filter"],
+      variants: [
+        {
+          id: "consumables.oil-filter.track-package",
+          when: { equipment: ["track-package"] },
+          patch: { value: { type: "text", text: "FIXTURE-RACE-FILTER" } },
+          status: "verified",
+          sourceIds: ["cite.fixture.synthetic-manual.general"]
+        }
+      ],
       relatedEntryIds: ["lubrication.engine-oil.capacity-with-filter"],
       status: "verified",
       sourceIds: ["cite.fixture.synthetic-manual.general"]
@@ -186,6 +249,22 @@ const technicalProfileV1Fixture = {
       },
       tags: ["diagnostyka", "rezystancja", "czujnik"],
       aliases: ["test sensor"],
+      variants: [
+        {
+          id: "diagnostics.sensor.synthetic.eu-a",
+          when: { regions: ["EU"] },
+          patch: { value: { type: "range", min: 2.2, max: 2.6, unit: "kΩ" } },
+          status: "conflicting-sources",
+          sourceIds: ["cite.fixture.synthetic-manual.general"]
+        },
+        {
+          id: "diagnostics.sensor.synthetic.eu-b",
+          when: { regions: ["EU"] },
+          patch: { value: { type: "range", min: 2.4, max: 2.8, unit: "kΩ" } },
+          status: "conflicting-sources",
+          sourceIds: ["cite.fixture.synthetic-manual.general"]
+        }
+      ],
       status: "verified",
       sourceIds: ["cite.fixture.synthetic-manual.general"]
     }
