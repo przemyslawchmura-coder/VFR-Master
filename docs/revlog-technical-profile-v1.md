@@ -1,0 +1,442 @@
+# RevLog Technical Profile v1
+
+Status: accepted foundation contract
+Schema identifier: `revlog-technical-profile/v1`
+
+## 1. Purpose and scope
+
+RevLog Technical Profile v1 is the canonical, model-independent format for motorcycle technical data. Profiles are plain JavaScript data objects. They do not contain UI, DOM access, lookup methods, formatters, resolvers, or Supabase logic.
+
+The format is designed for hundreds of motorcycle models and thousands of variants while keeping each individual profile independently loadable and validatable. Only the active profile needs to be loaded by the future UI.
+
+This document defines the data contract. Applicability resolution, search, UI, profile loading, and migration of existing Honda and Yamaha data are separate implementation stages.
+
+## 2. Source-of-truth rule
+
+Technical data MUST NOT receive `verified` status merely because it previously existed in RevLog. Existing RevLog code and data are not OEM sources.
+
+`verified` means that the value has been checked against an accepted source and the relevant citation is attached to the record.
+
+Source authority, in descending order, is:
+
+1. OEM Service Manual
+2. OEM Owner's Manual
+3. OEM Parts Catalogue
+4. OEM Supplement or Technical Bulletin
+5. another verified source
+
+A lower-ranked source must never be presented as an OEM source. Aftermarket catalogues may support an aftermarket replacement record, but cannot establish an OEM part number or OEM technical value.
+
+## 3. Top-level profile contract
+
+```js
+{
+  schemaVersion: "revlog-technical-profile/v1",
+
+  profile: {
+    id: "manufacturer.family.generation.profile-scope",
+    revision: 1,
+    status: "draft",
+    language: "pl"
+  },
+
+  motorcycle: {
+    brand: "Example",
+    model: "Example 1000",
+    applicability: {
+      catalogVariantKeys: ["example.example-1000.gen1"],
+      years: { from: 2000, to: 2004 }
+    }
+  },
+
+  categories: [],
+  documents: {},
+  citations: {},
+  entries: []
+}
+```
+
+Required top-level properties are `schemaVersion`, `profile`, `motorcycle`, `categories`, `documents`, `citations`, and `entries`.
+
+### `schemaVersion`
+
+MUST equal exactly:
+
+```text
+revlog-technical-profile/v1
+```
+
+Schema changes incompatible with v1 require a new schema identifier. Corrections to the data of one profile increase `profile.revision`, not `schemaVersion`.
+
+### `profile.id`
+
+A globally stable, lowercase identifier using ASCII letters, digits, dots, and hyphens. It identifies the logical profile and MUST NOT change when labels, sources, or values are corrected.
+
+Recommended pattern:
+
+```text
+manufacturer.family.generation.scope
+```
+
+### `profile.revision`
+
+A positive integer. It is increased whenever published profile data changes. It is not a timestamp and MUST NOT be a numeric string.
+
+### `profile.status`
+
+Profile publication status is separate from entry verification status. Allowed profile statuses are:
+
+- `draft` — incomplete work not intended as a complete public profile;
+- `review` — prepared for technical review;
+- `published` — accepted for normal use;
+- `deprecated` — retained for compatibility but replaced by another profile.
+
+## 4. Motorcycle identity and applicability
+
+The canonical link to the motorcycle catalogue is `motorcycle.applicability.catalogVariantKeys`.
+
+```js
+motorcycle: {
+  brand: "Honda",
+  model: "VFR800 VTEC",
+  applicability: {
+    catalogVariantKeys: ["honda.vfr800.rc46.vtec.gen1"],
+    years: { from: 2002, to: 2002 },
+    regions: ["EU", "USA", "UK", "AU"],
+    abs: null,
+    equipment: []
+  }
+}
+```
+
+Rules:
+
+- `catalogVariantKeys` MUST be a non-empty array of stable catalogue keys.
+- `years.from` and `years.to` are inclusive integers and `from <= to`.
+- `regions`, `abs`, and `equipment` are optional v1 condition fields. Their resolution is intentionally not implemented in the foundation stage.
+- `abs: null` means unknown or not constrained. It is not equivalent to `false`.
+- Text matching by brand and model is a legacy compatibility mechanism, not the canonical v1 identity.
+
+Applicability may also be attached to an entry or variant. All specified condition fields are combined with logical AND. Values inside an array are alternatives combined with logical OR.
+
+## 5. Categories
+
+Categories define navigation and grouping, not ownership of entry data.
+
+```js
+{
+  id: "lubrication",
+  label: "Olej i filtry",
+  icon: "🛢️",
+  order: 20,
+  aliases: ["olej", "smarowanie"]
+}
+```
+
+Required fields:
+
+- `id` — stable and unique inside the profile;
+- `label` — user-facing name.
+
+Optional fields include `icon`, `order`, `description`, and `aliases`. Category IDs MUST NOT depend on display language.
+
+## 6. Entries
+
+Every technical fact is an entry with a stable identity.
+
+```js
+{
+  id: "torque.engine.oil-drain-bolt",
+  type: "torque",
+  categoryId: "torques",
+  label: "Korek spustowy oleju",
+  value: { type: "quantity", amount: 29, unit: "N·m" },
+  status: "verified",
+  sourceIds: ["cite.example.service-manual.oil-drain"],
+  tags: ["olej", "moment"],
+  aliases: ["śruba spustowa"],
+  relatedEntryIds: []
+}
+```
+
+Required common fields:
+
+- `id` — globally stable within the profile;
+- `type` — one of the registered record types;
+- `categoryId` — ID of an existing category;
+- `label` — user-facing label;
+- `status` — verification status;
+- `sourceIds` — array of citation IDs, empty only when the status allows unverified data.
+
+Recommended common fields are `tags`, `aliases`, `description`, `notes`, `relatedEntryIds`, `applicability`, and `variants`.
+
+### Stable entry IDs
+
+IDs use lowercase ASCII letters, digits, dots, and hyphens. They describe meaning rather than presentation:
+
+```text
+lubrication.engine-oil.capacity-with-filter
+torque.engine.oil-drain-bolt
+lighting.headlight.low-beam
+```
+
+Changing a Polish label MUST NOT change the ID. An ID MUST NOT be reused for a different technical meaning.
+
+### Entry types
+
+The v1 foundation registers these types:
+
+- `specification` — a general technical parameter;
+- `torque` — a tightening torque with component and context;
+- `fluid` — fluid specification, grade, capacity, or service value;
+- `spark-plug` — spark plug manufacturer/model, gap, alternatives, and installation data;
+- `light-source` — bulb or lamp application, base, voltage, power, quantity, and optional OEM number;
+- `fuse` — amperage, circuit/function, and location;
+- `maintenance-task` — distance/time interval, action, conditions, and related technical records;
+- `consumable-part` — OEM part identity, specification, and explicitly classified replacements;
+- `diagnostic-measurement` — component, measurement, expected range, conditions, procedure reference, and possible next test.
+
+Two additional types are included because they are necessary for the requested domain without misusing `specification`:
+
+- `adjustment` — manufacturer-defined free play, clearance, level, or setting;
+- `fault-code` — diagnostic code, meaning, conditions, and related diagnostic measurements.
+
+Record types may define additional fields, but all numeric physical values MUST use the value formats and canonical units in this standard.
+
+## 7. Verification statuses
+
+Allowed entry and variant statuses:
+
+- `verified` — checked against accepted source citations;
+- `pending-verification` — structured data awaiting source verification;
+- `legacy-unverified` — migrated from old RevLog data and not independently verified;
+- `conflicting-sources` — accepted sources disagree and the conflict is unresolved;
+- `deprecated` — retained for traceability but no longer current.
+
+Rules:
+
+- `verified` MUST have at least one non-empty `sourceId`.
+- Existing RevLog values begin as `legacy-unverified`, never automatically as `verified`.
+- A fixture may use `verified` only with an explicitly fictional fixture citation and MUST never be registered in production UI.
+- Status describes confidence/provenance, not whether a field is applicable.
+
+## 8. Tags and aliases
+
+`tags` are canonical search concepts and grouping terms:
+
+```js
+tags: ["olej", "filtr oleju", "pojemność"]
+```
+
+`aliases` are alternate user expressions, abbreviations, translations, or common names:
+
+```js
+aliases: ["ile oleju", "oil capacity", "olej z filtrem"]
+```
+
+Both are arrays of non-empty strings. They MUST NOT contain hidden applicability logic or source information.
+
+## 9. Relationships
+
+`relatedEntryIds` contains IDs of other entries in the same resolved profile:
+
+```js
+relatedEntryIds: [
+  "torque.engine.oil-drain-bolt",
+  "consumables.oil-filter"
+]
+```
+
+All referenced IDs MUST exist. Relationships do not copy values and do not imply applicability. Type-specific relationship fields, such as `installationTorqueEntryId` or `nextDiagnosticEntryId`, may be added later and should follow the same integrity rule.
+
+## 10. Documents, citations, and source IDs
+
+Documents are defined once in the `documents` map:
+
+```js
+documents: {
+  "doc.example.service-manual": {
+    id: "doc.example.service-manual",
+    type: "oem-service-manual",
+    title: "Example Service Manual",
+    manufacturer: "Example",
+    publicationId: "EX-001",
+    regions: ["ALL"],
+    url: null
+  }
+}
+```
+
+Allowed document types initially are:
+
+- `oem-service-manual`
+- `oem-owner-manual`
+- `oem-parts-catalogue`
+- `oem-supplement`
+- `oem-technical-bulletin`
+- `oem-wiring-diagram`
+- `verified-secondary`
+- `aftermarket-catalogue`
+
+Citations identify the relevant location within a document:
+
+```js
+citations: {
+  "cite.example.service-manual.oil": {
+    id: "cite.example.service-manual.oil",
+    documentId: "doc.example.service-manual",
+    section: "Lubrication",
+    chapter: "Engine oil",
+    pages: ["4-3", "4-4"],
+    notes: null
+  }
+}
+```
+
+Entries refer to citations through `sourceIds`. Full URLs and document titles MUST NOT be copied into every entry. Runtime document opening and full source validation are later stages; the v1 contract reserves and defines the structure now.
+
+## 11. Values and numbers
+
+Numbers in profile data MUST be JavaScript `Number` values. Locale-formatted strings are forbidden:
+
+```js
+// Correct
+{ amount: 3.1, unit: "L" }
+
+// Incorrect
+{ amount: "3,1", unit: "L" }
+```
+
+Formatting `3.1` as `3,1` belongs to the formatter/UI.
+
+Canonical value forms are:
+
+```js
+{ type: "quantity", amount: 29, unit: "N·m" }
+
+{ type: "range", min: 80, max: 84, unit: "°C" }
+
+{
+  type: "quantity-with-tolerance",
+  nominal: 0.2,
+  tolerance: 0.03,
+  unit: "mm"
+}
+
+{ type: "ratio", numerator: 45, denominator: 17 }
+
+{ type: "text", text: "Mokre, wielotarczowe" }
+
+{
+  type: "multi",
+  values: [
+    { type: "quantity", amount: 250, unit: "kPa" },
+    { type: "quantity", amount: 2.5, unit: "bar" }
+  ]
+}
+```
+
+Rules:
+
+- all numeric members MUST be finite `Number` values;
+- a range MUST satisfy `min <= max`;
+- tolerance MUST be non-negative;
+- a ratio denominator MUST not be zero;
+- every unit MUST be from the central canonical unit registry;
+- descriptive text may supplement a structured value but MUST NOT replace a number required for computation.
+
+## 12. Canonical units
+
+The source of truth for accepted unit codes is `js/technical/technical-profile-units.js`.
+
+Initial canonical units are:
+
+```text
+N·m, mm, cm, m, km, cm³, L, mL, kg, g,
+V, A, W, kW, Ah, CCA, Hz, Ω, kΩ,
+kPa, bar, psi, °C, rpm, km/h, hp, PS,
+month, year, link, tooth, percent, count
+```
+
+Notes:
+
+- engine torque also uses `N·m`; `Nm` is not canonical;
+- `L` is canonical, not lowercase `l`;
+- `cm³` is used for displacement;
+- `hp` and `PS` remain distinct because they are not identical units;
+- `CCA` is retained as the conventional battery rating label;
+- dimensionless ratios use the `ratio` value type and no unit;
+- revolutions per minute use `rpm`;
+- localized labels may be shown by a formatter, but stored codes remain canonical.
+
+## 13. Variants and conditions
+
+An entry may define local variants instead of duplicating the profile:
+
+```js
+variants: [
+  {
+    id: "lighting.headlight.low-beam.eu",
+    when: {
+      regions: ["EU", "UK"],
+      years: { from: 2002, to: 2002 }
+    },
+    patch: {
+      value: {
+        type: "quantity",
+        amount: 55,
+        unit: "W"
+      }
+    },
+    status: "verified",
+    sourceIds: ["cite.example.eu-owner-manual.headlight"]
+  }
+]
+```
+
+Each variant requires a unique stable `id`, a `when` condition, and a limited `patch`. Variants MAY have their own status and sources. They MUST NOT contain arbitrary executable predicates.
+
+Recognized condition fields reserved by v1 are:
+
+- `catalogVariantKeys`
+- `years`
+- `regions`
+- `abs`
+- `equipment`
+- `marketCodes`
+
+The resolver, specificity rules, conflict detection, and patch application are intentionally deferred. Foundation validation only checks structural invariants that do not require resolution.
+
+## 14. Maintenance and diagnostics readiness
+
+Maintenance entries should represent distance and time separately:
+
+```js
+interval: {
+  distance: { amount: 12000, unit: "km" },
+  time: { amount: 12, unit: "month" },
+  rule: "whichever-comes-first"
+}
+```
+
+Diagnostic measurements should keep symptom, component, measurement conditions, expected result, procedure reference, and next-test relationships separate. v1 does not implement the diagnostic flow, but profiles MUST avoid flattening all of these into one display string.
+
+## 15. Validation policy
+
+The validator returns a report and never mutates or silently repairs a profile:
+
+```js
+{
+  valid: false,
+  errors: [
+    {
+      code: "UNKNOWN_UNIT",
+      path: "entries[12].value.unit",
+      message: "Unknown canonical unit: Nm"
+    }
+  ],
+  warnings: []
+}
+```
+
+Errors make the profile invalid. Warnings identify incomplete but structurally usable data. CI may apply a stricter publication policy later, but validator output remains deterministic and independent of the DOM.
