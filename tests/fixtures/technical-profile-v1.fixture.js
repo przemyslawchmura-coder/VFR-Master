@@ -30,7 +30,10 @@ const technicalProfileV1Fixture = {
     { id: "torques", label: "Momenty dokręcania", order: 50 },
     { id: "maintenance", label: "Obsługa okresowa", order: 60 },
     { id: "consumables", label: "Części eksploatacyjne", order: 70 },
-    { id: "diagnostics", label: "Diagnostyka", order: 80 }
+    { id: "diagnostics", label: "Diagnostyka", order: 80 },
+    { id: "electrical", label: "Elektryka", order: 90 },
+    { id: "wheels", label: "Opony i koła", order: 100 },
+    { id: "fuel", label: "Układ paliwowy", order: 110 }
   ],
 
   documents: {
@@ -97,12 +100,13 @@ const technicalProfileV1Fixture = {
       type: "light-source",
       categoryId: "lighting",
       label: "Testowe światło mijania",
-      value: { type: "text", text: "FIXTURE-H7" },
+      value: { type: "text", text: "H7" },
+      specification: "H7 synthetic fixture bulb",
       voltage: { type: "quantity", amount: 12, unit: "V" },
       power: { type: "quantity", amount: 55, unit: "W" },
       quantity: { type: "quantity", amount: 1, unit: "count" },
-      tags: ["żarówka", "mijania"],
-      aliases: ["krótkie światła"],
+      tags: ["żarówka", "mijania", "H7"],
+      aliases: ["krótkie światła", "H7"],
       variants: [
         {
           id: "lighting.headlight.low-beam.eu",
@@ -217,9 +221,15 @@ const technicalProfileV1Fixture = {
       value: { type: "text", text: "FIXTURE-OIL-FILTER" },
       oem: {
         manufacturer: "Fixture Motor Company",
-        partNumber: "FIXTURE-0001"
+        partNumber: "15410-FIX-003"
       },
-      replacements: [],
+      replacements: [
+        {
+          manufacturer: "Fixture Filters",
+          partNumber: "HF-FIX-204",
+          verificationStatus: "unverified"
+        }
+      ],
       tags: ["filtr oleju", "część"],
       aliases: ["oil filter"],
       variants: [
@@ -265,6 +275,80 @@ const technicalProfileV1Fixture = {
           sourceIds: ["cite.fixture.synthetic-manual.general"]
         }
       ],
+      status: "verified",
+      sourceIds: ["cite.fixture.synthetic-manual.general"]
+    },
+    {
+      id: "torque.engine.oil-drain-bolt",
+      type: "torque",
+      categoryId: "torques",
+      label: "Korek spustowy oleju",
+      value: { type: "quantity", amount: 29, unit: "N·m" },
+      location: "Synthetic engine oil pan",
+      description: "Synthetic tightening torque for search tests only.",
+      procedure: {
+        summary: "Install a synthetic sealing washer before tightening."
+      },
+      tags: ["korek oleju", "olej", "moment", "miska olejowa"],
+      aliases: ["śruba spustowa oleju", "oil drain bolt"],
+      status: "verified",
+      sourceIds: ["cite.fixture.synthetic-manual.general"]
+    },
+    {
+      id: "electrical.battery.nominal-voltage",
+      type: "specification",
+      categoryId: "electrical",
+      label: "Akumulator",
+      value: { type: "quantity", amount: 12, unit: "V" },
+      manufacturer: "Fixture Battery Company",
+      specification: "FIXTURE-BATTERY 12 Ah",
+      location: "Synthetic battery compartment",
+      tags: ["akumulator", "bateria", "elektryka", "napięcie"],
+      aliases: ["bateria", "battery"],
+      status: "verified",
+      sourceIds: ["cite.fixture.synthetic-manual.general"]
+    },
+    {
+      id: "wheels.rear-tire.specification",
+      type: "specification",
+      categoryId: "wheels",
+      label: "Opona tylna",
+      value: { type: "text", text: "FIXTURE 180/55 ZR17" },
+      specification: "Synthetic radial tubeless tyre",
+      location: "Tylne koło",
+      tags: ["opona", "tylne koło", "guma"],
+      aliases: ["tylna opona", "rear tyre"],
+      status: "verified",
+      sourceIds: ["cite.fixture.synthetic-manual.general"]
+    },
+    {
+      id: "fuses.pgm-fi",
+      type: "fuse",
+      categoryId: "fuses",
+      label: "Bezpiecznik PGM-FI",
+      value: { type: "quantity", amount: 20, unit: "A" },
+      circuit: "PGM-FI synthetic injection circuit",
+      location: "Synthetic secondary fuse box",
+      tags: ["bezpiecznik FI", "PGM-FI", "wtrysk"],
+      aliases: ["FI fuse", "PGM-FI fuse"],
+      status: "verified",
+      sourceIds: ["cite.fixture.synthetic-manual.general"]
+    },
+    {
+      id: "fuel.pressure.nominal",
+      type: "specification",
+      categoryId: "fuel",
+      label: "Ciśnienie paliwa",
+      value: {
+        type: "multi",
+        values: [
+          { type: "quantity", amount: 250, unit: "kPa" },
+          { type: "quantity", amount: 2.5, unit: "bar" }
+        ]
+      },
+      description: "Synthetic equivalent pressure values for search tests.",
+      tags: ["paliwo", "ciśnienie", "wtrysk"],
+      aliases: ["fuel pressure"],
       status: "verified",
       sourceIds: ["cite.fixture.synthetic-manual.general"]
     }

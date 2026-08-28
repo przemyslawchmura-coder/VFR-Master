@@ -457,7 +457,19 @@ Adding a newly released motorcycle should eventually be a data operation, not a 
 
 The future `validate-all-profiles` command should discover profile files, load them one at a time, validate them with the same public modules used by tests, and produce a deterministic CI report. The future importer MUST consume the documented v1 object without requiring a schema change. Neither tool is implemented in this stage.
 
-## 16. Validation policy
+## 16. Resolved search index
+
+Search operates on the result of profile and entry resolution, never directly on raw `variants`. A search index is built once for a concrete motorcycle context and reused for many queries. Entries with `ambiguous`, `ambiguous-context`, or `not-applicable` resolution MUST NOT expose an unresolved technical value as certain. The index may retain safe metadata and the resolution state so a client can request missing context or explain a conflict.
+
+The search index is a derived cache, not a source of technical truth. It may contain normalized labels, aliases, tags, identifiers, part numbers, structured values, and selected descriptive fields. Document URLs and other source metadata MUST NOT be included as ordinary searchable content. Results retain the entry status, resolution status, citation IDs, selected variant ID, and category identity. Ranking is deterministic and exposes its score and matched fields for diagnosis; it MUST NOT convert source authority into a confidence percentage.
+
+Synonyms are maintained in a separate language-oriented registry. They assist query expansion but are not part of the motorcycle's technical data and cannot change a resolved value.
+
+## 17. Offline-first runtime
+
+Technical Profiles, a resolved search index, and the basic identity/context of the active motorcycle MUST be representable as locally storable data. Internet access may extend RevLog, but it must not be required for basic access to already available technical information. Profile resolution, value formatting, index construction, and searching therefore remain deterministic, DOM-independent, and free of network API dependencies. Persistence, cache invalidation, synchronization, IndexedDB, and Service Worker behavior are outside v1's current runtime scope.
+
+## 18. Validation policy
 
 The validator returns a report and never mutates or silently repairs a profile:
 
