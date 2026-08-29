@@ -483,7 +483,27 @@ For a Reference Production Profile:
 
 Reference status describes the profile's architectural role, not perfection or completeness. Its factual coverage and known gaps are reported as counts, without a synthetic confidence score.
 
-## 19. Validation policy
+## 19. Technical Profile Registry & Loader
+
+Technical Profile discovery is data-driven. A central registry contains only stable profile identity, catalogue keys, year coverage, module identity, schema version, and lifecycle status. It MUST NOT duplicate entries, values, citations, or documents from a profile. Matching requires `catalogVariantKey` and `year`, prefers the narrowest matching year scope, and reports `not-found`, `insufficient-context`, or `ambiguous` rather than selecting an arbitrary descriptor.
+
+The loader accepts a descriptor and resolves its local module through an adapter boundary. Its public API is asynchronous even though the current Node adapter loads CommonJS files locally. This permits a future dynamic-import or offline-cache adapter without changing consumers. Normal discovery failure never attempts a module load. Loaded profiles are passed through the existing validator and remain immutable. Network fetching, lazy loading, IndexedDB, and Service Worker caching remain outside this stage.
+
+Responsibility flows through these layers:
+
+1. **Motorcycle Catalog** identifies the user's motorcycle and its stable `catalogVariantKey`.
+2. **Technical Profile Registry** discovers metadata for an available profile.
+3. **Profile Loader** supplies the local profile data object.
+4. **Validator** checks the shared data contract and references.
+5. **Resolver** evaluates profile applicability and entry variants against explicit context.
+6. **Formatter** renders canonical values without changing source data.
+7. **Search** indexes and queries resolved entries.
+8. **Quality Report** reports factual coverage and unresolved references.
+9. **UI** consumes these layers; it does not define profile identity, matching, loading, or technical values.
+
+Registry integrity requires unique profile IDs, stable catalogue keys, valid year ranges, resolvable module IDs, matching loaded profile identity, descriptor/profile applicability agreement, and no equally specific overlapping descriptors. Multiple profiles may cover one catalogue key when matching remains deterministic, for example when a single-year descriptor is more specific than a broader range.
+
+## 20. Validation policy
 
 The validator returns a report and never mutates or silently repairs a profile:
 
