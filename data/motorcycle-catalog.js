@@ -458,6 +458,11 @@ const addModels = (brandId, models) => {
   const brand = window.MotorcycleCatalogData.find(item => item.id === brandId);
   if (brand) brand.models.push(...models);
 };
+const addVariants = (brandId, modelId, variants) => {
+  const brand = window.MotorcycleCatalogData.find(item => item.id === brandId);
+  const model = brand && brand.models.find(item => item.id === modelId);
+  if (model) model.variants.push(...variants);
+};
 
 addModels("honda", [
   m("cb500x-nx500", "CB500X / NX500", [
@@ -537,6 +542,139 @@ addModels("honda", [
     v("rh10-2", "honda.x-adv.rh10-2", "RH10 — II", "X-ADV 2025", 2025, 2025)
   ]),
   m("nt1100", "NT1100", [v("sc84-1", "honda.nt1100.sc84-1", "SC84 — I", "NT1100 2022", 2022, 2024), v("sc84-2", "honda.nt1100.sc84-2", "SC84 — II", "NT1100 2025", 2025, 2025)])
+]);
+
+/* Honda Completeness Wave 2: Europe-oriented road range inventory. */
+addModels("honda", [
+  m("vtr", "VTR", [
+    v("vtr1000f-sc36", "honda.vtr.vtr1000f-sc36", "VTR1000F SC36", "VTR1000F FireStorm", 1997, 2006),
+    v("sp1-sc45", "honda.vtr.sp1-sc45", "VTR1000 SP-1 SC45", "VTR1000 SP-1", 2000, 2001),
+    v("sp2-sc45", "honda.vtr.sp2-sc45", "VTR1000 SP-2 SC45", "VTR1000 SP-2", 2002, 2006)
+  ]),
+  m("cbr125r", "CBR125R", [
+    v("jc34", "honda.cbr125r.jc34", "JC34", "CBR125R JC34", 2004, 2006),
+    v("jc39", "honda.cbr125r.jc39", "JC39", "CBR125R JC39", 2007, 2010),
+    v("jc50", "honda.cbr125r.jc50", "JC50", "CBR125R JC50", 2011, 2016)
+  ]),
+  m("cbr250-300", "CBR250R / CBR300R", [
+    v("cbr250r-mc41", "honda.cbr250-300.cbr250r-mc41", "CBR250R MC41", "CBR250R MC41", 2011, 2013),
+    v("cbr300r-nc51", "honda.cbr250-300.cbr300r-nc51", "CBR300R NC51", "CBR300R NC51", 2014, 2016)
+  ]),
+  m("cbr600f", "CBR600F", [
+    v("pc25", "honda.cbr600f.pc25", "PC25", "CBR600F PC25", 1991, 1994),
+    v("pc31", "honda.cbr600f.pc31", "PC31", "CBR600F PC31", 1995, 1998),
+    v("pc35-carb", "honda.cbr600f.pc35-carb", "PC35 carburettor", "CBR600F PC35 1999", 1999, 2000),
+    v("pc35-efi", "honda.cbr600f.pc35-efi", "PC35 PGM-FI", "CBR600F PC35 2001", 2001, 2006),
+    v("pc35-sport", "honda.cbr600f.pc35-sport", "PC35 Sport", "CBR600F Sport", 2001, 2002),
+    v("pc41", "honda.cbr600f.pc41", "PC41", "CBR600F PC41", 2011, 2013)
+  ]),
+  m("cbr1000f", "CBR1000F", [
+    v("sc24-1", "honda.cbr1000f.sc24-1", "SC24 — I", "CBR1000F SC24 1990", 1990, 1992),
+    v("sc24-2", "honda.cbr1000f.sc24-2", "SC24 — II Dual CBS", "CBR1000F SC24 1993", 1993, 2000)
+  ]),
+  m("cbr1100xx", "CBR1100XX Super Blackbird", [
+    v("sc35-carb", "honda.cbr1100xx.sc35-carb", "SC35 carburettor", "CBR1100XX 1996", 1996, 1998),
+    v("sc35-efi-1", "honda.cbr1100xx.sc35-efi-1", "SC35 PGM-FI — I", "CBR1100XX 1999", 1999, 2000),
+    v("sc35-efi-2", "honda.cbr1100xx.sc35-efi-2", "SC35 PGM-FI — II", "CBR1100XX 2001", 2001, 2006)
+  ]),
+  m("vfr400r", "VFR400R", [v("nc30-eu", "honda.vfr400r.nc30-eu", "NC30 Europe", "VFR400R NC30", 1990, 1991)]),
+  m("vfr750f", "VFR750F", [
+    v("rc36-1", "honda.vfr750f.rc36-1", "RC36 — I", "VFR750F RC36 1990", 1990, 1993),
+    v("rc36-2", "honda.vfr750f.rc36-2", "RC36 — II", "VFR750F RC36 1994", 1994, 1997)
+  ]),
+  m("crossrunner", "VFR800X Crossrunner", [
+    v("rc60", "honda.crossrunner.rc60", "RC60", "VFR800X Crossrunner 2011", 2011, 2014),
+    v("rc80", "honda.crossrunner.rc80", "RC80", "VFR800X Crossrunner 2015", 2015, 2020)
+  ]),
+  m("nsr125r", "NSR125R", [
+    v("jc20", "honda.nsr125r.jc20", "JC20", "NSR125R JC20", 1990, 1992),
+    v("jc22", "honda.nsr125r.jc22", "JC22", "NSR125R JC22", 1993, 2003)
+  ]),
+  m("cb500", "CB500 / CB500S", [
+    v("pc26", "honda.cb500.pc26", "CB500 PC26", "CB500 PC26", 1994, 1995),
+    v("pc32", "honda.cb500.pc32", "CB500 PC32", "CB500 PC32", 1996, 2003),
+    v("pc32-s", "honda.cb500.pc32-s", "CB500S PC32", "CB500S PC32", 1998, 2003)
+  ]),
+  m("cb-seven-fifty", "CB Seven Fifty", [v("rc42", "honda.cb-seven-fifty.rc42", "RC42", "CB Seven Fifty RC42", 1992, 2003)]),
+  m("cb1100", "CB1100", [
+    v("sc65", "honda.cb1100.sc65", "SC65", "CB1100 2013", 2013, 2016),
+    v("sc65-ex", "honda.cb1100.sc65-ex", "SC65 EX", "CB1100 EX 2014", 2014, 2016),
+    v("sc78-ex", "honda.cb1100.sc78-ex", "SC78 EX", "CB1100 EX", 2017, 2020),
+    v("sc78-rs", "honda.cb1100.sc78-rs", "SC78 RS", "CB1100 RS", 2017, 2020)
+  ]),
+  m("x-eleven", "X-Eleven", [v("sc42", "honda.x-eleven.sc42", "SC42", "X-Eleven SC42", 1999, 2003)]),
+  m("cbf500", "CBF500", [v("pc39", "honda.cbf500.pc39", "PC39", "CBF500 PC39", 2004, 2008)]),
+  m("cbf600", "CBF600", [
+    v("pc38-n", "honda.cbf600.pc38-n", "PC38 N", "CBF600N PC38", 2004, 2007),
+    v("pc38-s", "honda.cbf600.pc38-s", "PC38 S", "CBF600S PC38", 2004, 2007),
+    v("pc43-n", "honda.cbf600.pc43-n", "PC43 N", "CBF600N PC43", 2008, 2013),
+    v("pc43-s", "honda.cbf600.pc43-s", "PC43 S", "CBF600S PC43", 2008, 2013)
+  ]),
+  m("cbf1000", "CBF1000", [
+    v("sc58", "honda.cbf1000.sc58", "SC58", "CBF1000 SC58", 2006, 2009),
+    v("sc64", "honda.cbf1000.sc64", "SC64", "CBF1000 SC64", 2010, 2016)
+  ]),
+  m("cb1300", "CB1300", [
+    v("sc54-n", "honda.cb1300.sc54-n", "SC54 Super Four", "CB1300 Super Four", 2003, 2009),
+    v("sc54-s", "honda.cb1300.sc54-s", "SC54 Super Bol d'Or", "CB1300S Super Bol d'Or", 2005, 2013)
+  ]),
+  m("deauville", "Deauville", [
+    v("nt650v-rc47", "honda.deauville.nt650v-rc47", "NT650V RC47", "NT650V Deauville", 1998, 2005),
+    v("nt700v-rc52", "honda.deauville.nt700v-rc52", "NT700V RC52", "NT700V Deauville", 2006, 2013)
+  ]),
+  m("varadero", "Varadero", [
+    v("xl1000v-carb", "honda.varadero.xl1000v-carb", "XL1000V carburettor", "XL1000V Varadero 1999", 1999, 2002),
+    v("xl1000v-efi-1", "honda.varadero.xl1000v-efi-1", "XL1000V PGM-FI — I", "XL1000V Varadero 2003", 2003, 2006),
+    v("xl1000v-efi-2", "honda.varadero.xl1000v-efi-2", "XL1000V PGM-FI — II", "XL1000V Varadero 2007", 2007, 2011),
+    v("xl125v-1", "honda.varadero.xl125v-1", "XL125V — I", "XL125V Varadero 2001", 2001, 2006),
+    v("xl125v-2", "honda.varadero.xl125v-2", "XL125V — II", "XL125V Varadero 2007", 2007, 2013)
+  ]),
+  m("nc-road", "NC700S / NC750S", [
+    v("nc700s-rc61", "honda.nc-road.nc700s-rc61", "NC700S RC61", "NC700S RC61", 2012, 2013),
+    v("nc750s-rc70", "honda.nc-road.nc750s-rc70", "NC750S RC70", "NC750S RC70", 2014, 2015),
+    v("nc750s-rc88", "honda.nc-road.nc750s-rc88", "NC750S RC88", "NC750S RC88", 2016, 2020)
+  ]),
+  m("crf-trail", "CRF Road-Legal Trail", [
+    v("crf250l-1", "honda.crf-trail.crf250l-1", "CRF250L — I", "CRF250L 2012", 2012, 2016),
+    v("crf250l-2", "honda.crf-trail.crf250l-2", "CRF250L — II", "CRF250L 2017", 2017, 2020),
+    v("crf250-rally", "honda.crf-trail.crf250-rally", "CRF250 Rally", "CRF250 Rally", 2017, 2020),
+    v("crf300l-1", "honda.crf-trail.crf300l-1", "CRF300L — I", "CRF300L 2021", 2021, 2024),
+    v("crf300-rally-1", "honda.crf-trail.crf300-rally-1", "CRF300 Rally — I", "CRF300 Rally 2021", 2021, 2024),
+    v("crf300l-2", "honda.crf-trail.crf300l-2", "CRF300L — II", "CRF300L 2025", 2025, 2025),
+    v("crf300-rally-2", "honda.crf-trail.crf300-rally-2", "CRF300 Rally — II", "CRF300 Rally 2025", 2025, 2025)
+  ]),
+  m("fmx650", "FMX650", [v("rd12", "honda.fmx650.rd12", "RD12", "FMX650 RD12", 2005, 2008)]),
+  m("shadow", "Shadow", [
+    v("vt600c-pc21", "honda.shadow.vt600c-pc21", "VT600C PC21", "VT600C Shadow", 1990, 2000),
+    v("vt750c-rc44", "honda.shadow.vt750c-rc44", "VT750C RC44", "VT750C Shadow 1997", 1997, 2003),
+    v("vt750c-rc50", "honda.shadow.vt750c-rc50", "VT750C RC50", "VT750C Shadow 2004", 2004, 2006),
+    v("vt750c-rc53", "honda.shadow.vt750c-rc53", "VT750C RC53", "VT750C Shadow 2007", 2007, 2009),
+    v("vt750c-rc58", "honda.shadow.vt750c-rc58", "VT750C RC58", "VT750C Shadow 2010", 2010, 2016),
+    v("vt1100c-sc23", "honda.shadow.vt1100c-sc23", "VT1100C SC23", "VT1100C Shadow 1990", 1990, 1994),
+    v("vt1100c-sc32", "honda.shadow.vt1100c-sc32", "VT1100C SC32", "VT1100C Shadow 1995", 1995, 2000),
+    v("vt1300cx-sc61", "honda.shadow.vt1300cx-sc61", "VT1300CX SC61", "VT1300CX Fury", 2010, 2016)
+  ]),
+  m("f6c-valkyrie", "F6C Valkyrie", [
+    v("sc34", "honda.f6c-valkyrie.sc34", "F6C SC34", "F6C Valkyrie SC34", 1997, 2003),
+    v("sc68", "honda.f6c-valkyrie.sc68", "F6C SC68", "F6C Valkyrie SC68", 2014, 2015)
+  ]),
+  m("dn01", "DN-01", [v("rc55", "honda.dn01.rc55", "RC55", "DN-01", 2008, 2010)]),
+  m("ctx700", "CTX700", [v("rc69", "honda.ctx700.rc69", "RC69", "CTX700", 2014, 2016)]),
+  m("nm4-vultus", "NM4 Vultus", [v("rc82", "honda.nm4-vultus.rc82", "RC82", "NM4 Vultus", 2014, 2016)]),
+  m("cl500", "CL500", [v("pc68", "honda.cl500.pc68", "PC68", "CL500", 2023, 2025)])
+]);
+
+addVariants("honda", "cbr-fireblade", [
+  v("sc59-sp", "honda.cbr-fireblade.sc59-sp", "CBR1000RR SP SC59", "CBR1000RR SP SC59", 2014, 2016),
+  v("sc77-sp", "honda.cbr-fireblade.sc77-sp", "CBR1000RR SP SC77", "CBR1000RR SP SC77", 2017, 2019),
+  v("sc82-sp-1", "honda.cbr-fireblade.sc82-sp-1", "CBR1000RR-R SP SC82 — I", "CBR1000RR-R SP 2020", 2020, 2021),
+  v("sc82-sp-2", "honda.cbr-fireblade.sc82-sp-2", "CBR1000RR-R SP SC82 — II", "CBR1000RR-R SP 2022", 2022, 2023),
+  v("sc82-sp-3", "honda.cbr-fireblade.sc82-sp-3", "CBR1000RR-R SP SC82 — III", "CBR1000RR-R SP 2024", 2024, 2025)
+]);
+addVariants("honda", "africa-twin", [
+  v("crf1000l-adventure-sports", "honda.africa-twin.crf1000l-adventure-sports", "CRF1000L Adventure Sports", "CRF1000L Africa Twin Adventure Sports", 2018, 2019),
+  v("crf1100l-adventure-sports-1", "honda.africa-twin.crf1100l-adventure-sports-1", "CRF1100L Adventure Sports — I", "CRF1100L Africa Twin Adventure Sports 2020", 2020, 2023),
+  v("crf1100l-adventure-sports-2", "honda.africa-twin.crf1100l-adventure-sports-2", "CRF1100L Adventure Sports — II", "CRF1100L Africa Twin Adventure Sports 2024", 2024, 2025)
 ]);
 
 addModels("yamaha", [
