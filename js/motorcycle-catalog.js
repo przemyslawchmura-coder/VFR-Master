@@ -28,6 +28,21 @@ const MotorcycleCatalog = {
     return Number.isInteger(year) ? year : null;
   },
 
+  normalizeSelectableYears(values) {
+    if (!Array.isArray(values)) return [];
+
+    return [...new Set(values
+      .map(value => {
+        if (Number.isInteger(value)) return value;
+        if (typeof value !== "string" || !/^\d{4}$/.test(value.trim())) {
+          return null;
+        }
+        return Number(value);
+      })
+      .filter(year => year !== null))]
+      .sort((left, right) => right - left);
+  },
+
   getBrand(brandId) {
     return this.brands.find(brand => brand.id === brandId) || null;
   },
@@ -80,12 +95,17 @@ const MotorcycleCatalog = {
 
   getYears(brandId, modelId, variantId) {
     const variant = this.getVariant(brandId, modelId, variantId);
-    if (!variant) return [];
+    if (
+      !variant ||
+      !Number.isInteger(variant.yearFrom) ||
+      !Number.isInteger(variant.yearTo) ||
+      variant.yearFrom > variant.yearTo
+    ) return [];
 
-    return Array.from(
+    return this.normalizeSelectableYears(Array.from(
       { length: variant.yearTo - variant.yearFrom + 1 },
       (_, index) => variant.yearFrom + index
-    );
+    ));
   },
 
   findLegacyVariantCandidates({ brand, model, year } = {}) {

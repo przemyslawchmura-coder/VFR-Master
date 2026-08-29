@@ -18,6 +18,10 @@ for (const relativePath of [
 }
 
 const catalog = context.MotorcycleCatalog;
+const vfrProfile = require(
+  "../data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js"
+);
+const vfrFactsBeforeYearSorting = JSON.stringify(vfrProfile.entries);
 const errors = [];
 const normalize = value =>
   String(value || "").trim().toLocaleLowerCase("pl-PL");
@@ -114,8 +118,8 @@ catalog.brands.forEach(brand => {
       variantYearCount += expectedLength;
 
       if (years.length !== expectedLength ||
-          years[0] !== variant.yearFrom ||
-          years[years.length - 1] !== variant.yearTo) {
+          years[0] !== variant.yearTo ||
+          years[years.length - 1] !== variant.yearFrom) {
         errors.push(`${scope} / ${variant.id}: błędny wynik getYears`);
       }
 
@@ -186,6 +190,39 @@ assert.ok(yamahaVariant);
 assert.equal(yamahaVariant.brand.name, "Yamaha");
 assert.equal(yamahaVariant.variant.storedModel, "FZ1-S");
 assert.equal(catalog.getVariantByKey("missing.variant"), null);
+
+assert.deepEqual(
+  JSON.parse(JSON.stringify(catalog.normalizeSelectableYears([
+    2002, "2005", 2003, "2004", 2002
+  ]))),
+  [2005, 2004, 2003, 2002]
+);
+assert.deepEqual(
+  JSON.parse(JSON.stringify(catalog.normalizeSelectableYears([
+    "1999", "2010", "2002"
+  ]))),
+  [2010, 2002, 1999]
+);
+assert.deepEqual(
+  JSON.parse(JSON.stringify(catalog.normalizeSelectableYears([
+    "unknown", "", null, undefined, 2006.5, {}, "2e3", "02008", "2008"
+  ]))),
+  [2008]
+);
+assert.deepEqual(
+  JSON.parse(JSON.stringify(catalog.getYears("yamaha", "fz1", "s"))),
+  [2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006]
+);
+
+const malformedVariant = catalog.getVariant("yamaha", "fz1", "n");
+const originalYearFrom = malformedVariant.yearFrom;
+malformedVariant.yearFrom = "2006";
+assert.deepEqual(
+  JSON.parse(JSON.stringify(catalog.getYears("yamaha", "fz1", "n"))),
+  []
+);
+malformedVariant.yearFrom = originalYearFrom;
+assert.equal(JSON.stringify(vfrProfile.entries), vfrFactsBeforeYearSorting);
 
 assert.equal(catalog.validateMotorcycleSelection({
   brand: "Honda",

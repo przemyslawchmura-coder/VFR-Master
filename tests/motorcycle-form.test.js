@@ -90,6 +90,10 @@ vm.runInContext("handleCatalogModelChange()", context);
 elements.garageCatalogVariant.value =
   "honda.vfr800.rc46.vtec.gen1";
 vm.runInContext("handleCatalogVariantChange()", context);
+assert.deepEqual(
+  elements.garageCatalogYear.children.slice(1).map(option => option.value),
+  ["2005", "2004", "2003", "2002"]
+);
 elements.garageCatalogYear.value = "2002";
 assert.equal(
   vm.runInContext("getMotorcycleFormSelection().catalogVariantKey", context),
