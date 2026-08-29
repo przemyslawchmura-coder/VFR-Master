@@ -1,0 +1,45 @@
+// NON-PRODUCTION RESEARCH STANDARD. Applicability-aware desired coverage.
+"use strict";
+
+const fields = [
+  ["identity.manufacturer", "identity", "required"], ["identity.model", "identity", "required"],
+  ["identity.generation", "identity", "required"], ["identity.model-year", "identity", "required"],
+  ["identity.model-code", "identity", "desirable"], ["identity.market", "identity", "conditional", "market-known"],
+  ["identity.abs", "identity", "conditional", "abs-available"], ["identity.equipment", "identity", "conditional", "equipment-variants"],
+  ["engine.configuration", "engine", "required"], ["engine.displacement", "engine", "required"],
+  ["engine.bore-stroke", "engine", "desirable"], ["engine.compression", "engine", "desirable"],
+  ["engine.firing-ignition", "engine", "desirable"], ["engine.idle-speed", "engine", "required"],
+  ["engine.valve-clearance", "engine", "required"], ["engine.spark-plugs", "engine", "required"],
+  ["fluids.engine-oil", "fluids", "required"], ["fluids.oil-capacities", "fluids", "required"],
+  ["fluids.coolant", "fluids", "conditional", "liquid-cooled"], ["fluids.brake", "fluids", "required"],
+  ["fluids.clutch", "fluids", "conditional", "hydraulic-clutch"], ["fluids.fork", "fluids", "conditional", "serviceable-fork"],
+  ["fuel.type-octane", "fuel", "required"], ["fuel.tank-capacity", "fuel", "required"], ["fuel.reserve", "fuel", "conditional", "separate-reserve"],
+  ["electrical.battery", "electrical", "required"], ["electrical.generator", "electrical", "desirable"],
+  ["electrical.charging-diagnostics", "electrical", "required"], ["electrical.fuses", "electrical", "required"], ["electrical.lighting", "electrical", "required"],
+  ["brakes.system", "brakes", "required"], ["brakes.discs", "brakes", "required"], ["brakes.pads", "brakes", "required"],
+  ["brakes.wear-limits", "brakes", "required"], ["brakes.fluid", "brakes", "required"], ["brakes.torques", "brakes", "required"],
+  ["final-drive.type", "final-drive", "required"], ["final-drive.chain-spec", "final-drive", "conditional", "chain-drive"],
+  ["final-drive.sprockets", "final-drive", "conditional", "chain-drive"], ["final-drive.chain-slack", "final-drive", "conditional", "chain-drive"],
+  ["final-drive.chain-wear", "final-drive", "conditional", "chain-drive"], ["final-drive.torques", "final-drive", "required"],
+  ["wheels.tyre-sizes", "wheels", "required"], ["wheels.pressures", "wheels", "required"], ["wheels.rim-sizes", "wheels", "required"],
+  ["wheels.bearings", "wheels", "desirable"], ["wheels.seals", "wheels", "desirable"], ["wheels.axle-wheel-torques", "wheels", "required"],
+  ["suspension.travel", "suspension", "desirable"], ["suspension.fork-setup", "suspension", "desirable"],
+  ["suspension.shock-setup", "suspension", "desirable"],
+  ["suspension.service-fluid", "suspension", "conditional", "serviceable-fork"], ["suspension.service-limits", "suspension", "desirable"],
+  ["dimensions.length", "dimensions-mass", "required"], ["dimensions.width", "dimensions-mass", "required"],
+  ["dimensions.height", "dimensions-mass", "required"], ["dimensions.wheelbase", "dimensions-mass", "required"],
+  ["dimensions.seat-height", "dimensions-mass", "required"], ["dimensions.rake-trail", "dimensions-mass", "desirable"],
+  ["dimensions.ground-clearance", "dimensions-mass", "desirable"], ["dimensions.wet-kerb-mass", "dimensions-mass", "required"],
+  ["dimensions.payload", "dimensions-mass", "desirable"],
+  ["maintenance.schedule", "maintenance", "required"], ["maintenance.time-intervals", "maintenance", "required"],
+  ["maintenance.distance-intervals", "maintenance", "required"], ["maintenance.actions-separated", "maintenance", "required"],
+  ["oem-parts.oil-filter", "oem-parts", "required"], ["oem-parts.air-filter", "oem-parts", "required"],
+  ["oem-parts.spark-plugs", "oem-parts", "required"], ["oem-parts.brake-pads", "oem-parts", "required"],
+  ["oem-parts.chain-sprockets", "oem-parts", "conditional", "chain-drive"], ["oem-parts.seals", "oem-parts", "desirable"],
+  ["oem-parts.bearings", "oem-parts", "desirable"], ["oem-parts.service-washers", "oem-parts", "desirable"],
+  ["oem-parts.other-routine", "oem-parts", "desirable"],
+  ["torques.engine", "torques", "required"], ["torques.chassis", "torques", "required"], ["torques.brakes", "torques", "required"],
+  ["torques.wheels", "torques", "required"], ["torques.final-drive", "torques", "required"], ["torques.suspension", "torques", "desirable"]
+].map(([id, category, importance, appliesWhen]) => Object.freeze({ id, category, importance, appliesWhen: appliesWhen || null }));
+
+module.exports = Object.freeze({ schemaVersion: "revlog-technical-coverage/v1", fields: Object.freeze(fields) });
