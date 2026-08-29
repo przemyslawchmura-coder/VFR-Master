@@ -11,13 +11,13 @@
 ## Remaining gaps
 
 - **honda.cbr500r.gen4:** chassis, oem-parts.
-  - Reasons: insufficient canonical field coverage (29% < 60%); too many not-researched fields (30); insufficient service-manual evidence; critical fields incomplete (3).
-  - Critical blockers: electrical.charging-voltage, maintenance.schedule-mileage-intervals, torques.oil-drain-bolt.
+  - Reasons: insufficient canonical field coverage (29% < 60%); too many not-researched fields (30); insufficient service-manual evidence; critical fields incomplete (3); applicability unresolved (3).
+  - Critical blockers: electrical.charging-voltage, maintenance.schedule-mileage-intervals, torques.oil-drain-bolt, identity.region, identity.abs, identity.equipment-variant.
 - **yamaha.mt09.gen3:** oem-parts.
-  - Reasons: insufficient canonical field coverage (30% < 60%); too many not-researched fields (23); insufficient service-manual evidence; critical fields incomplete (3).
-  - Critical blockers: final_drive.chain-size, electrical.charging-voltage, maintenance.schedule-mileage-intervals.
+  - Reasons: insufficient canonical field coverage (30% < 60%); too many not-researched fields (23); insufficient service-manual evidence; critical fields incomplete (3); applicability unresolved (3).
+  - Critical blockers: final_drive.chain-size, electrical.charging-voltage, maintenance.schedule-mileage-intervals, identity.region, identity.abs, identity.equipment-variant.
 - **yamaha.tenere700.gen1:** oem-parts.
-  - Reasons: insufficient canonical field coverage (30% < 60%); too many not-researched fields (22); insufficient service-manual evidence; critical fields incomplete (3).
-  - Critical blockers: final_drive.chain-size, electrical.charging-voltage, maintenance.schedule-mileage-intervals.
+  - Reasons: insufficient canonical field coverage (30% < 60%); too many not-researched fields (22); insufficient service-manual evidence; critical fields incomplete (3); applicability unresolved (3).
+  - Critical blockers: final_drive.chain-size, electrical.charging-voltage, maintenance.schedule-mileage-intervals, identity.region, identity.abs, identity.equipment-variant.
 
 Readiness policy: at least 60% of canonical fields evidenced, no more than 20 not-researched fields, at least one service-manual value, no conflicts, and all critical identity/safety/service fields evidenced. This is informational only and never promotes data.

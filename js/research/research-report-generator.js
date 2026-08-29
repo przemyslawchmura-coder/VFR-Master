@@ -2,6 +2,7 @@
 
 const coverageAuditor = require("./research-coverage-auditor.js");
 const coverageStandard = require("../../research/schema/research-coverage-standard.js");
+const sourceAcquisition = require("../../research/data/source-acquisition-status.js");
 
 function buildResearchMetrics(dataset) {
   const sourceById = new Map(dataset.sources.map(source => [source.id, source]));
@@ -79,8 +80,59 @@ function evaluateReadiness(audit, metrics) {
   });
   if (missingCritical.length) blockers.push(...missingCritical);
   if (missingCritical.length) reasons.push(`critical fields incomplete (${missingCritical.length})`);
+  const applicabilityBlockers = ["identity.region", "identity.abs", "identity.equipment-variant"].filter(id => {
+    const [category, field] = id.split(".");
+    return !audit.categories[category] || audit.categories[category][field].status !== "evidence-found";
+  });
+  if (applicabilityBlockers.length) {
+    blockers.push(...applicabilityBlockers);
+    reasons.push(`applicability unresolved (${applicabilityBlockers.length})`);
+  }
   const recommendation = reasons.length === 0 && blockers.length === 0 ? "ready-for-human-profile-review" : "research-more";
   return { recommendation, reasons, blockers, missingCritical, evidencePercent };
+}
+
+function buildDeepProfilePipelineStatus(dataset, keys) {
+  const metrics = buildDeepProfileMetrics(dataset, keys);
+  return Object.fromEntries(keys.map(key => {
+    const item = metrics[key];
+    const sources = sourceAcquisition.profiles[key] || {};
+    const service = sources.serviceManual || {};
+    const parts = sources.partsCatalogue || {};
+    const classes = new Set(item.readinessBlockers.map(id => coverageAuditor.sourceClassForField(id)));
+    if (item.readinessBlockers.some(id => id.startsWith("identity."))) classes.add("applicability/market research");
+    if (!service.fieldEvidenceExtracted) classes.add("service/workshop manual");
+    if (!parts.fieldEvidenceExtracted) classes.add("OEM parts catalogue");
+    return [key, {
+      proposedProfileKey: key,
+      canonicalFieldCount: coverageStandard.FIELD_COUNT,
+      evidenceFound: item.fieldCoverage["evidence-found"],
+      researchedNoEvidence: item.fieldCoverage["researched-no-evidence"],
+      notResearched: item.fieldCoverage["not-researched"],
+      conflicts: item.fieldCoverage.conflicting,
+      evidenceCoveragePercent: item.completenessPercent,
+      officialSourceCandidates: item.totalCandidates * item.officialSourcePercent ? Math.round(item.totalCandidates * item.officialSourcePercent / 100) : 0,
+      ownerManualEvidenceCount: item.ownerManualValues,
+      serviceManualEvidenceCount: item.serviceManualValues,
+      oemPartsEvidenceCount: item.oemPartNumbers,
+      applicabilityBlockers: item.readinessBlockers.filter(id => id.startsWith("identity.")),
+      criticalBlockers: item.readinessBlockers,
+      nextRequiredSourceClasses: [...classes].sort(),
+      ownerManualEvidenceExhausted: "yes",
+      serviceManual: service,
+      oemPartsCatalogue: parts,
+      recommendation: item.recommendation,
+      eligibleForHumanProfileReview: item.recommendation === "ready-for-human-profile-review"
+    }];
+  }));
+}
+
+function renderDeepProfilePipelineStatusReport(dataset, keys) {
+  const status = buildDeepProfilePipelineStatus(dataset, keys);
+  const lines = ["# Deep profile pipeline status", "", "> **NON-PRODUCTION RESEARCH DATA. Eligibility is informational; promotion always requires human review.**", "", "| Profile | Evidence | Not researched | Conflicts | Recommendation | Eligible |", "|---|---:|---:|---:|---|---|"];
+  keys.forEach(key => { const item = status[key]; lines.push(`| ${key} | ${item.evidenceFound}/${item.canonicalFieldCount} (${item.evidenceCoveragePercent}%) | ${item.notResearched} | ${item.conflicts} | ${item.recommendation} | ${item.eligibleForHumanProfileReview ? "yes" : "no"} |`); });
+  keys.forEach(key => { const item = status[key]; lines.push("", `## ${key}`, "", `- Critical blockers: ${item.criticalBlockers.join(", ") || "none"}`, `- Applicability blockers: ${item.applicabilityBlockers.join(", ") || "none"}`, `- Next source classes: ${item.nextRequiredSourceClasses.join(", ")}`, `- Owner-manual evidence exhausted: ${item.ownerManualEvidenceExhausted}`, `- Service manual: identified=${!!item.serviceManual.publicationIdentified}, accessible=${!!item.serviceManual.contentAccessible}, authentic=${!!item.serviceManual.authenticityVerified}, inspected=${!!item.serviceManual.relevantSectionInspected}, evidence=${!!item.serviceManual.fieldEvidenceExtracted}`, `- OEM parts catalogue: identified=${!!item.oemPartsCatalogue.publicationIdentified}, accessible=${!!item.oemPartsCatalogue.contentAccessible}, inspected=${!!item.oemPartsCatalogue.relevantSectionInspected}, evidence=${!!item.oemPartsCatalogue.fieldEvidenceExtracted}`); });
+  return lines.join("\n") + "\n";
 }
 
 function buildDeepProfileMetrics(dataset, keys) {
@@ -143,4 +195,4 @@ function renderDeepProfileReadinessReport(dataset, keys) {
   return lines.join("\n");
 }
 
-module.exports = Object.freeze({ buildResearchMetrics, buildDeepProfileMetrics, renderDeepProfileReadinessReport, evaluateReadiness, READINESS_POLICY, DEEP_CATEGORIES });
+module.exports = Object.freeze({ buildResearchMetrics, buildDeepProfileMetrics, renderDeepProfileReadinessReport, evaluateReadiness, buildDeepProfilePipelineStatus, renderDeepProfilePipelineStatusReport, READINESS_POLICY, DEEP_CATEGORIES });

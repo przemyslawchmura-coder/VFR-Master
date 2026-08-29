@@ -11,5 +11,7 @@ const output = process.argv.includes("--field-gaps")
     ? require("../js/research/research-coverage-auditor.js").renderOwnerManualExhaustionReport(dataset, deepKeys)
   : process.argv.includes("--deep-profile-markdown")
     ? generator.renderDeepProfileReadinessReport(dataset, deepKeys)
+  : process.argv.includes("--pipeline-status")
+    ? generator.renderDeepProfilePipelineStatusReport(dataset, deepKeys)
   : JSON.stringify({ aggregate: generator.buildResearchMetrics(dataset), deepProfiles: generator.buildDeepProfileMetrics(dataset, deepKeys) }, null, 2);
 process.stdout.write(output.replace(/\n+$/, "\n"));
