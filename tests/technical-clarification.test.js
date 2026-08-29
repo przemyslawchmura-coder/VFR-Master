@@ -53,3 +53,42 @@ test("ABS remains tri-state through resolver", () => {
   assert.equal(resolver.resolveEntry(entry, { abs: true }).entry.value.text, "abs");
   assert.equal(resolver.resolveEntry(entry, { abs: null }).status, "ambiguous-context");
 });
+
+function requirementView(requiredContext, clarification = {}, resolutionStatus = "ambiguous-context") {
+  return { clarification, entriesById: { entry: { resolutionStatus, requiredContext, candidates: { abs: [true, false], region: ["EU", "USA"], equipment: ["touring"] } } } };
+}
+
+test("context refinement requirements are explicit, minimal and safe", () => {
+  assert.deepEqual(ui.buildContextRefinementRequirements(requirementView(["abs"])).map(item => item.contextField), ["abs"]);
+  assert.deepEqual(ui.buildContextRefinementRequirements(requirementView(["region"])).map(item => item.key), ["market"]);
+  assert.deepEqual(ui.buildContextRefinementRequirements(requirementView(["region", "abs"])).map(item => item.contextField), ["region", "abs"]);
+  assert.deepEqual(ui.buildContextRefinementRequirements(requirementView(["abs"], {}, "resolved")), []);
+  assert.deepEqual(ui.buildContextRefinementRequirements(requirementView(["abs", "modelCode", "unknown"])).map(item => item.contextField), ["abs"]);
+  assert.equal(ui.buildContextRefinementRequirements(requirementView(["abs"], { abs: false }))[0].currentValue, false);
+  assert.equal(ui.buildContextRefinementRequirements(requirementView(["region"], { market: "EU" }))[0].currentValue, "EU");
+  assert.deepEqual(ui.buildContextRefinementRequirements(requirementView(["equipment"])).map(item => item.contextField), ["equipment"]);
+  assert.deepEqual(ui.buildContextRefinementRequirements(requirementView(["abs", "abs", "region"])).map(item => item.contextField), ["abs", "region"]);
+});
+
+test("partial clarification follows resolved entries and preserves known false", () => {
+  const partiallyResolved = {
+    clarification: { market: "EU", abs: null },
+    entriesById: {
+      regionEntry: { resolutionStatus: "resolved", requiredContext: ["region"], candidates: { region: ["EU", "USA"] } },
+      absEntry: { resolutionStatus: "ambiguous-context", requiredContext: ["abs"], candidates: { abs: [true, false] } }
+    }
+  };
+  assert.deepEqual(ui.buildContextRefinementRequirements(partiallyResolved).map(item => item.contextField), ["abs"]);
+
+  const inverse = {
+    clarification: { market: null, abs: false },
+    entriesById: {
+      absEntry: { resolutionStatus: "resolved", requiredContext: ["abs"], candidates: { abs: [true, false] } },
+      regionEntry: { resolutionStatus: "ambiguous-context", requiredContext: ["region"], candidates: { region: ["EU", "USA"] } }
+    }
+  };
+  const requirements = ui.buildContextRefinementRequirements(inverse);
+  assert.deepEqual(requirements.map(item => item.contextField), ["region"]);
+  assert.equal(requirements[0].key, "market");
+  assert.equal(inverse.clarification.abs, false);
+});

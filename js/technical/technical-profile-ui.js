@@ -165,19 +165,33 @@
   }
 
   function renderClarificationHtml(view) {
-    const required = [...new Set(Object.values(view.entriesById || {}).flatMap(entry => entry.resolutionStatus === "ambiguous-context" ? entry.requiredContext : []))];
-    if (!required.length) return "";
+    const requirements = buildContextRefinementRequirements(view);
+    if (!requirements.length) return "";
+    const required = requirements.map(item => item.contextField);
     const field = name => {
       if (!required.includes(name)) return "";
       const key = name === "region" ? "market" : name;
       const current = view.clarification || {};
-      const options = getClarificationOptions(view, name);
+      const options = requirements.find(item => item.contextField === name).options;
       const optionLabels = { EU: "Europa", USA: "USA", UK: "Wielka Brytania", AU: "Australia", JP: "Japonia", true: "ABS", false: "Bez ABS" };
       const choices = options.map(value => `<option value="${escapeHtml(value)}"${String(current[key]) === String(value) ? " selected" : ""}>${escapeHtml(name === "equipment" ? value : optionLabels[value] || value)}</option>`).join("");
       const unknownSelected = current[key] === null || current[key] === undefined || current[key] === "";
       return `<label>${escapeHtml(name === "region" ? "Rynek / region" : name === "abs" ? "Wersja ABS" : "Wyposażenie")}<select data-technical-clarification="${escapeHtml(name)}"><option value=""${unknownSelected ? " selected" : ""}>Nie wiem</option>${choices}</select></label>`;
     };
-    return `<div class="card technical-clarification"><h3>Doprecyzuj wersję motocykla</h3><p class="section-note">Znaleźliśmy więcej niż jeden pasujący wariant. Podaj tylko informacje potrzebne do wyboru właściwych danych technicznych.</p><form data-technical-clarification-form>${required.map(field).join("")}<button type="submit" class="primary">Zapisz i dobierz dane</button></form></div>`;
+    return `<div class="card technical-clarification"><h3>Doprecyzuj wersję motocykla</h3><p class="section-note">Niektóre dane techniczne wymagają dodatkowych informacji.</p><details open><summary>Uzupełnij dane</summary><form data-technical-clarification-form>${required.map(field).join("")}<button type="submit" class="primary">Zapisz i odśwież profil</button></form></details></div>`;
+  }
+
+  function buildContextRefinementRequirements(view) {
+    const supported = new Set(["region", "abs", "equipment"]);
+    const fields = [...new Set(Object.values(view.entriesById || {}).flatMap(entry => entry.resolutionStatus === "ambiguous-context" ? entry.requiredContext : []))].filter(field => supported.has(field));
+    return fields.map(contextField => ({
+      key: contextField === "region" ? "market" : contextField,
+      contextField,
+      label: contextField === "region" ? "Rynek / region" : contextField === "abs" ? "Wersja ABS" : "Wyposażenie",
+      type: contextField === "abs" ? "boolean" : "select",
+      currentValue: (view.clarification || {})[contextField === "region" ? "market" : contextField] ?? null,
+      options: getClarificationOptions(view, contextField)
+    }));
   }
 
   function getClarificationOptions(view, field) {
@@ -255,6 +269,7 @@
     renderSearchResultsHtml,
     renderEntryHtml,
     getClarificationOptions,
+    buildContextRefinementRequirements,
     escapeHtml,
     STATUS_LABELS
   });
