@@ -58,6 +58,7 @@
         profileRevision: profile.profile.revision,
         motorcycleYear: context.year,
         resolutionContext: readinessResult.resolutionContext,
+        clarification: motorcycle && motorcycle.clarification ? { ...motorcycle.clarification } : {},
         categories: grouped,
         entriesById: Object.fromEntries(entryViews.map(entry => [entry.id, entry])),
         searchIndex,
@@ -94,6 +95,7 @@
       label: entry.label,
       resolutionStatus: resolution.status,
       requiredContext: [...(resolution.requiredContext || [])],
+      candidates: resolution.candidates || {},
       formattedValue: resolved && effective.value ? safeFormat(formatter, effective.value) : null,
       status: effective.status || entry.status || null,
       statusLabel: STATUS_LABELS[effective.status || entry.status] || "Status nieznany",
@@ -165,7 +167,15 @@
   function renderClarificationHtml(view) {
     const required = [...new Set(Object.values(view.entriesById || {}).flatMap(entry => entry.resolutionStatus === "ambiguous-context" ? entry.requiredContext : []))];
     if (!required.length) return "";
-    const field = name => required.includes(name) ? `<label>${escapeHtml(name === "region" ? "Rynek / region" : name === "abs" ? "Wersja ABS" : "Wyposażenie") }<select data-technical-clarification="${escapeHtml(name)}"><option value="">Nie wiem</option>${name === "region" ? '<option value="EU">Europa</option><option value="USA">USA</option><option value="UK">Wielka Brytania</option><option value="AU">Australia</option><option value="JP">Japonia</option>' : name === "abs" ? '<option value="true">ABS</option><option value="false">Bez ABS</option>' : ""}</select></label>` : "";
+    const field = name => {
+      if (!required.includes(name)) return "";
+      const current = view.clarification || {};
+      const key = name === "region" ? "market" : name;
+      const options = [...new Set(Object.values(view.entriesById || {}).flatMap(entry => (entry.candidates && entry.candidates[name]) || []))].filter(Boolean);
+      const optionLabels = { EU: "Europa", USA: "USA", UK: "Wielka Brytania", AU: "Australia", JP: "Japonia", true: "ABS", false: "Bez ABS" };
+      const choices = name === "equipment" ? options.map(value => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join("") : options.map(value => `<option value="${escapeHtml(value)}">${escapeHtml(optionLabels[value] || value)}</option>`).join("");
+      return `<label>${escapeHtml(name === "region" ? "Rynek / region" : name === "abs" ? "Wersja ABS" : "Wyposażenie")}<select data-technical-clarification="${escapeHtml(name)}"><option value="">Nie wiem</option>${choices}</select></label>`;
+    };
     return `<div class="card technical-clarification"><h3>Doprecyzuj wersję motocykla</h3><p class="section-note">Znaleźliśmy więcej niż jeden pasujący wariant. Podaj tylko informacje potrzebne do wyboru właściwych danych technicznych.</p><form data-technical-clarification-form>${required.map(field).join("")}<button type="submit" class="primary">Zapisz i dobierz dane</button></form></div>`;
   }
 
@@ -215,7 +225,7 @@
     const results = container.querySelector("#technicalProfileResults");
     if (input && results) input.addEventListener("input", () => { results.innerHTML = renderSearchResultsHtml(view, input.value, search); });
     const form = container.querySelector("[data-technical-clarification-form]");
-    if (form && typeof options.onClarificationSave === "function") form.addEventListener("submit", event => { event.preventDefault(); const clarification = {}; form.querySelectorAll("[data-technical-clarification]").forEach(select => { const value = select.value; clarification[select.dataset.technicalClarification] = select.dataset.technicalClarification === "abs" ? (value === "" ? null : value === "true") : (value || null); }); options.onClarificationSave(clarification); });
+    if (form && typeof options.onClarificationSave === "function") form.addEventListener("submit", async event => { event.preventDefault(); const clarification = { ...(view.clarification || {}) }; form.querySelectorAll("[data-technical-clarification]").forEach(select => { const field = select.dataset.technicalClarification; const key = field === "region" ? "market" : field; const value = select.value; clarification[key] = field === "abs" ? (value === "" ? null : value === "true") : (value || null); }); const result = await options.onClarificationSave(clarification); if (result && result.status === "cloud-error") { const notice = container.querySelector("[data-technical-clarification-error]"); if (notice) notice.textContent = "Nie udało się zapisać zmiany w chmurze. Spróbuj ponownie."; else if (form.insertAdjacentHTML) form.insertAdjacentHTML("beforeend", '<p class="section-note" data-technical-clarification-error>Nie udało się zapisać zmiany w chmurze. Spróbuj ponownie.</p>'); } });
   }
 
   function contextLabel(field) {

@@ -17,7 +17,9 @@
         ? uniqueStrings(source.equipment)
         : Array.isArray(clarification.equipment)
           ? uniqueStrings(clarification.equipment)
-        : null
+          : typeof clarification.equipmentVariant === "string" && clarification.equipmentVariant.trim()
+            ? [clarification.equipmentVariant.trim()]
+          : null
     };
     const requiredContext = [];
     if (context.catalogVariantKey === null) requiredContext.push("catalogVariantKey");

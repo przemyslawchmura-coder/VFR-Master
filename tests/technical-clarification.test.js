@@ -11,7 +11,7 @@ test("clarification metadata is optional and mapped without guessing", () => {
   const clarified = context.buildTechnicalContext({ catalogVariantKey: "x", year: 2021, clarification: { market: "USA", abs: true, equipmentVariant: "touring" } });
   assert.equal(clarified.context.region, "USA");
   assert.equal(clarified.context.abs, true);
-  assert.equal(clarified.context.equipment, null);
+  assert.deepEqual(clarified.context.equipment, ["touring"]);
 });
 
 test("clarification view asks only for unresolved resolver fields", () => {

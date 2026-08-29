@@ -51,8 +51,9 @@ async function openTechnicalBase() {
           onLegacyFallback: openLegacyTechnicalBase,
           async onClarificationSave(clarification) {
             if (!context.bike || !window.MotorcycleDatabase || typeof MotorcycleDatabase.updateTechnicalClarification !== "function") return;
-            await MotorcycleDatabase.updateTechnicalClarification(context.bike.id, clarification);
-            await openTechnicalBase();
+            const result = await MotorcycleDatabase.updateTechnicalClarification(context.bike.id, clarification);
+            if (result && result.status === "saved") await openTechnicalBase();
+            return result;
           },
           shouldCommit() {
             const activeBike = window.MotorcycleDatabase
