@@ -67,6 +67,7 @@
     if (!SOURCE_TYPES.includes(source.type)) error(errors, "UNKNOWN_SOURCE_TYPE", `${path}.type`, `Unknown research source type: ${source && source.type}`);
     if (!text(source.title)) error(errors, "MISSING_SOURCE_TITLE", `${path}.title`, "Source title is required.");
     if (source.url != null && !validUrl(source.url)) error(errors, "INVALID_SOURCE_URL", `${path}.url`, "Source URL must use http or https.");
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(source && source.accessedAt || "")) error(errors, "INVALID_ACCESSED_AT", `${path}.accessedAt`, "accessedAt must use YYYY-MM-DD.");
   }
 
   function validateCatalog(record, index, sourceIds, errors) {
@@ -90,7 +91,12 @@
     validateStatus(record && record.status, `${path}.status`, errors);
     validateSourceRefs(record && record.sourceIds, path, sourceIds, errors);
     if (!catalogKeys.has(record && record.proposedCatalogVariantKey)) error(errors, "UNKNOWN_CATALOG_KEY", `${path}.proposedCatalogVariantKey`, `Candidate refers to an unknown catalog key: ${record && record.proposedCatalogVariantKey}`);
-    if (typeof (record && record.normalizedCandidateValue) === "number" && !text(record.unit)) error(errors, "MISSING_NORMALIZED_UNIT", `${path}.unit`, "A numeric normalized candidate requires a unit.");
+    const normalized = record && record.normalizedCandidateValue;
+    const numericRange = normalized && typeof normalized === "object" && typeof normalized.min === "number" && typeof normalized.max === "number";
+    if ((typeof normalized === "number" || numericRange) && !text(record.unit)) error(errors, "MISSING_NORMALIZED_UNIT", `${path}.unit`, "A numeric normalized candidate requires a unit.");
+    if (record && record.region !== null && !text(record.region)) error(errors, "INVALID_APPLICABILITY", `${path}.region`, "region must be a non-empty string or null.");
+    if (record && record.abs !== null && typeof record.abs !== "boolean") error(errors, "INVALID_APPLICABILITY", `${path}.abs`, "abs must be boolean or null.");
+    if (record && record.equipment !== null && !Array.isArray(record.equipment)) error(errors, "INVALID_APPLICABILITY", `${path}.equipment`, "equipment must be an array or null.");
     if (record && record.status === "conflicting" && !text(record.conflictGroup)) error(errors, "MISSING_CONFLICT_GROUP", `${path}.conflictGroup`, "Conflicting candidates require conflictGroup.");
   }
 

@@ -45,4 +45,56 @@ function countBy(values, selector) {
   return Object.fromEntries([...values.reduce((map, value) => map.set(selector(value), (map.get(selector(value)) || 0) + 1), new Map())].sort(([left], [right]) => left.localeCompare(right)));
 }
 
-module.exports = Object.freeze({ buildResearchMetrics });
+const DEEP_CATEGORIES = Object.freeze(["engine", "lubrication", "cooling", "fuel", "ignition", "electrical", "transmission", "drive", "chassis", "brakes", "tires", "dimensions", "maintenance", "oem-parts"]);
+
+function buildDeepProfileMetrics(dataset, keys) {
+  const sourceById = new Map(dataset.sources.map(source => [source.id, source]));
+  return Object.fromEntries(keys.map(key => {
+    const candidates = dataset.candidates.filter(candidate => candidate.proposedCatalogVariantKey === key);
+    const categories = new Set(candidates.map(candidate => candidate.technicalField.split(".")[0]));
+    const covered = DEEP_CATEGORIES.filter(category => categories.has(category));
+    const official = candidates.filter(candidate => candidate.sourceIds.some(id => String((sourceById.get(id) || {}).type).startsWith("official-"))).length;
+    const serviceManualValues = candidates.filter(candidate => candidate.sourceIds.some(id => (sourceById.get(id) || {}).type === "official-service-manual")).length;
+    const ownerManualValues = candidates.filter(candidate => candidate.sourceIds.some(id => (sourceById.get(id) || {}).type === "official-owner-manual")).length;
+    const completenessPercent = Math.round((covered.length / DEEP_CATEGORIES.length) * 100);
+    return [key, {
+      totalCandidates: candidates.length,
+      candidatesByCategory: countBy(candidates, candidate => candidate.technicalField.split(".")[0]),
+      officialSourcePercent: candidates.length ? Math.round((official / candidates.length) * 100) : 0,
+      candidatesWithPage: candidates.filter(candidate => candidate.sourcePage).length,
+      candidatesWithSection: candidates.filter(candidate => candidate.sourceSection).length,
+      normalizedValues: candidates.filter(candidate => candidate.normalizedCandidateValue !== null && candidate.normalizedCandidateValue !== undefined).length,
+      unknownApplicability: candidates.filter(candidate => candidate.region === null || candidate.abs === null || candidate.equipment === null).length,
+      conflicts: candidates.filter(candidate => candidate.status === "conflicting").length,
+      serviceManualValues,
+      ownerManualValues,
+      torqueValues: candidates.filter(candidate => candidate.technicalField.startsWith("torque.")).length,
+      maintenanceIntervals: candidates.filter(candidate => candidate.technicalField.startsWith("maintenance.")).length,
+      oemPartNumbers: candidates.filter(candidate => candidate.technicalField.startsWith("oem-parts.")).length,
+      coveredMajorCategories: covered,
+      missingMajorCategories: DEEP_CATEGORIES.filter(category => !categories.has(category)),
+      completenessPercent,
+      recommendation: candidates.length >= 30 && covered.length >= 9 && official === candidates.length ? "ready-for-human-profile-review" : "research-more"
+    }];
+  }));
+}
+
+function renderDeepProfileReadinessReport(dataset, keys) {
+  const metrics = buildDeepProfileMetrics(dataset, keys);
+  const lines = [
+    "# Deep profile research readiness", "",
+    "> **NON-PRODUCTION RESEARCH DATA. Completeness is informational and never promotes a profile automatically.**", "",
+    "| Proposed key | Candidates | Major coverage | Official | Page / section | Service / owner manual values | Conflicts | Recommendation |",
+    "|---|---:|---:|---:|---:|---:|---:|---|"
+  ];
+  keys.forEach(key => {
+    const item = metrics[key];
+    lines.push(`| ${key} | ${item.totalCandidates} | ${item.completenessPercent}% | ${item.officialSourcePercent}% | ${item.candidatesWithPage} / ${item.candidatesWithSection} | ${item.serviceManualValues} / ${item.ownerManualValues} | ${item.conflicts} | ${item.recommendation} |`);
+  });
+  lines.push("", "## Remaining gaps", "");
+  keys.forEach(key => lines.push(`- **${key}:** ${metrics[key].missingMajorCategories.join(", ") || "none in the major-category checklist"}.`));
+  lines.push("", "The percentage measures category presence only. It does not measure correctness, source authority inside a category, regional completeness, or production readiness.", "");
+  return lines.join("\n");
+}
+
+module.exports = Object.freeze({ buildResearchMetrics, buildDeepProfileMetrics, renderDeepProfileReadinessReport, DEEP_CATEGORIES });

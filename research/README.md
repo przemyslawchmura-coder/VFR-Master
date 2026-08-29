@@ -14,4 +14,6 @@ The production boundary is deliberate:
 
 The seed catalogue is partial. It is intended to exercise structure and provenance across manufacturers, not to claim global coverage.
 
+Deep profile candidates for `honda.cbr500r.gen4`, `yamaha.mt09.gen3`, and `yamaha.tenere700.gen1` are grouped in `data/candidates/deep-profiles.js`. They are owner-manual/specification evidence retained for human review; they are not production Technical Profiles.
+
 For scalability, manufacturer expansions live under `data/sources/`, `data/catalog/`, and `data/candidates/`. `data/research-dataset.js` is the only logical aggregate consumed by validation and reporting. Merge order is fixed and tested. `scripts/generate-research-reports.js` derives metrics from that aggregate; manually maintained totals are not schema inputs.

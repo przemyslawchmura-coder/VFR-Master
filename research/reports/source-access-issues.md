@@ -7,3 +7,4 @@
 - Honda UK 2021 brochures provided stable printed-page context for the cited specification tables.
 - No login-only document, community mirror, infinite redirect or inaccessible service-manual content was used to create new Honda/Yamaha technical candidates.
 - URLs must be rechecked during human profile review; `source-located` is not a guarantee of permanent public availability.
+- Honda authorized service manuals are referenced by the owner manual but are dealer/Helm publications; no public service-manual content was used. Yamaha public owner-manual library exposes owner manuals, but no corresponding public service-manual/parts-fiche evidence was confirmed for these exact variants.

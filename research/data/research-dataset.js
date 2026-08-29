@@ -7,6 +7,7 @@ const hondaCatalog = require("./catalog/honda.js");
 const yamahaCatalog = require("./catalog/yamaha.js");
 const hondaCandidates = require("./candidates/honda.js");
 const yamahaCandidates = require("./candidates/yamaha.js");
+const deepProfileCandidates = require("./candidates/deep-profiles.js");
 
 const sources = [
   { id: "research.honda.vfr.history", type: "official-technical-publication", title: "Honda 75 Years: VFR history", manufacturer: "Honda", url: "https://global.honda/en/about/history-digest/75years-history/chapter3/section1_2/page2.html", accessedAt: "2026-08-29" },
@@ -72,5 +73,5 @@ module.exports = Object.freeze({
   schemaVersion: "revlog-research-data/v1",
   sources: Object.freeze([...sources, ...hondaSources, ...yamahaSources]),
   catalog: Object.freeze([...catalog, ...hondaCatalog, ...yamahaCatalog]),
-  candidates: Object.freeze([...candidates, ...hondaCandidates, ...yamahaCandidates])
+  candidates: Object.freeze([...candidates, ...hondaCandidates, ...yamahaCandidates, ...deepProfileCandidates])
 });

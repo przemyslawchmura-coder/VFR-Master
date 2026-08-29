@@ -75,6 +75,16 @@ test("numeric normalized values require units", () => {
   assert.ok(validator.validateResearchDataset(copy).errors.some(error => error.code === "MISSING_NORMALIZED_UNIT"));
 });
 
+test("numeric normalized ranges and applicability metadata fail closed", () => {
+  const rangeCopy = clone(dataset);
+  const rangeCandidate = rangeCopy.candidates.find(record => record.normalizedCandidateValue && typeof record.normalizedCandidateValue === "object" && record.normalizedCandidateValue.min !== undefined);
+  rangeCandidate.unit = null;
+  assert.ok(validator.validateResearchDataset(rangeCopy).errors.some(error => error.code === "MISSING_NORMALIZED_UNIT"));
+  const applicabilityCopy = clone(dataset);
+  applicabilityCopy.candidates[0].abs = "false";
+  assert.ok(validator.validateResearchDataset(applicabilityCopy).errors.some(error => error.code === "INVALID_APPLICABILITY"));
+});
+
 test("conflict groups remain preserved and incomplete groups fail", () => {
   const copy = clone(dataset);
   copy.candidates[0].status = "conflicting";
@@ -114,8 +124,8 @@ test("report metrics are deterministic and match Honda/Yamaha coverage", () => {
   const first = reports.buildResearchMetrics(dataset);
   const second = reports.buildResearchMetrics(dataset);
   assert.deepEqual(first, second);
-  assert.deepEqual({ honda: first.byManufacturer.Honda.technicalCandidates, yamaha: first.byManufacturer.Yamaha.technicalCandidates }, { honda: 70, yamaha: 66 });
-  assert.deepEqual(first.totals, { sources: 50, manufacturers: 11, modelFamilies: 93, catalogRecords: 167, technicalCandidates: 150, conflicts: 0 });
+  assert.deepEqual({ honda: first.byManufacturer.Honda.technicalCandidates, yamaha: first.byManufacturer.Yamaha.technicalCandidates }, { honda: 108, yamaha: 141 });
+  assert.deepEqual(first.totals, { sources: 53, manufacturers: 11, modelFamilies: 93, catalogRecords: 167, technicalCandidates: 263, conflicts: 0 });
 });
 
 test("automatic research quality gate reports zero structural errors", () => {
@@ -131,7 +141,18 @@ test("generated coverage reports contain the computed totals", () => {
   const catalogReport = fs.readFileSync(path.join(ROOT, "research/reports/motorcycle-catalog-coverage.md"), "utf8");
   const technicalReport = fs.readFileSync(path.join(ROOT, "research/reports/technical-data-coverage.md"), "utf8");
   assert.match(catalogReport, /Generation\/variant records: 167/);
-  assert.match(technicalReport, /Technical candidates: 150/);
-  assert.match(technicalReport, /Honda: 70 candidates/);
-  assert.match(technicalReport, /Yamaha: 66 candidates/);
+  assert.match(technicalReport, /Technical candidates: 263/);
+  assert.match(technicalReport, /Honda: 108 candidates/);
+  assert.match(technicalReport, /Yamaha: 141 candidates/);
+});
+
+test("deep readiness metrics and report are deterministic", () => {
+  const keys = ["honda.cbr500r.gen4", "yamaha.mt09.gen3", "yamaha.tenere700.gen1"];
+  const first = reports.buildDeepProfileMetrics(dataset, keys);
+  assert.deepEqual(first, reports.buildDeepProfileMetrics(dataset, keys));
+  assert.equal(first["honda.cbr500r.gen4"].totalCandidates, 56);
+  assert.equal(first["yamaha.mt09.gen3"].totalCandidates, 54);
+  assert.equal(first["yamaha.tenere700.gen1"].totalCandidates, 57);
+  assert.ok(Object.values(first).every(item => item.recommendation === "ready-for-human-profile-review"));
+  assert.equal(reports.renderDeepProfileReadinessReport(dataset, keys), fs.readFileSync(path.join(ROOT, "research/reports/deep-profile-readiness.md"), "utf8"));
 });

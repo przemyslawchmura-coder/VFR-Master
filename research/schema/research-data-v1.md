@@ -7,6 +7,7 @@
 - A source has a stable `id`, provenance `type`, `title`, optional manufacturer/document metadata, URL and access date.
 - A catalogue record has `researchRecordId`, manufacturer, family, commercial name, generation/code where known, year range, region/ABS applicability where known, a proposed stable key, source references and research status.
 - A candidate has identity/applicability fields, `technicalField`, raw evidence, optional normalized candidate value/unit, source references, evidence note and conflict metadata.
+- Sources retain exact document title, manufacturer, access date and optional publication/edition/region metadata; candidates point to those source IDs and add their own section/page evidence. Numeric scalars and numeric ranges in `normalizedCandidateValue` require a canonical `unit`.
 
 Unknown values are `null`, never inferred. Proposed keys use lowercase dot-separated tokens: `manufacturer.family.platform-or-code.generation`. The year stays separate unless it is part of an official generation identity. Existing `honda.vfr800.rc46.vtec.gen1` remains compatible.
 
