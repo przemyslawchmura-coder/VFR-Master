@@ -70,12 +70,12 @@ test("verified values always carry at least one existing citation", () => {
 
 test("quality report exposes factual coverage without a confidence score", () => {
   const report = qualityApi.buildQualityReport(profile, validator.validate(profile));
-  assert.equal(report.totalEntries, 88);
-  assert.equal(report.verified, 82);
-  assert.equal(report.pendingVerification, 6);
+  assert.equal(report.totalEntries, 99);
+  assert.equal(report.verified, 94);
+  assert.equal(report.pendingVerification, 5);
   assert.equal(report.conflictingSources, 0);
   assert.equal(report.legacyUnverified, 0);
-  assert.equal(report.citationsCount, 28);
+  assert.equal(report.citationsCount, 32);
   assert.equal(report.documentsCount, 6);
   assert.equal(report.variantsCount, 3);
   assert.equal(report.regionalVariantsCount, 3);
@@ -176,6 +176,33 @@ test("wave 2 OEM evidence closes dimensions, fuel capacity, PGM-FI fuse and Japa
   assert.equal(resolver.resolveEntry(cbs, { ...BASE_CONTEXT, region: "JP" }).status, "resolved");
   assert.equal(resolver.resolveEntry(cbs, { ...BASE_CONTEXT, region: "USA" }).status, "not-applicable");
   assert.equal(resolver.resolveEntry(cbs, { ...BASE_CONTEXT, region: null }).status, "ambiguous-context");
+});
+
+test("wave 3 OEM workshop evidence closes charging, chain, rims, pad wear and fork service facts", () => {
+  const charging = findEntry("electrical.charging.regulated-voltage");
+  assert.equal(charging.status, "verified");
+  assert.match(charging.value.text, /15,5 V/);
+  assert.equal(charging.conditions.engineSpeed.amount, 5000);
+  assert.equal(charging.conditions.headlight, "high-beam");
+
+  const stator = findEntry("electrical.charging.stator-resistance");
+  assert.deepEqual(stator.value, { type: "range", min: 0.1, max: 1, unit: "Ω" });
+  assert.match(findEntry("electrical.charging.stator-insulation").value.text, /Brak ciągłości/);
+
+  assert.equal(findEntry("final-drive.chain.specification").value.text, "DID50VA8");
+  assert.deepEqual(findEntry("final-drive.chain.link-count").value, { type: "quantity", amount: 110, unit: "link" });
+  assert.equal(findEntry("wheels.rim.front.size").value.text, "17M/C × MT3.50");
+  assert.equal(findEntry("wheels.rim.rear.size").value.text, "17M/C × MT5.50");
+
+  for (const id of ["brakes.pad.front.wear-limit", "brakes.pad.rear.wear-limit"]) {
+    const entry = findEntry(id);
+    assert.equal(entry.status, "verified");
+    assert.equal(entry.conditions.measurement, "wear-indicator-groove");
+  }
+
+  assert.equal(findEntry("wheels.suspension.fork-oil.specification").value.text, "Honda Suspension Fluid SS-8");
+  assert.deepEqual(findEntry("wheels.suspension.fork-oil.capacity").value, { type: "quantity-with-tolerance", nominal: 457, tolerance: 2.5, unit: "cm³" });
+  assert.deepEqual(findEntry("wheels.suspension.fork-oil.level").value, { type: "quantity", amount: 130, unit: "mm" });
 });
 
 test("search index builds for the production profile", () => {

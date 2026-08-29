@@ -80,9 +80,9 @@ test("full VFR profile validates and source/citation graph has no dangling refer
   assert.ok(Object.values(profile.documents).every(document => document.title.trim()));
 });
 
-test("quality report exactly matches the 88-entry production profile", () => {
+test("quality report exactly matches the 99-entry production profile", () => {
   const report = quality.buildQualityReport(profile, validator.validate(profile));
-  assert.deepEqual({ total: report.totalEntries, verified: report.verified, pending: report.pendingVerification, conflicting: report.conflictingSources, legacy: report.legacyUnverified }, { total: 88, verified: 82, pending: 6, conflicting: 0, legacy: 0 });
+  assert.deepEqual({ total: report.totalEntries, verified: report.verified, pending: report.pendingVerification, conflicting: report.conflictingSources, legacy: report.legacyUnverified }, { total: 99, verified: 94, pending: 5, conflicting: 0, legacy: 0 });
   assert.deepEqual(report.unresolvedReferences, { sourceIds: [], relatedEntryIds: [], categoryIds: [] });
 });
 
@@ -96,11 +96,11 @@ test("formatter handles every resolved VFR value without invalid output", () => 
   }
 });
 
-test("full production view contains all 88 unique entries with deterministic grouping", async () => {
+test("full production view contains all 99 unique entries with deterministic grouping", async () => {
   const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
   const entries = view.categories.flatMap(category => category.entries);
-  assert.equal(entries.length, 88);
-  assert.equal(new Set(entries.map(entry => entry.id)).size, 88);
+  assert.equal(entries.length, 99);
+  assert.equal(new Set(entries.map(entry => entry.id)).size, 99);
   assert.ok(entries.every(entry => entry.statusLabel && profile.categories.some(category => category.id === entry.categoryId)));
   assert.deepEqual(view.categories.map(category => category.id), profile.categories.slice().sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity) || a.label.localeCompare(b.label, "pl") || a.id.localeCompare(b.id)).map(category => category.id));
 });
@@ -199,7 +199,7 @@ test("one render resolves entries once, builds one index, and queries reuse it",
   const view = await localUi.prepareTechnicalProfileView(MOTORCYCLE);
   uiApi.renderSearchResultsHtml(view, "olej", search);
   uiApi.renderSearchResultsHtml(view, "korek oleju", search);
-  assert.deepEqual({ readinessCalls, resolutionCalls, indexBuilds }, { readinessCalls: 1, resolutionCalls: 88, indexBuilds: 1 });
+  assert.deepEqual({ readinessCalls, resolutionCalls, indexBuilds }, { readinessCalls: 1, resolutionCalls: 99, indexBuilds: 1 });
 });
 
 test("browser integrity reports an orphan store registration as warning, not fatal", async () => {

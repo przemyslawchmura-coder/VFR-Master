@@ -1,13 +1,13 @@
 # Honda VFR800 VTEC 2002 — production Technical Profile verification audit
 
 Audit date: 2026-08-29
-Original audit scope: `data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js` and repository-local evidence only. Evidence-closure updates: 2026-08-29; see `vfr800-2002-p0-p1-evidence-research.md` and `vfr800-2002-verification-wave2.md`.
+Original audit scope: `data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js` and repository-local evidence only. Evidence-closure updates: 2026-08-29; see `vfr800-2002-p0-p1-evidence-research.md`, `vfr800-2002-verification-wave2.md`, and `vfr800-2002-verification-wave3.md`.
 
 ## Executive summary
 
-The original 79 entries were completely inspected. Wave 2 adds nine directly sourced chassis/dimension entries, bringing production to 88 entries: 82 verified/source-covered entries, one partially supported regional headlight entry, and five explicit research placeholders. No concrete entry is now wholly unsourced, no source ID is broken, and one registered citation remains unused. No conflicting production numeric values remain.
+The original 79 entries were completely inspected. Wave 2 brought production to 88 entries. Wave 3 adds eleven directly sourced workshop entries and closes the charging-voltage placeholder, bringing production to 99 entries: 94 verified/source-covered entries, one partially supported regional headlight entry, and four explicit research placeholders. No concrete entry is wholly unsourced, no source ID is broken, and one registered citation remains unused. No conflicting production numeric values remain.
 
-The original P0 defects are closed. `fuses.circuit.standard` remains limited to the directly proven USA MY2002 non-ABS context. Wave 2 closes `fuses.pgm-fi`: the OEM specification table explicitly assigns 20 A and the rear-fender illustration locates its separate case. `brakes.system.linked-cbs` is verified only for Japan and remains a P1 matrix gap outside Japan. Headlight destination completeness also remains P1, although Japan now has its own directly sourced four-bulb branch.
+The original P0 defects are closed. `fuses.circuit.standard` remains limited to the directly proven USA MY2002 non-ABS context. Wave 2 closes `fuses.pgm-fi`: the OEM specification table explicitly assigns 20 A and the rear-fender illustration locates its separate case. `brakes.system.linked-cbs` is verified only for Japan and remains a P1 matrix gap outside Japan. Headlight destination completeness also remains P1. Wave 3 closes regulated charging voltage, stator resistance/insulation, chain designation/link count, rim dimensions, pad-wear rules and fork-fluid service data without changing applicability or resolver semantics.
 
 The only application behavior changed alongside this audit is the generic ordering of unique selectable motorcycle years. The sole production model-year list is the garage/add-motorcycle selector. Its shared source emitted an ascending range by construction and had no normalization guard. It now returns unique valid years newest-first, deterministically, and rejects malformed range metadata safely.
 
@@ -15,33 +15,33 @@ The only application behavior changed alongside this audit is the generic orderi
 
 | Measure | Count |
 |---|---:|
-| Production technical entries | 88 |
-| Concrete-value entries | 83 |
+| Production technical entries | 99 |
+| Concrete-value entries | 95 |
 | Literal-null entry values | 0 |
-| Placeholder/missing-value entries | 5 |
+| Placeholder/missing-value entries | 4 |
 | Applicability-dependent entries | 4 |
 | Variant entries | 1 |
 | Entries requiring region | 3 |
 | Entries requiring ABS | 2 |
 | Entries requiring equipment | 0 |
-| Fully source-covered entries | 82 |
+| Fully source-covered entries | 94 |
 | Partially sourced/applicability-not-proven entries | 1 |
 | Unsourced concrete entries | 0 |
 | Broken source references | 0 |
-| Conflicts found during wave 2 | 2 |
+| Historical conflicts found through wave 3 | 2 |
 | Honda OEM-number entries | 1 |
 | Supplier part-number entries | 2 |
 | Torque entries | 14 |
 | Maintenance entries | 10 |
 | P0 backlog items | 0 |
 | P1 backlog items | 2 |
-| P2 backlog items | 5 |
+| P2 backlog items | 4 |
 | P3 backlog items | 1 |
 | Production model-year lists inspected | 1 |
 | Incorrectly ordered model-year lists found | 1 |
 | Production files affected by year-order fix | 1 |
 
-Counting rules: a concrete entry has a usable asserted value or resolved variant; the five remaining strings explicitly saying “do weryfikacji”/“wymaga potwierdzenia” are missing research, not concrete facts. `lighting.headlight` counts as concrete and variant-based because its three branches contain sourced values, while its base text is deliberately non-assertive. “Fully source-covered” assesses mapped evidence, not merely source-ID presence or the profile's `verified` label. The two wave-2 conflicts are historical findings now corrected/contained: the PGM-FI fuse location and the Japanese four-bulb quantity override; current conflicting production values remain zero.
+Counting rules: a concrete entry has a usable asserted value or resolved variant; the four remaining strings saying “wymaga potwierdzenia” are missing research, not concrete facts. `lighting.headlight` counts as concrete and variant-based because its three branches contain sourced values, while its base text is deliberately non-assertive. “Fully source-covered” assesses mapped evidence, not merely source-ID presence or the profile's `verified` label. The two wave-2 conflicts are historical findings now corrected/contained: the PGM-FI fuse location and the Japanese four-bulb quantity override; wave 3 found no new conflict and current conflicting production values remain zero.
 
 ## Production inventory and source coverage
 
@@ -136,8 +136,8 @@ Every row below records ID, category/type, complete production value shape (incl
 
 ## Source coverage and registry audit
 
-- All 82 verified entries and every headlight variant citation resolve to one of 28 registered citations; all citations resolve to one of 6 documents. Broken references: zero.
-- The OEM service manual, OEM service-data card and relevant OEM procedures are appropriate primary evidence for the 82 fully covered entries. The US owner guide, wiring bulletin and Japan publication have narrower regional scope represented explicitly.
+- All 94 verified entries and every headlight variant citation resolve to one of 32 registered citations; all citations resolve to one of 6 documents. Broken references: zero.
+- The OEM service manual, OEM service-data card and relevant OEM procedures are appropriate primary evidence for the 94 fully covered entries. The US owner guide, wiring bulletin and Japan publication have narrower regional scope represented explicitly.
 - `fuses.pgm-fi` is VERIFIED-SOURCE-COVERED: the service-manual specification table assigns 20 A to PGM-FI and p. 2-20 identifies the separate case location.
 - `fuses.circuit.standard` is VERIFIED-SOURCE-COVERED for USA: inspected `WStd` p. 12 explicitly labels the 2002–2003 VFR800 standard type and maps positions A–F to their 10/20 A circuits. It does not prove other markets, so the production entry was narrowed rather than generalized.
 - `lighting.headlight` has no base citation by design, but all three mutually exclusive regional variants are individually sourced. Regions outside EU/UK/AU/USA/JP resolve the deliberately non-specific base text, so destination completeness remains partial.
@@ -162,13 +162,13 @@ The original correctness/evidence defect is closed without resolver changes: USA
 
 ## Null, missing and completeness audit
 
-There are no literal `null` entry values and no absent `value` property. Five entries intentionally carry explicit research placeholders and remain pending: regulated charging voltage, front position lamp, front indicator, rear indicator and licence-plate lamp. These are unknown/unresearched or lack reliable mapped evidence; none means “not applicable.” Fuel capacity is closed at 22 L by direct MY2002 OEM evidence.
+There are no literal `null` entry values and no absent `value` property. Four entries intentionally carry explicit research placeholders and remain pending: front position lamp, front indicator, rear indicator and licence-plate lamp. These lack reliable complete market mapping; none means “not applicable.” Fuel capacity is closed at 22 L and regulated charging voltage is closed by direct MY2002 OEM evidence.
 
 Three optional-schema situations are not missing technical facts: alternate units are absent from all torque values because the schema does not require them; maintenance time and distance counterparts are absent where the cited schedule records only one axis; applicability/equipment fields are absent where the fact is unconditional.
 
-The profile is incomplete for broader workshop coverage. Repository coverage definitions identify missing categories including air filter/OEM brake pads, brake pad and chain wear limits, rim sizes, fork oil/setup and suspension torques, steering service data, mass/load variants, charging test values, and numerous OEM parts. Those are absent facts, not production entries, and were not guessed or included in the 88-entry count.
+The profile is incomplete for broader workshop coverage. Remaining missing categories include air filter/OEM brake pads, numeric pad/chain limits beyond Honda's wear-groove rule, suspension setup and torques, steering service data, mass/load variants, regulator pin/diode values, bearings/seals and numerous OEM parts. Those are absent facts, not production entries, and were not guessed or included in the 99-entry count.
 
-Grouped research backlog: safety/service limits (brake pads, chain wear, tire limits, suspension/engine limits); chassis/torques (rear axle representation where applicable, suspension and steering fasteners); consumables/OEM fitment (air filter, pads, chain/sprockets, washer, seals/bearings); electrical/lighting (charging voltage/test procedure and market-specific bulbs); completeness (fuel capacity, remaining dimensions/mass, suspension setup and fork oil).
+Grouped research backlog: safety/service limits (numeric pad and chain wear limits, tire limits, suspension/engine limits); chassis/torques (rear axle representation where applicable, suspension and steering fasteners); consumables/OEM fitment (air filter, pads, chain/sprockets, washer, seals/bearings); electrical/lighting (regulator pin/diode values and market-specific bulbs); completeness (remaining dimensions/mass and suspension setup).
 
 ## Conflict and duplication audit
 
@@ -242,7 +242,6 @@ The schedule is profile-wide MY2002. No explicit regional branches are stored ev
 |---|---|---|---|---|---|
 | P1 | `brakes.system.linked-cbs` (non-JP) | brakes | Japan is proven; other market/ABS designations are not a complete matrix | MY2002 OEM market brochures or model-code brake overview | withheld outside JP |
 | P1 | `lighting.headlight` | lighting | mapped branches covered, but destination-to-region completeness needs confirmation | complete MY2002 OEM destination-code table | ambiguous when region unknown/unsupported |
-| P2 | `electrical.charging.regulated-voltage` | electrical | placeholder | MY2002 charging-system diagnostic procedure | null-equivalent placeholder |
 | P2 | `lighting.position-front` | lighting | market-dependent placeholder | complete OEM light table by destination | null-equivalent placeholder |
 | P2 | `lighting.turn-signal-front` | lighting | market-dependent placeholder | complete OEM light table by destination | null-equivalent placeholder |
 | P2 | `lighting.turn-signal-rear` | lighting | market-dependent placeholder | complete OEM light table by destination | null-equivalent placeholder |
@@ -258,14 +257,15 @@ The schedule is profile-wide MY2002. No explicit regional branches are stored ev
 | P0 | `fuses.pgm-fi` | Honda MY2002 Service Manual pp. 1-14 and 2-20 | Closed at 20 A; circuit wording narrowed and separate fuse-case location corrected |
 | P2 | `general.chassis.wheelbase` / `general.fuel-tank.capacity` | Honda MY2002 Service Manual p. 1-4 plus Honda Japan MY2002 technical publication | Closed at 1460 mm and 22 L |
 | P1 (partial) | `brakes.system.linked-cbs` | Honda Japan MY2002 chassis publication | Closed for `regions=[JP]`; non-JP market/ABS matrix remains P1 |
+| P2 | `electrical.charging.regulated-voltage` | Honda MY2002 Service Manual pp. 17-6–17-7 | Closed with the exact battery-voltage inequality, 15.5 V ceiling and 5,000 rpm/high-beam conditions; stator diagnostics added alongside it |
 
 The remaining P1 CBS item now has direct Honda evidence for the 2002 Japanese Dual CBS name and an OEM account of the 2002 Dual-Combined ABS, but stays open until the global market/ABS matrix is proven. Headlight remains open because the inspected fiches do not provide a complete destination/serial mapping; see the evidence-research report for the documented AU mapping concern.
 
 ## Validation results
 
-Targeted validation covers registry/loading, browser runtime, validator, resolver, clarification/context bridge, VFR integration, UI and search. It verifies USA standard-fuse `abs` tri-state and region scope, unknown-region/ABS ambiguity, profile non-mutation and absence of ambiguous values from search. Result after evidence closure: 188/188 passed.
+Wave-3 targeted validation covers source registry, validator, resolver, VFR integration, search, applicability, browser loading/runtime, clarification/context bridge and profile quality. It also verifies the charging conditions, stator tests, chain/link count, rims, brake-pad wear rule, fork data, profile non-mutation and absence of unresolved values from search. Result: 174/174 passed.
 
-Full `node --test tests/*.test.js`: 263/263 passed. `node --check` accepted the two modified production JavaScript files. `git diff --check` passed. Manual diff inspection confirmed that the evidence-closure production changes are limited to the USA standard-fuse entry, the clutch statement, and their source mapping; resolver, clarification, search and unrelated UI code have no diff.
+Full `node --test tests/*.test.js`: 265/265 passed. `node --check` accepted the two modified production JavaScript files. `git diff --check` passed. Manual diff inspection confirmed that wave-3 production changes are limited to profile data and Honda citation mapping; resolver, clarification, search, catalogue, UI, Supabase and cloud code have no diff.
 
 Mechanical invariants established before final validation:
 
