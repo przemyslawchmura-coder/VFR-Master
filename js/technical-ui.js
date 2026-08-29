@@ -32,7 +32,32 @@ function hasCurrentTechnicalContext(context) {
 /* =========================================================
    OTWARCIE BAZY TECHNICZNEJ
    ========================================================= */
-function openTechnicalBase() {
+async function openTechnicalBase() {
+  const context = getActiveTechnicalContext();
+  activeTechnicalRegistrationKey = null;
+
+  if (!context.container) return;
+
+  if (window.RevLogTechnicalProfileUi) {
+    try {
+      await window.RevLogTechnicalProfileUi.renderTechnicalProfile(
+        context.container,
+        context.bike,
+        {
+          legacyAvailable: Boolean(context.database),
+          onLegacyFallback: openLegacyTechnicalBase
+        }
+      );
+      return;
+    } catch (error) {
+      console.error("Technical Profile UI failed; using legacy fallback.", error);
+    }
+  }
+
+  openLegacyTechnicalBase();
+}
+
+function openLegacyTechnicalBase() {
   const context = getActiveTechnicalContext();
   const { container, bike, registration, database } = context;
 
@@ -149,7 +174,7 @@ function openTechnicalSection(sectionKey) {
   container.innerHTML = `
     <button
       class="back"
-      onclick="openTechnicalBase()">
+      onclick="openLegacyTechnicalBase()">
       ← Wszystkie kategorie
     </button>
     <div class="card hero">
@@ -266,5 +291,6 @@ function openTechnicalItem(sectionKey, itemKey) {
    GLOBAL
    ========================================================= */
 window.openTechnicalBase = openTechnicalBase;
+window.openLegacyTechnicalBase = openLegacyTechnicalBase;
 window.openTechnicalSection = openTechnicalSection;
 window.openTechnicalItem = openTechnicalItem;

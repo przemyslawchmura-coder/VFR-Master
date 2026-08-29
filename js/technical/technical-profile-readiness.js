@@ -16,7 +16,7 @@
     const contextAdapter = options.contextAdapter || defaultContextApi;
     const bridge = options.bridge || defaultBridge;
 
-    async function getTechnicalProfileReadiness(motorcycle) {
+    async function getTechnicalProfileReadiness(motorcycle, readinessOptions = {}) {
       let contextResult;
       try {
         contextResult = contextAdapter.buildTechnicalContext(motorcycle);
@@ -52,7 +52,11 @@
           profileId: opened.profile.profile.id,
           descriptor: cloneData(opened.descriptor),
           validation: cloneData(opened.validation),
-          applicability: cloneData(opened.applicability)
+          applicability: cloneData(opened.applicability),
+          ...(readinessOptions.includeProfile ? {
+            profile: opened.profile,
+            technicalContext: cloneData(opened.technicalContext)
+          } : {})
         };
       } catch (error) {
         return {

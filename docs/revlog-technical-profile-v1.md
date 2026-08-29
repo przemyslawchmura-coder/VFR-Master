@@ -537,7 +537,25 @@ In the browser, the loader resolves a discovered descriptor by `profileId` again
 
 Readiness separately reports `region`, `abs`, and `equipment` as `known` or `unknown`. Unknown resolution context does not make an otherwise valid profile unavailable; affected entries continue to return `ambiguous-context`. The subsystem is not a startup dependency of `VFRApp.init()`: profile absence or failure remains status data and cannot prevent the legacy application from starting.
 
-## 22. Validation policy
+## 22. Production UI Boundary
+
+The production read-only flow is:
+
+```text
+Stored Motorcycle
+  → Technical Profile Readiness (single profile open when requested by UI)
+  → validated Loaded Profile
+  → Resolver / Formatter / Search
+  → Technical Profile UI
+```
+
+The UI receives a motorcycle object and consumes the readiness service. It does not perform registry discovery, know a profile file path, validate a profile, or infer region, ABS, or equipment. With `includeProfile` enabled, readiness returns the already opened and validated profile to the UI so a render performs one profile open. Entries are resolved from that single profile, and one resolved search index is built for repeated local queries.
+
+Categories come from profile metadata and entries are grouped by `categoryId`. Resolved values pass through the shared formatter. `ambiguous-context` is a normal presentation state and shows the missing context field without exposing a candidate value. Verification statuses and existing citations are displayed factually; missing citations do not receive invented source labels.
+
+During migration, the existing TechnicalDatabase renderer remains available as an explicit fallback for motorcycles with legacy data. Missing motorcycles, insufficient discovery context, unsupported motorcycles, invalid profiles, load failures, and ambiguous profile discovery render controlled states. Technical Profile rendering occurs only when the user opens the Technical Base and remains outside the critical application startup, authentication, garage, dashboard, and service-history paths.
+
+## 23. Validation policy
 
 The validator returns a report and never mutates or silently repairs a profile:
 

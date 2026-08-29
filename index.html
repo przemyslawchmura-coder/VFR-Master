@@ -376,6 +376,23 @@
     .service-cost { margin: 9px 0 3px; color: var(--accent); }
     @media (max-width: 359px) { .service-cost-grid { grid-template-columns: 1fr; gap: 0; } }
 
+    /* Technical Profile v1: mobile-first read-only view. */
+    .technical-profile-search-card { padding: 14px; }
+    .technical-profile-search-card label { margin-top: 0; }
+    .technical-context-notice { padding: 14px; border-color: rgba(242,184,75,.45); }
+    .technical-context-notice .muted { margin-top: 6px; }
+    .technical-profile-category { padding: 14px; }
+    .technical-profile-category h3 { color: var(--accent); }
+    .technical-entry-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    .technical-entry-value,.technical-entry-ambiguous { display: block; margin-top: 8px; font-size: 18px; line-height: 1.35; }
+    .technical-entry-ambiguous { color: var(--warning); font-size: 14px; }
+    .technical-quality { flex: 0 0 auto; color: var(--muted); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+    .technical-quality-verified { color: var(--success); }
+    .technical-quality-pending-verification,.technical-quality-conflicting-sources { color: var(--warning); }
+    .technical-entry-sources { margin-top: 10px; }
+    .technical-entry-sources summary { min-height: 44px; display: flex; align-items: center; color: var(--muted); cursor: pointer; }
+    .technical-entry-sources .muted { padding: 6px 0; overflow-wrap: anywhere; }
+
   </style>
 </head>
 
@@ -933,6 +950,7 @@
 <script src="js/technical/motorcycle-technical-context.js"></script>
 <script src="js/technical/motorcycle-technical-profile-bridge.js"></script>
 <script src="js/technical/technical-profile-readiness.js"></script>
+<script src="js/technical/technical-profile-ui.js"></script>
 
 <script src="js/technical-ui.js?v=revlog-dashboard-1"></script>
 

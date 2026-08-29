@@ -1095,7 +1095,7 @@ async function navigateTo(pageId) {
     pageId === "technical" &&
     window.openTechnicalBase
   ) {
-    openTechnicalBase();
+    await openTechnicalBase();
   }
   window.scrollTo({
     top: 0,

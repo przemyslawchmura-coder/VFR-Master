@@ -25,7 +25,8 @@ const BROWSER_SCRIPTS = [
   "js/technical/technical-profile-runtime.js",
   "js/technical/motorcycle-technical-context.js",
   "js/technical/motorcycle-technical-profile-bridge.js",
-  "js/technical/technical-profile-readiness.js"
+  "js/technical/technical-profile-readiness.js",
+  "js/technical/technical-profile-ui.js"
 ];
 const PROFILE_ID = "honda.vfr800.rc46-vtec-gen1.2002";
 const MOTORCYCLE = {
@@ -55,6 +56,10 @@ test("index.html loads the browser runtime in tested dependency order", () => {
   assert.ok(positions.every(position => position >= 0));
   assert.deepEqual([...positions].sort((left, right) => left - right), positions);
   assert.ok(positions.at(-1) < html.indexOf('src="js/technical-ui.js'));
+});
+
+test("production Technical Profile UI entry point is available in browser runtime", () => {
+  assert.equal(typeof browser.RevLogTechnicalProfileUi.renderTechnicalProfile, "function");
 });
 
 test("browser profile store registers the reference profile", () => {
