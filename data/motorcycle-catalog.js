@@ -710,6 +710,181 @@ addModels("yamaha", [
   m("super-tenere", "XT1200Z Super Ténéré", [v("gen1", "yamaha.super-tenere.gen1", "I generacja", "XT1200Z Super Tenere 2010", 2010, 2013), v("gen2", "yamaha.super-tenere.gen2", "II generacja", "XT1200Z Super Tenere 2014", 2014, 2020)])
 ]);
 
+/* Yamaha Completeness Wave 2: evidence-backed European road range. */
+addModels("yamaha", [
+  m("fzr", "FZR", [
+    v("fzr600-3he", "yamaha.fzr.fzr600-3he", "FZR600 3HE", "FZR600 3HE", 1990, 1993),
+    v("fzr600-4jh", "yamaha.fzr.fzr600-4jh", "FZR600R 4JH", "FZR600R 4JH", 1994, 1995),
+    v("fzr750r-ow01", "yamaha.fzr.fzr750r-ow01", "FZR750R OW01", "FZR750R OW01", 1990, 1992),
+    v("fzr1000-3gm-1", "yamaha.fzr.fzr1000-3gm-1", "FZR1000 EXUP 3GM — I", "FZR1000 EXUP 1990", 1990, 1991),
+    v("fzr1000-3gm-2", "yamaha.fzr.fzr1000-3gm-2", "FZR1000 EXUP 3GM — II", "FZR1000 EXUP 1992", 1992, 1995)
+  ]),
+  m("yzf750", "YZF750", [
+    v("r", "yamaha.yzf750.r", "YZF750R", "YZF750R", 1993, 1998),
+    v("sp", "yamaha.yzf750.sp", "YZF750SP", "YZF750SP", 1993, 1996)
+  ]),
+  m("thunderace", "YZF1000R Thunderace", [v("thunderace", "yamaha.yzf-legacy-sport.thunderace", "YZF1000R Thunderace", "YZF1000R Thunderace", 1996, 2001)]),
+  m("thundercat", "YZF600R Thundercat", [v("thundercat", "yamaha.yzf-legacy-sport.thundercat", "YZF600R Thundercat", "YZF600R Thundercat", 1996, 2003)]),
+  m("trx850", "TRX850", [v("trx850", "yamaha.trx-szr.trx850", "TRX850", "TRX850", 1996, 2000)]),
+  m("szr660", "SZR660", [v("szr660", "yamaha.trx-szr.szr660", "SZR660", "SZR660", 1996, 1998)]),
+  m("yzf-r125", "YZF-R125", [
+    v("re06", "yamaha.yzf-r125.re06", "RE06", "YZF-R125 2008", 2008, 2013),
+    v("re11", "yamaha.yzf-r125.re11", "RE11", "YZF-R125 2014", 2014, 2018),
+    v("re39", "yamaha.yzf-r125.re39", "RE39", "YZF-R125 2019", 2019, 2022),
+    v("2023", "yamaha.yzf-r125.2023", "2023 generation", "YZF-R125 2023", 2023, 2025)
+  ]),
+  m("yzf-r9", "YZF-R9", [v("2025", "yamaha.yzf-r9.2025", "2025", "YZF-R9", 2025, 2025)]),
+  m("fz750", "FZ750", [v("fz750", "yamaha.fz-fazer.fz750", "FZ750", "FZ750", 1990, 1991)]),
+  m("fazer-600", "FZS600 Fazer", [
+    v("fzs600-1", "yamaha.fz-fazer.fzs600-1", "FZS600 Fazer — I", "FZS600 Fazer 1998", 1998, 2001),
+    v("fzs600-2", "yamaha.fz-fazer.fzs600-2", "FZS600 Fazer — II", "FZS600 Fazer 2002", 2002, 2003)
+  ]),
+  m("fazer-1000", "FZS1000 Fazer", [v("fzs1000", "yamaha.fz-fazer.fzs1000", "FZS1000 Fazer", "FZS1000 Fazer", 2001, 2005)]),
+  m("fz8-fazer8", "FZ8 / Fazer8", [
+    v("fz8", "yamaha.fz-fazer.fz8", "FZ8", "FZ8-N", 2010, 2015),
+    v("fazer8", "yamaha.fz-fazer.fazer8", "Fazer8", "Fazer8", 2010, 2015)
+  ]),
+  m("mt-01", "MT-01", [v("mt01", "yamaha.mt-legacy.mt01", "MT-01", "MT-01", 2005, 2012)]),
+  m("mt-03-660", "MT-03 660", [v("mt03-660", "yamaha.mt-legacy.mt03-660", "MT-03 660", "MT-03 660", 2006, 2014)]),
+  m("mt-125", "MT-125", [
+    v("mt125-1", "yamaha.mt-legacy.mt125-1", "MT-125 — I", "MT-125 2014", 2014, 2019),
+    v("mt125-2", "yamaha.mt-legacy.mt125-2", "MT-125 — II", "MT-125 2020", 2020, 2024),
+    v("mt125-3", "yamaha.mt-legacy.mt125-3", "MT-125 — 2025", "MT-125 2025", 2025, 2025)
+  ]),
+  m("xsr125", "XSR125", [v("gen1", "yamaha.xsr125.gen1", "I generacja", "XSR125", 2021, 2025)]),
+  m("xj600-diversion", "XJ600 / Diversion", [
+    v("xj600s", "yamaha.xj-diversion.xj600s", "XJ600S Diversion", "XJ600S Diversion", 1992, 2003),
+    v("xj600n", "yamaha.xj-diversion.xj600n", "XJ600N", "XJ600N", 1995, 2003)
+  ]),
+  m("xj900-diversion", "XJ900S Diversion", [v("xj900s", "yamaha.xj-diversion.xj900s", "XJ900S Diversion", "XJ900S Diversion", 1994, 2003)]),
+  m("xjr", "XJR", [
+    v("xjr1200", "yamaha.xjr.xjr1200", "XJR1200", "XJR1200", 1995, 1998),
+    v("xjr1300-carb", "yamaha.xjr.xjr1300-carb", "XJR1300 carburettor", "XJR1300 1999", 1999, 2006),
+    v("xjr1300-efi", "yamaha.xjr.xjr1300-efi", "XJR1300 EFI", "XJR1300 2007", 2007, 2014),
+    v("xjr1300-final", "yamaha.xjr.xjr1300-final", "XJR1300 final generation", "XJR1300 2015", 2015, 2016)
+  ]),
+  m("tracer-7", "Tracer 700 / Tracer 7", [
+    v("700", "yamaha.tracer-7.700", "Tracer 700", "Tracer 700", 2016, 2019),
+    v("7-1", "yamaha.tracer-7.7-1", "Tracer 7 — I", "Tracer 7 2020", 2020, 2024),
+    v("7-gt-1", "yamaha.tracer-7.7-gt-1", "Tracer 7 GT — I", "Tracer 7 GT 2021", 2021, 2024),
+    v("7-2", "yamaha.tracer-7.7-2", "Tracer 7 — II", "Tracer 7 2025", 2025, 2025),
+    v("7-gt-2", "yamaha.tracer-7.7-gt-2", "Tracer 7 GT — II", "Tracer 7 GT 2025", 2025, 2025)
+  ]),
+  m("fj1200", "FJ1200", [
+    v("standard", "yamaha.fj1200.standard", "FJ1200", "FJ1200", 1990, 1995),
+    v("abs", "yamaha.fj1200.abs", "FJ1200A ABS", "FJ1200A ABS", 1991, 1995)
+  ]),
+  m("xt", "XT", [
+    v("xt350", "yamaha.xt.xt350", "XT350", "XT350", 1990, 1998),
+    v("xt600e", "yamaha.xt.xt600e", "XT600E", "XT600E", 1990, 2003),
+    v("xt660r", "yamaha.xt.xt660r", "XT660R", "XT660R", 2004, 2016),
+    v("xt660x", "yamaha.xt.xt660x", "XT660X", "XT660X", 2004, 2016)
+  ]),
+  m("tenere", "Ténéré", [
+    v("xtz660", "yamaha.tenere-legacy.xtz660", "XTZ660 Ténéré", "XTZ660 Tenere", 1991, 1998),
+    v("xt660z", "yamaha.tenere-legacy.xt660z", "XT660Z Ténéré", "XT660Z Tenere", 2008, 2016)
+  ]),
+  m("wr-road", "WR Road-Legal", [
+    v("wr125r", "yamaha.wr-road.wr125r", "WR125R", "WR125R", 2009, 2016),
+    v("wr125x", "yamaha.wr-road.wr125x", "WR125X", "WR125X", 2009, 2016),
+    v("wr250r", "yamaha.wr-road.wr250r", "WR250R", "WR250R", 2008, 2015),
+    v("wr250x", "yamaha.wr-road.wr250x", "WR250X", "WR250X", 2008, 2015)
+  ]),
+  m("gts1000", "GTS1000", [v("gts1000", "yamaha.unusual-road.gts1000", "GTS1000 / A", "GTS1000", 1993, 1999)]),
+  m("bt1100-bulldog", "BT1100 Bulldog", [v("bt1100", "yamaha.unusual-road.bt1100", "BT1100 Bulldog", "BT1100 Bulldog", 2002, 2006)]),
+  m("niken", "Niken", [
+    v("niken-1", "yamaha.unusual-road.niken-1", "Niken — I", "Niken", 2018, 2020),
+    v("niken-gt-1", "yamaha.unusual-road.niken-gt-1", "Niken GT — I", "Niken GT 2019", 2019, 2020),
+    v("niken-gt-2", "yamaha.unusual-road.niken-gt-2", "Niken GT — II", "Niken GT 2023", 2023, 2025)
+  ]),
+  m("vmax", "V-Max / VMAX", [
+    v("1200", "yamaha.vmax.1200", "V-Max 1200", "V-Max 1200", 1990, 2003),
+    v("1700", "yamaha.vmax.1700", "VMAX 1700", "VMAX 1700", 2009, 2016)
+  ]),
+  m("virago", "Virago / XV", [
+    v("xv125", "yamaha.virago.xv125", "XV125 Virago", "XV125 Virago", 1997, 2001),
+    v("xv250", "yamaha.virago.xv250", "XV250 Virago", "XV250 Virago", 1995, 2000),
+    v("xv535", "yamaha.virago.xv535", "XV535 Virago", "XV535 Virago", 1990, 2003),
+    v("xv750", "yamaha.virago.xv750", "XV750 Virago", "XV750 Virago", 1990, 1997),
+    v("xv1100", "yamaha.virago.xv1100", "XV1100 Virago", "XV1100 Virago", 1990, 1999)
+  ]),
+  m("drag-star", "Drag Star / XVS", [
+    v("xvs125", "yamaha.drag-star.xvs125", "XVS125 Drag Star", "XVS125 Drag Star", 2000, 2004),
+    v("xvs650", "yamaha.drag-star.xvs650", "XVS650 Drag Star", "XVS650 Drag Star", 1997, 2006),
+    v("xvs1100", "yamaha.drag-star.xvs1100", "XVS1100 Drag Star", "XVS1100 Drag Star", 1999, 2007),
+    v("xvs950", "yamaha.drag-star.xvs950", "XVS950A Midnight Star", "XVS950A Midnight Star", 2009, 2016),
+    v("xvs1300", "yamaha.drag-star.xvs1300", "XVS1300A Midnight Star", "XVS1300A Midnight Star", 2007, 2016)
+  ]),
+  m("wild-star", "XV1600 Wild Star", [v("xv1600", "yamaha.large-cruiser.xv1600", "XV1600 Wild Star", "XV1600 Wild Star", 1999, 2004)]),
+  m("warrior", "XV1700 Warrior", [v("xv1700", "yamaha.large-cruiser.xv1700", "XV1700 Warrior", "XV1700 Warrior", 2002, 2005)]),
+  m("midnight-star-1900", "XV1900 Midnight Star", [v("xv1900", "yamaha.large-cruiser.xv1900", "XV1900A Midnight Star", "XV1900A Midnight Star", 2006, 2016)]),
+  m("xv950", "XV950", [
+    v("base", "yamaha.xv950.base", "XV950", "XV950", 2014, 2020),
+    v("r", "yamaha.xv950.r", "XV950R", "XV950R", 2014, 2020)
+  ]),
+  m("sr", "SR", [
+    v("sr125", "yamaha.sr-srx.sr125", "SR125", "SR125", 1990, 2002),
+    v("sr500", "yamaha.sr-srx.sr500", "SR500", "SR500", 1990, 1999),
+    v("sr400", "yamaha.sr-srx.sr400", "SR400 European return", "SR400", 2014, 2016)
+  ]),
+  m("srx", "SRX", [v("srx600", "yamaha.sr-srx.srx600", "SRX600", "SRX600", 1990, 1990)]),
+  m("tzr", "TZR", [v("tzr125", "yamaha.road-two-stroke.tzr125", "TZR125", "TZR125", 1990, 1995)]),
+  m("tdr", "TDR", [
+    v("tdr125", "yamaha.road-two-stroke.tdr125", "TDR125", "TDR125", 1993, 2003),
+    v("tdr250", "yamaha.road-two-stroke.tdr250", "TDR250", "TDR250", 1990, 1993)
+  ]),
+  m("dt125", "DT125", [
+    v("dt125r", "yamaha.road-two-stroke.dt125r", "DT125R", "DT125R", 1990, 2003),
+    v("dt125re", "yamaha.road-two-stroke.dt125re", "DT125RE", "DT125RE", 2004, 2006),
+    v("dt125x", "yamaha.road-two-stroke.dt125x", "DT125X", "DT125X", 2005, 2006)
+  ]),
+  m("ybr125", "YBR125", [
+    v("ybr125-carb", "yamaha.commuter.ybr125-carb", "YBR125 carburettor", "YBR125 2005", 2005, 2006),
+    v("ybr125-efi", "yamaha.commuter.ybr125-efi", "YBR125 EFI", "YBR125 2007", 2007, 2016)
+  ]),
+  m("ys125", "YS125", [v("ys125", "yamaha.commuter.ys125", "YS125", "YS125", 2017, 2020)]),
+  m("fzx750", "FZX750", [v("gen1", "yamaha.fzx750.gen1", "FZX750", "FZX750", 1990, 1998)]),
+  m("tt-road", "TT Road-Legal", [
+    v("tt600e", "yamaha.tt-road.tt600e", "TT600E", "TT600E", 1994, 2001),
+    v("tt600r", "yamaha.tt-road.tt600r", "TT600R", "TT600R", 1998, 2003),
+    v("tt600re", "yamaha.tt-road.tt600re", "TT600RE", "TT600RE", 2004, 2006)
+  ])
+]);
+
+addVariants("yamaha", "yzf-r7", [v("r7-ow02", "yamaha.yzf-legacy-sport.r7-ow02", "YZF-R7 OW02", "YZF-R7 OW02", 1999, 2000)]);
+addVariants("yamaha", "super-tenere", [v("xtz750", "yamaha.tenere-legacy.xtz750", "XTZ750 Super Ténéré", "XTZ750 Super Tenere", 1990, 1996)]);
+addVariants("yamaha", "mt-09", [
+  v("sp-2", "yamaha.mt-09.sp-2", "SP — II generation", "MT-09 SP 2018", 2018, 2020),
+  v("sp-3", "yamaha.mt-09.sp-3", "SP — III generation", "MT-09 SP 2021", 2021, 2023),
+  v("sp-4", "yamaha.mt-09.sp-4", "SP — IV generation", "MT-09 SP 2024", 2024, 2025)
+]);
+addVariants("yamaha", "mt-10", [
+  v("sp-1", "yamaha.mt-10.sp-1", "SP — I generation", "MT-10 SP 2017", 2017, 2021),
+  v("sp-2", "yamaha.mt-10.sp-2", "SP — II generation", "MT-10 SP 2022", 2022, 2025)
+]);
+addVariants("yamaha", "xsr900", [v("gp", "yamaha.xsr900.gp", "XSR900 GP", "XSR900 GP", 2024, 2025)]);
+addVariants("yamaha", "tracer", [
+  v("900-gt", "yamaha.tracer.900-gt", "Tracer 900 GT", "Tracer 900 GT", 2018, 2020),
+  v("9-gt", "yamaha.tracer.9-gt", "Tracer 9 GT", "Tracer 9 GT 2021", 2021, 2024),
+  v("9-gt-plus", "yamaha.tracer.9-gt-plus", "Tracer 9 GT+", "Tracer 9 GT+", 2023, 2024),
+  v("9-gt-2025", "yamaha.tracer.9-gt-2025", "Tracer 9 GT — 2025", "Tracer 9 GT 2025", 2025, 2025),
+  v("9-gt-plus-2025", "yamaha.tracer.9-gt-plus-2025", "Tracer 9 GT+ — 2025", "Tracer 9 GT+ 2025", 2025, 2025)
+]);
+addVariants("yamaha", "fjr1300", [
+  v("as-rp13", "yamaha.fjr1300.as-rp13", "AS RP13", "FJR1300AS RP13", 2006, 2012),
+  v("ae-rp23-1", "yamaha.fjr1300.ae-rp23-1", "AE RP23 — I", "FJR1300AE 2013", 2013, 2015),
+  v("as-rp23-1", "yamaha.fjr1300.as-rp23-1", "AS RP23 — I", "FJR1300AS 2013", 2013, 2015),
+  v("ae-rp23-2", "yamaha.fjr1300.ae-rp23-2", "AE RP23 — II", "FJR1300AE 2016", 2016, 2020),
+  v("as-rp23-2", "yamaha.fjr1300.as-rp23-2", "AS RP23 — II", "FJR1300AS 2016", 2016, 2020)
+]);
+addVariants("yamaha", "super-tenere", [v("ze", "yamaha.super-tenere.ze", "XT1200ZE electronic suspension", "XT1200ZE Super Tenere", 2014, 2020)]);
+addVariants("yamaha", "tenere-700", [
+  v("world-raid-1", "yamaha.tenere-700.world-raid-1", "World Raid — I", "Tenere 700 World Raid 2022", 2022, 2024),
+  v("world-raid-2", "yamaha.tenere-700.world-raid-2", "World Raid — II", "Tenere 700 World Raid 2025", 2025, 2025),
+  v("explore", "yamaha.tenere-700.explore", "Explore Edition", "Tenere 700 Explore", 2024, 2024),
+  v("extreme", "yamaha.tenere-700.extreme", "Extreme Edition", "Tenere 700 Extreme", 2024, 2024)
+]);
+
 addModels("suzuki", [
   m("gsx-r600", "GSX-R600", [
     v("srad", "suzuki.gsx-r600.srad", "SRAD", "GSX-R600 SRAD", 1997, 2000), v("k1", "suzuki.gsx-r600.k1", "K1–K3", "GSX-R600 K1", 2001, 2003),
