@@ -169,14 +169,20 @@
     if (!required.length) return "";
     const field = name => {
       if (!required.includes(name)) return "";
-      const current = view.clarification || {};
       const key = name === "region" ? "market" : name;
-      const options = [...new Set(Object.values(view.entriesById || {}).flatMap(entry => (entry.candidates && entry.candidates[name]) || []))].filter(Boolean);
+      const current = view.clarification || {};
+      const options = getClarificationOptions(view, name);
       const optionLabels = { EU: "Europa", USA: "USA", UK: "Wielka Brytania", AU: "Australia", JP: "Japonia", true: "ABS", false: "Bez ABS" };
-      const choices = name === "equipment" ? options.map(value => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join("") : options.map(value => `<option value="${escapeHtml(value)}">${escapeHtml(optionLabels[value] || value)}</option>`).join("");
-      return `<label>${escapeHtml(name === "region" ? "Rynek / region" : name === "abs" ? "Wersja ABS" : "Wyposażenie")}<select data-technical-clarification="${escapeHtml(name)}"><option value="">Nie wiem</option>${choices}</select></label>`;
+      const choices = options.map(value => `<option value="${escapeHtml(value)}"${String(current[key]) === String(value) ? " selected" : ""}>${escapeHtml(name === "equipment" ? value : optionLabels[value] || value)}</option>`).join("");
+      const unknownSelected = current[key] === null || current[key] === undefined || current[key] === "";
+      return `<label>${escapeHtml(name === "region" ? "Rynek / region" : name === "abs" ? "Wersja ABS" : "Wyposażenie")}<select data-technical-clarification="${escapeHtml(name)}"><option value=""${unknownSelected ? " selected" : ""}>Nie wiem</option>${choices}</select></label>`;
     };
     return `<div class="card technical-clarification"><h3>Doprecyzuj wersję motocykla</h3><p class="section-note">Znaleźliśmy więcej niż jeden pasujący wariant. Podaj tylko informacje potrzebne do wyboru właściwych danych technicznych.</p><form data-technical-clarification-form>${required.map(field).join("")}<button type="submit" class="primary">Zapisz i dobierz dane</button></form></div>`;
+  }
+
+  function getClarificationOptions(view, field) {
+    const values = Object.values(view.entriesById || {}).flatMap(entry => (entry.candidates && entry.candidates[field]) || []);
+    return [...new Set(values)].filter(value => value !== null && value !== undefined && !(typeof value === "string" && !value.trim()));
   }
 
   function renderStateHtml(view, options = {}) {
@@ -248,6 +254,7 @@
     renderTechnicalProfileHtml,
     renderSearchResultsHtml,
     renderEntryHtml,
+    getClarificationOptions,
     escapeHtml,
     STATUS_LABELS
   });
