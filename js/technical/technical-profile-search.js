@@ -407,6 +407,7 @@
       .toLocaleLowerCase("pl-PL")
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
+      .replace(/ł/g, "l")
       .replace(/n\s*[·•.]?\s*m\b/g, "nm")
       .replace(/k\s*(?:ohm|ω)\b/g, "kohm")
       .replace(/(?:ohm|ω)\b/g, "ohm")

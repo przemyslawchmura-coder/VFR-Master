@@ -574,3 +574,66 @@ The validator returns a report and never mutates or silently repairs a profile:
 ```
 
 Errors make the profile invalid. Warnings identify incomplete but structurally usable data. CI may apply a stricter publication policy later, but validator output remains deterministic and independent of the DOM.
+
+## 24. Stage 1 Production Architecture
+
+The finalized Stage 1 ownership graph is:
+
+```text
+Stored Motorcycle
+  → Context Adapter
+  → Registry
+  → Browser Store / Loader Boundary
+  → Validator
+  → Runtime / Bridge
+  → Readiness
+  → Resolver / Formatter / Search
+  → Production UI
+```
+
+The Motorcycle Catalog supplies explicit identity. `catalogVariantKey` and `year` form discovery context. Region, ABS and equipment form resolution context; missing resolution fields remain unknown and only make affected entries ambiguous. Registry descriptors describe availability, while the Browser Store contains already-loaded local data modules. The loader is the sole boundary between them. A profile is `ready` only after validation, and `includeProfile` returns that same validated open result to the UI without a second discovery or load.
+
+The production UI opens the subsystem on demand. A render generation guard prevents a delayed result for a previous motorcycle or departed screen from committing to the current container. Expected failures are represented as states and preserve the explicit legacy fallback. Runtime subsystem failure does not participate in application startup, auth, garage, dashboard, or service history.
+
+Sources remain document metadata plus precise citation references. `verified` is a provenance claim backed by an accepted citation, never an inheritance from legacy data. Research and incomplete candidates live outside the production registry and require manual review before onboarding.
+
+Future profile onboarding remains a data workflow: catalogue identity → documented Technical Profile → validator and integrity report → human review → registry descriptor → local/browser availability. Network loading is not required by this architecture.
+
+## 25. Technical Profile v1 Invariants
+
+- No hidden defaults.
+- No brand/model heuristic discovery.
+- No unresolved or ambiguous candidate value leakage.
+- Registry selection is deterministic; equal specificity is `ambiguous`.
+- A profile is validated before readiness can be `ready`.
+- Source provenance and verification status are preserved end to end.
+- Unknown is not `false`.
+- Unknown equipment is not an explicit empty equipment list.
+- UI consumes services and profile data, not module paths.
+- Expected failures are statuses; programmer errors are not exposed as user stack traces.
+- Duplicate Browser Store registration never overwrites the first module.
+- Browser Store values are isolated from caller mutation and reject unsafe/uncloneable structures.
+- Search indexes resolved entries and cannot expose raw variant values.
+- One UI render opens one profile and builds one reusable search index.
+- Technical Profile operation requires no network connection.
+- Research data is quarantined: research is not production, and unknown is never guessed.
+
+## 26. Research and promotion boundary
+
+The lightweight `research/` tree is explicitly non-production. Its workflow statuses describe evidence collection, not Technical Profile quality. Its source priority assists human review but never automatically resolves contradictions.
+
+Promotion is deliberately manual:
+
+```text
+Research candidate
+  → source review
+  → conflict resolution
+  → applicability review
+  → Technical Profile schema conversion
+  → validator
+  → human review
+  → registry addition
+  → production
+```
+
+No Stage 1 research module is loaded by `index.html`, imported by the Technical Profile runtime, registered in the Browser Store, persisted to Supabase, or used by MotorcycleDatabase.

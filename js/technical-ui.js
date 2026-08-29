@@ -3,6 +3,7 @@
    INTERFEJS BAZY TECHNICZNEJ AKTYWNEGO MOTOCYKLA
    ========================================================= */
 let activeTechnicalRegistrationKey = null;
+let technicalRenderGeneration = 0;
 
 function getActiveTechnicalContext() {
   const container = document.getElementById("technical");
@@ -34,6 +35,8 @@ function hasCurrentTechnicalContext(context) {
    ========================================================= */
 async function openTechnicalBase() {
   const context = getActiveTechnicalContext();
+  const renderGeneration = ++technicalRenderGeneration;
+  const motorcycleId = context.bike ? context.bike.id : null;
   activeTechnicalRegistrationKey = null;
 
   if (!context.container) return;
@@ -45,7 +48,15 @@ async function openTechnicalBase() {
         context.bike,
         {
           legacyAvailable: Boolean(context.database),
-          onLegacyFallback: openLegacyTechnicalBase
+          onLegacyFallback: openLegacyTechnicalBase,
+          shouldCommit() {
+            const activeBike = window.MotorcycleDatabase
+              ? MotorcycleDatabase.getActive()
+              : null;
+            return renderGeneration === technicalRenderGeneration &&
+              (activeBike ? activeBike.id : null) === motorcycleId &&
+              context.container.classList.contains("active");
+          }
         }
       );
       return;
@@ -55,6 +66,10 @@ async function openTechnicalBase() {
   }
 
   openLegacyTechnicalBase();
+}
+
+function cancelTechnicalProfileRender() {
+  technicalRenderGeneration += 1;
 }
 
 function openLegacyTechnicalBase() {
@@ -292,5 +307,6 @@ function openTechnicalItem(sectionKey, itemKey) {
    ========================================================= */
 window.openTechnicalBase = openTechnicalBase;
 window.openLegacyTechnicalBase = openLegacyTechnicalBase;
+window.cancelTechnicalProfileRender = cancelTechnicalProfileRender;
 window.openTechnicalSection = openTechnicalSection;
 window.openTechnicalItem = openTechnicalItem;

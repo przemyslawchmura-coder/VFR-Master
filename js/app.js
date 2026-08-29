@@ -1057,6 +1057,9 @@ function showCosts() {
    NAWIGACJA
    ===================================================== */
 async function navigateTo(pageId) {
+  if (pageId !== "technical" && window.cancelTechnicalProfileRender) {
+    window.cancelTechnicalProfileRender();
+  }
   document
     .querySelectorAll(".page")
     .forEach(page => {

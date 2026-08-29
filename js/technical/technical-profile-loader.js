@@ -63,7 +63,14 @@
           errors.push(issue("PROFILE_VALIDATION_FAILED", descriptor.profileId, "Loaded profile failed Technical Profile validation."));
         }
       }
-      return { valid: errors.length === 0, errors, warnings: [...structural.warnings] };
+      const warnings = [...structural.warnings];
+      if (browserStoreApi && browserStoreApi.listRegisteredProfileIds) {
+        const descriptorIds = new Set(registry.listProfiles().map(item => item.profileId));
+        browserStoreApi.listRegisteredProfileIds()
+          .filter(profileId => !descriptorIds.has(profileId))
+          .forEach(profileId => warnings.push(issue("ORPHAN_BROWSER_PROFILE", profileId, "Registered browser profile has no registry descriptor.")));
+      }
+      return { valid: errors.length === 0, errors, warnings };
     }
 
     return Object.freeze({ loadProfile, loadProfileForContext, validateRegistryIntegrity });

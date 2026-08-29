@@ -74,6 +74,9 @@
         view = readinessView({ status: "load-error" });
         if (typeof console !== "undefined" && console.error) console.error(error);
       }
+      if (typeof renderOptions.shouldCommit === "function" && !renderOptions.shouldCommit()) {
+        return { ...view, stale: true };
+      }
       container.innerHTML = renderTechnicalProfileHtml(view, renderOptions);
       bindInteractions(container, view, renderOptions, search);
       return view;
@@ -185,7 +188,12 @@
 
   function renderSearchResultsHtml(view, query, search) {
     if (!String(query || "").trim()) return renderCategoryHtml(view.categories);
-    const results = search.search(view.searchIndex, query);
+    let results;
+    try {
+      results = search.search(view.searchIndex, query);
+    } catch (error) {
+      return '<div class="card"><div class="empty">Nie udało się przeszukać bazy technicznej.</div></div>';
+    }
     if (!results.length) return '<div class="card"><div class="empty">Brak wyników wyszukiwania.</div></div>';
     const entries = results.map(result => view.entriesById[result.entryId]).filter(Boolean);
     return `<section class="card technical-profile-category"><h3>Wyniki wyszukiwania</h3>${entries.map(renderEntryHtml).join("")}</section>`;
