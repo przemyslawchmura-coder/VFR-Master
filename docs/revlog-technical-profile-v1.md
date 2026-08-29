@@ -503,7 +503,24 @@ Responsibility flows through these layers:
 
 Registry integrity requires unique profile IDs, stable catalogue keys, valid year ranges, resolvable module IDs, matching loaded profile identity, descriptor/profile applicability agreement, and no equally specific overlapping descriptors. Multiple profiles may cover one catalogue key when matching remains deterministic, for example when a single-year descriptor is more specific than a broader range.
 
-## 20. Validation policy
+## 20. Motorcycle Technical Context
+
+The Motorcycle Technical Context Adapter translates explicit fields from an application-level stored motorcycle into the context used by Technical Profile discovery and resolution:
+
+```text
+Stored Motorcycle
+  → Motorcycle Technical Context Adapter
+  → Technical Profile Registry
+  → Profile Loader
+  → Resolver / Search
+  → UI
+```
+
+`catalogVariantKey` and `year` are discovery fields. Both are required before registry lookup. `region`, `abs`, and `equipment` are resolution fields: their absence does not prevent profile discovery, but may cause a specific entry to return `ambiguous-context`. Unknown values remain `null`; an explicit empty equipment array means that the stored record explicitly declares no equipment options.
+
+The adapter only translates stored, explicit data. It does not infer a catalogue key from brand/model text, infer region from year or user locale, parse ABS from a model name, or treat a missing ABS flag as `false`. Legacy motorcycles without `catalogVariantKey` return `insufficient-context` and are not mutated or migrated. Storage access is outside the adapter: a future UI may pass `MotorcycleDatabase.getActive()` to the bridge, while tests and other consumers can pass any motorcycle object directly.
+
+## 21. Validation policy
 
 The validator returns a report and never mutates or silently repairs a profile:
 
