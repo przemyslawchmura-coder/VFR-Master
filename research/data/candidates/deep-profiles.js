@@ -6,6 +6,7 @@ const profiles = [
     prefix: "candidate.deep.cbr500r", key: "honda.cbr500r.gen4", manufacturer: "Honda", family: "CBR500R",
     years: { from: 2024, to: 2024 }, region: "USA", sourceId: "research.honda.cbr500r.2024.owner-manual",
     values: [
+      ["identity.model-year", "2024 model year", 2024, "year", "Specifications", "175"],
       ["dimensions.length", "81.9 in (2,080 mm)", 2080, "mm", "Main Components", "175"],
       ["dimensions.width", "CBR500R 29.9 in (760 mm)", 760, "mm", "Main Components", "175"],
       ["dimensions.height", "CBR500R 45.1 in (1,145 mm)", 1145, "mm", "Main Components", "175"],
@@ -26,6 +27,7 @@ const profiles = [
       ["ignition.spark-plug.gap", "0.03–0.04 in (0.8–0.9 mm)", { min: 0.8, max: 0.9 }, "mm", "Service Data", "176"],
       ["engine.idle-speed", "1,200 ± 100 rpm (non-adjustable)", { amount: 1200, tolerance: 100 }, "rpm", "Service Data", "176"],
       ["lubrication.viscosity", "SAE 10W-30", "SAE 10W-30", null, "Service Data", "176"],
+      ["lubrication.oil-specification", "SAE 10W-30 engine oil recommendation", "SAE 10W-30", null, "Service Data", "176"],
       ["lubrication.specification", "API SJ or higher; JASO T 903 MA; not energy/resource conserving", "API SJ+ / JASO MA", null, "Service Data", "176"],
       ["lubrication.capacity-drain", "2.6 US qt (2.5 L) after draining", 2.5, "L", "Service Data", "176"],
       ["lubrication.capacity-filter", "2.9 US qt (2.7 L) after draining and filter change", 2.7, "L", "Service Data", "176"],
@@ -48,16 +50,19 @@ const profiles = [
       ["maintenance.coolant.time", "Replace every 3 years", 3, "year", "Maintenance Schedule", "95"],
       ["maintenance.brake-fluid.time", "Replace every 2 years", 2, "year", "Maintenance Schedule", "96"],
       ["maintenance.drive-chain.distance", "Inspect, adjust and lubricate every 600 mi (1,000 km)", 1000, "km", "Maintenance Schedule", "96"]
+      ,["maintenance.periodic-schedule", "Periodic maintenance schedule table covering scheduled inspection, replacement and adjustment items", null, null, "Maintenance Schedule", "95"]
     ]
   },
   {
     prefix: "candidate.deep.mt09", key: "yamaha.mt09.gen3", manufacturer: "Yamaha", family: "MT-09",
     years: { from: 2021, to: 2021 }, region: "EU", sourceId: "research.yamaha.mt09.2021.owner-manual",
     values: [
+      ["identity.model-year", "2021 model year", 2021, "year", "Specifications", "9-1"],
       ["ignition.spark-plug.model", "NGK/LMAR9A-9", "NGK LMAR9A-9", null, "Checking the spark plugs", "7-9"],
       ["ignition.spark-plug.gap", "0.8–0.9 mm", { min: 0.8, max: 0.9 }, "mm", "Checking the spark plugs", "7-9"],
       ["torque.spark-plug", "13 N·m", 13, "N·m", "Checking the spark plugs", "7-9"],
       ["lubrication.viscosity", "SAE 10W-40", "SAE 10W-40", null, "Specifications", "9-1"],
+      ["lubrication.oil-specification", "SAE 10W-40 engine oil recommendation", "SAE 10W-40", null, "Specifications", "9-1"],
       ["lubrication.specification", "API service SG type or higher, JASO standard MA", "API SG+ / JASO MA", null, "Specifications", "9-1"],
       ["lubrication.capacity-drain", "2.80 L (2.96 US qt, 2.46 Imp.qt)", 2.8, "L", "Engine oil", "7-10"],
       ["lubrication.capacity-filter", "3.20 L (3.38 US qt, 2.82 Imp.qt)", 3.2, "L", "Engine oil", "7-10"],
@@ -94,16 +99,19 @@ const profiles = [
       ["maintenance.air-filter", "Replace every 40,000 km (24,000 mi)", 40000, "km", "General maintenance and lubrication chart", "7-5"],
       ["maintenance.brake-fluid", "Change every 2 years", 2, "year", "General maintenance and lubrication chart", "7-5"],
       ["maintenance.brake-hoses", "Replace every 4 years", 4, "year", "General maintenance and lubrication chart", "7-5"]
+      ,["maintenance.periodic-schedule", "Periodic maintenance and lubrication chart", null, null, "Periodic maintenance chart", "7-3"]
     ]
   },
   {
     prefix: "candidate.deep.tenere700", key: "yamaha.tenere700.gen1", manufacturer: "Yamaha", family: "Ténéré 700",
     years: { from: 2019, to: 2019 }, region: "EU", sourceId: "research.yamaha.tenere700.2019.owner-manual",
     values: [
+      ["identity.model-year", "2019 model year", 2019, "year", "Specifications", "8-1"],
       ["ignition.spark-plug.model", "NGK/LMAR8A-9", "NGK LMAR8A-9", null, "Checking the spark plugs", "6-10"],
       ["ignition.spark-plug.gap", "0.8–0.9 mm", { min: 0.8, max: 0.9 }, "mm", "Checking the spark plugs", "6-10"],
       ["torque.spark-plug", "13 N·m", 13, "N·m", "Checking the spark plugs", "6-10"],
       ["lubrication.viscosity", "SAE 10W-40", "SAE 10W-40", null, "Specifications", "8-1"],
+      ["lubrication.oil-specification", "SAE 10W-40 engine oil recommendation", "SAE 10W-40", null, "Specifications", "8-1"],
       ["lubrication.specification", "API service SG type or higher, JASO standard MA", "API SG+ / JASO MA", null, "Specifications", "8-1"],
       ["lubrication.capacity-drain", "2.30 L (2.43 US qt, 2.02 Imp.qt)", 2.3, "L", "Engine oil", "6-13"],
       ["lubrication.capacity-filter", "2.60 L (2.75 US qt, 2.29 Imp.qt)", 2.6, "L", "Engine oil", "6-13"],
@@ -142,6 +150,7 @@ const profiles = [
       ["maintenance.drive-chain", "Inspect, adjust and lubricate every 1,000 km (600 mi), and after washing/rain/wet riding", 1000, "km", "General maintenance and lubrication chart", "6-6"],
       ["maintenance.brake-fluid", "Change every 2 years", 2, "year", "General maintenance and lubrication chart", "6-5"],
       ["maintenance.brake-hoses", "Replace every 4 years", 4, "year", "General maintenance and lubrication chart", "6-5"]
+      ,["maintenance.periodic-schedule", "Periodic maintenance and lubrication chart", null, null, "Periodic maintenance chart", "6-3"]
     ]
   }
 ];

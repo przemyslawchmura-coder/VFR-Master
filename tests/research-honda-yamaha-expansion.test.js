@@ -124,8 +124,8 @@ test("report metrics are deterministic and match Honda/Yamaha coverage", () => {
   const first = reports.buildResearchMetrics(dataset);
   const second = reports.buildResearchMetrics(dataset);
   assert.deepEqual(first, second);
-  assert.deepEqual({ honda: first.byManufacturer.Honda.technicalCandidates, yamaha: first.byManufacturer.Yamaha.technicalCandidates }, { honda: 112, yamaha: 148 });
-  assert.deepEqual(first.totals, { sources: 53, manufacturers: 11, modelFamilies: 93, catalogRecords: 167, technicalCandidates: 274, conflicts: 0 });
+  assert.deepEqual({ honda: first.byManufacturer.Honda.technicalCandidates, yamaha: first.byManufacturer.Yamaha.technicalCandidates }, { honda: 115, yamaha: 154 });
+  assert.deepEqual(first.totals, { sources: 53, manufacturers: 11, modelFamilies: 93, catalogRecords: 167, technicalCandidates: 283, conflicts: 0 });
 });
 
 test("automatic research quality gate reports zero structural errors", () => {
@@ -141,18 +141,18 @@ test("generated coverage reports contain the computed totals", () => {
   const catalogReport = fs.readFileSync(path.join(ROOT, "research/reports/motorcycle-catalog-coverage.md"), "utf8");
   const technicalReport = fs.readFileSync(path.join(ROOT, "research/reports/technical-data-coverage.md"), "utf8");
   assert.match(catalogReport, /Generation\/variant records: 167/);
-  assert.match(technicalReport, /Technical candidates: 274/);
-  assert.match(technicalReport, /Honda: 112 candidates/);
-  assert.match(technicalReport, /Yamaha: 148 candidates/);
+  assert.match(technicalReport, /Technical candidates: 283/);
+  assert.match(technicalReport, /Honda: 115 candidates/);
+  assert.match(technicalReport, /Yamaha: 154 candidates/);
 });
 
 test("deep readiness metrics and report are deterministic", () => {
   const keys = ["honda.cbr500r.gen4", "yamaha.mt09.gen3", "yamaha.tenere700.gen1"];
   const first = reports.buildDeepProfileMetrics(dataset, keys);
   assert.deepEqual(first, reports.buildDeepProfileMetrics(dataset, keys));
-  assert.equal(first["honda.cbr500r.gen4"].totalCandidates, 60);
-  assert.equal(first["yamaha.mt09.gen3"].totalCandidates, 58);
-  assert.equal(first["yamaha.tenere700.gen1"].totalCandidates, 60);
+  assert.equal(first["honda.cbr500r.gen4"].totalCandidates, 63);
+  assert.equal(first["yamaha.mt09.gen3"].totalCandidates, 61);
+  assert.equal(first["yamaha.tenere700.gen1"].totalCandidates, 63);
   assert.ok(Object.values(first).every(item => item.recommendation === "research-more"));
   assert.equal(reports.renderDeepProfileReadinessReport(dataset, keys).trimEnd(), fs.readFileSync(path.join(ROOT, "research/reports/deep-profile-readiness.md"), "utf8").trimEnd());
 });
