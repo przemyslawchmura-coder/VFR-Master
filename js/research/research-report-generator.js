@@ -1,5 +1,8 @@
 "use strict";
 
+const coverageAuditor = require("./research-coverage-auditor.js");
+const coverageStandard = require("../../research/schema/research-coverage-standard.js");
+
 function buildResearchMetrics(dataset) {
   const sourceById = new Map(dataset.sources.map(source => [source.id, source]));
   const manufacturers = [...new Set(dataset.catalog.map(record => record.manufacturer))].sort();
@@ -53,10 +56,11 @@ function buildDeepProfileMetrics(dataset, keys) {
     const candidates = dataset.candidates.filter(candidate => candidate.proposedCatalogVariantKey === key);
     const categories = new Set(candidates.map(candidate => candidate.technicalField.split(".")[0]));
     const covered = DEEP_CATEGORIES.filter(category => categories.has(category));
+    const audit = coverageAuditor.auditProfile(dataset, key);
     const official = candidates.filter(candidate => candidate.sourceIds.some(id => String((sourceById.get(id) || {}).type).startsWith("official-"))).length;
     const serviceManualValues = candidates.filter(candidate => candidate.sourceIds.some(id => (sourceById.get(id) || {}).type === "official-service-manual")).length;
     const ownerManualValues = candidates.filter(candidate => candidate.sourceIds.some(id => (sourceById.get(id) || {}).type === "official-owner-manual")).length;
-    const completenessPercent = Math.round((covered.length / DEEP_CATEGORIES.length) * 100);
+    const completenessPercent = Math.round((audit.counts["evidence-found"] / coverageStandard.FIELD_COUNT) * 100);
     return [key, {
       totalCandidates: candidates.length,
       candidatesByCategory: countBy(candidates, candidate => candidate.technicalField.split(".")[0]),
@@ -73,8 +77,11 @@ function buildDeepProfileMetrics(dataset, keys) {
       oemPartNumbers: candidates.filter(candidate => candidate.technicalField.startsWith("oem-parts.")).length,
       coveredMajorCategories: covered,
       missingMajorCategories: DEEP_CATEGORIES.filter(category => !categories.has(category)),
+      fieldCoverage: audit.counts,
+      partialCategories: Object.entries(audit.categories).filter(([, value]) => value._status.status === "partial").map(([category]) => category),
+      fieldAudit: audit,
       completenessPercent,
-      recommendation: candidates.length >= 30 && covered.length >= 9 && official === candidates.length ? "ready-for-human-profile-review" : "research-more"
+      recommendation: audit.counts["evidence-found"] >= 40 && official === candidates.length && audit.counts.conflicting === 0 ? "ready-for-human-profile-review" : "research-more"
     }];
   }));
 }
@@ -93,7 +100,7 @@ function renderDeepProfileReadinessReport(dataset, keys) {
   });
   lines.push("", "## Remaining gaps", "");
   keys.forEach(key => lines.push(`- **${key}:** ${metrics[key].missingMajorCategories.join(", ") || "none in the major-category checklist"}.`));
-  lines.push("", "The percentage measures category presence only. It does not measure correctness, source authority inside a category, regional completeness, or production readiness.", "");
+  lines.push("", "The percentage is evidence-found canonical fields divided by the full standard field set. It does not measure correctness, source authority inside a field, regional completeness, or production readiness.", "");
   return lines.join("\n");
 }
 

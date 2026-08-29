@@ -637,3 +637,9 @@ Research candidate
 ```
 
 No Stage 1 research module is loaded by `index.html`, imported by the Technical Profile runtime, registered in the Browser Store, persisted to Supabase, or used by MotorcycleDatabase.
+
+## 27. Canonical research coverage and gap semantics
+
+All future research batches use `research/schema/research-coverage-standard.js` as the canonical checklist (183 fields across 21 categories). The standard includes a mandatory field-level lighting checklist; the presence of one lighting candidate never implies that every bulb/function was researched.
+
+`js/research/research-coverage-auditor.js` distinguishes `not-researched` (no documented review), `researched-no-evidence` (reviewed but no reliable value found), `evidence-found`, and `conflicting`. `partial` is reserved for the aggregate status of a category with mixed field states. The generated `research/reports/deep-profile-field-gaps.md` is the deterministic audit for the three current deep research profiles. Readiness percentages are informational and divide evidenced canonical fields by the full standard; they never promote data or replace human source review.
