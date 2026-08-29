@@ -7,6 +7,8 @@ const generator = require("../js/research/research-report-generator.js");
 const deepKeys = ["honda.cbr500r.gen4", "yamaha.mt09.gen3", "yamaha.tenere700.gen1"];
 const output = process.argv.includes("--field-gaps")
   ? require("../js/research/research-coverage-auditor.js").renderFieldGapReport(dataset, deepKeys)
+  : process.argv.includes("--owner-manual-audit")
+    ? require("../js/research/research-coverage-auditor.js").renderOwnerManualExhaustionReport(dataset, deepKeys)
   : process.argv.includes("--deep-profile-markdown")
     ? generator.renderDeepProfileReadinessReport(dataset, deepKeys)
   : JSON.stringify({ aggregate: generator.buildResearchMetrics(dataset), deepProfiles: generator.buildDeepProfileMetrics(dataset, deepKeys) }, null, 2);

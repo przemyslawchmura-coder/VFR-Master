@@ -67,6 +67,37 @@ function auditProfile(dataset, key) {
 
 function auditProfiles(dataset, keys) { return Object.fromEntries(keys.map(key => [key, auditProfile(dataset, key)])); }
 
+function sourceClassForField(fieldId) {
+  if (fieldId.startsWith("lighting.")) return "owner-manual follow-up";
+  if (fieldId.startsWith("maintenance.")) return "owner-manual follow-up";
+  if (fieldId.startsWith("oem_parts.")) return "OEM parts catalogue";
+  if (fieldId.startsWith("identity.region") || fieldId.startsWith("identity.abs") || fieldId.startsWith("identity.equipment") || fieldId.startsWith("identity.emissions")) return "applicability/market research";
+  if (fieldId.startsWith("service_limits.") || fieldId.startsWith("torques.") || fieldId.startsWith("suspension.") || fieldId.startsWith("brakes.")) return "service/workshop manual";
+  if (fieldId.startsWith("dimensions_mass.") || fieldId.startsWith("steering_chassis.")) return "official specification/homologation source";
+  return "service/workshop manual";
+}
+
+function renderOwnerManualExhaustionReport(dataset, keys) {
+  const audits = auditProfiles(dataset, keys);
+  const lines = ["# Owner-manual evidence exhaustion audit", "", "> **NON-PRODUCTION RESEARCH DATA. This report distinguishes inspected evidence from unresolved fields.**", "", "The audit revisits all 183 canonical fields for each profile. Owner manuals are not treated as substitutes for workshop manuals or parts catalogues.", ""];
+  keys.forEach(key => {
+    const audit = audits[key];
+    lines.push(`## ${key}`, "", `Fields audited: ${audit.fieldCount}`, `Evidence summary: evidence-found=${audit.counts["evidence-found"]}, researched-no-evidence=${audit.counts["researched-no-evidence"]}, not-researched=${audit.counts["not-researched"]}, conflicting=${audit.counts.conflicting}`, "");
+    const grouped = {};
+    Object.entries(audit.categories).forEach(([category, fields]) => Object.entries(fields).forEach(([field, item]) => {
+      if (field === "_status" || item.status !== "not-researched") return;
+      const id = `${category}.${field}`;
+      const cls = sourceClassForField(id);
+      (grouped[cls] ||= []).push(id);
+    }));
+    Object.keys(grouped).sort().forEach(cls => { lines.push(`### Remaining not-researched fields — ${cls}`, ""); grouped[cls].sort().forEach(id => lines.push("- `" + id + "`")); lines.push(""); });
+    lines.push("### Lighting", "", "Lighting is audited per function; one headlight or LED candidate does not close low/high beam, socket or replaceability fields.", "");
+    Object.entries(audit.categories.lighting).filter(([field]) => field !== "_status").forEach(([field, item]) => lines.push("- `" + field + "`: **" + item.status + "**"));
+    lines.push("", "### Maintenance", "", "Periodic schedule rows are represented by action-specific candidates. `maintenance.mileage-interval` remains a generic canonical blocker because a schedule cannot truthfully be reduced to one scalar interval; action/mileage rows require further explicit modelling or extraction.", "");
+  });
+  return lines.join("\n");
+}
+
 function renderFieldGapReport(dataset, keys) {
   const audits = auditProfiles(dataset, keys);
   const lines = ["# Deep profile field-level coverage audit", "", "> **NON-PRODUCTION RESEARCH DATA. Missing evidence is not a production claim.**", ""];
@@ -82,4 +113,4 @@ function renderFieldGapReport(dataset, keys) {
   return lines.join("\n");
 }
 
-module.exports = Object.freeze({ STATUS, REVIEWED_NO_EVIDENCE, auditProfile, auditProfiles, renderFieldGapReport });
+module.exports = Object.freeze({ STATUS, REVIEWED_NO_EVIDENCE, auditProfile, auditProfiles, renderFieldGapReport, sourceClassForField, renderOwnerManualExhaustionReport });

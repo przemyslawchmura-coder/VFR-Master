@@ -61,3 +61,18 @@ test("generated field-gap report is present and non-production", () => {
   assert.match(report, /NON-PRODUCTION RESEARCH DATA/);
   keys.forEach(key => assert.match(report, new RegExp(`## ${key.replaceAll(".", "\\.")}`)));
 });
+
+test("owner-manual exhaustion audit is deterministic and source-aware", () => {
+  const report = auditor.renderOwnerManualExhaustionReport(dataset, keys);
+  assert.equal(report, auditor.renderOwnerManualExhaustionReport(dataset, keys));
+  assert.match(report, /Owner-manual evidence exhaustion audit/);
+  assert.match(report, /Periodic schedule rows are represented/);
+  assert.match(report, /service\/workshop manual/);
+  assert.match(report, /Lighting is audited per function/);
+});
+
+test("workshop-dependent fields are not falsely closed by owner-manual evidence", () => {
+  const audit = auditor.auditProfile(dataset, "honda.cbr500r.gen4");
+  assert.equal(audit.categories.service_limits.engine.status, "researched-no-evidence");
+  assert.equal(audit.categories.torques["oil-filter"].status, "not-researched");
+});
