@@ -92,3 +92,12 @@ test("partial clarification follows resolved entries and preserves known false",
   assert.equal(requirements[0].key, "market");
   assert.equal(inverse.clarification.abs, false);
 });
+
+test("generic unknown context without actionable requirements renders no clarification card", () => {
+  const view = { status: "ready", profileName: "Test", profileId: "test", motorcycleYear: 2021,
+    resolutionContext: { region: "unknown", abs: "unknown", equipment: "unknown" }, entriesById: {
+      stable: { resolutionStatus: "resolved", requiredContext: [], candidates: {} }
+    }, categories: [], searchIndex: {} };
+  const html = ui.renderTechnicalProfileHtml(view);
+  assert.doesNotMatch(html, /technical-context-notice|technical-clarification/);
+});

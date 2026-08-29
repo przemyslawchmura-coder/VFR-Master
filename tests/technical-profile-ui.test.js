@@ -113,16 +113,16 @@ test("unknown ABS leaves ABS-dependent entry ambiguous", async () => {
   assert.match(uiApi.renderEntryHtml(entry), /informacja o ABS/);
 });
 
-test("unknown region is communicated in the profile view", async () => {
-  assert.match(uiApi.renderTechnicalProfileHtml(await uiApi.prepareTechnicalProfileView(MOTORCYCLE)), /Region: nieznane/);
+test("unknown region is represented by an actionable refinement field", async () => {
+  assert.match(uiApi.renderTechnicalProfileHtml(await uiApi.prepareTechnicalProfileView(MOTORCYCLE)), /data-technical-clarification="region"/);
 });
 
-test("unknown ABS is communicated in the profile view", async () => {
-  assert.match(uiApi.renderTechnicalProfileHtml(await uiApi.prepareTechnicalProfileView(MOTORCYCLE)), /ABS: nieznane/);
+test("unknown ABS is represented by an actionable refinement field", async () => {
+  assert.match(uiApi.renderTechnicalProfileHtml(await uiApi.prepareTechnicalProfileView(MOTORCYCLE)), /data-technical-clarification="abs"/);
 });
 
-test("unknown equipment is communicated in the profile view", async () => {
-  assert.match(uiApi.renderTechnicalProfileHtml(await uiApi.prepareTechnicalProfileView(MOTORCYCLE)), /Wyposażenie: nieznane/);
+test("unused unknown equipment is not shown as a passive warning", async () => {
+  assert.doesNotMatch(uiApi.renderTechnicalProfileHtml(await uiApi.prepareTechnicalProfileView(MOTORCYCLE)), /Wyposażenie: nieznane/);
 });
 
 test("insufficient-context renders without throwing", async () => {

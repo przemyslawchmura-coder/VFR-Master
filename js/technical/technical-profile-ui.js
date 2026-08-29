@@ -154,7 +154,6 @@
         <h2>${escapeHtml(view.profileName)}</h2>
         <p class="section-note">Rok ${escapeHtml(view.motorcycleYear)} · Profil ${escapeHtml(view.profileId)}</p>
       </div>
-      ${renderContextNotice(view.resolutionContext)}
       ${renderClarificationHtml(view)}
       <div class="card technical-profile-search-card">
         <label for="technicalProfileSearch">Szukaj danych technicznych</label>
