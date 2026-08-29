@@ -15,3 +15,5 @@ Research statuses: `discovered`, `source-located`, `candidate`, `corroborated`, 
 Source classes, ordered for review but never used for automatic conflict resolution: official service manual; official owner manual; official parts catalogue; official technical publication; aftermarket manufacturer; specialist database; workshop reference; community.
 
 Conflicting candidates remain separate records with the same `conflictGroup`. The validator reports conflicts and duplicates; it never chooses or deletes a value.
+
+Every catalogue record and candidate must reference at least one source. A candidate key must exist in the aggregated research catalogue. Numeric normalized values require a unit; text identifiers, ratios and descriptive values may intentionally have no unit. Years outside the plausible motorcycle range are rejected. Proposed catalogue keys are unique across the aggregate; research modules cannot silently collide during merge.

@@ -27,7 +27,9 @@ test("research candidates do not alter production VFR search results", () => {
 });
 
 test("research tree contains no Supabase, UI, browser registration or production profile calls", () => {
-  const files = fs.readdirSync(path.join(root, "research/data")).map(name => path.join(root, "research/data", name));
+  const files = fs.readdirSync(path.join(root, "research/data"), { recursive: true, withFileTypes: true })
+    .filter(entry => entry.isFile())
+    .map(entry => path.join(entry.parentPath || entry.path, entry.name));
   const content = files.map(file => fs.readFileSync(file, "utf8")).join("\n");
   assert.doesNotMatch(content, /supabase|registerProfile\s*\(|RevLogTechnicalProfileRegistry|TechnicalDatabase|MotorcycleDatabase/);
 });

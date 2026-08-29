@@ -1,6 +1,13 @@
 // NON-PRODUCTION RESEARCH DATA. Never import this module from production runtime.
 "use strict";
 
+const hondaSources = require("./sources/honda.js");
+const yamahaSources = require("./sources/yamaha.js");
+const hondaCatalog = require("./catalog/honda.js");
+const yamahaCatalog = require("./catalog/yamaha.js");
+const hondaCandidates = require("./candidates/honda.js");
+const yamahaCandidates = require("./candidates/yamaha.js");
+
 const sources = [
   { id: "research.honda.vfr.history", type: "official-technical-publication", title: "Honda 75 Years: VFR history", manufacturer: "Honda", url: "https://global.honda/en/about/history-digest/75years-history/chapter3/section1_2/page2.html", accessedAt: "2026-08-29" },
   { id: "research.honda.africa-twin.history", type: "official-technical-publication", title: "Honda Africa Twin model history", manufacturer: "Honda", url: "https://global.honda/en/tech/innovation/technology/motorcycle/tech-views/vol08_africatwin/history.html", accessedAt: "2026-08-29" },
@@ -61,4 +68,9 @@ const candidates = [
   ["harley-davidson.sportster-s.rh1250s", "Harley-Davidson", "Sportster S", 2022, "ignition.spark-plug-gap", "0.80–0.90 mm", null, "mm", "research.harley.2022.owner-manual"]
 ].map((row, index) => ({ researchRecordId: `candidate.${String(index + 1).padStart(3, "0")}`, proposedCatalogVariantKey: row[0], manufacturer: row[1], family: row[2], years: row[3] == null ? null : { from: row[3], to: row[3] }, region: null, abs: null, equipment: null, technicalField: row[4], rawValue: row[5], normalizedCandidateValue: row[6], unit: row[7], sourceIds: [row[8]], sourceSection: null, evidenceNote: "Short factual candidate transcribed from the identified official publication; production review still required.", status: "candidate", conflictStatus: "none", conflictGroup: null, notes: null }));
 
-module.exports = Object.freeze({ schemaVersion: "revlog-research-data/v1", sources, catalog, candidates });
+module.exports = Object.freeze({
+  schemaVersion: "revlog-research-data/v1",
+  sources: Object.freeze([...sources, ...hondaSources, ...yamahaSources]),
+  catalog: Object.freeze([...catalog, ...hondaCatalog, ...yamahaCatalog]),
+  candidates: Object.freeze([...candidates, ...hondaCandidates, ...yamahaCandidates])
+});

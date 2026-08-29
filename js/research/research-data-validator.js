@@ -31,13 +31,34 @@
       if (id) allIds.set(id, true);
     });
     const sourceIds = new Set(sources.map(source => source && source.id).filter(Boolean));
+    const catalogKeys = new Set(catalog.map(record => record && record.proposedCatalogVariantKey).filter(Boolean));
     sources.forEach((source, index) => validateSource(source, index, errors));
     catalog.forEach((record, index) => validateCatalog(record, index, sourceIds, errors));
-    candidates.forEach((record, index) => validateCandidate(record, index, sourceIds, errors));
+    candidates.forEach((record, index) => validateCandidate(record, index, sourceIds, catalogKeys, errors));
+    checkUnique(catalog, "proposedCatalogVariantKey", "catalog", "DUPLICATE_PROPOSED_CATALOG_KEY", errors);
     checkCatalogOverlap(catalog, errors);
     checkCandidateDuplicates(candidates, warnings);
     checkConflictGroups(candidates, errors);
     return report(errors, warnings);
+  }
+
+  function buildResearchQualityGate(dataset) {
+    const validation = validateResearchDataset(dataset);
+    const count = code => validation.errors.filter(issue => issue.code === code).length;
+    return {
+      passed: validation.valid,
+      structuralErrors: validation.errors.length,
+      warnings: validation.warnings.length,
+      catalogRecordsWithoutSources: count("MISSING_SOURCE_REFS"),
+      candidatesWithoutSources: count("MISSING_SOURCE_REFS"),
+      brokenSourceReferences: count("UNKNOWN_SOURCE_ID"),
+      invalidUrls: count("INVALID_SOURCE_URL"),
+      duplicateIds: count("DUPLICATE_SOURCE_ID") + count("DUPLICATE_RESEARCH_RECORD_ID"),
+      duplicateProposedKeys: count("DUPLICATE_PROPOSED_CATALOG_KEY"),
+      invalidYearRanges: count("INVALID_YEAR_RANGE") + count("INVALID_YEAR") + count("IMPOSSIBLE_YEAR"),
+      candidatesWithUnknownCatalogKey: count("UNKNOWN_CATALOG_KEY"),
+      incompleteConflicts: count("INCOMPLETE_CONFLICT_GROUP")
+    };
   }
 
   function validateSource(source, index, errors) {
@@ -59,7 +80,7 @@
     validateSourceRefs(record && record.sourceIds, path, sourceIds, errors);
   }
 
-  function validateCandidate(record, index, sourceIds, errors) {
+  function validateCandidate(record, index, sourceIds, catalogKeys, errors) {
     const path = `candidates[${index}]`;
     if (!plain(record) || !stableId(record.researchRecordId)) error(errors, "INVALID_RESEARCH_RECORD_ID", `${path}.researchRecordId`, "A stable researchRecordId is required.");
     if (!text(record && record.manufacturer)) error(errors, "MISSING_MANUFACTURER", `${path}.manufacturer`, "Manufacturer is required.");
@@ -68,6 +89,8 @@
     validateYears(record && record.years, `${path}.years`, errors);
     validateStatus(record && record.status, `${path}.status`, errors);
     validateSourceRefs(record && record.sourceIds, path, sourceIds, errors);
+    if (!catalogKeys.has(record && record.proposedCatalogVariantKey)) error(errors, "UNKNOWN_CATALOG_KEY", `${path}.proposedCatalogVariantKey`, `Candidate refers to an unknown catalog key: ${record && record.proposedCatalogVariantKey}`);
+    if (typeof (record && record.normalizedCandidateValue) === "number" && !text(record.unit)) error(errors, "MISSING_NORMALIZED_UNIT", `${path}.unit`, "A numeric normalized candidate requires a unit.");
     if (record && record.status === "conflicting" && !text(record.conflictGroup)) error(errors, "MISSING_CONFLICT_GROUP", `${path}.conflictGroup`, "Conflicting candidates require conflictGroup.");
   }
 
@@ -78,11 +101,15 @@
     const to = years.to;
     if (from != null && !Number.isInteger(from)) error(errors, "INVALID_YEAR", `${path}.from`, "Year must be an integer or null.");
     if (to != null && !Number.isInteger(to)) error(errors, "INVALID_YEAR", `${path}.to`, "Year must be an integer or null.");
+    const latestReasonableYear = new Date().getFullYear() + 2;
+    if (Number.isInteger(from) && (from < 1885 || from > latestReasonableYear)) error(errors, "IMPOSSIBLE_YEAR", `${path}.from`, "Year is outside the supported motorcycle research range.");
+    if (Number.isInteger(to) && (to < 1885 || to > latestReasonableYear)) error(errors, "IMPOSSIBLE_YEAR", `${path}.to`, "Year is outside the supported motorcycle research range.");
     if (Number.isInteger(from) && Number.isInteger(to) && from > to) error(errors, "INVALID_YEAR_RANGE", path, "Year from cannot exceed year to.");
   }
   function validateStatus(status, path, errors) { if (!STATUSES.includes(status)) error(errors, "UNKNOWN_RESEARCH_STATUS", path, `Unknown research status: ${status}`); }
   function validateSourceRefs(ids, path, sourceIds, errors) {
     if (!Array.isArray(ids)) return error(errors, "INVALID_SOURCE_REFS", `${path}.sourceIds`, "sourceIds must be an array.");
+    if (ids.length === 0) error(errors, "MISSING_SOURCE_REFS", `${path}.sourceIds`, "At least one research source is required.");
     ids.forEach((id, index) => { if (!sourceIds.has(id)) error(errors, "UNKNOWN_SOURCE_ID", `${path}.sourceIds[${index}]`, `Unknown research source: ${id}`); });
   }
   function checkUnique(items, field, prefix, code, errors) {
@@ -117,5 +144,5 @@
   function error(errors, code, path, message) { errors.push({ code, path, message }); }
   function report(errors, warnings) { return { valid: errors.length === 0, errors, warnings }; }
 
-  return Object.freeze({ validateResearchDataset, RESEARCH_STATUSES: STATUSES, RESEARCH_SOURCE_TYPES: SOURCE_TYPES });
+  return Object.freeze({ validateResearchDataset, buildResearchQualityGate, RESEARCH_STATUSES: STATUSES, RESEARCH_SOURCE_TYPES: SOURCE_TYPES });
 });

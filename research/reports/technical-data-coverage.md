@@ -2,18 +2,18 @@
 
 > **NON-PRODUCTION RESEARCH DATA. Candidate does not mean verified.**
 
-Snapshot: 2026-08-29.
+Snapshot: 2026-08-29. Counts are reproducible with `node scripts/generate-research-reports.js`.
 
-- Research sources: 19
-- Technical candidate records: 14
-- Manufacturers represented by technical candidates: 5
-- Motorcycle variants represented: 5
-- Source types: 18 official technical publications; 1 official owner manual
-- Statuses: 14 candidate; 0 corroborated; 0 conflicting; 0 rejected; 0 ready-for-profile-review
-- Preserved conflict groups: 0
+- Sources: 50
+- Technical candidates: 150
+- Honda: 70 candidates; all use official sources; 70 have a section; 52 also have a page; 54 normalized
+- Yamaha: 66 candidates; all use official sources; 66 have a section; factsheet/web pagination was not asserted; 58 normalized
+- Other preserved seed: 14 candidates
+- Conflicting candidates: 0
+- Candidates with unknown region, ABS, or equipment context: Honda 70; Yamaha 66
 
-Category counts: engine 4; lubrication 1; tires 2; fuel 3; maintenance 1; electrical 2; ignition 1.
+Honda categories: brakes 9, dimensions 22, drive 1, electrical 1, engine 21, fuel 2, lighting 1, lubrication 1, mass 5, tires 6, transmission 1.
 
-Largest gaps are OEM service procedures, torque values, fluids, valve clearances, parts catalogues, regional/ABS applicability, fuses, lighting and maintenance schedules. No candidate is eligible for automatic production promotion.
+Yamaha categories: brakes 4, dimensions 14, drive 2, engine 26, fuel 4, lubrication 4, mass 4, tires 6, transmission 2.
 
-Best current review candidates by breadth are Kawasaki Ninja ZX-6R (2019 source boundary), Triumph Bonneville T120, Aprilia Tuareg 660, Moto Guzzi Stelvio and Harley-Davidson Sportster S. “Best” here means source accessibility and staged coverage, not production correctness.
+Largest gaps remain OEM service procedures, condition-specific oil capacities, coolant data, valve clearances, maintenance intervals, spark plugs, chain slack, fuses, charging tests, torque values and parts catalogues. General specification candidates cannot substitute for a service manual.
