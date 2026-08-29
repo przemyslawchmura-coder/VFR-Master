@@ -1,13 +1,13 @@
 # Honda VFR800 VTEC 2002 — production Technical Profile verification audit
 
 Audit date: 2026-08-29
-Scope: `data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js` and repository-local evidence only. No web research was performed. The production profile was not edited.
+Original audit scope: `data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js` and repository-local evidence only. Evidence-closure update: 2026-08-29; see `vfr800-2002-p0-p1-evidence-research.md`.
 
 ## Executive summary
 
-All 79 production entries were inspected. Sixty-eight entries are fully source-covered by the repository evidence, two are partially supported, three expose concrete statements without an entry-level source, and six contain explicit research placeholders rather than technical values. No source ID is broken. One registered citation is unused. No conflicting production values were found.
+All 79 production entries were inspected. After the P0/P1 evidence research, 70 entries are fully source-covered, one is partially supported, two expose concrete statements without an entry-level source, and six contain explicit research placeholders rather than technical values. No source ID is broken. One registered citation is unused. No conflicting production numeric values were found.
 
-The significant existing correctness/evidence defect is `fuses.circuit.standard`: it is marked `verified` and resolves for `abs=false`, but its only citation says the accessible excerpt does not publish circuit-level assignments and does not prove the non-ABS discriminator. `fuses.pgm-fi` is correctly left pending, but its 20 A circuit assignment is likewise not proven by its cited excerpt. These facts were not changed.
+The original P0 defect in `fuses.circuit.standard` is closed for the context directly proven by American Honda: USA, MY2002 standard/non-ABS. Its A–F circuit legend is now sourced to the OEM wiring bulletin and non-USA applicability is withheld. `adjustments.clutch.system` is also closed with direct MY2002 Honda service-manual evidence. `fuses.pgm-fi` remains pending because no inspected page explicitly ties the 20 A fuse to the PGM-FI/FI label. CBS and headlight destination completeness remain active P1 research items.
 
 The only application behavior changed alongside this audit is the generic ordering of unique selectable motorcycle years. The sole production model-year list is the garage/add-motorcycle selector. Its shared source emitted an ascending range by construction and had no normalization guard. It now returns unique valid years newest-first, deterministically, and rejects malformed range metadata safely.
 
@@ -24,17 +24,17 @@ The only application behavior changed alongside this audit is the generic orderi
 | Entries requiring region | 1 |
 | Entries requiring ABS | 2 |
 | Entries requiring equipment | 0 |
-| Fully source-covered entries | 68 |
-| Partially sourced/applicability-not-proven entries | 2 |
-| Unsourced concrete entries | 3 |
+| Fully source-covered entries | 70 |
+| Partially sourced/applicability-not-proven entries | 1 |
+| Unsourced concrete entries | 2 |
 | Broken source references | 0 |
 | Conflicts found | 0 |
 | Honda OEM-number entries | 1 |
 | Supplier part-number entries | 2 |
 | Torque entries | 14 |
 | Maintenance entries | 10 |
-| P0 backlog items | 2 |
-| P1 backlog items | 3 |
+| P0 backlog items | 1 |
+| P1 backlog items | 2 |
 | P2 backlog items | 7 |
 | P3 backlog items | 1 |
 | Production model-year lists inspected | 1 |
@@ -45,7 +45,7 @@ Counting rules: a concrete entry has a usable asserted value or resolved variant
 
 ## Production inventory and source coverage
 
-Source abbreviations: `GS` service-manual general specs; `LS` lubrication specs; `OS` oil service; `CS` cooling specs; `FS` fuel/PGM-FI specs; `SP` spark-plug procedure; `VP` valve procedure; `FT` frame torques; `CH` chassis specs; `BT` brake torques; `BD` brake discs; `ET` engine torques; `EO` electrical output; `LI` lights table; `MS` service-manual schedule; `DC` drive-chain procedure; `BF` brake-fluid procedure; `SD` Honda Finland service-data card; `MC` Honda Finland maintenance card; `OMF` owner-manual fuse excerpt; `WStd` standard wiring bulletin; `WABS` ABS wiring bulletin.
+Source abbreviations: `GS` service-manual general specs; `LS` lubrication specs; `OS` oil service; `CS` cooling specs; `FS` fuel/PGM-FI specs; `SP` spark-plug procedure; `VP` valve procedure; `FT` frame torques; `CH` chassis specs; `BT` brake torques; `BD` brake discs; `ET` engine torques; `EO` electrical output; `LI` lights table; `MS` service-manual schedule; `DC` drive-chain procedure; `BF` brake-fluid procedure; `CL` clutch-system procedure; `SD` Honda Finland service-data card; `MC` Honda Finland maintenance card; `OMF` owner-manual fuse excerpt; `WStd` standard wiring bulletin; `WABS` ABS wiring bulletin.
 
 Classification abbreviations: `VSC` VERIFIED-SOURCE-COVERED; `SP` SOURCE-PARTIAL; `SM` SOURCE-MISSING; `ANP` APPLICABILITY-NOT-PROVEN; `NBD` NULL-BY-DESIGN; `NHR` NEEDS-HUMAN-REVIEW. There are no SOURCE-REGISTRY-BROKEN entries.
 
@@ -108,7 +108,7 @@ Every row below records ID, category/type, complete production value shape (incl
 | `fuses.main-a` | fuses / fuse | quantity 30 A | — | WStd | VSC |
 | `fuses.main-b` | fuses / fuse | quantity 30 A | — | WStd | VSC |
 | `fuses.pgm-fi` | fuses / fuse | quantity 20 A | claimed PGM-FI circuit/location | OMF | SP, NHR |
-| `fuses.circuit.standard` | fuses / fuse | multi 10 A / 20 A | `abs=false` | OMF | ANP, NHR |
+| `fuses.circuit.standard` | fuses / fuse | multi 10 A / 20 A; positions A–F mapped to clock, signals/brake lamps/horn, starter/bank-angle sensor, fan, meter/position/tail/illumination and headlight | `regions=[USA]`, `abs=false` | OMF, WStd | VSC |
 | `fuses.circuit.abs` | fuses / fuse | multi 10 A / 20 A / 30 A | `abs=true` | OMF, WABS | VSC |
 | `lighting.headlight` | lighting / light-source | variant: EU/UK/AU 12 V 55 W; USA 12 V 60/55 W; quantity 2 | region; unknown is ambiguous | LI per variant | VSC |
 | `lighting.brake-tail` | lighting / light-source | 12 V 21/5 W; power multi 21 W / 5 W | stop/tail | LI | VSC |
@@ -118,7 +118,7 @@ Every row below records ID, category/type, complete production value shape (incl
 | `lighting.license-plate` | lighting / light-source | research placeholder | market not represented | none | NBD |
 | `adjustments.throttle.free-play` | adjustments / adjustment | range 2–6 mm | — | FS | VSC |
 | `adjustments.idle-speed` | adjustments / adjustment | 1200 ±100 rpm | normal operating temperature | FS, SD | VSC |
-| `adjustments.clutch.system` | adjustments / adjustment | hydraulic clutch/no cable-free-play adjustment statement | — | none | SM, NHR |
+| `adjustments.clutch.system` | adjustments / adjustment | hydraulically actuated clutch; no system adjustment; inspect fluid level/leakage | — | CL | VSC |
 | `torque.engine.oil-drain-bolt` | torques / torque | quantity 30 N·m | oil pan | OS | VSC |
 | `torque.engine.oil-filter` | torques / torque | quantity 26 N·m | oil filter | OS | VSC |
 | `torque.engine.cylinder-head-cover` | torques / torque | quantity 10 N·m | front/rear covers | ET | VSC |
@@ -135,12 +135,12 @@ Every row below records ID, category/type, complete production value shape (incl
 
 ## Source coverage and registry audit
 
-- All 70 entries carrying a direct or variant citation reference resolve to one of 23 registered citations; all citations resolve to one of 5 documents. Broken references: zero.
-- The OEM service manual, OEM service-data card and relevant OEM procedures are appropriate primary evidence for the 68 fully covered entries. The US owner guide and wiring bulletin have narrower regional scope; this matters for the fuse findings below.
+- All 71 entries carrying a direct or variant citation reference resolve to one of 24 registered citations; all citations resolve to one of 5 documents. Broken references: zero.
+- The OEM service manual, OEM service-data card and relevant OEM procedures are appropriate primary evidence for the 70 fully covered entries. The US owner guide and wiring bulletin have narrower regional scope; the standard circuit-fuse entry now represents that scope explicitly.
 - `fuses.pgm-fi` is SOURCE-PARTIAL: `OMF` proves available fuse ratings but its registry evidence explicitly says circuit-level assignments are unavailable in the accessible excerpt.
-- `fuses.circuit.standard` is APPLICABILITY-NOT-PROVEN: `OMF` does not prove the circuit grouping or `abs=false`. The available `WStd` citation would be the relevant source class but is not attached to this entry and its mapping would still require human page inspection.
+- `fuses.circuit.standard` is VERIFIED-SOURCE-COVERED for USA: inspected `WStd` p. 12 explicitly labels the 2002–2003 VFR800 standard type and maps positions A–F to their 10/20 A circuits. It does not prove other markets, so the production entry was narrowed rather than generalized.
 - `lighting.headlight` has no base citation by design, but both mutually exclusive regional variants are individually sourced to `LI`; it is fully covered as a variant entry. Regions outside EU/UK/AU/USA resolve the deliberately non-specific base text, so destination completeness still merits review.
-- Unsourced concrete statements: `general.chassis.wheelbase`, `brakes.system.linked-cbs`, `adjustments.clutch.system`.
+- Unsourced concrete statements: `general.chassis.wheelbase`, `brakes.system.linked-cbs`. The clutch statement now has a precise OEM service-manual citation.
 - Unused citation: `cite.honda.vfr800-2002.om.identity`. The parts-catalogue document is also unused by a citation/value in revision 1; its registry note says no public catalogue content was used.
 - Production runtime imports only the production document registry. No `research/` module is imported by the profile, loader, resolver or search path.
 
@@ -150,13 +150,13 @@ The profile discriminator is the exact catalog key plus year 2002. Entry-level a
 
 | Entry | Decision | Unknown context | False / non-ABS | True / ABS | Branch audit |
 |---|---|---|---|---|---|
-| `fuses.circuit.standard` | `applicability.abs=false` | ambiguous-context; value withheld | resolves | not-applicable | no overlap; reachable; applicability evidence insufficient |
+| `fuses.circuit.standard` | `applicability.regions=[USA]`, `applicability.abs=false` | ambiguous-context when USA ABS is unknown; value withheld | resolves only for USA | not-applicable | no overlap; reachable; USA applicability directly supported; other regions excluded |
 | `fuses.circuit.abs` | `applicability.abs=true` | ambiguous-context; value withheld | not-applicable | resolves | no overlap; reachable; ABS bulletin supports context |
 | `lighting.headlight` | variant `when.regions` | ambiguous-context; regional wattages withheld | n/a | n/a | EU/UK/AU and USA sets do not overlap; both reachable; unsupported region falls back to non-specific base |
 
 Resolver normalization uses `typeof abs === "boolean" ? abs : null`; therefore `false` is preserved and never treated as missing. Mechanical resolver/search/UI tests confirm: `abs=null` withholds both ABS-specific fuse values as ambiguous; `false` resolves only standard and excludes ABS; `true` resolves only ABS and excludes standard. Unknown region likewise prevents either headlight wattage from entering resolved UI/search output. No inapplicable value leak, overlapping branch, unreachable branch or equal-specificity conflict was found.
 
-Existing correctness defect: resolver behavior is correct, but the evidence for the resolved `abs=false` standard-fuse data is insufficient. Per task scope this is reported, not fixed.
+The original correctness/evidence defect is closed without resolver changes: USA `abs=false` resolves, USA `abs=null` is ambiguous, USA `abs=true` is not applicable, and non-USA contexts do not resolve the USA legend.
 
 ## Null, missing and completeness audit
 
@@ -182,7 +182,7 @@ No unit inconsistency, precision conflict, obsolete replacement beside a current
 - Tires/wheels: both sizes, cold pressures and the stored wheel torques are covered. No passenger/load branches are recorded, so the repository does not prove whether pressures are load-invariant. Rim sizes and broader wheel service limits are absent.
 - Drive: ratio, sprocket counts, slack and three related torques are covered. Chain specification, wear/replacement limit and OEM chain/sprocket fitment are absent.
 - Engine service: four valve-clearance branches, plugs/gap/torque and selected intervals are covered. No general engine service limits are present.
-- Electrical: battery/generator output are covered. Charging voltage is a placeholder. The standard-fuse applicability defect is P0; PGM-FI assignment is partial. Unknown ABS/region behavior is safe.
+- Electrical: battery/generator output are covered. Charging voltage is a placeholder. The USA standard-fuse legend is now directly covered; PGM-FI assignment remains partial. Unknown ABS/region behavior is safe.
 
 ## OEM parts audit
 
@@ -238,10 +238,8 @@ The schedule is profile-wide MY2002. No explicit regional branches are stored ev
 
 | Priority | Entry ID | Category | Problem / missing evidence | Source needed | Until verified |
 |---|---|---|---|---|---|
-| P0 | `fuses.circuit.standard` | fuses | `verified` non-ABS circuit set not proven by OMF | legible MY2002 standard-type fuse-box legend or OEM wiring/manual page tying ratings to non-ABS | ambiguous |
 | P0 | `fuses.pgm-fi` | fuses | 20 A PGM-FI assignment not proven by excerpt | legible MY2002 fuse-box legend or OEM wiring diagram with circuit label | ambiguous |
 | P1 | `brakes.system.linked-cbs` | brakes | concrete system description has no precise citation | MY2002 OEM brake-system overview/procedure | visible as pending |
-| P1 | `adjustments.clutch.system` | adjustments | hydraulic/no-cable-adjustment statement unsourced | MY2002 OEM clutch inspection/service procedure | visible as pending |
 | P1 | `lighting.headlight` | lighting | mapped branches covered, but destination-to-region completeness needs confirmation | complete MY2002 OEM destination-code table | ambiguous when region unknown/unsupported |
 | P2 | `general.chassis.wheelbase` | general | concrete 1460 mm copied from later-generation evidence, not MY2002 | MY2002 OEM general specs/owner manual | visible as pending |
 | P2 | `general.fuel-tank.capacity` | general | placeholder | MY2002 owner/service manual specification | null-equivalent placeholder |
@@ -252,11 +250,20 @@ The schedule is profile-wide MY2002. No explicit regional branches are stored ev
 | P2 | `lighting.license-plate` | lighting | market-dependent placeholder | complete OEM light table by destination | null-equivalent placeholder |
 | P3 | `cite.honda.vfr800-2002.om.identity` | source metadata | registered citation is unused | either attach only to an appropriate identity assertion or document intentional registry-only status | no technical value change |
 
+### P0/P1 closure history
+
+| Closed priority | Entry | Closure evidence | Result |
+|---|---|---|---|
+| P0 | `fuses.circuit.standard` | American Honda bulletin `VFR800/A #4`, p. 12, standard-type A–F fuse legend | Closed for USA MY2002 non-ABS; production applicability narrowed to the proven market |
+| P1 | `adjustments.clutch.system` | Honda MY2002 Service Manual pp. 1-5 and 3-29–3-30 | Closed; wording narrowed to hydraulic actuation, no required adjustment, and fluid/leak inspection |
+
+The remaining P1 CBS item now has direct Honda evidence for the 2002 Japanese Dual CBS name and an OEM account of the 2002 Dual-Combined ABS, but stays open until the global market/ABS matrix is proven. Headlight remains open because the inspected fiches do not provide a complete destination/serial mapping; see the evidence-research report for the documented AU mapping concern.
+
 ## Validation results
 
-Targeted validation covers catalog/year selection, motorcycle form, validator, source registry, resolver, clarification, VFR integration, UI and search. It verifies correct VFR and non-VFR resolution, `abs` tri-state, unknown-region/ABS ambiguity, profile non-mutation and absence of ambiguous values from search. Result: 187/187 passed.
+Targeted validation covers registry/loading, browser runtime, validator, resolver, clarification/context bridge, VFR integration, UI and search. It verifies USA standard-fuse `abs` tri-state and region scope, unknown-region/ABS ambiguity, profile non-mutation and absence of ambiguous values from search. Result after evidence closure: 188/188 passed.
 
-Full `node --test tests/*.test.js`: 261/261 passed. `node --check` accepted every production JavaScript file under `js/` and `data/`. `git diff --check` passed. Manual diff inspection confirmed that the production profile has a zero diff and the only production runtime edit is the shared catalog year normalization/order helper.
+Full `node --test tests/*.test.js`: 263/263 passed. `node --check` accepted the two modified production JavaScript files. `git diff --check` passed. Manual diff inspection confirmed that the evidence-closure production changes are limited to the USA standard-fuse entry, the clutch statement, and their source mapping; resolver, clarification, search and unrelated UI code have no diff.
 
 Mechanical invariants established before final validation:
 

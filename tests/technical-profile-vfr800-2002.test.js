@@ -71,26 +71,62 @@ test("verified values always carry at least one existing citation", () => {
 test("quality report exposes factual coverage without a confidence score", () => {
   const report = qualityApi.buildQualityReport(profile, validator.validate(profile));
   assert.equal(report.totalEntries, 79);
-  assert.equal(report.verified, 68);
-  assert.equal(report.pendingVerification, 11);
+  assert.equal(report.verified, 69);
+  assert.equal(report.pendingVerification, 10);
   assert.equal(report.conflictingSources, 0);
   assert.equal(report.legacyUnverified, 0);
-  assert.equal(report.citationsCount, 23);
+  assert.equal(report.citationsCount, 24);
   assert.equal(report.documentsCount, 5);
   assert.equal(report.variantsCount, 2);
   assert.equal(report.regionalVariantsCount, 2);
   assert.equal(Object.hasOwn(report, "confidenceScore"), false);
 });
 
-test("resolver handles profile year/key and explicit ABS contexts", () => {
+test("resolver handles profile year/key and USA standard-fuse ABS tri-state", () => {
   assert.equal(resolver.resolveProfileApplicability(profile, BASE_CONTEXT).status, "profile-applicable");
   assert.equal(resolver.resolveProfileApplicability(profile, { ...BASE_CONTEXT, year: 2003 }).status, "profile-not-applicable");
   assert.equal(resolver.resolveProfileApplicability(profile, { ...BASE_CONTEXT, catalogVariantKey: "wrong.key" }).status, "profile-not-applicable");
 
-  assert.equal(resolver.resolveEntry(findEntry("fuses.circuit.standard"), BASE_CONTEXT).status, "resolved");
+  const usa = { ...BASE_CONTEXT, region: "USA" };
+  assert.equal(resolver.resolveEntry(findEntry("fuses.circuit.standard"), BASE_CONTEXT).status, "not-applicable");
+  assert.equal(resolver.resolveEntry(findEntry("fuses.circuit.standard"), usa).status, "resolved");
+  assert.equal(resolver.resolveEntry(findEntry("fuses.circuit.standard"), { ...usa, abs: null }).status, "ambiguous-context");
+  assert.equal(resolver.resolveEntry(findEntry("fuses.circuit.standard"), { ...usa, abs: true }).status, "not-applicable");
   assert.equal(resolver.resolveEntry(findEntry("fuses.circuit.abs"), BASE_CONTEXT).status, "not-applicable");
   assert.equal(resolver.resolveEntry(findEntry("fuses.circuit.abs"), { ...BASE_CONTEXT, abs: true }).status, "resolved");
   assert.equal(resolver.resolveEntry(findEntry("fuses.circuit.abs"), { ...BASE_CONTEXT, abs: null }).status, "ambiguous-context");
+});
+
+test("standard-fuse evidence is USA-only and cannot leak into search without region or ABS context", () => {
+  const entry = findEntry("fuses.circuit.standard");
+  assert.deepEqual(entry.applicability, { regions: ["USA"], abs: false });
+
+  for (const context of [
+    { ...BASE_CONTEXT, region: null, abs: false },
+    { ...BASE_CONTEXT, region: "USA", abs: null },
+    { ...BASE_CONTEXT, region: "EU", abs: false }
+  ]) {
+    const item = searchApi.buildSearchIndex(profile, context).items
+      .find(candidate => candidate.entryId === entry.id);
+    if (item) {
+      assert.notEqual(item.resolutionStatus, "resolved");
+      assert.equal(item.rawValue, null);
+      assert.equal(item.formattedValue, null);
+    }
+  }
+
+  const resolved = searchApi.buildSearchIndex(profile, { ...BASE_CONTEXT, region: "USA", abs: false }).items
+    .find(candidate => candidate.entryId === entry.id);
+  assert.equal(resolved.resolutionStatus, "resolved");
+});
+
+test("verified clutch wording is limited to the directly sourced hydraulic-system claims", () => {
+  const entry = findEntry("adjustments.clutch.system");
+  assert.equal(entry.status, "verified");
+  assert.deepEqual(entry.sourceIds, ["cite.honda.vfr800-2002.sm.clutch-system"]);
+  assert.match(entry.value.text, /uruchamiane hydraulicznie/);
+  assert.match(entry.value.text, /nie wymaga regulacji/);
+  assert.doesNotMatch(entry.value.text, /luz[u]? linki/);
 });
 
 test("regional headlight variants resolve explicitly and missing region stays ambiguous", () => {

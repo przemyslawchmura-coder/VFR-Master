@@ -82,7 +82,7 @@ test("full VFR profile validates and source/citation graph has no dangling refer
 
 test("quality report exactly matches the 79-entry production profile", () => {
   const report = quality.buildQualityReport(profile, validator.validate(profile));
-  assert.deepEqual({ total: report.totalEntries, verified: report.verified, pending: report.pendingVerification, conflicting: report.conflictingSources, legacy: report.legacyUnverified }, { total: 79, verified: 68, pending: 11, conflicting: 0, legacy: 0 });
+  assert.deepEqual({ total: report.totalEntries, verified: report.verified, pending: report.pendingVerification, conflicting: report.conflictingSources, legacy: report.legacyUnverified }, { total: 79, verified: 69, pending: 10, conflicting: 0, legacy: 0 });
   assert.deepEqual(report.unresolvedReferences, { sourceIds: [], relatedEntryIds: [], categoryIds: [] });
 });
 
