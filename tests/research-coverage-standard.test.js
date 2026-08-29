@@ -85,3 +85,12 @@ test("targeted OEM publication identities remain distinct from inspected evidenc
   assert.match(report, /2024 CB500F \/ CBR500R \/ NX500 Service Manual/);
   assert.match(report, /technical field evidence extracted/);
 });
+
+test("maintenance coverage uses plural schedule intervals, not a fake scalar", () => {
+  assert.ok(standard.CATEGORIES.maintenance.includes("schedule-mileage-intervals"));
+  assert.ok(standard.CATEGORIES.maintenance.includes("schedule-time-intervals"));
+  assert.equal(standard.CATEGORIES.maintenance.includes("mileage-interval"), false);
+  const report = auditor.renderOwnerManualExhaustionReport(dataset, keys);
+  assert.match(report, /schedule-mileage-intervals/);
+  assert.match(report, /Time intervals and initial service remain separate/);
+});

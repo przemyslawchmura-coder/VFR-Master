@@ -4,7 +4,7 @@
 
 ## honda.cbr500r.gen4
 
-Field status counts: not-researched=29, researched-no-evidence=100, partial=0, evidence-found=54, conflicting=0
+Field status counts: not-researched=30, researched-no-evidence=100, partial=0, evidence-found=53, conflicting=0
 
 ### identity — partial
 
@@ -198,8 +198,8 @@ Field status counts: not-researched=29, researched-no-evidence=100, partial=0, e
 - `adjust`: **not-researched**
 - `lubricate`: **not-researched**
 - `clean`: **not-researched**
-- `mileage-interval`: **not-researched**
-- `time-interval`: **evidence-found** (candidate.deep.cbr500r.041)
+- `schedule-mileage-intervals`: **not-researched**
+- `schedule-time-intervals`: **not-researched**
 - `initial-service`: **researched-no-evidence**
 - `severe-use`: **researched-no-evidence**
 - `market-differences`: **researched-no-evidence**
@@ -445,8 +445,8 @@ Field status counts: not-researched=23, researched-no-evidence=106, partial=0, e
 - `adjust`: **not-researched**
 - `lubricate`: **not-researched**
 - `clean`: **not-researched**
-- `mileage-interval`: **not-researched**
-- `time-interval`: **not-researched**
+- `schedule-mileage-intervals`: **not-researched**
+- `schedule-time-intervals`: **not-researched**
 - `initial-service`: **researched-no-evidence**
 - `severe-use`: **researched-no-evidence**
 - `market-differences`: **researched-no-evidence**
@@ -692,8 +692,8 @@ Field status counts: not-researched=22, researched-no-evidence=107, partial=0, e
 - `adjust`: **not-researched**
 - `lubricate`: **not-researched**
 - `clean`: **not-researched**
-- `mileage-interval`: **not-researched**
-- `time-interval`: **not-researched**
+- `schedule-mileage-intervals`: **not-researched**
+- `schedule-time-intervals`: **not-researched**
 - `initial-service`: **researched-no-evidence**
 - `severe-use`: **researched-no-evidence**
 - `market-differences`: **researched-no-evidence**

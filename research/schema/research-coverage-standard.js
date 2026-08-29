@@ -18,7 +18,7 @@ const CATEGORIES = Object.freeze({
   suspension: ["front-type", "rear-type", "adjustment-ranges", "fork-oil-specification", "fork-oil-quantity", "fork-oil-level", "fork-service-limits", "suspension-torques", "oem-seals"],
   steering_chassis: ["rake", "trail", "wheelbase", "steering-service", "chassis-fasteners"],
   dimensions_mass: ["length", "width", "height", "wheelbase", "seat-height", "ground-clearance", "rake-trail", "wet-kerb-mass", "dry-mass", "payload-gvwr"],
-  maintenance: ["periodic-schedule", "inspect", "replace", "adjust", "lubricate", "clean", "mileage-interval", "time-interval", "initial-service", "severe-use", "market-differences"],
+  maintenance: ["periodic-schedule", "inspect", "replace", "adjust", "lubricate", "clean", "schedule-mileage-intervals", "schedule-time-intervals", "initial-service", "severe-use", "market-differences"],
   oem_parts: ["oil-filter", "air-filter", "spark-plugs", "front-brake-pads", "rear-brake-pads", "chain", "front-sprocket", "rear-sprocket", "drain-washer", "fork-seals", "wheel-seals-bearings", "coolant-consumables", "scheduled-service-parts"],
   torques: ["oil-drain-bolt", "oil-filter", "spark-plugs", "front-axle", "rear-axle", "axle-pinch-bolts", "brake-calipers", "brake-discs", "sprockets", "chain-adjusters", "suspension-fasteners", "steering-fasteners", "routine-service-fasteners"],
   service_limits: ["brake-disc", "brake-pad", "chain", "valve-clearance", "spark-plug-gap", "clutch-adjustment", "throttle-free-play", "tire", "suspension", "engine"]

@@ -93,7 +93,7 @@ function renderOwnerManualExhaustionReport(dataset, keys) {
     Object.keys(grouped).sort().forEach(cls => { lines.push(`### Remaining not-researched fields — ${cls}`, ""); grouped[cls].sort().forEach(id => lines.push("- `" + id + "`")); lines.push(""); });
     lines.push("### Lighting", "", "Lighting is audited per function; one headlight or LED candidate does not close low/high beam, socket or replaceability fields.", "");
     Object.entries(audit.categories.lighting).filter(([field]) => field !== "_status").forEach(([field, item]) => lines.push("- `" + field + "`: **" + item.status + "**"));
-    lines.push("", "### Maintenance", "", "Periodic schedule rows are represented by action-specific candidates. `maintenance.mileage-interval` remains a generic canonical blocker because a schedule cannot truthfully be reduced to one scalar interval; action/mileage rows require further explicit modelling or extraction.", "");
+    lines.push("", "### Maintenance", "", "Periodic schedule rows are represented by action-specific candidates. `maintenance.schedule-mileage-intervals` records the set of action-specific mileage intervals; it is not a single scalar. Time intervals and initial service remain separate fields.", "");
   });
   return lines.join("\n");
 }

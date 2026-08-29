@@ -7,7 +7,7 @@ The audit revisits all 183 canonical fields for each profile. Owner manuals are 
 ## honda.cbr500r.gen4
 
 Fields audited: 183
-Evidence summary: evidence-found=54, researched-no-evidence=100, not-researched=29, conflicting=0
+Evidence summary: evidence-found=53, researched-no-evidence=100, not-researched=30, conflicting=0
 
 ### Remaining not-researched fields — applicability/market research
 
@@ -27,8 +27,9 @@ Evidence summary: evidence-found=54, researched-no-evidence=100, not-researched=
 - `maintenance.clean`
 - `maintenance.inspect`
 - `maintenance.lubricate`
-- `maintenance.mileage-interval`
 - `maintenance.replace`
+- `maintenance.schedule-mileage-intervals`
+- `maintenance.schedule-time-intervals`
 
 ### Remaining not-researched fields — service/workshop manual
 
@@ -76,7 +77,7 @@ Lighting is audited per function; one headlight or LED candidate does not close 
 
 ### Maintenance
 
-Periodic schedule rows are represented by action-specific candidates. `maintenance.mileage-interval` remains a generic canonical blocker because a schedule cannot truthfully be reduced to one scalar interval; action/mileage rows require further explicit modelling or extraction.
+Periodic schedule rows are represented by action-specific candidates. `maintenance.schedule-mileage-intervals` records the set of action-specific mileage intervals; it is not a single scalar. Time intervals and initial service remain separate fields.
 
 ## yamaha.mt09.gen3
 
@@ -100,8 +101,8 @@ Evidence summary: evidence-found=54, researched-no-evidence=106, not-researched=
 - `maintenance.clean`
 - `maintenance.inspect`
 - `maintenance.lubricate`
-- `maintenance.mileage-interval`
-- `maintenance.time-interval`
+- `maintenance.schedule-mileage-intervals`
+- `maintenance.schedule-time-intervals`
 
 ### Remaining not-researched fields — service/workshop manual
 
@@ -144,7 +145,7 @@ Lighting is audited per function; one headlight or LED candidate does not close 
 
 ### Maintenance
 
-Periodic schedule rows are represented by action-specific candidates. `maintenance.mileage-interval` remains a generic canonical blocker because a schedule cannot truthfully be reduced to one scalar interval; action/mileage rows require further explicit modelling or extraction.
+Periodic schedule rows are represented by action-specific candidates. `maintenance.schedule-mileage-intervals` records the set of action-specific mileage intervals; it is not a single scalar. Time intervals and initial service remain separate fields.
 
 ## yamaha.tenere700.gen1
 
@@ -168,8 +169,8 @@ Evidence summary: evidence-found=54, researched-no-evidence=107, not-researched=
 - `maintenance.clean`
 - `maintenance.inspect`
 - `maintenance.lubricate`
-- `maintenance.mileage-interval`
-- `maintenance.time-interval`
+- `maintenance.schedule-mileage-intervals`
+- `maintenance.schedule-time-intervals`
 
 ### Remaining not-researched fields — service/workshop manual
 
@@ -211,4 +212,4 @@ Lighting is audited per function; one headlight or LED candidate does not close 
 
 ### Maintenance
 
-Periodic schedule rows are represented by action-specific candidates. `maintenance.mileage-interval` remains a generic canonical blocker because a schedule cannot truthfully be reduced to one scalar interval; action/mileage rows require further explicit modelling or extraction.
+Periodic schedule rows are represented by action-specific candidates. `maintenance.schedule-mileage-intervals` records the set of action-specific mileage intervals; it is not a single scalar. Time intervals and initial service remain separate fields.

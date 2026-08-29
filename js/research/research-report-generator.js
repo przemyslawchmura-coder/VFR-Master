@@ -61,7 +61,7 @@ const READINESS_POLICY = Object.freeze({
     "electrical.battery-specification", "electrical.charging-voltage",
     "brakes.brake-fluid", "tires_wheels.front-size", "tires_wheels.rear-size",
     "tires_wheels.solo-pressures", "maintenance.periodic-schedule",
-    "maintenance.mileage-interval", "torques.oil-drain-bolt"
+    "maintenance.schedule-mileage-intervals", "torques.oil-drain-bolt"
   ])
 });
 

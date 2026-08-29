@@ -18,6 +18,8 @@ Readiness is conservative and informational. A profile is recommended for human 
 
 The service-source acquisition audit is recorded in `reports/service-source-acquisition.md`. It distinguishes a source being identified from its content being inspected and from field evidence being verified. Inaccessible service manuals and third-party parts pages are not treated as evidence.
 
+Maintenance research uses action-specific schedule structures: `periodic-schedule`, `schedule-mileage-intervals`, `schedule-time-intervals`, `initial-service`, `inspect`, `replace`, `adjust`, `lubricate`, `clean`, `severe-use`, and `market-differences`. No generic single mileage scalar is required; a schedule may contain multiple rows and intervals.
+
 Deep profile candidates for `honda.cbr500r.gen4`, `yamaha.mt09.gen3`, and `yamaha.tenere700.gen1` are grouped in `data/candidates/deep-profiles.js`. They are owner-manual/specification evidence retained for human review; they are not production Technical Profiles.
 
 For scalability, manufacturer expansions live under `data/sources/`, `data/catalog/`, and `data/candidates/`. `data/research-dataset.js` is the only logical aggregate consumed by validation and reporting. Merge order is fixed and tested. `scripts/generate-research-reports.js` derives metrics from that aggregate; manually maintained totals are not schema inputs.
