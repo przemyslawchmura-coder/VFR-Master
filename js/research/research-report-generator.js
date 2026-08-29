@@ -49,6 +49,39 @@ function countBy(values, selector) {
 }
 
 const DEEP_CATEGORIES = Object.freeze(["engine", "lubrication", "cooling", "fuel", "ignition", "electrical", "transmission", "drive", "chassis", "brakes", "tires", "dimensions", "maintenance", "oem-parts"]);
+const READINESS_POLICY = Object.freeze({
+  minimumEvidencePercent: 60,
+  maximumNotResearchedFields: 20,
+  minimumServiceManualValues: 1,
+  criticalFields: Object.freeze([
+    "identity.manufacturer", "identity.model", "identity.generation", "identity.model-year",
+    "lubrication.viscosity", "lubrication.capacity-drain", "lubrication.capacity-filter",
+    "ignition.spark-plug-oem", "ignition.plug-gap",
+    "final_drive.chain-size", "final_drive.chain-slack",
+    "electrical.battery-specification", "electrical.charging-voltage",
+    "brakes.brake-fluid", "tires_wheels.front-size", "tires_wheels.rear-size",
+    "tires_wheels.solo-pressures", "maintenance.periodic-schedule",
+    "maintenance.mileage-interval", "torques.oil-drain-bolt"
+  ])
+});
+
+function evaluateReadiness(audit, metrics) {
+  const reasons = [];
+  const blockers = [];
+  const evidencePercent = Math.round((audit.counts["evidence-found"] / coverageStandard.FIELD_COUNT) * 100);
+  if (evidencePercent < READINESS_POLICY.minimumEvidencePercent) reasons.push(`insufficient canonical field coverage (${evidencePercent}% < ${READINESS_POLICY.minimumEvidencePercent}%)`);
+  if (audit.counts["not-researched"] > READINESS_POLICY.maximumNotResearchedFields) reasons.push(`too many not-researched fields (${audit.counts["not-researched"]})`);
+  if (audit.counts.conflicting > 0) reasons.push(`conflicting fields present (${audit.counts.conflicting})`);
+  if (metrics.serviceManualValues < READINESS_POLICY.minimumServiceManualValues) reasons.push("insufficient service-manual evidence");
+  const missingCritical = READINESS_POLICY.criticalFields.filter(id => {
+    const [category, field] = id.split(".");
+    return !audit.categories[category] || audit.categories[category][field].status !== "evidence-found";
+  });
+  if (missingCritical.length) blockers.push(...missingCritical);
+  if (missingCritical.length) reasons.push(`critical fields incomplete (${missingCritical.length})`);
+  const recommendation = reasons.length === 0 && blockers.length === 0 ? "ready-for-human-profile-review" : "research-more";
+  return { recommendation, reasons, blockers, missingCritical, evidencePercent };
+}
 
 function buildDeepProfileMetrics(dataset, keys) {
   const sourceById = new Map(dataset.sources.map(source => [source.id, source]));
@@ -61,7 +94,7 @@ function buildDeepProfileMetrics(dataset, keys) {
     const serviceManualValues = candidates.filter(candidate => candidate.sourceIds.some(id => (sourceById.get(id) || {}).type === "official-service-manual")).length;
     const ownerManualValues = candidates.filter(candidate => candidate.sourceIds.some(id => (sourceById.get(id) || {}).type === "official-owner-manual")).length;
     const completenessPercent = Math.round((audit.counts["evidence-found"] / coverageStandard.FIELD_COUNT) * 100);
-    return [key, {
+    const metrics = {
       totalCandidates: candidates.length,
       candidatesByCategory: countBy(candidates, candidate => candidate.technicalField.split(".")[0]),
       officialSourcePercent: candidates.length ? Math.round((official / candidates.length) * 100) : 0,
@@ -81,8 +114,9 @@ function buildDeepProfileMetrics(dataset, keys) {
       partialCategories: Object.entries(audit.categories).filter(([, value]) => value._status.status === "partial").map(([category]) => category),
       fieldAudit: audit,
       completenessPercent,
-      recommendation: audit.counts["evidence-found"] >= 40 && official === candidates.length && audit.counts.conflicting === 0 ? "ready-for-human-profile-review" : "research-more"
-    }];
+    };
+    const readiness = evaluateReadiness(audit, metrics);
+    return [key, { ...metrics, recommendation: readiness.recommendation, readinessReasons: readiness.reasons, readinessBlockers: readiness.blockers }];
   }));
 }
 
@@ -99,9 +133,14 @@ function renderDeepProfileReadinessReport(dataset, keys) {
     lines.push(`| ${key} | ${item.totalCandidates} | ${item.completenessPercent}% | ${item.officialSourcePercent}% | ${item.candidatesWithPage} / ${item.candidatesWithSection} | ${item.serviceManualValues} / ${item.ownerManualValues} | ${item.conflicts} | ${item.recommendation} |`);
   });
   lines.push("", "## Remaining gaps", "");
-  keys.forEach(key => lines.push(`- **${key}:** ${metrics[key].missingMajorCategories.join(", ") || "none in the major-category checklist"}.`));
-  lines.push("", "The percentage is evidence-found canonical fields divided by the full standard field set. It does not measure correctness, source authority inside a field, regional completeness, or production readiness.", "");
+  keys.forEach(key => {
+    const item = metrics[key];
+    lines.push(`- **${key}:** ${item.missingMajorCategories.join(", ") || "none in the major-category checklist"}.`);
+    lines.push(`  - Reasons: ${item.readinessReasons.join("; ") || "none"}.`);
+    lines.push(`  - Critical blockers: ${item.readinessBlockers.join(", ") || "none"}.`);
+  });
+  lines.push("", "Readiness policy: at least 60% of canonical fields evidenced, no more than 20 not-researched fields, at least one service-manual value, no conflicts, and all critical identity/safety/service fields evidenced. This is informational only and never promotes data.", "");
   return lines.join("\n");
 }
 
-module.exports = Object.freeze({ buildResearchMetrics, buildDeepProfileMetrics, renderDeepProfileReadinessReport, DEEP_CATEGORIES });
+module.exports = Object.freeze({ buildResearchMetrics, buildDeepProfileMetrics, renderDeepProfileReadinessReport, evaluateReadiness, READINESS_POLICY, DEEP_CATEGORIES });

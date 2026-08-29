@@ -153,6 +153,6 @@ test("deep readiness metrics and report are deterministic", () => {
   assert.equal(first["honda.cbr500r.gen4"].totalCandidates, 60);
   assert.equal(first["yamaha.mt09.gen3"].totalCandidates, 58);
   assert.equal(first["yamaha.tenere700.gen1"].totalCandidates, 60);
-  assert.ok(Object.values(first).every(item => item.recommendation === "ready-for-human-profile-review"));
+  assert.ok(Object.values(first).every(item => item.recommendation === "research-more"));
   assert.equal(reports.renderDeepProfileReadinessReport(dataset, keys).trimEnd(), fs.readFileSync(path.join(ROOT, "research/reports/deep-profile-readiness.md"), "utf8").trimEnd());
 });

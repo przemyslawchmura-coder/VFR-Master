@@ -34,6 +34,18 @@ test("field-based readiness is lower than category-presence optimism", () => {
   const metrics = reports.buildDeepProfileMetrics(dataset, keys);
   assert.ok(Object.values(metrics).every(item => item.completenessPercent < 50));
   assert.ok(Object.values(metrics).every(item => item.fieldCoverage["evidence-found"] < standard.FIELD_COUNT));
+  assert.ok(Object.values(metrics).every(item => item.recommendation === "research-more"));
+  assert.ok(Object.values(metrics).every(item => item.readinessReasons.length > 0 && item.readinessBlockers.length > 0));
+});
+
+test("readiness policy is deterministic and conflicts cannot be ready", () => {
+  const metrics = reports.buildDeepProfileMetrics(dataset, keys);
+  assert.deepEqual(metrics, reports.buildDeepProfileMetrics(dataset, keys));
+  const audit = require("../js/research/research-coverage-auditor.js").auditProfile(dataset, keys[0]);
+  const conflicted = { ...audit, counts: { ...audit.counts, conflicting: 1 } };
+  const evaluated = reports.evaluateReadiness(conflicted, metrics[keys[0]]);
+  assert.equal(evaluated.recommendation, "research-more");
+  assert.match(evaluated.reasons.join(" "), /conflicting/);
 });
 
 test("field-level report is deterministic and exposes every canonical field", () => {
