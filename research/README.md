@@ -16,6 +16,8 @@ The seed catalogue is partial. It is intended to exercise structure and provenan
 
 Readiness is conservative and informational. A profile is recommended for human review only when at least 60% of the 183 canonical fields have evidence, no more than 20 fields remain `not-researched`, at least one service-manual value is present, no conflicts exist, and all critical identity, service, safety and applicability fields are evidenced. Missing critical fields or unresolved source/applicability gaps force `research-more`; no automatic promotion is performed.
 
+The service-source acquisition audit is recorded in `reports/service-source-acquisition.md`. It distinguishes a source being identified from its content being inspected and from field evidence being verified. Inaccessible service manuals and third-party parts pages are not treated as evidence.
+
 Deep profile candidates for `honda.cbr500r.gen4`, `yamaha.mt09.gen3`, and `yamaha.tenere700.gen1` are grouped in `data/candidates/deep-profiles.js`. They are owner-manual/specification evidence retained for human review; they are not production Technical Profiles.
 
 For scalability, manufacturer expansions live under `data/sources/`, `data/catalog/`, and `data/candidates/`. `data/research-dataset.js` is the only logical aggregate consumed by validation and reporting. Merge order is fixed and tested. `scripts/generate-research-reports.js` derives metrics from that aggregate; manually maintained totals are not schema inputs.
