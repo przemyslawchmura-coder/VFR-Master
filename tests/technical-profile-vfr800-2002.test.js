@@ -70,15 +70,15 @@ test("verified values always carry at least one existing citation", () => {
 
 test("quality report exposes factual coverage without a confidence score", () => {
   const report = qualityApi.buildQualityReport(profile, validator.validate(profile));
-  assert.equal(report.totalEntries, 79);
-  assert.equal(report.verified, 69);
-  assert.equal(report.pendingVerification, 10);
+  assert.equal(report.totalEntries, 88);
+  assert.equal(report.verified, 82);
+  assert.equal(report.pendingVerification, 6);
   assert.equal(report.conflictingSources, 0);
   assert.equal(report.legacyUnverified, 0);
-  assert.equal(report.citationsCount, 24);
-  assert.equal(report.documentsCount, 5);
-  assert.equal(report.variantsCount, 2);
-  assert.equal(report.regionalVariantsCount, 2);
+  assert.equal(report.citationsCount, 28);
+  assert.equal(report.documentsCount, 6);
+  assert.equal(report.variantsCount, 3);
+  assert.equal(report.regionalVariantsCount, 3);
   assert.equal(Object.hasOwn(report, "confidenceScore"), false);
 });
 
@@ -138,8 +138,44 @@ test("regional headlight variants resolve explicitly and missing region stays am
   assert.equal(eu.selectedVariantId, "lighting.headlight.eu-uk-au");
   assert.equal(usa.entry.value.text, "12 V 60/55 W");
   assert.equal(usa.selectedVariantId, "lighting.headlight.usa");
+  const japan = resolver.resolveEntry(entry, { ...BASE_CONTEXT, region: "JP" });
+  assert.equal(japan.status, "resolved");
+  assert.equal(japan.selectedVariantId, "lighting.headlight.jp");
+  assert.equal(japan.entry.value.text, "Mijania: H4R 45 W ×2; drogowe: H7 55 W ×2");
+  assert.equal(japan.entry.quantity.amount, 4);
   assert.equal(unknown.status, "ambiguous-context");
   assert.ok(unknown.requiredContext.includes("region"));
+});
+
+test("wave 2 OEM evidence closes dimensions, fuel capacity, PGM-FI fuse and Japan-only CBS", () => {
+  const expectedQuantities = {
+    "general.chassis.overall-length": [2120, "mm"],
+    "general.chassis.overall-width": [735, "mm"],
+    "general.chassis.overall-height": [1195, "mm"],
+    "general.chassis.wheelbase": [1460, "mm"],
+    "general.chassis.seat-height": [805, "mm"],
+    "general.chassis.ground-clearance": [125, "mm"],
+    "general.chassis.trail": [95, "mm"],
+    "general.suspension.front-travel": [120, "mm"],
+    "general.suspension.rear-travel": [120, "mm"],
+    "general.fuel-tank.capacity": [22, "L"],
+    "fuses.pgm-fi": [20, "A"]
+  };
+  for (const [id, [amount, unit]] of Object.entries(expectedQuantities)) {
+    const entry = findEntry(id);
+    assert.equal(entry.status, "verified", id);
+    assert.equal(entry.value.amount, amount, id);
+    assert.equal(entry.value.unit, unit, id);
+    assert.ok(entry.sourceIds.length > 0, id);
+  }
+  assert.equal(findEntry("general.chassis.rake").value.text, "25°30′");
+  assert.match(findEntry("fuses.pgm-fi").location, /akumulatorze/);
+
+  const cbs = findEntry("brakes.system.linked-cbs");
+  assert.deepEqual(cbs.applicability, { regions: ["JP"] });
+  assert.equal(resolver.resolveEntry(cbs, { ...BASE_CONTEXT, region: "JP" }).status, "resolved");
+  assert.equal(resolver.resolveEntry(cbs, { ...BASE_CONTEXT, region: "USA" }).status, "not-applicable");
+  assert.equal(resolver.resolveEntry(cbs, { ...BASE_CONTEXT, region: null }).status, "ambiguous-context");
 });
 
 test("search index builds for the production profile", () => {
