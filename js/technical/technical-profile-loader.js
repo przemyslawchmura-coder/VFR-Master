@@ -1,20 +1,21 @@
 (function attachTechnicalProfileLoader(root, factory) {
   let registryApi = root && root.RevLogTechnicalProfileRegistry;
   let validatorApi = root && root.RevLogTechnicalProfileValidator;
+  let browserStoreApi = root && root.RevLogTechnicalProfileBrowserStore;
   if (typeof module === "object" && module.exports) {
     registryApi = registryApi || require("./technical-profile-registry.js");
     validatorApi = validatorApi || require("./technical-profile-validator.js");
   }
 
-  const api = factory(root, registryApi, validatorApi);
+  const api = factory(root, registryApi, validatorApi, browserStoreApi);
   if (typeof module === "object" && module.exports) module.exports = api;
   if (root) root.RevLogTechnicalProfileLoader = api;
-})(typeof globalThis !== "undefined" ? globalThis : this, function createLoaderModule(root, defaultRegistry, validatorApi) {
+})(typeof globalThis !== "undefined" ? globalThis : this, function createLoaderModule(root, defaultRegistry, validatorApi, browserStoreApi) {
   "use strict";
 
   function createProfileLoader(options = {}) {
     const registry = options.registry || defaultRegistry;
-    const loadModule = options.loadModule || createDefaultModuleLoader(root);
+    const loadModule = options.loadModule || createDefaultModuleLoader(browserStoreApi);
 
     async function loadProfile(descriptor) {
       if (!descriptor || typeof descriptor.moduleId !== "string") {
@@ -68,14 +69,14 @@
     return Object.freeze({ loadProfile, loadProfileForContext, validateRegistryIntegrity });
   }
 
-  function createDefaultModuleLoader(globalRoot) {
+  function createDefaultModuleLoader(profileStore) {
     if (typeof module === "object" && module.exports) {
       return moduleId => require(`../../${moduleId}`);
     }
     return (moduleId, descriptor) => {
-      const profiles = globalRoot && globalRoot.RevLogTechnicalProfiles;
-      if (profiles && profiles[descriptor.profileId]) return profiles[descriptor.profileId];
-      throw new Error(`No local browser module adapter for ${moduleId}.`);
+      const profile = profileStore && profileStore.getProfile(descriptor.profileId);
+      if (profile) return profile;
+      throw new Error(`Technical Profile module is not registered locally: ${descriptor.profileId}.`);
     };
   }
 

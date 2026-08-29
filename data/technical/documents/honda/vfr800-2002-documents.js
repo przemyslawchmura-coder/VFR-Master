@@ -1,3 +1,4 @@
+(function attachVfr800Documents(root, factory) {
 "use strict";
 
 // Production source registry for the 2002 Honda VFR800/VFR800A reference
@@ -102,4 +103,7 @@ const citations = {
   "cite.honda.vfr800-2002.tb.wiring-abs": { id: "cite.honda.vfr800-2002.tb.wiring-abs", documentId: "doc.honda.vfr800-2002-2003.wiring-recall", section: "Modified wiring diagram", subsection: "2002–2003 VFR800A ABS type", pages: ["diagram 2002–2003 ABS type"], notes: "ABS-specific wiring and fuse context." }
 };
 
-module.exports = { documents, citations };
+const registry = { documents, citations };
+if (typeof module === "object" && module.exports) module.exports = registry;
+if (root) root.RevLogVfr8002002SourceRegistry = registry;
+})(typeof globalThis !== "undefined" ? globalThis : this, function createVfr800Documents() {});

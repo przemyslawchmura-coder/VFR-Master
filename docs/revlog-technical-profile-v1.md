@@ -520,7 +520,24 @@ Stored Motorcycle
 
 The adapter only translates stored, explicit data. It does not infer a catalogue key from brand/model text, infer region from year or user locale, parse ABS from a model name, or treat a missing ABS flag as `false`. Legacy motorcycles without `catalogVariantKey` return `insufficient-context` and are not mutated or migrated. Storage access is outside the adapter: a future UI may pass `MotorcycleDatabase.getActive()` to the bridge, while tests and other consumers can pass any motorcycle object directly.
 
-## 21. Validation policy
+## 21. Browser Runtime & Readiness
+
+The **Technical Profile Registry** declares which profiles exist and the motorcycle contexts they cover. The **Browser Profile Store** is a separate local module store containing profile objects whose scripts have already been loaded. It does not perform discovery and does not contain duplicated descriptor metadata. Profile data registers itself through `registerProfile(profile)` while retaining its CommonJS export for Node.
+
+In the browser, the loader resolves a discovered descriptor by `profileId` against the Browser Profile Store. Missing modules produce a controlled `load-error`; the current implementation performs no fetch, dynamic import, network request, IndexedDB access, or Service Worker interaction. Duplicate registration is rejected without overwriting the first profile, and stored/retrieved objects are isolated from caller mutation.
+
+`getTechnicalProfileReadiness(motorcycle)` reports one of these stable states:
+
+- `ready`: discovery succeeded, the local module loaded, and validation passed;
+- `insufficient-context`: discovery lacks `catalogVariantKey` or `year`;
+- `not-found`: no descriptor covers the motorcycle;
+- `ambiguous-profile`: discovery has multiple equally specific candidates;
+- `load-error`: the local module is unavailable or the subsystem failed safely;
+- `invalid-profile`: a loaded profile failed the Technical Profile validator.
+
+Readiness separately reports `region`, `abs`, and `equipment` as `known` or `unknown`. Unknown resolution context does not make an otherwise valid profile unavailable; affected entries continue to return `ambiguous-context`. The subsystem is not a startup dependency of `VFRApp.init()`: profile absence or failure remains status data and cannot prevent the legacy application from starting.
+
+## 22. Validation policy
 
 The validator returns a report and never mutates or silently repairs a profile:
 

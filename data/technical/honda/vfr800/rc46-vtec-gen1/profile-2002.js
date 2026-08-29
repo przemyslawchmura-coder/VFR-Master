@@ -1,6 +1,15 @@
+(function attachVfr800Profile(root, factory) {
+  let sourceRegistry = root && root.RevLogVfr8002002SourceRegistry;
+  if (typeof module === "object" && module.exports) {
+    sourceRegistry = sourceRegistry || require("../../../documents/honda/vfr800-2002-documents.js");
+  }
+  const profile = factory(sourceRegistry);
+  if (typeof module === "object" && module.exports) module.exports = profile;
+  if (root && root.RevLogTechnicalProfileBrowserStore) {
+    root.RevLogTechnicalProfileBrowserStore.registerProfile(profile);
+  }
+})(typeof globalThis !== "undefined" ? globalThis : this, function createVfr800Profile(sourceRegistry) {
 "use strict";
-
-const sourceRegistry = require("../../../documents/honda/vfr800-2002-documents.js");
 
 // Reference Production Profile: Honda VFR800/VFR800A, model year 2002.
 // This module contains data only. It is not registered in the legacy runtime.
@@ -139,4 +148,5 @@ const profile = {
   ]
 };
 
-module.exports = profile;
+return profile;
+});
