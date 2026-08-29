@@ -469,7 +469,21 @@ Synonyms are maintained in a separate language-oriented registry. They assist qu
 
 Technical Profiles, a resolved search index, and the basic identity/context of the active motorcycle MUST be representable as locally storable data. Internet access may extend RevLog, but it must not be required for basic access to already available technical information. Profile resolution, value formatting, index construction, and searching therefore remain deterministic, DOM-independent, and free of network API dependencies. Persistence, cache invalidation, synchronization, IndexedDB, and Service Worker behavior are outside v1's current runtime scope.
 
-## 18. Validation policy
+## 18. Reference Production Profile
+
+Honda VFR800 VTEC model year 2002 is the first Reference Production Profile. It is used to verify that the shared v1 schema remains practical for real workshop, roadside, maintenance, regional, ABS, citation, resolution, and search use cases. It does not receive a motorcycle-specific schema or custom runtime logic: the profile is local data governed by the same contract intended for every future motorcycle.
+
+For a Reference Production Profile:
+
+- `verified` means the exact value was checked against the attached accepted citation; prior RevLog data is not evidence;
+- missing, unclear, or inaccessible source material cannot produce a `verified` record;
+- differences by region, ABS state, year, or equipment must be explicit applicability or variants, never hidden defaults;
+- source conflicts remain visible and are not settled automatically by authority rank;
+- future motorcycles must use this same schema and generic validator, resolver, formatter, search, and quality-report modules.
+
+Reference status describes the profile's architectural role, not perfection or completeness. Its factual coverage and known gaps are reported as counts, without a synthetic confidence score.
+
+## 19. Validation policy
 
 The validator returns a report and never mutates or silently repairs a profile:
 
