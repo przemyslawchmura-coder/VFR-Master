@@ -76,3 +76,12 @@ test("workshop-dependent fields are not falsely closed by owner-manual evidence"
   assert.equal(audit.categories.service_limits.engine.status, "researched-no-evidence");
   assert.equal(audit.categories.torques["oil-filter"].status, "not-researched");
 });
+
+test("targeted OEM publication identities remain distinct from inspected evidence", () => {
+  const report = fs.readFileSync(path.join(__dirname, "../research/reports/service-source-acquisition.md"), "utf8");
+  assert.match(report, /B7N-28197-E0/);
+  assert.match(report, /LIT-11616-34-61/);
+  assert.match(report, /BW3-F8197-E0/);
+  assert.match(report, /2024 CB500F \/ CBR500R \/ NX500 Service Manual/);
+  assert.match(report, /technical field evidence extracted/);
+});
