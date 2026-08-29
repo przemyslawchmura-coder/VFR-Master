@@ -450,4 +450,233 @@ window.MotorcycleCatalogData = [
     ]
   }
 ];
+
+/* Coverage Wave 1. Generation boundaries are documented in
+   docs/catalog/global-motorcycle-catalog-wave1.md. Existing records above
+   remain byte-stable for stored-garage compatibility. */
+const addModels = (brandId, models) => {
+  const brand = window.MotorcycleCatalogData.find(item => item.id === brandId);
+  if (brand) brand.models.push(...models);
+};
+
+addModels("honda", [
+  m("cb500x-nx500", "CB500X / NX500", [
+    v("pc46", "honda.cb500x.pc46", "CB500X PC46", "CB500X PC46", 2013, 2015),
+    v("pc59", "honda.cb500x.pc59", "CB500X PC59", "CB500X PC59", 2016, 2018),
+    v("pc64-1", "honda.cb500x.pc64-1", "CB500X PC64 — I", "CB500X PC64 2019", 2019, 2021),
+    v("pc64-2", "honda.cb500x.pc64-2", "CB500X PC64 — II", "CB500X PC64 2022", 2022, 2023),
+    v("nx500", "honda.cb500x-nx500.nx500", "NX500", "NX500", 2024, 2025)
+  ]),
+  m("cbr500r", "CBR500R", [
+    v("pc44", "honda.cbr500r.pc44", "PC44", "CBR500R PC44", 2013, 2015),
+    v("pc57", "honda.cbr500r.pc57", "PC57", "CBR500R PC57", 2016, 2018),
+    v("pc62-1", "honda.cbr500r.pc62-1", "PC62 — I", "CBR500R PC62 2019", 2019, 2021),
+    v("pc62-2", "honda.cbr500r.pc62-2", "PC62 — II", "CBR500R PC62 2022", 2022, 2023),
+    v("pc70", "honda.cbr500r.pc70", "PC70", "CBR500R PC70", 2024, 2025)
+  ]),
+  m("cb650", "CB650F / CB650R", [
+    v("cb650f-1", "honda.cb650.cb650f-1", "CB650F — I", "CB650F 2014", 2014, 2016),
+    v("cb650f-2", "honda.cb650.cb650f-2", "CB650F — II", "CB650F 2017", 2017, 2018),
+    v("cb650r-1", "honda.cb650.cb650r-1", "CB650R — I", "CB650R 2019", 2019, 2020),
+    v("cb650r-2", "honda.cb650.cb650r-2", "CB650R — II", "CB650R 2021", 2021, 2023),
+    v("cb650r-3", "honda.cb650.cb650r-3", "CB650R — III", "CB650R 2024", 2024, 2025)
+  ]),
+  m("cbr650", "CBR650F / CBR650R", [
+    v("cbr650f-1", "honda.cbr650.cbr650f-1", "CBR650F — I", "CBR650F 2014", 2014, 2016),
+    v("cbr650f-2", "honda.cbr650.cbr650f-2", "CBR650F — II", "CBR650F 2017", 2017, 2018),
+    v("cbr650r-1", "honda.cbr650.cbr650r-1", "CBR650R — I", "CBR650R 2019", 2019, 2020),
+    v("cbr650r-2", "honda.cbr650.cbr650r-2", "CBR650R — II", "CBR650R 2021", 2021, 2023),
+    v("cbr650r-3", "honda.cbr650.cbr650r-3", "CBR650R — III", "CBR650R 2024", 2024, 2025)
+  ]),
+  m("hornet", "Hornet", [
+    v("cb600f-pc34", "honda.hornet.cb600f-pc34", "CB600F PC34", "CB600F Hornet PC34", 1998, 2002),
+    v("cb600f-pc36", "honda.hornet.cb600f-pc36", "CB600F PC36", "CB600F Hornet PC36", 2003, 2006),
+    v("cb600f-pc41-1", "honda.hornet.cb600f-pc41-1", "CB600F PC41 — I", "CB600F Hornet PC41 2007", 2007, 2010),
+    v("cb600f-pc41-2", "honda.hornet.cb600f-pc41-2", "CB600F PC41 — II", "CB600F Hornet PC41 2011", 2011, 2013),
+    v("cb750", "honda.hornet.cb750", "CB750 Hornet", "CB750 Hornet", 2023, 2024),
+    v("cb750-2", "honda.hornet.cb750-2", "CB750 Hornet — II", "CB750 Hornet 2025", 2025, 2025),
+    v("cb900f", "honda.hornet.cb900f", "CB900F SC48", "CB900F Hornet", 2002, 2007),
+    v("cb1000", "honda.hornet.cb1000", "CB1000 Hornet", "CB1000 Hornet", 2025, 2025)
+  ]),
+  m("cb1000r", "CB1000R", [
+    v("sc60-1", "honda.cb1000r.sc60-1", "SC60 — I", "CB1000R SC60 2008", 2008, 2010),
+    v("sc60-2", "honda.cb1000r.sc60-2", "SC60 — II", "CB1000R SC60 2011", 2011, 2017),
+    v("sc80-1", "honda.cb1000r.sc80-1", "SC80 — I", "CB1000R SC80 2018", 2018, 2020),
+    v("sc80-2", "honda.cb1000r.sc80-2", "SC80 — II", "CB1000R SC80 2021", 2021, 2024)
+  ]),
+  m("vfr1200f", "VFR1200F", [
+    v("sc63-1", "honda.vfr1200f.sc63-1", "SC63 — I", "VFR1200F 2010", 2010, 2011),
+    v("sc63-2", "honda.vfr1200f.sc63-2", "SC63 — II", "VFR1200F 2012", 2012, 2016)
+  ]),
+  m("crosstourer", "VFR1200X Crosstourer", [
+    v("sc70-1", "honda.crosstourer.sc70-1", "SC70 — I", "VFR1200X Crosstourer 2012", 2012, 2015),
+    v("sc70-2", "honda.crosstourer.sc70-2", "SC70 — II", "VFR1200X Crosstourer 2016", 2016, 2020)
+  ]),
+  m("pan-european", "Pan European", [
+    v("st1100", "honda.pan-european.st1100", "ST1100", "ST1100 Pan European", 1990, 2001),
+    v("st1300", "honda.pan-european.st1300", "ST1300", "ST1300 Pan European", 2002, 2016)
+  ]),
+  m("gold-wing", "Gold Wing", [
+    v("gl1500", "honda.gold-wing.gl1500", "GL1500", "Gold Wing GL1500", 1990, 2000),
+    v("gl1800-sc47", "honda.gold-wing.gl1800-sc47", "GL1800 SC47", "Gold Wing GL1800 SC47", 2001, 2011),
+    v("gl1800-sc68", "honda.gold-wing.gl1800-sc68", "GL1800 SC68", "Gold Wing GL1800 SC68", 2012, 2017),
+    v("gl1800-sc79-1", "honda.gold-wing.gl1800-sc79-1", "GL1800 SC79 — I", "Gold Wing GL1800 2018", 2018, 2020),
+    v("gl1800-sc79-2", "honda.gold-wing.gl1800-sc79-2", "GL1800 SC79 — II", "Gold Wing GL1800 2021", 2021, 2025)
+  ]),
+  m("rebel", "Rebel", [
+    v("cmx500-1", "honda.rebel.cmx500-1", "CMX500 — I", "CMX500 Rebel 2017", 2017, 2019),
+    v("cmx500-2", "honda.rebel.cmx500-2", "CMX500 — II", "CMX500 Rebel 2020", 2020, 2024),
+    v("cmx500-3", "honda.rebel.cmx500-3", "CMX500 — III", "CMX500 Rebel 2025", 2025, 2025),
+    v("cmx1100-1", "honda.rebel.cmx1100-1", "CMX1100 — I", "CMX1100 Rebel 2021", 2021, 2024),
+    v("cmx1100-2", "honda.rebel.cmx1100-2", "CMX1100 — II", "CMX1100 Rebel 2025", 2025, 2025)
+  ]),
+  m("nc700x", "NC700X", [v("rc63", "honda.nc700x.rc63", "RC63", "NC700X RC63", 2012, 2013)]),
+  m("x-adv", "X-ADV", [
+    v("rc95-1", "honda.x-adv.rc95-1", "RC95 — I", "X-ADV 2017", 2017, 2020),
+    v("rh10-1", "honda.x-adv.rh10-1", "RH10 — I", "X-ADV 2021", 2021, 2024),
+    v("rh10-2", "honda.x-adv.rh10-2", "RH10 — II", "X-ADV 2025", 2025, 2025)
+  ]),
+  m("nt1100", "NT1100", [v("sc84-1", "honda.nt1100.sc84-1", "SC84 — I", "NT1100 2022", 2022, 2024), v("sc84-2", "honda.nt1100.sc84-2", "SC84 — II", "NT1100 2025", 2025, 2025)])
+]);
+
+addModels("yamaha", [
+  m("yzf-r6", "YZF-R6", [
+    v("rj03", "yamaha.yzf-r6.rj03", "RJ03", "YZF-R6 RJ03", 1999, 2002),
+    v("rj05", "yamaha.yzf-r6.rj05", "RJ05", "YZF-R6 RJ05", 2003, 2004),
+    v("rj095", "yamaha.yzf-r6.rj095", "RJ095", "YZF-R6 RJ095", 2005, 2005),
+    v("rj11", "yamaha.yzf-r6.rj11", "RJ11", "YZF-R6 RJ11", 2006, 2007),
+    v("rj15", "yamaha.yzf-r6.rj15", "RJ15", "YZF-R6 RJ15", 2008, 2016),
+    v("rj27", "yamaha.yzf-r6.rj27", "RJ27", "YZF-R6 RJ27", 2017, 2020)
+  ]),
+  m("yzf-r7", "YZF-R7", [v("rm39", "yamaha.yzf-r7.rm39", "RM39", "YZF-R7", 2022, 2025)]),
+  m("yzf-r3-mt03", "YZF-R3 / MT-03", [
+    v("r3-rh07", "yamaha.yzf-r3-mt03.r3-rh07", "YZF-R3 RH07", "YZF-R3 2015", 2015, 2018),
+    v("r3-rh12", "yamaha.yzf-r3-mt03.r3-rh12", "YZF-R3 RH12", "YZF-R3 2019", 2019, 2024),
+    v("r3-2025", "yamaha.yzf-r3-mt03.r3-2025", "YZF-R3 — 2025", "YZF-R3 2025", 2025, 2025),
+    v("mt03-rh07", "yamaha.yzf-r3-mt03.mt03-rh07", "MT-03 RH07", "MT-03 2016", 2016, 2019),
+    v("mt03-rh12", "yamaha.yzf-r3-mt03.mt03-rh12", "MT-03 RH12", "MT-03 2020", 2020, 2024),
+    v("mt03-2025", "yamaha.yzf-r3-mt03.mt03-2025", "MT-03 — 2025", "MT-03 2025", 2025, 2025)
+  ]),
+  m("mt-10", "MT-10", [v("gen1", "yamaha.mt-10.gen1", "I generacja", "MT-10 2016", 2016, 2021), v("gen2", "yamaha.mt-10.gen2", "II generacja", "MT-10 2022", 2022, 2025)]),
+  m("xsr700", "XSR700", [v("gen1", "yamaha.xsr700.gen1", "I generacja", "XSR700 2016", 2016, 2021), v("gen2", "yamaha.xsr700.gen2", "II generacja", "XSR700 2022", 2022, 2025)]),
+  m("xsr900", "XSR900", [v("gen1", "yamaha.xsr900.gen1", "I generacja", "XSR900 2016", 2016, 2021), v("gen2", "yamaha.xsr900.gen2", "II generacja", "XSR900 2022", 2022, 2024), v("gen2-2025", "yamaha.xsr900.gen2-2025", "II generacja — 2025", "XSR900 2025", 2025, 2025)]),
+  m("fjr1300", "FJR1300", [
+    v("rp04", "yamaha.fjr1300.rp04", "RP04", "FJR1300 RP04", 2001, 2002),
+    v("rp08", "yamaha.fjr1300.rp08", "RP08", "FJR1300 RP08", 2003, 2005),
+    v("rp13", "yamaha.fjr1300.rp13", "RP13", "FJR1300 RP13", 2006, 2012),
+    v("rp23-1", "yamaha.fjr1300.rp23-1", "RP23 — I", "FJR1300 RP23 2013", 2013, 2015),
+    v("rp23-2", "yamaha.fjr1300.rp23-2", "RP23 — II", "FJR1300 RP23 2016", 2016, 2020)
+  ]),
+  m("tdm", "TDM", [v("tdm850-1", "yamaha.tdm.850-1", "TDM850 3VD", "TDM850 3VD", 1991, 1995), v("tdm850-2", "yamaha.tdm.850-2", "TDM850 4TX", "TDM850 4TX", 1996, 2001), v("tdm900", "yamaha.tdm.900", "TDM900", "TDM900", 2002, 2013)]),
+  m("xj6", "XJ6", [v("n", "yamaha.xj6.n", "N", "XJ6-N", 2009, 2016), v("diversion", "yamaha.xj6.diversion", "Diversion", "XJ6 Diversion", 2009, 2016), v("diversion-f", "yamaha.xj6.diversion-f", "Diversion F", "XJ6 Diversion F", 2010, 2016)]),
+  m("super-tenere", "XT1200Z Super Ténéré", [v("gen1", "yamaha.super-tenere.gen1", "I generacja", "XT1200Z Super Tenere 2010", 2010, 2013), v("gen2", "yamaha.super-tenere.gen2", "II generacja", "XT1200Z Super Tenere 2014", 2014, 2020)])
+]);
+
+addModels("suzuki", [
+  m("gsx-r600", "GSX-R600", [
+    v("srad", "suzuki.gsx-r600.srad", "SRAD", "GSX-R600 SRAD", 1997, 2000), v("k1", "suzuki.gsx-r600.k1", "K1–K3", "GSX-R600 K1", 2001, 2003),
+    v("k4", "suzuki.gsx-r600.k4", "K4–K5", "GSX-R600 K4", 2004, 2005), v("k6", "suzuki.gsx-r600.k6", "K6–K7", "GSX-R600 K6", 2006, 2007),
+    v("k8", "suzuki.gsx-r600.k8", "K8–L0", "GSX-R600 K8", 2008, 2010), v("l1", "suzuki.gsx-r600.l1", "L1", "GSX-R600 L1", 2011, 2017)
+  ]),
+  m("gsx-s750", "GSX-S750", [v("gen1", "suzuki.gsx-s750.gen1", "I generacja", "GSX-S750 2017", 2017, 2020), v("euro5", "suzuki.gsx-s750.euro5", "Euro 5", "GSX-S750 2021", 2021, 2022)]),
+  m("gsx-s1000", "GSX-S1000", [v("gen1", "suzuki.gsx-s1000.gen1", "I generacja", "GSX-S1000 2015", 2015, 2020), v("gen2", "suzuki.gsx-s1000.gen2", "II generacja", "GSX-S1000 2021", 2021, 2024), v("gen2-2025", "suzuki.gsx-s1000.gen2-2025", "II generacja — 2025", "GSX-S1000 2025", 2025, 2025)]),
+  m("gsx-s1000gt", "GSX-S1000GT", [v("gen1", "suzuki.gsx-s1000gt.gen1", "I generacja", "GSX-S1000GT", 2022, 2025)]),
+  m("gsx-8", "GSX-8", [v("8s", "suzuki.gsx-8.8s", "GSX-8S", "GSX-8S", 2023, 2025), v("8r", "suzuki.gsx-8.8r", "GSX-8R", "GSX-8R", 2024, 2025)]),
+  m("v-strom-800", "V-Strom 800", [v("de", "suzuki.v-strom-800.de", "800DE", "V-Strom 800DE", 2023, 2025), v("re", "suzuki.v-strom-800.re", "800RE", "V-Strom 800RE", 2024, 2025)]),
+  m("bandit", "Bandit", [
+    v("600-1", "suzuki.bandit.600-1", "GSF600 — I", "Bandit 600 1995", 1995, 1999), v("600-2", "suzuki.bandit.600-2", "GSF600 — II", "Bandit 600 2000", 2000, 2004),
+    v("650-1", "suzuki.bandit.650-1", "GSF650 — I", "Bandit 650 2005", 2005, 2006), v("650-2", "suzuki.bandit.650-2", "GSF650 — II", "Bandit 650 2007", 2007, 2016),
+    v("1200-1", "suzuki.bandit.1200-1", "GSF1200 — I", "Bandit 1200 1996", 1996, 2000), v("1200-2", "suzuki.bandit.1200-2", "GSF1200 — II", "Bandit 1200 2001", 2001, 2006),
+    v("1250", "suzuki.bandit.1250", "GSF1250", "Bandit 1250", 2007, 2016)
+  ]),
+  m("gsr", "GSR", [v("600", "suzuki.gsr.600", "GSR600", "GSR600", 2006, 2011), v("750", "suzuki.gsr.750", "GSR750", "GSR750", 2011, 2016)]),
+  m("sv1000", "SV1000", [v("n", "suzuki.sv1000.n", "N", "SV1000", 2003, 2007), v("s", "suzuki.sv1000.s", "S", "SV1000S", 2003, 2007)]),
+  m("katana", "Katana", [v("gsx1100", "suzuki.katana.gsx1100", "GSX1100S", "GSX1100S Katana", 1990, 2001), v("gen2", "suzuki.katana.gen2", "1000 — I", "Katana 1000 2019", 2019, 2020), v("gen2-e5", "suzuki.katana.gen2-e5", "1000 — II", "Katana 1000 2022", 2022, 2025)])
+]);
+
+addModels("kawasaki", [
+  m("ninja-250-500", "Ninja 250 / 300 / 400 / 500", [
+    v("250-ex250j", "kawasaki.ninja-250-500.250-ex250j", "Ninja 250 EX250J", "Ninja 250R", 2008, 2012),
+    v("300-ex300a", "kawasaki.ninja-250-500.300-ex300a", "Ninja 300 EX300A", "Ninja 300", 2013, 2017),
+    v("400-ex400g", "kawasaki.ninja-250-500.400-ex400g", "Ninja 400 EX400G", "Ninja 400", 2018, 2023),
+    v("500-ex500g", "kawasaki.ninja-250-500.500-ex500g", "Ninja 500 EX500G", "Ninja 500", 2024, 2025)
+  ]),
+  m("ninja-650", "Ninja 650", [v("gen1", "kawasaki.ninja-650.gen1", "I generacja", "Ninja 650 2017", 2017, 2019), v("gen2", "kawasaki.ninja-650.gen2", "II generacja", "Ninja 650 2020", 2020, 2022), v("gen3", "kawasaki.ninja-650.gen3", "III generacja", "Ninja 650 2023", 2023, 2025)]),
+  m("ninja-zx-4r", "Ninja ZX-4R", [v("zx400p", "kawasaki.ninja-zx-4r.zx400p", "ZX400P", "Ninja ZX-4R", 2023, 2025), v("zx400s", "kawasaki.ninja-zx-4r.zx400s", "ZX400S RR", "Ninja ZX-4RR", 2023, 2025)]),
+  m("z-small", "Z300 / Z400 / Z500", [v("z300", "kawasaki.z-small.z300", "Z300", "Z300", 2015, 2018), v("z400", "kawasaki.z-small.z400", "Z400", "Z400", 2019, 2023), v("z500", "kawasaki.z-small.z500", "Z500", "Z500", 2024, 2025)]),
+  m("z650", "Z650", [v("gen1", "kawasaki.z650.gen1", "I generacja", "Z650 2017", 2017, 2019), v("gen2", "kawasaki.z650.gen2", "II generacja", "Z650 2020", 2020, 2022), v("gen3", "kawasaki.z650.gen3", "III generacja", "Z650 2023", 2023, 2025)]),
+  m("z1000", "Z1000", [v("gen1", "kawasaki.z1000.gen1", "I generacja", "Z1000 2003", 2003, 2006), v("gen2", "kawasaki.z1000.gen2", "II generacja", "Z1000 2007", 2007, 2009), v("gen3", "kawasaki.z1000.gen3", "III generacja", "Z1000 2010", 2010, 2013), v("gen4", "kawasaki.z1000.gen4", "IV generacja", "Z1000 2014", 2014, 2020)]),
+  m("h2", "H2", [v("ninja", "kawasaki.h2.ninja", "Ninja H2", "Ninja H2", 2015, 2025), v("sx-1", "kawasaki.h2.sx-1", "Ninja H2 SX — I", "Ninja H2 SX 2018", 2018, 2021), v("sx-2", "kawasaki.h2.sx-2", "Ninja H2 SX — II", "Ninja H2 SX 2022", 2022, 2025), v("z", "kawasaki.h2.z", "Z H2", "Z H2", 2020, 2025)]),
+  m("versys-1000-1100", "Versys 1000 / 1100", [v("gen1", "kawasaki.versys-1000-1100.gen1", "1000 — I", "Versys 1000 2012", 2012, 2014), v("gen2", "kawasaki.versys-1000-1100.gen2", "1000 — II", "Versys 1000 2015", 2015, 2018), v("gen3", "kawasaki.versys-1000-1100.gen3", "1000 — III", "Versys 1000 2019", 2019, 2024), v("1100", "kawasaki.versys-1000-1100.1100", "1100", "Versys 1100", 2025, 2025)]),
+  m("vulcan-s", "Vulcan S", [v("gen1", "kawasaki.vulcan-s.gen1", "I generacja", "Vulcan S", 2015, 2021), v("gen2", "kawasaki.vulcan-s.gen2", "II generacja", "Vulcan S 2022", 2022, 2025)]),
+  m("gtr1400", "1400GTR", [v("gen1", "kawasaki.gtr1400.gen1", "I generacja", "1400GTR 2007", 2007, 2009), v("gen2", "kawasaki.gtr1400.gen2", "II generacja", "1400GTR 2010", 2010, 2017)])
+]);
+
+addModels("bmw", [
+  m("g310", "G 310", [v("r-1", "bmw.g310.r-1", "G 310 R — I", "G 310 R 2017", 2017, 2020), v("r-2", "bmw.g310.r-2", "G 310 R — II", "G 310 R 2021", 2021, 2025), v("gs-1", "bmw.g310.gs-1", "G 310 GS — I", "G 310 GS 2017", 2017, 2020), v("gs-2", "bmw.g310.gs-2", "G 310 GS — II", "G 310 GS 2021", 2021, 2025)]),
+  m("f-roadster-xr", "F Roadster / XR", [v("f800r-1", "bmw.f-roadster-xr.f800r-1", "F 800 R — I", "F 800 R 2009", 2009, 2014), v("f800r-2", "bmw.f-roadster-xr.f800r-2", "F 800 R — II", "F 800 R 2015", 2015, 2019), v("f900r-1", "bmw.f-roadster-xr.f900r-1", "F 900 R — I", "F 900 R 2020", 2020, 2024), v("f900r-2", "bmw.f-roadster-xr.f900r-2", "F 900 R — II", "F 900 R 2025", 2025, 2025), v("f900xr-1", "bmw.f-roadster-xr.f900xr-1", "F 900 XR — I", "F 900 XR 2020", 2020, 2024), v("f900xr-2", "bmw.f-roadster-xr.f900xr-2", "F 900 XR — II", "F 900 XR 2025", 2025, 2025)]),
+  m("s1000r-xr", "S 1000 R / XR", [v("r-1", "bmw.s1000r-xr.r-1", "S 1000 R — I", "S 1000 R 2014", 2014, 2016), v("r-2", "bmw.s1000r-xr.r-2", "S 1000 R — II", "S 1000 R 2017", 2017, 2020), v("r-3", "bmw.s1000r-xr.r-3", "S 1000 R — III", "S 1000 R 2021", 2021, 2024), v("r-4", "bmw.s1000r-xr.r-4", "S 1000 R — IV", "S 1000 R 2025", 2025, 2025), v("xr-1", "bmw.s1000r-xr.xr-1", "S 1000 XR — I", "S 1000 XR 2015", 2015, 2019), v("xr-2", "bmw.s1000r-xr.xr-2", "S 1000 XR — II", "S 1000 XR 2020", 2020, 2023), v("xr-3", "bmw.s1000r-xr.xr-3", "S 1000 XR — III", "S 1000 XR 2024", 2024, 2025)]),
+  m("k1600", "K 1600", [v("gen1", "bmw.k1600.gen1", "GT / GTL — I", "K 1600 GT 2011", 2011, 2016), v("gen2", "bmw.k1600.gen2", "GT / GTL — II", "K 1600 GT 2017", 2017, 2021), v("gen3", "bmw.k1600.gen3", "GT / GTL — III", "K 1600 GT 2022", 2022, 2025)]),
+  m("r18", "R 18", [v("gen1", "bmw.r18.gen1", "R 18", "R 18", 2020, 2025)])
+]);
+
+addModels("ducati", [
+  m("superbike-v2", "749 / 999 / 848 / 1098 / 1198", [v("749", "ducati.superbike-v2.749", "749", "Ducati 749", 2003, 2006), v("999", "ducati.superbike-v2.999", "999", "Ducati 999", 2003, 2006), v("848", "ducati.superbike-v2.848", "848", "Ducati 848", 2008, 2013), v("1098", "ducati.superbike-v2.1098", "1098", "Ducati 1098", 2007, 2009), v("1198", "ducati.superbike-v2.1198", "1198", "Ducati 1198", 2009, 2011)]),
+  m("streetfighter", "Streetfighter", [v("1098", "ducati.streetfighter.1098", "1098", "Streetfighter 1098", 2009, 2013), v("848", "ducati.streetfighter.848", "848", "Streetfighter 848", 2012, 2015), v("v4-1", "ducati.streetfighter.v4-1", "V4 — I", "Streetfighter V4 2020", 2020, 2024), v("v4-2", "ducati.streetfighter.v4-2", "V4 — II", "Streetfighter V4 2025", 2025, 2025)]),
+  m("hypermotard", "Hypermotard", [v("1100", "ducati.hypermotard.1100", "1100", "Hypermotard 1100", 2007, 2012), v("821", "ducati.hypermotard.821", "821", "Hypermotard 821", 2013, 2015), v("939", "ducati.hypermotard.939", "939", "Hypermotard 939", 2016, 2018), v("950", "ducati.hypermotard.950", "950", "Hypermotard 950", 2019, 2025)]),
+  m("desertx", "DesertX", [v("gen1", "ducati.desertx.gen1", "I generacja", "DesertX", 2022, 2025)])
+]);
+
+addModels("triumph", [
+  m("daytona", "Daytona", [v("675-1", "triumph.daytona.675-1", "675 — I", "Daytona 675 2006", 2006, 2008), v("675-2", "triumph.daytona.675-2", "675 — II", "Daytona 675 2009", 2009, 2012), v("675-3", "triumph.daytona.675-3", "675 — III", "Daytona 675 2013", 2013, 2017), v("660", "triumph.daytona.660", "660", "Daytona 660", 2024, 2025)]),
+  m("trident-tiger-sport", "Trident / Tiger Sport", [v("trident-660", "triumph.trident-tiger-sport.trident-660", "Trident 660", "Trident 660", 2021, 2025), v("tiger-sport-660", "triumph.trident-tiger-sport.tiger-sport-660", "Tiger Sport 660", "Tiger Sport 660", 2022, 2025), v("tiger-sport-800", "triumph.trident-tiger-sport.tiger-sport-800", "Tiger Sport 800", "Tiger Sport 800", 2025, 2025)]),
+  m("rocket", "Rocket", [v("iii-1", "triumph.rocket.iii-1", "Rocket III — I", "Rocket III 2004", 2004, 2009), v("iii-2", "triumph.rocket.iii-2", "Rocket III — II", "Rocket III 2010", 2010, 2018), v("3", "triumph.rocket.3", "Rocket 3", "Rocket 3", 2020, 2025)]),
+  m("scrambler", "Scrambler", [v("865", "triumph.scrambler.865", "865", "Scrambler 865", 2006, 2016), v("900", "triumph.scrambler.900", "900", "Street Scrambler 900", 2017, 2025), v("1200-1", "triumph.scrambler.1200-1", "1200 — I", "Scrambler 1200 2019", 2019, 2023), v("1200-2", "triumph.scrambler.1200-2", "1200 — II", "Scrambler 1200 2024", 2024, 2025)])
+]);
+
+addModels("ktm", [
+  m("rc390", "RC 390", [v("gen1", "ktm.rc390.gen1", "I generacja", "RC 390 2014", 2014, 2016), v("gen1-fl", "ktm.rc390.gen1-fl", "I generacja — facelift", "RC 390 2017", 2017, 2021), v("gen2", "ktm.rc390.gen2", "II generacja", "RC 390 2022", 2022, 2025)]),
+  m("duke-middle", "790 / 890 / 990 Duke", [v("790-1", "ktm.duke-middle.790-1", "790 — I", "790 Duke 2018", 2018, 2020), v("790-2", "ktm.duke-middle.790-2", "790 — powrót", "790 Duke 2023", 2023, 2025), v("890", "ktm.duke-middle.890", "890", "890 Duke", 2021, 2023), v("990", "ktm.duke-middle.990", "990", "990 Duke", 2024, 2025)]),
+  m("690-enduro-smc", "690 Enduro R / SMC R", [v("enduro-1", "ktm.690-enduro-smc.enduro-1", "Enduro R — I", "690 Enduro R 2009", 2009, 2018), v("enduro-2", "ktm.690-enduro-smc.enduro-2", "Enduro R — II", "690 Enduro R 2019", 2019, 2025), v("smc-1", "ktm.690-enduro-smc.smc-1", "SMC R — I", "690 SMC R 2012", 2012, 2017), v("smc-2", "ktm.690-enduro-smc.smc-2", "SMC R — II", "690 SMC R 2019", 2019, 2025)]),
+  m("rc8", "1190 RC8", [v("rc8", "ktm.rc8.rc8", "RC8", "1190 RC8", 2008, 2010), v("rc8-r", "ktm.rc8.rc8-r", "RC8 R", "1190 RC8 R", 2009, 2015)])
+]);
+
+addModels("aprilia", [
+  m("shiver", "Shiver", [v("750", "aprilia.shiver.750", "750", "Shiver 750", 2007, 2016), v("900", "aprilia.shiver.900", "900", "Shiver 900", 2017, 2020)]),
+  m("dorsoduro", "Dorsoduro", [v("750", "aprilia.dorsoduro.750", "750", "Dorsoduro 750", 2008, 2016), v("900", "aprilia.dorsoduro.900", "900", "Dorsoduro 900", 2017, 2020), v("1200", "aprilia.dorsoduro.1200", "1200", "Dorsoduro 1200", 2011, 2016)]),
+  m("tuareg-660", "Tuareg 660", [v("gen1", "aprilia.tuareg-660.gen1", "I generacja", "Tuareg 660", 2022, 2025)])
+]);
+
+window.MotorcycleCatalogData.push(
+  { id: "harley-davidson", name: "Harley-Davidson", models: [
+    m("sportster-evolution", "Sportster Evolution", [
+      v("883-rigid", "harley-davidson.sportster-evolution.883-rigid", "883 rigid-mount", "Sportster 883 1990", 1990, 2003),
+      v("883-rubber-carb", "harley-davidson.sportster-evolution.883-rubber-carb", "883 rubber-mount carb", "Sportster 883 2004", 2004, 2006),
+      v("883-efi", "harley-davidson.sportster-evolution.883-efi", "883 EFI", "Sportster 883 2007", 2007, 2013),
+      v("883-abs", "harley-davidson.sportster-evolution.883-abs", "883 ABS", "Sportster 883 2014", 2014, 2020),
+      v("1200-rigid", "harley-davidson.sportster-evolution.1200-rigid", "1200 rigid-mount", "Sportster 1200 1991", 1991, 2003),
+      v("1200-rubber-carb", "harley-davidson.sportster-evolution.1200-rubber-carb", "1200 rubber-mount carb", "Sportster 1200 2004", 2004, 2006),
+      v("1200-efi", "harley-davidson.sportster-evolution.1200-efi", "1200 EFI", "Sportster 1200 2007", 2007, 2013),
+      v("1200-abs", "harley-davidson.sportster-evolution.1200-abs", "1200 ABS", "Sportster 1200 2014", 2014, 2020)
+    ]),
+    m("revolution-max", "Revolution Max", [v("pan-america", "harley-davidson.revolution-max.pan-america", "Pan America", "Pan America 1250", 2021, 2025), v("sportster-s", "harley-davidson.revolution-max.sportster-s", "Sportster S", "Sportster S", 2021, 2025), v("nightster", "harley-davidson.revolution-max.nightster", "Nightster", "Nightster", 2022, 2025)]),
+    m("touring", "Touring", [v("twin-cam-1", "harley-davidson.touring.twin-cam-1", "Twin Cam — I", "Harley-Davidson Touring Twin Cam 1999", 1999, 2006), v("twin-cam-2", "harley-davidson.touring.twin-cam-2", "Twin Cam — II", "Harley-Davidson Touring Twin Cam 2007", 2007, 2013), v("twin-cam-3", "harley-davidson.touring.twin-cam-3", "Twin Cam — III", "Harley-Davidson Touring Twin Cam 2014", 2014, 2016), v("milwaukee-eight", "harley-davidson.touring.milwaukee-eight", "Milwaukee-Eight", "Harley-Davidson Touring Milwaukee-Eight", 2017, 2025)])
+  ]},
+  { id: "indian", name: "Indian", models: [
+    m("scout", "Scout", [v("gen1", "indian.scout.gen1", "I generacja", "Indian Scout 2015", 2015, 2024), v("gen2", "indian.scout.gen2", "II generacja", "Indian Scout 2025", 2025, 2025)]),
+    m("ftr", "FTR", [v("gen1", "indian.ftr.gen1", "I generacja", "Indian FTR 2019", 2019, 2020), v("gen2", "indian.ftr.gen2", "II generacja", "Indian FTR 2021", 2021, 2025)]),
+    m("chief", "Chief", [v("thunder-stroke", "indian.chief.thunder-stroke", "Thunder Stroke", "Indian Chief 2014", 2014, 2021), v("gen2", "indian.chief.gen2", "II generacja", "Indian Chief 2022", 2022, 2025)])
+  ]},
+  { id: "moto-guzzi", name: "Moto Guzzi", models: [
+    m("v7", "V7", [v("gen1", "moto-guzzi.v7.gen1", "V7 — I", "Moto Guzzi V7 2008", 2008, 2011), v("gen1-2", "moto-guzzi.v7.gen1-2", "V7 — II", "Moto Guzzi V7 2012", 2012, 2014), v("gen2", "moto-guzzi.v7.gen2", "V7 II", "Moto Guzzi V7 II", 2015, 2016), v("gen3", "moto-guzzi.v7.gen3", "V7 III", "Moto Guzzi V7 III", 2017, 2020), v("850", "moto-guzzi.v7.850", "V7 850", "Moto Guzzi V7 850", 2021, 2025)]),
+    m("v85-tt", "V85 TT", [v("gen1", "moto-guzzi.v85-tt.gen1", "I generacja", "Moto Guzzi V85 TT 2019", 2019, 2023), v("gen2", "moto-guzzi.v85-tt.gen2", "II generacja", "Moto Guzzi V85 TT 2024", 2024, 2025)]),
+    m("stelvio", "Stelvio", [v("1200-1", "moto-guzzi.stelvio.1200-1", "1200 — I", "Moto Guzzi Stelvio 1200 2008", 2008, 2010), v("1200-2", "moto-guzzi.stelvio.1200-2", "1200 — II", "Moto Guzzi Stelvio 1200 2011", 2011, 2016), v("v100", "moto-guzzi.stelvio.v100", "V100", "Moto Guzzi Stelvio V100", 2024, 2025)]),
+    m("v100-mandello", "V100 Mandello", [v("gen1", "moto-guzzi.v100-mandello.gen1", "I generacja", "Moto Guzzi V100 Mandello", 2023, 2025)])
+  ]},
+  { id: "royal-enfield", name: "Royal Enfield", models: [
+    m("himalayan", "Himalayan", [v("411", "royal-enfield.himalayan.411", "Himalayan 411", "Royal Enfield Himalayan 411", 2017, 2023), v("450", "royal-enfield.himalayan.450", "Himalayan 450", "Royal Enfield Himalayan 450", 2024, 2025)]),
+    m("650-twins", "650 Twins", [v("interceptor", "royal-enfield.650-twins.interceptor", "Interceptor 650", "Royal Enfield Interceptor 650", 2019, 2025), v("continental-gt", "royal-enfield.650-twins.continental-gt", "Continental GT 650", "Royal Enfield Continental GT 650", 2019, 2025)]),
+    m("j-series-350", "J-series 350", [v("meteor", "royal-enfield.j-series-350.meteor", "Meteor 350", "Royal Enfield Meteor 350", 2021, 2025), v("classic", "royal-enfield.j-series-350.classic", "Classic 350", "Royal Enfield Classic 350", 2022, 2025), v("hunter", "royal-enfield.j-series-350.hunter", "Hunter 350", "Royal Enfield Hunter 350", 2023, 2025)])
+  ]}
+);
 })();
