@@ -7,13 +7,16 @@
 
   function buildTechnicalContext(motorcycle) {
     const source = isObject(motorcycle) ? motorcycle : {};
+    const clarification = isObject(source.clarification) ? source.clarification : {};
     const context = {
       catalogVariantKey: nonEmptyStringOrNull(source.catalogVariantKey),
       year: Number.isInteger(source.year) ? source.year : null,
-      region: nonEmptyStringOrNull(source.region),
-      abs: typeof source.abs === "boolean" ? source.abs : null,
+      region: nonEmptyStringOrNull(source.region ?? clarification.market ?? clarification.region),
+      abs: typeof source.abs === "boolean" ? source.abs : (typeof clarification.abs === "boolean" ? clarification.abs : null),
       equipment: Array.isArray(source.equipment)
         ? uniqueStrings(source.equipment)
+        : Array.isArray(clarification.equipment)
+          ? uniqueStrings(clarification.equipment)
         : null
     };
     const requiredContext = [];

@@ -49,6 +49,11 @@ async function openTechnicalBase() {
         {
           legacyAvailable: Boolean(context.database),
           onLegacyFallback: openLegacyTechnicalBase,
+          async onClarificationSave(clarification) {
+            if (!context.bike || !window.MotorcycleDatabase || typeof MotorcycleDatabase.updateTechnicalClarification !== "function") return;
+            await MotorcycleDatabase.updateTechnicalClarification(context.bike.id, clarification);
+            await openTechnicalBase();
+          },
           shouldCommit() {
             const activeBike = window.MotorcycleDatabase
               ? MotorcycleDatabase.getActive()

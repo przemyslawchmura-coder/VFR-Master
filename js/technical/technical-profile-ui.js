@@ -153,12 +153,20 @@
         <p class="section-note">Rok ${escapeHtml(view.motorcycleYear)} · Profil ${escapeHtml(view.profileId)}</p>
       </div>
       ${renderContextNotice(view.resolutionContext)}
+      ${renderClarificationHtml(view)}
       <div class="card technical-profile-search-card">
         <label for="technicalProfileSearch">Szukaj danych technicznych</label>
         <input id="technicalProfileSearch" type="search" inputmode="search" autocomplete="off" placeholder="np. korek oleju, świeca, bezpiecznik FI">
       </div>
       <div id="technicalProfileResults" aria-live="polite">${renderCategoryHtml(view.categories)}</div>
     `;
+  }
+
+  function renderClarificationHtml(view) {
+    const required = [...new Set(Object.values(view.entriesById || {}).flatMap(entry => entry.resolutionStatus === "ambiguous-context" ? entry.requiredContext : []))];
+    if (!required.length) return "";
+    const field = name => required.includes(name) ? `<label>${escapeHtml(name === "region" ? "Rynek / region" : name === "abs" ? "Wersja ABS" : "Wyposażenie") }<select data-technical-clarification="${escapeHtml(name)}"><option value="">Nie wiem</option>${name === "region" ? '<option value="EU">Europa</option><option value="USA">USA</option><option value="UK">Wielka Brytania</option><option value="AU">Australia</option><option value="JP">Japonia</option>' : name === "abs" ? '<option value="true">ABS</option><option value="false">Bez ABS</option>' : ""}</select></label>` : "";
+    return `<div class="card technical-clarification"><h3>Doprecyzuj wersję motocykla</h3><p class="section-note">Znaleźliśmy więcej niż jeden pasujący wariant. Podaj tylko informacje potrzebne do wyboru właściwych danych technicznych.</p><form data-technical-clarification-form>${required.map(field).join("")}<button type="submit" class="primary">Zapisz i dobierz dane</button></form></div>`;
   }
 
   function renderStateHtml(view, options = {}) {
@@ -206,6 +214,8 @@
     const input = container.querySelector("#technicalProfileSearch");
     const results = container.querySelector("#technicalProfileResults");
     if (input && results) input.addEventListener("input", () => { results.innerHTML = renderSearchResultsHtml(view, input.value, search); });
+    const form = container.querySelector("[data-technical-clarification-form]");
+    if (form && typeof options.onClarificationSave === "function") form.addEventListener("submit", event => { event.preventDefault(); const clarification = {}; form.querySelectorAll("[data-technical-clarification]").forEach(select => { const value = select.value; clarification[select.dataset.technicalClarification] = select.dataset.technicalClarification === "abs" ? (value === "" ? null : value === "true") : (value || null); }); options.onClarificationSave(clarification); });
   }
 
   function contextLabel(field) {

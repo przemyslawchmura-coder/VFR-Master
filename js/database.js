@@ -1,11 +1,26 @@
+function normalizeTechnicalClarification(value) {
+  const source = value && typeof value === "object" ? value : {};
+  return {
+    market: typeof source.market === "string" && source.market.trim() ? source.market.trim() : null,
+    abs: typeof source.abs === "boolean" ? source.abs : null,
+    modelCode: typeof source.modelCode === "string" && source.modelCode.trim() ? source.modelCode.trim() : null,
+    equipmentVariant: typeof source.equipmentVariant === "string" && source.equipmentVariant.trim() ? source.equipmentVariant.trim() : null,
+    transmissionVariant: typeof source.transmissionVariant === "string" && source.transmissionVariant.trim() ? source.transmissionVariant.trim() : null,
+    emissionsVariant: typeof source.emissionsVariant === "string" && source.emissionsVariant.trim() ? source.emissionsVariant.trim() : null
+  };
+}
+
 const MotorcycleDatabase = {
 
   motorcycleColumns:
     "id, user_id, brand, model, year, mileage, vin, nickname, " +
-    "catalog_variant_key, created_at",
+    "catalog_variant_key, technical_clarification, created_at",
 
   legacyMotorcycleColumns:
     "id, user_id, brand, model, year, mileage, vin, nickname, created_at",
+
+  motorcycleColumnsWithoutClarification:
+    "id, user_id, brand, model, year, mileage, vin, nickname, catalog_variant_key, created_at",
 
   motorcycles: [],
 
@@ -17,6 +32,8 @@ const MotorcycleDatabase = {
 
   legacyServiceStorageKey:
     "vfrMasterLegacyServiceData",
+
+  clarificationStorageKey: "vfrMasterTechnicalClarification",
 
   setError(error, fallbackMessage) {
     this.lastError =
@@ -40,7 +57,7 @@ const MotorcycleDatabase = {
       error.hint
     ].filter(Boolean).join(" ").toLowerCase();
 
-    return errorText.includes("catalog_variant_key");
+    return errorText.includes("catalog_variant_key") || errorText.includes("technical_clarification");
   },
 
   serializeMotorcycle(motorcycle, userId, includeCatalogVariantKey = true) {
@@ -63,19 +80,36 @@ const MotorcycleDatabase = {
         motorcycle.catalogVariantKey || null;
     }
 
+    payload.technical_clarification = normalizeTechnicalClarification(motorcycle.clarification);
+
     return payload;
   },
 
   deserializeMotorcycle(motorcycle) {
     const {
       catalog_variant_key: catalogVariantKey,
+      technical_clarification: technicalClarification,
       ...applicationMotorcycle
     } = motorcycle;
 
     return {
       ...applicationMotorcycle,
-      catalogVariantKey: catalogVariantKey ?? null
+      catalogVariantKey: catalogVariantKey ?? null,
+      clarification: normalizeTechnicalClarification(technicalClarification)
     };
+  },
+
+  async updateTechnicalClarification(motorcycleId, clarification) {
+    const normalized = normalizeTechnicalClarification(clarification);
+    const bike = this.motorcycles.find(item => item.id === motorcycleId);
+    if (!bike) return { status: "not-found" };
+    bike.clarification = normalized;
+    try { localStorage.setItem(this.clarificationStorageKey, JSON.stringify(Object.fromEntries(this.motorcycles.map(item => [item.id, item.clarification])))); } catch (error) { this.setError(error, "Nie udało się zapisać doprecyzowania lokalnie."); }
+    if (window.supabaseClient) {
+      const { error } = await window.supabaseClient.from("motorcycles").update({ technical_clarification: normalized }).eq("id", motorcycleId);
+      if (error) { this.setError(error, "Nie udało się zapisać doprecyzowania w chmurze."); return { status: "cloud-error", error }; }
+    }
+    return { status: "saved", motorcycle: bike };
   },
 
   analyzeLegacyMotorcycles(motorcycles) {
@@ -319,15 +353,11 @@ const MotorcycleDatabase = {
       });
   },
 
-  async insertMotorcycle(payload, includeCatalogVariantKey = true) {
+  async insertMotorcycle(payload, includeCatalogVariantKey = true, includeClarification = true) {
     return window.supabaseClient
       .from("motorcycles")
       .insert(payload)
-      .select(
-        includeCatalogVariantKey
-          ? this.motorcycleColumns
-          : this.legacyMotorcycleColumns
-      )
+      .select(includeCatalogVariantKey ? (includeClarification ? this.motorcycleColumns : this.motorcycleColumnsWithoutClarification) : this.legacyMotorcycleColumns)
       .single();
   },
 
@@ -472,7 +502,11 @@ const MotorcycleDatabase = {
       } = await this.fetchMotorcycles();
 
       if (this.isMissingCatalogVariantKeyColumnError(error)) {
-        ({ data, error } = await this.fetchMotorcycles(false));
+        ({ data, error } = await window.supabaseClient.from("motorcycles").select(
+          String(error.message || "").includes("technical_clarification")
+            ? this.motorcycleColumnsWithoutClarification
+            : this.legacyMotorcycleColumns
+        ).order("created_at", { ascending: true }));
       }
 
       if (error) {
@@ -541,12 +575,12 @@ const MotorcycleDatabase = {
         error
       } = await this.insertMotorcycle(payload);
 
+      if (error && this.isMissingCatalogVariantKeyColumnError(error) && String(error.message || "").includes("technical_clarification")) {
+        ({ data, error } = await this.insertMotorcycle(payload, true, false));
+        delete payload.technical_clarification;
+      }
       if (error) {
-        this.setError(
-          error,
-          "Nie udało się dodać motocykla do Supabase."
-        );
-
+        this.setError(error, "Nie udało się dodać motocykla do Supabase.");
         return null;
       }
 
