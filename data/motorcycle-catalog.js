@@ -1057,6 +1057,125 @@ addModels("kawasaki", [
   m("gtr1400", "1400GTR", [v("gen1", "kawasaki.gtr1400.gen1", "I generacja", "1400GTR 2007", 2007, 2009), v("gen2", "kawasaki.gtr1400.gen2", "II generacja", "1400GTR 2010", 2010, 2017)])
 ]);
 
+/* Kawasaki Completeness Wave 2: conservative European production range. */
+addModels("kawasaki", [
+  m("zxr400", "ZXR400", [
+    v("l1-l2", "kawasaki.zxr400.l1-l2", "L1/L2", "ZXR400 L1", 1991, 1992),
+    v("l3-l9", "kawasaki.zxr400.l3-l9", "L3–L9", "ZXR400 L3", 1993, 1999)
+  ]),
+  m("zxr750-zx7r", "ZXR750 / Ninja ZX-7R", [
+    v("h2", "kawasaki.zxr750-zx7r.h2", "ZXR750 H2", "ZXR750 H2", 1990, 1990),
+    v("j-l", "kawasaki.zxr750-zx7r.j-l", "ZXR750 J/L", "ZXR750 1991", 1991, 1995),
+    v("p", "kawasaki.zxr750-zx7r.p", "Ninja ZX-7R P", "Ninja ZX-7R", 1996, 2003)
+  ]),
+  m("ninja-zx-9r", "Ninja ZX-9R", [
+    v("b", "kawasaki.ninja-zx-9r.b", "B", "Ninja ZX-9R 1994", 1994, 1997),
+    v("c", "kawasaki.ninja-zx-9r.c", "C", "Ninja ZX-9R 1998", 1998, 1999),
+    v("e", "kawasaki.ninja-zx-9r.e", "E", "Ninja ZX-9R 2000", 2000, 2001),
+    v("f", "kawasaki.ninja-zx-9r.f", "F", "Ninja ZX-9R 2002", 2002, 2003)
+  ]),
+  m("ninja-zx-12r", "Ninja ZX-12R", [
+    v("a1-a2", "kawasaki.ninja-zx-12r.a1-a2", "A1/A2", "Ninja ZX-12R 2000", 2000, 2001),
+    v("b", "kawasaki.ninja-zx-12r.b", "B", "Ninja ZX-12R 2002", 2002, 2006)
+  ]),
+  m("zzr600", "ZZR600", [
+    v("d", "kawasaki.zzr600.d", "ZX600D", "ZZR600 D", 1990, 1992),
+    v("e", "kawasaki.zzr600.e", "ZX600E", "ZZR600 E", 1993, 2006)
+  ]),
+  m("zzr1100", "ZZR1100", [
+    v("c", "kawasaki.zzr1100.c", "ZXT10C", "ZZR1100 C", 1990, 1992),
+    v("d", "kawasaki.zzr1100.d", "ZXT10D", "ZZR1100 D", 1993, 2001)
+  ]),
+  m("zzr1200", "ZZR1200", [v("c", "kawasaki.zzr1200.c", "ZXT20C", "ZZR1200", 2002, 2005)]),
+  m("zzr1400", "ZZR1400", [
+    v("gen1", "kawasaki.zzr1400.gen1", "ZX-14 / ZZR1400 — I", "ZZR1400 2006", 2006, 2011),
+    v("gen2", "kawasaki.zzr1400.gen2", "ZX-14R / ZZR1400 — II", "ZZR1400 2012", 2012, 2020)
+  ]),
+  m("gpz500s", "GPZ500S", [
+    v("ex500a", "kawasaki.gpz500s.ex500a", "EX500A", "GPZ500S 1990", 1990, 1993),
+    v("ex500d", "kawasaki.gpz500s.ex500d", "EX500D", "GPZ500S 1994", 1994, 2003)
+  ]),
+  m("gpz900r", "GPZ900R", [v("a7-a10", "kawasaki.gpz900r.a7-a10", "A7–A10", "GPZ900R", 1990, 1993)]),
+  m("gpz1100", "GPZ1100", [v("e", "kawasaki.gpz1100.e", "ZX1100E", "GPZ1100", 1995, 1998)]),
+  m("ninja-1000sx", "Z1000SX / Ninja 1000SX", [
+    v("gen1", "kawasaki.ninja-1000sx.gen1", "Z1000SX — I", "Z1000SX 2011", 2011, 2013),
+    v("gen2", "kawasaki.ninja-1000sx.gen2", "Z1000SX — II", "Z1000SX 2014", 2014, 2016),
+    v("gen3", "kawasaki.ninja-1000sx.gen3", "Z1000SX — III", "Z1000SX 2017", 2017, 2019),
+    v("gen4", "kawasaki.ninja-1000sx.gen4", "Ninja 1000SX — I", "Ninja 1000SX 2020", 2020, 2024),
+    v("gen5", "kawasaki.ninja-1000sx.gen5", "Ninja 1100SX", "Ninja 1100SX", 2025, 2025)
+  ]),
+  m("ninja-z125", "Ninja 125 / Z125", [
+    v("ninja", "kawasaki.ninja-z125.ninja", "Ninja 125", "Ninja 125", 2019, 2025),
+    v("z", "kawasaki.ninja-z125.z", "Z125", "Z125", 2019, 2025)
+  ]),
+  m("electric", "Ninja e-1 / Z e-1", [
+    v("ninja-e1", "kawasaki.electric.ninja-e1", "Ninja e-1", "Ninja e-1", 2024, 2025),
+    v("z-e1", "kawasaki.electric.z-e1", "Z e-1", "Z e-1", 2024, 2025)
+  ]),
+  m("hybrid", "Ninja 7 / Z7 Hybrid", [
+    v("ninja-7", "kawasaki.hybrid.ninja-7", "Ninja 7 Hybrid", "Ninja 7 Hybrid", 2024, 2025),
+    v("z7", "kawasaki.hybrid.z7", "Z7 Hybrid", "Z7 Hybrid", 2024, 2025)
+  ]),
+  m("er-5", "ER-5", [v("gen1", "kawasaki.er-5.gen1", "ER500", "ER-5", 1997, 2006)]),
+  m("zrx", "ZRX", [
+    v("1100", "kawasaki.zrx.1100", "ZRX1100", "ZRX1100", 1997, 2000),
+    v("1200r", "kawasaki.zrx.1200r", "ZRX1200R", "ZRX1200R", 2001, 2006),
+    v("1200s", "kawasaki.zrx.1200s", "ZRX1200S", "ZRX1200S", 2001, 2004)
+  ]),
+  m("zephyr", "Zephyr", [
+    v("550", "kawasaki.zephyr.550", "Zephyr 550", "Zephyr 550", 1991, 1998),
+    v("750", "kawasaki.zephyr.750", "Zephyr 750", "Zephyr 750", 1991, 1999),
+    v("1100", "kawasaki.zephyr.1100", "Zephyr 1100", "Zephyr 1100", 1992, 1997)
+  ]),
+  m("z900rs", "Z900RS", [
+    v("gen1", "kawasaki.z900rs.gen1", "I generacja", "Z900RS 2018", 2018, 2024),
+    v("gen2", "kawasaki.z900rs.gen2", "II generacja", "Z900RS 2025", 2025, 2025)
+  ]),
+  m("w", "W", [
+    v("w650", "kawasaki.w.w650", "W650", "W650", 1999, 2006),
+    v("w800-1", "kawasaki.w.w800-1", "W800 — I", "W800 2011", 2011, 2016),
+    v("w800-2", "kawasaki.w.w800-2", "W800 — II", "W800 2019", 2019, 2025)
+  ]),
+  m("kle500", "KLE500", [
+    v("gen1", "kawasaki.kle500.gen1", "I generacja", "KLE500 1991", 1991, 2004),
+    v("gen2", "kawasaki.kle500.gen2", "II generacja", "KLE500 2005", 2005, 2007)
+  ]),
+  m("klr650", "KLR650", [v("kl650c", "kawasaki.klr650.kl650c", "KL650C", "KLR650", 1990, 2004)]),
+  m("klx-road", "KLX Road", [
+    v("klx250", "kawasaki.klx-road.klx250", "KLX250", "KLX250", 2009, 2016),
+    v("klx125", "kawasaki.klx-road.klx125", "KLX125", "KLX125", 2010, 2016),
+    v("d-tracker125", "kawasaki.klx-road.d-tracker125", "D-Tracker 125", "D-Tracker 125", 2010, 2016)
+  ]),
+  m("versys-x300", "Versys-X 300", [v("gen1", "kawasaki.versys-x300.gen1", "Versys-X 300", "Versys-X 300", 2017, 2020)]),
+  m("gtr1000", "1000GTR", [v("zg1000", "kawasaki.gtr1000.zg1000", "ZG1000", "1000GTR", 1990, 2006)]),
+  m("vulcan-750-800", "VN750 / VN800 Vulcan", [
+    v("vn750", "kawasaki.vulcan-750-800.vn750", "VN750", "VN750 Vulcan", 1990, 1995),
+    v("vn800", "kawasaki.vulcan-750-800.vn800", "VN800", "VN800 Vulcan", 1995, 2006),
+    v("vn800-classic", "kawasaki.vulcan-750-800.vn800-classic", "VN800 Classic", "VN800 Vulcan Classic", 1996, 2006)
+  ]),
+  m("vulcan-900", "VN900 Vulcan", [
+    v("classic", "kawasaki.vulcan-900.classic", "Classic", "VN900 Vulcan Classic", 2006, 2016),
+    v("custom", "kawasaki.vulcan-900.custom", "Custom", "VN900 Vulcan Custom", 2007, 2016)
+  ]),
+  m("vulcan-1500-1600", "VN1500 / VN1600 Vulcan", [
+    v("vn1500-classic", "kawasaki.vulcan-1500-1600.vn1500-classic", "VN1500 Classic", "VN1500 Vulcan Classic", 1996, 2008),
+    v("vn1500-mean-streak", "kawasaki.vulcan-1500-1600.vn1500-mean-streak", "VN1500 Mean Streak", "VN1500 Mean Streak", 2002, 2004),
+    v("vn1600-classic", "kawasaki.vulcan-1500-1600.vn1600-classic", "VN1600 Classic", "VN1600 Vulcan Classic", 2003, 2008),
+    v("vn1600-mean-streak", "kawasaki.vulcan-1500-1600.vn1600-mean-streak", "VN1600 Mean Streak", "VN1600 Mean Streak", 2004, 2008)
+  ]),
+  m("vulcan-1700", "VN1700 Vulcan", [
+    v("classic", "kawasaki.vulcan-1700.classic", "Classic", "VN1700 Vulcan Classic", 2009, 2014),
+    v("voyager", "kawasaki.vulcan-1700.voyager", "Voyager", "VN1700 Vulcan Voyager", 2009, 2016)
+  ]),
+  m("eliminator", "Eliminator", [
+    v("el250", "kawasaki.eliminator.el250", "EL250", "EL250 Eliminator", 1990, 1995),
+    v("zl600", "kawasaki.eliminator.zl600", "ZL600", "ZL600 Eliminator", 1995, 1997),
+    v("el450", "kawasaki.eliminator.el450", "Eliminator 500", "Eliminator 500", 2024, 2025)
+  ])
+]);
+
+addVariants("kawasaki", "z750", [v("s", "kawasaki.z750.s", "Z750S", "Z750S", 2005, 2007)]);
+
 addModels("bmw", [
   m("g310", "G 310", [v("r-1", "bmw.g310.r-1", "G 310 R — I", "G 310 R 2017", 2017, 2020), v("r-2", "bmw.g310.r-2", "G 310 R — II", "G 310 R 2021", 2021, 2025), v("gs-1", "bmw.g310.gs-1", "G 310 GS — I", "G 310 GS 2017", 2017, 2020), v("gs-2", "bmw.g310.gs-2", "G 310 GS — II", "G 310 GS 2021", 2021, 2025)]),
   m("f-roadster-xr", "F Roadster / XR", [v("f800r-1", "bmw.f-roadster-xr.f800r-1", "F 800 R — I", "F 800 R 2009", 2009, 2014), v("f800r-2", "bmw.f-roadster-xr.f800r-2", "F 800 R — II", "F 800 R 2015", 2015, 2019), v("f900r-1", "bmw.f-roadster-xr.f900r-1", "F 900 R — I", "F 900 R 2020", 2020, 2024), v("f900r-2", "bmw.f-roadster-xr.f900r-2", "F 900 R — II", "F 900 R 2025", 2025, 2025), v("f900xr-1", "bmw.f-roadster-xr.f900xr-1", "F 900 XR — I", "F 900 XR 2020", 2020, 2024), v("f900xr-2", "bmw.f-roadster-xr.f900xr-2", "F 900 XR — II", "F 900 XR 2025", 2025, 2025)]),

@@ -14,11 +14,11 @@ const model = (brandId, modelId) => brand(brandId).models.find(item => item.id =
 
 test("Wave 1 totals and per-manufacturer sums are exact and deterministic", () => {
   assert.deepEqual(report, reportModule.buildReport(catalog));
-  assert.deepEqual({ manufacturers: report.manufacturers, families: report.modelFamilies, variants: report.variants, variantYears: report.variantYears }, { manufacturers: 13, families: 239, variants: 802, variantYears: 3829 });
+  assert.deepEqual({ manufacturers: report.manufacturers, families: report.modelFamilies, variants: report.variants, variantYears: report.variantYears }, { manufacturers: 13, families: 269, variants: 870, variantYears: 4232 });
   assert.equal(report.perManufacturer.reduce((sum, item) => sum + item.variants, 0), report.variants);
   assert.equal(report.perManufacturer.reduce((sum, item) => sum + item.variantYears, 0), report.variantYears);
   assert.deepEqual(Object.fromEntries(report.perManufacturer.map(item => [item.id, [item.families, item.variants, item.variantYears]])), {
-    aprilia: [8, 24, 110], bmw: [10, 50, 217], ducati: [9, 46, 201], "harley-davidson": [3, 15, 102], honda: [50, 180, 728], indian: [3, 6, 30], kawasaki: [17, 64, 244], ktm: [9, 38, 151], "moto-guzzi": [4, 11, 39], "royal-enfield": [3, 7, 35], suzuki: [54, 146, 881], triumph: [9, 38, 186], yamaha: [60, 177, 905]
+    aprilia: [8, 24, 110], bmw: [10, 50, 217], ducati: [9, 46, 201], "harley-davidson": [3, 15, 102], honda: [50, 180, 728], indian: [3, 6, 30], kawasaki: [47, 132, 647], ktm: [9, 38, 151], "moto-guzzi": [4, 11, 39], "royal-enfield": [3, 7, 35], suzuki: [54, 146, 881], triumph: [9, 38, 186], yamaha: [60, 177, 905]
   });
   assert.equal(report.earliestYear, 1990);
   assert.equal(report.latestYear, 2025);
