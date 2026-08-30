@@ -1473,6 +1473,87 @@ addModels("triumph", [
   m("scrambler", "Scrambler", [v("865", "triumph.scrambler.865", "865", "Scrambler 865", 2006, 2016), v("900", "triumph.scrambler.900", "900", "Street Scrambler 900", 2017, 2025), v("1200-1", "triumph.scrambler.1200-1", "1200 — I", "Scrambler 1200 2019", 2019, 2023), v("1200-2", "triumph.scrambler.1200-2", "1200 — II", "Scrambler 1200 2024", 2024, 2025)])
 ]);
 
+/* Triumph Wave 1: conservative MY1990–2025 road-production coverage.
+   Official Triumph timeline/model archives establish the Hinckley launches;
+   handbooks, brochures and period technical references corroborate boundaries. */
+addModels("triumph", [
+  m("trophy", "Trophy", [
+    v("900", "triumph.trophy.900", "900", "Trophy 900", 1991, 2002),
+    v("1200", "triumph.trophy.1200", "1200", "Trophy 1200", 1991, 2003)
+  ]),
+  m("trident", "Trident", [
+    v("750", "triumph.trident.750", "750", "Trident 750", 1991, 1998),
+    v("900", "triumph.trident.900", "900", "Trident 900", 1991, 1998)
+  ]),
+  m("sprint", "Sprint", [
+    v("900", "triumph.sprint.900", "900", "Sprint 900", 1993, 1998),
+    v("955i", "triumph.sprint.955i", "955i", "Sprint ST 955i", 1999, 2004),
+    v("1050", "triumph.sprint.1050", "1050", "Sprint ST 1050", 2005, 2010),
+    v("gt", "triumph.sprint.gt", "GT", "Sprint GT", 2010, 2013)
+  ]),
+  m("daytona-classic", "Daytona (classic)", [
+    v("750", "triumph.daytona-classic.750", "750", "Daytona 750", 1991, 1992),
+    v("900", "triumph.daytona-classic.900", "900", "Daytona 900", 1993, 1996),
+    v("1000", "triumph.daytona-classic.1000", "1000", "Daytona 1000", 1991, 1993),
+    v("1200", "triumph.daytona-classic.1200", "1200", "Daytona 1200", 1993, 1998),
+    v("super-iii", "triumph.daytona-classic.super-iii", "Super III", "Daytona Super III", 1994, 1996),
+    v("t595-955i", "triumph.daytona-classic.t595-955i", "T595 / 955i", "Daytona T595 / 955i", 1997, 2006),
+    v("600", "triumph.daytona-classic.600", "600", "Daytona 600", 2003, 2005),
+    v("650", "triumph.daytona-classic.650", "650", "Daytona 650", 2005, 2006),
+    v("moto2-765", "triumph.daytona-classic.moto2-765", "Moto2 765", "Daytona Moto2 765", 2020, 2020)
+  ]),
+  m("thunderbird", "Thunderbird", [
+    v("900", "triumph.thunderbird.900", "900", "Thunderbird 900", 1995, 2003),
+    v("sport", "triumph.thunderbird.sport", "Sport", "Thunderbird Sport", 1997, 2004),
+    v("1600", "triumph.thunderbird.1600", "1600", "Thunderbird 1600", 2009, 2011),
+    v("storm", "triumph.thunderbird.storm", "Storm", "Thunderbird Storm", 2011, 2018),
+    v("commander", "triumph.thunderbird.commander", "Commander", "Thunderbird Commander", 2014, 2018),
+    v("lt", "triumph.thunderbird.lt", "LT", "Thunderbird LT", 2014, 2018)
+  ]),
+  m("legend-adventurer", "Legend / Adventurer", [
+    v("legend", "triumph.legend-adventurer.legend", "Legend TT", "Legend TT", 1999, 2001),
+    v("adventurer", "triumph.legend-adventurer.adventurer", "Adventurer", "Adventurer", 1996, 2001)
+  ]),
+  m("tt-speed-four", "TT / Speed Four", [
+    v("tt600", "triumph.tt-speed-four.tt600", "TT600", "TT600", 2000, 2004),
+    v("speed-four", "triumph.tt-speed-four.speed-four", "Speed Four", "Speed Four", 2002, 2006)
+  ]),
+  m("speedmaster", "Speedmaster", [
+    v("865", "triumph.speedmaster.865", "865", "Speedmaster 865", 2003, 2016),
+    v("1200", "triumph.speedmaster.1200", "1200", "Speedmaster 1200", 2018, 2025)
+  ]),
+  m("bobber", "Bobber", [
+    v("1200", "triumph.bobber.1200", "1200", "Bonneville Bobber 1200", 2017, 2020),
+    v("1200-2", "triumph.bobber.1200-2", "1200 — II", "Bonneville Bobber 1200 2021", 2021, 2025)
+  ]),
+  m("thruxton", "Thruxton", [
+    v("900", "triumph.thruxton.900", "900", "Thruxton 900", 2004, 2015),
+    v("1200", "triumph.thruxton.1200", "1200", "Thruxton 1200", 2016, 2019),
+    v("r", "triumph.thruxton.r", "R", "Thruxton R", 2016, 2020),
+    v("rs", "triumph.thruxton.rs", "RS", "Thruxton RS", 2020, 2024)
+  ]),
+  m("speed-twin", "Speed Twin", [
+    v("1200", "triumph.speed-twin.1200", "1200", "Speed Twin 1200", 2019, 2024),
+    v("900", "triumph.speed-twin.900", "900", "Street Twin / Speed Twin 900", 2016, 2025)
+  ]),
+  m("tiger-sport", "Tiger Sport", [
+    v("1050", "triumph.tiger-sport.1050", "1050", "Tiger Sport 1050", 2013, 2020)
+  ]),
+  m("rocket-config", "Rocket III configurations", [
+    v("classic", "triumph.rocket-config.classic", "Classic", "Rocket III Classic", 2006, 2010),
+    v("touring", "triumph.rocket-config.touring", "Touring", "Rocket III Touring", 2008, 2018),
+    v("roadster", "triumph.rocket-config.roadster", "Roadster", "Rocket III Roadster", 2010, 2018)
+  ]),
+  m("tiger-config", "Tiger road/adventure configurations", [
+    v("800-xc", "triumph.tiger-config.800-xc", "800 XC", "Tiger 800 XC", 2011, 2019),
+    v("800-xr", "triumph.tiger-config.800-xr", "800 XR", "Tiger 800 XR", 2015, 2019),
+    v("900-gt", "triumph.tiger-config.900-gt", "900 GT", "Tiger 900 GT", 2020, 2025),
+    v("900-rally", "triumph.tiger-config.900-rally", "900 Rally", "Tiger 900 Rally", 2020, 2025),
+    v("1200-gt", "triumph.tiger-config.1200-gt", "1200 GT", "Tiger 1200 GT", 2022, 2025),
+    v("1200-rally", "triumph.tiger-config.1200-rally", "1200 Rally", "Tiger 1200 Rally", 2022, 2025)
+  ])
+]);
+
 addModels("ktm", [
   m("rc390", "RC 390", [v("gen1", "ktm.rc390.gen1", "I generacja", "RC 390 2014", 2014, 2016), v("gen1-fl", "ktm.rc390.gen1-fl", "I generacja — facelift", "RC 390 2017", 2017, 2021), v("gen2", "ktm.rc390.gen2", "II generacja", "RC 390 2022", 2022, 2025)]),
   m("duke-middle", "790 / 890 / 990 Duke", [v("790-1", "ktm.duke-middle.790-1", "790 — I", "790 Duke 2018", 2018, 2020), v("790-2", "ktm.duke-middle.790-2", "790 — powrót", "790 Duke 2023", 2023, 2025), v("890", "ktm.duke-middle.890", "890", "890 Duke", 2021, 2023), v("990", "ktm.duke-middle.990", "990", "990 Duke", 2024, 2025)]),

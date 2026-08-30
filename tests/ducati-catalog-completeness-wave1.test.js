@@ -18,7 +18,7 @@ const originalKeys = new Set(["ducati.desertx.gen1","ducati.diavel.1200","ducati
 test("Ducati Wave 1 identities survive and current catalogue totals are deterministic", () => {
   const report = reportModule.buildReport(data);
   assert.deepEqual(report.perManufacturer.find(item => item.id === "ducati"), { id: "ducati", manufacturer: "Ducati", families: 21, variants: 120, variantYears: 475, earliestYear: 1990, latestYear: 2025 });
-  assert.deepEqual({ manufacturers: report.manufacturers, families: report.modelFamilies, variants: report.variants, variantYears: report.variantYears }, { manufacturers: 13, families: 300, variants: 1029, variantYears: 4942 });
+  assert.deepEqual({ manufacturers: report.manufacturers, families: report.modelFamilies, variants: report.variants, variantYears: report.variantYears }, { manufacturers: 13, families: 314, variants: 1076, variantYears: 5236 });
 });
 
 test("Ducati keys, semantic identities, ranges and stored-model years are unique", () => {

@@ -18,7 +18,7 @@ const hash = value => crypto.createHash("sha256").update(JSON.stringify(value)).
 test("Kawasaki Wave 2 counts and global totals are deterministic", () => {
   const report = reportModule.buildReport(data);
   assert.deepEqual(report.perManufacturer.find(item => item.id === "kawasaki"), { id: "kawasaki", manufacturer: "Kawasaki", families: 47, variants: 132, variantYears: 647, earliestYear: 1990, latestYear: 2025 });
-  assert.deepEqual({ manufacturers: report.manufacturers, families: report.modelFamilies, variants: report.variants, variantYears: report.variantYears }, { manufacturers: 13, families: 300, variants: 1029, variantYears: 4942 });
+  assert.deepEqual({ manufacturers: report.manufacturers, families: report.modelFamilies, variants: report.variants, variantYears: report.variantYears }, { manufacturers: 13, families: 314, variants: 1076, variantYears: 5236 });
 });
 
 test("Kawasaki keys, years and stored-model years are collision-free", () => {
