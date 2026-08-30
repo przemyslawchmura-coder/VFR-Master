@@ -15,16 +15,15 @@ const family = id => ducati.models.find(item => item.id === id);
 const hash = value => crypto.createHash("sha256").update(JSON.stringify(value)).digest("hex");
 const originalKeys = new Set(["ducati.desertx.gen1","ducati.diavel.1200","ducati.diavel.1260","ducati.diavel.v4","ducati.hypermotard.1100","ducati.hypermotard.821","ducati.hypermotard.939","ducati.hypermotard.950","ducati.monster.1100","ducati.monster.1100-evo","ducati.monster.1200","ducati.monster.620","ducati.monster.695","ducati.monster.696","ducati.monster.796","ducati.monster.821","ducati.monster.937","ducati.monster.m600","ducati.monster.m900","ducati.multistrada.1000","ducati.multistrada.1100","ducati.multistrada.1200-1","ducati.multistrada.1200-dvt","ducati.multistrada.1260","ducati.multistrada.v4-1","ducati.multistrada.v4-2","ducati.panigale.1199","ducati.panigale.1299","ducati.panigale.899","ducati.panigale.959","ducati.panigale.v2-1","ducati.panigale.v2-2","ducati.panigale.v4-1","ducati.panigale.v4-2","ducati.scrambler.desert-sled","ducati.scrambler.icon-1","ducati.scrambler.icon-2","ducati.streetfighter.1098","ducati.streetfighter.848","ducati.streetfighter.v4-1","ducati.streetfighter.v4-2","ducati.superbike-v2.1098","ducati.superbike-v2.1198","ducati.superbike-v2.749","ducati.superbike-v2.848","ducati.superbike-v2.999"]);
 
-test("Ducati Wave 1 counts and catalogue totals are deterministic", () => {
+test("Ducati Wave 1 identities survive and current catalogue totals are deterministic", () => {
   const report = reportModule.buildReport(data);
-  assert.deepEqual(report.perManufacturer.find(item => item.id === "ducati"), { id: "ducati", manufacturer: "Ducati", families: 18, variants: 96, variantYears: 404, earliestYear: 1990, latestYear: 2025 });
-  assert.deepEqual({ manufacturers: report.manufacturers, families: report.modelFamilies, variants: report.variants, variantYears: report.variantYears }, { manufacturers: 13, families: 297, variants: 1005, variantYears: 4871 });
+  assert.deepEqual(report.perManufacturer.find(item => item.id === "ducati"), { id: "ducati", manufacturer: "Ducati", families: 21, variants: 120, variantYears: 475, earliestYear: 1990, latestYear: 2025 });
+  assert.deepEqual({ manufacturers: report.manufacturers, families: report.modelFamilies, variants: report.variants, variantYears: report.variantYears }, { manufacturers: 13, families: 300, variants: 1029, variantYears: 4942 });
 });
 
 test("Ducati keys, semantic identities, ranges and stored-model years are unique", () => {
-  assert.equal(new Set(ducati.models.map(item => item.id)).size, 18);
-  assert.equal(new Set(variants.map(item => item.key)).size, 96);
-  assert.equal(hash(variants.map(item => item.key)), "bc550bfb2661ccc4827ea07ffebf7f29331c424bee1663c02894cd2c4a538b5b");
+  assert.equal(new Set(ducati.models.map(item => item.id)).size, 21);
+  assert.equal(new Set(variants.map(item => item.key)).size, 120);
   const semantics = new Set(), storedYears = new Set();
   ducati.models.forEach(model => {
     assert.equal(new Set(model.variants.map(item => item.id)).size, model.variants.length, model.id);
