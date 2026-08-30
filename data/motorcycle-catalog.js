@@ -1551,7 +1551,44 @@ addModels("triumph", [
     v("900-rally", "triumph.tiger-config.900-rally", "900 Rally", "Tiger 900 Rally", 2020, 2025),
     v("1200-gt", "triumph.tiger-config.1200-gt", "1200 GT", "Tiger 1200 GT", 2022, 2025),
     v("1200-rally", "triumph.tiger-config.1200-rally", "1200 Rally", "Tiger 1200 Rally", 2022, 2025)
-  ])
+  ]),
+  m("street-triple-config", "Street Triple performance configurations", [
+    v("675-r-1", "triumph.street-triple-config.675-r-1", "675 R — I", "Street Triple 675 R 2009", 2009, 2012),
+    v("675-r-2", "triumph.street-triple-config.675-r-2", "675 R — II", "Street Triple 675 R 2013", 2013, 2016),
+    v("765-r", "triumph.street-triple-config.765-r", "765 R", "Street Triple 765 R", 2017, 2022),
+    v("765-rs", "triumph.street-triple-config.765-rs", "765 RS", "Street Triple 765 RS", 2017, 2025),
+    v("moto2", "triumph.street-triple-config.moto2", "Moto2 Edition", "Street Triple Moto2 Edition", 2023, 2023)
+  ]),
+  m("speed-triple-config", "Speed Triple performance configurations", [
+    v("1050-r", "triumph.speed-triple-config.1050-r", "1050 R", "Speed Triple 1050 R", 2012, 2015),
+    v("1050-rs", "triumph.speed-triple-config.1050-rs", "1050 RS", "Speed Triple 1050 RS", 2018, 2020),
+    v("1200-rr", "triumph.speed-triple-config.1200-rr", "1200 RR", "Speed Triple 1200 RR", 2022, 2025)
+  ]),
+  m("speed-400", "Speed 400", [
+    v("gen1", "triumph.speed-400.gen1", "400", "Speed 400", 2024, 2025)
+  ]),
+  m("scrambler-400", "Scrambler 400 X", [
+    v("gen1", "triumph.scrambler-400.gen1", "400 X", "Scrambler 400 X", 2024, 2025)
+  ]),
+
+]);
+
+addVariants("triumph", "bonneville", [
+  v("t100-865", "triumph.bonneville.t100-865", "T100 865", "Bonneville T100 865", 2007, 2016)
+]);
+
+addVariants("triumph", "tiger-config", [
+  v("900-gt-pro", "triumph.tiger-config.900-gt-pro", "900 GT Pro", "Tiger 900 GT Pro", 2020, 2025),
+  v("900-rally-pro", "triumph.tiger-config.900-rally-pro", "900 Rally Pro", "Tiger 900 Rally Pro", 2020, 2025),
+  v("1200-gt-pro", "triumph.tiger-config.1200-gt-pro", "1200 GT Pro", "Tiger 1200 GT Pro", 2022, 2025),
+  v("1200-gt-explorer", "triumph.tiger-config.1200-gt-explorer", "1200 GT Explorer", "Tiger 1200 GT Explorer", 2022, 2025),
+  v("1200-rally-pro", "triumph.tiger-config.1200-rally-pro", "1200 Rally Pro", "Tiger 1200 Rally Pro", 2022, 2025),
+  v("1200-rally-explorer", "triumph.tiger-config.1200-rally-explorer", "1200 Rally Explorer", "Tiger 1200 Rally Explorer", 2022, 2025)
+]);
+
+addVariants("triumph", "rocket-config", [
+  v("3-storm-r", "triumph.rocket-config.3-storm-r", "3 Storm R", "Rocket 3 Storm R", 2024, 2025),
+  v("3-storm-gt", "triumph.rocket-config.3-storm-gt", "3 Storm GT", "Rocket 3 Storm GT", 2024, 2025)
 ]);
 
 addModels("ktm", [
