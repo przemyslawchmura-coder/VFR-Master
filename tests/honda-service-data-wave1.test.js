@@ -77,6 +77,16 @@ test("source acquisition audit is scoped, complete and deterministic", () => {
   assert.ok(result.byTarget.filter(item => allowed.has(item.catalogVariantKey)).every(item => item.sourceAttempts && item.sourceAttempts.attempted >= 1));
 });
 
+test("VFR reconciliation uses independently cited manual evidence with traceability", () => {
+  const result = report.buildReport();
+  const vfr = result.byTarget.find(item => item.catalogVariantKey === "honda.vfr800.rc46.vtec.gen1");
+  assert.ok(vfr.post.serviceCore.evidenceFound >= 30);
+  assert.equal(vfr.sourceQuality.serviceManual, vfr.post.serviceCore.evidenceFound);
+  assert.ok(acquisition.attempts.some(item => item.disposition === "acquired-content" && item.target === "honda.vfr800.rc46.vtec.gen1"));
+  const vfrEvidence = data.evidence.filter(item => item.catalogVariantKey === "honda.vfr800.rc46.vtec.gen1");
+  assert.ok(vfrEvidence.every(item => item.traceability && item.traceability.independentlyVerified && item.traceability.productionSourceId));
+});
+
 test("existing CBR500R deep baseline remains unchanged", () => {
   const dataset = require("../research/data/research-dataset.js");
   const metrics = require("../js/research/research-report-generator.js").buildDeepProfileMetrics(dataset, ["honda.cbr500r.gen4"])["honda.cbr500r.gen4"];

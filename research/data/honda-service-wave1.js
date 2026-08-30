@@ -21,7 +21,10 @@ const serviceCore = Object.freeze([
 const sources = Object.freeze([
   { id: "research.honda.service.cbr500r.2024-manual", type: "official-owner-manual", title: "2024 CBR500R/NX500 Owner's Manual", manufacturer: "Honda", documentYear: 2024, region: "USA/Canada", url: "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf" },
   { id: "research.honda.service.2021-supersport-brochure", type: "official-technical-publication", title: "Honda UK 2021 Super Sport brochure", manufacturer: "Honda", documentYear: 2021, region: "EU/UK", url: "https://www.honda.co.uk/content/dam/local/uk/brochures/motorcycles/21YMBrochures/21YMHUKMCSUPERSPORTLR1.pdf" },
-  { id: "research.honda.service.2021-adventure-brochure", type: "official-technical-publication", title: "Honda UK 2021 Adventure brochure", manufacturer: "Honda", documentYear: 2021, region: "EU/UK", url: "https://www.honda.co.uk/content/dam/local/uk/brochures/motorcycles/21YMBrochures/21YMHUKMCAdventureLR1.pdf" }
+  { id: "research.honda.service.2021-adventure-brochure", type: "official-technical-publication", title: "Honda UK 2021 Adventure brochure", manufacturer: "Honda", documentYear: 2021, region: "EU/UK", url: "https://www.honda.co.uk/content/dam/local/uk/brochures/motorcycles/21YMBrochures/21YMHUKMCAdventureLR1.pdf" },
+  { id: "research.honda.service.vfr800.2002-manual", type: "oem-service-manual", title: "Honda VFR800/VFR800A 2002 Service Manual", manufacturer: "Honda Motor Co., Ltd.", publicationId: "61MCW07", documentYear: 2002, region: "ALL", url: "https://www.manualslib.com/manual/3139216/Honda-Interceptor-2002.html", independentlyVerified: true },
+  { id: "research.honda.service.vfr800.2002-service-card", type: "oem-service-data-card", title: "VFR800 (VTEC) RC46 2002–2005 service data card", manufacturer: "Honda", documentYear: 2002, region: "EU", url: "https://www.hondabikes.fi/content/download/7049/43710/file/VFR800F%202002-2005%20huoltokortti.pdf", independentlyVerified: true },
+  { id: "research.honda.service.vfr800.2002-parts", type: "authorized-oem-parts", title: "Honda VFR800 2002 genuine-parts fiche (RC46)", manufacturer: "Honda", documentYear: 2002, region: "EU", url: "https://www.pieces-honda.be/thumbs/pdf_url/img/fiche_technique/VFR8002/2500_2500/001.pdf", metadataOnly: true }
 ]);
 
 const targets = Object.freeze([
@@ -78,7 +81,48 @@ const evidenceRows = [
   ["honda.nc750x.rh09-1", "fuel_intake.tank-capacity", "14.1 L", 14.1, "L", "research.honda.service.2021-adventure-brochure", "Specifications — NC750X", "19"]
 ];
 
-const evidence = Object.freeze(evidenceRows.map(([catalogVariantKey, field, rawValue, normalizedValue, unit, sourceId, sourceSection, sourcePage], index) => Object.freeze({ id: `honda.service.wave1.evidence.${String(index + 1).padStart(3, "0")}`, catalogVariantKey, field, status: "evidence-found", rawValue, normalizedValue, unit, sourceId, sourceSection, sourcePage, researchDate, applicability: Object.freeze({ abs: null, transmission: null }) })));
+const vfrEvidence = [
+  ["engine.configuration", "90° V4 DOHC VTEC", "90° V4 DOHC VTEC", null, "1. General Information / General specifications", "1-4", "cite.honda.vfr800-2002.sm.general-specs"],
+  ["engine.displacement", "782 cm³", 782, "cm³", "1. General Information / General specifications", "1-4", "cite.honda.vfr800-2002.sm.general-specs"],
+  ["engine.idle-speed", "1,200 ±100 rpm", 1200, "rpm", "1. General Information / PGM-FI specifications", "1-6", "cite.honda.vfr800-2002.sm.fuel-specs"],
+  ["lubrication.oil-specification", "API SF/SG or higher; JASO MA; no molybdenum", "API SF/SG or higher; JASO MA", null, "1. General Information / Lubrication system", "1-6", "cite.honda.vfr800-2002.sm.lubrication-specs"],
+  ["lubrication.viscosity", "SAE 10W-40", "SAE 10W-40", null, "1. General Information / Lubrication system", "1-6", "cite.honda.vfr800-2002.sm.lubrication-specs"],
+  ["lubrication.capacity-drain", "2.9 L after draining", 2.9, "L", "1. General Information / Lubrication system", "1-6", "cite.honda.vfr800-2002.sm.lubrication-specs"],
+  ["lubrication.capacity-filter", "3.1 L after oil-filter change", 3.1, "L", "1. General Information / Lubrication system", "1-6", "cite.honda.vfr800-2002.sm.lubrication-specs"],
+  ["lubrication.oil-filter", "15410-MCJ-505", "15410-MCJ-505", null, "3. Maintenance / Oil filter", "3-14–3-16", "cite.honda.vfr800-2002.sm.engine-oil-service"],
+  ["cooling.coolant-specification", "Ethylene-glycol coolant, 50% distilled-water mix", "Ethylene-glycol, 50% mix", null, "1. General Information / Cooling", "1-6", "cite.honda.vfr800-2002.sm.cooling-specs"],
+  ["cooling.capacity", "2.92 L engine and radiators", 2.92, "L", "1. General Information / Cooling", "1-6", "cite.honda.vfr800-2002.sm.cooling-specs"],
+  ["ignition.spark-plug-oem", "NGK IMR9B-9H / DENSO VNH27Z", "NGK IMR9B-9H / DENSO VNH27Z", null, "3. Maintenance / Spark plug", "3-8", "cite.honda.vfr800-2002.sm.spark-plug"],
+  ["ignition.plug-gap", "0.8–0.9 mm", { min: 0.8, max: 0.9 }, "mm", "3. Maintenance / Spark plug", "3-8", "cite.honda.vfr800-2002.sm.spark-plug"],
+  ["valve_train.intake-clearance", "0.20 ±0.03 mm standard; 0.20 ±0.08 mm VTEC", { standard: { nominal: 0.2, tolerance: 0.03 }, vtec: { nominal: 0.2, tolerance: 0.08 } }, "mm", "3. Maintenance / Valve clearance", "3-9–3-13", "cite.honda.vfr800-2002.sm.valve-procedure"],
+  ["valve_train.exhaust-clearance", "0.35 ±0.03 mm standard; 0.35 ±0.08 mm VTEC", { standard: { nominal: 0.35, tolerance: 0.03 }, vtec: { nominal: 0.35, tolerance: 0.08 } }, "mm", "3. Maintenance / Valve clearance", "3-9–3-13", "cite.honda.vfr800-2002.sm.valve-procedure"],
+  ["valve_train.measurement-conditions", "Engine below 35 °C; separate VTEC lifter procedure", "cold below 35 °C", "°C", "3. Maintenance / Valve clearance", "3-9–3-13", "cite.honda.vfr800-2002.sm.valve-procedure"],
+  ["valve_train.inspection-interval", "24,000 km", 24000, "km", "3. Maintenance / Maintenance schedule", "3-4–3-5", "cite.honda.vfr800-2002.sm.maintenance-schedule"],
+  ["final_drive.chain-size", "RK50HFOZ5, 110 links", "RK50HFOZ5 / 110 links", null, "1. General Information / Drive chain", "1-5", "cite.honda.vfr800-2002.sm.chain-specification"],
+  ["final_drive.chain-slack", "25–35 mm", { min: 25, max: 35 }, "mm", "3. Maintenance / Drive chain", "3-19–3-21", "cite.honda.vfr800-2002.sm.drive-chain"],
+  ["final_drive.chain-inspection", "Inspect and adjust at scheduled service", "scheduled inspection", null, "3. Maintenance / Drive chain", "3-19–3-21", "cite.honda.vfr800-2002.sm.drive-chain"],
+  ["final_drive.chain-lubrication-interval", "1,000 km and after wet riding", "1,000 km / wet-use condition", "km", "3. Maintenance / Maintenance schedule", "3-4–3-5", "cite.honda.vfr800-2002.sm.maintenance-schedule"],
+  ["brakes.brake-fluid", "DOT 4", "DOT 4", null, "3. Maintenance / Brake fluid", "3-25", "cite.honda.vfr800-2002.sm.brake-fluid"],
+  ["brakes.fluid-interval", "24 months", 24, "months", "3. Maintenance / Maintenance schedule", "3-4–3-5", "cite.honda.vfr800-2002.sm.maintenance-schedule"],
+  ["brakes.front-rear-configuration", "Dual front discs; rear disc; CBS/ABS applicability retained", "dual front / rear disc", null, "1. General Information / Brake specifications", "1-9, 1-18", "cite.honda.vfr800-2002.sm.chassis-specs"],
+  ["tires_wheels.front-size", "120/70 ZR17", "120/70 ZR17", null, "1. General Information / Wheel specifications", "1-9", "cite.honda.vfr800-2002.sm.chassis-specs"],
+  ["tires_wheels.rear-size", "180/55 ZR17", "180/55 ZR17", null, "1. General Information / Wheel specifications", "1-9", "cite.honda.vfr800-2002.sm.chassis-specs"],
+  ["tires_wheels.solo-pressures", "250 kPa front / 290 kPa rear, cold", { front: 250, rear: 290, condition: "cold" }, "kPa", "Honda RC46 service data card", "1", "cite.honda.vfr800-2002.card.service-data"],
+  ["electrical.battery-specification", "12 V battery, 10 Ah class", "12 V / 10 Ah", null, "1. General Information / Electrical specifications", "1-14", "cite.honda.vfr800-2002.sm.electrical-output"],
+  ["electrical.main-fuse", "30 A main fuse", 30, "A", "Owner manual / Fuse replacement", "135–136", "cite.honda.vfr800-2002.om.fuses"],
+  ["fuel_intake.tank-capacity", "22 L", 22, "L", "1. General Information / General specifications", "1-4", "cite.honda.vfr800-2002.sm.general-specs"],
+  ["maintenance.periodic-schedule", "Honda maintenance schedule", "documented", null, "3. Maintenance / Maintenance schedule", "3-4–3-5", "cite.honda.vfr800-2002.sm.maintenance-schedule"],
+  ["maintenance.schedule-mileage-intervals", "12,000 km oil service; 24,000 km valve inspection", { oil: 12000, valves: 24000 }, "km", "Honda RC46 service data card", "1", "cite.honda.vfr800-2002.card.maintenance"],
+  ["maintenance.schedule-time-intervals", "12 months oil service; 24 months fluids", { oil: 12, fluids: 24 }, "months", "Honda RC46 service data card", "1", "cite.honda.vfr800-2002.card.maintenance"],
+  ["torques.oil-drain-bolt", "30 N·m", 30, "N·m", "3. Maintenance / Engine oil service", "3-14–3-16", "cite.honda.vfr800-2002.sm.engine-oil-service"],
+  ["torques.oil-filter", "26 N·m", 26, "N·m", "3. Maintenance / Engine oil service", "3-14–3-16", "cite.honda.vfr800-2002.sm.engine-oil-service"],
+  ["torques.spark-plugs", "12 N·m", 12, "N·m", "3. Maintenance / Spark plug", "3-8", "cite.honda.vfr800-2002.sm.spark-plug"],
+  ["torques.front-axle", "59 N·m", 59, "N·m", "1. General Information / Frame torque values", "1-17", "cite.honda.vfr800-2002.sm.frame-torques"],
+  ["torques.rear-axle", "113 N·m", 113, "N·m", "1. General Information / Frame torque values", "1-17", "cite.honda.vfr800-2002.sm.frame-torques"]
+].map(([field, rawValue, normalizedValue, unit, sourceSection, sourcePage, sourceId], index) => ["honda.vfr800.rc46.vtec.gen1", field, rawValue, normalizedValue, unit, "research.honda.service.vfr800.2002-manual", sourceSection, sourcePage, sourceId]);
+
+const allEvidenceRows = evidenceRows.concat(vfrEvidence);
+const evidence = Object.freeze(allEvidenceRows.map(([catalogVariantKey, field, rawValue, normalizedValue, unit, sourceId, sourceSection, sourcePage, productionSourceId], index) => Object.freeze({ id: `honda.service.wave1.evidence.${String(index + 1).padStart(3, "0")}`, catalogVariantKey, field, status: "evidence-found", rawValue, normalizedValue, unit, sourceId, sourceSection, sourcePage, researchDate, traceability: productionSourceId ? Object.freeze({ productionSourceId, independentlyVerified: true, comparison: "MATCH-NORMALIZED" }) : null, applicability: Object.freeze({ abs: null, transmission: null }) })));
 const noEvidenceFields = Object.freeze([
   ["honda.cbr500r.pc70", ["valve_train.intake-clearance", "valve_train.exhaust-clearance", "valve_train.measurement-conditions", "valve_train.inspection-interval", "brakes.oem-pad-numbers", "torques.oil-drain-bolt", "torques.oil-filter", "torques.spark-plugs", "torques.front-axle", "torques.rear-axle", "electrical.charging-voltage"]]
 ]);
