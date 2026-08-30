@@ -15,7 +15,7 @@ Research is quarantined under `research/` and is not imported by the production 
 
 ## Current facts
 
-- Catalogue: 13 manufacturers, 318 families, 1,095 variants, 5,317 variant-years, MY1990–2025.
+- Catalogue inventory: 13 manufacturers, 318 families, 1,095 variants, 5,317 variant-years, MY1990–2025. Catalogue infrastructure/identity is mature for the tested scope; global catalogue content coverage remains incomplete and has no defensible percentage denominator.
 - Production Technical Profiles: 1 real profile, VFR800 MY2002, 99 entries (94 verified, 5 pending).
 - Research schema: 183 canonical fields; Service Core: 44 fields.
 - Honda Service Data Wave 1 population: 8 targets and 51/352 aggregate Service Core slots (the denominator is specifically 8 × 44).
@@ -24,6 +24,13 @@ Research is quarantined under `research/` and is not imported by the production 
 - Honda Batch Wave 2 population: 12 selected catalogue targets, 528 target-field slots, 6 underlying documents, 6 new verified slots; all gains were generic engine specification fields and practical-service-field gain was 0.
 - Latest full suite before this audit: 381 passed, 0 failed, 0 skipped, 0 todo.
 - Published application version: 0.3.0.
+
+## Independent work streams
+
+- **Stream A — Catalogue expansion:** identify and add missing manufacturers, families, generations, variants, model years, aliases and market/applicability identities.
+- **Stream B — Technical data/profile coverage:** acquire source-backed service data, resolve applicability/conflicts, and promote only through controlled review.
+
+A catalogue identity does not imply a Technical Profile. Mature profile tooling does not imply complete catalogue content.
 
 ## WIP and blockers
 
@@ -39,5 +46,7 @@ Research is quarantined under `research/` and is not imported by the production 
 **NEXT 2** — Perform a production-readiness audit of authentication, persistence, RLS and error paths against an explicitly selected test backend.
 
 **NEXT 3** — Design a controlled Technical Profile promotion review for one non-VFR candidate without changing production data in the design phase.
+
+The future **GLOBAL CATALOGUE GAP / COVERAGE AUDIT** is a separate bounded checkpoint: inventory what exists, identify missing manufacturers/families/generations/years and regional/ABS/transmission gaps, then prioritize additions. It is not executed yet.
 
 Operator-reported live fact (not independently verified by Codex): Supabase Auth Site URL was corrected from the GitHub Pages root to the deployed VFR-Master project path, and a fresh signup/email-confirmation flow was manually tested successfully.

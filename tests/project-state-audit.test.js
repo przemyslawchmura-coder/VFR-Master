@@ -12,6 +12,8 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.match(snapshot.originMain, /^[0-9a-f]{40}$/);
   assert.equal(snapshot.catalogue.manufacturers, 13);
   assert.equal(snapshot.catalogue.variants, 1095);
+  assert.equal(snapshot.catalogue.contentCompleteness, "incomplete");
+  assert.equal(snapshot.catalogue.latestCompletedExpansion, "Triumph Wave 2");
   assert.equal(snapshot.research.serviceCoreFieldCount, 44);
   assert.equal(snapshot.research.hondaServiceWave1.targets, 8);
   assert.equal(snapshot.research.batchWave2.selectedTargets, 12);

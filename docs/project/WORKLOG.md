@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-08-30 — Catalogue completeness checkpoint (current)
+
+Objective: correct project memory so catalogue infrastructure maturity is not confused with global content completeness. Verified current inventory (13 manufacturers, 318 families, 1,095 variants, 5,317 variant-years) and history: Triumph Wave 2 is the latest completed catalogue expansion before research/tooling work. Added the future Global Catalogue Gap / Coverage Audit to roadmap and backlog while preserving NEXT 1 high-value service-data pilot. No catalogue content changed.
+
 ## 2026-08-30 — High-value source-acquisition pilot design (current)
 
 Objective: design, but not execute, the bounded NEXT 1 pilot after the low practical yield of Honda Batch Wave 2. Completed: five existing Honda targets selected, Tier A/B-first source order, practical/generic field classification, minimum 10 practical and 15 total verified-slot thresholds, stop conditions and execution/audit contract. No documents or evidence were acquired. Next: execute the pilot in a separate bounded task.

@@ -14,6 +14,10 @@ Objective: serve validated production technical data safely. Entry: stable catal
 
 Objective: broaden production catalogue identities. Entry: identity foundation. Tasks: Honda, Yamaha, Suzuki, Kawasaki, BMW, Ducati and Triumph waves. Exit: deterministic counts and immutability regressions. Status: COMPLETE for audited scopes; not a worldwide-completeness claim.
 
+## Phase 3A — Global catalogue gap / coverage audit (NOT-STARTED)
+
+Objective: establish an evidence-backed inventory of missing catalogue content before further expansion. Entry: current catalogue inventory and identity rules. Tasks: audit manufacturers, families, generations, years, aliases, markets, ABS/transmission identities, 125/A1, Chinese manufacturers and Polish brands/rebrands. Exit: prioritized gap register and bounded addition plan; no invented completeness percentage. Status: NOT-STARTED.
+
 ## Phase 4 — Research evidence foundations (COMPLETE)
 
 Objective: separate research from production and establish provenance/status semantics. Entry: production runtime stable. Tasks: canonical 183-field schema, Service Core, acquisition states, Honda/VFR audits. Exit: evidence cannot auto-promote and missing data remains explicit. Status: COMPLETE.

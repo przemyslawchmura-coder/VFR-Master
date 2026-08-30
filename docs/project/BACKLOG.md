@@ -15,6 +15,7 @@ Planning items only; none are executed by this stocktake.
 
 ## Catalogue and market coverage
 
+- **GLOBAL CATALOGUE GAP / COVERAGE AUDIT** — inventory current manufacturers/families/variants/years; identify missing manufacturers, generations, regional/ABS/transmission identities and prioritize additions. Planning only.
 - Audit 125/A1-class motorcycles and scooters.
 - Future audit: Chinese manufacturers — CFMoto, Voge, Zontes, QJMotor, Kove.
 - Future audit: Polish-market brands/rebrands — Junak, Barton, Romet.

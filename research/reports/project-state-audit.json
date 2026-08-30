@@ -1,9 +1,9 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-08-30",
-  "snapshotCommit": "bd8cbf7c43e9ce41f756c4f9a61635a1462283e3",
+  "snapshotCommit": "a4bc58508d61f39dbaedc8daed97989ce61fd5ee",
   "originMain": "49a17a75d481c9515a4f28a9d69c765fdf28c53b",
-  "ahead": 13,
+  "ahead": 14,
   "behind": 0,
   "repository": {
     "files": 166,
@@ -33,7 +33,10 @@
       "indian",
       "moto-guzzi",
       "royal-enfield"
-    ]
+    ],
+    "contentCompleteness": "incomplete",
+    "infrastructureMaturity": "mature-for-tested-scope",
+    "latestCompletedExpansion": "Triumph Wave 2"
   },
   "technicalProfiles": {
     "productionCount": 1,
