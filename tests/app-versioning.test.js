@@ -15,11 +15,12 @@ const date = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
 
 test("canonical release metadata is complete and current", () => {
   assert.equal(metadata.applicationName, "RevLog");
-  assert.equal(metadata.currentVersion, "0.2.0");
+  assert.equal(metadata.currentVersion, "0.3.0");
   assert.match(metadata.currentVersion, semver);
   assert.ok(Array.isArray(metadata.releases) && metadata.releases.length > 0);
   assert.equal(metadata.releases[0].version, metadata.currentVersion);
   assert.equal(metadata.releases[0].date, "2026-08-30");
+  assert.ok(metadata.releases.some(release => release.version === "0.2.0"));
   assert.ok(metadata.releases.some(release => release.version === "0.1.0"));
 });
 

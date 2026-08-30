@@ -50,5 +50,5 @@ test("previous manufacturers and application version are unchanged", () => {
   assert.deepEqual(totals.kawasaki, [47, 132, 647]);
   assert.deepEqual(totals.bmw, [29, 135, 653]);
   assert.deepEqual(totals.ducati, [21, 120, 475]);
-  assert.equal(require("../js/app-release.js").currentVersion, "0.2.0");
+  assert.equal(require("../js/app-release.js").currentVersion, "0.3.0");
 });

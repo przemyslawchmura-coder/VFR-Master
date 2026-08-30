@@ -7,6 +7,16 @@
 
   const releases = [
     Object.freeze({
+      version: "0.3.0",
+      date: "2026-08-30",
+      title: "Triumph Wave 1 i Wave 2",
+      changes: Object.freeze([
+        "Rozszerzone pokrycie katalogu motocykli Triumph o główne rodziny i generacje.",
+        "Uzupełnione luki po głębokim audycie wariantów, aliasów i generacji Triumph.",
+        "Dodane trwałe testy poprawności oraz stabilności tożsamości katalogowych Triumph."
+      ])
+    }),
+    Object.freeze({
       version: "0.2.0",
       date: "2026-08-30",
       title: "Ducati Wave 1 i Wave 2",

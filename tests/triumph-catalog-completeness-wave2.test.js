@@ -37,5 +37,5 @@ test("suffixes and aliases do not create prohibited duplicates", () => {
 test("prior manufacturers, VFR and version boundary remain unchanged", () => {
   const totals = Object.fromEntries(buildReport(catalog).perManufacturer.map(item => [item.id, [item.families, item.variants, item.variantYears]]));
   assert.deepEqual(totals.honda, [50, 180, 728]); assert.deepEqual(totals.yamaha, [60, 177, 905]); assert.deepEqual(totals.suzuki, [54, 146, 881]); assert.deepEqual(totals.kawasaki, [47, 132, 647]); assert.deepEqual(totals.bmw, [29, 135, 653]); assert.deepEqual(totals.ducati, [21, 120, 475]);
-  assert.equal(require("../js/app-release.js").currentVersion, "0.2.0");
+  assert.equal(require("../js/app-release.js").currentVersion, "0.3.0");
 });
