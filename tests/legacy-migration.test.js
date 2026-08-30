@@ -160,8 +160,8 @@ catalog.brands.forEach(brand => {
   });
 });
 
-assert.equal(variantCount, 870);
-assert.equal(variantYearCount, 4232);
+assert.equal(variantCount, 955);
+assert.equal(variantYearCount, 4668);
 assert.equal(uniqueCount, variantYearCount);
 assert.deepEqual(ambiguous, []);
 assert.deepEqual(notFound, []);

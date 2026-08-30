@@ -26,7 +26,7 @@ test("Suzuki Wave 2 counts and global totals are deterministic", () => {
   });
   assert.deepEqual(
     { manufacturers: report.manufacturers, families: report.modelFamilies, variants: report.variants, variantYears: report.variantYears },
-    { manufacturers: 13, families: 269, variants: 870, variantYears: 4232 }
+    { manufacturers: 13, families: 288, variants: 955, variantYears: 4668 }
   );
 });
 

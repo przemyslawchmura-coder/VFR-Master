@@ -1184,6 +1184,145 @@ addModels("bmw", [
   m("r18", "R 18", [v("gen1", "bmw.r18.gen1", "R 18", "R 18", 2020, 2025)])
 ]);
 
+/* BMW Completeness Wave 2: conservative European production range. */
+addModels("bmw", [
+  m("r-roadster", "R Boxer Roadster", [
+    v("r850r", "bmw.r-roadster.r850r", "R 850 R", "R 850 R", 1995, 2007),
+    v("r1100r", "bmw.r-roadster.r1100r", "R 1100 R", "R 1100 R", 1995, 2001),
+    v("r1150r", "bmw.r-roadster.r1150r", "R 1150 R", "R 1150 R", 2001, 2006),
+    v("rockster", "bmw.r-roadster.rockster", "R 1150 R Rockster", "R 1150 R Rockster", 2003, 2006),
+    v("r1200r-k27", "bmw.r-roadster.r1200r-k27", "R 1200 R K27", "R 1200 R K27", 2007, 2014),
+    v("r1200r-k53", "bmw.r-roadster.r1200r-k53", "R 1200 R K53", "R 1200 R K53", 2015, 2018),
+    v("r1250r", "bmw.r-roadster.r1250r", "R 1250 R", "R 1250 R", 2019, 2025)
+  ]),
+  m("r-sport-touring", "R Boxer Sport / RS", [
+    v("r1100rs", "bmw.r-sport-touring.r1100rs", "R 1100 RS", "R 1100 RS", 1993, 2001),
+    v("r1100s", "bmw.r-sport-touring.r1100s", "R 1100 S", "R 1100 S", 1998, 2005),
+    v("r1150rs", "bmw.r-sport-touring.r1150rs", "R 1150 RS", "R 1150 RS", 2001, 2005),
+    v("r1200st", "bmw.r-sport-touring.r1200st", "R 1200 ST", "R 1200 ST", 2005, 2007),
+    v("r1200s", "bmw.r-sport-touring.r1200s", "R 1200 S", "R 1200 S", 2006, 2008),
+    v("r1200rs", "bmw.r-sport-touring.r1200rs", "R 1200 RS", "R 1200 RS", 2015, 2018),
+    v("r1250rs", "bmw.r-sport-touring.r1250rs", "R 1250 RS", "R 1250 RS", 2019, 2025)
+  ]),
+  m("gs-adventure-boxer", "R GS Adventure", [
+    v("r1150", "bmw.gs-adventure-boxer.r1150", "R 1150 GS Adventure", "R 1150 GS Adventure", 2002, 2005),
+    v("r1200-k25-1", "bmw.gs-adventure-boxer.r1200-k25-1", "R 1200 GS Adventure K25 — I", "R 1200 GS Adventure K25 2006", 2006, 2009),
+    v("r1200-k25-dohc", "bmw.gs-adventure-boxer.r1200-k25-dohc", "R 1200 GS Adventure K25 DOHC", "R 1200 GS Adventure K25 DOHC", 2010, 2013),
+    v("r1200-k51-1", "bmw.gs-adventure-boxer.r1200-k51-1", "R 1200 GS Adventure K51 — I", "R 1200 GS Adventure K51 2014", 2014, 2016),
+    v("r1200-k51-2", "bmw.gs-adventure-boxer.r1200-k51-2", "R 1200 GS Adventure K51 — II", "R 1200 GS Adventure K51 2017", 2017, 2018),
+    v("r1250", "bmw.gs-adventure-boxer.r1250", "R 1250 GS Adventure", "R 1250 GS Adventure", 2019, 2024),
+    v("r1300", "bmw.gs-adventure-boxer.r1300", "R 1300 GS Adventure", "R 1300 GS Adventure", 2025, 2025)
+  ]),
+  m("r850-special", "R 850 GS / RT", [
+    v("gs", "bmw.r850-special.gs", "R 850 GS", "R 850 GS", 1998, 2000),
+    v("rt", "bmw.r850-special.rt", "R 850 RT", "R 850 RT", 1998, 2006)
+  ]),
+  m("r-cruiser", "R 1200 C / CL", [
+    v("c", "bmw.r-cruiser.c", "R 1200 C", "R 1200 C", 1997, 2004),
+    v("cl", "bmw.r-cruiser.cl", "R 1200 CL", "R 1200 CL", 2002, 2005)
+  ]),
+  m("k-legacy", "K 75 / K 100 / K 1", [
+    v("k75", "bmw.k-legacy.k75", "K 75", "K 75", 1990, 1996),
+    v("k100rs", "bmw.k-legacy.k100rs", "K 100 RS", "K 100 RS", 1990, 1992),
+    v("k1", "bmw.k-legacy.k1", "K 1", "K 1", 1990, 1993)
+  ]),
+  m("k1100", "K 1100", [
+    v("rs", "bmw.k1100.rs", "K 1100 RS", "K 1100 RS", 1992, 1996),
+    v("lt", "bmw.k1100.lt", "K 1100 LT", "K 1100 LT", 1991, 1999)
+  ]),
+  m("k1200-brick", "K 1200 Longitudinal", [
+    v("rs-1", "bmw.k1200-brick.rs-1", "K 1200 RS — I", "K 1200 RS 1997", 1997, 2000),
+    v("rs-2", "bmw.k1200-brick.rs-2", "K 1200 RS — II", "K 1200 RS 2001", 2001, 2005),
+    v("lt", "bmw.k1200-brick.lt", "K 1200 LT", "K 1200 LT", 1999, 2008),
+    v("gt", "bmw.k1200-brick.gt", "K 1200 GT", "K 1200 GT 2003", 2003, 2005)
+  ]),
+  m("k1200-transverse", "K 1200 Transverse", [
+    v("s", "bmw.k1200-transverse.s", "K 1200 S", "K 1200 S", 2005, 2008),
+    v("r", "bmw.k1200-transverse.r", "K 1200 R", "K 1200 R", 2005, 2008),
+    v("r-sport", "bmw.k1200-transverse.r-sport", "K 1200 R Sport", "K 1200 R Sport", 2007, 2008),
+    v("gt", "bmw.k1200-transverse.gt", "K 1200 GT", "K 1200 GT 2006", 2006, 2008)
+  ]),
+  m("k1300", "K 1300", [
+    v("s", "bmw.k1300.s", "K 1300 S", "K 1300 S", 2009, 2015),
+    v("r", "bmw.k1300.r", "K 1300 R", "K 1300 R", 2009, 2015),
+    v("gt", "bmw.k1300.gt", "K 1300 GT", "K 1300 GT", 2009, 2011)
+  ]),
+  m("f650-classic", "F 650 / ST", [
+    v("funduro", "bmw.f650-classic.funduro", "F 650", "F 650", 1994, 2000),
+    v("st", "bmw.f650-classic.st", "F 650 ST", "F 650 ST", 1997, 2000)
+  ]),
+  m("f650-special", "F 650 GS Dakar / CS", [
+    v("dakar", "bmw.f650-special.dakar", "F 650 GS Dakar", "F 650 GS Dakar", 2000, 2007),
+    v("cs", "bmw.f650-special.cs", "F 650 CS Scarver", "F 650 CS Scarver", 2002, 2005)
+  ]),
+  m("g650", "G 650", [
+    v("xchallenge", "bmw.g650.xchallenge", "G 650 Xchallenge", "G 650 Xchallenge", 2007, 2009),
+    v("xcountry", "bmw.g650.xcountry", "G 650 Xcountry", "G 650 Xcountry", 2007, 2009),
+    v("xmoto", "bmw.g650.xmoto", "G 650 Xmoto", "G 650 Xmoto", 2007, 2009),
+    v("gs", "bmw.g650.gs", "G 650 GS", "G 650 GS", 2009, 2015),
+    v("sertao", "bmw.g650.sertao", "G 650 GS Sertão", "G 650 GS Sertão", 2012, 2015)
+  ]),
+  m("f-touring", "F 800 Sport Touring", [
+    v("s", "bmw.f-touring.s", "F 800 S", "F 800 S", 2006, 2010),
+    v("st", "bmw.f-touring.st", "F 800 ST", "F 800 ST", 2006, 2012),
+    v("gt", "bmw.f-touring.gt", "F 800 GT", "F 800 GT", 2013, 2020)
+  ]),
+  m("hp-road", "HP Road Models", [
+    v("hp2-enduro", "bmw.hp-road.hp2-enduro", "HP2 Enduro", "HP2 Enduro", 2005, 2007),
+    v("hp2-megamoto", "bmw.hp-road.hp2-megamoto", "HP2 Megamoto", "HP2 Megamoto", 2007, 2009),
+    v("hp2-sport", "bmw.hp-road.hp2-sport", "HP2 Sport", "HP2 Sport", 2008, 2010),
+    v("hp4", "bmw.hp-road.hp4", "HP4", "HP4", 2013, 2014)
+  ]),
+  m("m1000", "M 1000", [
+    v("rr-1", "bmw.m1000.rr-1", "M 1000 RR — I", "M 1000 RR 2021", 2021, 2022),
+    v("rr-2", "bmw.m1000.rr-2", "M 1000 RR — II", "M 1000 RR 2023", 2023, 2025),
+    v("r", "bmw.m1000.r", "M 1000 R", "M 1000 R", 2023, 2025),
+    v("xr", "bmw.m1000.xr", "M 1000 XR", "M 1000 XR", 2024, 2025)
+  ]),
+  m("c-scooter", "C 600 / C 650", [
+    v("c600-sport", "bmw.c-scooter.c600-sport", "C 600 Sport", "C 600 Sport", 2012, 2015),
+    v("c650-sport", "bmw.c-scooter.c650-sport", "C 650 Sport", "C 650 Sport", 2016, 2020),
+    v("c650gt-1", "bmw.c-scooter.c650gt-1", "C 650 GT — I", "C 650 GT 2012", 2012, 2015),
+    v("c650gt-2", "bmw.c-scooter.c650gt-2", "C 650 GT — II", "C 650 GT 2016", 2016, 2020)
+  ]),
+  m("c400", "C 400", [
+    v("x", "bmw.c400.x", "C 400 X", "C 400 X", 2018, 2025),
+    v("gt", "bmw.c400.gt", "C 400 GT", "C 400 GT", 2019, 2025)
+  ]),
+  m("electric-urban", "Electric Urban Mobility", [
+    v("c-evolution", "bmw.electric-urban.c-evolution", "C evolution", "C evolution", 2014, 2020),
+    v("ce04", "bmw.electric-urban.ce04", "CE 04", "CE 04", 2022, 2025),
+    v("ce02", "bmw.electric-urban.ce02", "CE 02", "CE 02", 2024, 2025)
+  ])
+]);
+
+addVariants("bmw", "f-gs", [
+  v("f800-adventure", "bmw.f-gs.f800-adventure", "F 800 GS Adventure", "F 800 GS Adventure", 2013, 2018),
+  v("f750", "bmw.f-gs.f750", "F 750 GS", "F 750 GS", 2018, 2023),
+  v("f850-adventure", "bmw.f-gs.f850-adventure", "F 850 GS Adventure", "F 850 GS Adventure", 2019, 2023),
+  v("f800-later", "bmw.f-gs.f800-later", "F 800 GS (895 cc)", "F 800 GS 2024", 2024, 2025),
+  v("f900-adventure", "bmw.f-gs.f900-adventure", "F 900 GS Adventure", "F 900 GS Adventure", 2024, 2025)
+]);
+
+addVariants("bmw", "r-ninet", [
+  v("pure", "bmw.r-ninet.pure", "Pure", "R nineT Pure", 2017, 2023),
+  v("scrambler", "bmw.r-ninet.scrambler", "Scrambler", "R nineT Scrambler", 2017, 2023),
+  v("racer", "bmw.r-ninet.racer", "Racer", "R nineT Racer", 2017, 2019),
+  v("urban-gs", "bmw.r-ninet.urban-gs", "Urban G/S", "R nineT Urban G/S", 2017, 2023)
+]);
+
+addVariants("bmw", "k1600", [
+  v("gtl", "bmw.k1600.gtl", "GTL", "K 1600 GTL", 2011, 2025),
+  v("b", "bmw.k1600.b", "B", "K 1600 B", 2017, 2025),
+  v("grand-america", "bmw.k1600.grand-america", "Grand America", "K 1600 Grand America", 2018, 2025)
+]);
+
+addVariants("bmw", "r18", [
+  v("classic", "bmw.r18.classic", "Classic", "R 18 Classic", 2021, 2025),
+  v("b", "bmw.r18.b", "B", "R 18 B", 2022, 2025),
+  v("transcontinental", "bmw.r18.transcontinental", "Transcontinental", "R 18 Transcontinental", 2022, 2025)
+]);
+
 addModels("ducati", [
   m("superbike-v2", "749 / 999 / 848 / 1098 / 1198", [v("749", "ducati.superbike-v2.749", "749", "Ducati 749", 2003, 2006), v("999", "ducati.superbike-v2.999", "999", "Ducati 999", 2003, 2006), v("848", "ducati.superbike-v2.848", "848", "Ducati 848", 2008, 2013), v("1098", "ducati.superbike-v2.1098", "1098", "Ducati 1098", 2007, 2009), v("1198", "ducati.superbike-v2.1198", "1198", "Ducati 1198", 2009, 2011)]),
   m("streetfighter", "Streetfighter", [v("1098", "ducati.streetfighter.1098", "1098", "Streetfighter 1098", 2009, 2013), v("848", "ducati.streetfighter.848", "848", "Streetfighter 848", 2012, 2015), v("v4-1", "ducati.streetfighter.v4-1", "V4 — I", "Streetfighter V4 2020", 2020, 2024), v("v4-2", "ducati.streetfighter.v4-2", "V4 — II", "Streetfighter V4 2025", 2025, 2025)]),
