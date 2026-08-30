@@ -31,12 +31,39 @@ test("evidence has provenance, valid applicability and no duplicate identity", (
 
 test("coverage metrics reconcile and research remains non-production", () => {
   const result = report.buildReport();
-  assert.equal(result.serviceCoreEvidence + result.researchedNoEvidence + result.notResearched, result.serviceCoreSlots);
-  assert.equal(result.conflicting, 0);
+  assert.equal(result.serviceCoreEvidence + result.researchedNoEvidence + result.notResearched + result.conflicting, result.serviceCoreSlots);
+  assert.equal(result.post.canonical.evidence + result.post.canonical.noEvidence + result.post.canonical.notResearched + result.post.canonical.conflicting, result.canonicalSlots);
+  assert.ok(result.notResearched > 0);
+  assert.equal(result.pre.serviceCore.evidence, 28);
+  assert.equal(result.pre.serviceCore.noEvidence, 324);
+  assert.equal(result.pre.serviceCore.notResearched, 0);
+  assert.equal(result.post.serviceCore.evidence, data.evidence.filter(item => data.serviceCore.includes(item.field)).length);
+  assert.equal(result.matrices.post.length, 8 * 183);
+  assert.equal(data.reviewedNoEvidence.every(item => item.sourceCategoriesSearched.length > 0 && item.result === "no reliable evidence"), true);
   assert.equal(result.readiness.ready + result.readiness.partial + result.readiness.more, data.targets.length);
   const source = fs.readFileSync(path.join(__dirname, "../research/data/honda-service-wave1.js"), "utf8");
   assert.match(source, /NON-PRODUCTION RESEARCH DATA/);
   assert.doesNotMatch(fs.readFileSync(path.join(__dirname, "../data/technical/technical-profile-registry.js"), "utf8"), /honda\.service/);
+});
+
+test("full canonical and Service Core matrices have exactly one status per slot", () => {
+  const result = report.buildReport();
+  assert.equal(result.matrices.pre.length, 8 * 183);
+  assert.equal(result.matrices.post.length, 8 * 183);
+  for (const phase of ["pre", "post"]) {
+    const rows = result.matrices[phase];
+    assert.equal(new Set(rows.map(row => `${row.catalogVariantKey}|${row.field}`)).size, rows.length);
+    assert.ok(rows.every(row => ["evidence-found", "researched-no-evidence", "not-researched", "conflicting"].includes(row.status)));
+  }
+});
+
+test("post-expansion report is deterministic and preserves not-researched semantics", () => {
+  const first = report.buildReport();
+  const second = report.buildReport();
+  assert.equal(first.deterministicHash, second.deterministicHash);
+  assert.equal(first.validation.valid, true);
+  assert.ok(first.post.serviceCore.notResearched > 0);
+  assert.ok(first.post.canonical.notResearched > 0);
 });
 
 test("existing CBR500R deep baseline remains unchanged", () => {

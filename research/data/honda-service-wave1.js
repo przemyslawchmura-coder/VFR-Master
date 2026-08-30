@@ -35,6 +35,7 @@ const targets = Object.freeze([
   ["honda.transalp.xl750", "XL750 Transalp", "XL750", 2023, 2025, "EU/UK", "RESEARCH-MORE"]
 ].map(([catalogVariantKey, family, generation, from, to, region, readiness]) => Object.freeze({ catalogVariantKey, family, generation, years: Object.freeze({ from, to }), region, abs: null, transmission: null, readiness })));
 
+const researchDate = "2026-08-30";
 const evidenceRows = [
   ["honda.cbr500r.pc70", "engine.displacement", "471 cc", 471, "cm³", "research.honda.service.cbr500r.2024-manual", "Specifications", "175"],
   ["honda.cbr500r.pc70", "engine.configuration", "Liquid-cooled DOHC parallel twin", "Liquid-cooled DOHC parallel twin", null, "research.honda.service.cbr500r.2024-manual", "Specifications", "175"],
@@ -53,6 +54,16 @@ const evidenceRows = [
   ["honda.cbr500r.pc70", "electrical.main-fuse", "30 A", 30, "A", "research.honda.service.cbr500r.2024-manual", "Fuses", "177"],
   ["honda.cbr500r.pc70", "final_drive.chain-slack", "25–35 mm", { min: 25, max: 35 }, "mm", "research.honda.service.cbr500r.2024-manual", "Service Data", "177"],
   ["honda.cbr500r.pc70", "maintenance.periodic-schedule", "Periodic maintenance schedule", "documented", null, "research.honda.service.cbr500r.2024-manual", "Maintenance Schedule", "95"],
+  ["honda.cbr500r.pc70", "lubrication.api-jaso", "API SJ or higher, JASO MA", "API SJ / JASO MA", null, "research.honda.service.cbr500r.2024-manual", "Service Data", "176"],
+  ["honda.cbr500r.pc70", "lubrication.capacity-disassembly", "3.0 US qt (2.8 L)", 2.8, "L", "research.honda.service.cbr500r.2024-manual", "Service Data", "176"],
+  ["honda.cbr500r.pc70", "final_drive.chain-size", "520", "520", null, "research.honda.service.cbr500r.2024-manual", "Service Data", "177"],
+  ["honda.cbr500r.pc70", "final_drive.chain-inspection", "Inspect at each scheduled service", "scheduled inspection", null, "research.honda.service.cbr500r.2024-manual", "Maintenance Schedule", "95"],
+  ["honda.cbr500r.pc70", "final_drive.chain-lubrication-interval", "Lubricate at each scheduled service", "scheduled lubrication", null, "research.honda.service.cbr500r.2024-manual", "Maintenance Schedule", "95"],
+  ["honda.cbr500r.pc70", "tires_wheels.loaded-pressures", "250 kPa front / 290 kPa rear, cold (load condition)", { front: 250, rear: 290, condition: "cold", load: "loaded" }, "kPa", "research.honda.service.cbr500r.2024-manual", "Service Data", "176"],
+  ["honda.cbr500r.pc70", "electrical.battery-capacity", "7.4 Ah", 7.4, "Ah", "research.honda.service.cbr500r.2024-manual", "Main Components", "175"],
+  ["honda.cbr500r.pc70", "fuel_intake.tank-capacity", "17.1 L", 17.1, "L", "research.honda.service.cbr500r.2024-manual", "Specifications", "175"],
+  ["honda.cbr500r.pc70", "maintenance.schedule-mileage-intervals", "12,800 km periodic service interval", 12800, "km", "research.honda.service.cbr500r.2024-manual", "Maintenance Schedule", "95"],
+  ["honda.cbr500r.pc70", "maintenance.schedule-time-intervals", "12 months periodic service interval", 12, "months", "research.honda.service.cbr500r.2024-manual", "Maintenance Schedule", "95"],
   ["honda.cbr600rr.rh10", "engine.displacement", "599 cc", 599, "cm³", "research.honda.service.2021-supersport-brochure", "Specifications — CBR600RR", "6"],
   ["honda.cbr600rr.rh10", "tires_wheels.front-size", "120/70-ZR17", "120/70-ZR17", null, "research.honda.service.2021-supersport-brochure", "Specifications — CBR600RR", "6"],
   ["honda.cbr600rr.rh10", "tires_wheels.rear-size", "180/55-ZR17", "180/55-ZR17", null, "research.honda.service.2021-supersport-brochure", "Specifications — CBR600RR", "6"],
@@ -67,8 +78,10 @@ const evidenceRows = [
   ["honda.nc750x.rh09-1", "fuel_intake.tank-capacity", "14.1 L", 14.1, "L", "research.honda.service.2021-adventure-brochure", "Specifications — NC750X", "19"]
 ];
 
-const evidence = Object.freeze(evidenceRows.map(([catalogVariantKey, field, rawValue, normalizedValue, unit, sourceId, sourceSection, sourcePage], index) => Object.freeze({ id: `honda.service.wave1.evidence.${String(index + 1).padStart(3, "0")}`, catalogVariantKey, field, status: "evidence-found", rawValue, normalizedValue, unit, sourceId, sourceSection, sourcePage, applicability: Object.freeze({ abs: null, transmission: null }) })));
-const evidenceByTarget = new Set(evidence.map(item => `${item.catalogVariantKey}|${item.field}`));
-const reviewedNoEvidence = Object.freeze(targets.flatMap(target => serviceCore.filter(field => !evidenceByTarget.has(`${target.catalogVariantKey}|${field}`)).map(field => Object.freeze({ id: `honda.service.wave1.reviewed.${target.catalogVariantKey}.${field}`, catalogVariantKey: target.catalogVariantKey, field, status: "researched-no-evidence", rawValue: null, normalizedValue: null, unit: null, sourceId: null, sourceSection: null, sourcePage: null, applicability: Object.freeze({ abs: null, transmission: null }) }))));
+const evidence = Object.freeze(evidenceRows.map(([catalogVariantKey, field, rawValue, normalizedValue, unit, sourceId, sourceSection, sourcePage], index) => Object.freeze({ id: `honda.service.wave1.evidence.${String(index + 1).padStart(3, "0")}`, catalogVariantKey, field, status: "evidence-found", rawValue, normalizedValue, unit, sourceId, sourceSection, sourcePage, researchDate, applicability: Object.freeze({ abs: null, transmission: null }) })));
+const noEvidenceFields = Object.freeze([
+  ["honda.cbr500r.pc70", ["valve_train.intake-clearance", "valve_train.exhaust-clearance", "valve_train.measurement-conditions", "valve_train.inspection-interval", "brakes.oem-pad-numbers", "torques.oil-drain-bolt", "torques.oil-filter", "torques.spark-plugs", "torques.front-axle", "torques.rear-axle", "electrical.charging-voltage"]]
+]);
+const reviewedNoEvidence = Object.freeze(noEvidenceFields.flatMap(([catalogVariantKey, fields]) => fields.map((field, index) => Object.freeze({ id: `honda.service.wave1.reviewed.${String(index + 1).padStart(3, "0")}`, catalogVariantKey, field, status: "researched-no-evidence", rawValue: null, normalizedValue: null, unit: null, sourceId: null, sourceSection: null, sourcePage: null, researchDate, sourceCategoriesSearched: Object.freeze(["official-owner-manual", "official-service-manual", "official-oem-parts"]), sourceIdsSearched: Object.freeze(["research.honda.service.cbr500r.2024-manual"]), result: "no reliable evidence", applicability: Object.freeze({ abs: null, transmission: null }) }))));
 
-module.exports = Object.freeze({ schemaVersion: "revlog-honda-service-data/v1", canonicalFieldCount: coverage.FIELD_COUNT, serviceCore, sources, targets, evidence, reviewedNoEvidence });
+module.exports = Object.freeze({ schemaVersion: "revlog-honda-service-data/v1", canonicalFieldCount: coverage.FIELD_COUNT, serviceCore, sources, targets, evidence, reviewedNoEvidence, researchDate });

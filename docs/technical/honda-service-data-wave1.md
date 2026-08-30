@@ -12,7 +12,7 @@ Evidence uses official Honda publications: the 2024 CBR500R/NX500 owner manual a
 
 ## Status and missing data
 
-The generated report distinguishes `evidence-found`, `researched-no-evidence`, `not-researched` and `conflicting`. Wave 1 currently has 29 evidence-backed Service Core slots out of 352 (8% aggregate); all eight targets remain `RESEARCH-MORE`. This is intentionally conservative: no safety-critical conflict is resolved silently, and no missing value is represented as zero, false or a guess.
+The generated report distinguishes `evidence-found`, `researched-no-evidence`, `not-researched` and `conflicting`. The completion pass corrects the first report's defect of treating every missing value as researched-no-evidence. Explicit no-evidence rows now carry source categories, source IDs, date and result; all other slots remain not-researched. The pre-expansion audit has 28 Service Core evidence slots (the 29th original record was canonical but outside Service Core), while the post-expansion matrix includes 38 Service Core evidence slots and 304 not-researched slots. CBR500R is Service-Core-Partial; the other seven targets remain Research-More.
 
 The existing CBR500R deep-profile baseline remains 53 evidence-found, 100 researched-no-evidence and 30 not-researched fields out of 183. This wave preserves that dataset and adds a separate service-data layer rather than duplicating or replacing it.
 
