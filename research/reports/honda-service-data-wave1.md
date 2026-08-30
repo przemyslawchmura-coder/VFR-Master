@@ -22,3 +22,7 @@
 | OEM-parts evidence | 0 |
 
 CBR500R is `SERVICE-CORE-PARTIAL`; the other seven targets are `RESEARCH-MORE`. No target is ready for production promotion. The complete deterministic JSON report is produced with `node scripts/honda-service-data-report.js`.
+
+## Source acquisition pass
+
+The two-target acquisition log is `research/data/honda-service-acquisition-wave1.js`. It records eight documented attempts across CBR500R PC70 and VFR800 RC46 VTEC: the CBR500R owner manual was acquired; the VFR800 Honda-authorized genuine-parts fiche was acquired as metadata-only; workshop manuals and Common Service Manual routes were login-gated or unverifiable. No unauthenticated or aftermarket source was used as technical evidence. The acquisition gate is satisfied by the detailed blocker audit and acquired OEM-parts route, while workshop evidence remains zero.

@@ -18,4 +18,8 @@ The existing CBR500R deep-profile baseline remains 53 evidence-found, 100 resear
 
 ## Runtime boundary and next work
 
+## Source Acquisition Pass — CBR500R + VFR800
+
+The acquisition audit is limited to `honda.cbr500r.pc70` (MY2024–2025) and `honda.vfr800.rc46.vtec.gen1` (MY2002–2005). It records each service-manual, common-service-manual, owner-manual and OEM-parts route attempted, including access result, authority, applicability and disposition, in `research/data/honda-service-acquisition-wave1.js`. The CBR500R Honda CDN owner manual was acquired and yielded the existing evidence expansion. A Honda-authorized VFR800 RC46 genuine-parts fiche was acquired as metadata-only OEM evidence; no part number was promoted without an explicit applicable table. Honda workshop/service manuals were sought through dealer/service-information and document-index routes but were login-gated or unverifiable, so no workshop value was inferred. CBR500R remains Service-Core-Partial at 26/44; VFR800 remains Research-More at 0/44. This is a documented acquisition blocker, not a claim that manuals do not exist.
+
 `research/data/honda-service-wave1.js` and `scripts/honda-service-data-report.js` are DOM-independent and are not imported by production runtime. Promotion requires a later source review, applicability/conflict review, schema conversion and human approval. The next useful step is authenticated workshop-manual and OEM-parts acquisition for CBR500R, followed by generation-specific VFR800 and Africa Twin service evidence.

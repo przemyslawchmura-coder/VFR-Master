@@ -5,6 +5,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const data = require("../research/data/honda-service-wave1.js");
 const report = require("../scripts/honda-service-data-report.js");
+const acquisition = require("../research/data/honda-service-acquisition-wave1.js");
 const catalog = require("../scripts/motorcycle-catalog-report.js").loadCatalog();
 const canonical = new Set(Object.entries(require("../research/schema/research-coverage-standard.js").CATEGORIES).flatMap(([category, fields]) => fields.map(field => `${category}.${field}`)));
 
@@ -64,6 +65,16 @@ test("post-expansion report is deterministic and preserves not-researched semant
   assert.equal(first.validation.valid, true);
   assert.ok(first.post.serviceCore.notResearched > 0);
   assert.ok(first.post.canonical.notResearched > 0);
+});
+
+test("source acquisition audit is scoped, complete and deterministic", () => {
+  const allowed = new Set(["honda.cbr500r.pc70", "honda.vfr800.rc46.vtec.gen1"]);
+  assert.ok(acquisition.attempts.length >= 8);
+  assert.ok(acquisition.attempts.every(item => allowed.has(item.target) && item.date === "2026-08-30"));
+  assert.ok(acquisition.attempts.some(item => item.target === "honda.cbr500r.pc70" && item.disposition === "acquired"));
+  assert.ok(acquisition.attempts.some(item => item.target === "honda.vfr800.rc46.vtec.gen1" && item.sourceClass.includes("oem-parts") && item.disposition === "acquired"));
+  const result = report.buildReport();
+  assert.ok(result.byTarget.filter(item => allowed.has(item.catalogVariantKey)).every(item => item.sourceAttempts && item.sourceAttempts.attempted >= 1));
 });
 
 test("existing CBR500R deep baseline remains unchanged", () => {
