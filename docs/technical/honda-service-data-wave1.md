@@ -28,6 +28,12 @@ The recovery search located a public ManualsLib rendering with a 638-page table 
 
 The content-level fingerprint is stored in `research/data/vfr800-manual-fingerprint.js`. It records all 24 blocked fields, their ManualsLib viewer/printed-page TOC locations, the two pages whose technical text was inspectable, and the absence of internal publication metadata. These are discovery fingerprints only; no field is promoted from `SOURCE-IDENTITY-UNCERTAIN`.
 
+## VFR800 multi-source recovery and complete gap matrix
+
+The multi-source recovery pass audited all 44 VFR800 Service Core fields. Thirteen fields remain valid `VERIFIED-DIRECT` evidence from the Honda Finland RC46 service-data card. The 24 fields that depend on the unidentified 638-page rendering remain `SOURCE-IDENTITY-UNCERTAIN` and are not counted. The seven additional gaps are `NOT-RESEARCHED`: `lubrication.api-jaso`, `cooling.replacement-interval`, `ignition.spark-plug-alternative`, `ignition.replacement-interval`, `brakes.oem-pad-numbers`, `tires_wheels.loaded-pressures` and `electrical.battery-capacity`.
+
+`research/data/vfr800-service-core-gap-matrix.js` is the deterministic field-level recovery boundary. It records initial and final status, source IDs, applicability, comparison and blocker for every field; blocked/manual fingerprints and metadata-only parts routes cannot satisfy evidence. Regional applicability remains EU/RC46/MY2002–2005 for the direct card, and no production Technical Profile value is used as research evidence. VFR800 therefore remains 13/44 (`RESEARCH-MORE`) until independent authoritative source content is acquired.
+
 ## VFR800 production-to-research reconciliation
 
 The proof audit found that the mirrored manual listing does not establish publication identity `61MCW07` for MY2002 (official catalogue listings identify 61MCW01/61MCW05 for early years). Those manual-derived rows are therefore marked source-identity-uncertain and are not counted as evidence. Thirteen fields remain independently verified directly from the Honda Finland RC46 2002–2005 service-data card (page 1), with explicit RC46/year applicability. VFR800 is consequently `RESEARCH-MORE` pending authenticated manual recovery; production values and the registry remain read-only.

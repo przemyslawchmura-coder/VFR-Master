@@ -29,6 +29,10 @@ The subsequent 61MCW01/61MCW05 recovery pass found a 638-page ManualsLib renderi
 
 The content-level fingerprint is `research/data/vfr800-manual-fingerprint.js`. It covers all 24 blocked fields and records TOC page locations plus the limited technical text inspected; because publication identity and field-level applicability remain unproven, it does not alter evidence counts.
 
+## VFR800 multi-source recovery
+
+All 44 VFR800 Service Core slots are now represented in the deterministic gap matrix `research/data/vfr800-service-core-gap-matrix.js`. The baseline is 13 evidence-found, 24 blocked by the unidentified ManualsLib manual, and 7 not-researched. The recovery audit searched owner-manual, regional Honda, service-bulletin, authorized-parts and specification routes; no additional field-level source met the independent-proof policy. The 13 direct service-card slots remain evidence, while the other 31 remain not-researched for coverage purposes. VFR800 remains 13/44 (`RESEARCH-MORE`); no production values or catalogue identities changed.
+
 ## Source acquisition pass
 
 The two-target acquisition log is `research/data/honda-service-acquisition-wave1.js`. It records eight documented attempts across CBR500R PC70 and VFR800 RC46 VTEC: the CBR500R owner manual was acquired; the VFR800 Honda-authorized genuine-parts fiche was acquired as metadata-only; workshop manuals and Common Service Manual routes were login-gated or unverifiable. No unauthenticated or aftermarket source was used as technical evidence. The acquisition gate is satisfied by the detailed blocker audit and acquired OEM-parts route, while workshop evidence remains zero.

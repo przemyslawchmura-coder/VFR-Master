@@ -7,6 +7,7 @@ const data = require("../research/data/honda-service-wave1.js");
 const report = require("../scripts/honda-service-data-report.js");
 const acquisition = require("../research/data/honda-service-acquisition-wave1.js");
 const fingerprint = require("../research/data/vfr800-manual-fingerprint.js");
+const vfrGapMatrix = require("../research/data/vfr800-service-core-gap-matrix.js");
 const catalog = require("../scripts/motorcycle-catalog-report.js").loadCatalog();
 const canonical = new Set(Object.entries(require("../research/schema/research-coverage-standard.js").CATEGORIES).flatMap(([category, fields]) => fields.map(field => `${category}.${field}`)));
 
@@ -113,6 +114,19 @@ test("VFR manual fingerprint covers every blocked field without promoting eviden
   assert.deepEqual(new Set(fingerprint.blockedFields.map(item => item.canonicalFieldId)), new Set(blocked.map(item => item.field)));
   assert.ok(fingerprint.blockedFields.every(item => item.publicationIdKnown === false && item.finalProofStatus === "SOURCE-IDENTITY-UNCERTAIN"));
   assert.equal(report.buildReport().byTarget.find(item => item.catalogVariantKey === "honda.vfr800.rc46.vtec.gen1").post.serviceCore.evidenceFound, 13);
+});
+
+test("VFR Service Core gap matrix accounts for all 44 slots", () => {
+  assert.equal(vfrGapMatrix.rows.length, data.serviceCore.length);
+  assert.deepEqual(vfrGapMatrix.rows.map(row => row.field), data.serviceCore);
+  assert.equal(vfrGapMatrix.counts.initial.VERIFIED, 13);
+  assert.equal(vfrGapMatrix.counts.initial["BLOCKED-MANUAL"], 24);
+  assert.equal(vfrGapMatrix.counts.initial["NOT-RESEARCHED"], 7);
+  assert.equal(vfrGapMatrix.counts.final["evidence-found"], 13);
+  assert.equal(vfrGapMatrix.counts.final["not-researched"], 31);
+  assert.equal(report.buildReport().vfrGapMatrix.length, 44);
+  assert.ok(vfrGapMatrix.rows.filter(row => row.proofStatus === "SOURCE-IDENTITY-UNCERTAIN").every(row => row.finalStatus !== "evidence-found"));
+  assert.ok(vfrGapMatrix.rows.filter(row => row.finalStatus === "evidence-found").every(row => row.evidenceSourceIds.length > 0 && row.proofStatus.startsWith("VERIFIED-")));
 });
 
 test("existing CBR500R deep baseline remains unchanged", () => {
