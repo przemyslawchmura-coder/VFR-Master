@@ -1094,6 +1094,9 @@ async function navigateTo(pageId) {
   if (pageId === "service") {
     await renderServiceHistory();
   }
+  if (pageId === "about") {
+    renderAboutReleaseHistory();
+  }
   if (
     pageId === "technical" &&
     window.openTechnicalBase
@@ -1104,6 +1107,48 @@ async function navigateTo(pageId) {
     top: 0,
     behavior: "smooth"
   });
+}
+function renderAboutReleaseHistory() {
+  const metadata = window.RevLogRelease;
+  const name = document.getElementById("aboutAppName");
+  const version = document.getElementById("aboutCurrentVersion");
+  const date = document.getElementById("aboutReleaseDate");
+  const history = document.getElementById("releaseHistoryList");
+  if (!metadata || !name || !version || !date || !history) return false;
+
+  const current = metadata.releases.find(release => release.version === metadata.currentVersion);
+  if (!current) return false;
+  name.textContent = metadata.applicationName;
+  version.textContent = `Wersja ${metadata.currentVersion}`;
+  date.textContent = `Data wydania: ${current.date}`;
+
+  const entries = metadata.releases.map(release => {
+    const article = document.createElement("article");
+    article.className = "card release-entry";
+    const header = document.createElement("div");
+    header.className = "release-entry-header";
+    const heading = document.createElement("h3");
+    heading.textContent = `Wersja ${release.version}`;
+    const releaseDate = document.createElement("time");
+    releaseDate.className = "release-date";
+    releaseDate.dateTime = release.date;
+    releaseDate.textContent = release.date;
+    const title = document.createElement("p");
+    title.className = "release-title";
+    title.textContent = release.title;
+    const changes = document.createElement("ul");
+    changes.className = "release-changes";
+    release.changes.forEach(change => {
+      const item = document.createElement("li");
+      item.textContent = change;
+      changes.appendChild(item);
+    });
+    header.append(heading, releaseDate);
+    article.append(header, title, changes);
+    return article;
+  });
+  history.replaceChildren(...entries);
+  return true;
 }
 /* =====================================================
    POMOCNICZE
