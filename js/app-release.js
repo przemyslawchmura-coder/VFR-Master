@@ -7,6 +7,16 @@
 
   const releases = [
     Object.freeze({
+      version: "0.2.0",
+      date: "2026-08-30",
+      title: "Ducati Wave 1 i Wave 2",
+      changes: Object.freeze([
+        "Rozszerzone pokrycie katalogu motocykli Ducati o główne rodziny i generacje.",
+        "Uzupełnione luki po audycie modeli homologacyjnych i technicznie odrębnych wariantów.",
+        "Dodane trwałe testy poprawności oraz stabilności tożsamości katalogowych Ducati."
+      ])
+    }),
+    Object.freeze({
       version: "0.1.0",
       date: "2026-08-30",
       title: "BMW Wave 2 i historia wydań",
