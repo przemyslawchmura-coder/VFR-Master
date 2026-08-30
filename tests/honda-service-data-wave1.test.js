@@ -82,7 +82,7 @@ test("VFR reconciliation uses independently cited manual evidence with traceabil
   const vfr = result.byTarget.find(item => item.catalogVariantKey === "honda.vfr800.rc46.vtec.gen1");
   assert.equal(vfr.post.serviceCore.evidenceFound, 13);
   assert.equal(vfr.sourceQuality.serviceManual, 24);
-  assert.ok(acquisition.attempts.some(item => item.disposition === "acquired-content" && item.target === "honda.vfr800.rc46.vtec.gen1"));
+  assert.ok(acquisition.attempts.some(item => item.disposition === "identity-uncertain" && item.target === "honda.vfr800.rc46.vtec.gen1"));
   const vfrEvidence = data.evidence.filter(item => item.catalogVariantKey === "honda.vfr800.rc46.vtec.gen1");
   assert.ok(vfrEvidence.every(item => item.traceability && item.traceability.productionSourceId));
   assert.ok(vfrEvidence.filter(item => item.proofStatus === "VERIFIED-DIRECT").every(item => item.traceability.independentlyVerified));
@@ -93,6 +93,13 @@ test("VFR proof matrix rejects uncertain publication identity and verifies card 
   assert.deepEqual(result.vfrProofSummary, { "VERIFIED-DIRECT": 13, "VERIFIED-AUTHENTICATED-COPY": 0, "SOURCE-IDENTITY-UNCERTAIN": 24 });
   assert.ok(result.vfrProofMatrix.filter(row => row.verification === "VERIFIED-DIRECT").every(row => row.actualContentInspected && row.printedPage === "1"));
   assert.ok(result.vfrProofMatrix.filter(row => row.verification === "SOURCE-IDENTITY-UNCERTAIN").every(row => row.comparison === "NOT-COMPARABLE"));
+});
+
+test("acquisition dispositions do not equate metadata with content", () => {
+  assert.equal(acquisition.attempts.some(item => item.disposition === "acquired"), false);
+  const candidate = acquisition.attempts.find(item => item.id === "honda.acq.vfr.workshop.61mcw07-content");
+  assert.equal(candidate.disposition, "identity-uncertain");
+  assert.equal(candidate.accessResult, "identity-uncertain");
 });
 
 test("existing CBR500R deep baseline remains unchanged", () => {
