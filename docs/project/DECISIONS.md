@@ -57,6 +57,14 @@ Rationale: generic pipeline tests prove mirror deduplication, reuse, normalizati
 Consequences: batch work prioritizes high-leverage sources without inflating corroboration.
 Status: ACTIVE. Related commit: `fe2df11`.
 
+## ADR-010 — Practical-service yield gates research scaling
+
+Date: 2026-08-30
+Decision: the next research pilot is bounded to five existing targets and must produce at least 10 practical Service Core fields and 15 verified target slots; generic specification rows alone cannot qualify.
+Rationale: Honda Batch Wave 2 achieved six verified rows across 528 slots with zero practical-service gain.
+Consequences: owner/service sources take priority, and multi-manufacturer scaling waits for measured practical yield.
+Status: ACTIVE. Related audit and design task.
+
 ## ADR-009 — Independent Audit Gate precedes roadmap advancement
 
 Date: 2026-08-30

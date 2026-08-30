@@ -34,8 +34,10 @@ Research is quarantined under `research/` and is not imported by the production 
 
 ## Next actions
 
-**NEXT 1** — Design (without executing) a bounded high-value source-acquisition pilot for 4–6 narrow targets, prioritizing owner/service manuals and measurable practical Service Core fields (oil, cooling, brakes, tires, maintenance and torques); success requires at least 10 new practical-service slots and explicit source-yield metrics.
+**NEXT 1** — Execute the bounded five-target high-value source-acquisition pilot defined in `docs/technical/high-value-source-acquisition-pilot.md`; success requires at least 10 new practical-service slots and explicit source-yield metrics.
 
 **NEXT 2** — Perform a production-readiness audit of authentication, persistence, RLS and error paths against an explicitly selected test backend.
 
 **NEXT 3** — Design a controlled Technical Profile promotion review for one non-VFR candidate without changing production data in the design phase.
+
+Operator-reported live fact (not independently verified by Codex): Supabase Auth Site URL was corrected from the GitHub Pages root to the deployed VFR-Master project path, and a fresh signup/email-confirmation flow was manually tested successfully.

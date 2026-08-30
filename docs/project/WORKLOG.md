@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-08-30 — High-value source-acquisition pilot design (current)
+
+Objective: design, but not execute, the bounded NEXT 1 pilot after the low practical yield of Honda Batch Wave 2. Completed: five existing Honda targets selected, Tier A/B-first source order, practical/generic field classification, minimum 10 practical and 15 total verified-slot thresholds, stop conditions and execution/audit contract. No documents or evidence were acquired. Next: execute the pilot in a separate bounded task.
+
 ## 2026-08-30 — Audit Standard and remanent correction audit (current)
 
 Objective: independently falsify the project-memory remanent and evaluate Honda Batch Wave 2. Completed: verified 8-target Honda Service population versus 12-target batch population; confirmed 51/352 applies only to the 8-target Service Data Wave; independently recomputed 528 slots, 51→57, six rows, six documents, seven hosting locations and zero conflicts. All six gains were engine configuration/displacement; practical-service gain was zero. The previous `100% verification yield` is retained only as row yield and is now supplemented by slot/practical metrics. The 8→6 document expectation is justified by mirror/document identity; the earlier 62→49 queue expectation is justified for the two-target fixture (the 12-target queue is 471). Page numbering is 1-based, so `!candidate.page` correctly rejects page 0. Result: ACCEPT-WITH-RISKS; scaling is premature. Next: design a bounded high-value source-acquisition pilot.

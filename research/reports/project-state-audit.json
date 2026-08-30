@@ -1,16 +1,16 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-08-30",
-  "snapshotCommit": "45f43aee5e8f0eb1e1ecdfd3b7057385c0cb395e",
+  "snapshotCommit": "bd8cbf7c43e9ce41f756c4f9a61635a1462283e3",
   "originMain": "49a17a75d481c9515a4f28a9d69c765fdf28c53b",
-  "ahead": 12,
+  "ahead": 13,
   "behind": 0,
   "repository": {
-    "files": 163,
-    "javascriptFiles": 104,
-    "testFiles": 43,
-    "documentationFiles": 35,
-    "researchAndToolingFiles": 42
+    "files": 166,
+    "javascriptFiles": 106,
+    "testFiles": 44,
+    "documentationFiles": 36,
+    "researchAndToolingFiles": 43
   },
   "catalogue": {
     "manufacturers": 13,
@@ -83,6 +83,11 @@
       "verifiedAfter": 57,
       "netNewVerifiedSlots": 6,
       "practicalServiceFieldGain": 0
+    },
+    "highValuePilot": {
+      "selectedTargets": 5,
+      "minimumPracticalServiceFields": 10,
+      "minimumVerifiedTargetSlots": 15
     }
   },
   "tests": {
