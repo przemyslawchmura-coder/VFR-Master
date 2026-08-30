@@ -38,7 +38,7 @@ test("coverage metrics reconcile and research remains non-production", () => {
   assert.equal(result.pre.serviceCore.evidence, 28);
   assert.equal(result.pre.serviceCore.noEvidence, 324);
   assert.equal(result.pre.serviceCore.notResearched, 0);
-  assert.equal(result.post.serviceCore.evidence, data.evidence.filter(item => data.serviceCore.includes(item.field)).length);
+  assert.equal(result.post.serviceCore.evidence, result.byTarget.reduce((sum, item) => sum + item.post.serviceCore.evidenceFound, 0));
   assert.equal(result.matrices.post.length, 8 * 183);
   assert.equal(data.reviewedNoEvidence.every(item => item.sourceCategoriesSearched.length > 0 && item.result === "no reliable evidence"), true);
   assert.equal(result.readiness.ready + result.readiness.partial + result.readiness.more, data.targets.length);
@@ -71,8 +71,8 @@ test("source acquisition audit is scoped, complete and deterministic", () => {
   const allowed = new Set(["honda.cbr500r.pc70", "honda.vfr800.rc46.vtec.gen1"]);
   assert.ok(acquisition.attempts.length >= 8);
   assert.ok(acquisition.attempts.every(item => allowed.has(item.target) && item.date === "2026-08-30"));
-  assert.ok(acquisition.attempts.some(item => item.target === "honda.cbr500r.pc70" && item.disposition === "acquired"));
-  assert.ok(acquisition.attempts.some(item => item.target === "honda.vfr800.rc46.vtec.gen1" && item.sourceClass.includes("oem-parts") && item.disposition === "acquired"));
+  assert.ok(acquisition.attempts.some(item => item.target === "honda.cbr500r.pc70" && item.disposition === "acquired-content"));
+  assert.ok(acquisition.attempts.some(item => item.target === "honda.vfr800.rc46.vtec.gen1" && item.sourceClass.includes("oem-parts") && item.disposition === "metadata-only"));
   const result = report.buildReport();
   assert.ok(result.byTarget.filter(item => allowed.has(item.catalogVariantKey)).every(item => item.sourceAttempts && item.sourceAttempts.attempted >= 1));
 });
@@ -80,11 +80,19 @@ test("source acquisition audit is scoped, complete and deterministic", () => {
 test("VFR reconciliation uses independently cited manual evidence with traceability", () => {
   const result = report.buildReport();
   const vfr = result.byTarget.find(item => item.catalogVariantKey === "honda.vfr800.rc46.vtec.gen1");
-  assert.ok(vfr.post.serviceCore.evidenceFound >= 30);
-  assert.equal(vfr.sourceQuality.serviceManual, vfr.post.serviceCore.evidenceFound);
+  assert.equal(vfr.post.serviceCore.evidenceFound, 13);
+  assert.equal(vfr.sourceQuality.serviceManual, 24);
   assert.ok(acquisition.attempts.some(item => item.disposition === "acquired-content" && item.target === "honda.vfr800.rc46.vtec.gen1"));
   const vfrEvidence = data.evidence.filter(item => item.catalogVariantKey === "honda.vfr800.rc46.vtec.gen1");
-  assert.ok(vfrEvidence.every(item => item.traceability && item.traceability.independentlyVerified && item.traceability.productionSourceId));
+  assert.ok(vfrEvidence.every(item => item.traceability && item.traceability.productionSourceId));
+  assert.ok(vfrEvidence.filter(item => item.proofStatus === "VERIFIED-DIRECT").every(item => item.traceability.independentlyVerified));
+});
+
+test("VFR proof matrix rejects uncertain publication identity and verifies card pages", () => {
+  const result = report.buildReport();
+  assert.deepEqual(result.vfrProofSummary, { "VERIFIED-DIRECT": 13, "VERIFIED-AUTHENTICATED-COPY": 0, "SOURCE-IDENTITY-UNCERTAIN": 24 });
+  assert.ok(result.vfrProofMatrix.filter(row => row.verification === "VERIFIED-DIRECT").every(row => row.actualContentInspected && row.printedPage === "1"));
+  assert.ok(result.vfrProofMatrix.filter(row => row.verification === "SOURCE-IDENTITY-UNCERTAIN").every(row => row.comparison === "NOT-COMPARABLE"));
 });
 
 test("existing CBR500R deep baseline remains unchanged", () => {

@@ -23,7 +23,7 @@
 
 CBR500R is `SERVICE-CORE-PARTIAL`; the other seven targets are `RESEARCH-MORE`. No target is ready for production promotion. The complete deterministic JSON report is produced with `node scripts/honda-service-data-report.js`.
 
-The VFR800 RC46 reconciliation now independently verifies 37/44 Service Core fields (84%) from Honda publication 61MCW07 and the 2002–2005 service-data card. Traceability retains the originating production citation and marks comparisons as normalized matches; this does not change production Technical Profile data.
+The proof audit identified the mirrored manual's MY2002 publication identity as uncertain; those 24 rows are not counted as evidence. Thirteen fields are `VERIFIED-DIRECT` from the Honda Finland RC46 2002–2005 service-data card (page 1), leaving VFR800 at 13/44 (`RESEARCH-MORE`) until an authenticated manual copy is recovered.
 
 ## Source acquisition pass
 
