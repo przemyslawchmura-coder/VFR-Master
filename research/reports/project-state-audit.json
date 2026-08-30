@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "revlog-project-state/v1",
+  "snapshotDate": "2026-08-30",
+  "snapshotCommit": "ea039119bdab2c4c9a4842cbd48a9482e2240f2d",
+  "originMain": "49a17a75d481c9515a4f28a9d69c765fdf28c53b",
+  "ahead": 11,
+  "behind": 0,
+  "repository": {
+    "files": 162,
+    "javascriptFiles": 104,
+    "testFiles": 43,
+    "documentationFiles": 34,
+    "researchAndToolingFiles": 42
+  },
+  "catalogue": {
+    "manufacturers": 13,
+    "modelFamilies": 318,
+    "variants": 1095,
+    "variantYears": 5317,
+    "earliestYear": 1990,
+    "latestYear": 2025,
+    "manufacturersPresent": [
+      "honda",
+      "yamaha",
+      "suzuki",
+      "kawasaki",
+      "bmw",
+      "ducati",
+      "triumph",
+      "ktm",
+      "aprilia",
+      "harley-davidson",
+      "indian",
+      "moto-guzzi",
+      "royal-enfield"
+    ]
+  },
+  "technicalProfiles": {
+    "productionCount": 1,
+    "details": [
+      {
+        "profileId": "honda.vfr800.rc46-vtec-gen1.2002",
+        "catalogVariantKeys": [
+          "honda.vfr800.rc46.vtec.gen1"
+        ],
+        "years": {
+          "from": 2002,
+          "to": 2002
+        },
+        "requiredContext": null,
+        "status": "review",
+        "entries": 99,
+        "verified": 94,
+        "unresolved": 5,
+        "sourceCount": 30
+      }
+    ]
+  },
+  "research": {
+    "canonicalFieldCount": 183,
+    "serviceCoreFieldCount": 44,
+    "targetCount": 8,
+    "serviceCoreEvidence": 51,
+    "serviceCoreSlots": 352,
+    "vfr800": {
+      "verified": 13,
+      "total": 44,
+      "uncertainRows": 24
+    },
+    "cbr500r": {
+      "verified": 26,
+      "total": 44
+    },
+    "batchWave2": {
+      "targets": 12,
+      "documents": 6,
+      "evidenceRows": 6,
+      "netNewVerifiedSlots": 6
+    }
+  },
+  "tests": {
+    "fullSuiteCommand": "node --test tests/*.test.js",
+    "lastKnownTotal": 381,
+    "lastKnownPassed": 381,
+    "failed": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "productionBoundary": {
+    "researchImportedByIndex": false,
+    "runtimeEntry": "index.html",
+    "productionProfileCount": 1,
+    "batchPipelineNonProduction": true
+  },
+  "release": {
+    "currentVersion": "0.3.0",
+    "latestRelease": "0.3.0"
+  }
+}
