@@ -99,7 +99,10 @@ test("acquisition dispositions do not equate metadata with content", () => {
   assert.equal(acquisition.attempts.some(item => item.disposition === "acquired"), false);
   const candidate = acquisition.attempts.find(item => item.id === "honda.acq.vfr.workshop.61mcw07-content");
   assert.equal(candidate.disposition, "identity-uncertain");
-  assert.equal(candidate.accessResult, "identity-uncertain");
+  assert.equal(candidate.accessResult, "partial-content");
+  assert.equal(candidate.contentInspected, true);
+  assert.equal(candidate.internalMetadataInspected, false);
+  assert.equal(candidate.pageCount, 638);
 });
 
 test("existing CBR500R deep baseline remains unchanged", () => {
