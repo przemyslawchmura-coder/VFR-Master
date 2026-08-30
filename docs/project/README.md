@@ -2,6 +2,8 @@
 
 This directory is the durable, repository-backed memory of RevLog. It records current truth, decisions, chronological work, planned work, and optional session context without replacing executable code or tests.
 
+Before accepting meaningful implementation, read and apply `AUDIT_STANDARD.md`; it is the independent falsification gate for this project.
+
 Authority order (highest first):
 
 1. current executable code + tests

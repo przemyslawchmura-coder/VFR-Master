@@ -56,3 +56,11 @@ Decision: source identity is independent of hosting URL; one document may suppor
 Rationale: generic pipeline tests prove mirror deduplication, reuse, normalization, conflicts and review queues.
 Consequences: batch work prioritizes high-leverage sources without inflating corroboration.
 Status: ACTIVE. Related commit: `fe2df11`.
+
+## ADR-009 — Independent Audit Gate precedes roadmap advancement
+
+Date: 2026-08-30
+Decision: meaningful work must be independently audited for falsification before memory is updated or the roadmap advances.
+Rationale: the Honda batch audit showed that passing tests and a 100% row-yield metric can coexist with zero practical-service gain.
+Consequences: expectation changes require semantic justification; batch reports distinguish row yield from target-slot and practical-field gain.
+Status: ACTIVE. Related commit: `45f43ae` and this audit.

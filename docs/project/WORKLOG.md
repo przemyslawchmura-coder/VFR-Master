@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-08-30 — Audit Standard and remanent correction audit (current)
+
+Objective: independently falsify the project-memory remanent and evaluate Honda Batch Wave 2. Completed: verified 8-target Honda Service population versus 12-target batch population; confirmed 51/352 applies only to the 8-target Service Data Wave; independently recomputed 528 slots, 51→57, six rows, six documents, seven hosting locations and zero conflicts. All six gains were engine configuration/displacement; practical-service gain was zero. The previous `100% verification yield` is retained only as row yield and is now supplemented by slot/practical metrics. The 8→6 document expectation is justified by mirror/document identity; the earlier 62→49 queue expectation is justified for the two-target fixture (the 12-target queue is 471). Page numbering is 1-based, so `!candidate.page` correctly rejects page 0. Result: ACCEPT-WITH-RISKS; scaling is premature. Next: design a bounded high-value source-acquisition pilot.
+
 ## 2026-08-30 — Honda batch Wave 2 (`ea03911`)
 
 Objective: exercise scalable research across many Honda targets. Completed: 12-target batch, official-source reuse, six new verified Service Core slots, deterministic report/review queue. Checks: 378-test suite passed. Unresolved: most targets remain partial or research-more. Next: bounded multi-manufacturer pilot.

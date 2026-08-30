@@ -1,15 +1,15 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-08-30",
-  "snapshotCommit": "ea039119bdab2c4c9a4842cbd48a9482e2240f2d",
+  "snapshotCommit": "45f43aee5e8f0eb1e1ecdfd3b7057385c0cb395e",
   "originMain": "49a17a75d481c9515a4f28a9d69c765fdf28c53b",
-  "ahead": 11,
+  "ahead": 12,
   "behind": 0,
   "repository": {
-    "files": 162,
+    "files": 163,
     "javascriptFiles": 104,
     "testFiles": 43,
-    "documentationFiles": 34,
+    "documentationFiles": 35,
     "researchAndToolingFiles": 42
   },
   "catalogue": {
@@ -59,9 +59,11 @@
   "research": {
     "canonicalFieldCount": 183,
     "serviceCoreFieldCount": 44,
-    "targetCount": 8,
-    "serviceCoreEvidence": 51,
-    "serviceCoreSlots": 352,
+    "hondaServiceWave1": {
+      "targets": 8,
+      "serviceCoreEvidence": 51,
+      "serviceCoreSlots": 352
+    },
     "vfr800": {
       "verified": 13,
       "total": 44,
@@ -72,10 +74,15 @@
       "total": 44
     },
     "batchWave2": {
-      "targets": 12,
+      "selectedTargets": 12,
+      "targetFieldSlots": 528,
       "documents": 6,
+      "hostingLocations": 7,
       "evidenceRows": 6,
-      "netNewVerifiedSlots": 6
+      "verifiedBefore": 51,
+      "verifiedAfter": 57,
+      "netNewVerifiedSlots": 6,
+      "practicalServiceFieldGain": 0
     }
   },
   "tests": {

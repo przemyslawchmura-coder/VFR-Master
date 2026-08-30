@@ -47,6 +47,10 @@ Supabase URL and anon client configuration are visible in `js/supabase.js`; no s
 
 Local development: READY-WITH-RISKS. Authenticated beta: NOT-READY until live auth/RLS/error paths are verified. Public beta/production: NOT-READY due single-profile coverage, backend verification gap and incomplete operational deployment evidence. Published version remains 0.3.0.
 
+## Independent audit correction
+
+The Honda Service Data Wave 1 population is eight targets, so its `51/352` metric is internally correct. Honda Batch Wave 2 is a separate 12-target population with `528` slots and `51→57` verified slots. Its six new rows are all generic engine specification fields; practical-service gain is zero. The phrase “100% verification yield” is row yield only and must not be read as batch coverage. The canonical document count of six is justified by mirror deduplication (seven hosting locations); the earlier review queue count of 49 applies to the two-target generic fixture, while the 12-target batch queue contains 471 unresolved items. Multi-manufacturer scaling is premature; source strategy must first target owner/service manuals and practical Service Core yield.
+
 ## WIP and debt
 
 P0: none identified. P1: scalable multi-manufacturer evidence batches; controlled profile promotion. P2: cloud/RLS verification; source acquisition; broader profile coverage. P3: market/scooter/125 expansion.

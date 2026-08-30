@@ -13,6 +13,10 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.catalogue.manufacturers, 13);
   assert.equal(snapshot.catalogue.variants, 1095);
   assert.equal(snapshot.research.serviceCoreFieldCount, 44);
+  assert.equal(snapshot.research.hondaServiceWave1.targets, 8);
+  assert.equal(snapshot.research.batchWave2.selectedTargets, 12);
+  assert.equal(snapshot.research.batchWave2.targetFieldSlots, 528);
+  assert.equal(snapshot.research.batchWave2.netNewVerifiedSlots, 6);
   assert.equal(snapshot.research.vfr800.verified, 13);
   assert.equal(snapshot.research.cbr500r.verified, 26);
   assert.equal(snapshot.productionBoundary.researchImportedByIndex, false);
@@ -36,4 +40,15 @@ test("project memory records production/research isolation", () => {
   assert.match(read("docs/project/chat-archive/README.md"), /NON-AUTHORITATIVE HISTORICAL CONTEXT/);
   assert.match(read("docs/project/CURRENT_STATE.md"), /Research is quarantined/);
   assert.doesNotMatch(read("index.html"), /research\/data|research\/lib/);
+});
+
+test("audit standard and batch metrics prevent circular acceptance", () => {
+  const standard = read("docs/project/AUDIT_STANDARD.md");
+  assert.match(standard, /IMPLEMENT → AUTHOR TESTS → INDEPENDENT AUDIT/);
+  assert.match(standard, /JUSTIFIED-WITH-RISK/);
+  assert.match(standard, /ACCEPT-WITH-RISKS/);
+  assert.match(standard, /attempts to falsify/);
+  assert.equal(snapshot.research.batchWave2.practicalServiceFieldGain, 0);
+  assert.equal(snapshot.research.batchWave2.verifiedBefore, 51);
+  assert.equal(snapshot.research.batchWave2.verifiedAfter, 57);
 });

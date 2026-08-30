@@ -18,11 +18,11 @@ Research is quarantined under `research/` and is not imported by the production 
 - Catalogue: 13 manufacturers, 318 families, 1,095 variants, 5,317 variant-years, MY1990–2025.
 - Production Technical Profiles: 1 real profile, VFR800 MY2002, 99 entries (94 verified, 5 pending).
 - Research schema: 183 canonical fields; Service Core: 44 fields.
-- Honda Service Wave targets: 8; aggregate Service Core evidence: 51/352.
+- Honda Service Data Wave 1 population: 8 targets and 51/352 aggregate Service Core slots (the denominator is specifically 8 × 44).
 - VFR800: 13/44, 24 source-identity-uncertain rows, `RESEARCH-MORE`.
 - CBR500R: 26/44, `SERVICE-CORE-PARTIAL`.
-- Honda batch Wave 2: 12 targets, 6 underlying documents, 6 new verified slots.
-- Latest full suite: 378 passed, 0 failed, 0 skipped, 0 todo.
+- Honda Batch Wave 2 population: 12 selected catalogue targets, 528 target-field slots, 6 underlying documents, 6 new verified slots; all gains were generic engine specification fields and practical-service-field gain was 0.
+- Latest full suite before this audit: 381 passed, 0 failed, 0 skipped, 0 todo.
 - Published application version: 0.3.0.
 
 ## WIP and blockers
@@ -34,7 +34,7 @@ Research is quarantined under `research/` and is not imported by the production 
 
 ## Next actions
 
-**NEXT 1** — Define and run a bounded multi-manufacturer batch-pipeline pilot using existing official-source fixtures; measure reuse and conflicts.
+**NEXT 1** — Design (without executing) a bounded high-value source-acquisition pilot for 4–6 narrow targets, prioritizing owner/service manuals and measurable practical Service Core fields (oil, cooling, brakes, tires, maintenance and torques); success requires at least 10 new practical-service slots and explicit source-yield metrics.
 
 **NEXT 2** — Perform a production-readiness audit of authentication, persistence, RLS and error paths against an explicitly selected test backend.
 
