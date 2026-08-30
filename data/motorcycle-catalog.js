@@ -1330,6 +1330,93 @@ addModels("ducati", [
   m("desertx", "DesertX", [v("gen1", "ducati.desertx.gen1", "I generacja", "DesertX", 2022, 2025)])
 ]);
 
+/* Ducati Completeness Wave 1: production road motorcycles within MY1990–2025. */
+addModels("ducati", [
+  m("superbike-classic", "851 / 888 / 748 / 916 / 996 / 998", [
+    v("851", "ducati.superbike-classic.851", "851 Strada", "Ducati 851", 1990, 1992),
+    v("888", "ducati.superbike-classic.888", "888 Strada", "Ducati 888", 1991, 1994),
+    v("748", "ducati.superbike-classic.748", "748", "Ducati 748", 1995, 2002),
+    v("916", "ducati.superbike-classic.916", "916", "Ducati 916", 1994, 1998),
+    v("996", "ducati.superbike-classic.996", "996", "Ducati 996", 1999, 2001),
+    v("998", "ducati.superbike-classic.998", "998", "Ducati 998", 2002, 2004)
+  ]),
+  m("supersport", "SS / SuperSport", [
+    v("750-carb", "ducati.supersport.750-carb", "750 SS carburettor", "Ducati 750 SS 1991", 1991, 1998),
+    v("900-carb", "ducati.supersport.900-carb", "900 SS carburettor", "Ducati 900 SS 1990", 1990, 1998),
+    v("750-ie", "ducati.supersport.750-ie", "750 SS i.e.", "Ducati 750 SS i.e.", 1999, 2002),
+    v("900-ie", "ducati.supersport.900-ie", "900 SS i.e.", "Ducati 900 SS i.e.", 1999, 2002),
+    v("800", "ducati.supersport.800", "800 SS", "Ducati 800 SS", 2003, 2007),
+    v("1000-ds", "ducati.supersport.1000-ds", "1000 DS", "Ducati 1000 SS DS", 2003, 2006),
+    v("939", "ducati.supersport.939", "SuperSport 939", "Ducati SuperSport 939", 2017, 2020),
+    v("950", "ducati.supersport.950", "SuperSport 950", "Ducati SuperSport 950", 2021, 2025)
+  ]),
+  m("sport-touring", "ST Sport Touring", [
+    v("st2", "ducati.sport-touring.st2", "ST2", "Ducati ST2", 1997, 2003),
+    v("st4", "ducati.sport-touring.st4", "ST4", "Ducati ST4", 1999, 2003),
+    v("st4s", "ducati.sport-touring.st4s", "ST4S", "Ducati ST4S", 2001, 2005),
+    v("st3", "ducati.sport-touring.st3", "ST3", "Ducati ST3", 2004, 2007)
+  ]),
+  m("paso", "Paso", [
+    v("906", "ducati.paso.906", "906 Paso", "Ducati 906 Paso", 1990, 1990),
+    v("907-ie", "ducati.paso.907-ie", "907 i.e.", "Ducati 907 i.e.", 1990, 1992)
+  ]),
+  m("sportclassic", "SportClassic", [
+    v("sport-1000", "ducati.sportclassic.sport-1000", "Sport 1000", "Ducati Sport 1000", 2006, 2009),
+    v("gt-1000", "ducati.sportclassic.gt-1000", "GT 1000", "Ducati GT 1000", 2007, 2010),
+    v("paul-smart", "ducati.sportclassic.paul-smart", "Paul Smart 1000 LE", "Ducati Paul Smart 1000 LE", 2006, 2006)
+  ]),
+  m("limited-road", "Limited-production road", [
+    v("mh900e", "ducati.limited-road.mh900e", "MH900e", "Ducati MH900e", 2001, 2002),
+    v("desmosedici-rr", "ducati.limited-road.desmosedici-rr", "Desmosedici RR", "Ducati Desmosedici RR", 2008, 2009)
+  ]),
+  m("hyperstrada", "Hyperstrada", [
+    v("821", "ducati.hyperstrada.821", "821", "Hyperstrada 821", 2013, 2015),
+    v("939", "ducati.hyperstrada.939", "939", "Hyperstrada 939", 2016, 2017)
+  ]),
+  m("xdiavel", "XDiavel", [
+    v("1262", "ducati.xdiavel.1262", "1262", "XDiavel 1262", 2016, 2024),
+    v("v4", "ducati.xdiavel.v4", "V4", "XDiavel V4", 2025, 2025)
+  ]),
+  m("scrambler-1100", "Scrambler 1100", [
+    v("gen1", "ducati.scrambler-1100.gen1", "1100 — I", "Scrambler 1100 2018", 2018, 2020),
+    v("pro", "ducati.scrambler-1100.pro", "1100 Pro", "Scrambler 1100 Pro", 2020, 2025),
+    v("sport-pro", "ducati.scrambler-1100.sport-pro", "1100 Sport Pro", "Scrambler 1100 Sport Pro", 2020, 2025)
+  ])
+]);
+
+addVariants("ducati", "monster", [
+  v("m750", "ducati.monster.m750", "M750", "Monster M750", 1996, 2002),
+  v("800", "ducati.monster.800", "800", "Monster 800", 2003, 2005),
+  v("s2r-800", "ducati.monster.s2r-800", "S2R 800", "Monster S2R 800", 2005, 2007),
+  v("s2r-1000", "ducati.monster.s2r-1000", "S2R 1000", "Monster S2R 1000", 2006, 2008),
+  v("s4", "ducati.monster.s4", "S4", "Monster S4", 2001, 2003),
+  v("s4r", "ducati.monster.s4r", "S4R", "Monster S4R", 2003, 2006),
+  v("s4rs", "ducati.monster.s4rs", "S4RS", "Monster S4RS", 2006, 2008)
+]);
+
+addVariants("ducati", "multistrada", [
+  v("620", "ducati.multistrada.620", "620", "Multistrada 620", 2005, 2006),
+  v("950", "ducati.multistrada.950", "950", "Multistrada 950", 2017, 2021),
+  v("v2", "ducati.multistrada.v2", "V2", "Multistrada V2", 2022, 2025)
+]);
+
+addVariants("ducati", "streetfighter", [
+  v("v2", "ducati.streetfighter.v2", "V2", "Streetfighter V2", 2022, 2025)
+]);
+
+addVariants("ducati", "hypermotard", [
+  v("796", "ducati.hypermotard.796", "796", "Hypermotard 796", 2010, 2012),
+  v("698-mono", "ducati.hypermotard.698-mono", "698 Mono", "Hypermotard 698 Mono", 2024, 2025)
+]);
+
+addVariants("ducati", "scrambler", [
+  v("full-throttle-1", "ducati.scrambler.full-throttle-1", "Full Throttle — I", "Scrambler Full Throttle 2015", 2015, 2022),
+  v("full-throttle-2", "ducati.scrambler.full-throttle-2", "Full Throttle — II", "Scrambler Full Throttle 2023", 2023, 2025),
+  v("cafe-racer", "ducati.scrambler.cafe-racer", "Café Racer", "Scrambler Café Racer", 2017, 2020),
+  v("nightshift-1", "ducati.scrambler.nightshift-1", "Nightshift — I", "Scrambler Nightshift 2021", 2021, 2022),
+  v("nightshift-2", "ducati.scrambler.nightshift-2", "Nightshift — II", "Scrambler Nightshift 2023", 2023, 2025)
+]);
+
 addModels("triumph", [
   m("daytona", "Daytona", [v("675-1", "triumph.daytona.675-1", "675 — I", "Daytona 675 2006", 2006, 2008), v("675-2", "triumph.daytona.675-2", "675 — II", "Daytona 675 2009", 2009, 2012), v("675-3", "triumph.daytona.675-3", "675 — III", "Daytona 675 2013", 2013, 2017), v("660", "triumph.daytona.660", "660", "Daytona 660", 2024, 2025)]),
   m("trident-tiger-sport", "Trident / Tiger Sport", [v("trident-660", "triumph.trident-tiger-sport.trident-660", "Trident 660", "Trident 660", 2021, 2025), v("tiger-sport-660", "triumph.trident-tiger-sport.tiger-sport-660", "Tiger Sport 660", "Tiger Sport 660", 2022, 2025), v("tiger-sport-800", "triumph.trident-tiger-sport.tiger-sport-800", "Tiger Sport 800", "Tiger Sport 800", 2025, 2025)]),

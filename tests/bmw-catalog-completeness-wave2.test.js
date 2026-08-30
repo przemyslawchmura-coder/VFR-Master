@@ -18,7 +18,7 @@ const originalKeys = new Set(["bmw.f-gs.f650-single","bmw.f-gs.f650-twin","bmw.f
 test("BMW Wave 2 counts and global totals are deterministic", () => {
   const report = reportModule.buildReport(data);
   assert.deepEqual(report.perManufacturer.find(item => item.id === "bmw"), { id: "bmw", manufacturer: "BMW", families: 29, variants: 135, variantYears: 653, earliestYear: 1990, latestYear: 2025 });
-  assert.deepEqual({ manufacturers: report.manufacturers, families: report.modelFamilies, variants: report.variants, variantYears: report.variantYears }, { manufacturers: 13, families: 288, variants: 955, variantYears: 4668 });
+  assert.deepEqual({ manufacturers: report.manufacturers, families: report.modelFamilies, variants: report.variants, variantYears: report.variantYears }, { manufacturers: 13, families: 297, variants: 1005, variantYears: 4871 });
 });
 
 test("BMW keys, semantic identities, years and stored-model years are collision-free", () => {

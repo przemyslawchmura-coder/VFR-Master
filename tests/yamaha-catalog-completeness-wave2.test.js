@@ -20,7 +20,7 @@ test("Yamaha Wave 2 counts and global counts are deterministic", () => {
   assert.deepEqual(reportModule.buildReport(data), report);
   assert.deepEqual(
     { manufacturers: report.manufacturers, families: report.modelFamilies, variants: report.variants, variantYears: report.variantYears },
-    { manufacturers: 13, families: 288, variants: 955, variantYears: 4668 }
+    { manufacturers: 13, families: 297, variants: 1005, variantYears: 4871 }
   );
   assert.deepEqual(report.perManufacturer.find(item => item.id === "yamaha"), {
     id: "yamaha", manufacturer: "Yamaha", families: 60, variants: 177,
