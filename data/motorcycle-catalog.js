@@ -907,6 +907,138 @@ addModels("suzuki", [
   m("katana", "Katana", [v("gsx1100", "suzuki.katana.gsx1100", "GSX1100S", "GSX1100S Katana", 1990, 2001), v("gen2", "suzuki.katana.gen2", "1000 — I", "Katana 1000 2019", 2019, 2020), v("gen2-e5", "suzuki.katana.gen2-e5", "1000 — II", "Katana 1000 2022", 2022, 2025)])
 ]);
 
+/* Suzuki Completeness Wave 2: evidence-backed European production range. */
+addModels("suzuki", [
+  m("gsx-r1100", "GSX-R1100", [
+    v("gv73c", "suzuki.gsx-r1100.gv73c", "GV73C", "GSX-R1100 GV73C", 1990, 1992),
+    v("gu75c", "suzuki.gsx-r1100.gu75c", "GU75C", "GSX-R1100 GU75C", 1993, 1994),
+    v("gu75c-w", "suzuki.gsx-r1100.gu75c-w", "GU75C water-cooled", "GSX-R1100 GU75C 1995", 1995, 1998)
+  ]),
+  m("gsx600f", "GSX600F", [
+    v("gn72b", "suzuki.gsx600f.gn72b", "GN72B", "GSX600F GN72B", 1990, 1997),
+    v("aj", "suzuki.gsx600f.aj", "AJ", "GSX600F AJ", 1998, 2006)
+  ]),
+  m("gsx750f", "GSX750F", [
+    v("gr78a", "suzuki.gsx750f.gr78a", "GR78A", "GSX750F GR78A", 1990, 1997),
+    v("ak", "suzuki.gsx750f.ak", "AK", "GSX750F AK", 1998, 2006)
+  ]),
+  m("gsx650f", "GSX650F", [v("gen1", "suzuki.gsx650f.gen1", "GSX650F", "GSX650F", 2008, 2016)]),
+  m("gsx1100f", "GSX1100F", [v("gv72c", "suzuki.gsx1100f.gv72c", "GV72C", "GSX1100F", 1990, 1996)]),
+  m("rf", "RF", [
+    v("rf600r", "suzuki.rf.rf600r", "RF600R", "RF600R", 1993, 1997),
+    v("rf900r", "suzuki.rf.rf900r", "RF900R", "RF900R", 1994, 1999)
+  ]),
+  m("tl1000", "TL1000", [
+    v("s", "suzuki.tl1000.s", "TL1000S", "TL1000S", 1997, 2001),
+    v("r", "suzuki.tl1000.r", "TL1000R", "TL1000R", 1998, 2003)
+  ]),
+  m("b-king", "B-King", [v("gen1", "suzuki.b-king.gen1", "GSX1300BK", "GSX1300BK B-King", 2008, 2012)]),
+  m("gsx125", "GSX-S125 / GSX-R125", [
+    v("s", "suzuki.gsx125.s", "GSX-S125", "GSX-S125", 2017, 2025),
+    v("r", "suzuki.gsx125.r", "GSX-R125", "GSX-R125", 2017, 2025)
+  ]),
+  m("gsx250r", "GSX250R", [v("gen1", "suzuki.gsx250r.gen1", "GSX250R", "GSX250R", 2017, 2021)]),
+  m("gsx-s950", "GSX-S950", [v("gen1", "suzuki.gsx-s950.gen1", "GSX-S950", "GSX-S950", 2021, 2025)]),
+  m("gsx-s1000f", "GSX-S1000F", [v("gen1", "suzuki.gsx-s1000f.gen1", "GSX-S1000F", "GSX-S1000F", 2015, 2021)]),
+  m("gsx-s1000gx", "GSX-S1000GX", [v("gen1", "suzuki.gsx-s1000gx.gen1", "GSX-S1000GX", "GSX-S1000GX", 2024, 2025)]),
+  m("gsx1250fa", "GSX1250FA", [v("gen1", "suzuki.gsx1250fa.gen1", "GSX1250FA", "GSX1250FA", 2010, 2016)]),
+  m("gs500", "GS500", [
+    v("e", "suzuki.gs500.e", "GS500E", "GS500E", 1990, 2000),
+    v("gen2", "suzuki.gs500.gen2", "GS500", "GS500 2001", 2001, 2007),
+    v("f", "suzuki.gs500.f", "GS500F", "GS500F", 2004, 2008)
+  ]),
+  m("gsx1100g", "GSX1100G", [v("gen1", "suzuki.gsx1100g.gen1", "GSX1100G", "GSX1100G", 1991, 1996)]),
+  m("inazuma", "Inazuma", [
+    v("gsx750", "suzuki.inazuma.gsx750", "GSX750 Inazuma", "GSX750 Inazuma", 1998, 2003),
+    v("gsx1200", "suzuki.inazuma.gsx1200", "GSX1200 Inazuma", "GSX1200 Inazuma", 1999, 2001),
+    v("gw250", "suzuki.inazuma.gw250", "GW250 Inazuma", "GW250 Inazuma", 2012, 2017)
+  ]),
+  m("gsx1400", "GSX1400", [v("gen1", "suzuki.gsx1400.gen1", "GSX1400", "GSX1400", 2001, 2007)]),
+  m("vx800", "VX800", [v("gen1", "suzuki.vx800.gen1", "VX800", "VX800", 1990, 1997)]),
+  m("freewind", "Freewind", [v("xf650", "suzuki.freewind.xf650", "XF650", "XF650 Freewind", 1997, 2003)]),
+  m("dr350", "DR350", [
+    v("s", "suzuki.dr350.s", "DR350S", "DR350S", 1990, 1993),
+    v("se", "suzuki.dr350.se", "DR350SE", "DR350SE", 1994, 2000)
+  ]),
+  m("dr650", "DR650", [
+    v("r", "suzuki.dr650.r", "DR650R", "DR650R", 1990, 1995),
+    v("rs", "suzuki.dr650.rs", "DR650RS", "DR650RS", 1990, 1995),
+    v("se", "suzuki.dr650.se", "DR650SE", "DR650SE", 1996, 2000)
+  ]),
+  m("dr-big", "DR Big", [v("dr800s", "suzuki.dr-big.dr800s", "DR800S", "DR800S Big", 1990, 1999)]),
+  m("dr-z400", "DR-Z400", [
+    v("s", "suzuki.dr-z400.s", "DR-Z400S", "DR-Z400S", 2000, 2008),
+    v("sm", "suzuki.dr-z400.sm", "DR-Z400SM", "DR-Z400SM", 2005, 2008),
+    v("4s", "suzuki.dr-z400.4s", "DR-Z4S", "DR-Z4S", 2025, 2025),
+    v("4sm", "suzuki.dr-z400.4sm", "DR-Z4SM", "DR-Z4SM", 2025, 2025)
+  ]),
+  m("dr125", "DR125", [
+    v("s", "suzuki.dr125.s", "DR125S", "DR125S", 1990, 1996),
+    v("se", "suzuki.dr125.se", "DR125SE", "DR125SE", 1994, 2002),
+    v("sm", "suzuki.dr125.sm", "DR125SM", "DR125SM", 2008, 2014)
+  ]),
+  m("vanvan", "VanVan", [
+    v("rv125", "suzuki.vanvan.rv125", "RV125", "RV125 VanVan", 2003, 2016),
+    v("rv200", "suzuki.vanvan.rv200", "RV200", "RV200 VanVan", 2016, 2019)
+  ]),
+  m("intruder-vs", "Intruder VS", [
+    v("vs600", "suzuki.intruder-vs.vs600", "VS600", "VS600 Intruder", 1995, 2000),
+    v("vs750", "suzuki.intruder-vs.vs750", "VS750", "VS750 Intruder", 1990, 1991),
+    v("vs800", "suzuki.intruder-vs.vs800", "VS800", "VS800 Intruder", 1992, 2000),
+    v("vs1400", "suzuki.intruder-vs.vs1400", "VS1400", "VS1400 Intruder", 1990, 2003)
+  ]),
+  m("intruder-vl", "Intruder VL", [
+    v("vl125", "suzuki.intruder-vl.vl125", "VL125 LC", "VL125 Intruder LC", 2000, 2008),
+    v("vl250", "suzuki.intruder-vl.vl250", "VL250 LC", "VL250 Intruder LC", 2000, 2007),
+    v("vl800", "suzuki.intruder-vl.vl800", "VL800 / C800", "VL800 Intruder C800", 2001, 2017),
+    v("vl1500", "suzuki.intruder-vl.vl1500", "VL1500 / C1500", "VL1500 Intruder C1500", 1998, 2009)
+  ]),
+  m("intruder-m", "Intruder M", [
+    v("m800", "suzuki.intruder-m.m800", "M800", "Intruder M800", 2005, 2016),
+    v("m1500", "suzuki.intruder-m.m1500", "M1500", "Intruder M1500", 2009, 2017),
+    v("m1800r", "suzuki.intruder-m.m1800r", "M1800R", "Intruder M1800R", 2006, 2017)
+  ]),
+  m("marauder", "Marauder", [
+    v("gz125", "suzuki.marauder.gz125", "GZ125", "GZ125 Marauder", 1998, 2011),
+    v("gz250", "suzuki.marauder.gz250", "GZ250", "GZ250 Marauder", 1999, 2007),
+    v("vz800", "suzuki.marauder.vz800", "VZ800", "VZ800 Marauder", 1997, 2004)
+  ]),
+  m("savage", "Savage", [v("ls650", "suzuki.savage.ls650", "LS650", "LS650 Savage", 1990, 2004)]),
+  m("gn125", "GN125", [v("gen1", "suzuki.gn125.gen1", "GN125", "GN125", 1990, 2001)]),
+  m("en125", "EN125", [v("gen1", "suzuki.en125.gen1", "EN125", "EN125", 2003, 2011)]),
+  m("burgman-125-200", "Burgman 125 / 200", [
+    v("125", "suzuki.burgman-125-200.125", "UH125", "Burgman 125", 2002, 2013),
+    v("200-1", "suzuki.burgman-125-200.200-1", "UH200 — I", "Burgman 200 2007", 2007, 2013),
+    v("200-2", "suzuki.burgman-125-200.200-2", "UH200 — II", "Burgman 200 2014", 2014, 2020),
+    v("street-125ex", "suzuki.burgman-125-200.street-125ex", "Street 125EX", "Burgman Street 125EX", 2023, 2025)
+  ]),
+  m("burgman-250", "Burgman 250", [v("an250", "suzuki.burgman-250.an250", "AN250", "Burgman 250", 1998, 2002)]),
+  m("burgman-400", "Burgman 400", [
+    v("gen1", "suzuki.burgman-400.gen1", "AN400 — I", "Burgman 400 1998", 1998, 2002),
+    v("gen2", "suzuki.burgman-400.gen2", "AN400 — II", "Burgman 400 2003", 2003, 2006),
+    v("gen3", "suzuki.burgman-400.gen3", "AN400 — III", "Burgman 400 2007", 2007, 2016),
+    v("gen4", "suzuki.burgman-400.gen4", "AN400 — IV", "Burgman 400 2017", 2017, 2025)
+  ]),
+  m("burgman-650", "Burgman 650", [
+    v("gen1", "suzuki.burgman-650.gen1", "AN650 — I", "Burgman 650 2002", 2002, 2012),
+    v("gen2", "suzuki.burgman-650.gen2", "AN650 — II", "Burgman 650 2013", 2013, 2018)
+  ]),
+  m("address", "Address", [
+    v("an125", "suzuki.address.an125", "Address 125 — I", "Address 125 1995", 1995, 2007),
+    v("uk110", "suzuki.address.uk110", "Address 110", "Address 110 2015", 2015, 2020),
+    v("dp12", "suzuki.address.dp12", "Address 125 — II", "Address 125 2023", 2023, 2025)
+  ])
+]);
+
+addVariants("suzuki", "sv650", [v("x", "suzuki.sv650.x", "SV650X", "SV650X", 2018, 2021)]);
+addVariants("suzuki", "gsx-r1000", [v("r-l7", "suzuki.gsx-r1000.r-l7", "R L7", "GSX-R1000R L7", 2017, 2022)]);
+addVariants("suzuki", "gsx-s1000gt", [v("plus", "suzuki.gsx-s1000gt.plus", "GT+", "GSX-S1000GT+", 2022, 2025)]);
+addVariants("suzuki", "v-strom-1000-1050", [
+  v("1000-xt", "suzuki.v-strom-1000-1050.1000-xt", "DL1000XT", "DL1000XT V-Strom", 2017, 2019),
+  v("1050-xt", "suzuki.v-strom-1000-1050.1050-xt", "DL1050XT", "DL1050XT V-Strom", 2020, 2022),
+  v("1050-de", "suzuki.v-strom-1000-1050.1050-de", "DL1050DE", "DL1050DE V-Strom", 2023, 2025)
+]);
+
 addModels("kawasaki", [
   m("ninja-250-500", "Ninja 250 / 300 / 400 / 500", [
     v("250-ex250j", "kawasaki.ninja-250-500.250-ex250j", "Ninja 250 EX250J", "Ninja 250R", 2008, 2012),
