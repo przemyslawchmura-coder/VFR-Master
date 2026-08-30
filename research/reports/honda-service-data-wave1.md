@@ -27,6 +27,8 @@ The proof audit identified the mirrored manual's MY2002 publication identity as 
 
 The subsequent 61MCW01/61MCW05 recovery pass found a 638-page ManualsLib rendering with inspectable table-of-contents and technical-page text, but no inspectable internal cover, copyright/publication page or Honda publication number. It is recorded as `partial-content` with `identity-uncertain`, not as acquired/authenticated manual evidence. Authoritative Helm catalogue metadata confirms the candidate publication scopes (61MCW01: 2002–2003; 61MCW05: 2002–2007), but does not authenticate that mirrored copy. No Service Core counts changed and the 24 manual-derived rows remain blocked.
 
+The content-level fingerprint is `research/data/vfr800-manual-fingerprint.js`. It covers all 24 blocked fields and records TOC page locations plus the limited technical text inspected; because publication identity and field-level applicability remain unproven, it does not alter evidence counts.
+
 ## Source acquisition pass
 
 The two-target acquisition log is `research/data/honda-service-acquisition-wave1.js`. It records eight documented attempts across CBR500R PC70 and VFR800 RC46 VTEC: the CBR500R owner manual was acquired; the VFR800 Honda-authorized genuine-parts fiche was acquired as metadata-only; workshop manuals and Common Service Manual routes were login-gated or unverifiable. No unauthenticated or aftermarket source was used as technical evidence. The acquisition gate is satisfied by the detailed blocker audit and acquired OEM-parts route, while workshop evidence remains zero.

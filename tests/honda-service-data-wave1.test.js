@@ -6,6 +6,7 @@ const path = require("node:path");
 const data = require("../research/data/honda-service-wave1.js");
 const report = require("../scripts/honda-service-data-report.js");
 const acquisition = require("../research/data/honda-service-acquisition-wave1.js");
+const fingerprint = require("../research/data/vfr800-manual-fingerprint.js");
 const catalog = require("../scripts/motorcycle-catalog-report.js").loadCatalog();
 const canonical = new Set(Object.entries(require("../research/schema/research-coverage-standard.js").CATEGORIES).flatMap(([category, fields]) => fields.map(field => `${category}.${field}`)));
 
@@ -103,6 +104,15 @@ test("acquisition dispositions do not equate metadata with content", () => {
   assert.equal(candidate.contentInspected, true);
   assert.equal(candidate.internalMetadataInspected, false);
   assert.equal(candidate.pageCount, 638);
+});
+
+test("VFR manual fingerprint covers every blocked field without promoting evidence", () => {
+  const blocked = data.evidence.filter(item => item.catalogVariantKey === "honda.vfr800.rc46.vtec.gen1" && item.proofStatus === "SOURCE-IDENTITY-UNCERTAIN");
+  assert.equal(fingerprint.pageCount, 638);
+  assert.equal(fingerprint.blockedFields.length, blocked.length);
+  assert.deepEqual(new Set(fingerprint.blockedFields.map(item => item.canonicalFieldId)), new Set(blocked.map(item => item.field)));
+  assert.ok(fingerprint.blockedFields.every(item => item.publicationIdKnown === false && item.finalProofStatus === "SOURCE-IDENTITY-UNCERTAIN"));
+  assert.equal(report.buildReport().byTarget.find(item => item.catalogVariantKey === "honda.vfr800.rc46.vtec.gen1").post.serviceCore.evidenceFound, 13);
 });
 
 test("existing CBR500R deep baseline remains unchanged", () => {
