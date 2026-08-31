@@ -1,18 +1,18 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-08-31",
-  "snapshotBasis": "post-pilot-scaling-reassessment-working-tree",
-  "baseCommit": "97484bf004c466a6f26a5e42ae07b91214e95962",
+  "snapshotBasis": "post-yamaha-transfer-acquisition-working-tree",
+  "baseCommit": "865f464536ff3f03c926e2f7f7df307a529f2551",
   "containingCommit": "self (resolve from git history)",
   "originMain": "97484bf004c466a6f26a5e42ae07b91214e95962",
-  "aheadAfterContainingCommit": 1,
+  "aheadAfterContainingCommit": 2,
   "behind": 0,
   "repository": {
-    "files": 177,
-    "javascriptFiles": 111,
-    "testFiles": 45,
-    "documentationFiles": 40,
-    "researchAndToolingFiles": 49
+    "files": 183,
+    "javascriptFiles": 114,
+    "testFiles": 46,
+    "documentationFiles": 42,
+    "researchAndToolingFiles": 52
   },
   "catalogue": {
     "manufacturers": 13,
@@ -288,12 +288,97 @@
         "rationale": "The pilot yielded 24 practical slots per yielding Tier A document, but only 2/5 targets yielded. The next gate discounts per-document yield by roughly half while requiring both selected rich-manual prospects to be handled explicitly."
       },
       "exactNextTask": "Execute the bounded two-target Yamaha owner-manual acquisition batch for MY2021 EU MT-09 III standard and MY2019 EU Ténéré 700 I standard, under the recorded applicability, budget, yield, audit and non-production gates."
+    },
+    "yamahaTransferAcquisition": {
+      "classification": "ACCEPT-WITH-RISKS",
+      "targets": [
+        {
+          "catalogVariantKey": "yamaha.mt-09.gen3",
+          "before": 0,
+          "after": 29,
+          "gain": 29,
+          "practicalGain": 27,
+          "genericGain": 2,
+          "documentsInspected": 1,
+          "documentsYieldingEvidence": 1,
+          "highestTier": "A",
+          "conflicts": 0,
+          "applicabilityBlockers": [
+            "later catalogue-generation years are not covered by the selected manual edition"
+          ],
+          "importantRemainingPracticalGaps": [
+            "lubrication.oil-filter",
+            "cooling.replacement-interval",
+            "ignition.spark-plug-alternative",
+            "ignition.replacement-interval",
+            "valve_train.intake-clearance",
+            "valve_train.exhaust-clearance",
+            "valve_train.measurement-conditions",
+            "final_drive.chain-size",
+            "brakes.oem-pad-numbers",
+            "torques.front-axle"
+          ]
+        },
+        {
+          "catalogVariantKey": "yamaha.tenere-700.gen1",
+          "before": 0,
+          "after": 29,
+          "gain": 29,
+          "practicalGain": 27,
+          "genericGain": 2,
+          "documentsInspected": 1,
+          "documentsYieldingEvidence": 1,
+          "highestTier": "A",
+          "conflicts": 0,
+          "applicabilityBlockers": [
+            "later catalogue-generation years are not covered by the selected manual edition"
+          ],
+          "importantRemainingPracticalGaps": [
+            "lubrication.oil-filter",
+            "cooling.replacement-interval",
+            "ignition.spark-plug-alternative",
+            "ignition.replacement-interval",
+            "valve_train.intake-clearance",
+            "valve_train.exhaust-clearance",
+            "valve_train.measurement-conditions",
+            "final_drive.chain-size",
+            "brakes.oem-pad-numbers",
+            "torques.front-axle"
+          ]
+        }
+      ],
+      "documentsInspected": 2,
+      "uniqueDocuments": 2,
+      "hostingLocations": 2,
+      "duplicateHostingLocations": 0,
+      "documentsYieldingEvidence": 2,
+      "sourceTierDistribution": {
+        "A": 2,
+        "B": 0,
+        "C": 0,
+        "D": 0
+      },
+      "evidenceRowsProduced": 58,
+      "verifiedSlotsBefore": 0,
+      "verifiedSlotsAfter": 58,
+      "netNewVerifiedSlots": 58,
+      "practicalServiceFieldGain": 54,
+      "genericSpecificationGain": 4,
+      "evidenceRowsPerYieldingDocument": 29,
+      "conflictsDiscovered": 0,
+      "unresolvedApplicabilityCases": 2,
+      "researchedNoEvidenceTargets": 0,
+      "primaryDocumentsUsed": 2,
+      "primaryDocumentBudget": 4,
+      "sourceBudgetExceeded": false,
+      "productionChanged": false,
+      "vfrProductionChanged": false
     }
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 394,
-    "lastKnownPassed": 394,
+    "lastKnownTotal": 400,
+    "lastKnownPassed": 400,
     "failed": 0,
     "skipped": 0,
     "todo": 0

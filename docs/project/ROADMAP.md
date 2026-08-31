@@ -24,7 +24,7 @@ Objective: separate research from production and establish provenance/status sem
 
 ## Phase 5 — Scalable batch research (ACTIVE)
 
-Objective: increase verified practical Service Core coverage per unit of work. Entry: generic batch pipeline and Honda fixtures. Completed checkpoints: the five-target owner/service-source pilot produced +50 verified slots, including +48 practical slots, from two yielding Tier A documents; the post-pilot reassessment selected a bounded two-target Yamaha transfer batch using only repository-known rich Tier A prospects. Current task: execute the MY2021 EU MT-09 III standard and MY2019 EU Ténéré 700 I standard batch under +24 verified/+22 practical gates, two primary documents per target and zero production imports. Exit: repeatable batch reports with meaningful maintenance/service gains, measured reuse and zero production imports. Status: ACTIVE.
+Objective: increase verified practical Service Core coverage per unit of work. Entry: generic batch pipeline and Honda fixtures. Completed checkpoints: the five-target Honda pilot produced +50 verified/+48 practical slots from two yielding Tier A documents; the two-target Yamaha transfer produced +58 verified/+54 practical slots from two Tier A documents, with zero conflicts or production imports. Current task: design the next bounded transfer batch from measured Honda/Yamaha yield and determine whether another manufacturer has a repository-known Tier A/B prospect; acquire no evidence during that design. Exit: repeatable batch reports with meaningful maintenance/service gains, measured reuse and zero production imports. Status: ACTIVE.
 
 ## Phase 6 — Controlled production promotion (NOT-STARTED)
 

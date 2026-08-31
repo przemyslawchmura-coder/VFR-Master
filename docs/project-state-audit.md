@@ -2,7 +2,7 @@
 
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE, NOT HISTORICAL CLAIMS.**
 
-Snapshot: `research/reports/project-state-audit.json` (2026-08-31 post-pilot scaling-reassessment working tree based on `97484bf`; the containing commit is authoritative).
+Snapshot: `research/reports/project-state-audit.json` (2026-08-31 post-Yamaha-transfer working tree based on `865f464`; the containing commit is authoritative).
 
 ## Repository map
 
@@ -55,9 +55,11 @@ The subsequent five-target pilot validated the owner-manual strategy: 51/220→1
 
 The completed reassessment evaluated ten repository-known candidates across seven manufacturers. Candidates with unknown exact-target Tier A/B prospects or unknown document richness remained unranked. It selected two narrowly edition-scoped Yamaha targets: MT-09 III MY2021 EU standard and Ténéré 700 I MY2019 EU standard, each starting at 0/44. The execution gate is +24 verified/+22 practical slots, at most two primary documents per target, no Tier C/D practical contribution and zero unresolved safety-critical conflicts. Design audit outcome is ACCEPT-WITH-RISKS: this tests transfer to one non-Honda manufacturer across two use classes, not broad multi-manufacturer scalability. No evidence or production data changed.
 
+The executed Yamaha transfer batch authenticated official Yamaha Europe owner manuals `B7N-28199-E0` and `BW3-F8199-E0`. Each exact one-year target moved 0/44→29/44; combined gain was +58 verified, +54 practical and +4 generic tire-size slots from 58 rows and two unique Tier A documents. ABS, manual transmission, standard equipment, chain measurement and tire load/road/off-road conditions are explicit. Conflicts, duplicate locations, Tier C/D contribution and budget overruns were zero. Audit outcome is ACCEPT-WITH-RISKS because both rich manuals were preselected, only Yamaha transfer was tested, and later catalogue years remain uncovered. Production and VFR800 did not change.
+
 ## WIP and debt
 
-P0: none identified. P1: bounded two-target Yamaha acquisition execution; controlled profile promotion. P2: cloud/RLS verification; blocked-source acquisition; broader profile coverage. P3: market/scooter/125 expansion.
+P0: none identified. P1: bounded post-Yamaha transfer-batch design; controlled profile promotion. P2: cloud/RLS verification; blocked-source acquisition; broader profile coverage. P3: market/scooter/125 expansion.
 
 Technical debt: HIGH — only one production Technical Profile and live backend/deployment claims are unverified. MEDIUM — parallel historical report formats and limited document-content hashing. LOW — presentation/report consolidation.
 

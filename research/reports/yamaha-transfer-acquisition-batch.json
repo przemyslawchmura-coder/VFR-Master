@@ -1,0 +1,2124 @@
+{
+  "schemaVersion": "revlog-yamaha-transfer-acquisition/v1",
+  "researchDate": "2026-08-31",
+  "classification": "ACCEPT-WITH-RISKS",
+  "targetKeys": [
+    "yamaha.mt-09.gen3",
+    "yamaha.tenere-700.gen1"
+  ],
+  "sources": [
+    {
+      "id": "yamaha.transfer.mt09.b7n-28199-e0",
+      "documentId": "Yamaha|B7N-28199-E0",
+      "tier": "A",
+      "sourceClass": "official-owner-manual",
+      "publisher": "Yamaha Motor Co., Ltd.",
+      "title": "MTN890 (MT-09) Owner's Manual",
+      "publicationId": "B7N-28199-E0",
+      "edition": "1st edition, August 2020",
+      "publicationDate": 2020,
+      "url": "https://cdn2.yamaha-motor.eu/prod/owner-manuals/Motorcycles/PB7N28199E0E.PDF",
+      "officialHost": "cdn2.yamaha-motor.eu",
+      "disposition": "acquired-content",
+      "authenticationState": "official-yamaha-europe-host-and-internal-publication-identity",
+      "contentHashSha256": "44d573bd16e757ec587c14a19a33c1f4de945dc8e9b928df4844d332a67a2ce1",
+      "language": "English",
+      "pageCount": 108,
+      "models": [
+        "MTN890 (MT-09)"
+      ],
+      "years": {
+        "from": 2021,
+        "to": 2021
+      },
+      "markets": [
+        "EU"
+      ],
+      "abs": true,
+      "transmission": "manual",
+      "equipment": "standard; MT-09 SP excluded",
+      "inspectedPages": [
+        "7-3–7-6",
+        "7-9–7-15",
+        "7-20–7-24",
+        "7-31",
+        "9-1–9-2"
+      ],
+      "targets": [
+        "yamaha.mt-09.gen3"
+      ],
+      "yieldedEvidence": true,
+      "stopCondition": "first authenticated primary document exhausted the bounded practical fields; no second document justified"
+    },
+    {
+      "id": "yamaha.transfer.tenere700.bw3-f8199-e0",
+      "documentId": "Yamaha|BW3-F8199-E0",
+      "tier": "A",
+      "sourceClass": "official-owner-manual",
+      "publisher": "MBK Industrie / Yamaha Motor Europe N.V.",
+      "title": "XTZ690 / XTZ690-U Owner's Manual",
+      "publicationId": "BW3-F8199-E0",
+      "edition": "1st edition, July 2019",
+      "publicationDate": 2019,
+      "url": "https://cdn2.yamaha-motor.eu/prod/owner-manuals/Motorcycles/PBW3F8199E0E.pdf",
+      "officialHost": "cdn2.yamaha-motor.eu",
+      "disposition": "acquired-content",
+      "authenticationState": "official-yamaha-europe-host-and-internal-publication-identity",
+      "contentHashSha256": "734700f970986ec394bcfb04242a668bbd10437b1b534cdf62a397238409b649",
+      "language": "English",
+      "pageCount": 102,
+      "models": [
+        "XTZ690",
+        "XTZ690-U"
+      ],
+      "years": {
+        "from": 2019,
+        "to": 2019
+      },
+      "markets": [
+        "EU"
+      ],
+      "abs": true,
+      "transmission": "manual",
+      "equipment": "standard; named special editions excluded",
+      "inspectedPages": [
+        "6-3–6-6",
+        "6-9–6-17",
+        "6-22–6-25",
+        "6-32",
+        "8-1–8-2"
+      ],
+      "targets": [
+        "yamaha.tenere-700.gen1"
+      ],
+      "yieldedEvidence": true,
+      "stopCondition": "first authenticated primary document exhausted the bounded practical fields; no second document justified"
+    }
+  ],
+  "documents": [
+    {
+      "documentId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "title": "MTN890 (MT-09) Owner's Manual",
+      "publicationId": "B7N-28199-E0",
+      "publisher": "Yamaha Motor Co., Ltd.",
+      "publicationDate": 2020,
+      "revision": null,
+      "markets": [
+        "EU"
+      ],
+      "models": [
+        "MTN890 (MT-09)"
+      ],
+      "years": {
+        "from": 2021,
+        "to": 2021
+      },
+      "locations": [
+        "https://cdn2.yamaha-motor.eu/prod/owner-manuals/Motorcycles/PB7N28199E0E.PDF"
+      ],
+      "accessState": "acquired-content",
+      "authenticationState": "official-yamaha-europe-host-and-internal-publication-identity",
+      "contentHash": null,
+      "inspectedPages": [
+        "7-3–7-6",
+        "7-9–7-15",
+        "7-20–7-24",
+        "7-31",
+        "9-1–9-2"
+      ],
+      "mirrorCount": 1
+    },
+    {
+      "documentId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "title": "XTZ690 / XTZ690-U Owner's Manual",
+      "publicationId": "BW3-F8199-E0",
+      "publisher": "MBK Industrie / Yamaha Motor Europe N.V.",
+      "publicationDate": 2019,
+      "revision": null,
+      "markets": [
+        "EU"
+      ],
+      "models": [
+        "XTZ690",
+        "XTZ690-U"
+      ],
+      "years": {
+        "from": 2019,
+        "to": 2019
+      },
+      "locations": [
+        "https://cdn2.yamaha-motor.eu/prod/owner-manuals/Motorcycles/PBW3F8199E0E.pdf"
+      ],
+      "accessState": "acquired-content",
+      "authenticationState": "official-yamaha-europe-host-and-internal-publication-identity",
+      "contentHash": null,
+      "inspectedPages": [
+        "6-3–6-6",
+        "6-9–6-17",
+        "6-22–6-25",
+        "6-32",
+        "8-1–8-2"
+      ],
+      "mirrorCount": 1
+    }
+  ],
+  "evidence": [
+    {
+      "id": "yamaha.transfer.evidence.001",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "lubrication.oil-specification",
+      "rawValue": "Recommended engine oil: SAE 10W-40, API SG or higher, JASO MA",
+      "normalizedValue": "API SG+ / JASO MA motorcycle engine oil",
+      "unit": null,
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Specifications — engine oil",
+      "printedPage": "9-1",
+      "viewerPage": "91",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.002",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "lubrication.viscosity",
+      "rawValue": "SAE 10W-40",
+      "normalizedValue": "SAE 10W-40",
+      "unit": null,
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Specifications — engine oil",
+      "printedPage": "9-1",
+      "viewerPage": "91",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.003",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "lubrication.api-jaso",
+      "rawValue": "API service SG type or higher; JASO standard MA",
+      "normalizedValue": "API SG+ / JASO MA",
+      "unit": null,
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Specifications — engine oil",
+      "printedPage": "9-1",
+      "viewerPage": "91",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.004",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "lubrication.capacity-drain",
+      "rawValue": "2.80 L oil change",
+      "normalizedValue": 2.8,
+      "unit": "L",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Engine oil",
+      "printedPage": "7-10",
+      "viewerPage": "69",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.005",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "lubrication.capacity-filter",
+      "rawValue": "3.20 L with oil filter removal",
+      "normalizedValue": 3.2,
+      "unit": "L",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Engine oil and oil filter",
+      "printedPage": "7-10",
+      "viewerPage": "69",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.006",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "cooling.coolant-specification",
+      "rawValue": "YAMALUBE coolant; otherwise ethylene-glycol antifreeze with aluminum corrosion inhibitors mixed 1:1 with distilled water",
+      "normalizedValue": "YAMALUBE coolant / ethylene glycol 1:1",
+      "unit": null,
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Coolant",
+      "printedPage": "7-13",
+      "viewerPage": "72",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.007",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "cooling.capacity",
+      "rawValue": "0.28 L reservoir; 1.72 L radiator including all routes",
+      "normalizedValue": {
+        "reservoir": 0.28,
+        "radiatorIncludingRoutes": 1.72
+      },
+      "unit": "L",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Coolant / specifications",
+      "printedPage": "7-13",
+      "viewerPage": "72",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.008",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "ignition.spark-plug-oem",
+      "rawValue": "NGK/LMAR9A-9",
+      "normalizedValue": "NGK LMAR9A-9",
+      "unit": null,
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Checking the spark plugs",
+      "printedPage": "7-9",
+      "viewerPage": "68",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.009",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "ignition.plug-gap",
+      "rawValue": "0.8–0.9 mm",
+      "normalizedValue": {
+        "min": 0.8,
+        "max": 0.9
+      },
+      "unit": "mm",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Checking the spark plugs",
+      "printedPage": "7-9",
+      "viewerPage": "68",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.010",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "valve_train.inspection-interval",
+      "rawValue": "Check and adjust every 40,000 km (24,000 mi)",
+      "normalizedValue": 40000,
+      "unit": "km",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Periodic maintenance chart",
+      "printedPage": "7-3",
+      "viewerPage": "62",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.011",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "final_drive.chain-slack",
+      "rawValue": "Distance A 36.0–41.0 mm, no weight on motorcycle",
+      "normalizedValue": {
+        "min": 36,
+        "max": 41,
+        "condition": "unloaded-on-sidestand"
+      },
+      "unit": "mm",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Drive chain slack",
+      "printedPage": "7-22",
+      "viewerPage": "81",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.012",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "final_drive.chain-inspection",
+      "rawValue": "Check chain slack, alignment and condition every 1,000 km and after washing, rain or wet riding",
+      "normalizedValue": {
+        "distance": 1000,
+        "conditions": [
+          "after-washing",
+          "rain",
+          "wet-riding"
+        ]
+      },
+      "unit": "km",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "General maintenance and lubrication chart",
+      "printedPage": "7-6",
+      "viewerPage": "65",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.013",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "final_drive.chain-lubrication-interval",
+      "rawValue": "Adjust and lubricate with O-ring chain lubricant every 1,000 km and after washing, rain or wet riding",
+      "normalizedValue": {
+        "distance": 1000,
+        "conditions": [
+          "after-washing",
+          "rain",
+          "wet-riding"
+        ]
+      },
+      "unit": "km",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "General maintenance and lubrication chart",
+      "printedPage": "7-6",
+      "viewerPage": "65",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.014",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "brakes.brake-fluid",
+      "rawValue": "DOT 4",
+      "normalizedValue": "DOT 4",
+      "unit": null,
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Checking the brake fluid level",
+      "printedPage": "7-20",
+      "viewerPage": "79",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.015",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "brakes.fluid-interval",
+      "rawValue": "Change brake fluid every 2 years",
+      "normalizedValue": 24,
+      "unit": "months",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "General maintenance and lubrication chart",
+      "printedPage": "7-5",
+      "viewerPage": "64",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.016",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "tires_wheels.front-size",
+      "rawValue": "120/70ZR17M/C (58W)",
+      "normalizedValue": "120/70ZR17M/C (58W)",
+      "unit": null,
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Specifications — front tire",
+      "printedPage": "9-1",
+      "viewerPage": "91",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.017",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "tires_wheels.rear-size",
+      "rawValue": "180/55ZR17M/C (73W)",
+      "normalizedValue": "180/55ZR17M/C (73W)",
+      "unit": null,
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Specifications — rear tire",
+      "printedPage": "9-2",
+      "viewerPage": "92",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.018",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "tires_wheels.solo-pressures",
+      "rawValue": "Cold, 1 person: 250 kPa front / 290 kPa rear",
+      "normalizedValue": {
+        "front": 250,
+        "rear": 290,
+        "condition": "cold",
+        "load": "solo"
+      },
+      "unit": "kPa",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Tires — cold tire air pressure",
+      "printedPage": "7-15",
+      "viewerPage": "74",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.019",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "tires_wheels.loaded-pressures",
+      "rawValue": "Cold, 2 persons: 250 kPa front / 290 kPa rear",
+      "normalizedValue": {
+        "front": 250,
+        "rear": 290,
+        "condition": "cold",
+        "load": "two-person"
+      },
+      "unit": "kPa",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Tires — cold tire air pressure",
+      "printedPage": "7-15",
+      "viewerPage": "74",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.020",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "electrical.battery-specification",
+      "rawValue": "YTZ10S, 12 V",
+      "normalizedValue": "YTZ10S / 12 V",
+      "unit": null,
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Specifications — electrical system",
+      "printedPage": "9-2",
+      "viewerPage": "92",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.021",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "electrical.battery-capacity",
+      "rawValue": "8.6 Ah (10 HR)",
+      "normalizedValue": 8.6,
+      "unit": "Ah",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Specifications — electrical system",
+      "printedPage": "9-2",
+      "viewerPage": "92",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.022",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "electrical.main-fuse",
+      "rawValue": "Main fuse 50.0 A",
+      "normalizedValue": 50,
+      "unit": "A",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Replacing the fuses",
+      "printedPage": "7-31",
+      "viewerPage": "90",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.023",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "maintenance.periodic-schedule",
+      "rawValue": "Yamaha periodic maintenance and general lubrication charts",
+      "normalizedValue": "documented",
+      "unit": null,
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Periodic maintenance charts",
+      "printedPage": "7-3",
+      "viewerPage": "62",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.024",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "maintenance.schedule-mileage-intervals",
+      "rawValue": "1,000 km initial column; 10,000 km recurring schedule, repeated after 50,000 km",
+      "normalizedValue": {
+        "initial": 1000,
+        "recurring": 10000,
+        "repeatAfter": 50000
+      },
+      "unit": "km",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Periodic maintenance charts",
+      "printedPage": "7-3",
+      "viewerPage": "62",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.025",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "maintenance.schedule-time-intervals",
+      "rawValue": "Annual checks; brake fluid every 2 years; brake hoses every 4 years",
+      "normalizedValue": {
+        "annualCheck": 12,
+        "brakeFluid": 24,
+        "brakeHoses": 48
+      },
+      "unit": "months",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Periodic maintenance charts",
+      "printedPage": "7-3",
+      "viewerPage": "62",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.026",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "torques.oil-drain-bolt",
+      "rawValue": "43 N·m",
+      "normalizedValue": 43,
+      "unit": "N·m",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Engine oil",
+      "printedPage": "7-12",
+      "viewerPage": "71",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.027",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "torques.oil-filter",
+      "rawValue": "17 N·m",
+      "normalizedValue": 17,
+      "unit": "N·m",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Engine oil and oil filter",
+      "printedPage": "7-12",
+      "viewerPage": "71",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.028",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "torques.spark-plugs",
+      "rawValue": "13 N·m",
+      "normalizedValue": 13,
+      "unit": "N·m",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Checking the spark plugs",
+      "printedPage": "7-9",
+      "viewerPage": "68",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.029",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "torques.rear-axle",
+      "rawValue": "105 N·m",
+      "normalizedValue": 105,
+      "unit": "N·m",
+      "sourceId": "Yamaha|B7N-28199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Drive chain slack adjustment",
+      "printedPage": "7-23",
+      "viewerPage": "82",
+      "yearApplicability": {
+        "from": 2021,
+        "to": 2021
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-mt09"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.030",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "lubrication.oil-specification",
+      "rawValue": "Recommended engine oil: SAE 10W-40, API SG or higher, JASO MA",
+      "normalizedValue": "API SG+ / JASO MA motorcycle engine oil",
+      "unit": null,
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Specifications — engine oil",
+      "printedPage": "8-1",
+      "viewerPage": "86",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.031",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "lubrication.viscosity",
+      "rawValue": "SAE 10W-40",
+      "normalizedValue": "SAE 10W-40",
+      "unit": null,
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Specifications — engine oil",
+      "printedPage": "8-1",
+      "viewerPage": "86",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.032",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "lubrication.api-jaso",
+      "rawValue": "API service SG type or higher; JASO standard MA",
+      "normalizedValue": "API SG+ / JASO MA",
+      "unit": null,
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Specifications — engine oil",
+      "printedPage": "8-1",
+      "viewerPage": "86",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.033",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "lubrication.capacity-drain",
+      "rawValue": "2.30 L without oil filter cartridge replacement",
+      "normalizedValue": 2.3,
+      "unit": "L",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Engine oil",
+      "printedPage": "6-13",
+      "viewerPage": "64",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.034",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "lubrication.capacity-filter",
+      "rawValue": "2.60 L with oil filter cartridge replacement",
+      "normalizedValue": 2.6,
+      "unit": "L",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Engine oil and oil filter",
+      "printedPage": "6-13",
+      "viewerPage": "64",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.035",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "cooling.coolant-specification",
+      "rawValue": "YAMALUBE coolant; otherwise ethylene-glycol antifreeze with aluminum corrosion inhibitors mixed 1:1 with distilled water",
+      "normalizedValue": "YAMALUBE coolant / ethylene glycol 1:1",
+      "unit": null,
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Coolant",
+      "printedPage": "6-14",
+      "viewerPage": "65",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.036",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "cooling.capacity",
+      "rawValue": "0.25 L reservoir; 1.60 L radiator including all routes",
+      "normalizedValue": {
+        "reservoir": 0.25,
+        "radiatorIncludingRoutes": 1.6
+      },
+      "unit": "L",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Coolant / specifications",
+      "printedPage": "6-14",
+      "viewerPage": "65",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.037",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "ignition.spark-plug-oem",
+      "rawValue": "NGK/LMAR8A-9",
+      "normalizedValue": "NGK LMAR8A-9",
+      "unit": null,
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Checking the spark plugs",
+      "printedPage": "6-10",
+      "viewerPage": "61",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.038",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "ignition.plug-gap",
+      "rawValue": "0.8–0.9 mm",
+      "normalizedValue": {
+        "min": 0.8,
+        "max": 0.9
+      },
+      "unit": "mm",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Checking the spark plugs",
+      "printedPage": "6-10",
+      "viewerPage": "61",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.039",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "valve_train.inspection-interval",
+      "rawValue": "Check and adjust every 40,000 km (24,000 mi)",
+      "normalizedValue": 40000,
+      "unit": "km",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Periodic maintenance chart",
+      "printedPage": "6-3",
+      "viewerPage": "54",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.040",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "final_drive.chain-slack",
+      "rawValue": "Distance A 43.0–48.0 mm, no weight on motorcycle",
+      "normalizedValue": {
+        "min": 43,
+        "max": 48,
+        "condition": "unloaded-on-sidestand"
+      },
+      "unit": "mm",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Drive chain slack",
+      "printedPage": "6-24",
+      "viewerPage": "75",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.041",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "final_drive.chain-inspection",
+      "rawValue": "Check chain slack, alignment and condition every 1,000 km and after washing, rain or wet riding",
+      "normalizedValue": {
+        "distance": 1000,
+        "conditions": [
+          "after-washing",
+          "rain",
+          "wet-riding"
+        ]
+      },
+      "unit": "km",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "General maintenance and lubrication chart",
+      "printedPage": "6-6",
+      "viewerPage": "57",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.042",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "final_drive.chain-lubrication-interval",
+      "rawValue": "Adjust and lubricate with O-ring chain lubricant every 1,000 km and after washing, rain or wet riding",
+      "normalizedValue": {
+        "distance": 1000,
+        "conditions": [
+          "after-washing",
+          "rain",
+          "wet-riding"
+        ]
+      },
+      "unit": "km",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "General maintenance and lubrication chart",
+      "printedPage": "6-6",
+      "viewerPage": "57",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.043",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "brakes.brake-fluid",
+      "rawValue": "DOT 4",
+      "normalizedValue": "DOT 4",
+      "unit": null,
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Checking the brake fluid level",
+      "printedPage": "6-22",
+      "viewerPage": "73",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.044",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "brakes.fluid-interval",
+      "rawValue": "Change brake fluid every 2 years",
+      "normalizedValue": 24,
+      "unit": "months",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "General maintenance and lubrication chart",
+      "printedPage": "6-5",
+      "viewerPage": "56",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.045",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "tires_wheels.front-size",
+      "rawValue": "90/90-21 M/C 54V M+S",
+      "normalizedValue": "90/90-21 M/C 54V M+S",
+      "unit": null,
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Specifications — front tire",
+      "printedPage": "8-1",
+      "viewerPage": "86",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.046",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "tires_wheels.rear-size",
+      "rawValue": "150/70 R18 M/C 70V M+S",
+      "normalizedValue": "150/70 R18 M/C 70V M+S",
+      "unit": null,
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Specifications — rear tire",
+      "printedPage": "8-2",
+      "viewerPage": "87",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.047",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "tires_wheels.solo-pressures",
+      "rawValue": "Cold, 1 person, road: 220 kPa front / 250 kPa rear",
+      "normalizedValue": {
+        "front": 220,
+        "rear": 250,
+        "condition": "cold-road",
+        "load": "solo"
+      },
+      "unit": "kPa",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Tires — cold tire air pressure",
+      "printedPage": "6-18",
+      "viewerPage": "69",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.048",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "tires_wheels.loaded-pressures",
+      "rawValue": "Cold, 2 persons, road: 220 kPa front / 250 kPa rear; off-road is separately 200/200 kPa",
+      "normalizedValue": {
+        "front": 220,
+        "rear": 250,
+        "condition": "cold-road",
+        "load": "two-person",
+        "excludedCondition": "off-road-200-kPa-front-rear"
+      },
+      "unit": "kPa",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Tires — cold tire air pressure",
+      "printedPage": "6-18",
+      "viewerPage": "69",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.049",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "electrical.battery-specification",
+      "rawValue": "YTZ10S, 12 V",
+      "normalizedValue": "YTZ10S / 12 V",
+      "unit": null,
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Specifications — electrical system",
+      "printedPage": "8-2",
+      "viewerPage": "87",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.050",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "electrical.battery-capacity",
+      "rawValue": "8.6 Ah (10 HR)",
+      "normalizedValue": 8.6,
+      "unit": "Ah",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Specifications — electrical system",
+      "printedPage": "8-2",
+      "viewerPage": "87",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.051",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "electrical.main-fuse",
+      "rawValue": "Main fuse 30.0 A",
+      "normalizedValue": 30,
+      "unit": "A",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Replacing the fuses",
+      "printedPage": "6-32",
+      "viewerPage": "83",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.052",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "maintenance.periodic-schedule",
+      "rawValue": "Yamaha periodic maintenance and general lubrication charts",
+      "normalizedValue": "documented",
+      "unit": null,
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Periodic maintenance charts",
+      "printedPage": "6-3",
+      "viewerPage": "54",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.053",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "maintenance.schedule-mileage-intervals",
+      "rawValue": "1,000 km initial column; 10,000 km recurring schedule, repeated after 50,000 km",
+      "normalizedValue": {
+        "initial": 1000,
+        "recurring": 10000,
+        "repeatAfter": 50000
+      },
+      "unit": "km",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Periodic maintenance charts",
+      "printedPage": "6-3",
+      "viewerPage": "54",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.054",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "maintenance.schedule-time-intervals",
+      "rawValue": "Annual checks; brake fluid every 2 years; brake hoses every 4 years",
+      "normalizedValue": {
+        "annualCheck": 12,
+        "brakeFluid": 24,
+        "brakeHoses": 48
+      },
+      "unit": "months",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Periodic maintenance charts",
+      "printedPage": "6-3",
+      "viewerPage": "54",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.055",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "torques.oil-drain-bolt",
+      "rawValue": "43 N·m",
+      "normalizedValue": 43,
+      "unit": "N·m",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Engine oil",
+      "printedPage": "6-12",
+      "viewerPage": "63",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.056",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "torques.oil-filter",
+      "rawValue": "17 N·m",
+      "normalizedValue": 17,
+      "unit": "N·m",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Engine oil and oil filter",
+      "printedPage": "6-12",
+      "viewerPage": "63",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.057",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "torques.spark-plugs",
+      "rawValue": "13 N·m",
+      "normalizedValue": 13,
+      "unit": "N·m",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Checking the spark plugs",
+      "printedPage": "6-10",
+      "viewerPage": "61",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    },
+    {
+      "id": "yamaha.transfer.evidence.058",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "torques.rear-axle",
+      "rawValue": "105 N·m",
+      "normalizedValue": 105,
+      "unit": "N·m",
+      "sourceId": "Yamaha|BW3-F8199-E0",
+      "sourceClass": "official-owner-manual",
+      "sourceTier": "A",
+      "section": "Drive chain slack adjustment",
+      "printedPage": "6-25",
+      "viewerPage": "76",
+      "yearApplicability": {
+        "from": 2019,
+        "to": 2019
+      },
+      "marketApplicability": "EU",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "standard-xtz690"
+      },
+      "proofStatus": "VERIFIED-DIRECT",
+      "verificationMethod": "manual and text-layer inspection of authenticated Yamaha-hosted owner manual",
+      "contentInspected": true,
+      "researchDate": "2026-08-31"
+    }
+  ],
+  "researchedNoEvidence": [
+    {
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "lubrication.oil-filter",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|B7N-28199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "cooling.replacement-interval",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|B7N-28199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "ignition.spark-plug-alternative",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|B7N-28199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "ignition.replacement-interval",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|B7N-28199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "valve_train.intake-clearance",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|B7N-28199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "valve_train.exhaust-clearance",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|B7N-28199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "valve_train.measurement-conditions",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|B7N-28199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "final_drive.chain-size",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|B7N-28199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "brakes.oem-pad-numbers",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|B7N-28199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "canonicalFieldId": "torques.front-axle",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|B7N-28199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "lubrication.oil-filter",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|BW3-F8199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "cooling.replacement-interval",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|BW3-F8199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "ignition.spark-plug-alternative",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|BW3-F8199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "ignition.replacement-interval",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|BW3-F8199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "valve_train.intake-clearance",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|BW3-F8199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "valve_train.exhaust-clearance",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|BW3-F8199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "valve_train.measurement-conditions",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|BW3-F8199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "final_drive.chain-size",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|BW3-F8199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "brakes.oem-pad-numbers",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|BW3-F8199-E0"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "canonicalFieldId": "torques.front-axle",
+      "result": "authenticated owner manual inspected; no directly verified value for this Service Core field",
+      "sourceIds": [
+        "Yamaha|BW3-F8199-E0"
+      ]
+    }
+  ],
+  "conflicts": [],
+  "targetResults": [
+    {
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "before": 0,
+      "after": 29,
+      "gain": 29,
+      "practicalGain": 27,
+      "genericGain": 2,
+      "documentsInspected": 1,
+      "documentsYieldingEvidence": 1,
+      "highestTier": "A",
+      "conflicts": 0,
+      "applicabilityBlockers": [
+        "later catalogue-generation years are not covered by the selected manual edition"
+      ],
+      "importantRemainingPracticalGaps": [
+        "lubrication.oil-filter",
+        "cooling.replacement-interval",
+        "ignition.spark-plug-alternative",
+        "ignition.replacement-interval",
+        "valve_train.intake-clearance",
+        "valve_train.exhaust-clearance",
+        "valve_train.measurement-conditions",
+        "final_drive.chain-size",
+        "brakes.oem-pad-numbers",
+        "torques.front-axle"
+      ]
+    },
+    {
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "before": 0,
+      "after": 29,
+      "gain": 29,
+      "practicalGain": 27,
+      "genericGain": 2,
+      "documentsInspected": 1,
+      "documentsYieldingEvidence": 1,
+      "highestTier": "A",
+      "conflicts": 0,
+      "applicabilityBlockers": [
+        "later catalogue-generation years are not covered by the selected manual edition"
+      ],
+      "importantRemainingPracticalGaps": [
+        "lubrication.oil-filter",
+        "cooling.replacement-interval",
+        "ignition.spark-plug-alternative",
+        "ignition.replacement-interval",
+        "valve_train.intake-clearance",
+        "valve_train.exhaust-clearance",
+        "valve_train.measurement-conditions",
+        "final_drive.chain-size",
+        "brakes.oem-pad-numbers",
+        "torques.front-axle"
+      ]
+    }
+  ],
+  "metrics": {
+    "targets": 2,
+    "documentsInspected": 2,
+    "uniqueDocuments": 2,
+    "hostingLocations": 2,
+    "duplicateHostingLocations": 0,
+    "documentsYieldingEvidence": 2,
+    "sourceTierDistribution": {
+      "A": 2,
+      "B": 0,
+      "C": 0,
+      "D": 0
+    },
+    "evidenceRowsProduced": 58,
+    "verifiedSlotsBefore": 0,
+    "verifiedSlotsAfter": 58,
+    "netNewVerifiedSlots": 58,
+    "practicalServiceFieldGain": 54,
+    "genericSpecificationGain": 4,
+    "evidenceRowsPerYieldingDocument": 29,
+    "conflictsDiscovered": 0,
+    "unresolvedApplicabilityCases": 2,
+    "researchedNoEvidenceTargets": 0,
+    "primaryDocumentsUsed": 2,
+    "primaryDocumentBudget": 4,
+    "sourceBudgetExceeded": false
+  }
+}
