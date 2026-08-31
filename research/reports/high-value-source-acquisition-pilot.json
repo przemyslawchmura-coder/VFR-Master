@@ -1,0 +1,410 @@
+{
+  "schemaVersion": "revlog-high-value-source-pilot-results/v1",
+  "researchDate": "2026-08-31",
+  "classification": "ACCEPT-WITH-RISKS",
+  "thresholds": {
+    "totalSlotsRequired": 15,
+    "totalSlotsMet": true,
+    "practicalSlotsRequired": 10,
+    "practicalSlotsMet": true,
+    "zeroSafetyCriticalConflictsRequired": true,
+    "zeroSafetyCriticalConflictsMet": true
+  },
+  "metrics": {
+    "documentsInspected": 5,
+    "uniqueDocuments": 5,
+    "hostingLocations": 6,
+    "duplicateHostingLocations": 1,
+    "documentsYieldingEvidence": 2,
+    "evidenceRowsProduced": 52,
+    "verifiedTargetSlotGain": 50,
+    "practicalServiceFieldGain": 48,
+    "genericSpecificationGain": 2,
+    "serviceCoreBefore": 51,
+    "serviceCoreAfter": 101,
+    "evidenceRowsPerYieldingDocument": 26,
+    "sourceTierDistribution": {
+      "A": 5,
+      "B": 0,
+      "C": 0,
+      "D": 0
+    },
+    "conflictsDiscovered": 0,
+    "unresolvedApplicabilityCases": 3,
+    "researchedNoEvidenceOutcomes": 3,
+    "sourceBudgetExceeded": false
+  },
+  "targets": [
+    {
+      "catalogVariantKey": "honda.cbr500r.pc70",
+      "before": 26,
+      "after": 26,
+      "gain": 0,
+      "practicalGain": 0,
+      "genericGain": 0,
+      "documentsInspected": 1,
+      "documentsYieldingEvidence": 0,
+      "highestTier": "A",
+      "conflicts": 0,
+      "applicabilityBlockers": [
+        "existing authenticated owner manual exhausted without a net-new practical slot"
+      ],
+      "importantRemainingPracticalGaps": [
+        "lubrication.oil-specification",
+        "lubrication.oil-filter",
+        "cooling.replacement-interval",
+        "valve_train.intake-clearance",
+        "valve_train.exhaust-clearance",
+        "valve_train.inspection-interval",
+        "final_drive.chain-size",
+        "brakes.fluid-interval",
+        "tires_wheels.loaded-pressures",
+        "maintenance.schedule-mileage-intervals",
+        "torques.front-axle"
+      ]
+    },
+    {
+      "catalogVariantKey": "honda.vfr800.rc46.vtec.gen1",
+      "before": 13,
+      "after": 13,
+      "gain": 0,
+      "practicalGain": 0,
+      "genericGain": 0,
+      "documentsInspected": 1,
+      "documentsYieldingEvidence": 0,
+      "highestTier": "A",
+      "conflicts": 0,
+      "applicabilityBlockers": [
+        "authenticated service card exhausted; workshop-manual identity remains uncertain"
+      ],
+      "importantRemainingPracticalGaps": [
+        "lubrication.api-jaso",
+        "lubrication.capacity-drain",
+        "lubrication.oil-filter",
+        "cooling.coolant-specification",
+        "cooling.capacity",
+        "valve_train.intake-clearance",
+        "valve_train.exhaust-clearance",
+        "final_drive.chain-size",
+        "final_drive.chain-slack",
+        "tires_wheels.loaded-pressures",
+        "torques.oil-drain-bolt",
+        "torques.front-axle"
+      ]
+    },
+    {
+      "catalogVariantKey": "honda.nc750x.rh09-1",
+      "before": 3,
+      "after": 28,
+      "gain": 25,
+      "practicalGain": 24,
+      "genericGain": 1,
+      "documentsInspected": 1,
+      "documentsYieldingEvidence": 1,
+      "highestTier": "A",
+      "conflicts": 0,
+      "applicabilityBlockers": [],
+      "importantRemainingPracticalGaps": [
+        "lubrication.oil-filter",
+        "valve_train.inspection-interval",
+        "torques.front-axle"
+      ]
+    },
+    {
+      "catalogVariantKey": "honda.africa-twin.crf1100l-1",
+      "before": 5,
+      "after": 5,
+      "gain": 0,
+      "practicalGain": 0,
+      "genericGain": 0,
+      "documentsInspected": 1,
+      "documentsYieldingEvidence": 0,
+      "highestTier": "A",
+      "conflicts": 0,
+      "applicabilityBlockers": [
+        "official USA manual rejected for EU/UK and standard/Adventure Sports applicability"
+      ],
+      "importantRemainingPracticalGaps": [
+        "lubrication.oil-specification",
+        "lubrication.capacity-filter",
+        "cooling.coolant-specification",
+        "ignition.spark-plug-oem",
+        "valve_train.inspection-interval",
+        "brakes.brake-fluid",
+        "tires_wheels.solo-pressures",
+        "maintenance.periodic-schedule",
+        "torques.front-axle"
+      ]
+    },
+    {
+      "catalogVariantKey": "honda.cbr600rr.rh10",
+      "before": 4,
+      "after": 29,
+      "gain": 25,
+      "practicalGain": 24,
+      "genericGain": 1,
+      "documentsInspected": 1,
+      "documentsYieldingEvidence": 1,
+      "highestTier": "A",
+      "conflicts": 0,
+      "applicabilityBlockers": [],
+      "importantRemainingPracticalGaps": [
+        "lubrication.oil-filter",
+        "valve_train.intake-clearance",
+        "valve_train.exhaust-clearance",
+        "torques.front-axle"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "pilot.cbr500r.31mlrb00",
+      "documentId": "research.honda.service.cbr500r.2024-manual",
+      "tier": "A",
+      "sourceClass": "official-owner-manual",
+      "publisher": "American Honda Motor Co., Inc.",
+      "title": "2024 CB500F / CBR500R / NX500 Owner's Manual",
+      "publicationId": "31MLRB00 / 00X31-MLR-B000",
+      "publicationDate": 2024,
+      "url": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+      "disposition": "acquired-content",
+      "authenticationState": "official-honda-host",
+      "models": [
+        "CBR500R PC70",
+        "CB500F",
+        "NX500"
+      ],
+      "years": {
+        "from": 2024,
+        "to": 2024
+      },
+      "markets": [
+        "USA",
+        "Canada"
+      ],
+      "inspectedPages": [
+        95,
+        175,
+        176,
+        177
+      ],
+      "targets": [
+        "honda.cbr500r.pc70"
+      ],
+      "yieldedEvidence": false,
+      "stopCondition": "duplicate source adds no new evidence",
+      "notes": "Existing 26 verified slots were reused; already verified fields were not re-extracted."
+    },
+    {
+      "id": "pilot.vfr800.service-card",
+      "documentId": "research.honda.service.vfr800.2002-service-card",
+      "tier": "A",
+      "sourceClass": "official-service-data-publication",
+      "publisher": "Honda",
+      "title": "VFR800 (VTEC) RC46 2002–2005 service data card",
+      "publicationId": "VFR800F 2002-2005 huoltokortti",
+      "publicationDate": 2002,
+      "url": "https://www.hondabikes.fi/content/download/7049/43710/file/VFR800F%202002-2005%20huoltokortti.pdf",
+      "disposition": "acquired-content",
+      "authenticationState": "official-honda-distributor-host",
+      "models": [
+        "VFR800 RC46 VTEC"
+      ],
+      "years": {
+        "from": 2002,
+        "to": 2005
+      },
+      "markets": [
+        "EU"
+      ],
+      "inspectedPages": [
+        1
+      ],
+      "targets": [
+        "honda.vfr800.rc46.vtec.gen1"
+      ],
+      "yieldedEvidence": false,
+      "stopCondition": "duplicate source adds no new evidence",
+      "notes": "All authenticated fields from this card were already represented in the 13-slot baseline; uncertain workshop-manual rows remained unverified."
+    },
+    {
+      "id": "pilot.nc750x.34mkw600",
+      "documentId": "Honda|34MKW600",
+      "tier": "A",
+      "sourceClass": "official-owner-manual",
+      "publisher": "Honda Motor Co., Ltd.",
+      "title": "NC750XA/XD Fahrerhandbuch",
+      "publicationId": "34MKW600 / 00X34-MKW-6000",
+      "publicationDate": 2021,
+      "url": "https://2rom-prd-data.hondamotopub.com/om/HMEG/NC750X/2021-2022-2023/34MKW600%20OM%20NC750XA%20XD%2021%20ger_WEB.pdf",
+      "disposition": "acquired-content",
+      "authenticationState": "official-honda-motopub-host",
+      "models": [
+        "NC750XA",
+        "NC750XD"
+      ],
+      "years": {
+        "from": 2021,
+        "to": 2023
+      },
+      "markets": [
+        "EU",
+        "UK"
+      ],
+      "inspectedPages": [
+        9,
+        104,
+        105,
+        106,
+        113,
+        114,
+        115,
+        116,
+        136,
+        173,
+        174,
+        175
+      ],
+      "targets": [
+        "honda.nc750x.rh09-1"
+      ],
+      "yieldedEvidence": true,
+      "stopCondition": "primary source yielded the bounded practical fields; no further document required",
+      "notes": "Shared values cover manual and DCT; oil capacities are separately scoped to NC750XA manual and NC750XD DCT."
+    },
+    {
+      "id": "pilot.africa-twin.31mks800",
+      "documentId": "Honda|31MKS800",
+      "tier": "A",
+      "sourceClass": "official-owner-manual",
+      "publisher": "American Honda Motor Co., Inc.",
+      "title": "2020 CRF1100A/D/A4/D4 Africa Twin Owner's Manual",
+      "publicationId": "31MKS800",
+      "publicationDate": 2020,
+      "url": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.2020_31mks800_crf1100_africa_twin.pdf",
+      "disposition": "wrong-applicability",
+      "authenticationState": "official-honda-host",
+      "models": [
+        "CRF1100A",
+        "CRF1100D",
+        "CRF1100A4",
+        "CRF1100D4"
+      ],
+      "years": {
+        "from": 2020,
+        "to": 2020
+      },
+      "markets": [
+        "USA"
+      ],
+      "inspectedPages": [
+        1,
+        367,
+        368,
+        369
+      ],
+      "targets": [
+        "honda.africa-twin.crf1100l-1"
+      ],
+      "yieldedEvidence": false,
+      "stopCondition": "applicability remains unresolved",
+      "notes": "The pilot target is EU/UK and standard-model data must not be inherited from Adventure Sports or a USA publication."
+    },
+    {
+      "id": "pilot.cbr600rr.32mkz700",
+      "documentId": "Honda|32MKZ700",
+      "tier": "A",
+      "sourceClass": "official-owner-manual",
+      "publisher": "Honda Motor Co., Ltd.",
+      "title": "CBR600R3 Owner's Manual",
+      "publicationId": "32MKZ700",
+      "publicationDate": 2023,
+      "url": "https://2rom-prd-data.hondamotopub.com/om/HMEE/CBR600R3/2024/CBR600R3_32MKZ7000_eng_WEB.pdf",
+      "alternateUrl": "https://webom.hondamotopub.com/webom/HMEE/MKZ241/html/",
+      "disposition": "acquired-content",
+      "authenticationState": "official-honda-motopub-host",
+      "models": [
+        "CBR600R3 / CBR600RR"
+      ],
+      "years": {
+        "from": 2024,
+        "to": 2024
+      },
+      "markets": [
+        "EU",
+        "UK"
+      ],
+      "inspectedPages": [
+        11,
+        110,
+        111,
+        112,
+        119,
+        120,
+        121,
+        122,
+        141,
+        181,
+        182,
+        183
+      ],
+      "targets": [
+        "honda.cbr600rr.rh10"
+      ],
+      "yieldedEvidence": true,
+      "stopCondition": "primary source yielded the bounded practical fields; no further document required",
+      "notes": "ED/II ED road-owner data only; GS schedule rows and race/track material were excluded."
+    }
+  ],
+  "conflicts": [],
+  "researchedNoEvidence": [
+    {
+      "catalogVariantKey": "honda.cbr500r.pc70",
+      "result": "existing authenticated owner manual exhausted without a net-new practical slot",
+      "sourceIds": [
+        "research.honda.service.cbr500r.2024-manual"
+      ]
+    },
+    {
+      "catalogVariantKey": "honda.vfr800.rc46.vtec.gen1",
+      "result": "authenticated service card exhausted; workshop-manual identity remains uncertain",
+      "sourceIds": [
+        "research.honda.service.vfr800.2002-service-card"
+      ]
+    },
+    {
+      "catalogVariantKey": "honda.africa-twin.crf1100l-1",
+      "result": "official USA manual rejected for EU/UK and standard/Adventure Sports applicability",
+      "sourceIds": [
+        "Honda|31MKS800"
+      ]
+    }
+  ],
+  "stopConditionsTriggered": [
+    "duplicate source adds no new evidence",
+    "primary source yielded the bounded practical fields; no further document required",
+    "applicability remains unresolved"
+  ],
+  "audit": {
+    "outcome": "ACCEPT-WITH-RISKS",
+    "classifications": {
+      "expected": [
+        "official owner manuals concentrate practical Service Core data",
+        "existing CBR500R and VFR sources add no duplicate gain"
+      ],
+      "supportedSurprise": [
+        "two yielding Tier A manuals produced 50 target-slot gains",
+        "manual/DCT oil capacities require explicit transmission applicability"
+      ],
+      "unresolved": [
+        "NC750X MY2024 is not covered by publication 34MKW600",
+        "CBR600RR MY2025 is not covered by publication 32MKZ700",
+        "VFR workshop-manual identity",
+        "Africa Twin EU/UK standard versus Adventure Sports applicability"
+      ],
+      "failure": []
+    },
+    "productionChanged": false,
+    "vfrProductionChanged": false
+  }
+}

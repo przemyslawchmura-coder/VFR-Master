@@ -23,7 +23,7 @@ Planning items only; none are executed by this stocktake.
 
 ## Technical profiles / research / tooling
 
-- Run bounded multi-manufacturer batch research using official shared documents.
+- After the completed five-Honda-target pilot, reassess and design a bounded multi-manufacturer batch using Tier A/B documents; do not treat the older wording as the executed pilot scope.
 - Build controlled evidence-to-production promotion packets.
 - Improve source acquisition for blocked service manuals and OEM parts.
 - Add document content hashing where local copies are legally available.

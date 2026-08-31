@@ -2,10 +2,10 @@
 
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
-Snapshot date: 2026-08-30
-Snapshot commit: `ea039119bdab2c4c9a4842cbd48a9482e2240f2d`
+Snapshot date: 2026-08-31
+Snapshot basis: post-pilot working tree based on `bec5105d4e716000ca2ebb3f23719eb304966d2b`; the containing commit is the authoritative snapshot commit because a Git commit cannot embed its own hash.
 origin/main: `49a17a75d481c9515a4f28a9d69c765fdf28c53b`
-Local relation at snapshot: ahead 11, behind 0
+Expected local relation after the single containing commit: ahead 16, behind 0
 
 ## Architecture and runtime
 
@@ -22,7 +22,8 @@ Research is quarantined under `research/` and is not imported by the production 
 - VFR800: 13/44, 24 source-identity-uncertain rows, `RESEARCH-MORE`.
 - CBR500R: 26/44, `SERVICE-CORE-PARTIAL`.
 - Honda Batch Wave 2 population: 12 selected catalogue targets, 528 target-field slots, 6 underlying documents, 6 new verified slots; all gains were generic engine specification fields and practical-service-field gain was 0.
-- Latest full suite before this audit: 381 passed, 0 failed, 0 skipped, 0 todo.
+- High-value source-acquisition pilot: `ACCEPT-WITH-RISKS`; five targets, 51/220 → 101/220 verified target slots, +50 total, +48 practical and +2 generic slots; 5 Tier A documents, 2 yielding, 6 hosting locations, 1 duplicate location, 52 evidence rows, 0 conflicts. Coverage is edition-scoped: NC750X MY2021–2023 and CBR600RR MY2024 yielded evidence; CBR500R, VFR800 and Africa Twin yielded none.
+- Latest full suite before commit: 389 passed, 0 failed, 0 skipped, 0 todo.
 - Published application version: 0.3.0.
 
 ## Independent work streams
@@ -34,14 +35,14 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## WIP and blockers
 
-- P1: scale research evidence beyond the Honda fixture batch while preserving applicability and source proof.
-- P1: add production Technical Profiles only through deliberate promotion review; 1,094 catalogue generations remain without production profiles.
+- P1: reassess manufacturer scaling from the successful but concentrated two-document pilot yield while preserving edition/applicability limits.
+- P1: add production Technical Profiles only through deliberate promotion review; 1,094 catalogue variants remain without production profiles.
 - P2: improve source/document acquisition for blocked manuals and OEM parts.
 - P2: audit cloud/RLS behavior against a live Supabase project before claiming deployment readiness.
 
 ## Next actions
 
-**NEXT 1** — Execute the bounded five-target high-value source-acquisition pilot defined in `docs/technical/high-value-source-acquisition-pilot.md`; success requires at least 10 new practical-service slots and explicit source-yield metrics.
+**NEXT 1** — Perform a bounded Phase 5 post-pilot scaling reassessment using the recorded yield and risks; decide and design the next manufacturer/source batch without acquiring evidence or changing production in that design task.
 
 **NEXT 2** — Perform a production-readiness audit of authentication, persistence, RLS and error paths against an explicitly selected test backend.
 

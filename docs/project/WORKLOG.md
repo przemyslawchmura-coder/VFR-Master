@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-08-31 — High-value source-acquisition pilot execution (current)
+
+Objective: execute the bounded five-Honda-target owner/service-source pilot without production promotion. Completed: inspected five unique Tier A documents at six hosting locations; deduplicated the CBR600RR PDF/HTML locations; produced 52 evidence rows and 50 new target slots, of which 48 are practical-service and two are generic idle-speed fields; coverage moved 51/220→101/220. NC750X moved 3→28 and CBR600RR 4→29; CBR500R remained 26, VFR800 13 and Africa Twin 5. Manual/DCT oil values are explicitly scoped. No conflict or source-budget overrun occurred. Independent audit: ACCEPT-WITH-RISKS because NC750X MY2024, CBR600RR MY2025, VFR manual identity and Africa Twin EU/UK standard applicability remain unresolved. Production and the VFR production profile were unchanged. Next: bounded Phase 5 scaling reassessment.
+
 ## 2026-08-30 — Catalogue completeness checkpoint (current)
 
 Objective: correct project memory so catalogue infrastructure maturity is not confused with global content completeness. Verified current inventory (13 manufacturers, 318 families, 1,095 variants, 5,317 variant-years) and history: Triumph Wave 2 is the latest completed catalogue expansion before research/tooling work. Added the future Global Catalogue Gap / Coverage Audit to roadmap and backlog while preserving NEXT 1 high-value service-data pilot. No catalogue content changed.

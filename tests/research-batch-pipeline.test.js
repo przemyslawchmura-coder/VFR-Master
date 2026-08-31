@@ -23,6 +23,12 @@ test("canonical Service Core is shared and applicability remains tri-state", () 
   assert.throws(() => pipeline.validateApplicability({ abs: "unknown" }));
 });
 
+test("transmission applicability distinguishes manual and DCT", () => {
+  assert.equal(pipeline.validateApplicability({ transmission: "manual" }).transmission, "manual");
+  assert.equal(pipeline.validateApplicability({ transmission: "dct" }).transmission, "dct");
+  assert.throws(() => pipeline.validateApplicability({ transmission: "automatic" }), /transmission applicability/);
+});
+
 test("document registry deduplicates mirrors by publication identity", () => {
   const docs = pipeline.buildDocumentRegistry([
     { publisher: "Honda", publicationId: "61MCW01", title: "manual", url: "https://a.example/manual.pdf" },

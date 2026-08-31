@@ -82,10 +82,11 @@ function buildDocumentRegistry(sources) {
 }
 
 function validateApplicability(applicability = {}) {
-  for (const key of ["abs", "transmission"]) {
-    if (!(applicability[key] === true || applicability[key] === false || applicability[key] === null || applicability[key] === undefined)) {
-      throw new Error(`${key} applicability must be tri-state`);
-    }
+  if (!(applicability.abs === true || applicability.abs === false || applicability.abs === null || applicability.abs === undefined)) {
+    throw new Error("abs applicability must be tri-state");
+  }
+  if (!(applicability.transmission === "manual" || applicability.transmission === "dct" || applicability.transmission === true || applicability.transmission === false || applicability.transmission === null || applicability.transmission === undefined)) {
+    throw new Error("transmission applicability must be manual, dct, legacy tri-state, or unknown");
   }
   return Object.freeze({ ...applicability });
 }

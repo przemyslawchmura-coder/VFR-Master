@@ -24,7 +24,7 @@ Objective: separate research from production and establish provenance/status sem
 
 ## Phase 5 — Scalable batch research (ACTIVE)
 
-Objective: increase verified practical Service Core coverage per unit of work. Entry: generic batch pipeline and Honda fixtures. Tasks: execute the designed five-target owner/service-source pilot, measure practical-field yield separately from evidence-row yield, then reassess manufacturer scaling. Exit: repeatable batch reports with meaningful maintenance/service gains, measured reuse and zero production imports. Status: ACTIVE.
+Objective: increase verified practical Service Core coverage per unit of work. Entry: generic batch pipeline and Honda fixtures. Completed checkpoint: the five-target owner/service-source pilot produced +50 verified slots, including +48 practical slots, from two yielding Tier A documents and passed independent audit with risks. Current task: reassess manufacturer scaling without erasing the pilot's edition/applicability limits. Exit: repeatable batch reports with meaningful maintenance/service gains, measured reuse and zero production imports. Status: ACTIVE.
 
 ## Phase 6 — Controlled production promotion (NOT-STARTED)
 
