@@ -1,18 +1,18 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-08-31",
-  "snapshotBasis": "post-yamaha-transfer-acquisition-working-tree",
-  "baseCommit": "865f464536ff3f03c926e2f7f7df307a529f2551",
+  "snapshotBasis": "post-yamaha-transfer-batch-design-working-tree",
+  "baseCommit": "4da1d24db2772f7d6eef0d9d0a46d08605ba0cbc",
   "containingCommit": "self (resolve from git history)",
   "originMain": "97484bf004c466a6f26a5e42ae07b91214e95962",
-  "aheadAfterContainingCommit": 2,
+  "aheadAfterContainingCommit": 3,
   "behind": 0,
   "repository": {
-    "files": 183,
-    "javascriptFiles": 114,
-    "testFiles": 46,
-    "documentationFiles": 42,
-    "researchAndToolingFiles": 52
+    "files": 189,
+    "javascriptFiles": 117,
+    "testFiles": 47,
+    "documentationFiles": 44,
+    "researchAndToolingFiles": 55
   },
   "catalogue": {
     "manufacturers": 13,
@@ -373,12 +373,78 @@
       "sourceBudgetExceeded": false,
       "productionChanged": false,
       "vfrProductionChanged": false
+    },
+    "postYamahaTransferDesign": {
+      "classification": "ACCEPT-WITH-RISKS",
+      "candidatePool": 10,
+      "manufacturersEvaluated": 8,
+      "unknownUnranked": 5,
+      "selectedTargets": [
+        {
+          "catalogVariantKey": "harley-davidson.revolution-max.sportster-s",
+          "model": "Sportster S / RH1250S",
+          "years": {
+            "from": 2022,
+            "to": 2022
+          },
+          "markets": [
+            "USA"
+          ],
+          "abs": null,
+          "transmission": "manual",
+          "equipment": "standard Sportster S; exclude other 8-DOM models and special equipment",
+          "startingCoverage": 0,
+          "source": "registered official 2022 Harley-Davidson owner manual 94001064 on serviceinfo.harley-davidson.com",
+          "sourceCertainty": "KNOWN-REGISTERED-NOT-REAUTHENTICATED",
+          "preferredSourceClass": "Tier A official owner manual",
+          "expectedPracticalGain": {
+            "min": 6,
+            "max": 18
+          },
+          "maximumPrimaryDocuments": 1,
+          "priorities": [
+            "oil specification/capacity",
+            "coolant",
+            "spark plug/gap",
+            "maintenance schedule",
+            "final-drive service",
+            "brake fluid",
+            "cold tire pressures",
+            "battery/fuses",
+            "critical documented torques"
+          ],
+          "authenticationGate": "Confirm internal publication code, MY2022 USA scope and explicit RH1250S/Sportster S inclusion before extracting any value.",
+          "stopConditions": [
+            "official URL or internal document identity cannot be authenticated",
+            "Sportster S/RH1250S is not explicitly included",
+            "MY2022 USA scope cannot be resolved",
+            "ABS/equipment scope blocks safety-critical values",
+            "first document yields fewer than 6 practical slots",
+            "remaining gaps require inference",
+            "one-document budget exhausted"
+          ]
+        }
+      ],
+      "acceptance": {
+        "minimumVerifiedGain": 8,
+        "minimumPracticalGain": 6,
+        "minimumPerYieldingTargetPracticalGain": 6,
+        "maximumPrimaryDocumentsPerTarget": 1,
+        "maximumPrimaryDocumentsOverall": 1,
+        "maximumTierCDPracticalContribution": 0,
+        "unresolvedSafetyCriticalConflicts": 0,
+        "newManufacturerSuccess": "The official manual authenticates for MY2022 USA Sportster S/RH1250S and yields at least 6 practical verified Service Core slots without Tier C/D support.",
+        "rationale": "The only stored content hints support roughly two Service Core fields, while four successful Honda/Yamaha owner manuals yielded 24–27 practical slots each. A six-slot gate is deliberately discounted for partial richness knowledge but still requires useful service value."
+      },
+      "exactNextTask": "Execute the one-target MY2022 USA Harley-Davidson Sportster S/RH1250S owner-manual transfer batch: authenticate registered publication 94001064 and exact model applicability first, then extract only directly supported practical Service Core evidence under a one-primary-document, +8 verified/+6 practical, zero-conflict and non-production gate.",
+      "evidenceAcquired": false,
+      "serviceCoreCoverageChanged": false
     }
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 400,
-    "lastKnownPassed": 400,
+    "lastKnownTotal": 406,
+    "lastKnownPassed": 406,
     "failed": 0,
     "skipped": 0,
     "todo": 0

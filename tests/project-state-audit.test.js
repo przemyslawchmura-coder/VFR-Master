@@ -8,9 +8,9 @@ const snapshot = require("../research/reports/project-state-audit.json");
 const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-yamaha-transfer-acquisition-working-tree");
+  assert.equal(snapshot.snapshotBasis, "post-yamaha-transfer-batch-design-working-tree");
   assert.match(snapshot.baseCommit, /^[0-9a-f]{40}$/);
-  assert.equal(snapshot.aheadAfterContainingCommit, 2);
+  assert.equal(snapshot.aheadAfterContainingCommit, 3);
   assert.match(snapshot.originMain, /^[0-9a-f]{40}$/);
   assert.equal(snapshot.catalogue.manufacturers, 13);
   assert.equal(snapshot.catalogue.variants, 1095);
@@ -35,6 +35,12 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.research.yamahaTransferAcquisition.netNewVerifiedSlots, 58);
   assert.equal(snapshot.research.yamahaTransferAcquisition.practicalServiceFieldGain, 54);
   assert.equal(snapshot.research.yamahaTransferAcquisition.conflictsDiscovered, 0);
+  assert.equal(snapshot.research.postYamahaTransferDesign.classification, "ACCEPT-WITH-RISKS");
+  assert.equal(snapshot.research.postYamahaTransferDesign.candidatePool, 10);
+  assert.equal(snapshot.research.postYamahaTransferDesign.manufacturersEvaluated, 8);
+  assert.equal(snapshot.research.postYamahaTransferDesign.unknownUnranked, 5);
+  assert.deepEqual(snapshot.research.postYamahaTransferDesign.selectedTargets.map(target => target.catalogVariantKey), ["harley-davidson.revolution-max.sportster-s"]);
+  assert.equal(snapshot.research.postYamahaTransferDesign.evidenceAcquired, false);
   assert.equal(snapshot.research.vfr800.verified, 13);
   assert.equal(snapshot.research.cbr500r.verified, 26);
   assert.equal(snapshot.productionBoundary.researchImportedByIndex, false);
@@ -76,7 +82,7 @@ test("project memory records the executed pilot and operator cloud note", () => 
   assert.match(state, /NEXT 1/);
   assert.match(read("docs/project/WORKLOG.md"), /high-value source-acquisition/);
   assert.match(state, /101\/220/);
-  assert.match(state, /post-Yamaha transfer batch/);
+  assert.match(state, /Harley-Davidson Sportster S/);
   assert.match(read("docs/project/DECISIONS.md"), /ADR-010/);
   assert.match(read("docs/project/DECISIONS.md"), /ADR-011/);
 });
