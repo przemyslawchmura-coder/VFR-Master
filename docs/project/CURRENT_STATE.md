@@ -3,9 +3,9 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-08-31
-Snapshot basis: post-pilot working tree based on `bec5105d4e716000ca2ebb3f23719eb304966d2b`; the containing commit is the authoritative snapshot commit because a Git commit cannot embed its own hash.
-origin/main: `49a17a75d481c9515a4f28a9d69c765fdf28c53b`
-Expected local relation after the single containing commit: ahead 16, behind 0
+Snapshot basis: post-reassessment working tree based on `97484bf004c466a6f26a5e42ae07b91214e95962`; the containing commit is the authoritative snapshot commit because a Git commit cannot embed its own hash.
+origin/main: `97484bf004c466a6f26a5e42ae07b91214e95962`
+Expected local relation after the single containing commit: ahead 1, behind 0
 
 ## Architecture and runtime
 
@@ -23,7 +23,8 @@ Research is quarantined under `research/` and is not imported by the production 
 - CBR500R: 26/44, `SERVICE-CORE-PARTIAL`.
 - Honda Batch Wave 2 population: 12 selected catalogue targets, 528 target-field slots, 6 underlying documents, 6 new verified slots; all gains were generic engine specification fields and practical-service-field gain was 0.
 - High-value source-acquisition pilot: `ACCEPT-WITH-RISKS`; five targets, 51/220 → 101/220 verified target slots, +50 total, +48 practical and +2 generic slots; 5 Tier A documents, 2 yielding, 6 hosting locations, 1 duplicate location, 52 evidence rows, 0 conflicts. Coverage is edition-scoped: NC750X MY2021–2023 and CBR600RR MY2024 yielded evidence; CBR500R, VFR800 and Africa Twin yielded none.
-- Latest full suite before commit: 389 passed, 0 failed, 0 skipped, 0 todo.
+- Post-pilot scaling reassessment: `ACCEPT-WITH-RISKS`; ten repository-known candidates across seven manufacturers were evaluated. The next batch is two Yamaha targets with registered service-rich Tier A owner manuals: `yamaha.mt-09.gen3` MY2021 EU standard and `yamaha.tenere-700.gen1` MY2019 EU standard. Each starts at 0/44 verified Service Core; expected combined practical gain is 36–48, with success gated at +24 verified/+22 practical, zero unresolved safety-critical conflicts and at most two primary documents per target. No evidence was acquired.
+- Latest full suite before commit: 394 passed, 0 failed, 0 skipped, 0 todo.
 - Published application version: 0.3.0.
 
 ## Independent work streams
@@ -35,14 +36,14 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## WIP and blockers
 
-- P1: reassess manufacturer scaling from the successful but concentrated two-document pilot yield while preserving edition/applicability limits.
+- P1: execute the designed two-target Yamaha owner-manual batch while preserving the one-edition scopes and non-production boundary.
 - P1: add production Technical Profiles only through deliberate promotion review; 1,094 catalogue variants remain without production profiles.
 - P2: improve source/document acquisition for blocked manuals and OEM parts.
 - P2: audit cloud/RLS behavior against a live Supabase project before claiming deployment readiness.
 
 ## Next actions
 
-**NEXT 1** — Perform a bounded Phase 5 post-pilot scaling reassessment using the recorded yield and risks; decide and design the next manufacturer/source batch without acquiring evidence or changing production in that design task.
+**NEXT 1** — Execute the bounded two-target Yamaha owner-manual acquisition batch for `yamaha.mt-09.gen3` MY2021 EU standard and `yamaha.tenere-700.gen1` MY2019 EU standard, under the recorded applicability, two-primary-document-per-target budget, +24 verified/+22 practical thresholds, independent audit and non-production gates.
 
 **NEXT 2** — Perform a production-readiness audit of authentication, persistence, RLS and error paths against an explicitly selected test backend.
 

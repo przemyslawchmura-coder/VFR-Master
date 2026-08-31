@@ -1,18 +1,18 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-08-31",
-  "snapshotBasis": "post-pilot-working-tree",
-  "baseCommit": "bec5105d4e716000ca2ebb3f23719eb304966d2b",
+  "snapshotBasis": "post-pilot-scaling-reassessment-working-tree",
+  "baseCommit": "97484bf004c466a6f26a5e42ae07b91214e95962",
   "containingCommit": "self (resolve from git history)",
-  "originMain": "49a17a75d481c9515a4f28a9d69c765fdf28c53b",
-  "aheadAfterContainingCommit": 16,
+  "originMain": "97484bf004c466a6f26a5e42ae07b91214e95962",
+  "aheadAfterContainingCommit": 1,
   "behind": 0,
   "repository": {
-    "files": 171,
-    "javascriptFiles": 108,
-    "testFiles": 44,
-    "documentationFiles": 38,
-    "researchAndToolingFiles": 46
+    "files": 177,
+    "javascriptFiles": 111,
+    "testFiles": 45,
+    "documentationFiles": 40,
+    "researchAndToolingFiles": 49
   },
   "catalogue": {
     "manufacturers": 13,
@@ -238,12 +238,62 @@
           ]
         }
       ]
+    },
+    "postPilotScalingReassessment": {
+      "classification": "ACCEPT-WITH-RISKS",
+      "candidatePool": 10,
+      "manufacturersEvaluated": 7,
+      "strategy": "single non-Honda manufacturer; two-target Yamaha transfer batch",
+      "selectedTargets": [
+        {
+          "catalogVariantKey": "yamaha.mt-09.gen3",
+          "years": {
+            "from": 2021,
+            "to": 2021
+          },
+          "markets": [
+            "EU"
+          ],
+          "startingCoverage": 0,
+          "expectedPracticalGain": {
+            "min": 18,
+            "max": 24
+          }
+        },
+        {
+          "catalogVariantKey": "yamaha.tenere-700.gen1",
+          "years": {
+            "from": 2019,
+            "to": 2019
+          },
+          "markets": [
+            "EU"
+          ],
+          "startingCoverage": 0,
+          "expectedPracticalGain": {
+            "min": 18,
+            "max": 24
+          }
+        }
+      ],
+      "acceptance": {
+        "minimumVerifiedSlotGain": 24,
+        "minimumPracticalServiceSlotGain": 22,
+        "minimumPerYieldingTargetPracticalGain": 10,
+        "maximumPrimaryDocumentsPerTarget": 2,
+        "maximumPrimaryDocumentsOverall": 4,
+        "maximumTierCDPracticalEvidenceRows": 0,
+        "unresolvedSafetyCriticalConflicts": 0,
+        "applicabilityRule": "Blocked safety-critical or scope-dependent rows remain unverified; a target may end RESEARCHED-NO-EVIDENCE without replacement.",
+        "rationale": "The pilot yielded 24 practical slots per yielding Tier A document, but only 2/5 targets yielded. The next gate discounts per-document yield by roughly half while requiring both selected rich-manual prospects to be handled explicitly."
+      },
+      "exactNextTask": "Execute the bounded two-target Yamaha owner-manual acquisition batch for MY2021 EU MT-09 III standard and MY2019 EU Ténéré 700 I standard, under the recorded applicability, budget, yield, audit and non-production gates."
     }
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 389,
-    "lastKnownPassed": 389,
+    "lastKnownTotal": 394,
+    "lastKnownPassed": 394,
     "failed": 0,
     "skipped": 0,
     "todo": 0

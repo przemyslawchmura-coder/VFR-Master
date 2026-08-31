@@ -23,7 +23,7 @@ Planning items only; none are executed by this stocktake.
 
 ## Technical profiles / research / tooling
 
-- After the completed five-Honda-target pilot, reassess and design a bounded multi-manufacturer batch using Tier A/B documents; do not treat the older wording as the executed pilot scope.
+- After the designed two-target Yamaha transfer batch is executed and audited, reassess whether its yield justifies a later multi-manufacturer batch; do not add unknown Tier A/B prospects merely for diversity.
 - Build controlled evidence-to-production promotion packets.
 - Improve source acquisition for blocked service manuals and OEM parts.
 - Add document content hashing where local copies are legally available.

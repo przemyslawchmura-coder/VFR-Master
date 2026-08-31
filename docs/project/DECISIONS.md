@@ -72,3 +72,11 @@ Decision: meaningful work must be independently audited for falsification before
 Rationale: the Honda batch audit showed that passing tests and a 100% row-yield metric can coexist with zero practical-service gain.
 Consequences: expectation changes require semantic justification; batch reports distinguish row yield from target-slot and practical-field gain.
 Status: ACTIVE. Related commit: `45f43ae` and this audit.
+
+## ADR-011 — Known practical source yield gates acquisition selection
+
+Date: 2026-08-31
+Decision: acquisition batches rank practical Service Core yield per authenticated Tier A/B document, not raw gap or evidence-row volume. A candidate whose exact-target Tier A/B prospect or document richness is repository-unknown remains unranked and cannot enter a bounded acquisition batch merely for manufacturer diversity.
+Rationale: the five-target pilot produced 48 practical slots from two rich owner manuals while three equally deliberate low-coverage targets yielded zero because of exhausted research or unresolved identity/applicability.
+Consequences: scoring must expose unknowns, penalize duplicate history and applicability risk, and narrowly scope document editions. Manufacturer transfer is tested incrementally; Tier C/D discovery cannot satisfy practical success.
+Status: ACTIVE. Related design: post-pilot scaling reassessment.

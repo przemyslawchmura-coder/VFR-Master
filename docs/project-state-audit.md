@@ -2,7 +2,7 @@
 
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE, NOT HISTORICAL CLAIMS.**
 
-Snapshot: `research/reports/project-state-audit.json` (2026-08-31 post-pilot working tree based on `bec5105`; the containing commit is authoritative).
+Snapshot: `research/reports/project-state-audit.json` (2026-08-31 post-pilot scaling-reassessment working tree based on `97484bf`; the containing commit is authoritative).
 
 ## Repository map
 
@@ -53,9 +53,11 @@ The Honda Service Data Wave 1 population is eight targets, so its `51/352` metri
 
 The subsequent five-target pilot validated the owner-manual strategy: 51/220→101/220 verified target slots, +48 practical and +2 generic slots, from five Tier A documents of which two yielded evidence. One duplicate CBR600RR hosting location was deduplicated; no conflicts or production changes occurred. Audit outcome is ACCEPT-WITH-RISKS because three targets yielded nothing and the gains cover NC750X MY2021–2023 and CBR600RR MY2024 rather than every year in the target ranges. Manufacturer scaling now requires a bounded reassessment rather than automatic expansion.
 
+The completed reassessment evaluated ten repository-known candidates across seven manufacturers. Candidates with unknown exact-target Tier A/B prospects or unknown document richness remained unranked. It selected two narrowly edition-scoped Yamaha targets: MT-09 III MY2021 EU standard and Ténéré 700 I MY2019 EU standard, each starting at 0/44. The execution gate is +24 verified/+22 practical slots, at most two primary documents per target, no Tier C/D practical contribution and zero unresolved safety-critical conflicts. Design audit outcome is ACCEPT-WITH-RISKS: this tests transfer to one non-Honda manufacturer across two use classes, not broad multi-manufacturer scalability. No evidence or production data changed.
+
 ## WIP and debt
 
-P0: none identified. P1: bounded post-pilot scaling reassessment; controlled profile promotion. P2: cloud/RLS verification; blocked-source acquisition; broader profile coverage. P3: market/scooter/125 expansion.
+P0: none identified. P1: bounded two-target Yamaha acquisition execution; controlled profile promotion. P2: cloud/RLS verification; blocked-source acquisition; broader profile coverage. P3: market/scooter/125 expansion.
 
 Technical debt: HIGH — only one production Technical Profile and live backend/deployment claims are unverified. MEDIUM — parallel historical report formats and limited document-content hashing. LOW — presentation/report consolidation.
 
