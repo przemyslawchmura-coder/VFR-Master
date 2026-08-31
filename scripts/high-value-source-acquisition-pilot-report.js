@@ -31,8 +31,8 @@ function targetLine(target) {
 
 const markdown = `# High-value source-acquisition pilot — executed result
 
-Date: ${results.researchDate}  
-Classification: **ACCEPT-WITH-RISKS**  
+Date: ${results.researchDate}<br>
+Classification: **ACCEPT-WITH-RISKS**<br>
 Boundary: **NON-PRODUCTION RESEARCH**
 
 ## Outcome

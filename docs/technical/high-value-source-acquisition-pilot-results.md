@@ -1,7 +1,7 @@
 # High-value source-acquisition pilot — executed result
 
-Date: 2026-08-31  
-Classification: **ACCEPT-WITH-RISKS**  
+Date: 2026-08-31<br>
+Classification: **ACCEPT-WITH-RISKS**<br>
 Boundary: **NON-PRODUCTION RESEARCH**
 
 ## Outcome
