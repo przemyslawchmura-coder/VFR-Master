@@ -8,9 +8,9 @@ const snapshot = require("../research/reports/project-state-audit.json");
 const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-mt09-publication-reconciliation-working-tree");
+  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-architecture-working-tree");
   assert.match(snapshot.baseCommit, /^[0-9a-f]{40}$/);
-  assert.equal(snapshot.aheadAfterContainingCommit, 7);
+  assert.equal(snapshot.aheadAfterContainingCommit, 8);
   assert.match(snapshot.originMain, /^[0-9a-f]{40}$/);
   assert.equal(snapshot.catalogue.manufacturers, 13);
   assert.equal(snapshot.catalogue.variants, 1095);
@@ -75,6 +75,12 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.research.cbr500r.verified, 26);
   assert.equal(snapshot.productionBoundary.researchImportedByIndex, false);
   assert.equal(snapshot.productionBoundary.batchPipelineNonProduction, true);
+  assert.equal(snapshot.technicalResearchFactory.classification, "ACCEPT-WITH-RISKS");
+  assert.equal(snapshot.technicalResearchFactory.exactNextTasks.length, 1);
+  assert.equal(snapshot.technicalResearchFactory.tenerePilot.role, "FACTORY-PILOT-CANDIDATE");
+  assert.equal(snapshot.technicalResearchFactory.evidenceAdded, false);
+  assert.equal(snapshot.technicalResearchFactory.serviceCoreChanged, false);
+  assert.equal(snapshot.technicalResearchFactory.productionChanged, false);
 });
 
 test("project memory has one active roadmap phase and unique ADRs", () => {
@@ -84,9 +90,8 @@ test("project memory has one active roadmap phase and unique ADRs", () => {
   const ids = [...decisions.matchAll(/## (ADR-\d+)/g)].map(match => match[1]);
   assert.equal(new Set(ids).size, ids.length);
   const state = read("docs/project/CURRENT_STATE.md");
-  assert.match(state, /\*\*NEXT 1\*\*/);
-  assert.match(state, /\*\*NEXT 2\*\*/);
-  assert.match(state, /\*\*NEXT 3\*\*/);
+  assert.equal((state.match(/\*\*NEXT\*\*/g) || []).length, 1);
+  assert.match(state, /Technical Research Factory Foundation/);
 });
 
 test("project memory records production/research isolation", () => {
@@ -109,10 +114,11 @@ test("audit standard and batch metrics prevent circular acceptance", () => {
 
 test("project memory records the executed pilot and operator cloud note", () => {
   const state = read("docs/project/CURRENT_STATE.md");
-  assert.match(state, /NEXT 1/);
+  assert.match(state, /\*\*NEXT\*\*/);
   assert.match(read("docs/project/WORKLOG.md"), /high-value source-acquisition/);
   assert.match(state, /101\/220/);
-  assert.match(state, /Ténéré 700 service-manual prospect/);
+  assert.match(state, /FACTORY-PILOT-CANDIDATE/);
   assert.match(read("docs/project/DECISIONS.md"), /ADR-010/);
   assert.match(read("docs/project/DECISIONS.md"), /ADR-011/);
+  assert.match(read("docs/project/DECISIONS.md"), /ADR-013/);
 });

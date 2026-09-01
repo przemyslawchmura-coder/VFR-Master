@@ -3,9 +3,9 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-09-01
-Snapshot basis: post-source-prospect-readiness-reassessment working tree based on `d6d5a4452f6505c70dc0d606a306af33ce3cd353`; the containing commit is the authoritative snapshot commit because a Git commit cannot embed its own hash.
+Snapshot basis: post-Technical-Research-Factory-architecture working tree based on `92fa8bbedaef6b8956c10a3b2714050e3a8fabdd`; the containing commit is the authoritative snapshot commit because a Git commit cannot embed its own hash.
 origin/main: `97484bf004c466a6f26a5e42ae07b91214e95962`
-Expected local relation after the single containing commit: ahead 5, behind 0
+Expected local relation after the single containing commit: ahead 8, behind 0
 
 ## Architecture and runtime
 
@@ -30,7 +30,8 @@ Research is quarantined under `research/` and is not imported by the production 
 - Source-prospect authentication-quality reassessment: `ACCEPT-WITH-RISKS`; 17 records across eight manufacturers were classified through a deterministic readiness gate. Zero prospects are execution-ready. Six previously inspected sources are exhausted/low-marginal-yield; five manufacturers have UNKNOWN exact Tier A/B prospects; Harley `94001064` and the USA Africa Twin manual are rejected mismatches. The closest prospect, MT-09 service manual `B7N-28197-E0` / `LIT-11616-34-61`, remains source-identity-partial because no official delivery path is stored and market/SP/safety scope is incomplete. No technical evidence or coverage changed.
 - MT-09 service-manual prospect authentication: `ACCEPT-WITH-RISKS`; final readiness is `ACCESS-BLOCKED`. Yamaha US metadata authenticates `LIT-11616-34-61` for the MY2021 MT-09 and names the corrected dealer-system manual, but the complete content route requires purchase/authentication. No Yamaha-controlled EU path for `B7N-28197-E0` was authenticated, B7N/LIT equivalence is unresolved, and MY2021 EU plus standard/SP/ABS/equipment safety scope remain blocked. No technical values, evidence rows, researched-no-evidence states or coverage changed.
 - MT-09 publication-code/EU reconciliation: `ACCEPT-WITH-RISKS`; relationship is `RELATIONSHIP-UNRESOLVED`, readiness remains `ACCESS-BLOCKED`, and the anti-loop result is `MT09-AUTHENTICATION-PATH-EXHAUSTED`. Yamaha Europe proves `MTN890` = standard MT-09 and `MTN890D` = MT-09 SP, but no Yamaha-controlled B7N record, B7N/LIT relationship or EU service-manual applicability was found. No technical evidence or coverage changed.
-- Latest full suite before commit: 434 passed, 0 failed, 0 skipped, 0 todo.
+- Technical Research Factory architecture: `ACCEPT-WITH-RISKS`. Existing generic validation, Service Core, document identity/deduplication, limited normalization, conflict/coverage/yield and reporting capabilities are reusable, but target/prospect contracts, a canonical readiness/applicability gate, deterministic orchestration, budgets, stable attempt/event identity, checkpoint/resume and typed review state are not yet integrated. The durable design defines a generic core with optional discovery adapters, a five-wave incremental implementation, and keeps research-to-production promotion manual. Ténéré `BW3-F8197-E0` is preserved as `FACTORY-PILOT-CANDIDATE`; no authentication or evidence work occurred.
+- Latest full suite before commit: 441 passed, 0 failed, 0 skipped, 0 todo.
 - Published application version: 0.3.0.
 
 ## Independent work streams
@@ -42,18 +43,16 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## WIP and blockers
 
-- P1: authenticate the registered Ténéré 700 service-manual prospect `BW3-F8197-E0` without technical extraction.
+- P1: implement the bounded Technical Research Factory Foundation contracts and canonical fail-closed gates; Ténéré `BW3-F8197-E0` remains a later factory-pilot candidate.
 - P1: add production Technical Profiles only through deliberate promotion review; 1,094 catalogue variants remain without production profiles.
 - P2: improve source/document acquisition for blocked manuals and OEM parts.
 - P2: audit cloud/RLS behavior against a live Supabase project before claiming deployment readiness.
 
 ## Next actions
 
-**NEXT 1** — Authenticate only the existing Yamaha Ténéré 700 service-manual prospect `BW3-F8197-E0` for `yamaha.tenere-700.gen1` MY2019 EU standard: resolve official Yamaha identity, delivery/access, exact year/market and standard-versus-named-equipment scope without inspecting service values or creating Service Core evidence.
+**NEXT** — Implement the bounded Technical Research Factory Foundation: add versioned, manufacturer-neutral `ResearchTarget`, `SourceProspect`, `ApplicabilityScope` and `GapPlan` contracts with validators, then extract one canonical fail-closed readiness/applicability gate behind compatibility adapters for synthetic/current-shaped fixtures; perform no external research, live data migration, acquisition, extraction or production change.
 
-**NEXT 2** — Perform a production-readiness audit of authentication, persistence, RLS and error paths against an explicitly selected test backend.
-
-**NEXT 3** — Design a controlled Technical Profile promotion review for one non-VFR candidate without changing production data in the design phase.
+Deferred independent streams remain the live-backend production-readiness audit, controlled Technical Profile promotion design, and global catalogue gap audit; none is an active NEXT task.
 
 The future **GLOBAL CATALOGUE GAP / COVERAGE AUDIT** is a separate bounded checkpoint: inventory what exists, identify missing manufacturers/families/generations/years and regional/ABS/transmission gaps, then prioritize additions. It is not executed yet.
 

@@ -1,0 +1,1053 @@
+{
+  "schemaVersion": "revlog-technical-research-factory-architecture/v1",
+  "date": "2026-09-01",
+  "genericityStates": [
+    "GENERIC-READY",
+    "GENERIC-BUT-MANUAL-ORCHESTRATION",
+    "PARTIALLY-GENERIC",
+    "MANUFACTURER-SPECIFIC",
+    "MODEL-SPECIFIC",
+    "DESIGN-ONLY",
+    "MISSING"
+  ],
+  "readinessStates": [
+    "READY",
+    "PARTIAL",
+    "DESIGN-ONLY",
+    "MISSING",
+    "BLOCKED"
+  ],
+  "decisionClasses": [
+    "MUST-REMAIN-HUMAN",
+    "CAN-BE-DETERMINISTIC",
+    "CAN-BE-POLICY-DRIVEN",
+    "CAN-BE-HEURISTIC-WITH-HUMAN-REVIEW",
+    "UNSAFE-TO-AUTOMATE"
+  ],
+  "pipelineStages": [
+    {
+      "id": "catalogue-target-generation",
+      "input": "catalogue variants + selection policy",
+      "output": "coarse batch targets",
+      "schema": "existing module-specific shape",
+      "implementation": "research/lib/batch-research-pipeline.js#generateTargets",
+      "validators": "existing tests/module checks",
+      "classification": "PARTIALLY-GENERIC",
+      "deterministic": true,
+      "reusableInBatch": true,
+      "finding": "Deterministic catalogue traversal exists, but exact year/market/transmission/ABS/equipment target scope is supplied by handcrafted batch data."
+    },
+    {
+      "id": "service-core-gap-planning",
+      "input": "target + evidence",
+      "output": "44 field status rows",
+      "schema": "existing module-specific shape",
+      "implementation": "research/lib/batch-research-pipeline.js#calculateGaps",
+      "validators": "existing tests/module checks",
+      "classification": "GENERIC-READY",
+      "deterministic": true,
+      "reusableInBatch": true,
+      "finding": "Shared Service Core and four gap states are deterministic; safety/source relevance and prior attempts are not yet combined into GapPlan."
+    },
+    {
+      "id": "source-discovery",
+      "input": "target + gaps + policy",
+      "output": "ranked source prospects",
+      "schema": null,
+      "implementation": null,
+      "validators": null,
+      "classification": "MISSING",
+      "deterministic": false,
+      "reusableInBatch": false,
+      "finding": "Queries, manufacturer paths and prospect creation are prompt-orchestrated."
+    },
+    {
+      "id": "source-registration",
+      "input": "external findings",
+      "output": "source/prospect records",
+      "schema": "existing module-specific shape",
+      "implementation": "research/data/sources/*; research/data/source-prospect-authentication-quality-reassessment.js",
+      "validators": "existing tests/module checks",
+      "classification": "PARTIALLY-GENERIC",
+      "deterministic": false,
+      "reusableInBatch": true,
+      "finding": "Source and prospect records exist in several incompatible shapes without one validator or stable attempt history."
+    },
+    {
+      "id": "source-authentication",
+      "input": "source prospect + metadata findings",
+      "output": "readiness classification + blockers",
+      "schema": "existing module-specific shape",
+      "implementation": "research/data/source-prospect-authentication-quality-reassessment.js#evaluateReadinessGate",
+      "validators": "existing tests/module checks",
+      "classification": "GENERIC-BUT-MANUAL-ORCHESTRATION",
+      "deterministic": true,
+      "reusableInBatch": false,
+      "finding": "All-fields gate is deterministic but embedded in a reassessment dataset and fed by manually authored booleans."
+    },
+    {
+      "id": "applicability-gate",
+      "input": "target scope + source/evidence scope",
+      "output": "applicable, blocked, ambiguous or mismatch",
+      "schema": "existing module-specific shape",
+      "implementation": "research/lib/batch-research-pipeline.js#validateApplicability; js/research/technical-research-pipeline.js#scopeMatches",
+      "validators": "existing tests/module checks",
+      "classification": "PARTIALLY-GENERIC",
+      "deterministic": true,
+      "reusableInBatch": true,
+      "finding": "Fail-closed pieces exist, but representations differ and neither contract covers every model/year/market/transmission/ABS/equipment dimension consistently."
+    },
+    {
+      "id": "acquisition",
+      "input": "ready prospect + budget",
+      "output": "source attempt + document/access result",
+      "schema": null,
+      "implementation": null,
+      "validators": null,
+      "classification": "DESIGN-ONLY",
+      "deterministic": false,
+      "reusableInBatch": false,
+      "finding": "Disposition vocabulary exists; each execution constructs source attempts and budgets by hand."
+    },
+    {
+      "id": "extraction",
+      "input": "authenticated document + GapPlan",
+      "output": "EvidenceCandidate[]",
+      "schema": "existing module-specific shape",
+      "implementation": "research/lib/batch-research-pipeline.js#validateExtractionCandidate; js/research/technical-research-pipeline.js#validateCandidates",
+      "validators": "existing tests/module checks",
+      "classification": "PARTIALLY-GENERIC",
+      "deterministic": true,
+      "reusableInBatch": true,
+      "finding": "Candidate validation is reusable; candidate construction and promotion into evidence remain manual and two schemas coexist."
+    },
+    {
+      "id": "normalization",
+      "input": "raw candidate value/unit",
+      "output": "preserved raw + normalized value/unit",
+      "schema": "existing module-specific shape",
+      "implementation": "research/lib/batch-research-pipeline.js#normalizeValue",
+      "validators": "existing tests/module checks",
+      "classification": "PARTIALLY-GENERIC",
+      "deterministic": true,
+      "reusableInBatch": true,
+      "finding": "Only ml/L, psi/bar/kPa and N·m numeric conversions are covered; intervals, clearances, part numbers and action semantics are not canonicalized."
+    },
+    {
+      "id": "conflict-detection",
+      "input": "verified scoped evidence",
+      "output": "conflict groups",
+      "schema": "existing module-specific shape",
+      "implementation": "research/lib/batch-research-pipeline.js#detectConflicts; js/research/technical-research-pipeline.js#composeLayers",
+      "validators": "existing tests/module checks",
+      "classification": "GENERIC-READY",
+      "deterministic": true,
+      "reusableInBatch": true,
+      "finding": "Conflicts are preserved and never auto-selected; richer normalized-match/applicability-split classification is still needed."
+    },
+    {
+      "id": "coverage-yield",
+      "input": "targets + evidence + documents",
+      "output": "coverage and yield metrics",
+      "schema": "existing module-specific shape",
+      "implementation": "research/lib/batch-research-pipeline.js#buildBatchReport",
+      "validators": "existing tests/module checks",
+      "classification": "PARTIALLY-GENERIC",
+      "deterministic": true,
+      "reusableInBatch": true,
+      "finding": "Coverage is generic; practical/generic yield, document budgets and per-document yield are recomputed in handcrafted batch result modules."
+    },
+    {
+      "id": "review-queue",
+      "input": "targets/gaps/conflicts",
+      "output": "ordered review items",
+      "schema": "existing module-specific shape",
+      "implementation": "research/lib/batch-research-pipeline.js#buildReviewQueue; js/research/technical-research-pipeline.js#generateResearchQueue",
+      "validators": "existing tests/module checks",
+      "classification": "PARTIALLY-GENERIC",
+      "deterministic": true,
+      "reusableInBatch": true,
+      "finding": "Stable queues exist but lack canonical typed reasons, source work items, ownership and resolution state."
+    },
+    {
+      "id": "checkpoint-resume",
+      "input": "batch state + events",
+      "output": "restartable snapshot",
+      "schema": null,
+      "implementation": null,
+      "validators": null,
+      "classification": "MISSING",
+      "deterministic": false,
+      "reusableInBatch": false,
+      "finding": "Repository commits preserve history, but no stable batch/attempt/work-item state machine resumes without handcrafted reconstruction."
+    },
+    {
+      "id": "human-review",
+      "input": "typed review items",
+      "output": "recorded decisions",
+      "schema": null,
+      "implementation": null,
+      "validators": null,
+      "classification": "DESIGN-ONLY",
+      "deterministic": false,
+      "reusableInBatch": false,
+      "finding": "Human review is governed but decisions have no generic machine-readable contract."
+    },
+    {
+      "id": "manual-production-promotion",
+      "input": "accepted research packet",
+      "output": "explicit production change task",
+      "schema": "existing module-specific shape",
+      "implementation": "js/research/technical-research-pipeline.js#generateDraftProposal; production validators",
+      "validators": "existing tests/module checks",
+      "classification": "GENERIC-BUT-MANUAL-ORCHESTRATION",
+      "deterministic": true,
+      "reusableInBatch": false,
+      "finding": "Boundary is intentionally manual and tested; it must remain outside the factory orchestrator."
+    }
+  ],
+  "componentInventory": {
+    "genericReady": [
+      "canonical 183-field coverage schema",
+      "canonical 44-field Service Core",
+      "document identity and mirror deduplication",
+      "proof-status filtering",
+      "basic Service Core gap calculation",
+      "verified-evidence conflict preservation",
+      "deterministic report hashing",
+      "production/research isolation tests"
+    ],
+    "genericButManualOrchestration": [
+      "ADR-012 readiness gate inputs",
+      "research candidate validation",
+      "production draft boundary",
+      "source tier policy",
+      "source-yield threshold interpretation"
+    ],
+    "partiallyGeneric": [
+      "catalogue target generation",
+      "source/prospect registries",
+      "applicability evaluation",
+      "normalization",
+      "coverage/yield reporting",
+      "review queues",
+      "completion/readiness vocabulary"
+    ],
+    "manufacturerSpecific": [
+      "Yamaha B7N/LIT and owner-manual path knowledge",
+      "Honda Motopub/Helm and common-manual family knowledge",
+      "Harley SIP publication routing",
+      "manufacturer-specific discovery path hints embedded in reports/prompts"
+    ],
+    "modelSpecific": [
+      "Honda five-target pilot definitions/results",
+      "Yamaha two-target batch definitions/results",
+      "Harley single-target execution",
+      "MT-09 prospect authentication/reconciliation modules",
+      "VFR proof matrix and manual fingerprint"
+    ],
+    "designOnly": [
+      "source discovery interface",
+      "acquisition work items",
+      "budget state transitions",
+      "typed review decisions",
+      "factory completion state",
+      "manufacturer adapter interface"
+    ],
+    "missing": [
+      "canonical ResearchTarget validator",
+      "canonical SourceProspect validator/registry",
+      "canonical ApplicabilityScope",
+      "GapPlan combining history/risk/source relevance",
+      "persistent Batch/WorkItem/Attempt/Event identities",
+      "resume reducer/checkpoint",
+      "generic source-work scheduler",
+      "canonical yield calculator",
+      "generic anti-loop reducer"
+    ]
+  },
+  "manualDecisions": [
+    {
+      "id": "target-scope-definition",
+      "classification": "CAN-BE-POLICY-DRIVEN",
+      "rationale": "Catalogue identity can seed targets, but exact year/market/transmission/ABS/equipment policies must be explicit and reviewable."
+    },
+    {
+      "id": "external-source-discovery",
+      "classification": "CAN-BE-HEURISTIC-WITH-HUMAN-REVIEW",
+      "rationale": "Agents/adapters may propose sources; authority and applicability cannot be inferred."
+    },
+    {
+      "id": "source-query-construction",
+      "classification": "CAN-BE-HEURISTIC-WITH-HUMAN-REVIEW",
+      "rationale": "Manufacturer adapters may emit bounded query hints, never evidence or readiness decisions."
+    },
+    {
+      "id": "document-deduplication",
+      "classification": "CAN-BE-DETERMINISTIC",
+      "rationale": "Publication identity/content hash already supports deterministic deduplication."
+    },
+    {
+      "id": "readiness-gate-evaluation",
+      "classification": "CAN-BE-DETERMINISTIC",
+      "rationale": "Once findings are recorded, ADR-012 is an all-fields gate."
+    },
+    {
+      "id": "applicability-acceptance",
+      "classification": "CAN-BE-DETERMINISTIC",
+      "rationale": "Exact scope matches and UNKNOWN blocking are policy; ambiguous external facts become review items."
+    },
+    {
+      "id": "source-priority-ranking",
+      "classification": "CAN-BE-POLICY-DRIVEN",
+      "rationale": "Authority, marginal gap relevance, access, duplication, risk and prior yield are explicit inputs."
+    },
+    {
+      "id": "technical-value-extraction",
+      "classification": "CAN-BE-HEURISTIC-WITH-HUMAN-REVIEW",
+      "rationale": "Tools/agents may propose candidates; safety-critical candidates need independent validation."
+    },
+    {
+      "id": "normalization",
+      "classification": "CAN-BE-DETERMINISTIC",
+      "rationale": "Only registered conversions/parsers may normalize; unknown forms remain raw."
+    },
+    {
+      "id": "conflict-resolution",
+      "classification": "MUST-REMAIN-HUMAN",
+      "rationale": "Detection is deterministic, but selecting among applicable authoritative disagreements requires judgment/new evidence."
+    },
+    {
+      "id": "safety-critical-acceptance",
+      "classification": "MUST-REMAIN-HUMAN",
+      "rationale": "Automation may block or queue, never waive unresolved applicability/conflicts."
+    },
+    {
+      "id": "budget-stop",
+      "classification": "CAN-BE-POLICY-DRIVEN",
+      "rationale": "Configured per batch/target and enforced deterministically."
+    },
+    {
+      "id": "exhaustion-and-anti-loop",
+      "classification": "CAN-BE-DETERMINISTIC",
+      "rationale": "Attempt identities, repeated blockers and configured limits can generate terminal stop reasons."
+    },
+    {
+      "id": "production-promotion",
+      "classification": "MUST-REMAIN-HUMAN",
+      "rationale": "Existing governance requires a separate deliberate task and validator review."
+    },
+    {
+      "id": "unsupported-inference",
+      "classification": "UNSAFE-TO-AUTOMATE",
+      "rationale": "Platform/model similarity must never create scope or values."
+    }
+  ],
+  "contracts": {
+    "ResearchTarget": {
+      "identity": [
+        "targetId",
+        "catalogVariantKey",
+        "scopeId"
+      ],
+      "required": [
+        "catalogVariantKey",
+        "scope",
+        "sourcePriorityPolicyId",
+        "serviceCoreBaseline",
+        "researchHistoryRefs",
+        "riskFlags"
+      ],
+      "derived": [
+        "manufacturer",
+        "family",
+        "generation",
+        "catalogueYears",
+        "remainingGaps"
+      ],
+      "scope": [
+        "catalogVariantKey",
+        "generation",
+        "years",
+        "markets",
+        "transmission",
+        "abs",
+        "equipment"
+      ],
+      "rule": "Reference canonical catalogue identity; store only the bounded research scope and never duplicate mutable catalogue facts."
+    },
+    "SourceProspect": {
+      "identity": [
+        "prospectId",
+        "targetId",
+        "documentIdentityHint"
+      ],
+      "required": [
+        "manufacturer",
+        "documentClass",
+        "publisherAuthority",
+        "publicationIdentifiers",
+        "identifierRelationships",
+        "officialLocations",
+        "accessibility",
+        "applicability",
+        "sourceTier",
+        "authentication",
+        "exhaustion",
+        "attemptRefs",
+        "expectedMarginalGapClass",
+        "readinessClassification",
+        "blockers",
+        "nextAction"
+      ],
+      "rule": "Manufacturer adapters may add opaque metadata under adapterData; core gate fields remain manufacturer-neutral."
+    },
+    "ApplicabilityScope": {
+      "dimensions": [
+        "catalogVariantKey",
+        "generation",
+        "years",
+        "markets",
+        "transmission",
+        "abs",
+        "equipment"
+      ],
+      "unknownSemantics": "UNKNOWN blocks applicability; null is never universal; abs false remains distinct from null",
+      "decisionStates": [
+        "APPLICABLE",
+        "NOT-APPLICABLE",
+        "AMBIGUOUS",
+        "MISMATCH"
+      ],
+      "rule": "Every dimension is evaluated independently and fail-closed before source or evidence acceptance."
+    },
+    "GapPlan": {
+      "required": [
+        "targetId",
+        "serviceCoreVersion",
+        "startingCoverage",
+        "remainingFields",
+        "safetyCriticalFields",
+        "researchedNoEvidenceFields",
+        "conflictingFields",
+        "sourceClassRelevance",
+        "attemptedSourceClasses",
+        "expectedMarginalOpportunity"
+      ],
+      "rule": "Generated from canonical evidence/history; answers what remains without prompt-authored field lists."
+    },
+    "SourceWorkItem": {
+      "required": [
+        "workItemId",
+        "batchId",
+        "targetId",
+        "prospectId",
+        "stage",
+        "status",
+        "budgetSnapshot",
+        "inputRefs",
+        "attemptIds",
+        "reviewItemIds"
+      ],
+      "statuses": [
+        "PENDING",
+        "IN-PROGRESS",
+        "BLOCKED",
+        "COMPLETED",
+        "EXHAUSTED",
+        "REVIEW-REQUIRED"
+      ],
+      "rule": "One deterministic unit of external work with immutable input references and append-only results."
+    },
+    "EvidenceCandidate": {
+      "required": [
+        "candidateId",
+        "targetId",
+        "canonicalFieldId",
+        "originalValue",
+        "originalUnit",
+        "normalizedValue",
+        "normalizedUnit",
+        "sourceDocumentId",
+        "pageSection",
+        "context",
+        "applicability",
+        "extractionMethod",
+        "verificationState",
+        "conflictState"
+      ],
+      "rule": "Original value/unit and exact provenance are immutable; extraction never directly creates verified production data."
+    },
+    "ReviewItem": {
+      "required": [
+        "reviewItemId",
+        "batchId",
+        "targetId",
+        "reason",
+        "severity",
+        "subjectRefs",
+        "status",
+        "createdByRule",
+        "resolution"
+      ],
+      "reasons": [
+        "SOURCE-MISMATCH",
+        "PUBLICATION-IDENTITY-AMBIGUITY",
+        "MARKET-AMBIGUITY",
+        "YEAR-AMBIGUITY",
+        "ABS-AMBIGUITY",
+        "TRANSMISSION-AMBIGUITY",
+        "EQUIPMENT-AMBIGUITY",
+        "SAFETY-CRITICAL-CONFLICT",
+        "SOURCE-DISAGREEMENT",
+        "NORMALIZATION-UNCERTAINTY",
+        "PROMOTION-CANDIDATE"
+      ],
+      "rule": "Resolution is human-authored where judgment is required and never auto-promotes."
+    }
+  },
+  "sourceDiscovery": {
+    "input": [
+      "ResearchTarget",
+      "GapPlan",
+      "known SourceProspects",
+      "source-priority policy",
+      "budget remainder"
+    ],
+    "output": "ranked SourceProspect proposals with discovery provenance and UNKNOWN fields preserved",
+    "deterministicCore": [
+      "exclude exhausted/duplicate prospects",
+      "apply source-class relevance",
+      "bound requested work",
+      "rank recorded attributes"
+    ],
+    "externalAgent": [
+      "inspect bounded official indexes",
+      "propose exact publication identities/paths",
+      "record observations without declaring readiness"
+    ],
+    "nonGoal": "No crawler or autonomous browser in MVP."
+  },
+  "sourcePriorityPolicy": {
+    "order": [
+      "official-service-manual",
+      "official-common-service-manual",
+      "official-owner-manual",
+      "official-service-data-publication",
+      "official-oem-parts-catalogue",
+      "official-technical-bulletin",
+      "official-model-documentation",
+      "high-quality-independent-technical-source",
+      "third-party-mirror"
+    ],
+    "rankingFactors": [
+      "Tier A/B authority",
+      "remaining-field relevance",
+      "authenticated applicability",
+      "access feasibility",
+      "prior document richness",
+      "expected marginal practical gap class",
+      "explicit reuse",
+      "duplicate/exhaustion penalty",
+      "safety ambiguity penalty"
+    ],
+    "rule": "Order is a default, not a winner: marginal practical relevance and readiness may make an owner manual better than a blocked service manual; Tier C/D cannot establish practical success."
+  },
+  "readinessGate": {
+    "canonicalRequiredFields": [
+      "authorityKnown",
+      "documentIdentityKnown",
+      "identifierRelationshipResolved",
+      "documentClassKnown",
+      "officialPathKnown",
+      "modelKnown",
+      "yearKnown",
+      "marketKnown",
+      "transmissionKnown",
+      "absEquipmentSufficient",
+      "accessibilityFeasible",
+      "notExhausted",
+      "tierABIndependent"
+    ],
+    "result": [
+      "EXECUTION-READY",
+      "AUTHENTICATED-BUT-APPLICABILITY-PARTIAL",
+      "REGISTERED-NOT-REAUTHENTICATED",
+      "ACCESS-BLOCKED",
+      "SOURCE-IDENTITY-PARTIAL",
+      "EXHAUSTED / LOW-MARGINAL-YIELD",
+      "UNKNOWN",
+      "REJECTED-MISMATCH"
+    ],
+    "currentAssessment": "Concept is generic, implementation is duplicated/embedded in prospect-reassessment and target-specific result modules; extract one canonical validator/reducer in Factory Foundation."
+  },
+  "budgetEngine": {
+    "configurableLimits": [
+      "maxPrimaryDocuments",
+      "maxProspectsAuthenticated",
+      "maxFailedAccessAttempts",
+      "maxDuplicateSources",
+      "maxLowYieldDocuments",
+      "maxConsecutiveZeroYieldSources",
+      "maxAuthenticationLoops",
+      "maxAttemptsPerTarget"
+    ],
+    "stopEarlyRules": [
+      "stop when target wave completion is reached",
+      "second source requires a recorded remaining-gap rationale",
+      "structural access/applicability blockers exhaust that path",
+      "duplicates never consume yield credit"
+    ],
+    "permanentNumbers": null,
+    "rationale": "Prior batches used 1–3 documents per target, but evidence is insufficient for universal numeric governance; profiles configure limits and the engine enforces them."
+  },
+  "normalization": {
+    "ready": [
+      "ml↔L",
+      "psi/bar→kPa",
+      "N·m identity",
+      "literal normalized comparison"
+    ],
+    "partial": [
+      "general numeric quantities",
+      "ranges represented elsewhere",
+      "production quantity validation"
+    ],
+    "missing": [
+      "maintenance interval/action parser",
+      "clearance condition parser",
+      "part-number normalization",
+      "capacity-condition semantics",
+      "torque component identity",
+      "pressure load/temperature semantics"
+    ],
+    "unsafe": [
+      "unit inference",
+      "rounded-value false precision",
+      "averaging",
+      "condition collapse"
+    ],
+    "rule": "Unknown parsers preserve original values and create NORMALIZATION-UNCERTAINTY review items."
+  },
+  "conflictEngine": {
+    "existing": [
+      "same scoped slot differing normalized values becomes CONFLICT",
+      "overlapping layer disagreements remain conflicts",
+      "no automatic winner"
+    ],
+    "canonicalStates": [
+      "NO-CONFLICT",
+      "NORMALIZED-MATCH",
+      "APPLICABILITY-SPLIT",
+      "SOURCE-DISAGREEMENT",
+      "UNRESOLVED-CONFLICT"
+    ],
+    "missing": [
+      "canonical applicability ordering",
+      "condition-aware comparisons",
+      "source revision supersession",
+      "typed conflict resolution records"
+    ],
+    "rule": "Commonness, source count and numerical averaging never resolve conflicts."
+  },
+  "exhaustion": {
+    "stopReasons": [
+      "SOURCE-EXHAUSTED",
+      "AUTHENTICATION-PATH-EXHAUSTED",
+      "ACCESS-STRUCTURALLY-BLOCKED",
+      "DUPLICATE-SOURCE",
+      "LOW-MARGINAL-YIELD",
+      "NO-READY-PROSPECT",
+      "TARGET-BUDGET-EXHAUSTED"
+    ],
+    "input": [
+      "attempt history",
+      "prospect state",
+      "document identity",
+      "yield",
+      "budget",
+      "repeated blocker fingerprint"
+    ],
+    "output": "deterministic terminal or next-work transition",
+    "currentState": "Terms and examples exist, but no generic reducer/event history."
+  },
+  "completion": {
+    "states": [
+      "SERVICE-CORE-READY",
+      "SERVICE-CORE-PARTIAL",
+      "RESEARCH-MORE",
+      "BLOCKED",
+      "EXHAUSTED",
+      "REVIEW-REQUIRED"
+    ],
+    "distinctions": {
+      "coverageReadiness": "Service Core field state only",
+      "sourceReadiness": "whether a prospect may proceed",
+      "researchCompletion": "wave terminal state under budget/history",
+      "productionReadiness": "separate human-reviewed promotion decision"
+    },
+    "rule": "A target may be EXHAUSTED or BLOCKED below 44/44; DONE is wave-relative, never production-ready by implication."
+  },
+  "scheduler": {
+    "inputs": [
+      "GapPlan",
+      "ready prospect count",
+      "expected marginal practical class",
+      "prior yield",
+      "duplication",
+      "access friction",
+      "safety risk",
+      "configured batch policy"
+    ],
+    "behavior": [
+      "gate before ranking",
+      "rank marginal practical opportunity per bounded document",
+      "stable tie-break by targetId",
+      "reserve configurable manufacturer/adapter concurrency",
+      "never use fame/popularity as a default factor"
+    ],
+    "currentGap": "Existing priorityScore rewards verified slots/source count and does not consume prospect readiness, marginal field relevance or work history."
+  },
+  "checkpointing": {
+    "stableIds": [
+      "batchId",
+      "targetId",
+      "prospectId",
+      "workItemId",
+      "attemptId",
+      "documentId",
+      "candidateId",
+      "reviewItemId",
+      "eventId"
+    ],
+    "stateModel": "append-only events plus deterministic reducer and versioned snapshots",
+    "guarantees": [
+      "resume after interruption",
+      "skip terminal attempts",
+      "deduplicate documents/evidence",
+      "reproduce gate/budget decisions",
+      "regenerate reports from records"
+    ],
+    "currentGap": "Dataset IDs exist for documents/evidence, but no batch/work/attempt/event identity or reducer."
+  },
+  "adapterDecision": {
+    "pattern": "GENERIC-CORE-PLUS-OPTIONAL-MANUFACTURER-ADAPTERS",
+    "coreOwns": [
+      "contracts",
+      "state transitions",
+      "readiness/applicability gates",
+      "budgets",
+      "coverage",
+      "conflicts",
+      "review queue",
+      "checkpointing"
+    ],
+    "adaptersMayOwn": [
+      "official index/path templates",
+      "publication-code parsing hints",
+      "authentication navigation hints",
+      "metadata mapping proposals"
+    ],
+    "adaptersMustNot": [
+      "declare evidence verified",
+      "infer applicability",
+      "bypass access/readiness gates",
+      "change Service Core",
+      "promote production"
+    ],
+    "reason": "Honda/Yamaha/Harley infrastructure differs, but evidence safety semantics do not."
+  },
+  "scorecard": [
+    {
+      "area": "target-generation",
+      "state": "PARTIAL",
+      "evidence": "Generic catalogue traversal exists; bounded scope contract is missing."
+    },
+    {
+      "area": "source-discovery",
+      "state": "MISSING",
+      "evidence": "Prompt-driven only."
+    },
+    {
+      "area": "source-registry",
+      "state": "PARTIAL",
+      "evidence": "Several registries/shapes, no canonical prospect validator."
+    },
+    {
+      "area": "source-authentication",
+      "state": "PARTIAL",
+      "evidence": "ADR-012 gate exists but is embedded and manually populated."
+    },
+    {
+      "area": "applicability",
+      "state": "PARTIAL",
+      "evidence": "Fail-closed pieces exist across incompatible shapes."
+    },
+    {
+      "area": "service-core-gap-planning",
+      "state": "PARTIAL",
+      "evidence": "44-field gaps are ready; history/risk/source relevance are missing."
+    },
+    {
+      "area": "acquisition-budgets",
+      "state": "DESIGN-ONLY",
+      "evidence": "Per-task budgets are handcrafted."
+    },
+    {
+      "area": "extraction-contract",
+      "state": "PARTIAL",
+      "evidence": "Candidate validators exist in two schemas."
+    },
+    {
+      "area": "normalization",
+      "state": "PARTIAL",
+      "evidence": "Small safe conversion table only."
+    },
+    {
+      "area": "conflict-handling",
+      "state": "PARTIAL",
+      "evidence": "Detection is generic; typed resolution/applicability split missing."
+    },
+    {
+      "area": "coverage",
+      "state": "READY",
+      "evidence": "Deterministic Service Core coverage exists."
+    },
+    {
+      "area": "yield",
+      "state": "PARTIAL",
+      "evidence": "Metrics exist per execution but no generic calculator."
+    },
+    {
+      "area": "exhaustion",
+      "state": "DESIGN-ONLY",
+      "evidence": "States are recorded manually."
+    },
+    {
+      "area": "anti-loop",
+      "state": "DESIGN-ONLY",
+      "evidence": "MT-09 rule proved semantics, not a reducer."
+    },
+    {
+      "area": "batch-scheduling",
+      "state": "PARTIAL",
+      "evidence": "Stable queue exists but ranking inputs are inadequate."
+    },
+    {
+      "area": "review-queue",
+      "state": "PARTIAL",
+      "evidence": "Basic gap queue exists; typed reasons/lifecycle missing."
+    },
+    {
+      "area": "checkpoint-resume",
+      "state": "MISSING",
+      "evidence": "No work-item event log/reducer."
+    },
+    {
+      "area": "production-isolation",
+      "state": "READY",
+      "evidence": "Runtime/import and VFR regression tests enforce quarantine."
+    },
+    {
+      "area": "reporting",
+      "state": "PARTIAL",
+      "evidence": "Deterministic generators exist; every execution still adds custom script."
+    },
+    {
+      "area": "testing",
+      "state": "PARTIAL",
+      "evidence": "Strong unit/regression coverage; no factory state-transition/scale fixtures yet."
+    }
+  ],
+  "scaleTests": [
+    {
+      "targets": 10,
+      "result": "REPRESENTABLE-BUT-MANUAL",
+      "bottlenecks": [
+        "prospect creation",
+        "scope/authentication decisions",
+        "custom result/report modules"
+      ],
+      "assessment": "Existing batch helpers can calculate gaps/queues, but orchestration still scales linearly with prompts."
+    },
+    {
+      "targets": 25,
+      "result": "NOT-OPERATIONALLY-READY",
+      "bottlenecks": [
+        "source discovery throughput",
+        "review queue typing",
+        "attempt/budget tracking",
+        "resume",
+        "manufacturer path variation"
+      ],
+      "assessment": "Data volume is modest; missing state orchestration and human review triage dominate."
+    },
+    {
+      "targets": 100,
+      "result": "BLOCKED-BY-ORCHESTRATION",
+      "bottlenecks": [
+        "external request concurrency/rate limits",
+        "checkpoint/restart",
+        "duplicate cross-target documents",
+        "review volume",
+        "repository report churn",
+        "adapter coverage"
+      ],
+      "assessment": "Local coverage/conflict logic should scale, but external work and repository-per-target modules would fail operationally."
+    }
+  ],
+  "mvpComponents": [
+    "versioned ResearchTarget/SourceProspect/ApplicabilityScope/GapPlan contracts",
+    "canonical validators and readiness/applicability gates",
+    "Batch/WorkItem/Attempt/Event records with deterministic reducer",
+    "catalogue target loader and GapPlan generator",
+    "bounded scheduler/budget policy",
+    "external-result ingestion for authentication/acquisition/extraction",
+    "document/evidence deduplication and conflict integration",
+    "typed review queue",
+    "checkpoint/report regeneration",
+    "hard manual production boundary"
+  ],
+  "implementationWaves": [
+    {
+      "order": 1,
+      "name": "FACTORY FOUNDATION",
+      "objective": "Implement versioned core contracts, validators and one canonical readiness/applicability gate.",
+      "likelyFiles": [
+        "research/factory/contracts.js",
+        "research/factory/validators.js",
+        "research/factory/readiness-gate.js",
+        "synthetic tests"
+      ],
+      "contracts": [
+        "ResearchTarget",
+        "SourceProspect",
+        "ApplicabilityScope",
+        "GapPlan"
+      ],
+      "migrationImpact": "none; adapters later preserve current datasets",
+      "nonGoals": "No orchestration, external research, data migration or live prospect execution.",
+      "exitCriteria": "Synthetic and current-shaped adapters validate fail-closed without changing existing evidence."
+    },
+    {
+      "order": 2,
+      "name": "FACTORY ORCHESTRATOR",
+      "objective": "Add Batch/WorkItem/Attempt/Event identities, reducer, budgets, completion and checkpoint snapshots.",
+      "likelyFiles": [
+        "research/factory/state-machine.js",
+        "research/factory/budgets.js",
+        "research/factory/checkpoint.js"
+      ],
+      "contracts": [
+        "BatchState",
+        "SourceWorkItem",
+        "AttemptEvent"
+      ],
+      "migrationImpact": "incremental, versioned adapters only",
+      "nonGoals": "No external source calls or extraction.",
+      "exitCriteria": "Interrupted synthetic batches resume byte-deterministically and enforce stop rules."
+    },
+    {
+      "order": 3,
+      "name": "FACTORY WORK ITEMS",
+      "objective": "Generate target GapPlans, prospect/authentication/acquisition/extraction work items and typed review items; ingest external findings.",
+      "likelyFiles": [
+        "research/factory/gap-planner.js",
+        "research/factory/scheduler.js",
+        "research/factory/ingest.js",
+        "research/factory/review-queue.js"
+      ],
+      "contracts": [
+        "EvidenceCandidate",
+        "ReviewItem",
+        "ExternalFinding"
+      ],
+      "migrationImpact": "incremental, versioned adapters only",
+      "nonGoals": "No autonomous browser, crawler, OCR or LLM extractor.",
+      "exitCriteria": "Multiple synthetic targets produce bounded work and reports without target-specific scripts."
+    },
+    {
+      "order": 4,
+      "name": "FACTORY BATCH PILOT",
+      "objective": "Run a small non-production batch through the orchestrator using existing known prospects, including Ténéré BW3-F8197-E0 as an authentication fixture.",
+      "likelyFiles": [
+        "research/data/factory-batches/*",
+        "factory report generator"
+      ],
+      "contracts": [
+        "FactoryBatchDefinition",
+        "FactoryBatchResult"
+      ],
+      "migrationImpact": "incremental, versioned adapters only",
+      "nonGoals": "No production promotion and no batch-size scaling.",
+      "exitCriteria": "One interrupted/resumed pilot proves gates, budgets, anti-loop, metrics and review queue."
+    },
+    {
+      "order": 5,
+      "name": "FACTORY SCALE-UP",
+      "objective": "Exercise 10 then 25 targets, add only evidence-backed adapters and optimize report/checkpoint volume before considering 100.",
+      "likelyFiles": [
+        "synthetic/load fixtures",
+        "optional manufacturer adapters"
+      ],
+      "contracts": [
+        "AdapterResult",
+        "ScaleReport"
+      ],
+      "migrationImpact": "incremental, versioned adapters only",
+      "nonGoals": "No claim of autonomous 100-target research.",
+      "exitCriteria": "25 targets remain deterministic, bounded, resumable and auditable with measured review load."
+    }
+  ],
+  "tenerePilot": {
+    "catalogVariantKey": "yamaha.tenere-700.gen1",
+    "prospectId": "yamaha.tenere700.service.bw3-f8197-e0",
+    "publicationCode": "BW3-F8197-E0",
+    "role": "FACTORY-PILOT-CANDIDATE",
+    "preservedState": "REGISTERED-NOT-REAUTHENTICATED",
+    "executionTiming": "FACTORY BATCH PILOT after foundation/orchestrator/work-item waves",
+    "reason": "Known unresolved year/market/equipment/access fields exercise the generic gate without inventing a fixture."
+  },
+  "exactNextTasks": [
+    {
+      "id": "factory-foundation-contracts-and-gates",
+      "count": 1,
+      "task": "Implement the bounded Technical Research Factory Foundation: add versioned, manufacturer-neutral ResearchTarget, SourceProspect, ApplicabilityScope and GapPlan contracts with validators, then extract one canonical fail-closed readiness/applicability gate behind compatibility adapters for synthetic/current-shaped fixtures; perform no external research, live data migration, acquisition, extraction or production change.",
+      "leverage": "Every later scheduler, work item, checkpoint, budget and review component depends on stable identities/scopes and one gate; implementing orchestration first would encode today's fragmented shapes."
+    }
+  ],
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "supported": [
+      "core reuses working gap/dedup/conflict/report/isolation modules",
+      "contracts are manufacturer-neutral",
+      "external work is separated from deterministic transitions",
+      "Ténéré is preserved rather than executed",
+      "MVP is incremental and non-production"
+    ],
+    "risks": [
+      "two existing candidate/applicability schemas need compatibility adapters",
+      "source discovery remains external and nondeterministic",
+      "normalization breadth is small",
+      "100-target scale is blocked by review and checkpointing until later waves",
+      "contract design must not become a parallel unused schema"
+    ],
+    "falsification": [
+      "25 targets still require per-target result scripts after Work Items",
+      "manufacturer adapters begin declaring readiness/evidence",
+      "factory state cannot resume deterministically",
+      "current evidence must be rewritten to adopt contracts",
+      "production imports factory modules"
+    ],
+    "conclusion": "The architecture is credible but not yet implemented; acceptance is conditional on foundation adapters reusing current data rather than creating a disconnected framework."
+  },
+  "evidenceAdded": false,
+  "researchedNoEvidenceAdded": false,
+  "serviceCoreChanged": false,
+  "productionChanged": false,
+  "runtimeChanged": false,
+  "catalogueChanged": false,
+  "cloudBackendChanged": false,
+  "vfr800ProductionChanged": false,
+  "externalMotorcycleResearchPerformed": false
+}

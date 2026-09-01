@@ -88,3 +88,11 @@ Decision: a registered Tier A/B prospect enters acquisition ranking only after e
 Rationale: official Harley-Davidson publication `94001064` was genuine and RH1250S-related but reauthenticated as MY2023 rather than the selected MY2022 and returned HTTP 403, producing zero evidence.
 Consequences: source authentication metadata tasks may precede acquisition; authenticity, applicability, accessibility and marginal yield remain separate; scoring operates only on execution-ready prospects.
 Status: ACTIVE. Related reassessment: source-prospect authentication quality.
+
+## ADR-013 — Technical research uses a deterministic generic core with optional discovery adapters
+
+Date: 2026-09-01
+Decision: catalogue research targets, source prospects, applicability, gaps, budgets, state transitions, readiness gates, conflicts, checkpoints and review items belong to one manufacturer-neutral, versioned research-factory core. Manufacturer adapters may supply publication-code parsing, endpoint templates and discovery hints, but may not declare applicability, readiness or evidence. External research agents return typed findings; deterministic repository logic applies gates and transitions. Research-to-production promotion remains an explicit human task.
+Rationale: existing validators, Service Core, document deduplication, coverage/yield and reports are reusable, while recent Harley and Yamaha work shows that handcrafted prospect shapes and prompt-level orchestration permit mismatches and repeated authentication loops.
+Consequences: Foundation must adapt current data shapes without rewriting evidence; later orchestration can resume from stable IDs and event records; adapters are introduced only from measured manufacturer needs; Ténéré becomes a factory-pilot candidate rather than another handcrafted task.
+Status: ACTIVE. Related design: Technical Research Factory architecture.

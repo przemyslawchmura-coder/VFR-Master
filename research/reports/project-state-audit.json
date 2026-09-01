@@ -1,18 +1,18 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-01",
-  "snapshotBasis": "post-mt09-publication-reconciliation-working-tree",
-  "baseCommit": "848119e0d980448a0cce129c9f268c712c16bb03",
+  "snapshotBasis": "post-technical-research-factory-architecture-working-tree",
+  "baseCommit": "92fa8bbedaef6b8956c10a3b2714050e3a8fabdd",
   "containingCommit": "self (resolve from git history)",
   "originMain": "97484bf004c466a6f26a5e42ae07b91214e95962",
-  "aheadAfterContainingCommit": 7,
+  "aheadAfterContainingCommit": 8,
   "behind": 0,
   "repository": {
-    "files": 213,
-    "javascriptFiles": 129,
-    "testFiles": 51,
-    "documentationFiles": 52,
-    "researchAndToolingFiles": 67
+    "files": 219,
+    "javascriptFiles": 132,
+    "testFiles": 52,
+    "documentationFiles": 54,
+    "researchAndToolingFiles": 70
   },
   "catalogue": {
     "manufacturers": 13,
@@ -581,10 +581,155 @@
       "exactNextTask": "Authenticate only the existing Yamaha Ténéré 700 service-manual prospect BW3-F8197-E0 for yamaha.tenere-700.gen1 MY2019 EU standard: resolve official Yamaha identity, delivery/access, exact year/market and standard-versus-named-equipment scope without inspecting service values or creating Service Core evidence."
     }
   },
+  "technicalResearchFactory": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "stages": 15,
+    "scorecard": [
+      {
+        "area": "target-generation",
+        "state": "PARTIAL",
+        "evidence": "Generic catalogue traversal exists; bounded scope contract is missing."
+      },
+      {
+        "area": "source-discovery",
+        "state": "MISSING",
+        "evidence": "Prompt-driven only."
+      },
+      {
+        "area": "source-registry",
+        "state": "PARTIAL",
+        "evidence": "Several registries/shapes, no canonical prospect validator."
+      },
+      {
+        "area": "source-authentication",
+        "state": "PARTIAL",
+        "evidence": "ADR-012 gate exists but is embedded and manually populated."
+      },
+      {
+        "area": "applicability",
+        "state": "PARTIAL",
+        "evidence": "Fail-closed pieces exist across incompatible shapes."
+      },
+      {
+        "area": "service-core-gap-planning",
+        "state": "PARTIAL",
+        "evidence": "44-field gaps are ready; history/risk/source relevance are missing."
+      },
+      {
+        "area": "acquisition-budgets",
+        "state": "DESIGN-ONLY",
+        "evidence": "Per-task budgets are handcrafted."
+      },
+      {
+        "area": "extraction-contract",
+        "state": "PARTIAL",
+        "evidence": "Candidate validators exist in two schemas."
+      },
+      {
+        "area": "normalization",
+        "state": "PARTIAL",
+        "evidence": "Small safe conversion table only."
+      },
+      {
+        "area": "conflict-handling",
+        "state": "PARTIAL",
+        "evidence": "Detection is generic; typed resolution/applicability split missing."
+      },
+      {
+        "area": "coverage",
+        "state": "READY",
+        "evidence": "Deterministic Service Core coverage exists."
+      },
+      {
+        "area": "yield",
+        "state": "PARTIAL",
+        "evidence": "Metrics exist per execution but no generic calculator."
+      },
+      {
+        "area": "exhaustion",
+        "state": "DESIGN-ONLY",
+        "evidence": "States are recorded manually."
+      },
+      {
+        "area": "anti-loop",
+        "state": "DESIGN-ONLY",
+        "evidence": "MT-09 rule proved semantics, not a reducer."
+      },
+      {
+        "area": "batch-scheduling",
+        "state": "PARTIAL",
+        "evidence": "Stable queue exists but ranking inputs are inadequate."
+      },
+      {
+        "area": "review-queue",
+        "state": "PARTIAL",
+        "evidence": "Basic gap queue exists; typed reasons/lifecycle missing."
+      },
+      {
+        "area": "checkpoint-resume",
+        "state": "MISSING",
+        "evidence": "No work-item event log/reducer."
+      },
+      {
+        "area": "production-isolation",
+        "state": "READY",
+        "evidence": "Runtime/import and VFR regression tests enforce quarantine."
+      },
+      {
+        "area": "reporting",
+        "state": "PARTIAL",
+        "evidence": "Deterministic generators exist; every execution still adds custom script."
+      },
+      {
+        "area": "testing",
+        "state": "PARTIAL",
+        "evidence": "Strong unit/regression coverage; no factory state-transition/scale fixtures yet."
+      }
+    ],
+    "mvpComponents": [
+      "versioned ResearchTarget/SourceProspect/ApplicabilityScope/GapPlan contracts",
+      "canonical validators and readiness/applicability gates",
+      "Batch/WorkItem/Attempt/Event records with deterministic reducer",
+      "catalogue target loader and GapPlan generator",
+      "bounded scheduler/budget policy",
+      "external-result ingestion for authentication/acquisition/extraction",
+      "document/evidence deduplication and conflict integration",
+      "typed review queue",
+      "checkpoint/report regeneration",
+      "hard manual production boundary"
+    ],
+    "implementationWaves": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tenerePilot": {
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "prospectId": "yamaha.tenere700.service.bw3-f8197-e0",
+      "publicationCode": "BW3-F8197-E0",
+      "role": "FACTORY-PILOT-CANDIDATE",
+      "preservedState": "REGISTERED-NOT-REAUTHENTICATED",
+      "executionTiming": "FACTORY BATCH PILOT after foundation/orchestrator/work-item waves",
+      "reason": "Known unresolved year/market/equipment/access fields exercise the generic gate without inventing a fixture."
+    },
+    "exactNextTasks": [
+      {
+        "id": "factory-foundation-contracts-and-gates",
+        "count": 1,
+        "task": "Implement the bounded Technical Research Factory Foundation: add versioned, manufacturer-neutral ResearchTarget, SourceProspect, ApplicabilityScope and GapPlan contracts with validators, then extract one canonical fail-closed readiness/applicability gate behind compatibility adapters for synthetic/current-shaped fixtures; perform no external research, live data migration, acquisition, extraction or production change.",
+        "leverage": "Every later scheduler, work item, checkpoint, budget and review component depends on stable identities/scopes and one gate; implementing orchestration first would encode today's fragmented shapes."
+      }
+    ],
+    "evidenceAdded": false,
+    "serviceCoreChanged": false,
+    "productionChanged": false
+  },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 434,
-    "lastKnownPassed": 434,
+    "lastKnownTotal": 441,
+    "lastKnownPassed": 441,
     "failed": 0,
     "skipped": 0,
     "todo": 0

@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-01 — Technical Research Factory architecture and gap audit (current)
+
+Objective: determine exactly what remains before RevLog can run safe, repeatable catalogue-scale technical-research batches without handcrafted per-model workflows. Reconstructed the implemented pipeline and classified its capabilities; designed machine-readable manufacturer-neutral target, prospect, applicability, gap, work-item, evidence and review contracts; separated discovery/authentication/acquisition/extraction; specified canonical fail-closed gates, bounded budgets, exhaustion, event/checkpoint state, scheduling and five implementation waves. Audit: `ACCEPT-WITH-RISKS`; the current system has reusable primitives but lacks integrated orchestration and resumability. Ténéré `BW3-F8197-E0` remains unmodified as a future factory-pilot candidate. No external motorcycle research, technical evidence, coverage, production, runtime/browser, catalogue, cloud-backend or VFR800 data changed. Next: bounded Factory Foundation contracts and canonical gates.
+
 ## 2026-09-01 — Yamaha MT-09 publication-code and EU-market reconciliation (current)
 
 Objective: resolve or fail closed on `B7N-28197-E0` versus `LIT-11616-34-61` for MY2021 EU standard MT-09 using Yamaha-controlled metadata only. Result: `RELATIONSHIP-UNRESOLVED`, `ACCESS-BLOCKED`, and `MT09-AUTHENTICATION-PATH-EXHAUSTED`. LIT remains authenticated for North-American MY2021 MT-09/MT-09 SP; Yamaha Europe proves `MTN890` = standard and `MTN890D` = SP; no official B7N record, EU path or code relationship was found. Audit: `ACCEPT-WITH-RISKS`. No technical values, evidence, researched-no-evidence states, coverage, production, runtime/browser, catalogue, Supabase or VFR800 data changed. Next: authenticate only registered Ténéré service prospect `BW3-F8197-E0`.
