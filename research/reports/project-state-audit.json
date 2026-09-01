@@ -1,18 +1,18 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-01",
-  "snapshotBasis": "post-technical-research-factory-foundation-1-working-tree",
-  "baseCommit": "86219e77a156dec2a5b29d0f42d690aa1a92720d",
+  "snapshotBasis": "post-technical-research-factory-orchestrator-foundation-working-tree",
+  "baseCommit": "04bfd1b6885cb8fc4b87fb660545db6144376fa3",
   "containingCommit": "self (resolve from git history)",
   "originMain": "97484bf004c466a6f26a5e42ae07b91214e95962",
-  "aheadAfterContainingCommit": 9,
+  "aheadAfterContainingCommit": 10,
   "behind": 0,
   "repository": {
-    "files": 231,
-    "javascriptFiles": 141,
-    "testFiles": 53,
-    "documentationFiles": 56,
-    "researchAndToolingFiles": 79
+    "files": 244,
+    "javascriptFiles": 151,
+    "testFiles": 54,
+    "documentationFiles": 58,
+    "researchAndToolingFiles": 89
   },
   "catalogue": {
     "manufacturers": 13,
@@ -800,10 +800,89 @@
     "coverageChanged": false,
     "productionChanged": false
   },
+  "orchestratorFoundation": {
+    "schemaVersion": 1,
+    "foundationContractVersion": 1,
+    "classification": "ACCEPT-WITH-RISKS",
+    "contracts": [
+      "ResearchBatch",
+      "TargetWork",
+      "SourceWorkItem",
+      "ResearchAttempt",
+      "ResearchEvent",
+      "ResearchSnapshot",
+      "Checkpoint"
+    ],
+    "eventTypes": [
+      "batch-created",
+      "target-added",
+      "source-work-created",
+      "attempt-started",
+      "attempt-completed",
+      "attempt-failed",
+      "attempt-blocked",
+      "attempt-exhausted",
+      "work-deferred",
+      "checkpoint-created",
+      "batch-paused",
+      "batch-resumed",
+      "batch-completed"
+    ],
+    "fixtures": [
+      {
+        "name": "honda-cbr500r-existing-owner",
+        "readiness": "EXHAUSTED / LOW-MARGINAL-YIELD",
+        "workState": "EXHAUSTED",
+        "replayVerified": true
+      },
+      {
+        "name": "yamaha-mt09-existing-owner",
+        "readiness": "EXHAUSTED / LOW-MARGINAL-YIELD",
+        "workState": "EXHAUSTED",
+        "replayVerified": true
+      },
+      {
+        "name": "harley-existing-mismatch",
+        "readiness": "REJECTED-MISMATCH",
+        "workState": "REJECTED",
+        "replayVerified": true
+      },
+      {
+        "name": "tenere-existing-service-prospect",
+        "readiness": "REGISTERED-NOT-REAUTHENTICATED",
+        "workState": "BLOCKED",
+        "replayVerified": true
+      }
+    ],
+    "guarantees": {
+      "appendOnlyEvents": true,
+      "pureReducer": true,
+      "oneActiveAttemptPerWorkItem": true,
+      "boundedAttempts": true,
+      "canonicalSnapshots": true,
+      "checkpointReplayVerification": true,
+      "incompatibleResumeFailsClosed": true,
+      "foundationReadinessAuthoritative": true,
+      "jsonSafe": true,
+      "immutableInputs": true,
+      "singleProcessOnly": true
+    },
+    "serviceCoreFieldCount": 44,
+    "exactNextTasks": [
+      {
+        "id": "factory-execution-planner",
+        "task": "Implement the bounded Technical Research Factory Execution Planner: translate canonical GapPlans and SourceProspects into deterministic ResearchBatch, TargetWork and SourceWorkItem plans under explicit source-class, readiness and attempt budgets, using only synthetic and existing local fixtures and performing no external research, authentication, acquisition, extraction, production change or historical migration."
+      }
+    ],
+    "evidenceAdded": false,
+    "coverageChanged": false,
+    "productionChanged": false,
+    "tenereAuthenticationExecuted": false
+  },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 454,
-    "lastKnownPassed": 454,
+    "lastKnownTotal": 467,
+    "lastKnownPassed": 467,
     "failed": 0,
     "skipped": 0,
     "todo": 0

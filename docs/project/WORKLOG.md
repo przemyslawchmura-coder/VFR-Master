@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-01 — Technical Research Factory Orchestrator Foundation (current)
+
+Objective: add bounded, resumable state machinery without research execution. Added orchestration schema 1 contracts for ResearchBatch, TargetWork, SourceWorkItem, ResearchAttempt, ResearchEvent, ResearchSnapshot and Checkpoint; SHA-256 semantic identities with no clock/random dependency; immutable JSON-only append events; a pure deterministic reducer; explicit batch/work/attempt state machines; bounded retries and exhaustion; and digest/version-verified checkpoint resume. Existing Honda/Yamaha exhausted, Harley rejected-mismatch and Ténéré blocked fixtures traverse Foundation #1 readiness without mutation or promotion. Audit: `ACCEPT-WITH-RISKS` because durable event storage, planning and typed external-result ingestion remain deferred. Next: bounded Execution Planner from canonical GapPlans and SourceProspects only.
+
 ## 2026-09-01 — Technical Research Factory Foundation #1 (current)
 
 Objective: implement the first bounded factory layer without research or production changes. Added versioned manufacturer-neutral ResearchTarget, SourceProspect, ApplicabilityScope and GapPlan contracts/validators; canonical dimension-level fail-closed applicability and ADR-012 readiness gates; deterministic serialization; and non-mutating adapters for current target, prospect and acquired-source shapes. Real Honda, Yamaha, Harley mismatch and Ténéré blocked fixtures now exercise the API. GapPlan reuses the canonical 44-field Service Core and preserves missing/no-evidence/conflict semantics. Audit: `ACCEPT-WITH-RISKS` because historical gates remain behind compatibility adapters and no orchestrator/live migration exists. Ténéré `BW3-F8197-E0` remains unauthenticated and a factory-pilot candidate. Next: bounded Orchestrator Foundation with append-only events, reducer/snapshots, budgets and resume tests.

@@ -8,9 +8,9 @@ const snapshot = require("../research/reports/project-state-audit.json");
 const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-foundation-1-working-tree");
+  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-orchestrator-foundation-working-tree");
   assert.match(snapshot.baseCommit, /^[0-9a-f]{40}$/);
-  assert.equal(snapshot.aheadAfterContainingCommit, 9);
+  assert.equal(snapshot.aheadAfterContainingCommit, 10);
   assert.match(snapshot.originMain, /^[0-9a-f]{40}$/);
   assert.equal(snapshot.catalogue.manufacturers, 13);
   assert.equal(snapshot.catalogue.variants, 1095);
@@ -90,6 +90,18 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.factoryFoundation.exactNextTasks.length, 1);
   assert.equal(snapshot.factoryFoundation.evidenceAdded, false);
   assert.equal(snapshot.factoryFoundation.coverageChanged, false);
+  assert.equal(snapshot.orchestratorFoundation.schemaVersion, 1);
+  assert.equal(snapshot.orchestratorFoundation.foundationContractVersion, 1);
+  assert.equal(snapshot.orchestratorFoundation.classification, "ACCEPT-WITH-RISKS");
+  assert.equal(snapshot.orchestratorFoundation.contracts.length, 7);
+  assert.equal(snapshot.orchestratorFoundation.eventTypes.length, 13);
+  assert.equal(snapshot.orchestratorFoundation.fixtures.length, 4);
+  assert.ok(snapshot.orchestratorFoundation.fixtures.every(item => item.replayVerified));
+  assert.equal(snapshot.orchestratorFoundation.serviceCoreFieldCount, 44);
+  assert.equal(snapshot.orchestratorFoundation.exactNextTasks.length, 1);
+  assert.equal(snapshot.orchestratorFoundation.evidenceAdded, false);
+  assert.equal(snapshot.orchestratorFoundation.productionChanged, false);
+  assert.equal(snapshot.orchestratorFoundation.tenereAuthenticationExecuted, false);
 });
 
 test("project memory has one active roadmap phase and unique ADRs", () => {
@@ -100,7 +112,7 @@ test("project memory has one active roadmap phase and unique ADRs", () => {
   assert.equal(new Set(ids).size, ids.length);
   const state = read("docs/project/CURRENT_STATE.md");
   assert.equal((state.match(/\*\*NEXT\*\*/g) || []).length, 1);
-  assert.match(state, /Technical Research Factory Orchestrator Foundation/);
+  assert.match(state, /Technical Research Factory Execution Planner/);
 });
 
 test("project memory records production/research isolation", () => {

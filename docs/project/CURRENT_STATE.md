@@ -3,9 +3,9 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-09-01
-Snapshot basis: post-Technical-Research-Factory-Foundation-1 working tree based on `86219e77a156dec2a5b29d0f42d690aa1a92720d`; the containing commit is the authoritative snapshot commit because a Git commit cannot embed its own hash.
+Snapshot basis: post-Technical-Research-Factory-Orchestrator-Foundation working tree based on `04bfd1b6885cb8fc4b87fb660545db6144376fa3`; the containing commit is the authoritative snapshot commit because a Git commit cannot embed its own hash.
 origin/main: `97484bf004c466a6f26a5e42ae07b91214e95962`
-Expected local relation after the single containing commit: ahead 9, behind 0
+Expected local relation after the single containing commit: ahead 10, behind 0
 
 ## Architecture and runtime
 
@@ -32,7 +32,8 @@ Research is quarantined under `research/` and is not imported by the production 
 - MT-09 publication-code/EU reconciliation: `ACCEPT-WITH-RISKS`; relationship is `RELATIONSHIP-UNRESOLVED`, readiness remains `ACCESS-BLOCKED`, and the anti-loop result is `MT09-AUTHENTICATION-PATH-EXHAUSTED`. Yamaha Europe proves `MTN890` = standard MT-09 and `MTN890D` = MT-09 SP, but no Yamaha-controlled B7N record, B7N/LIT relationship or EU service-manual applicability was found. No technical evidence or coverage changed.
 - Technical Research Factory architecture: `ACCEPT-WITH-RISKS`. Existing generic validation, Service Core, document identity/deduplication, limited normalization, conflict/coverage/yield and reporting capabilities are reusable, but target/prospect contracts, a canonical readiness/applicability gate, deterministic orchestration, budgets, stable attempt/event identity, checkpoint/resume and typed review state are not yet integrated. The durable design defines a generic core with optional discovery adapters, a five-wave incremental implementation, and keeps research-to-production promotion manual. Ténéré `BW3-F8197-E0` is preserved as `FACTORY-PILOT-CANDIDATE`; no authentication or evidence work occurred.
 - Technical Research Factory Foundation #1: `ACCEPT-WITH-RISKS`. Contract version 1 implements manufacturer-neutral `ResearchTarget`, `SourceProspect`, `ApplicabilityScope` and `GapPlan` validation, deterministic JSON serialization, one dimension-preserving fail-closed applicability evaluator, one ADR-012 readiness gate, and shape adapters for existing targets/prospects/acquired sources. Real Honda, Yamaha, Harley mismatch and Ténéré blocked records exercise the API. Historical gates remain behind adapters pending bounded migration; orchestration is not implemented. No research evidence or coverage changed.
-- Latest full suite before commit: 454 passed, 0 failed, 0 skipped, 0 todo.
+- Technical Research Factory Orchestrator Foundation: `ACCEPT-WITH-RISKS`. Orchestration schema 1 adds deterministic semantic IDs, immutable append-only events, a pure replay reducer, bounded attempts, terminal transition enforcement and version/digest-verified checkpoints. Existing Honda/Yamaha exhausted, Harley mismatch and Ténéré blocked records replay without mutation; Foundation readiness remains authoritative. Durable event storage and planning/external-result ingestion remain deferred. No research evidence or production state changed.
+- Latest full suite before commit: 467 passed, 0 failed, 0 skipped, 0 todo.
 - Published application version: 0.3.0.
 
 ## Independent work streams
@@ -44,14 +45,14 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## WIP and blockers
 
-- P1: implement the bounded Technical Research Factory Orchestrator Foundation; Ténéré `BW3-F8197-E0` remains a later factory-pilot candidate.
+- P1: implement the bounded Technical Research Factory Execution Planner; Ténéré `BW3-F8197-E0` remains a later factory-pilot candidate.
 - P1: add production Technical Profiles only through deliberate promotion review; 1,094 catalogue variants remain without production profiles.
 - P2: improve source/document acquisition for blocked manuals and OEM parts.
 - P2: audit cloud/RLS behavior against a live Supabase project before claiming deployment readiness.
 
 ## Next actions
 
-**NEXT** — Implement the bounded Technical Research Factory Orchestrator Foundation: add stable Batch, TargetWork, SourceWorkItem, Attempt and Event identities; an append-only JSON-safe event model; deterministic reducer/snapshot transitions; configured budget and terminal-state enforcement; and checkpoint/resume tests using only synthetic and existing adapted fixtures, with no external research, acquisition, extraction, live-data migration or production change.
+**NEXT** — Implement the bounded Technical Research Factory Execution Planner: translate canonical GapPlans and SourceProspects into deterministic ResearchBatch, TargetWork and SourceWorkItem plans under explicit source-class, readiness and attempt budgets, using only synthetic and existing local fixtures and performing no external research, authentication, acquisition, extraction, production change or historical migration.
 
 Deferred independent streams remain the live-backend production-readiness audit, controlled Technical Profile promotion design, and global catalogue gap audit; none is an active NEXT task.
 

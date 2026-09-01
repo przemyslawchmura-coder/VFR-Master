@@ -96,3 +96,11 @@ Decision: catalogue research targets, source prospects, applicability, gaps, bud
 Rationale: existing validators, Service Core, document deduplication, coverage/yield and reports are reusable, while recent Harley and Yamaha work shows that handcrafted prospect shapes and prompt-level orchestration permit mismatches and repeated authentication loops.
 Consequences: Foundation must adapt current data shapes without rewriting evidence; later orchestration can resume from stable IDs and event records; adapters are introduced only from measured manufacturer needs; Ténéré becomes a factory-pilot candidate rather than another handcrafted task.
 Status: ACTIVE. Related design: Technical Research Factory architecture.
+
+## ADR-014 — Research orchestration is an append-only deterministic state machine
+
+Date: 2026-09-01
+Decision: non-production research batches use semantic SHA-256 identities, immutable JSON events, pure replay-derived snapshots, one active attempt per source item, explicit finite attempt budgets and version/digest-verified checkpoints. Foundation #1 readiness is authoritative; orchestration cannot promote a blocked, partial, unknown, exhausted or mismatched source.
+Rationale: stable replay and fail-closed resume are prerequisites for interrupted batches, while clock/UUID identity, mutable snapshots or implicit retries would permit duplicate work and budget bypass.
+Consequences: event persistence remains caller-owned in this foundation; planners must emit canonical target/prospect references; reset/reopen, concurrency, distributed workers and external-result ingestion require later bounded decisions.
+Status: ACTIVE. Related design: Technical Research Factory Orchestrator Foundation.
