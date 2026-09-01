@@ -34,6 +34,7 @@ Research is quarantined under `research/` and is not imported by the production 
 - Technical Research Factory Foundation #1: `ACCEPT-WITH-RISKS`. Contract version 1 implements manufacturer-neutral `ResearchTarget`, `SourceProspect`, `ApplicabilityScope` and `GapPlan` validation, deterministic JSON serialization, one dimension-preserving fail-closed applicability evaluator, one ADR-012 readiness gate, and shape adapters for existing targets/prospects/acquired sources. Real Honda, Yamaha, Harley mismatch and Ténéré blocked records exercise the API. Historical gates remain behind adapters pending bounded migration; orchestration is not implemented. No research evidence or coverage changed.
 - Technical Research Factory Orchestrator Foundation: `ACCEPT-WITH-RISKS`. Orchestration schema 1 adds deterministic semantic IDs, immutable append-only events, a pure replay reducer, bounded attempts, terminal transition enforcement and version/digest-verified checkpoints. Existing Honda/Yamaha exhausted, Harley mismatch and Ténéré blocked records replay without mutation; Foundation readiness remains authoritative. Durable event storage and planning/external-result ingestion remain deferred. No research evidence or production state changed.
 - Technical Research Factory Execution Planner: `ACCEPT-WITH-RISKS`. Planner schema 1 deterministically maps canonical targets, GapPlans, prospects, readiness, explicit capabilities and finite policy into existing Orchestrator batch/work contracts. Decisions preserve missing/conflict/researched-no-evidence and classify planned/deferred/rejected/blocked/not-needed with typed reasons. Existing Honda/Yamaha/VFR are deferred, Harley rejected and Ténéré blocked; the planned path uses a synthetic local fixture because no current prospect is execution-ready. Capability provenance and typed execution-result ingestion remain deferred. No external research, evidence or production state changed.
+- Technical Research Factory Execution Agent / Source Acquisition Adapter Foundation: `ACCEPT-WITH-RISKS`. Execution schema 1 defines validated acquisition requests/outcomes/artifacts/observations, synthetic local adapters for all closed outcomes, bounded retry classification, untrusted-output validation, and canonical Orchestrator event mapping with checkpoint-safe idempotency. `ACQUIRED` remains pre-evidence and `NO-EVIDENCE` remains distinct from researched-no-evidence. Real Honda/Yamaha/VFR/Harley/Ténéré work remains gated; only a synthetic local ready work item executes. No external research, evidence or production state changed.
 - Latest full suite before commit: 480 passed, 0 failed, 0 skipped, 0 todo.
 - Published application version: 0.3.0.
 
@@ -46,14 +47,14 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## WIP and blockers
 
-- P1: implement the bounded Technical Research Factory Execution Agent / Source Acquisition Adapter Foundation; Ténéré `BW3-F8197-E0` remains a later factory-pilot candidate.
+- P1: implement the bounded Technical Research Factory Extraction / Review Queue Foundation; Ténéré `BW3-F8197-E0` remains a later factory-pilot candidate.
 - P1: add production Technical Profiles only through deliberate promotion review; 1,094 catalogue variants remain without production profiles.
 - P2: improve source/document acquisition for blocked manuals and OEM parts.
 - P2: audit cloud/RLS behavior against a live Supabase project before claiming deployment readiness.
 
 ## Next actions
 
-**NEXT** — Implement the bounded Technical Research Factory Execution Agent / Source Acquisition Adapter Foundation: define a typed interface for attempting already-planned SourceWorkItems and recording immutable attempt outcomes/events under existing readiness, attempt-budget and checkpoint limits, using synthetic/local fixtures only and performing no uncontrolled multi-target research or production change.
+**NEXT** — Implement the bounded Technical Research Factory Extraction / Review Queue Foundation: consume acquired artifacts/observations into typed candidate evidence for human/review validation without automatic production or canonical researched-no-evidence promotion.
 
 Deferred independent streams remain the live-backend production-readiness audit, controlled Technical Profile promotion design, and global catalogue gap audit; none is an active NEXT task.
 

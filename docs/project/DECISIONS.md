@@ -112,3 +112,11 @@ Decision: a source can enter a research execution plan only when Foundation read
 Rationale: source existence or presumed document richness is not proof of usefulness, and a planner that infers capabilities or owns a parallel work schema could promote blocked sources, chase vanity source counts or drift from replay semantics.
 Consequences: unknown capability defers, no gap intersection is not-needed, exhausted sources defer, mismatch rejects, other failed readiness blocks, and declared capability provenance must be checked by a later typed execution-result layer.
 Status: ACTIVE. Related design: Technical Research Factory Execution Planner.
+
+## ADR-016 — Acquisition is pre-evidence and adapter output is untrusted
+
+Date: 2026-09-01
+Decision: the execution boundary accepts one bounded SourceWorkItem attempt through an explicitly declared adapter, validates typed outcomes/artifact metadata, and emits only existing Orchestrator events. `ACQUIRED` is not verified evidence and `NO-EVIDENCE` is not automatically researched-no-evidence; credentials and network are never persisted or used by synthetic adapters.
+Rationale: acquisition, extraction and review have different trust levels. Keeping the boundary typed and immutable prevents adapter output from forging state, bypassing readiness/budgets, leaking secrets or changing production coverage.
+Consequences: future adapters require separate security/provenance review; extraction/review queues remain a later bounded wave. Synthetic/local fixtures are the only executable adapters in this foundation.
+Status: ACTIVE. Related design: Technical Research Factory Execution Agent / Source Acquisition Adapter Foundation.

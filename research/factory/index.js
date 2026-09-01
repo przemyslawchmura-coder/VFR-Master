@@ -16,5 +16,8 @@ const orchestrationJson = require("./json.js");
 const plannerContracts = require("./planner-contracts.js");
 const planner = require("./execution-planner.js");
 const priority = require("./priority.js");
+const executionContracts = require("./execution-contracts.js");
+const acquisitionAdapters = require("./source-acquisition-adapters.js");
+const executionAgent = require("./execution-agent.js");
 
-module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...applicability, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, adapters, ids, events, orchestrationJson, plannerPriority: priority });
+module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...executionContracts, ...applicability, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, ...executionAgent, adapters, acquisitionAdapters, ids, events, orchestrationJson, plannerPriority: priority });

@@ -1,18 +1,18 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-01",
-  "snapshotBasis": "post-technical-research-factory-execution-planner-working-tree",
-  "baseCommit": "67f547273972c441f4870cd425974f359eaf0427",
+  "snapshotBasis": "post-technical-research-factory-execution-agent-working-tree",
+  "baseCommit": "84ac6afce0b13640adb93f89c8bfa56bbd4cbf5f",
   "containingCommit": "self (resolve from git history)",
   "originMain": "97484bf004c466a6f26a5e42ae07b91214e95962",
-  "aheadAfterContainingCommit": 11,
+  "aheadAfterContainingCommit": 12,
   "behind": 0,
   "repository": {
-    "files": 253,
-    "javascriptFiles": 157,
-    "testFiles": 55,
-    "documentationFiles": 60,
-    "researchAndToolingFiles": 95
+    "files": 262,
+    "javascriptFiles": 163,
+    "testFiles": 56,
+    "documentationFiles": 62,
+    "researchAndToolingFiles": 101
   },
   "catalogue": {
     "manufacturers": 13,
@@ -932,6 +932,93 @@
     ],
     "evidenceAdded": false,
     "coverageChanged": false,
+    "productionChanged": false,
+    "tenereAuthenticationExecuted": false
+  },
+  "executionAgent": {
+    "schemaVersion": 1,
+    "orchestratorSchemaVersion": 1,
+    "adapterSchemaVersion": 1,
+    "classification": "ACCEPT-WITH-RISKS",
+    "adapters": [
+      "acquired",
+      "auth",
+      "blocked",
+      "mismatch",
+      "noEvidence",
+      "notFound",
+      "partial",
+      "permanent",
+      "transient",
+      "unknown"
+    ],
+    "outcomes": [
+      {
+        "outcome": "ACQUIRED",
+        "retryClass": "NON-RETRYABLE"
+      },
+      {
+        "outcome": "NO-EVIDENCE",
+        "retryClass": "NON-RETRYABLE"
+      },
+      {
+        "outcome": "ACCESS-BLOCKED",
+        "retryClass": "BLOCKED"
+      },
+      {
+        "outcome": "AUTH-REQUIRED",
+        "retryClass": "BLOCKED"
+      },
+      {
+        "outcome": "NOT-FOUND",
+        "retryClass": "NON-RETRYABLE"
+      },
+      {
+        "outcome": "SOURCE-MISMATCH",
+        "retryClass": "NON-RETRYABLE"
+      },
+      {
+        "outcome": "APPLICABILITY-UNKNOWN",
+        "retryClass": "BLOCKED"
+      },
+      {
+        "outcome": "APPLICABILITY-PARTIAL",
+        "retryClass": "BLOCKED"
+      },
+      {
+        "outcome": "TRANSIENT-FAILURE",
+        "retryClass": "RETRYABLE"
+      },
+      {
+        "outcome": "PERMANENT-FAILURE",
+        "retryClass": "NON-RETRYABLE"
+      }
+    ],
+    "fixtureResults": {
+      "yamaha-mt09": {
+        "decision": "DEFERRED",
+        "reasonCode": "FOUNDATION_EXHAUSTED"
+      },
+      "honda-cbr500r": {
+        "decision": "DEFERRED",
+        "reasonCode": "FOUNDATION_EXHAUSTED"
+      },
+      "harley-sportster": {
+        "decision": "REJECTED",
+        "reasonCode": "FOUNDATION_REJECTED_MISMATCH"
+      },
+      "tenere-service": {
+        "decision": "BLOCKED",
+        "reasonCode": "FOUNDATION_READINESS_BLOCKED"
+      },
+      "vfr800-mirror": {
+        "decision": "DEFERRED",
+        "reasonCode": "FOUNDATION_EXHAUSTED"
+      }
+    },
+    "serviceCoreFieldCount": 44,
+    "evidenceAdded": false,
+    "researchedNoEvidenceAdded": false,
     "productionChanged": false,
     "tenereAuthenticationExecuted": false
   },

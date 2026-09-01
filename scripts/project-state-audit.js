@@ -22,6 +22,7 @@ const technicalResearchFactory = require("../research/data/technical-research-fa
 const factoryFoundation = require("../research/data/technical-research-factory-foundation.js").buildReport();
 const orchestratorFoundation = require("../research/data/technical-research-factory-orchestrator-foundation.js").buildReport();
 const executionPlanner = require("../research/data/technical-research-factory-execution-planner.js").buildReport();
+const executionAgent = require("../research/data/technical-research-factory-execution-agent.js").buildReport();
 
 const root = path.join(__dirname, "..");
 const git = (...args) => cp.execFileSync("git", args, { cwd: root, encoding: "utf8" }).trim();
@@ -37,7 +38,7 @@ const perManufacturer = report.find(item => item.id === "honda") ? report : [];
 const snapshot = {
   schemaVersion: "revlog-project-state/v1",
   snapshotDate: "2026-09-01",
-  snapshotBasis: "post-technical-research-factory-execution-planner-working-tree",
+  snapshotBasis: "post-technical-research-factory-execution-agent-working-tree",
   baseCommit: git("rev-parse", "HEAD"),
   containingCommit: "self (resolve from git history)",
   originMain: git("rev-parse", "origin/main"),
@@ -51,6 +52,7 @@ const snapshot = {
   factoryFoundation: { contractVersion: factoryFoundation.factoryContractVersion, classification: factoryFoundation.audit.classification, modules: factoryFoundation.modules, contracts: factoryFoundation.contracts, fixtures: factoryFoundation.fixtures.map(item => ({ id: item.id, canonicalReadiness: item.canonicalReadiness, passed: item.passed })), gapPlan: factoryFoundation.gapPlan, serviceCoreFieldCount: factoryFoundation.serviceCoreFieldCount, tenerePilot: factoryFoundation.tenerePilot, exactNextTasks: factoryFoundation.exactNextTasks, evidenceAdded: factoryFoundation.evidenceAdded, researchedNoEvidenceAdded: factoryFoundation.researchedNoEvidenceAdded, coverageChanged: factoryFoundation.coverageChanged, productionChanged: factoryFoundation.productionChanged },
   orchestratorFoundation: { schemaVersion: orchestratorFoundation.orchestratorSchemaVersion, foundationContractVersion: orchestratorFoundation.foundationContractVersion, classification: orchestratorFoundation.audit.classification, contracts: orchestratorFoundation.contracts, eventTypes: orchestratorFoundation.eventTypes, fixtures: orchestratorFoundation.fixtures.map(item => ({ name: item.name, readiness: item.readiness, workState: item.workState, replayVerified: item.replayVerified })), guarantees: orchestratorFoundation.guarantees, serviceCoreFieldCount: orchestratorFoundation.serviceCoreFieldCount, exactNextTasks: orchestratorFoundation.exactNextTasks, evidenceAdded: orchestratorFoundation.evidenceAdded, coverageChanged: orchestratorFoundation.coverageChanged, productionChanged: orchestratorFoundation.productionChanged, tenereAuthenticationExecuted: orchestratorFoundation.tenereAuthenticationExecuted },
   executionPlanner: { schemaVersion: executionPlanner.plannerSchemaVersion, foundationContractVersion: executionPlanner.foundationContractVersion, orchestratorSchemaVersion: executionPlanner.orchestratorSchemaVersion, classification: executionPlanner.audit.classification, policyId: executionPlanner.policy.id, summary: executionPlanner.summary, fixtureResults: executionPlanner.fixtureResults, serviceCoreFieldCount: executionPlanner.serviceCoreFieldCount, exactNextTasks: executionPlanner.exactNextTasks, evidenceAdded: executionPlanner.evidenceAdded, coverageChanged: executionPlanner.coverageChanged, productionChanged: executionPlanner.productionChanged, tenereAuthenticationExecuted: executionPlanner.tenereAuthenticationExecuted },
+  executionAgent: { schemaVersion: executionAgent.executionSchemaVersion, orchestratorSchemaVersion: executionAgent.orchestratorSchemaVersion, adapterSchemaVersion: executionAgent.adapterSchemaVersion, classification: executionAgent.audit.classification, adapters: executionAgent.syntheticAdapters, outcomes: executionAgent.outcomes, fixtureResults: executionAgent.fixtureResults, serviceCoreFieldCount: executionAgent.serviceCoreFieldCount, evidenceAdded: executionAgent.evidenceAdded, researchedNoEvidenceAdded: executionAgent.researchedNoEvidenceAdded, productionChanged: executionAgent.productionChanged, tenereAuthenticationExecuted: executionAgent.authentication.tenereAuthenticationExecuted },
   tests: { fullSuiteCommand: "node --test tests/*.test.js", lastKnownTotal: 480, lastKnownPassed: 480, failed: 0, skipped: 0, todo: 0 },
   productionBoundary: { researchImportedByIndex: false, runtimeEntry: "index.html", productionProfileCount: registry.length, batchPipelineNonProduction: true },
   release: { currentVersion: require("../js/app-release.js").currentVersion, latestRelease: require("../js/app-release.js").releases[0].version }

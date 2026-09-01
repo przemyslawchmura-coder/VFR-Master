@@ -8,9 +8,9 @@ const snapshot = require("../research/reports/project-state-audit.json");
 const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-execution-planner-working-tree");
+  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-execution-agent-working-tree");
   assert.match(snapshot.baseCommit, /^[0-9a-f]{40}$/);
-  assert.equal(snapshot.aheadAfterContainingCommit, 11);
+  assert.equal(snapshot.aheadAfterContainingCommit, 12);
   assert.match(snapshot.originMain, /^[0-9a-f]{40}$/);
   assert.equal(snapshot.catalogue.manufacturers, 13);
   assert.equal(snapshot.catalogue.variants, 1095);
@@ -115,6 +115,16 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.executionPlanner.evidenceAdded, false);
   assert.equal(snapshot.executionPlanner.productionChanged, false);
   assert.equal(snapshot.executionPlanner.tenereAuthenticationExecuted, false);
+  assert.equal(snapshot.executionAgent.schemaVersion, 1);
+  assert.equal(snapshot.executionAgent.orchestratorSchemaVersion, 1);
+  assert.equal(snapshot.executionAgent.adapterSchemaVersion, 1);
+  assert.equal(snapshot.executionAgent.classification, "ACCEPT-WITH-RISKS");
+  assert.equal(snapshot.executionAgent.adapters.length, 10);
+  assert.equal(snapshot.executionAgent.serviceCoreFieldCount, 44);
+  assert.equal(snapshot.executionAgent.evidenceAdded, false);
+  assert.equal(snapshot.executionAgent.researchedNoEvidenceAdded, false);
+  assert.equal(snapshot.executionAgent.productionChanged, false);
+  assert.equal(snapshot.executionAgent.tenereAuthenticationExecuted, false);
 });
 
 test("project memory has one active roadmap phase and unique ADRs", () => {
