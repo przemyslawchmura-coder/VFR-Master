@@ -1,18 +1,18 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-01",
-  "snapshotBasis": "post-technical-research-factory-architecture-working-tree",
-  "baseCommit": "92fa8bbedaef6b8956c10a3b2714050e3a8fabdd",
+  "snapshotBasis": "post-technical-research-factory-foundation-1-working-tree",
+  "baseCommit": "86219e77a156dec2a5b29d0f42d690aa1a92720d",
   "containingCommit": "self (resolve from git history)",
   "originMain": "97484bf004c466a6f26a5e42ae07b91214e95962",
-  "aheadAfterContainingCommit": 8,
+  "aheadAfterContainingCommit": 9,
   "behind": 0,
   "repository": {
-    "files": 219,
-    "javascriptFiles": 132,
-    "testFiles": 52,
-    "documentationFiles": 54,
-    "researchAndToolingFiles": 70
+    "files": 231,
+    "javascriptFiles": 141,
+    "testFiles": 53,
+    "documentationFiles": 56,
+    "researchAndToolingFiles": 79
   },
   "catalogue": {
     "manufacturers": 13,
@@ -726,10 +726,84 @@
     "serviceCoreChanged": false,
     "productionChanged": false
   },
+  "factoryFoundation": {
+    "contractVersion": 1,
+    "classification": "ACCEPT-WITH-RISKS",
+    "modules": [
+      "research/factory/contracts.js",
+      "research/factory/applicability.js",
+      "research/factory/readiness.js",
+      "research/factory/gap-plan.js",
+      "research/factory/adapters.js",
+      "research/factory/index.js"
+    ],
+    "contracts": [
+      "ResearchTarget",
+      "SourceProspect",
+      "ApplicabilityScope",
+      "GapPlan"
+    ],
+    "fixtures": [
+      {
+        "id": "yamaha-mt09-service-blocked",
+        "canonicalReadiness": "ACCESS-BLOCKED",
+        "passed": false
+      },
+      {
+        "id": "harley-94001064-year-mismatch",
+        "canonicalReadiness": "REJECTED-MISMATCH",
+        "passed": false
+      },
+      {
+        "id": "yamaha-mt09-owner-exhausted",
+        "canonicalReadiness": "EXHAUSTED / LOW-MARGINAL-YIELD",
+        "passed": false
+      },
+      {
+        "id": "honda-cbr500r-owner-partial",
+        "canonicalReadiness": "EXHAUSTED / LOW-MARGINAL-YIELD",
+        "passed": false
+      },
+      {
+        "id": "yamaha-tenere-service-pilot",
+        "canonicalReadiness": "REGISTERED-NOT-REAUTHENTICATED",
+        "passed": false
+      }
+    ],
+    "gapPlan": {
+      "targetId": "target.yamaha.mt-09.gen3.2021.eu",
+      "startingCoverage": {
+        "verified": 29,
+        "total": 44
+      },
+      "remaining": 15,
+      "researchedNoEvidence": 10,
+      "conflicts": 0,
+      "expectedMarginalOpportunity": "MEDIUM"
+    },
+    "serviceCoreFieldCount": 44,
+    "tenerePilot": {
+      "publicationId": "BW3-F8197-E0",
+      "state": "REGISTERED-NOT-REAUTHENTICATED",
+      "role": "FACTORY-PILOT-CANDIDATE",
+      "authenticated": false
+    },
+    "exactNextTasks": [
+      {
+        "id": "factory-orchestrator-foundation",
+        "task": "Implement the bounded Technical Research Factory Orchestrator Foundation: add stable Batch, TargetWork, SourceWorkItem, Attempt and Event identities; an append-only JSON-safe event model; deterministic reducer/snapshot transitions; configured budget and terminal-state enforcement; and checkpoint/resume tests using only synthetic and existing adapted fixtures, with no external research, acquisition, extraction, live-data migration or production change.",
+        "leverage": "The canonical contracts and gates now exist; every later work-item, scheduler, review and interrupted batch pilot depends on reproducible state transitions and resumability."
+      }
+    ],
+    "evidenceAdded": false,
+    "researchedNoEvidenceAdded": false,
+    "coverageChanged": false,
+    "productionChanged": false
+  },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 441,
-    "lastKnownPassed": 441,
+    "lastKnownTotal": 454,
+    "lastKnownPassed": 454,
     "failed": 0,
     "skipped": 0,
     "todo": 0

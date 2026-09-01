@@ -4,6 +4,8 @@ Date: 2026-09-01
 
 Outcome: **ACCEPT-WITH-RISKS**. This is architecture only. No source was authenticated or acquired, no service content was inspected, and no evidence, coverage or production state changed.
 
+Implementation status (2026-09-01): **Factory Foundation #1 implemented.** Versioned `ResearchTarget`, `SourceProspect`, `ApplicabilityScope` and `GapPlan` contracts, validators, canonical fail-closed applicability/readiness gates, deterministic serialization and shape-based adapters now exist under `research/factory/`. Real Honda, Yamaha, Harley mismatch and Ténéré blocked states exercise the API. Orchestration, work items, events/checkpoints, scheduling and live migration remain unimplemented.
+
 ## Executive finding
 
 RevLog has a reusable research kernel, not yet a research factory. The kernel deterministically provides the canonical 183-field schema and 44-field Service Core, catalogue traversal, proof filtering, source-document deduplication, basic applicability validation, limited unit normalization, conflict preservation, coverage/gap calculation, queues, reports and a hard production boundary.
@@ -149,8 +151,8 @@ The MVP comprises versioned core contracts/validators/gates; Batch/WorkItem/Atte
 
 ## Implementation waves
 
-1. **FACTORY FOUNDATION:** contracts, validators and canonical readiness/applicability gate. Synthetic/current-shape adapters only; no live migration or orchestration.
-2. **FACTORY ORCHESTRATOR:** batch/work/attempt/event reducer, budgets, completion and checkpoints. No external calls.
+1. **FACTORY FOUNDATION (COMPLETE):** contracts, validators and canonical readiness/applicability gate. Synthetic/current-shape adapters only; no live migration or orchestration.
+2. **FACTORY ORCHESTRATOR (NEXT):** batch/work/attempt/event reducer, budgets, completion and checkpoints. No external calls.
 3. **FACTORY WORK ITEMS:** GapPlan/scheduler, external finding ingestion and typed review queue. No autonomous tooling.
 4. **FACTORY BATCH PILOT:** small interrupted/resumed non-production batch using known prospects.
 5. **FACTORY SCALE-UP:** 10 then 25 targets; add only evidence-backed adapters. Consider 100 only after measured bottlenecks.

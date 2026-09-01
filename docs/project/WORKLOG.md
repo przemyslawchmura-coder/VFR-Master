@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-01 — Technical Research Factory Foundation #1 (current)
+
+Objective: implement the first bounded factory layer without research or production changes. Added versioned manufacturer-neutral ResearchTarget, SourceProspect, ApplicabilityScope and GapPlan contracts/validators; canonical dimension-level fail-closed applicability and ADR-012 readiness gates; deterministic serialization; and non-mutating adapters for current target, prospect and acquired-source shapes. Real Honda, Yamaha, Harley mismatch and Ténéré blocked fixtures now exercise the API. GapPlan reuses the canonical 44-field Service Core and preserves missing/no-evidence/conflict semantics. Audit: `ACCEPT-WITH-RISKS` because historical gates remain behind compatibility adapters and no orchestrator/live migration exists. Ténéré `BW3-F8197-E0` remains unauthenticated and a factory-pilot candidate. Next: bounded Orchestrator Foundation with append-only events, reducer/snapshots, budgets and resume tests.
+
 ## 2026-09-01 — Technical Research Factory architecture and gap audit (current)
 
 Objective: determine exactly what remains before RevLog can run safe, repeatable catalogue-scale technical-research batches without handcrafted per-model workflows. Reconstructed the implemented pipeline and classified its capabilities; designed machine-readable manufacturer-neutral target, prospect, applicability, gap, work-item, evidence and review contracts; separated discovery/authentication/acquisition/extraction; specified canonical fail-closed gates, bounded budgets, exhaustion, event/checkpoint state, scheduling and five implementation waves. Audit: `ACCEPT-WITH-RISKS`; the current system has reusable primitives but lacks integrated orchestration and resumability. Ténéré `BW3-F8197-E0` remains unmodified as a future factory-pilot candidate. No external motorcycle research, technical evidence, coverage, production, runtime/browser, catalogue, cloud-backend or VFR800 data changed. Next: bounded Factory Foundation contracts and canonical gates.

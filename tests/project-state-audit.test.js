@@ -8,9 +8,9 @@ const snapshot = require("../research/reports/project-state-audit.json");
 const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-architecture-working-tree");
+  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-foundation-1-working-tree");
   assert.match(snapshot.baseCommit, /^[0-9a-f]{40}$/);
-  assert.equal(snapshot.aheadAfterContainingCommit, 8);
+  assert.equal(snapshot.aheadAfterContainingCommit, 9);
   assert.match(snapshot.originMain, /^[0-9a-f]{40}$/);
   assert.equal(snapshot.catalogue.manufacturers, 13);
   assert.equal(snapshot.catalogue.variants, 1095);
@@ -81,6 +81,15 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.technicalResearchFactory.evidenceAdded, false);
   assert.equal(snapshot.technicalResearchFactory.serviceCoreChanged, false);
   assert.equal(snapshot.technicalResearchFactory.productionChanged, false);
+  assert.equal(snapshot.factoryFoundation.contractVersion, 1);
+  assert.equal(snapshot.factoryFoundation.classification, "ACCEPT-WITH-RISKS");
+  assert.deepEqual(snapshot.factoryFoundation.contracts, ["ResearchTarget", "SourceProspect", "ApplicabilityScope", "GapPlan"]);
+  assert.equal(snapshot.factoryFoundation.fixtures.length, 5);
+  assert.equal(snapshot.factoryFoundation.serviceCoreFieldCount, 44);
+  assert.equal(snapshot.factoryFoundation.tenerePilot.authenticated, false);
+  assert.equal(snapshot.factoryFoundation.exactNextTasks.length, 1);
+  assert.equal(snapshot.factoryFoundation.evidenceAdded, false);
+  assert.equal(snapshot.factoryFoundation.coverageChanged, false);
 });
 
 test("project memory has one active roadmap phase and unique ADRs", () => {
@@ -91,7 +100,7 @@ test("project memory has one active roadmap phase and unique ADRs", () => {
   assert.equal(new Set(ids).size, ids.length);
   const state = read("docs/project/CURRENT_STATE.md");
   assert.equal((state.match(/\*\*NEXT\*\*/g) || []).length, 1);
-  assert.match(state, /Technical Research Factory Foundation/);
+  assert.match(state, /Technical Research Factory Orchestrator Foundation/);
 });
 
 test("project memory records production/research isolation", () => {

@@ -2,7 +2,7 @@
 
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE, NOT HISTORICAL CLAIMS.**
 
-Snapshot: `research/reports/project-state-audit.json` (2026-09-01 post-Technical-Research-Factory-architecture working tree based on `92fa8bb`; the containing commit is authoritative).
+Snapshot: `research/reports/project-state-audit.json` (2026-09-01 post-Technical-Research-Factory-Foundation-1 working tree based on `86219e7`; the containing commit is authoritative).
 
 ## Repository map
 
@@ -28,6 +28,8 @@ Authentication and login/logout: FUNCTIONAL-PARTIAL (implemented, live backend n
 Auth → Supabase session → database queries; garage → local/cloud persistence; selection → catalogue → resolver → clarification → active motorcycle; active motorcycle → registry → profile loader → resolved technical UI/search; research → evidence validation → review → optional promotion. Live backend/RLS and production promotion remain unverified/not implemented.
 
 The Technical Research Factory audit classifies the research path as reusable primitives under manual orchestration, not yet a resumable factory. The accepted-with-risks architecture defines stable target/prospect/applicability/gap contracts, one fail-closed gate, bounded work state, review/checkpoint identities and a generic core with optional discovery-only manufacturer adapters. Ténéré `BW3-F8197-E0` is retained as a future factory-pilot candidate; no source authentication or evidence acquisition occurred.
+
+Foundation #1 now implements contract version 1, validators, canonical applicability/readiness gates, GapPlan generation and non-mutating compatibility adapters. Existing Honda, Yamaha, Harley mismatch and Ténéré blocked shapes exercise the API. The factory remains non-resumable until the Orchestrator Foundation adds event/reducer/checkpoint state; historical data was not migrated.
 
 ## Catalogue and research
 
