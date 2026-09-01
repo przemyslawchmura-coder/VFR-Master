@@ -63,6 +63,8 @@ The Harley execution rejected that prospect after authentication. Official Harle
 
 The source-readiness reassessment inventoried 17 prospects/placeholders across eight manufacturers under an all-fields gate that separates authenticity, applicability, accessibility and marginal yield. Zero prospects are execution-ready. The historical Harley selection is explicitly superseded and current `94001064` readiness is REJECTED-MISMATCH for MY2022. Six already-inspected sources are exhausted/low-marginal-yield; five manufacturers have UNKNOWN exact Tier A/B prospects. The nearest source is MT-09 service manual `B7N-28197-E0` / `LIT-11616-34-61`, but it remains source-identity-partial because no official delivery path is stored and market/SP/safety scope is incomplete. Audit outcome is ACCEPT-WITH-RISKS. No technical evidence or Service Core coverage changed.
 
+The bounded MT-09 prospect authentication then established official Yamaha US identity and purchase/authenticated delivery for `LIT-11616-34-61`, including MY2021 MT-09 and MT-09 SP metadata. It did not establish an official Yamaha EU path for `B7N-28197-E0`, prove B7N/LIT equivalence, resolve MY2021 EU applicability, or prove standard/SP and ABS/equipment safety separability. Final readiness is ACCESS-BLOCKED and the audit outcome is ACCEPT-WITH-RISKS. No motorcycle technical values, evidence rows, researched-no-evidence states or coverage changed.
+
 ## WIP and debt
 
 P0: none identified. P1: one-prospect MT-09 service-manual registration/authentication; controlled profile promotion. P2: cloud/RLS verification; blocked-source acquisition; broader profile coverage. P3: market/scooter/125 expansion.

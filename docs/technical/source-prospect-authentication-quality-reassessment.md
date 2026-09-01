@@ -8,9 +8,9 @@ Classification: **ACCEPT-WITH-RISKS**
 
 ## Decision
 
-No repository-known prospect is currently **EXECUTION-READY**. No acquisition target is selected.
+No repository-known prospect is currently **EXECUTION-READY**. No acquisition target is selected. A bounded follow-up authenticated the US LIT identity but left the MT-09 prospect `ACCESS-BLOCKED` for the EU target.
 
-The exact next task is a one-prospect, metadata-only Yamaha MT-09 service-manual registration/authentication task for `B7N-28197-E0` / `LIT-11616-34-61`. It must establish an official Yamaha delivery path, content accessibility, MY2021 EU standard-model applicability, standard-versus-SP scope and ABS/equipment boundaries. It must not inspect technical values or create Service Core evidence.
+The exact next task is a bounded Yamaha-controlled publication-code and EU-market reconciliation for `B7N-28197-E0` versus `LIT-11616-34-61`. It must establish or reject code equivalence, the official EU delivery path and MY2021 EU standard/SP scope. It must not inspect technical values or create Service Core evidence.
 
 Third-manufacturer answer: **NO**. After correcting Harley, the repository contains no execution-ready Tier A/B prospect for a third manufacturer.
 
@@ -55,7 +55,7 @@ Accessibility is recorded separately as `ACCESSIBLE-OFFICIAL`, `ACCESSIBLE-OFFIC
 
 | Classification | Manufacturer / target | Document | Host/access | Applicability and prior yield | Marginal class / action |
 |---|---|---|---|---|---|
-| SOURCE-IDENTITY-PARTIAL | Yamaha MT-09 III MY2021 EU standard | Service manual `B7N-28197-E0` / `LIT-11616-34-61` | No official path stored; MIRROR-ONLY | Model/year identity strong; market code relationship, SP separation and ABS/equipment partial; owner manual previously +27 practical | MEDIUM; authenticate official path and scope |
+| ACCESS-BLOCKED | Yamaha MT-09 III MY2021 EU standard | Service manual `B7N-28197-E0` / `LIT-11616-34-61` | Official US LIT purchase/auth route known; B7N remains MIRROR-ONLY | US LIT MY2021 MT-09/SP identity proven; B7N/LIT equivalence, EU scope, SP separability and ABS/equipment unresolved; owner manual previously +27 practical | MEDIUM; reconcile Yamaha-controlled EU identity only |
 | REGISTERED-NOT-REAUTHENTICATED | Yamaha Ténéré 700 I MY2019 EU | Service manual `BW3-F8197-E0` | UNKNOWN | Listing says XTZ690/XTZ690-U and 2020 workshop publication; MY2019, market and named-edition scope unproven; owner manual +27 | MEDIUM; defer behind MT-09 |
 | ACCESS-BLOCKED | Honda CBR500R PC70 MY2024 USA/Canada | 2024 CB500F/CBR500R/NX500 service-manual family, no code | Dealer/Helm, ACCESS-BLOCKED-AUTH | Family/year listing only; PC70, market and ABS tables unresolved; owner manual exhausted at 26/44 | MEDIUM; defer until access/identity changes |
 | SOURCE-IDENTITY-PARTIAL | Honda VFR800/VFR800A MY2002 | Service-manual candidate, `61MCW07` claimed/production-recorded | MIRROR-ONLY | Model/year shown, but no official path and research/production identity histories differ; ABS/market reconciliation needed; prior research route no-yield | MEDIUM; dedicated reconciliation only |
@@ -101,4 +101,4 @@ Classification: **ACCEPT-WITH-RISKS**. The contract prevents another Harley-styl
 
 ## Exact next task
 
-Perform a one-prospect Yamaha MT-09 service-manual registration/authentication task for `B7N-28197-E0` / `LIT-11616-34-61`: establish an official Yamaha delivery path, content accessibility, MY2021 EU standard-model applicability, standard-versus-SP scope and ABS/equipment boundaries; acquire no technical values or Service Core evidence.
+Perform one bounded Yamaha publication-code and EU-market applicability reconciliation for `B7N-28197-E0` versus `LIT-11616-34-61` using Yamaha-controlled publication metadata only: establish or reject code equivalence, the official EU delivery path and MY2021 EU standard/SP scope; inspect no service values and create no Service Core evidence.

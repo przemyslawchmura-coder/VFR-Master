@@ -15,7 +15,9 @@ test("source acquisition states remain independent", () => {
   assert.equal(honda.contentAccessible, false);
   assert.equal(honda.fieldEvidenceExtracted, false);
   const mt = statuses.profiles[keys[1]].serviceManual;
-  assert.equal(mt.contentAccessible, true);
+  assert.equal(mt.contentAccessible, false);
+  assert.equal(mt.authenticityVerified, false);
+  assert.equal(mt.codeRelationship, "unresolved");
   assert.equal(mt.relevantSectionInspected, false);
   assert.equal(mt.fieldEvidenceExtracted, false);
 });

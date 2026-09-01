@@ -1,18 +1,18 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-01",
-  "snapshotBasis": "post-source-prospect-readiness-reassessment-working-tree",
-  "baseCommit": "d6d5a4452f6505c70dc0d606a306af33ce3cd353",
+  "snapshotBasis": "post-mt09-service-prospect-authentication-working-tree",
+  "baseCommit": "be34a9baebf5cbdd13f4ed20f35ea7733788be43",
   "containingCommit": "self (resolve from git history)",
   "originMain": "97484bf004c466a6f26a5e42ae07b91214e95962",
-  "aheadAfterContainingCommit": 5,
+  "aheadAfterContainingCommit": 6,
   "behind": 0,
   "repository": {
-    "files": 201,
-    "javascriptFiles": 123,
-    "testFiles": 49,
-    "documentationFiles": 48,
-    "researchAndToolingFiles": 61
+    "files": 207,
+    "javascriptFiles": 126,
+    "testFiles": 50,
+    "documentationFiles": 50,
+    "researchAndToolingFiles": 64
   },
   "catalogue": {
     "manufacturers": 13,
@@ -555,15 +555,25 @@
       "manufacturers": 8,
       "executionReady": 0,
       "thirdManufacturerAnswer": "NO",
-      "exactNextTask": "Perform a one-prospect Yamaha MT-09 service-manual registration/authentication task for B7N-28197-E0 / LIT-11616-34-61: establish an official Yamaha delivery path, content accessibility, MY2021 EU standard-model applicability, standard-versus-SP scope and ABS/equipment boundaries; acquire no technical values or Service Core evidence.",
+      "exactNextTask": "Perform one bounded Yamaha publication-code and EU-market applicability reconciliation for B7N-28197-E0 versus LIT-11616-34-61 using Yamaha-controlled publication metadata only: establish or reject code equivalence, the official EU delivery path and MY2021 EU standard/SP scope; inspect no service values and create no Service Core evidence.",
       "evidenceAcquired": false,
       "serviceCoreCoverageChanged": false
+    },
+    "mt09ServiceProspectAuthentication": {
+      "classification": "ACCESS-BLOCKED",
+      "audit": "ACCEPT-WITH-RISKS",
+      "b7nLitRelationship": "UNRESOLVED",
+      "accessibility": "ACCESS-BLOCKED-AUTH",
+      "readinessPassed": false,
+      "evidenceRowsAdded": 0,
+      "serviceCoreCoverageChanged": false,
+      "exactNextTask": "Perform one bounded Yamaha publication-code and EU-market applicability reconciliation for B7N-28197-E0 versus LIT-11616-34-61 using Yamaha-controlled publication metadata only: establish or reject code equivalence, the official EU delivery path and MY2021 EU standard/SP scope; inspect no service values and create no Service Core evidence."
     }
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 426,
-    "lastKnownPassed": 426,
+    "lastKnownTotal": 430,
+    "lastKnownPassed": 430,
     "failed": 0,
     "skipped": 0,
     "todo": 0

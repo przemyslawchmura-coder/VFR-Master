@@ -8,9 +8,9 @@ const snapshot = require("../research/reports/project-state-audit.json");
 const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-source-prospect-readiness-reassessment-working-tree");
+  assert.equal(snapshot.snapshotBasis, "post-mt09-service-prospect-authentication-working-tree");
   assert.match(snapshot.baseCommit, /^[0-9a-f]{40}$/);
-  assert.equal(snapshot.aheadAfterContainingCommit, 5);
+  assert.equal(snapshot.aheadAfterContainingCommit, 6);
   assert.match(snapshot.originMain, /^[0-9a-f]{40}$/);
   assert.equal(snapshot.catalogue.manufacturers, 13);
   assert.equal(snapshot.catalogue.variants, 1095);
@@ -56,6 +56,12 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.research.sourceProspectReadiness.executionReady, 0);
   assert.equal(snapshot.research.sourceProspectReadiness.thirdManufacturerAnswer, "NO");
   assert.equal(snapshot.research.sourceProspectReadiness.serviceCoreCoverageChanged, false);
+  assert.equal(snapshot.research.mt09ServiceProspectAuthentication.classification, "ACCESS-BLOCKED");
+  assert.equal(snapshot.research.mt09ServiceProspectAuthentication.audit, "ACCEPT-WITH-RISKS");
+  assert.equal(snapshot.research.mt09ServiceProspectAuthentication.b7nLitRelationship, "UNRESOLVED");
+  assert.equal(snapshot.research.mt09ServiceProspectAuthentication.readinessPassed, false);
+  assert.equal(snapshot.research.mt09ServiceProspectAuthentication.evidenceRowsAdded, 0);
+  assert.equal(snapshot.research.mt09ServiceProspectAuthentication.serviceCoreCoverageChanged, false);
   assert.equal(snapshot.research.vfr800.verified, 13);
   assert.equal(snapshot.research.cbr500r.verified, 26);
   assert.equal(snapshot.productionBoundary.researchImportedByIndex, false);
@@ -97,7 +103,7 @@ test("project memory records the executed pilot and operator cloud note", () => 
   assert.match(state, /NEXT 1/);
   assert.match(read("docs/project/WORKLOG.md"), /high-value source-acquisition/);
   assert.match(state, /101\/220/);
-  assert.match(state, /MT-09 service-manual registration\/authentication/);
+  assert.match(state, /publication-code and EU-market applicability reconciliation/);
   assert.match(read("docs/project/DECISIONS.md"), /ADR-010/);
   assert.match(read("docs/project/DECISIONS.md"), /ADR-011/);
 });

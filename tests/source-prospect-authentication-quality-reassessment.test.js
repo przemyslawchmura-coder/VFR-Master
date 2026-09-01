@@ -55,8 +55,8 @@ test("inventory is bounded and exact NEXT is metadata-only", () => {
   assert.equal(report.prospects.length, 17);
   assert.equal(new Set(report.prospects.map(item => item.manufacturer)).size, 8);
   assert.equal(report.thirdManufacturerAnswer, "NO");
-  assert.match(report.exactNextTask, /MT-09 service-manual registration\/authentication/);
-  assert.match(report.exactNextTask, /acquire no technical values/);
+  assert.match(report.exactNextTask, /publication-code and EU-market applicability reconciliation/);
+  assert.match(report.exactNextTask, /inspect no service values/);
 });
 
 test("reassessment changes no evidence, coverage or production", () => {

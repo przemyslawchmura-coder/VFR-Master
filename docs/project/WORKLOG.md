@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-01 — Yamaha MT-09 service-manual prospect authentication (current)
+
+Objective: determine whether `B7N-28197-E0` / `LIT-11616-34-61` is execution-ready for MY2021 EU standard MT-09 extraction without inspecting technical values. Completed: reproduced owner-manual 0/44→29/44 (+29 verified/+27 practical/+2 generic); authenticated the Yamaha US LIT identity and purchase/authenticated delivery route; preserved B7N as mirror-only because no Yamaha-controlled EU path or B7N/LIT alias proof was found. MY2021 EU, standard/SP separability and ABS/equipment scope remain unresolved. Final prospect classification: `ACCESS-BLOCKED`; readiness failed. Independent audit: `ACCEPT-WITH-RISKS`. No evidence, researched-no-evidence state, Service Core coverage, production, runtime/browser, catalogue, Supabase or VFR800 data changed. Next: bounded Yamaha-controlled B7N/LIT publication-code and EU-market reconciliation only.
+
 ## 2026-09-01 — Source-prospect authentication-quality reassessment (current)
 
 Objective: separate registered Tier A/B URLs from execution-ready prospects before another acquisition. Completed: reproduced the Harley 0/44→0/44 REJECT; defined a deterministic all-fields readiness gate; inventoried 17 records across eight manufacturers; kept UNKNOWN, partial, blocked, exhausted and mismatch sources unranked. No prospect is execution-ready and no third-manufacturer source is ready. Harley `94001064` is current MY2023 metadata and REJECTED-MISMATCH for MY2022; the historical design is explicitly superseded. The closest prospect is Yamaha MT-09 service manual `B7N-28197-E0` / `LIT-11616-34-61`, but it lacks a stored official delivery path and resolved EU/US-code, standard/SP and safety scope. Audit: ACCEPT-WITH-RISKS. No technical evidence, Service Core coverage, production, runtime/browser, catalogue, Supabase or VFR800 data changed. Next: one-prospect MT-09 source registration/authentication only.

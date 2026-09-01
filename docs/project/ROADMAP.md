@@ -24,7 +24,7 @@ Objective: separate research from production and establish provenance/status sem
 
 ## Phase 5 — Scalable batch research (ACTIVE)
 
-Objective: increase verified practical Service Core coverage per unit of work. Entry: generic batch pipeline and Honda fixtures. Completed checkpoints: Honda produced +50 verified/+48 practical slots; Yamaha +58/+54; Harley correctly stopped at a wrong-year/access gate; the subsequent 17-record readiness reassessment found zero execution-ready prospects. Current task: authenticate/register only the Yamaha MT-09 service-manual prospect `B7N-28197-E0` / `LIT-11616-34-61`, resolving official delivery, MY2021 EU standard/SP and safety scope without technical extraction. Exit: repeatable batch reports with meaningful maintenance/service gains, measured reuse and zero production imports. Status: ACTIVE.
+Objective: increase verified practical Service Core coverage per unit of work. Entry: generic batch pipeline and Honda fixtures. Completed checkpoints: Honda produced +50 verified/+48 practical slots; Yamaha +58/+54; Harley correctly stopped at a wrong-year/access gate; the 17-record readiness reassessment found zero execution-ready prospects; bounded MT-09 authentication established the official US LIT route but left B7N/LIT equivalence, EU scope and authenticated content blocked. Current task: reconcile only Yamaha-controlled B7N/LIT publication-code and EU applicability metadata without technical extraction. Exit: repeatable batch reports with meaningful maintenance/service gains, measured reuse and zero production imports. Status: ACTIVE.
 
 ## Phase 6 — Controlled production promotion (NOT-STARTED)
 

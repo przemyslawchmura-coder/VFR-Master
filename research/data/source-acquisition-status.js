@@ -10,7 +10,7 @@ const profiles = {
   },
   "yamaha.mt09.gen3": {
     ownerManual: { publicationIdentified: true, contentAccessible: true, authenticityVerified: true, relevantSectionInspected: true, fieldEvidenceExtracted: true, sourceIds: ["research.yamaha.mt09.2021.owner-manual"] },
-    serviceManual: { publicationIdentified: true, contentAccessible: true, authenticityVerified: true, relevantSectionInspected: false, fieldEvidenceExtracted: false, publicationId: "B7N-28197-E0", alternatePublicationId: "LIT-11616-34-61" },
+    serviceManual: { publicationIdentified: true, contentAccessible: false, authenticityVerified: false, relevantSectionInspected: false, fieldEvidenceExtracted: false, publicationId: "B7N-28197-E0", alternatePublicationId: "LIT-11616-34-61", codeRelationship: "unresolved", accessClassification: "ACCESS-BLOCKED-AUTH", notes: "US LIT identity authenticated; B7N official EU path and B7N/LIT equivalence unresolved." },
     partsCatalogue: { publicationIdentified: false, contentAccessible: false, authenticityVerified: false, relevantSectionInspected: false, fieldEvidenceExtracted: false }
   },
   "yamaha.tenere700.gen1": {
