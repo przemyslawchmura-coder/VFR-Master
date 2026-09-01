@@ -14,7 +14,7 @@ test("authentication is fixed to the MT-09 prospect and preserves identifiers", 
   assert.equal(report.prospect.codeRelationship.state, "UNRESOLVED");
   assert.equal(report.prospect.codeRelationship.provenEquivalent, false);
   const registered = acquisitionStatus.profiles["yamaha.mt09.gen3"].serviceManual;
-  assert.equal(registered.codeRelationship, "unresolved");
+  assert.equal(registered.codeRelationship, "RELATIONSHIP-UNRESOLVED");
   assert.equal(registered.contentAccessible, false);
   assert.equal(registered.authenticityVerified, false);
 });

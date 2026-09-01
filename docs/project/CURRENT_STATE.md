@@ -29,7 +29,8 @@ Research is quarantined under `research/` and is not imported by the production 
 - Harley-Davidson transfer acquisition: `REJECT`; official publication `94001064` reauthenticated as the MY2023 Sportster RH Models owner manual and official parts indexing links it to RH1250S, but it cannot support the selected MY2022 scope and its official content endpoint returned HTTP 403. Authentication stopped extraction. Coverage remained 0/44 with zero verified, practical and generic gain; no researched-no-evidence rows were claimed, conflicts and Tier C/D contribution were zero, and the one-document budget was respected.
 - Source-prospect authentication-quality reassessment: `ACCEPT-WITH-RISKS`; 17 records across eight manufacturers were classified through a deterministic readiness gate. Zero prospects are execution-ready. Six previously inspected sources are exhausted/low-marginal-yield; five manufacturers have UNKNOWN exact Tier A/B prospects; Harley `94001064` and the USA Africa Twin manual are rejected mismatches. The closest prospect, MT-09 service manual `B7N-28197-E0` / `LIT-11616-34-61`, remains source-identity-partial because no official delivery path is stored and market/SP/safety scope is incomplete. No technical evidence or coverage changed.
 - MT-09 service-manual prospect authentication: `ACCEPT-WITH-RISKS`; final readiness is `ACCESS-BLOCKED`. Yamaha US metadata authenticates `LIT-11616-34-61` for the MY2021 MT-09 and names the corrected dealer-system manual, but the complete content route requires purchase/authentication. No Yamaha-controlled EU path for `B7N-28197-E0` was authenticated, B7N/LIT equivalence is unresolved, and MY2021 EU plus standard/SP/ABS/equipment safety scope remain blocked. No technical values, evidence rows, researched-no-evidence states or coverage changed.
-- Latest full suite before commit: 430 passed, 0 failed, 0 skipped, 0 todo.
+- MT-09 publication-code/EU reconciliation: `ACCEPT-WITH-RISKS`; relationship is `RELATIONSHIP-UNRESOLVED`, readiness remains `ACCESS-BLOCKED`, and the anti-loop result is `MT09-AUTHENTICATION-PATH-EXHAUSTED`. Yamaha Europe proves `MTN890` = standard MT-09 and `MTN890D` = MT-09 SP, but no Yamaha-controlled B7N record, B7N/LIT relationship or EU service-manual applicability was found. No technical evidence or coverage changed.
+- Latest full suite before commit: 434 passed, 0 failed, 0 skipped, 0 todo.
 - Published application version: 0.3.0.
 
 ## Independent work streams
@@ -41,14 +42,14 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## WIP and blockers
 
-- P1: reconcile the MT-09 B7N/LIT publication codes and EU-market applicability through Yamaha-controlled metadata only.
+- P1: authenticate the registered Ténéré 700 service-manual prospect `BW3-F8197-E0` without technical extraction.
 - P1: add production Technical Profiles only through deliberate promotion review; 1,094 catalogue variants remain without production profiles.
 - P2: improve source/document acquisition for blocked manuals and OEM parts.
 - P2: audit cloud/RLS behavior against a live Supabase project before claiming deployment readiness.
 
 ## Next actions
 
-**NEXT 1** — Perform one bounded Yamaha publication-code and EU-market applicability reconciliation for `B7N-28197-E0` versus `LIT-11616-34-61` using Yamaha-controlled publication metadata only: establish or reject code equivalence, the official EU delivery path and MY2021 EU standard/SP scope; inspect no service values and create no Service Core evidence.
+**NEXT 1** — Authenticate only the existing Yamaha Ténéré 700 service-manual prospect `BW3-F8197-E0` for `yamaha.tenere-700.gen1` MY2019 EU standard: resolve official Yamaha identity, delivery/access, exact year/market and standard-versus-named-equipment scope without inspecting service values or creating Service Core evidence.
 
 **NEXT 2** — Perform a production-readiness audit of authentication, persistence, RLS and error paths against an explicitly selected test backend.
 

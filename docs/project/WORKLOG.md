@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-01 — Yamaha MT-09 publication-code and EU-market reconciliation (current)
+
+Objective: resolve or fail closed on `B7N-28197-E0` versus `LIT-11616-34-61` for MY2021 EU standard MT-09 using Yamaha-controlled metadata only. Result: `RELATIONSHIP-UNRESOLVED`, `ACCESS-BLOCKED`, and `MT09-AUTHENTICATION-PATH-EXHAUSTED`. LIT remains authenticated for North-American MY2021 MT-09/MT-09 SP; Yamaha Europe proves `MTN890` = standard and `MTN890D` = SP; no official B7N record, EU path or code relationship was found. Audit: `ACCEPT-WITH-RISKS`. No technical values, evidence, researched-no-evidence states, coverage, production, runtime/browser, catalogue, Supabase or VFR800 data changed. Next: authenticate only registered Ténéré service prospect `BW3-F8197-E0`.
+
 ## 2026-09-01 — Yamaha MT-09 service-manual prospect authentication (current)
 
 Objective: determine whether `B7N-28197-E0` / `LIT-11616-34-61` is execution-ready for MY2021 EU standard MT-09 extraction without inspecting technical values. Completed: reproduced owner-manual 0/44→29/44 (+29 verified/+27 practical/+2 generic); authenticated the Yamaha US LIT identity and purchase/authenticated delivery route; preserved B7N as mirror-only because no Yamaha-controlled EU path or B7N/LIT alias proof was found. MY2021 EU, standard/SP separability and ABS/equipment scope remain unresolved. Final prospect classification: `ACCESS-BLOCKED`; readiness failed. Independent audit: `ACCEPT-WITH-RISKS`. No evidence, researched-no-evidence state, Service Core coverage, production, runtime/browser, catalogue, Supabase or VFR800 data changed. Next: bounded Yamaha-controlled B7N/LIT publication-code and EU-market reconciliation only.

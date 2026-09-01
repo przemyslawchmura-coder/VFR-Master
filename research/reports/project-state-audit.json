@@ -1,18 +1,18 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-01",
-  "snapshotBasis": "post-mt09-service-prospect-authentication-working-tree",
-  "baseCommit": "be34a9baebf5cbdd13f4ed20f35ea7733788be43",
+  "snapshotBasis": "post-mt09-publication-reconciliation-working-tree",
+  "baseCommit": "848119e0d980448a0cce129c9f268c712c16bb03",
   "containingCommit": "self (resolve from git history)",
   "originMain": "97484bf004c466a6f26a5e42ae07b91214e95962",
-  "aheadAfterContainingCommit": 6,
+  "aheadAfterContainingCommit": 7,
   "behind": 0,
   "repository": {
-    "files": 207,
-    "javascriptFiles": 126,
-    "testFiles": 50,
-    "documentationFiles": 50,
-    "researchAndToolingFiles": 64
+    "files": 213,
+    "javascriptFiles": 129,
+    "testFiles": 51,
+    "documentationFiles": 52,
+    "researchAndToolingFiles": 67
   },
   "catalogue": {
     "manufacturers": 13,
@@ -555,7 +555,7 @@
       "manufacturers": 8,
       "executionReady": 0,
       "thirdManufacturerAnswer": "NO",
-      "exactNextTask": "Perform one bounded Yamaha publication-code and EU-market applicability reconciliation for B7N-28197-E0 versus LIT-11616-34-61 using Yamaha-controlled publication metadata only: establish or reject code equivalence, the official EU delivery path and MY2021 EU standard/SP scope; inspect no service values and create no Service Core evidence.",
+      "exactNextTask": "Authenticate only the existing Yamaha Ténéré 700 service-manual prospect BW3-F8197-E0 for yamaha.tenere-700.gen1 MY2019 EU standard: resolve official Yamaha identity, delivery/access, exact year/market and standard-versus-named-equipment scope without inspecting service values or creating Service Core evidence.",
       "evidenceAcquired": false,
       "serviceCoreCoverageChanged": false
     },
@@ -567,13 +567,24 @@
       "readinessPassed": false,
       "evidenceRowsAdded": 0,
       "serviceCoreCoverageChanged": false,
-      "exactNextTask": "Perform one bounded Yamaha publication-code and EU-market applicability reconciliation for B7N-28197-E0 versus LIT-11616-34-61 using Yamaha-controlled publication metadata only: establish or reject code equivalence, the official EU delivery path and MY2021 EU standard/SP scope; inspect no service values and create no Service Core evidence."
+      "historicalStatus": "FOLLOWED-BY-RECONCILIATION"
+    },
+    "mt09PublicationReconciliation": {
+      "relationship": "RELATIONSHIP-UNRESOLVED",
+      "classification": "ACCESS-BLOCKED",
+      "antiLoop": "MT09-AUTHENTICATION-PATH-EXHAUSTED",
+      "audit": "ACCEPT-WITH-RISKS",
+      "readinessPassed": false,
+      "evidenceRowsAdded": 0,
+      "researchedNoEvidenceAdded": 0,
+      "serviceCoreCoverageChanged": false,
+      "exactNextTask": "Authenticate only the existing Yamaha Ténéré 700 service-manual prospect BW3-F8197-E0 for yamaha.tenere-700.gen1 MY2019 EU standard: resolve official Yamaha identity, delivery/access, exact year/market and standard-versus-named-equipment scope without inspecting service values or creating Service Core evidence."
     }
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 430,
-    "lastKnownPassed": 430,
+    "lastKnownTotal": 434,
+    "lastKnownPassed": 434,
     "failed": 0,
     "skipped": 0,
     "todo": 0

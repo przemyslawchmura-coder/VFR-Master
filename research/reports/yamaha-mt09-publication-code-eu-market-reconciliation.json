@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "revlog-yamaha-publication-reconciliation/v1",
+  "date": "2026-09-01",
+  "relationshipStates": [
+    "SAME-UNDERLYING-PUBLICATION-PROVEN",
+    "REGIONAL-ALIASES-PROVEN",
+    "REGIONAL-EDITIONS-RELATED-BUT-NOT-IDENTICAL",
+    "DISTINCT-PUBLICATIONS-PROVEN",
+    "RELATIONSHIP-UNRESOLVED"
+  ],
+  "target": {
+    "catalogVariantKey": "yamaha.mt-09.gen3",
+    "model": "MT-09 III / MTN890",
+    "year": 2021,
+    "market": "EU",
+    "transmission": "manual",
+    "equipment": "standard",
+    "excludedEquipment": "MT-09 SP"
+  },
+  "startingState": {
+    "classification": "ACCESS-BLOCKED",
+    "relationship": "UNRESOLVED",
+    "coverage": 29,
+    "evidenceRowsAdded": 0
+  },
+  "publications": {
+    "b7n": {
+      "code": "B7N-28197-E0",
+      "title": "MTN890 / MTN890D Service Manual (mirror-corroborated title only)",
+      "publisher": "Yamaha attribution visible only in historical mirror metadata",
+      "documentClass": "service manual",
+      "officialIdentity": "NOT-AUTHENTICATED",
+      "officialMetadataPath": null,
+      "officialDeliveryPath": null,
+      "metadataAccessibility": "MIRROR-ONLY",
+      "fullContentAccessibility": "MIRROR-ONLY",
+      "language": "UNKNOWN",
+      "market": "UNKNOWN",
+      "edition": "UNKNOWN",
+      "publicationYear": "UNKNOWN",
+      "modelYearApplicability": "UNKNOWN",
+      "finding": "Repeated exact-code checks of Yamaha Europe, Yamaha global and Yamaha USA controlled indexes returned no B7N record. Third-party title metadata cannot establish official identity or EU scope."
+    },
+    "lit": {
+      "code": "LIT-11616-34-61",
+      "title": "MT-09 / MT-09 SP Service Manual",
+      "publisher": "Yamaha Motor Corporation, U.S.A.",
+      "documentClass": "service manual",
+      "officialIdentity": "AUTHENTICATED",
+      "officialMetadataPath": "https://www.yamahapubs.com/home/search?category_id=3&family_name=MT-09&year=2021",
+      "officialDeliveryPath": "YamahaPubs printed/view-only purchase route and authenticated Yamaha Dealer System Knowledge Center",
+      "metadataAccessibility": "ACCESSIBLE-OFFICIAL-HTML",
+      "fullContentAccessibility": "ACCESS-BLOCKED-AUTH",
+      "language": "English / US publication context",
+      "market": "USA / North America",
+      "edition": "corrected live edition referenced by Technical Exchange M2022-002",
+      "publicationYear": "2021 listing; correction bulletin dated 2022-02-17",
+      "modelYearApplicability": "PROVEN for 2021-and-newer MT-09 and 2021 MT-09 SP in Yamaha USA context",
+      "bulletinPath": "https://static.nhtsa.gov/odi/tsbs/2022/MC-10208792-0001.pdf"
+    }
+  },
+  "reconciliation": {
+    "relationship": "RELATIONSHIP-UNRESOLVED",
+    "relationshipEvidence": [
+      "No Yamaha-controlled page found contains both B7N-28197-E0 and LIT-11616-34-61.",
+      "Yamaha USA proves only the LIT identity and North-American applicability.",
+      "Yamaha Europe owner-manual/model metadata proves model-code meanings but does not identify B7N-28197-E0 as a service publication or alias."
+    ],
+    "modelCodes": {
+      "MTN890": {
+        "state": "PROVEN",
+        "mapsTo": "standard MT-09",
+        "proof": "Official Yamaha Europe owner-manual metadata identifies MTN890 (MT-09), publication B7N-28199-E0."
+      },
+      "MTN890D": {
+        "state": "PROVEN",
+        "mapsTo": "MT-09 SP",
+        "proof": "Official Yamaha Europe owner-manual and recall metadata identify MTN890D (MT-09 SP). This model-code mapping does not authenticate the B7N service-manual code."
+      }
+    },
+    "applicability": {
+      "mt09Inclusion": "PROVEN for LIT; NOT-AUTHENTICATED for B7N",
+      "mt09SpInclusion": "PROVEN for LIT; mirror-only claim for B7N",
+      "modelYear2021": "PROVEN for LIT USA; UNKNOWN for B7N EU",
+      "euMarket": "UNKNOWN",
+      "northAmericaMarket": "PROVEN for LIT",
+      "standardSpScope": "STANDARD-AND-SP-AMBIGUOUS",
+      "absReadiness": "UNKNOWN",
+      "equipmentReadiness": "UNKNOWN",
+      "transmissionReadiness": "PARTIAL"
+    },
+    "expectedMarginalPracticalGapClass": "MEDIUM",
+    "primaryReadinessClassification": "ACCESS-BLOCKED",
+    "antiLoopClassification": "MT09-AUTHENTICATION-PATH-EXHAUSTED",
+    "blockers": [
+      "B7N official identity and Yamaha-controlled EU path remain absent",
+      "B7N/LIT relationship remains unresolved",
+      "MY2021 EU service-publication applicability remains unknown",
+      "standard/SP safety-critical separability remains ambiguous",
+      "ABS and equipment readiness remain unknown",
+      "official LIT full content remains purchase/authentication blocked"
+    ],
+    "gate": {
+      "authorityKnown": true,
+      "documentIdentityKnown": false,
+      "documentClassKnown": true,
+      "officialPathKnown": false,
+      "modelKnown": false,
+      "yearKnown": false,
+      "marketKnown": false,
+      "accessibilityFeasible": false,
+      "safetyScopeSufficient": false,
+      "notExhausted": true,
+      "tierABIndependent": true
+    }
+  },
+  "readinessGate": {
+    "passed": false,
+    "failed": [
+      "documentIdentityKnown",
+      "officialPathKnown",
+      "modelKnown",
+      "yearKnown",
+      "marketKnown",
+      "accessibilityFeasible",
+      "safetyScopeSufficient"
+    ],
+    "rankingEligible": false
+  },
+  "technicalValuesInspected": false,
+  "evidenceRowsAdded": 0,
+  "researchedNoEvidenceAdded": 0,
+  "serviceCoreCoverageChanged": false,
+  "productionChanged": false,
+  "runtimeChanged": false,
+  "catalogueChanged": false,
+  "cloudBackendChanged": false,
+  "vfr800ProductionChanged": false,
+  "unrelatedProspectsResearched": false,
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "conclusion": "Yamaha-controlled metadata proves the LIT and model-code identities but not B7N identity, code equivalence or EU service-publication applicability. Fail-closed readiness and the anti-loop rule are therefore supported.",
+    "falsification": [
+      "No Yamaha-controlled B7N exact-code record was found",
+      "No official source contains both publication codes",
+      "Official model-code mappings do not establish publication-code equivalence",
+      "Accessible metadata does not make full content accessible"
+    ],
+    "risks": [
+      "Public Yamaha indexes may not expose dealer-only EU publication metadata",
+      "The B7N manual may exist officially despite lacking public Yamaha-controlled proof",
+      "A later authorized portal change could justify fresh authentication, but no equivalent task should be scheduled now"
+    ]
+  },
+  "exactNextTask": "Authenticate only the existing Yamaha Ténéré 700 service-manual prospect BW3-F8197-E0 for yamaha.tenere-700.gen1 MY2019 EU standard: resolve official Yamaha identity, delivery/access, exact year/market and standard-versus-named-equipment scope without inspecting service values or creating Service Core evidence."
+}

@@ -17,7 +17,7 @@ test("source acquisition states remain independent", () => {
   const mt = statuses.profiles[keys[1]].serviceManual;
   assert.equal(mt.contentAccessible, false);
   assert.equal(mt.authenticityVerified, false);
-  assert.equal(mt.codeRelationship, "unresolved");
+  assert.equal(mt.codeRelationship, "RELATIONSHIP-UNRESOLVED");
   assert.equal(mt.relevantSectionInspected, false);
   assert.equal(mt.fieldEvidenceExtracted, false);
 });
