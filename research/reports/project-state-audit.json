@@ -1,18 +1,18 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-01",
-  "snapshotBasis": "post-technical-research-factory-orchestrator-foundation-working-tree",
-  "baseCommit": "04bfd1b6885cb8fc4b87fb660545db6144376fa3",
+  "snapshotBasis": "post-technical-research-factory-execution-planner-working-tree",
+  "baseCommit": "67f547273972c441f4870cd425974f359eaf0427",
   "containingCommit": "self (resolve from git history)",
   "originMain": "97484bf004c466a6f26a5e42ae07b91214e95962",
-  "aheadAfterContainingCommit": 10,
+  "aheadAfterContainingCommit": 11,
   "behind": 0,
   "repository": {
-    "files": 244,
-    "javascriptFiles": 151,
-    "testFiles": 54,
-    "documentationFiles": 58,
-    "researchAndToolingFiles": 89
+    "files": 253,
+    "javascriptFiles": 157,
+    "testFiles": 55,
+    "documentationFiles": 60,
+    "researchAndToolingFiles": 95
   },
   "catalogue": {
     "manufacturers": 13,
@@ -879,10 +879,66 @@
     "productionChanged": false,
     "tenereAuthenticationExecuted": false
   },
+  "executionPlanner": {
+    "schemaVersion": 1,
+    "foundationContractVersion": 1,
+    "orchestratorSchemaVersion": 1,
+    "classification": "ACCEPT-WITH-RISKS",
+    "policyId": "planner-policy.0254ec2b606df7626fe6053e",
+    "summary": {
+      "batchesProduced": 1,
+      "decisionCounts": {
+        "BLOCKED": 1,
+        "DEFERRED": 4,
+        "NOT-NEEDED": 1,
+        "PLANNED": 1,
+        "REJECTED": 1
+      },
+      "duplicateCandidateInputsRemoved": 0,
+      "gapsConsidered": 223,
+      "plannedAttempts": 1,
+      "prospectsConsidered": 8,
+      "targetsConsidered": 6,
+      "workItemsProduced": 1
+    },
+    "fixtureResults": {
+      "yamaha-mt09": {
+        "decision": "DEFERRED",
+        "reasonCode": "FOUNDATION_EXHAUSTED"
+      },
+      "honda-cbr500r": {
+        "decision": "DEFERRED",
+        "reasonCode": "FOUNDATION_EXHAUSTED"
+      },
+      "harley-sportster": {
+        "decision": "REJECTED",
+        "reasonCode": "FOUNDATION_REJECTED_MISMATCH"
+      },
+      "tenere-service": {
+        "decision": "BLOCKED",
+        "reasonCode": "FOUNDATION_READINESS_BLOCKED"
+      },
+      "vfr800-mirror": {
+        "decision": "DEFERRED",
+        "reasonCode": "FOUNDATION_EXHAUSTED"
+      }
+    },
+    "serviceCoreFieldCount": 44,
+    "exactNextTasks": [
+      {
+        "id": "factory-execution-agent-adapter-foundation",
+        "task": "Implement the bounded Technical Research Factory Execution Agent / Source Acquisition Adapter Foundation: define a typed interface for attempting already-planned SourceWorkItems and recording immutable attempt outcomes/events under existing readiness, attempt-budget and checkpoint limits, using synthetic/local fixtures only and performing no uncontrolled multi-target research or production change."
+      }
+    ],
+    "evidenceAdded": false,
+    "coverageChanged": false,
+    "productionChanged": false,
+    "tenereAuthenticationExecuted": false
+  },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 467,
-    "lastKnownPassed": 467,
+    "lastKnownTotal": 480,
+    "lastKnownPassed": 480,
     "failed": 0,
     "skipped": 0,
     "todo": 0

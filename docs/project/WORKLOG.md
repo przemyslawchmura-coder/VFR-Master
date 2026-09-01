@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-01 — Technical Research Factory Execution Planner (current)
+
+Objective: translate canonical gaps and prospects into bounded work without executing research. Added planner schema 1 PlanningPolicy, SourceCapability, PlanningDecision and ExecutionPlan contracts; semantic policy IDs; explicit source-to-Service-Core field capability; deterministic safety/practical/class/tier/coverage/cost ranking; typed planned/deferred/rejected/blocked/not-needed reasons; duplicate elimination; and finite per-target/per-batch work/attempt packing. Output is existing Orchestrator ResearchBatch/TargetWork/SourceWorkItem data and replays directly. Existing Honda/Yamaha/VFR remain deferred, Harley rejected and Ténéré blocked; only a synthetic local ready fixture plans. Audit: `ACCEPT-WITH-RISKS` because capability provenance and typed execution-result ingestion remain future layers. Next: bounded Execution Agent / Source Acquisition Adapter Foundation.
+
 ## 2026-09-01 — Technical Research Factory Orchestrator Foundation (current)
 
 Objective: add bounded, resumable state machinery without research execution. Added orchestration schema 1 contracts for ResearchBatch, TargetWork, SourceWorkItem, ResearchAttempt, ResearchEvent, ResearchSnapshot and Checkpoint; SHA-256 semantic identities with no clock/random dependency; immutable JSON-only append events; a pure deterministic reducer; explicit batch/work/attempt state machines; bounded retries and exhaustion; and digest/version-verified checkpoint resume. Existing Honda/Yamaha exhausted, Harley rejected-mismatch and Ténéré blocked fixtures traverse Foundation #1 readiness without mutation or promotion. Audit: `ACCEPT-WITH-RISKS` because durable event storage, planning and typed external-result ingestion remain deferred. Next: bounded Execution Planner from canonical GapPlans and SourceProspects only.

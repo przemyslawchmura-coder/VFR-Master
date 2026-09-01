@@ -13,5 +13,8 @@ const reducer = require("./reducer.js");
 const checkpoint = require("./checkpoint.js");
 const orchestrator = require("./orchestrator.js");
 const orchestrationJson = require("./json.js");
+const plannerContracts = require("./planner-contracts.js");
+const planner = require("./execution-planner.js");
+const priority = require("./priority.js");
 
-module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...applicability, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, adapters, ids, events, orchestrationJson });
+module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...applicability, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, adapters, ids, events, orchestrationJson, plannerPriority: priority });

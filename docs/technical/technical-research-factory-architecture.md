@@ -4,13 +4,13 @@ Date: 2026-09-01
 
 Outcome: **ACCEPT-WITH-RISKS**. This is architecture only. No source was authenticated or acquired, no service content was inspected, and no evidence, coverage or production state changed.
 
-Implementation status (2026-09-01): **Factory Foundation #1 and Orchestrator Foundation implemented.** Versioned target/prospect/applicability/GapPlan contracts and canonical gates now feed stable batch/work/attempt/event IDs, immutable events, deterministic replay, bounded attempts and verified checkpoints under `research/factory/`. Real Honda, Yamaha, Harley mismatch and Ténéré blocked states exercise the API. Execution planning, typed external-result work, scheduling and live migration remain unimplemented.
+Implementation status (2026-09-01): **Factory Foundation #1, Orchestrator Foundation and Execution Planner implemented.** Canonical targets/gaps/prospects/readiness now feed explicit capabilities and semantically hashed finite policy into deterministic canonical batch/work plans, then stable events/replay/checkpoints under `research/factory/`. Existing Honda/Yamaha/VFR exhausted, Harley mismatch and Ténéré blocked states exercise the safe path. Typed execution outcomes, review integration and live migration remain unimplemented.
 
 ## Executive finding
 
 RevLog has a reusable research kernel, not yet a research factory. The kernel deterministically provides the canonical 183-field schema and 44-field Service Core, catalogue traversal, proof filtering, source-document deduplication, basic applicability validation, limited unit normalization, conflict preservation, coverage/gap calculation, queues, reports and a hard production boundary.
 
-What remains is the planning/execution layer that turns canonical GapPlans and SourceProspects into bounded work without bespoke scripts: planner policy, typed external-result ingestion, yield/completion integration and typed review decisions. Contracts, readiness, bounded work/attempt state and resumable checkpoints now exist, while current batch result modules still manually assemble documents, evidence, metrics and NEXT decisions.
+What remains is the execution/result layer that attempts already-planned work through typed adapters, records outcomes/events, and integrates yield/review without bespoke scripts. Contracts, readiness, planning, bounded work/attempt state and resumable checkpoints now exist, while current batch result modules still manually assemble documents, evidence, metrics and NEXT decisions.
 
 The smallest credible path is not a rewrite. It is a versioned Factory Foundation placed in front of the working generic helpers, with compatibility adapters for current data shapes.
 
@@ -153,10 +153,11 @@ The MVP comprises versioned core contracts/validators/gates; Batch/WorkItem/Atte
 
 1. **FACTORY FOUNDATION (COMPLETE):** contracts, validators and canonical readiness/applicability gate. Synthetic/current-shape adapters only; no live migration or orchestration.
 2. **FACTORY ORCHESTRATOR (COMPLETE):** batch/work/attempt/event reducer, budgets, completion and checkpoints. No external calls.
-3. **FACTORY EXECUTION PLANNER (NEXT):** deterministic GapPlan/SourceProspect-to-work planning under readiness and attempt budgets. No external calls.
-4. **FACTORY WORK ITEMS:** external finding ingestion and typed review queue. No autonomous tooling.
-5. **FACTORY BATCH PILOT:** small interrupted/resumed non-production batch using known prospects.
-6. **FACTORY SCALE-UP:** 10 then 25 targets; add only evidence-backed adapters. Consider 100 only after measured bottlenecks.
+3. **FACTORY EXECUTION PLANNER (COMPLETE):** deterministic GapPlan/SourceProspect-to-work planning under readiness and attempt budgets. No external calls.
+4. **FACTORY EXECUTION AGENT / SOURCE ACQUISITION ADAPTER (NEXT):** typed attempts and immutable outcomes/events for planned work. Synthetic/local fixtures first.
+5. **FACTORY WORK ITEMS / REVIEW:** external finding ingestion and typed review queue. No autonomous tooling.
+6. **FACTORY BATCH PILOT:** small interrupted/resumed non-production batch using known prospects.
+7. **FACTORY SCALE-UP:** 10 then 25 targets; add only evidence-backed adapters. Consider 100 only after measured bottlenecks.
 
 ## Ténéré 700 role
 
@@ -170,6 +171,6 @@ Risks justify **ACCEPT-WITH-RISKS**: two candidate/applicability schemas require
 
 ## Exact NEXT implementation task
 
-Implement the bounded **Technical Research Factory Execution Planner**: translate canonical GapPlans and SourceProspects into deterministic ResearchBatch, TargetWork and SourceWorkItem plans under explicit source-class, readiness and attempt budgets. Use synthetic and existing local fixtures only; perform no external research, authentication, acquisition, extraction, historical migration or production change.
+Implement the bounded **Technical Research Factory Execution Agent / Source Acquisition Adapter Foundation**: define typed attempts and immutable outcome/event recording for already-planned SourceWorkItems under existing readiness, attempt-budget and checkpoint limits. Use synthetic/local fixtures first; perform no uncontrolled multi-target research or production change.
 
-This is now the highest-leverage dependency because canonical contracts/gates and replayable orchestration exist, while later external-result and pilot waves need deterministic plan construction first.
+This is now the highest-leverage dependency because canonical contracts, replayable orchestration and deterministic planning exist, while later pilot/review waves need a safe typed boundary for actual attempt results.

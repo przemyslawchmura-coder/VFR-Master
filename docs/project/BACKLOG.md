@@ -23,7 +23,7 @@ Planning items only; none are executed by this stocktake.
 
 ## Technical profiles / research / tooling
 
-- Complete the deferred Technical Research Factory waves after the completed contract/orchestrator foundations: Execution Planner, typed external-result Work Items/review, interrupted/resumed Ténéré Batch Pilot, then measured 10/25-target scale-up. Do not attempt 100 targets before checkpoint/review bottlenecks are measured.
+- Complete the deferred Technical Research Factory waves after the completed contract/orchestrator/planner foundations: typed Execution Agent / source-acquisition outcomes, review integration, interrupted/resumed Ténéré Batch Pilot, then measured 10/25-target scale-up. Do not attempt 100 targets before checkpoint/review bottlenecks are measured.
 - Resolve the VFR800 research-versus-production `61MCW07` source-identity history in a dedicated non-production reconciliation task; do not use the mirror-only prospect for immediate acquisition.
 - Build controlled evidence-to-production promotion packets.
 - Improve source acquisition for blocked service manuals and OEM parts.

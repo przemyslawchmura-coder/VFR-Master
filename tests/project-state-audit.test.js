@@ -8,9 +8,9 @@ const snapshot = require("../research/reports/project-state-audit.json");
 const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-orchestrator-foundation-working-tree");
+  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-execution-planner-working-tree");
   assert.match(snapshot.baseCommit, /^[0-9a-f]{40}$/);
-  assert.equal(snapshot.aheadAfterContainingCommit, 10);
+  assert.equal(snapshot.aheadAfterContainingCommit, 11);
   assert.match(snapshot.originMain, /^[0-9a-f]{40}$/);
   assert.equal(snapshot.catalogue.manufacturers, 13);
   assert.equal(snapshot.catalogue.variants, 1095);
@@ -102,6 +102,19 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.orchestratorFoundation.evidenceAdded, false);
   assert.equal(snapshot.orchestratorFoundation.productionChanged, false);
   assert.equal(snapshot.orchestratorFoundation.tenereAuthenticationExecuted, false);
+  assert.equal(snapshot.executionPlanner.schemaVersion, 1);
+  assert.equal(snapshot.executionPlanner.foundationContractVersion, 1);
+  assert.equal(snapshot.executionPlanner.orchestratorSchemaVersion, 1);
+  assert.equal(snapshot.executionPlanner.classification, "ACCEPT-WITH-RISKS");
+  assert.equal(snapshot.executionPlanner.summary.batchesProduced, 1);
+  assert.equal(snapshot.executionPlanner.summary.workItemsProduced, 1);
+  assert.deepEqual(snapshot.executionPlanner.summary.decisionCounts, { BLOCKED: 1, DEFERRED: 4, "NOT-NEEDED": 1, PLANNED: 1, REJECTED: 1 });
+  assert.equal(snapshot.executionPlanner.fixtureResults["tenere-service"].decision, "BLOCKED");
+  assert.equal(snapshot.executionPlanner.serviceCoreFieldCount, 44);
+  assert.equal(snapshot.executionPlanner.exactNextTasks.length, 1);
+  assert.equal(snapshot.executionPlanner.evidenceAdded, false);
+  assert.equal(snapshot.executionPlanner.productionChanged, false);
+  assert.equal(snapshot.executionPlanner.tenereAuthenticationExecuted, false);
 });
 
 test("project memory has one active roadmap phase and unique ADRs", () => {
@@ -112,7 +125,7 @@ test("project memory has one active roadmap phase and unique ADRs", () => {
   assert.equal(new Set(ids).size, ids.length);
   const state = read("docs/project/CURRENT_STATE.md");
   assert.equal((state.match(/\*\*NEXT\*\*/g) || []).length, 1);
-  assert.match(state, /Technical Research Factory Execution Planner/);
+  assert.match(state, /Technical Research Factory Execution Agent/);
 });
 
 test("project memory records production/research isolation", () => {

@@ -1,0 +1,279 @@
+{
+  "schemaVersion": "revlog-technical-research-factory-execution-planner/v1",
+  "plannerSchemaVersion": 1,
+  "foundationContractVersion": 1,
+  "orchestratorSchemaVersion": 1,
+  "date": "2026-09-01",
+  "policy": {
+    "batchPurpose": "execution-planner-foundation",
+    "id": "planner-policy.0254ec2b606df7626fe6053e",
+    "maxAttemptsPerSourceWorkItem": 2,
+    "maxSourceWorkItemsPerTarget": 2,
+    "maxTargetsPerBatch": 2,
+    "maxTotalAttemptsPerBatch": 4,
+    "maxWorkItemsPerBatch": 3,
+    "practicalFieldIds": [
+      "cooling.capacity",
+      "lubrication.capacity-drain",
+      "torques.front-axle"
+    ],
+    "schemaVersion": 1,
+    "sourceClassPriority": [
+      "official-service-manual",
+      "service manual",
+      "owner manual",
+      "official service-data publication"
+    ],
+    "sourceTierPriority": [
+      "A",
+      "B"
+    ]
+  },
+  "summary": {
+    "batchesProduced": 1,
+    "decisionCounts": {
+      "BLOCKED": 1,
+      "DEFERRED": 4,
+      "NOT-NEEDED": 1,
+      "PLANNED": 1,
+      "REJECTED": 1
+    },
+    "duplicateCandidateInputsRemoved": 0,
+    "gapsConsidered": 223,
+    "plannedAttempts": 1,
+    "prospectsConsidered": 8,
+    "targetsConsidered": 6,
+    "workItemsProduced": 1
+  },
+  "decisions": [
+    {
+      "addressedNeeds": [],
+      "candidateKey": "honda.vfr800.service-mirror.61mcw07|attempt-existing-source",
+      "decision": "DEFERRED",
+      "duplicateInputsRemoved": 0,
+      "operation": "attempt-existing-source",
+      "prospectId": "honda.vfr800.service-mirror.61mcw07",
+      "reasonCode": "FOUNDATION_EXHAUSTED",
+      "schemaVersion": 1,
+      "targetId": "target.honda.vfr800.rc46.vtec.gen1.2002.eu-uk"
+    },
+    {
+      "addressedNeeds": [],
+      "candidateKey": "prospect.harley.transfer.sportster-rh.94001064|attempt-existing-source",
+      "decision": "REJECTED",
+      "duplicateInputsRemoved": 0,
+      "operation": "attempt-existing-source",
+      "prospectId": "prospect.harley.transfer.sportster-rh.94001064",
+      "reasonCode": "FOUNDATION_REJECTED_MISMATCH",
+      "schemaVersion": 1,
+      "targetId": "target.harley-davidson.revolution-max.sportster-s.2022.usa"
+    },
+    {
+      "addressedNeeds": [],
+      "candidateKey": "prospect.pilot.cbr500r.31mlrb00|attempt-existing-source",
+      "decision": "DEFERRED",
+      "duplicateInputsRemoved": 0,
+      "operation": "attempt-existing-source",
+      "prospectId": "prospect.pilot.cbr500r.31mlrb00",
+      "reasonCode": "FOUNDATION_EXHAUSTED",
+      "schemaVersion": 1,
+      "targetId": "target.honda.cbr500r.pc70.2024.usa-canada"
+    },
+    {
+      "addressedNeeds": [],
+      "candidateKey": "prospect.planner.synthetic.not-needed|attempt-existing-source",
+      "decision": "NOT-NEEDED",
+      "duplicateInputsRemoved": 0,
+      "operation": "attempt-existing-source",
+      "prospectId": "prospect.planner.synthetic.not-needed",
+      "reasonCode": "NO_UNRESOLVED_GAP",
+      "schemaVersion": 1,
+      "targetId": "target.planner.synthetic.2021.eu"
+    },
+    {
+      "addressedNeeds": [],
+      "candidateKey": "prospect.planner.synthetic.opaque|attempt-existing-source",
+      "decision": "DEFERRED",
+      "duplicateInputsRemoved": 0,
+      "operation": "attempt-existing-source",
+      "prospectId": "prospect.planner.synthetic.opaque",
+      "reasonCode": "CAPABILITY_UNKNOWN",
+      "schemaVersion": 1,
+      "targetId": "target.planner.synthetic.2021.eu"
+    },
+    {
+      "addressedNeeds": [
+        {
+          "fieldId": "cooling.capacity",
+          "state": "RESEARCHED-NO-EVIDENCE"
+        },
+        {
+          "fieldId": "torques.front-axle",
+          "state": "CONFLICT"
+        }
+      ],
+      "batchId": "batch.c8d775bee3e9e2be74189aff",
+      "candidateKey": "prospect.planner.synthetic.planned|attempt-existing-source",
+      "decision": "PLANNED",
+      "duplicateInputsRemoved": 0,
+      "operation": "attempt-existing-source",
+      "priority": [
+        -2,
+        -2,
+        0,
+        0,
+        -2,
+        1,
+        "target.planner.synthetic.2021.eu|prospect.planner.synthetic.planned|attempt-existing-source"
+      ],
+      "prospectId": "prospect.planner.synthetic.planned",
+      "reasonCode": "PLANNED_GAP_MATCH",
+      "schemaVersion": 1,
+      "sourceWorkItemId": "source-work.01e78ee5054c427fffbffaac",
+      "targetId": "target.planner.synthetic.2021.eu",
+      "targetWorkId": "target-work.df75b6307bf7d938e177a776"
+    },
+    {
+      "addressedNeeds": [],
+      "candidateKey": "prospect.yamaha.transfer.mt09.b7n-28199-e0|attempt-existing-source",
+      "decision": "DEFERRED",
+      "duplicateInputsRemoved": 0,
+      "operation": "attempt-existing-source",
+      "prospectId": "prospect.yamaha.transfer.mt09.b7n-28199-e0",
+      "reasonCode": "FOUNDATION_EXHAUSTED",
+      "schemaVersion": 1,
+      "targetId": "target.yamaha.mt-09.gen3.2021.eu"
+    },
+    {
+      "addressedNeeds": [],
+      "candidateKey": "yamaha.tenere700.service.bw3-f8197-e0|attempt-existing-source",
+      "decision": "BLOCKED",
+      "duplicateInputsRemoved": 0,
+      "operation": "attempt-existing-source",
+      "prospectId": "yamaha.tenere700.service.bw3-f8197-e0",
+      "reasonCode": "FOUNDATION_READINESS_BLOCKED",
+      "schemaVersion": 1,
+      "targetId": "target.yamaha.tenere-700.gen1.2019.eu"
+    }
+  ],
+  "batches": [
+    {
+      "batch": {
+        "foundationContractVersion": 1,
+        "id": "batch.c8d775bee3e9e2be74189aff",
+        "maxAttemptsPerWorkItem": 2,
+        "policyId": "planner-policy.0254ec2b606df7626fe6053e",
+        "purpose": "execution-planner-foundation.part-1",
+        "schemaVersion": 1,
+        "targetIds": [
+          "target.planner.synthetic.2021.eu"
+        ]
+      },
+      "plannedAttempts": 1,
+      "sourceWorkItems": [
+        {
+          "id": "source-work.01e78ee5054c427fffbffaac",
+          "maxAttempts": 1,
+          "operation": "attempt-existing-source",
+          "prospectId": "prospect.planner.synthetic.planned",
+          "readiness": {
+            "applicability": {
+              "blockingDimensions": [],
+              "dimensions": {
+                "abs": "MATCH",
+                "equipment": "MATCH",
+                "generation": "MATCH",
+                "market": "MATCH",
+                "model": "MATCH",
+                "transmission": "MATCH",
+                "year": "MATCH"
+              },
+              "overall": "MATCH",
+              "reasons": []
+            },
+            "blockers": [],
+            "checks": {
+              "absEquipmentSufficient": true,
+              "accessibilityFeasible": true,
+              "authorityKnown": true,
+              "documentClassKnown": true,
+              "documentIdentityKnown": true,
+              "identifierRelationshipResolved": true,
+              "marketKnown": true,
+              "modelKnown": true,
+              "notExhausted": true,
+              "officialPathKnown": true,
+              "tierABIndependent": true,
+              "transmissionKnown": true,
+              "yearKnown": true
+            },
+            "classification": "EXECUTION-READY",
+            "passed": true,
+            "rankingEligible": true
+          },
+          "schemaVersion": 1,
+          "targetWorkId": "target-work.df75b6307bf7d938e177a776"
+        }
+      ],
+      "targetWorks": [
+        {
+          "batchId": "batch.c8d775bee3e9e2be74189aff",
+          "id": "target-work.df75b6307bf7d938e177a776",
+          "required": true,
+          "schemaVersion": 1,
+          "targetId": "target.planner.synthetic.2021.eu"
+        }
+      ]
+    }
+  ],
+  "fixtureResults": {
+    "yamaha-mt09": {
+      "decision": "DEFERRED",
+      "reasonCode": "FOUNDATION_EXHAUSTED"
+    },
+    "honda-cbr500r": {
+      "decision": "DEFERRED",
+      "reasonCode": "FOUNDATION_EXHAUSTED"
+    },
+    "harley-sportster": {
+      "decision": "REJECTED",
+      "reasonCode": "FOUNDATION_REJECTED_MISMATCH"
+    },
+    "tenere-service": {
+      "decision": "BLOCKED",
+      "reasonCode": "FOUNDATION_READINESS_BLOCKED"
+    },
+    "vfr800-mirror": {
+      "decision": "DEFERRED",
+      "reasonCode": "FOUNDATION_EXHAUSTED"
+    }
+  },
+  "serviceCoreFieldCount": 44,
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "risks": [
+      "source capability declarations are explicit trusted local inputs and still require later typed acquisition-result validation",
+      "planner uses configured field coverage rather than measured future yield",
+      "no existing prospect is execution-ready, so PLANNED compatibility uses a synthetic local fixture"
+    ],
+    "conclusion": "The planner is deterministic, gap-driven and fail-closed, but capability provenance and execution-result ingestion remain later bounded layers."
+  },
+  "exactNextTasks": [
+    {
+      "id": "factory-execution-agent-adapter-foundation",
+      "task": "Implement the bounded Technical Research Factory Execution Agent / Source Acquisition Adapter Foundation: define a typed interface for attempting already-planned SourceWorkItems and recording immutable attempt outcomes/events under existing readiness, attempt-budget and checkpoint limits, using synthetic/local fixtures only and performing no uncontrolled multi-target research or production change."
+    }
+  ],
+  "externalResearchPerformed": false,
+  "evidenceAdded": false,
+  "researchedNoEvidenceAdded": false,
+  "serviceCoreChanged": false,
+  "coverageChanged": false,
+  "productionChanged": false,
+  "runtimeChanged": false,
+  "catalogueChanged": false,
+  "cloudBackendChanged": false,
+  "vfr800ProductionChanged": false,
+  "tenereAuthenticationExecuted": false,
+  "historicalDataMigrated": false
+}

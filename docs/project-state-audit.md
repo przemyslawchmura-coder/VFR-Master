@@ -2,7 +2,7 @@
 
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE, NOT HISTORICAL CLAIMS.**
 
-Snapshot: `research/reports/project-state-audit.json` (2026-09-01 post-Technical-Research-Factory-Orchestrator-Foundation working tree based on `04bfd1b`; the containing commit is authoritative).
+Snapshot: `research/reports/project-state-audit.json` (2026-09-01 post-Technical-Research-Factory-Execution-Planner working tree based on `67f5472`; the containing commit is authoritative).
 
 ## Repository map
 
@@ -29,7 +29,7 @@ Auth → Supabase session → database queries; garage → local/cloud persisten
 
 The Technical Research Factory audit classifies the research path as reusable primitives under manual orchestration, not yet a resumable factory. The accepted-with-risks architecture defines stable target/prospect/applicability/gap contracts, one fail-closed gate, bounded work state, review/checkpoint identities and a generic core with optional discovery-only manufacturer adapters. Ténéré `BW3-F8197-E0` is retained as a future factory-pilot candidate; no source authentication or evidence acquisition occurred.
 
-Foundation #1 implements contract version 1, validators, canonical applicability/readiness gates, GapPlan generation and non-mutating compatibility adapters. Orchestration schema 1 now adds semantic IDs, immutable append-only events, pure deterministic reduction, bounded attempts and digest/version-verified checkpoint resume. Existing Honda/Yamaha exhausted, Harley mismatch and Ténéré blocked shapes exercise the complete local path without mutation. Planning, durable event storage and typed external-result ingestion remain deferred; historical data was not migrated.
+Foundation #1 supplies canonical contracts/gates; Orchestration schema 1 supplies replayable bounded state; Planner schema 1 now supplies explicit gap capabilities, semantic finite policy, deterministic typed decisions and canonical batch/work output. Existing Honda/Yamaha/VFR defer, Harley rejects and Ténéré blocks without mutation; a synthetic local fixture proves the planned path. Durable event storage and typed execution-result ingestion remain deferred; historical data was not migrated.
 
 ## Catalogue and research
 

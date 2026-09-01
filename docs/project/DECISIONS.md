@@ -104,3 +104,11 @@ Decision: non-production research batches use semantic SHA-256 identities, immut
 Rationale: stable replay and fail-closed resume are prerequisites for interrupted batches, while clock/UUID identity, mutable snapshots or implicit retries would permit duplicate work and budget bypass.
 Consequences: event persistence remains caller-owned in this foundation; planners must emit canonical target/prospect references; reset/reopen, concurrency, distributed workers and external-result ingestion require later bounded decisions.
 Status: ACTIVE. Related design: Technical Research Factory Orchestrator Foundation.
+
+## ADR-015 — Execution planning requires explicit gap capability and canonical readiness
+
+Date: 2026-09-01
+Decision: a source can enter a research execution plan only when Foundation readiness passes and an explicit versioned SourceCapability intersects unresolved canonical GapPlan fields. Planner priority and all finite work/attempt bounds live in a semantically hashed PlanningPolicy; output uses existing Orchestrator contracts.
+Rationale: source existence or presumed document richness is not proof of usefulness, and a planner that infers capabilities or owns a parallel work schema could promote blocked sources, chase vanity source counts or drift from replay semantics.
+Consequences: unknown capability defers, no gap intersection is not-needed, exhausted sources defer, mismatch rejects, other failed readiness blocks, and declared capability provenance must be checked by a later typed execution-result layer.
+Status: ACTIVE. Related design: Technical Research Factory Execution Planner.
