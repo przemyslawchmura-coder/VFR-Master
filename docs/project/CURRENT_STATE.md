@@ -2,10 +2,10 @@
 
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
-Snapshot date: 2026-08-31
-Snapshot basis: post-Yamaha-transfer-batch-design working tree based on `4da1d24db2772f7d6eef0d9d0a46d08605ba0cbc`; the containing commit is the authoritative snapshot commit because a Git commit cannot embed its own hash.
+Snapshot date: 2026-09-01
+Snapshot basis: post-Harley-transfer-acquisition working tree based on `50c6dc99a07dbe495c8b93ec1834665bdba9bb5b`; the containing commit is the authoritative snapshot commit because a Git commit cannot embed its own hash.
 origin/main: `97484bf004c466a6f26a5e42ae07b91214e95962`
-Expected local relation after the single containing commit: ahead 3, behind 0
+Expected local relation after the single containing commit: ahead 4, behind 0
 
 ## Architecture and runtime
 
@@ -26,7 +26,8 @@ Research is quarantined under `research/` and is not imported by the production 
 - Post-pilot scaling reassessment: `ACCEPT-WITH-RISKS`; ten repository-known candidates across seven manufacturers were evaluated. The next batch is two Yamaha targets with registered service-rich Tier A owner manuals: `yamaha.mt-09.gen3` MY2021 EU standard and `yamaha.tenere-700.gen1` MY2019 EU standard. Each starts at 0/44 verified Service Core; expected combined practical gain is 36–48, with success gated at +24 verified/+22 practical, zero unresolved safety-critical conflicts and at most two primary documents per target. No evidence was acquired.
 - Yamaha transfer acquisition: `ACCEPT-WITH-RISKS`; two authenticated Tier A Yamaha owner manuals yielded 58 rows and 58 new Service Core slots, including 54 practical and four generic tire-size slots. MT-09 MY2021 EU standard and Ténéré 700 MY2019 EU standard each moved 0/44→29/44 from one unique document. There were zero conflicts, zero Tier C/D contribution, no duplicates and no budget overrun. Later generation years and excluded SP/named-equipment variants remain uncovered.
 - Post-Yamaha transfer-batch design: `ACCEPT-WITH-RISKS`; ten serious candidates across eight manufacturers were evaluated using risk-adjusted expected marginal practical gain per primary document. Five UNKNOWN prospects remained unranked. The sole selected target is `harley-davidson.revolution-max.sportster-s`, MY2022 USA, against registered official owner manual `94001064`, with one document, +8 verified/+6 practical gates and fail-closed model/ABS/equipment applicability. No evidence or coverage changed.
-- Latest full suite before commit: 406 passed, 0 failed, 0 skipped, 0 todo.
+- Harley-Davidson transfer acquisition: `REJECT`; official publication `94001064` reauthenticated as the MY2023 Sportster RH Models owner manual and official parts indexing links it to RH1250S, but it cannot support the selected MY2022 scope and its official content endpoint returned HTTP 403. Authentication stopped extraction. Coverage remained 0/44 with zero verified, practical and generic gain; no researched-no-evidence rows were claimed, conflicts and Tier C/D contribution were zero, and the one-document budget was respected.
+- Latest full suite before commit: 414 passed, 0 failed, 0 skipped, 0 todo.
 - Published application version: 0.3.0.
 
 ## Independent work streams
@@ -38,14 +39,14 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## WIP and blockers
 
-- P1: execute the one-target Harley-Davidson Sportster S MY2022 USA transfer batch under the registered-manual authentication gate and one-document budget.
+- P1: audit immediate-batch registered Tier A/B prospects for exact edition/applicability and content accessibility before selecting another acquisition.
 - P1: add production Technical Profiles only through deliberate promotion review; 1,094 catalogue variants remain without production profiles.
 - P2: improve source/document acquisition for blocked manuals and OEM parts.
 - P2: audit cloud/RLS behavior against a live Supabase project before claiming deployment readiness.
 
 ## Next actions
 
-**NEXT 1** — Execute the one-target MY2022 USA Harley-Davidson Sportster S/RH1250S owner-manual transfer batch: authenticate registered publication `94001064` and exact model applicability first, then extract only directly supported practical Service Core evidence under a one-primary-document, +8 verified/+6 practical, zero-conflict and non-production gate.
+**NEXT 1** — Perform a bounded source-prospect authentication-quality reassessment: audit every immediate-batch registered Tier A/B prospect for exact publication, model-year, market, model/equipment inclusion and content accessibility before selecting another manufacturer acquisition; acquire no motorcycle evidence during that reassessment.
 
 **NEXT 2** — Perform a production-readiness audit of authentication, persistence, RLS and error paths against an explicitly selected test backend.
 

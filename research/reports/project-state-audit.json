@@ -1,18 +1,18 @@
 {
   "schemaVersion": "revlog-project-state/v1",
-  "snapshotDate": "2026-08-31",
-  "snapshotBasis": "post-yamaha-transfer-batch-design-working-tree",
-  "baseCommit": "4da1d24db2772f7d6eef0d9d0a46d08605ba0cbc",
+  "snapshotDate": "2026-09-01",
+  "snapshotBasis": "post-harley-transfer-acquisition-working-tree",
+  "baseCommit": "50c6dc99a07dbe495c8b93ec1834665bdba9bb5b",
   "containingCommit": "self (resolve from git history)",
   "originMain": "97484bf004c466a6f26a5e42ae07b91214e95962",
-  "aheadAfterContainingCommit": 3,
+  "aheadAfterContainingCommit": 4,
   "behind": 0,
   "repository": {
-    "files": 189,
-    "javascriptFiles": 117,
-    "testFiles": 47,
-    "documentationFiles": 44,
-    "researchAndToolingFiles": 55
+    "files": 195,
+    "javascriptFiles": 120,
+    "testFiles": 48,
+    "documentationFiles": 46,
+    "researchAndToolingFiles": 58
   },
   "catalogue": {
     "manufacturers": 13,
@@ -439,12 +439,119 @@
       "exactNextTask": "Execute the one-target MY2022 USA Harley-Davidson Sportster S/RH1250S owner-manual transfer batch: authenticate registered publication 94001064 and exact model applicability first, then extract only directly supported practical Service Core evidence under a one-primary-document, +8 verified/+6 practical, zero-conflict and non-production gate.",
       "evidenceAcquired": false,
       "serviceCoreCoverageChanged": false
+    },
+    "harleyTransferAcquisition": {
+      "classification": "REJECT",
+      "transferInterpretation": "failed transfer",
+      "target": {
+        "catalogVariantKey": "harley-davidson.revolution-max.sportster-s",
+        "model": "Sportster S",
+        "designation": "RH1250S",
+        "year": 2022,
+        "market": "USA",
+        "abs": null,
+        "transmission": "manual",
+        "equipment": "standard",
+        "before": 0,
+        "after": 0
+      },
+      "source": {
+        "id": "harley.transfer.sportster-rh.94001064",
+        "documentId": "Harley-Davidson|94001064",
+        "tier": "A",
+        "sourceClass": "official-owner-manual",
+        "publisher": "Harley-Davidson Motor Company, Service Communications",
+        "title": "2023 Harley-Davidson Owner's Manual — Sportster RH Models",
+        "publicationId": "94001064",
+        "edition": "English (United States), 2023 model year",
+        "publicationDate": 2023,
+        "url": "https://serviceinfo.harley-davidson.com/sip/service/document/original/1802738810358052210/2022-08-23%2094001064%20English%20%28United%20States%29%208%20DOM%20HARLEY-DAVIDSON%20OWNERS%20MANUAL.pdf",
+        "officialHost": "serviceinfo.harley-davidson.com",
+        "disposition": "wrong-applicability",
+        "accessResult": "official document endpoint returned HTTP 403; indexed official metadata was inspectable",
+        "authenticationState": "OFFICIAL-PUBLICATION-REAUTHENTICATED-YEAR-MISMATCH",
+        "language": "English",
+        "pageCount": null,
+        "models": [
+          "Sportster RH Models",
+          "RH1250S (official parts-catalogue mapping to publication 94001064)"
+        ],
+        "years": {
+          "from": 2023,
+          "to": 2023
+        },
+        "markets": [
+          "USA"
+        ],
+        "abs": null,
+        "transmission": null,
+        "equipment": null,
+        "inspectedPages": [],
+        "targets": [
+          "harley-davidson.revolution-max.sportster-s"
+        ],
+        "yieldedEvidence": false,
+        "authenticationProof": {
+          "authority": "official Harley-Davidson Service Information Portal host and indexed document metadata",
+          "publication": "official content identifies 94001064",
+          "titleAndYear": "official content identifies 2023 Harley-Davidson Owner's Manual — Sportster RH Models",
+          "model": "official Harley-Davidson parts-catalogue index maps owner manual 94001064 to RH1250S",
+          "market": "registered official filename says English (United States); document states Printed in the USA",
+          "targetYear": "FAILED: authenticated publication is MY2023, not selected MY2022"
+        },
+        "stopCondition": "MY2022 applicability failed authentication and document content was inaccessible; extraction stopped before evidence creation"
+      },
+      "metrics": {
+        "targets": 1,
+        "documentsInspected": 1,
+        "uniquePrimaryDocuments": 1,
+        "hostingLocations": 1,
+        "duplicateHostingLocations": 0,
+        "documentsYieldingEvidence": 0,
+        "sourceTierDistribution": {
+          "A": 1,
+          "B": 0,
+          "C": 0,
+          "D": 0
+        },
+        "documentAuthenticationStatus": "OFFICIAL-PUBLICATION-REAUTHENTICATED-YEAR-MISMATCH",
+        "evidenceRows": 0,
+        "verifiedSlotsBefore": 0,
+        "verifiedSlotsAfter": 0,
+        "netNewVerifiedGain": 0,
+        "practicalGain": 0,
+        "genericGain": 0,
+        "researchedNoEvidenceFields": 0,
+        "conflicts": 0,
+        "unresolvedSafetyCriticalConflicts": 0,
+        "applicabilityBlockers": 3,
+        "primaryDocumentsUsed": 1,
+        "primaryDocumentBudget": 1,
+        "documentBudgetExceeded": false,
+        "practicalGainPerPrimaryDocument": 0,
+        "tierCDPracticalContribution": 0
+      },
+      "thresholdResult": {
+        "verifiedGainPassed": false,
+        "practicalGainPassed": false,
+        "perTargetPracticalPassed": false,
+        "tierCDPassed": true,
+        "conflictsPassed": true,
+        "budgetPassed": true,
+        "allPassed": false
+      },
+      "falsificationTriggered": [
+        "MY2022 USA applicability cannot be proven because publication 94001064 is a 2023 model-year manual",
+        "document content is inaccessible",
+        "practical gain is below 6"
+      ],
+      "exactNextTask": "Perform a bounded source-prospect authentication-quality reassessment: audit every immediate-batch registered Tier A/B prospect for exact publication, model-year, market, model/equipment inclusion and content accessibility before selecting another manufacturer acquisition; acquire no motorcycle evidence during that reassessment."
     }
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 406,
-    "lastKnownPassed": 406,
+    "lastKnownTotal": 414,
+    "lastKnownPassed": 414,
     "failed": 0,
     "skipped": 0,
     "todo": 0

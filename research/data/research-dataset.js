@@ -28,7 +28,7 @@ const sources = [
   { id: "research.motoguzzi.stelvio.2024.spec", type: "official-technical-publication", title: "2024 Stelvio technical specifications", manufacturer: "Moto Guzzi", url: "https://wlassets.motoguzzi.com/wlassets/moto-guzzi/gb/tech_spec/2024/Stelvio_tech_spec_EN_2024-%281%29/original/Stelvio_tech_spec_EN_2024%2B%281%29.pdf?1708594603417=", accessedAt: "2026-08-29" },
   { id: "research.motoguzzi.v7.current", type: "official-technical-publication", title: "Moto Guzzi V7 model page", manufacturer: "Moto Guzzi", url: "https://www.motoguzzi.com/en_EN/moto-guzzi/en/new-moto-guzzi-v7/", accessedAt: "2026-08-29" },
   { id: "research.harley.sportster-s.spec", type: "official-technical-publication", title: "Sportster S specifications", manufacturer: "Harley-Davidson", url: "https://www.harley-davidson.com/us/en/motorcycles/models/sportster/sportster-s.html", accessedAt: "2026-08-29" },
-  { id: "research.harley.2022.owner-manual", type: "official-owner-manual", title: "2022 Harley-Davidson Owner's Manual", manufacturer: "Harley-Davidson", url: "https://serviceinfo.harley-davidson.com/sip/service/document/original/1802738810358052210/2022-08-23%2094001064%20English%20%28United%20States%29%208%20DOM%20HARLEY-DAVIDSON%20OWNERS%20MANUAL.pdf", accessedAt: "2026-08-29" }
+  { id: "research.harley.2023.owner-manual.94001064", type: "official-owner-manual", title: "2023 Harley-Davidson Owner's Manual — Sportster RH Models (94001064)", manufacturer: "Harley-Davidson", url: "https://serviceinfo.harley-davidson.com/sip/service/document/original/1802738810358052210/2022-08-23%2094001064%20English%20%28United%20States%29%208%20DOM%20HARLEY-DAVIDSON%20OWNERS%20MANUAL.pdf", accessedAt: "2026-09-01" }
 ];
 
 const catalog = [
@@ -64,10 +64,13 @@ const candidates = [
   ["aprilia.tuareg660.gen1", "Aprilia", "Tuareg 660", null, "fuel.capacity", "18 L", 18, "L", "research.aprilia.tuareg660.spec"],
   ["moto-guzzi.stelvio.v100.gen1", "Moto Guzzi", "Stelvio", 2024, "engine.displacement", 1042, 1042, "cm³", "research.motoguzzi.stelvio.2024.spec"],
   ["moto-guzzi.stelvio.v100.gen1", "Moto Guzzi", "Stelvio", 2024, "fuel.capacity", "21 L", 21, "L", "research.motoguzzi.stelvio.2024.spec"],
-  ["harley-davidson.sportster-s.rh1250s", "Harley-Davidson", "Sportster S", 2022, "electrical.battery", "12 V, 12 Ah, 225 CCA", null, null, "research.harley.2022.owner-manual"],
-  ["harley-davidson.sportster-s.rh1250s", "Harley-Davidson", "Sportster S", 2022, "electrical.charging-output", "45 A", 45, "A", "research.harley.2022.owner-manual"],
-  ["harley-davidson.sportster-s.rh1250s", "Harley-Davidson", "Sportster S", 2022, "ignition.spark-plug-gap", "0.80–0.90 mm", null, "mm", "research.harley.2022.owner-manual"]
-].map((row, index) => ({ researchRecordId: `candidate.${String(index + 1).padStart(3, "0")}`, proposedCatalogVariantKey: row[0], manufacturer: row[1], family: row[2], years: row[3] == null ? null : { from: row[3], to: row[3] }, region: null, abs: null, equipment: null, technicalField: row[4], rawValue: row[5], normalizedCandidateValue: row[6], unit: row[7], sourceIds: [row[8]], sourceSection: null, evidenceNote: "Short factual candidate transcribed from the identified official publication; production review still required.", status: "candidate", conflictStatus: "none", conflictGroup: null, notes: null }));
+  ["harley-davidson.sportster-s.rh1250s", "Harley-Davidson", "Sportster S", 2022, "electrical.battery", "12 V, 12 Ah, 225 CCA", null, null, "research.harley.2023.owner-manual.94001064"],
+  ["harley-davidson.sportster-s.rh1250s", "Harley-Davidson", "Sportster S", 2022, "electrical.charging-output", "45 A", 45, "A", "research.harley.2023.owner-manual.94001064"],
+  ["harley-davidson.sportster-s.rh1250s", "Harley-Davidson", "Sportster S", 2022, "ignition.spark-plug-gap", "0.80–0.90 mm", null, "mm", "research.harley.2023.owner-manual.94001064"]
+].map((row, index) => {
+  const rejectedHarleyYearMismatch = row[8] === "research.harley.2023.owner-manual.94001064";
+  return { researchRecordId: `candidate.${String(index + 1).padStart(3, "0")}`, proposedCatalogVariantKey: row[0], manufacturer: row[1], family: row[2], years: row[3] == null ? null : { from: row[3], to: row[3] }, region: null, abs: null, equipment: null, technicalField: row[4], rawValue: row[5], normalizedCandidateValue: row[6], unit: row[7], sourceIds: [row[8]], sourceSection: null, evidenceNote: rejectedHarleyYearMismatch ? "Rejected after reauthentication: publication 94001064 is MY2023 and cannot support this MY2022 candidate." : "Short factual candidate transcribed from the identified official publication; production review still required.", status: rejectedHarleyYearMismatch ? "rejected" : "candidate", conflictStatus: "none", conflictGroup: null, notes: rejectedHarleyYearMismatch ? "Exact-year applicability failed during the bounded Harley transfer execution." : null };
+});
 
 module.exports = Object.freeze({
   schemaVersion: "revlog-research-data/v1",

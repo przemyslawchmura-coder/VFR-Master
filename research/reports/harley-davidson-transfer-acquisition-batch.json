@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "revlog-harley-transfer-acquisition/v1",
+  "researchDate": "2026-09-01",
+  "classification": "REJECT",
+  "transferInterpretation": "failed transfer",
+  "target": {
+    "catalogVariantKey": "harley-davidson.revolution-max.sportster-s",
+    "model": "Sportster S",
+    "designation": "RH1250S",
+    "year": 2022,
+    "market": "USA",
+    "abs": null,
+    "transmission": "manual",
+    "equipment": "standard",
+    "before": 0,
+    "after": 0
+  },
+  "source": {
+    "id": "harley.transfer.sportster-rh.94001064",
+    "documentId": "Harley-Davidson|94001064",
+    "tier": "A",
+    "sourceClass": "official-owner-manual",
+    "publisher": "Harley-Davidson Motor Company, Service Communications",
+    "title": "2023 Harley-Davidson Owner's Manual — Sportster RH Models",
+    "publicationId": "94001064",
+    "edition": "English (United States), 2023 model year",
+    "publicationDate": 2023,
+    "url": "https://serviceinfo.harley-davidson.com/sip/service/document/original/1802738810358052210/2022-08-23%2094001064%20English%20%28United%20States%29%208%20DOM%20HARLEY-DAVIDSON%20OWNERS%20MANUAL.pdf",
+    "officialHost": "serviceinfo.harley-davidson.com",
+    "disposition": "wrong-applicability",
+    "accessResult": "official document endpoint returned HTTP 403; indexed official metadata was inspectable",
+    "authenticationState": "OFFICIAL-PUBLICATION-REAUTHENTICATED-YEAR-MISMATCH",
+    "language": "English",
+    "pageCount": null,
+    "models": [
+      "Sportster RH Models",
+      "RH1250S (official parts-catalogue mapping to publication 94001064)"
+    ],
+    "years": {
+      "from": 2023,
+      "to": 2023
+    },
+    "markets": [
+      "USA"
+    ],
+    "abs": null,
+    "transmission": null,
+    "equipment": null,
+    "inspectedPages": [],
+    "targets": [
+      "harley-davidson.revolution-max.sportster-s"
+    ],
+    "yieldedEvidence": false,
+    "authenticationProof": {
+      "authority": "official Harley-Davidson Service Information Portal host and indexed document metadata",
+      "publication": "official content identifies 94001064",
+      "titleAndYear": "official content identifies 2023 Harley-Davidson Owner's Manual — Sportster RH Models",
+      "model": "official Harley-Davidson parts-catalogue index maps owner manual 94001064 to RH1250S",
+      "market": "registered official filename says English (United States); document states Printed in the USA",
+      "targetYear": "FAILED: authenticated publication is MY2023, not selected MY2022"
+    },
+    "stopCondition": "MY2022 applicability failed authentication and document content was inaccessible; extraction stopped before evidence creation"
+  },
+  "documents": [
+    {
+      "documentId": "Harley-Davidson|94001064",
+      "sourceClass": "official-owner-manual",
+      "title": "2023 Harley-Davidson Owner's Manual — Sportster RH Models",
+      "publicationId": "94001064",
+      "publisher": "Harley-Davidson Motor Company, Service Communications",
+      "publicationDate": 2023,
+      "revision": null,
+      "markets": [
+        "USA"
+      ],
+      "models": [
+        "Sportster RH Models",
+        "RH1250S (official parts-catalogue mapping to publication 94001064)"
+      ],
+      "years": {
+        "from": 2023,
+        "to": 2023
+      },
+      "locations": [
+        "https://serviceinfo.harley-davidson.com/sip/service/document/original/1802738810358052210/2022-08-23%2094001064%20English%20%28United%20States%29%208%20DOM%20HARLEY-DAVIDSON%20OWNERS%20MANUAL.pdf"
+      ],
+      "accessState": "wrong-applicability",
+      "authenticationState": "OFFICIAL-PUBLICATION-REAUTHENTICATED-YEAR-MISMATCH",
+      "contentHash": null,
+      "inspectedPages": [],
+      "mirrorCount": 1
+    }
+  ],
+  "evidence": [],
+  "researchedNoEvidence": [],
+  "conflicts": [],
+  "applicabilityBlockers": [
+    "publication 94001064 authenticates as a 2023 Sportster RH Models owner manual, not MY2022",
+    "official document content endpoint returned HTTP 403",
+    "ABS, transmission and standard-equipment applicability could not be verified from authenticated content"
+  ],
+  "falsificationTriggered": [
+    "MY2022 USA applicability cannot be proven because publication 94001064 is a 2023 model-year manual",
+    "document content is inaccessible",
+    "practical gain is below 6"
+  ],
+  "metrics": {
+    "targets": 1,
+    "documentsInspected": 1,
+    "uniquePrimaryDocuments": 1,
+    "hostingLocations": 1,
+    "duplicateHostingLocations": 0,
+    "documentsYieldingEvidence": 0,
+    "sourceTierDistribution": {
+      "A": 1,
+      "B": 0,
+      "C": 0,
+      "D": 0
+    },
+    "documentAuthenticationStatus": "OFFICIAL-PUBLICATION-REAUTHENTICATED-YEAR-MISMATCH",
+    "evidenceRows": 0,
+    "verifiedSlotsBefore": 0,
+    "verifiedSlotsAfter": 0,
+    "netNewVerifiedGain": 0,
+    "practicalGain": 0,
+    "genericGain": 0,
+    "researchedNoEvidenceFields": 0,
+    "conflicts": 0,
+    "unresolvedSafetyCriticalConflicts": 0,
+    "applicabilityBlockers": 3,
+    "primaryDocumentsUsed": 1,
+    "primaryDocumentBudget": 1,
+    "documentBudgetExceeded": false,
+    "practicalGainPerPrimaryDocument": 0,
+    "tierCDPracticalContribution": 0
+  },
+  "thresholdResult": {
+    "verifiedGainPassed": false,
+    "practicalGainPassed": false,
+    "perTargetPracticalPassed": false,
+    "tierCDPassed": true,
+    "conflictsPassed": true,
+    "budgetPassed": true,
+    "allPassed": false
+  },
+  "comparison": {
+    "hondaPracticalPerYieldingDocument": 24,
+    "yamahaPracticalPerYieldingDocument": 27,
+    "harleyExpectedRange": {
+      "min": 6,
+      "max": 18
+    },
+    "harleyObserved": 0
+  },
+  "productionChanged": false,
+  "runtimeBrowserChanged": false,
+  "catalogueChanged": false,
+  "cloudBackendChanged": false,
+  "vfrProductionChanged": false,
+  "exactNextTask": "Perform a bounded source-prospect authentication-quality reassessment: audit every immediate-batch registered Tier A/B prospect for exact publication, model-year, market, model/equipment inclusion and content accessibility before selecting another manufacturer acquisition; acquire no motorcycle evidence during that reassessment."
+}

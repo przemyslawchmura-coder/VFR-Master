@@ -2,7 +2,7 @@
 
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE, NOT HISTORICAL CLAIMS.**
 
-Snapshot: `research/reports/project-state-audit.json` (2026-08-31 post-Yamaha-transfer-batch-design working tree based on `4da1d24`; the containing commit is authoritative).
+Snapshot: `research/reports/project-state-audit.json` (2026-09-01 post-Harley-transfer-acquisition working tree based on `50c6dc9`; the containing commit is authoritative).
 
 ## Repository map
 
@@ -59,9 +59,11 @@ The executed Yamaha transfer batch authenticated official Yamaha Europe owner ma
 
 The post-Yamaha design reproduced Honda's 24 and Yamaha's 27 practical slots per yielding document, then evaluated ten serious candidates across eight manufacturers using risk-adjusted expected marginal practical yield per primary document. The five candidates with UNKNOWN exact Tier A/B prospects remained unranked. It selected only MY2022 USA Sportster S/RH1250S against registered official Harley-Davidson owner manual `94001064`, with a one-document, +8 verified/+6 practical and exact-applicability gate. No control is included: four prior high-yield owner manuals already establish the process baseline. Audit outcome is ACCEPT-WITH-RISKS because exact model inclusion, pages and document richness have not been reauthenticated. No evidence, coverage or production data changed.
 
+The Harley execution rejected that prospect after authentication. Official Harley-Davidson indexed content identifies publication `94001064` as the MY2023 Sportster RH Models owner manual, while official parts indexing maps it to RH1250S. It therefore cannot prove the selected MY2022 scope, and the official content endpoint returned HTTP 403. Extraction stopped with 0/44→0/44, zero evidence, practical and generic gain, no researched-no-evidence claims, no conflicts and no Tier C/D contribution. Audit outcome is REJECT: the execution correctly failed closed, but the third-manufacturer transfer hypothesis did not pass. Production and VFR800 did not change.
+
 ## WIP and debt
 
-P0: none identified. P1: bounded one-document Harley-Davidson Sportster S transfer execution; controlled profile promotion. P2: cloud/RLS verification; blocked-source acquisition; broader profile coverage. P3: market/scooter/125 expansion.
+P0: none identified. P1: bounded source-prospect authentication-quality reassessment; controlled profile promotion. P2: cloud/RLS verification; blocked-source acquisition; broader profile coverage. P3: market/scooter/125 expansion.
 
 Technical debt: HIGH — only one production Technical Profile and live backend/deployment claims are unverified. MEDIUM — parallel historical report formats and limited document-content hashing. LOW — presentation/report consolidation.
 

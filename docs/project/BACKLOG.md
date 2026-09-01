@@ -23,7 +23,7 @@ Planning items only; none are executed by this stocktake.
 
 ## Technical profiles / research / tooling
 
-- After the designed two-target Yamaha transfer batch is executed and audited, reassess whether its yield justifies a later multi-manufacturer batch; do not add unknown Tier A/B prospects merely for diversity.
+- After the Harley prospect failed exact-year authentication, audit immediate-batch Tier A/B prospects for exact edition/applicability and content accessibility before another manufacturer acquisition.
 - Build controlled evidence-to-production promotion packets.
 - Improve source acquisition for blocked service manuals and OEM parts.
 - Add document content hashing where local copies are legally available.
