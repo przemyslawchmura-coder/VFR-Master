@@ -6,6 +6,8 @@ Phase: 5
 
 Classification: **ACCEPT-WITH-RISKS**
 
+Historical status: **SUPERSEDED-BY-EXECUTION**. The selection below is preserved as the 2026-08-31 decision record; the subsequent execution reauthenticated `94001064` as MY2023, so it is currently `REJECTED-MISMATCH` for MY2022 and must not be reused as a ready prospect.
+
 ## Decision
 
 The next acquisition batch is one new-manufacturer target: `harley-davidson.revolution-max.sportster-s`, Sportster S/RH1250S, MY2022 USA, manual, standard equipment. It may inspect only the repository-registered official Harley-Davidson owner manual identified by publication `94001064`, with a one-primary-document budget. No Honda/Yamaha control is included.

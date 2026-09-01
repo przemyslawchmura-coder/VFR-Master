@@ -8,9 +8,9 @@ const snapshot = require("../research/reports/project-state-audit.json");
 const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-harley-transfer-acquisition-working-tree");
+  assert.equal(snapshot.snapshotBasis, "post-source-prospect-readiness-reassessment-working-tree");
   assert.match(snapshot.baseCommit, /^[0-9a-f]{40}$/);
-  assert.equal(snapshot.aheadAfterContainingCommit, 4);
+  assert.equal(snapshot.aheadAfterContainingCommit, 5);
   assert.match(snapshot.originMain, /^[0-9a-f]{40}$/);
   assert.equal(snapshot.catalogue.manufacturers, 13);
   assert.equal(snapshot.catalogue.variants, 1095);
@@ -48,6 +48,14 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.research.harleyTransferAcquisition.metrics.verifiedSlotsAfter, 0);
   assert.equal(snapshot.research.harleyTransferAcquisition.metrics.practicalGain, 0);
   assert.equal(snapshot.research.harleyTransferAcquisition.thresholdResult.allPassed, false);
+  assert.equal(snapshot.research.postYamahaTransferDesign.historicalStatus, "SUPERSEDED-BY-EXECUTION");
+  assert.equal(snapshot.research.postYamahaTransferDesign.currentHarleyProspectClassification, "REJECTED-MISMATCH");
+  assert.equal(snapshot.research.sourceProspectReadiness.classification, "ACCEPT-WITH-RISKS");
+  assert.equal(snapshot.research.sourceProspectReadiness.inventory, 17);
+  assert.equal(snapshot.research.sourceProspectReadiness.manufacturers, 8);
+  assert.equal(snapshot.research.sourceProspectReadiness.executionReady, 0);
+  assert.equal(snapshot.research.sourceProspectReadiness.thirdManufacturerAnswer, "NO");
+  assert.equal(snapshot.research.sourceProspectReadiness.serviceCoreCoverageChanged, false);
   assert.equal(snapshot.research.vfr800.verified, 13);
   assert.equal(snapshot.research.cbr500r.verified, 26);
   assert.equal(snapshot.productionBoundary.researchImportedByIndex, false);
@@ -89,7 +97,7 @@ test("project memory records the executed pilot and operator cloud note", () => 
   assert.match(state, /NEXT 1/);
   assert.match(read("docs/project/WORKLOG.md"), /high-value source-acquisition/);
   assert.match(state, /101\/220/);
-  assert.match(state, /source-prospect authentication-quality reassessment/);
+  assert.match(state, /MT-09 service-manual registration\/authentication/);
   assert.match(read("docs/project/DECISIONS.md"), /ADR-010/);
   assert.match(read("docs/project/DECISIONS.md"), /ADR-011/);
 });

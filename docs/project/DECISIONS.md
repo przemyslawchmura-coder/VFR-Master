@@ -80,3 +80,11 @@ Decision: acquisition batches rank practical Service Core yield per authenticate
 Rationale: the five-target pilot produced 48 practical slots from two rich owner manuals while three equally deliberate low-coverage targets yielded zero because of exhausted research or unresolved identity/applicability.
 Consequences: scoring must expose unknowns, penalize duplicate history and applicability risk, and narrowly scope document editions. Manufacturer transfer is tested incrementally; Tier C/D discovery cannot satisfy practical success.
 Status: ACTIVE. Related design: post-pilot scaling reassessment.
+
+## ADR-012 — Execution readiness precedes source-yield ranking
+
+Date: 2026-09-01
+Decision: a registered Tier A/B prospect enters acquisition ranking only after exact source identity, official delivery path, model/year/market scope, feasible accessibility and safety-relevant applicability pass a deterministic readiness gate. UNKNOWN, partial, blocked, exhausted and mismatch states cannot be overridden by expected yield.
+Rationale: official Harley-Davidson publication `94001064` was genuine and RH1250S-related but reauthenticated as MY2023 rather than the selected MY2022 and returned HTTP 403, producing zero evidence.
+Consequences: source authentication metadata tasks may precede acquisition; authenticity, applicability, accessibility and marginal yield remain separate; scoring operates only on execution-ready prospects.
+Status: ACTIVE. Related reassessment: source-prospect authentication quality.

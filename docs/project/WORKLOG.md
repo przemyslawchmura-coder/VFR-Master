@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-01 — Source-prospect authentication-quality reassessment (current)
+
+Objective: separate registered Tier A/B URLs from execution-ready prospects before another acquisition. Completed: reproduced the Harley 0/44→0/44 REJECT; defined a deterministic all-fields readiness gate; inventoried 17 records across eight manufacturers; kept UNKNOWN, partial, blocked, exhausted and mismatch sources unranked. No prospect is execution-ready and no third-manufacturer source is ready. Harley `94001064` is current MY2023 metadata and REJECTED-MISMATCH for MY2022; the historical design is explicitly superseded. The closest prospect is Yamaha MT-09 service manual `B7N-28197-E0` / `LIT-11616-34-61`, but it lacks a stored official delivery path and resolved EU/US-code, standard/SP and safety scope. Audit: ACCEPT-WITH-RISKS. No technical evidence, Service Core coverage, production, runtime/browser, catalogue, Supabase or VFR800 data changed. Next: one-prospect MT-09 source registration/authentication only.
+
 ## 2026-09-01 — Harley-Davidson transfer acquisition execution (current)
 
 Objective: test the single registered official owner-manual prospect `94001064` for MY2022 USA Sportster S/RH1250S under a one-document gate. Result: authentication stopped extraction. Harley-Davidson official indexed content identifies `94001064` as the MY2023 Sportster RH Models owner manual; official parts indexing maps it to RH1250S, but that does not establish MY2022 applicability, and the official content endpoint returned HTTP 403. No substitute source was used. Coverage stayed 0/44; verified/practical/generic gains were 0/0/0, no researched-no-evidence rows were claimed, conflicts and Tier C/D contribution were zero, and budget was 1/1. Fixed +8/+6 gates failed; transfer interpretation failed; independent audit REJECT. Production, runtime/browser, catalogue, Supabase and VFR800 were unchanged. Next: bounded source-prospect authentication-quality reassessment before another acquisition.

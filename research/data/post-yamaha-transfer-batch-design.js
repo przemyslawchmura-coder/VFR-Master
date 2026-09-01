@@ -108,7 +108,7 @@ const audit = Object.freeze({
 });
 
 function buildReport() {
-  return Object.freeze({ schemaVersion: "revlog-post-yamaha-transfer-design/v1", date: "2026-08-31", baseline, sourceCertainty, model, candidates, strategies, selectedBatch, acceptance, audit, evidenceAcquired: false, serviceCoreCoverageChanged: false, productionChanged: false, exactNextTask: "Execute the one-target MY2022 USA Harley-Davidson Sportster S/RH1250S owner-manual transfer batch: authenticate registered publication 94001064 and exact model applicability first, then extract only directly supported practical Service Core evidence under a one-primary-document, +8 verified/+6 practical, zero-conflict and non-production gate." });
+  return Object.freeze({ schemaVersion: "revlog-post-yamaha-transfer-design/v1", date: "2026-08-31", historicalStatus: "SUPERSEDED-BY-EXECUTION", currentHarleyProspectClassification: "REJECTED-MISMATCH", supersessionNote: "Historical selection preserved. Execution reauthenticated 94001064 as MY2023, so it is not a valid current MY2022 prospect.", baseline, sourceCertainty, model, candidates, strategies, selectedBatch, acceptance, audit, evidenceAcquired: false, serviceCoreCoverageChanged: false, productionChanged: false, exactNextTask: "Execute the one-target MY2022 USA Harley-Davidson Sportster S/RH1250S owner-manual transfer batch: authenticate registered publication 94001064 and exact model applicability first, then extract only directly supported practical Service Core evidence under a one-primary-document, +8 verified/+6 practical, zero-conflict and non-production gate." });
 }
 
 module.exports = Object.freeze({ sourceCertainty, baseline, model, candidates, strategies, selectedBatch, acceptance, audit, buildReport });

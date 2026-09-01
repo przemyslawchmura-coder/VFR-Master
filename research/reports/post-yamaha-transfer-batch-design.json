@@ -1,6 +1,9 @@
 {
   "schemaVersion": "revlog-post-yamaha-transfer-design/v1",
   "date": "2026-08-31",
+  "historicalStatus": "SUPERSEDED-BY-EXECUTION",
+  "currentHarleyProspectClassification": "REJECTED-MISMATCH",
+  "supersessionNote": "Historical selection preserved. Execution reauthenticated 94001064 as MY2023, so it is not a valid current MY2022 prospect.",
   "baseline": {
     "honda": {
       "targets": 5,

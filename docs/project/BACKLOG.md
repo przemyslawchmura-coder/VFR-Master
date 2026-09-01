@@ -23,7 +23,7 @@ Planning items only; none are executed by this stocktake.
 
 ## Technical profiles / research / tooling
 
-- After the Harley prospect failed exact-year authentication, audit immediate-batch Tier A/B prospects for exact edition/applicability and content accessibility before another manufacturer acquisition.
+- Resolve the VFR800 research-versus-production `61MCW07` source-identity history in a dedicated non-production reconciliation task; do not use the mirror-only prospect for immediate acquisition.
 - Build controlled evidence-to-production promotion packets.
 - Improve source acquisition for blocked service manuals and OEM parts.
 - Add document content hashing where local copies are legally available.

@@ -1,18 +1,18 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-01",
-  "snapshotBasis": "post-harley-transfer-acquisition-working-tree",
-  "baseCommit": "50c6dc99a07dbe495c8b93ec1834665bdba9bb5b",
+  "snapshotBasis": "post-source-prospect-readiness-reassessment-working-tree",
+  "baseCommit": "d6d5a4452f6505c70dc0d606a306af33ce3cd353",
   "containingCommit": "self (resolve from git history)",
   "originMain": "97484bf004c466a6f26a5e42ae07b91214e95962",
-  "aheadAfterContainingCommit": 4,
+  "aheadAfterContainingCommit": 5,
   "behind": 0,
   "repository": {
-    "files": 195,
-    "javascriptFiles": 120,
-    "testFiles": 48,
-    "documentationFiles": 46,
-    "researchAndToolingFiles": 58
+    "files": 201,
+    "javascriptFiles": 123,
+    "testFiles": 49,
+    "documentationFiles": 48,
+    "researchAndToolingFiles": 61
   },
   "catalogue": {
     "manufacturers": 13,
@@ -376,6 +376,8 @@
     },
     "postYamahaTransferDesign": {
       "classification": "ACCEPT-WITH-RISKS",
+      "historicalStatus": "SUPERSEDED-BY-EXECUTION",
+      "currentHarleyProspectClassification": "REJECTED-MISMATCH",
       "candidatePool": 10,
       "manufacturersEvaluated": 8,
       "unknownUnranked": 5,
@@ -546,12 +548,22 @@
         "practical gain is below 6"
       ],
       "exactNextTask": "Perform a bounded source-prospect authentication-quality reassessment: audit every immediate-batch registered Tier A/B prospect for exact publication, model-year, market, model/equipment inclusion and content accessibility before selecting another manufacturer acquisition; acquire no motorcycle evidence during that reassessment."
+    },
+    "sourceProspectReadiness": {
+      "classification": "ACCEPT-WITH-RISKS",
+      "inventory": 17,
+      "manufacturers": 8,
+      "executionReady": 0,
+      "thirdManufacturerAnswer": "NO",
+      "exactNextTask": "Perform a one-prospect Yamaha MT-09 service-manual registration/authentication task for B7N-28197-E0 / LIT-11616-34-61: establish an official Yamaha delivery path, content accessibility, MY2021 EU standard-model applicability, standard-versus-SP scope and ABS/equipment boundaries; acquire no technical values or Service Core evidence.",
+      "evidenceAcquired": false,
+      "serviceCoreCoverageChanged": false
     }
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 414,
-    "lastKnownPassed": 414,
+    "lastKnownTotal": 426,
+    "lastKnownPassed": 426,
     "failed": 0,
     "skipped": 0,
     "todo": 0

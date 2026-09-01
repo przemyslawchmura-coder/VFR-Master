@@ -2,7 +2,7 @@
 
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE, NOT HISTORICAL CLAIMS.**
 
-Snapshot: `research/reports/project-state-audit.json` (2026-09-01 post-Harley-transfer-acquisition working tree based on `50c6dc9`; the containing commit is authoritative).
+Snapshot: `research/reports/project-state-audit.json` (2026-09-01 post-source-prospect-readiness-reassessment working tree based on `d6d5a44`; the containing commit is authoritative).
 
 ## Repository map
 
@@ -61,9 +61,11 @@ The post-Yamaha design reproduced Honda's 24 and Yamaha's 27 practical slots per
 
 The Harley execution rejected that prospect after authentication. Official Harley-Davidson indexed content identifies publication `94001064` as the MY2023 Sportster RH Models owner manual, while official parts indexing maps it to RH1250S. It therefore cannot prove the selected MY2022 scope, and the official content endpoint returned HTTP 403. Extraction stopped with 0/44→0/44, zero evidence, practical and generic gain, no researched-no-evidence claims, no conflicts and no Tier C/D contribution. Audit outcome is REJECT: the execution correctly failed closed, but the third-manufacturer transfer hypothesis did not pass. Production and VFR800 did not change.
 
+The source-readiness reassessment inventoried 17 prospects/placeholders across eight manufacturers under an all-fields gate that separates authenticity, applicability, accessibility and marginal yield. Zero prospects are execution-ready. The historical Harley selection is explicitly superseded and current `94001064` readiness is REJECTED-MISMATCH for MY2022. Six already-inspected sources are exhausted/low-marginal-yield; five manufacturers have UNKNOWN exact Tier A/B prospects. The nearest source is MT-09 service manual `B7N-28197-E0` / `LIT-11616-34-61`, but it remains source-identity-partial because no official delivery path is stored and market/SP/safety scope is incomplete. Audit outcome is ACCEPT-WITH-RISKS. No technical evidence or Service Core coverage changed.
+
 ## WIP and debt
 
-P0: none identified. P1: bounded source-prospect authentication-quality reassessment; controlled profile promotion. P2: cloud/RLS verification; blocked-source acquisition; broader profile coverage. P3: market/scooter/125 expansion.
+P0: none identified. P1: one-prospect MT-09 service-manual registration/authentication; controlled profile promotion. P2: cloud/RLS verification; blocked-source acquisition; broader profile coverage. P3: market/scooter/125 expansion.
 
 Technical debt: HIGH — only one production Technical Profile and live backend/deployment claims are unverified. MEDIUM — parallel historical report formats and limited document-content hashing. LOW — presentation/report consolidation.
 

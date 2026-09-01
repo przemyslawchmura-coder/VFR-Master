@@ -6,6 +6,11 @@ const path = require("node:path");
 const design = require("../research/data/post-yamaha-transfer-batch-design.js");
 const report = design.buildReport();
 
+test("historical Harley selection is explicitly superseded", () => {
+  assert.equal(report.historicalStatus, "SUPERSEDED-BY-EXECUTION");
+  assert.equal(report.currentHarleyProspectClassification, "REJECTED-MISMATCH");
+});
+
 test("design reproduces measured Honda and Yamaha yield", () => {
   assert.deepEqual(report.baseline.honda, { targets: 5, documents: 5, yieldingDocuments: 2, verifiedGain: 50, practicalGain: 48, genericGain: 2, before: 51, after: 101, conflicts: 0, practicalPerYieldingDocument: 24, practicalPerInspectedDocument: 9.6 });
   assert.deepEqual(report.baseline.yamaha, { targets: 2, documents: 2, yieldingDocuments: 2, verifiedGain: 58, practicalGain: 54, genericGain: 4, before: 0, after: 58, conflicts: 0, practicalPerYieldingDocument: 27, practicalPerInspectedDocument: 27 });
