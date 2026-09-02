@@ -3,9 +3,9 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-09-01
-Snapshot basis: post-Technical-Research-Factory-Execution-Planner working tree based on `67f547273972c441f4870cd425974f359eaf0427`; the containing commit is the authoritative snapshot commit because a Git commit cannot embed its own hash.
+Snapshot basis: post-Technical-Research-Factory-Execution-Agent memory repair based on `45f83a46a77e43f33612432e9ae7007980f57256`; the containing commit is the authoritative snapshot commit because a Git commit cannot embed its own hash.
 origin/main: `97484bf004c466a6f26a5e42ae07b91214e95962`
-Expected local relation after the single containing commit: ahead 11, behind 0
+Expected local relation after the single containing commit: ahead 13, behind 0
 
 ## Architecture and runtime
 
@@ -35,7 +35,7 @@ Research is quarantined under `research/` and is not imported by the production 
 - Technical Research Factory Orchestrator Foundation: `ACCEPT-WITH-RISKS`. Orchestration schema 1 adds deterministic semantic IDs, immutable append-only events, a pure replay reducer, bounded attempts, terminal transition enforcement and version/digest-verified checkpoints. Existing Honda/Yamaha exhausted, Harley mismatch and Ténéré blocked records replay without mutation; Foundation readiness remains authoritative. Durable event storage and planning/external-result ingestion remain deferred. No research evidence or production state changed.
 - Technical Research Factory Execution Planner: `ACCEPT-WITH-RISKS`. Planner schema 1 deterministically maps canonical targets, GapPlans, prospects, readiness, explicit capabilities and finite policy into existing Orchestrator batch/work contracts. Decisions preserve missing/conflict/researched-no-evidence and classify planned/deferred/rejected/blocked/not-needed with typed reasons. Existing Honda/Yamaha/VFR are deferred, Harley rejected and Ténéré blocked; the planned path uses a synthetic local fixture because no current prospect is execution-ready. Capability provenance and typed execution-result ingestion remain deferred. No external research, evidence or production state changed.
 - Technical Research Factory Execution Agent / Source Acquisition Adapter Foundation: `ACCEPT-WITH-RISKS`. Execution schema 1 defines validated acquisition requests/outcomes/artifacts/observations, synthetic local adapters for all closed outcomes, bounded retry classification, untrusted-output validation, and canonical Orchestrator event mapping with checkpoint-safe idempotency. `ACQUIRED` remains pre-evidence and `NO-EVIDENCE` remains distinct from researched-no-evidence. Real Honda/Yamaha/VFR/Harley/Ténéré work remains gated; only a synthetic local ready work item executes. No external research, evidence or production state changed.
-- Latest full suite before commit: 480 passed, 0 failed, 0 skipped, 0 todo.
+- Latest completed-wave validation: targeted tests 18/18; full suite 498/498 passed with 0 failed, 0 skipped and 0 todo; `node --check` 9/9; `git diff --check` clean; deterministic execution report regeneration byte-for-byte identical.
 - Published application version: 0.3.0.
 
 ## Independent work streams

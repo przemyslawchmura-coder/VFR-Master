@@ -2,7 +2,11 @@
 
 Historical entries reconstructed from git; newest first.
 
-## 2026-09-01 — Technical Research Factory Execution Planner (current)
+## 2026-09-01 — Technical Research Factory Execution Agent / Source Acquisition Adapter Foundation (`45f83a4`) (current)
+
+Objective: execute already-planned canonical source work through a bounded, non-production adapter boundary. Completed in commit `45f83a46a77e43f33612432e9ae7007980f57256`: execution schema 1 contracts for acquisition requests, outcomes, artifacts, observations and results; deterministic synthetic adapters for all ten closed outcomes; untrusted-output validation; and canonical Orchestrator attempt-event mapping with checkpoint-safe replay. Batch identity derives through canonical `TargetWork.batchId` because `SourceWorkItem` has no parallel batch ID, and `PERMANENT-FAILURE` immediately exhausts the work item. Validation: targeted tests 18/18, full suite 498/498 with zero failures/skips/todos, `node --check` 9/9, `git diff --check` clean, and deterministic execution-report regeneration byte-for-byte identical. No push, external research, evidence, production change, Extraction Agent work or Review Queue work occurred. Audit: `ACCEPT-WITH-RISKS`; production adapters and extraction/review remain separate future work. Next: bounded Extraction / Review Queue Foundation.
+
+## 2026-09-01 — Technical Research Factory Execution Planner
 
 Objective: translate canonical gaps and prospects into bounded work without executing research. Added planner schema 1 PlanningPolicy, SourceCapability, PlanningDecision and ExecutionPlan contracts; semantic policy IDs; explicit source-to-Service-Core field capability; deterministic safety/practical/class/tier/coverage/cost ranking; typed planned/deferred/rejected/blocked/not-needed reasons; duplicate elimination; and finite per-target/per-batch work/attempt packing. Output is existing Orchestrator ResearchBatch/TargetWork/SourceWorkItem data and replays directly. Existing Honda/Yamaha/VFR remain deferred, Harley rejected and Ténéré blocked; only a synthetic local ready fixture plans. Audit: `ACCEPT-WITH-RISKS` because capability provenance and typed execution-result ingestion remain future layers. Next: bounded Execution Agent / Source Acquisition Adapter Foundation.
 
