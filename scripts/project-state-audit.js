@@ -29,6 +29,11 @@ const git = (...args) => cp.execFileSync("git", args, { cwd: root, encoding: "ut
 const files = (dir = ".") => fs.readdirSync(path.join(root, dir), { withFileTypes: true }).flatMap(entry => entry.isDirectory() && ![".git", "node_modules"].includes(entry.name) ? files(path.join(dir, entry.name)) : [path.join(dir, entry.name)]);
 const allFiles = files();
 const countBy = predicate => allFiles.filter(predicate).length;
+// This report snapshots the completed Execution Agent wave, not the live branch tip.
+// Derive its containing commit from the wave's implementation file so later
+// memory-only commits cannot make the committed report self-referential.
+const snapshotContainingCommit = git("log", "-1", "--format=%H", "--", "research/factory/execution-agent.js");
+const snapshotBaseCommit = git("rev-parse", `${snapshotContainingCommit}^`);
 const report = catalogReport.loadCatalog();
 const profileDetails = registry.map(descriptor => {
   const profile = require(path.join(root, descriptor.moduleId));
@@ -39,11 +44,9 @@ const snapshot = {
   schemaVersion: "revlog-project-state/v1",
   snapshotDate: "2026-09-01",
   snapshotBasis: "post-technical-research-factory-execution-agent-working-tree",
-  baseCommit: git("rev-parse", "HEAD"),
-  containingCommit: "self (resolve from git history)",
-  originMain: git("rev-parse", "origin/main"),
-  aheadAfterContainingCommit: Number(git("rev-list", "--count", "origin/main..HEAD")) + 1,
-  behind: Number(git("rev-list", "--count", "HEAD..origin/main")),
+  baseCommit: snapshotBaseCommit,
+  containingCommit: snapshotContainingCommit,
+  commitsFromBaseThroughContaining: Number(git("rev-list", "--count", `${snapshotBaseCommit}..${snapshotContainingCommit}`)),
   repository: { files: allFiles.length, javascriptFiles: countBy(file => file.endsWith(".js")), testFiles: countBy(file => file.startsWith("tests/") && file.endsWith(".test.js")), documentationFiles: countBy(file => file.startsWith("docs/") && /\.(md|html|json)$/.test(file)), researchAndToolingFiles: countBy(file => file.startsWith("research/") || file.startsWith("scripts/")) },
   catalogue: { manufacturers: report.length, modelFamilies: report.reduce((sum, item) => sum + item.models.length, 0), variants: report.reduce((sum, item) => sum + item.models.reduce((s, model) => s + model.variants.length, 0), 0), variantYears: report.reduce((sum, item) => sum + item.models.reduce((s, model) => s + model.variants.reduce((n, variant) => n + variant.yearTo - variant.yearFrom + 1, 0), 0), 0), earliestYear: 1990, latestYear: 2025, manufacturersPresent: report.map(item => item.id), contentCompleteness: "incomplete", infrastructureMaturity: "mature-for-tested-scope", latestCompletedExpansion: "Triumph Wave 2" },
   technicalProfiles: { productionCount: registry.length, details: profileDetails },

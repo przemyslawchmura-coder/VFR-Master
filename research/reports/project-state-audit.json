@@ -3,10 +3,8 @@
   "snapshotDate": "2026-09-01",
   "snapshotBasis": "post-technical-research-factory-execution-agent-working-tree",
   "baseCommit": "84ac6afce0b13640adb93f89c8bfa56bbd4cbf5f",
-  "containingCommit": "self (resolve from git history)",
-  "originMain": "97484bf004c466a6f26a5e42ae07b91214e95962",
-  "aheadAfterContainingCommit": 12,
-  "behind": 0,
+  "containingCommit": "45f83a46a77e43f33612432e9ae7007980f57256",
+  "commitsFromBaseThroughContaining": 1,
   "repository": {
     "files": 262,
     "javascriptFiles": 163,

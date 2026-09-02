@@ -2,7 +2,11 @@
 
 Historical entries reconstructed from git; newest first.
 
-## 2026-09-01 — Technical Research Factory Execution Agent / Source Acquisition Adapter Foundation (`45f83a4`) (current)
+## 2026-09-02 — Project-state audit determinism repair (current)
+
+Objective: remove self-referential and moving-ref Git metadata from the generated Execution Agent project-state snapshot. The snapshot convention now derives the completed wave's containing commit from its implementation file, uses that commit's first parent as `baseCommit`, and records only the stable commit distance between them, so later memory-only commits and push/fetch operations do not alter regeneration. The canonical test verifies both the Git relationship and byte-for-byte report regeneration. No application, production, Research Factory, Extraction Agent or Review Queue behavior changed. The Execution Agent remains the latest completed Research Factory wave.
+
+## 2026-09-01 — Technical Research Factory Execution Agent / Source Acquisition Adapter Foundation (`45f83a4`)
 
 Objective: execute already-planned canonical source work through a bounded, non-production adapter boundary. Completed in commit `45f83a46a77e43f33612432e9ae7007980f57256`: execution schema 1 contracts for acquisition requests, outcomes, artifacts, observations and results; deterministic synthetic adapters for all ten closed outcomes; untrusted-output validation; and canonical Orchestrator attempt-event mapping with checkpoint-safe replay. Batch identity derives through canonical `TargetWork.batchId` because `SourceWorkItem` has no parallel batch ID, and `PERMANENT-FAILURE` immediately exhausts the work item. Validation: targeted tests 18/18, full suite 498/498 with zero failures/skips/todos, `node --check` 9/9, `git diff --check` clean, and deterministic execution-report regeneration byte-for-byte identical. No push, external research, evidence, production change, Extraction Agent work or Review Queue work occurred. Audit: `ACCEPT-WITH-RISKS`; production adapters and extraction/review remain separate future work. Next: bounded Extraction / Review Queue Foundation.
 

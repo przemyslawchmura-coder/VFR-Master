@@ -3,15 +3,21 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
+const cp = require("node:child_process");
 const snapshot = require("../research/reports/project-state-audit.json");
 
 const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
+const git = (...args) => cp.execFileSync("git", args, { cwd: path.join(__dirname, ".."), encoding: "utf8" }).trim();
 
 test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-execution-agent-working-tree");
-  assert.match(snapshot.baseCommit, /^[0-9a-f]{40}$/);
-  assert.equal(snapshot.aheadAfterContainingCommit, 12);
-  assert.match(snapshot.originMain, /^[0-9a-f]{40}$/);
+  const containingCommit = git("log", "-1", "--format=%H", "--", "research/factory/execution-agent.js");
+  assert.equal(snapshot.containingCommit, containingCommit);
+  assert.equal(snapshot.baseCommit, git("rev-parse", `${containingCommit}^`));
+  assert.equal(snapshot.commitsFromBaseThroughContaining, Number(git("rev-list", "--count", `${snapshot.baseCommit}..${containingCommit}`)));
+  assert.equal(Object.prototype.hasOwnProperty.call(snapshot, "aheadAfterContainingCommit"), false);
+  assert.equal(Object.prototype.hasOwnProperty.call(snapshot, "originMain"), false);
+  assert.equal(Object.prototype.hasOwnProperty.call(snapshot, "behind"), false);
   assert.equal(snapshot.catalogue.manufacturers, 13);
   assert.equal(snapshot.catalogue.variants, 1095);
   assert.equal(snapshot.catalogue.contentCompleteness, "incomplete");
@@ -125,6 +131,11 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.executionAgent.researchedNoEvidenceAdded, false);
   assert.equal(snapshot.executionAgent.productionChanged, false);
   assert.equal(snapshot.executionAgent.tenereAuthenticationExecuted, false);
+});
+
+test("project-state report regenerates byte-for-byte from its semantic snapshot convention", () => {
+  const generated = cp.execFileSync(process.execPath, [path.join(__dirname, "../scripts/project-state-audit.js")]);
+  assert.deepEqual(generated, fs.readFileSync(path.join(__dirname, "../research/reports/project-state-audit.json")));
 });
 
 test("project memory has one active roadmap phase and unique ADRs", () => {

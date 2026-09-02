@@ -38,3 +38,7 @@ Every meaningful task must complete a **PROJECT MEMORY UPDATE** before commit:
 - run `node scripts/project-state-audit.js --write`, consistency tests, syntax checks, and `git diff --check`.
 
 Optional manual exports belong in `chat-archive/YYYY-MM-DD-topic.*` (`.md`, `.txt`, `.json`, or `.html`). Reconcile useful claims with code, tests, and git before promoting them into authoritative memory.
+
+## Generated snapshot convention
+
+`research/reports/project-state-audit.json` is scoped to the completed implementation wave named by `snapshotBasis`, not to the moving branch tip. Its containing commit is derived from that wave's implementation file, `baseCommit` is the containing commit's first parent, and `commitsFromBaseThroughContaining` measures their stable Git distance. Moving branch and remote refs are intentionally excluded. This keeps post-commit regeneration byte-identical after later memory-only commits and after a push/fetch.
