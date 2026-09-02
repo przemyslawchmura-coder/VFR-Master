@@ -23,17 +23,21 @@ const factoryFoundation = require("../research/data/technical-research-factory-f
 const orchestratorFoundation = require("../research/data/technical-research-factory-orchestrator-foundation.js").buildReport();
 const executionPlanner = require("../research/data/technical-research-factory-execution-planner.js").buildReport();
 const executionAgent = require("../research/data/technical-research-factory-execution-agent.js").buildReport();
+const extractionAgent = require("../research/data/technical-research-factory-extraction-agent.js").buildReport();
 
 const root = path.join(__dirname, "..");
 const git = (...args) => cp.execFileSync("git", args, { cwd: root, encoding: "utf8" }).trim();
 const files = (dir = ".") => fs.readdirSync(path.join(root, dir), { withFileTypes: true }).flatMap(entry => entry.isDirectory() && ![".git", "node_modules"].includes(entry.name) ? files(path.join(dir, entry.name)) : [path.join(dir, entry.name)]);
 const allFiles = files();
 const countBy = predicate => allFiles.filter(predicate).length;
-// This report snapshots the completed Execution Agent wave, not the live branch tip.
-// Derive its containing commit from the wave's implementation file so later
-// memory-only commits cannot make the committed report self-referential.
-const snapshotContainingCommit = git("log", "-1", "--format=%H", "--", "research/factory/execution-agent.js");
-const snapshotBaseCommit = git("rev-parse", `${snapshotContainingCommit}^`);
+// A commit cannot embed its own SHA. Anchor the snapshot to the wave's implementation
+// path and persist only its stable first-parent base. Before the new path is committed,
+// HEAD is that base; after commit, the path's containing commit has the same parent.
+const snapshotImplementationPath = "research/factory/extraction-agent.js";
+const snapshotContainingCommit = git("log", "-1", "--format=%H", "--", snapshotImplementationPath);
+const snapshotBaseCommit = snapshotContainingCommit
+  ? git("rev-parse", `${snapshotContainingCommit}^`)
+  : git("rev-parse", "HEAD");
 const report = catalogReport.loadCatalog();
 const profileDetails = registry.map(descriptor => {
   const profile = require(path.join(root, descriptor.moduleId));
@@ -42,11 +46,11 @@ const profileDetails = registry.map(descriptor => {
 const perManufacturer = report.find(item => item.id === "honda") ? report : [];
 const snapshot = {
   schemaVersion: "revlog-project-state/v1",
-  snapshotDate: "2026-09-01",
-  snapshotBasis: "post-technical-research-factory-execution-agent-working-tree",
+  snapshotDate: "2026-09-02",
+  snapshotBasis: "post-technical-research-factory-extraction-agent-working-tree",
+  snapshotImplementationPath,
   baseCommit: snapshotBaseCommit,
-  containingCommit: snapshotContainingCommit,
-  commitsFromBaseThroughContaining: Number(git("rev-list", "--count", `${snapshotBaseCommit}..${snapshotContainingCommit}`)),
+  commitsFromBaseThroughContaining: 1,
   repository: { files: allFiles.length, javascriptFiles: countBy(file => file.endsWith(".js")), testFiles: countBy(file => file.startsWith("tests/") && file.endsWith(".test.js")), documentationFiles: countBy(file => file.startsWith("docs/") && /\.(md|html|json)$/.test(file)), researchAndToolingFiles: countBy(file => file.startsWith("research/") || file.startsWith("scripts/")) },
   catalogue: { manufacturers: report.length, modelFamilies: report.reduce((sum, item) => sum + item.models.length, 0), variants: report.reduce((sum, item) => sum + item.models.reduce((s, model) => s + model.variants.length, 0), 0), variantYears: report.reduce((sum, item) => sum + item.models.reduce((s, model) => s + model.variants.reduce((n, variant) => n + variant.yearTo - variant.yearFrom + 1, 0), 0), 0), earliestYear: 1990, latestYear: 2025, manufacturersPresent: report.map(item => item.id), contentCompleteness: "incomplete", infrastructureMaturity: "mature-for-tested-scope", latestCompletedExpansion: "Triumph Wave 2" },
   technicalProfiles: { productionCount: registry.length, details: profileDetails },
@@ -56,7 +60,8 @@ const snapshot = {
   orchestratorFoundation: { schemaVersion: orchestratorFoundation.orchestratorSchemaVersion, foundationContractVersion: orchestratorFoundation.foundationContractVersion, classification: orchestratorFoundation.audit.classification, contracts: orchestratorFoundation.contracts, eventTypes: orchestratorFoundation.eventTypes, fixtures: orchestratorFoundation.fixtures.map(item => ({ name: item.name, readiness: item.readiness, workState: item.workState, replayVerified: item.replayVerified })), guarantees: orchestratorFoundation.guarantees, serviceCoreFieldCount: orchestratorFoundation.serviceCoreFieldCount, exactNextTasks: orchestratorFoundation.exactNextTasks, evidenceAdded: orchestratorFoundation.evidenceAdded, coverageChanged: orchestratorFoundation.coverageChanged, productionChanged: orchestratorFoundation.productionChanged, tenereAuthenticationExecuted: orchestratorFoundation.tenereAuthenticationExecuted },
   executionPlanner: { schemaVersion: executionPlanner.plannerSchemaVersion, foundationContractVersion: executionPlanner.foundationContractVersion, orchestratorSchemaVersion: executionPlanner.orchestratorSchemaVersion, classification: executionPlanner.audit.classification, policyId: executionPlanner.policy.id, summary: executionPlanner.summary, fixtureResults: executionPlanner.fixtureResults, serviceCoreFieldCount: executionPlanner.serviceCoreFieldCount, exactNextTasks: executionPlanner.exactNextTasks, evidenceAdded: executionPlanner.evidenceAdded, coverageChanged: executionPlanner.coverageChanged, productionChanged: executionPlanner.productionChanged, tenereAuthenticationExecuted: executionPlanner.tenereAuthenticationExecuted },
   executionAgent: { schemaVersion: executionAgent.executionSchemaVersion, orchestratorSchemaVersion: executionAgent.orchestratorSchemaVersion, adapterSchemaVersion: executionAgent.adapterSchemaVersion, classification: executionAgent.audit.classification, adapters: executionAgent.syntheticAdapters, outcomes: executionAgent.outcomes, fixtureResults: executionAgent.fixtureResults, serviceCoreFieldCount: executionAgent.serviceCoreFieldCount, evidenceAdded: executionAgent.evidenceAdded, researchedNoEvidenceAdded: executionAgent.researchedNoEvidenceAdded, productionChanged: executionAgent.productionChanged, tenereAuthenticationExecuted: executionAgent.authentication.tenereAuthenticationExecuted },
-  tests: { fullSuiteCommand: "node --test tests/*.test.js", lastKnownTotal: 498, lastKnownPassed: 498, failed: 0, skipped: 0, todo: 0 },
+  extractionAgent: { schemaVersion: extractionAgent.extractionSchemaVersion, executionSchemaVersion: extractionAgent.executionSchemaVersion, classification: extractionAgent.audit.classification, adapters: extractionAgent.syntheticAdapters, dispositions: extractionAgent.dispositions, examples: extractionAgent.examples, successfulCandidateFields: extractionAgent.successfulCandidateFields, provenance: extractionAgent.provenance, safety: extractionAgent.safety },
+  tests: { fullSuiteCommand: "node --test tests/*.test.js", lastKnownTotal: 522, lastKnownPassed: 522, failed: 0, skipped: 0, todo: 0 },
   productionBoundary: { researchImportedByIndex: false, runtimeEntry: "index.html", productionProfileCount: registry.length, batchPipelineNonProduction: true },
   release: { currentVersion: require("../js/app-release.js").currentVersion, latestRelease: require("../js/app-release.js").releases[0].version }
 };

@@ -19,5 +19,8 @@ const priority = require("./priority.js");
 const executionContracts = require("./execution-contracts.js");
 const acquisitionAdapters = require("./source-acquisition-adapters.js");
 const executionAgent = require("./execution-agent.js");
+const extractionContracts = require("./extraction-contracts.js");
+const extractionAdapters = require("./extraction-adapters.js");
+const extractionAgent = require("./extraction-agent.js");
 
-module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...executionContracts, ...applicability, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, ...executionAgent, adapters, acquisitionAdapters, ids, events, orchestrationJson, plannerPriority: priority });
+module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...executionContracts, ...extractionContracts, ...applicability, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, ...executionAgent, ...extractionAgent, adapters, acquisitionAdapters, extractionAdapters, ids, events, orchestrationJson, plannerPriority: priority });

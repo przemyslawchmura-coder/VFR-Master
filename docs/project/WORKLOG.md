@@ -2,7 +2,11 @@
 
 Historical entries reconstructed from git; newest first.
 
-## 2026-09-02 — Project-state audit determinism repair (current)
+## 2026-09-02 — Technical Research Factory Extraction Agent / Local Extractor Adapter Foundation (current)
+
+Objective: create the first safe boundary from an acquired artifact to machine-produced raw technical candidates. Added versioned content-envelope, extractor-declaration, raw-candidate, observation and result contracts; deterministic local/synthetic adapters; content digest/length/media binding; canonical ownership resolution; immutable raw value/unit/location/applicability preservation; deterministic candidate IDs/order; and checkpoint-replay equality. Extraction neither changes acquisition state nor produces evidence/review decisions. Validation: targeted Extraction Agent tests 23/23, related Factory tests 87/87, full suite 522/522 with zero failures/skips/todos, changed JavaScript syntax checks, clean diff check, and byte-identical Extraction Agent/project-state report regeneration. Audit: `ACCEPT-WITH-RISKS`; only synthetic UTF-8 content is supported, persistence/normalization/review are deferred, and Review Queue remains NOT STARTED. Next: separate bounded Review Queue Foundation.
+
+## 2026-09-02 — Project-state audit determinism repair
 
 Objective: remove self-referential and moving-ref Git metadata from the generated Execution Agent project-state snapshot. The snapshot convention now derives the completed wave's containing commit from its implementation file, uses that commit's first parent as `baseCommit`, and records only the stable commit distance between them, so later memory-only commits and push/fetch operations do not alter regeneration. The canonical test verifies both the Git relationship and byte-for-byte report regeneration. No application, production, Research Factory, Extraction Agent or Review Queue behavior changed. The Execution Agent remains the latest completed Research Factory wave.
 

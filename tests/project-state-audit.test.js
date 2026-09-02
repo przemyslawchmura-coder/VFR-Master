@@ -10,11 +10,13 @@ const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 const git = (...args) => cp.execFileSync("git", args, { cwd: path.join(__dirname, ".."), encoding: "utf8" }).trim();
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-execution-agent-working-tree");
-  const containingCommit = git("log", "-1", "--format=%H", "--", "research/factory/execution-agent.js");
-  assert.equal(snapshot.containingCommit, containingCommit);
-  assert.equal(snapshot.baseCommit, git("rev-parse", `${containingCommit}^`));
-  assert.equal(snapshot.commitsFromBaseThroughContaining, Number(git("rev-list", "--count", `${snapshot.baseCommit}..${containingCommit}`)));
+  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-extraction-agent-working-tree");
+  assert.equal(snapshot.snapshotImplementationPath, "research/factory/extraction-agent.js");
+  const containingCommit = git("log", "-1", "--format=%H", "--", snapshot.snapshotImplementationPath);
+  const expectedBase = containingCommit ? git("rev-parse", `${containingCommit}^`) : git("rev-parse", "HEAD");
+  assert.equal(snapshot.baseCommit, expectedBase);
+  assert.equal(snapshot.commitsFromBaseThroughContaining, 1);
+  assert.equal(Object.prototype.hasOwnProperty.call(snapshot, "containingCommit"), false);
   assert.equal(Object.prototype.hasOwnProperty.call(snapshot, "aheadAfterContainingCommit"), false);
   assert.equal(Object.prototype.hasOwnProperty.call(snapshot, "originMain"), false);
   assert.equal(Object.prototype.hasOwnProperty.call(snapshot, "behind"), false);
@@ -131,6 +133,17 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.executionAgent.researchedNoEvidenceAdded, false);
   assert.equal(snapshot.executionAgent.productionChanged, false);
   assert.equal(snapshot.executionAgent.tenereAuthenticationExecuted, false);
+  assert.equal(snapshot.extractionAgent.schemaVersion, 1);
+  assert.equal(snapshot.extractionAgent.executionSchemaVersion, 1);
+  assert.equal(snapshot.extractionAgent.classification, "ACCEPT-WITH-RISKS");
+  assert.equal(snapshot.extractionAgent.adapters.length, 7);
+  assert.equal(snapshot.extractionAgent.dispositions.length, 8);
+  assert.equal(snapshot.extractionAgent.examples.candidates, "CANDIDATES-PRODUCED");
+  assert.equal(snapshot.extractionAgent.provenance.batchViaTargetWork, true);
+  assert.equal(snapshot.extractionAgent.provenance.sourceWorkHasNoBatchId, true);
+  assert.equal(snapshot.extractionAgent.safety.rawOnly, true);
+  assert.equal(snapshot.extractionAgent.safety.reviewQueueStarted, false);
+  assert.equal(snapshot.extractionAgent.safety.productionChanged, false);
 });
 
 test("project-state report regenerates byte-for-byte from its semantic snapshot convention", () => {
@@ -146,7 +159,7 @@ test("project memory has one active roadmap phase and unique ADRs", () => {
   assert.equal(new Set(ids).size, ids.length);
   const state = read("docs/project/CURRENT_STATE.md");
   assert.equal((state.match(/\*\*NEXT\*\*/g) || []).length, 1);
-  assert.match(state, /Technical Research Factory Execution Agent/);
+  assert.match(state, /Technical Research Factory Extraction Agent/);
 });
 
 test("project memory records production/research isolation", () => {

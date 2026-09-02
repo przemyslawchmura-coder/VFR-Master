@@ -1,16 +1,16 @@
 {
   "schemaVersion": "revlog-project-state/v1",
-  "snapshotDate": "2026-09-01",
-  "snapshotBasis": "post-technical-research-factory-execution-agent-working-tree",
-  "baseCommit": "84ac6afce0b13640adb93f89c8bfa56bbd4cbf5f",
-  "containingCommit": "45f83a46a77e43f33612432e9ae7007980f57256",
+  "snapshotDate": "2026-09-02",
+  "snapshotBasis": "post-technical-research-factory-extraction-agent-working-tree",
+  "snapshotImplementationPath": "research/factory/extraction-agent.js",
+  "baseCommit": "caf8e8cd43d64eeea53d695cb9218b8a0dca6f68",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 262,
-    "javascriptFiles": 163,
-    "testFiles": 56,
-    "documentationFiles": 62,
-    "researchAndToolingFiles": 101
+    "files": 271,
+    "javascriptFiles": 169,
+    "testFiles": 57,
+    "documentationFiles": 64,
+    "researchAndToolingFiles": 107
   },
   "catalogue": {
     "manufacturers": 13,
@@ -1020,10 +1020,64 @@
     "productionChanged": false,
     "tenereAuthenticationExecuted": false
   },
+  "extractionAgent": {
+    "schemaVersion": 1,
+    "executionSchemaVersion": 1,
+    "classification": "ACCEPT-WITH-RISKS",
+    "adapters": [
+      "candidates",
+      "malformed",
+      "none",
+      "parseFailure",
+      "permanent",
+      "unmapped",
+      "unsupportedMedia"
+    ],
+    "dispositions": [
+      "CANDIDATES-PRODUCED",
+      "NO-CANDIDATES",
+      "UNSUPPORTED-MEDIA",
+      "CONTENT-DIGEST-MISMATCH",
+      "PROVENANCE-INCOMPLETE",
+      "FIELD-UNMAPPED",
+      "PARSE-FAILURE",
+      "PERMANENT-EXTRACTION-FAILURE"
+    ],
+    "examples": {
+      "candidates": "CANDIDATES-PRODUCED",
+      "none": "NO-CANDIDATES",
+      "unsupportedMedia": "UNSUPPORTED-MEDIA",
+      "unmapped": "FIELD-UNMAPPED",
+      "parseFailure": "PARSE-FAILURE",
+      "permanent": "PERMANENT-EXTRACTION-FAILURE"
+    },
+    "successfulCandidateFields": [
+      "lubrication.oil-specification",
+      "lubrication.capacity-filter"
+    ],
+    "provenance": {
+      "batchViaTargetWork": true,
+      "targetViaTargetWork": true,
+      "sourceWorkHasNoBatchId": true,
+      "artifactBound": true,
+      "attemptBound": true,
+      "prospectBound": true
+    },
+    "safety": {
+      "rawOnly": true,
+      "acquisitionEventsAdded": 0,
+      "acquisitionAttemptsConsumed": 0,
+      "reviewQueueStarted": false,
+      "evidenceAdded": false,
+      "researchedNoEvidenceAdded": false,
+      "productionChanged": false,
+      "networkUsed": false
+    }
+  },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 498,
-    "lastKnownPassed": 498,
+    "lastKnownTotal": 522,
+    "lastKnownPassed": 522,
     "failed": 0,
     "skipped": 0,
     "todo": 0

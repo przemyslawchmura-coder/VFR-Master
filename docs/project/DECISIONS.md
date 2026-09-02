@@ -120,3 +120,11 @@ Decision: the execution boundary accepts one bounded SourceWorkItem attempt thro
 Rationale: acquisition, extraction and review have different trust levels. Keeping the boundary typed and immutable prevents adapter output from forging state, bypassing readiness/budgets, leaking secrets or changing production coverage.
 Consequences: future adapters require separate security/provenance review; extraction/review queues remain a later bounded wave. Synthetic/local fixtures are the only executable adapters in this foundation.
 Status: ACTIVE. Related design: Technical Research Factory Execution Agent / Source Acquisition Adapter Foundation.
+
+## ADR-017 — Raw extraction is content-bound and remains pre-review
+
+Date: 2026-09-02
+Decision: extraction accepts only a canonical successful `ACQUIRED` result plus a matching local content envelope, verifies artifact identity/media/byte length/SHA-256 before adapter invocation, and produces immutable raw candidates with canonical Factory provenance. Raw values, units, locations and explicitly supplied applicability/context are preserved without normalization or inference. Extraction emits no acquisition events and creates neither evidence nor review decisions.
+Rationale: acquisition metadata is not document content, and extractor output is untrusted. A content-integrity and provenance boundary prevents parsing the wrong bytes, forged ownership, hidden retry/state changes, premature normalization and accidental production coupling.
+Consequences: only deterministic local/synthetic UTF-8 adapters exist in this foundation; PDF/OCR/browser/network parsing, durable extraction persistence, evidence conversion and Review Queue lifecycle require later bounded work.
+Status: ACTIVE. Related design: Technical Research Factory Extraction Agent / Local Extractor Adapter Foundation.

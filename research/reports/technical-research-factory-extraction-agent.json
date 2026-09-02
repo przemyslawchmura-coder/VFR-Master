@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "revlog-technical-research-factory-extraction-agent/v1",
+  "extractionSchemaVersion": 1,
+  "executionSchemaVersion": 1,
+  "operation": "extract-raw-candidates",
+  "dispositions": [
+    "CANDIDATES-PRODUCED",
+    "NO-CANDIDATES",
+    "UNSUPPORTED-MEDIA",
+    "CONTENT-DIGEST-MISMATCH",
+    "PROVENANCE-INCOMPLETE",
+    "FIELD-UNMAPPED",
+    "PARSE-FAILURE",
+    "PERMANENT-EXTRACTION-FAILURE"
+  ],
+  "syntheticAdapters": [
+    "candidates",
+    "malformed",
+    "none",
+    "parseFailure",
+    "permanent",
+    "unmapped",
+    "unsupportedMedia"
+  ],
+  "examples": {
+    "candidates": "CANDIDATES-PRODUCED",
+    "none": "NO-CANDIDATES",
+    "unsupportedMedia": "UNSUPPORTED-MEDIA",
+    "unmapped": "FIELD-UNMAPPED",
+    "parseFailure": "PARSE-FAILURE",
+    "permanent": "PERMANENT-EXTRACTION-FAILURE"
+  },
+  "successfulCandidateFields": [
+    "lubrication.oil-specification",
+    "lubrication.capacity-filter"
+  ],
+  "provenance": {
+    "batchViaTargetWork": true,
+    "targetViaTargetWork": true,
+    "sourceWorkHasNoBatchId": true,
+    "artifactBound": true,
+    "attemptBound": true,
+    "prospectBound": true
+  },
+  "safety": {
+    "rawOnly": true,
+    "acquisitionEventsAdded": 0,
+    "acquisitionAttemptsConsumed": 0,
+    "reviewQueueStarted": false,
+    "evidenceAdded": false,
+    "researchedNoEvidenceAdded": false,
+    "productionChanged": false,
+    "networkUsed": false
+  },
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "risks": [
+      "only deterministic utf8 local content is materialized",
+      "normalization and review remain separate future layers",
+      "extraction output persistence remains caller-owned"
+    ]
+  }
+}
