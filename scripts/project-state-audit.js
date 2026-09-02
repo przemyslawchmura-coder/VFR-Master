@@ -24,6 +24,7 @@ const orchestratorFoundation = require("../research/data/technical-research-fact
 const executionPlanner = require("../research/data/technical-research-factory-execution-planner.js").buildReport();
 const executionAgent = require("../research/data/technical-research-factory-execution-agent.js").buildReport();
 const extractionAgent = require("../research/data/technical-research-factory-extraction-agent.js").buildReport();
+const reviewQueue = require("../research/data/technical-research-factory-review-queue.js").buildReport();
 
 const root = path.join(__dirname, "..");
 const git = (...args) => cp.execFileSync("git", args, { cwd: root, encoding: "utf8" }).trim();
@@ -33,7 +34,7 @@ const countBy = predicate => allFiles.filter(predicate).length;
 // A commit cannot embed its own SHA. Anchor the snapshot to the wave's implementation
 // path and persist only its stable first-parent base. Before the new path is committed,
 // HEAD is that base; after commit, the path's containing commit has the same parent.
-const snapshotImplementationPath = "research/factory/extraction-agent.js";
+const snapshotImplementationPath = "research/factory/review-queue.js";
 const snapshotContainingCommit = git("log", "-1", "--format=%H", "--", snapshotImplementationPath);
 const snapshotBaseCommit = snapshotContainingCommit
   ? git("rev-parse", `${snapshotContainingCommit}^`)
@@ -47,7 +48,7 @@ const perManufacturer = report.find(item => item.id === "honda") ? report : [];
 const snapshot = {
   schemaVersion: "revlog-project-state/v1",
   snapshotDate: "2026-09-02",
-  snapshotBasis: "post-technical-research-factory-extraction-agent-working-tree",
+  snapshotBasis: "post-technical-research-factory-review-queue-working-tree",
   snapshotImplementationPath,
   baseCommit: snapshotBaseCommit,
   commitsFromBaseThroughContaining: 1,
@@ -61,7 +62,8 @@ const snapshot = {
   executionPlanner: { schemaVersion: executionPlanner.plannerSchemaVersion, foundationContractVersion: executionPlanner.foundationContractVersion, orchestratorSchemaVersion: executionPlanner.orchestratorSchemaVersion, classification: executionPlanner.audit.classification, policyId: executionPlanner.policy.id, summary: executionPlanner.summary, fixtureResults: executionPlanner.fixtureResults, serviceCoreFieldCount: executionPlanner.serviceCoreFieldCount, exactNextTasks: executionPlanner.exactNextTasks, evidenceAdded: executionPlanner.evidenceAdded, coverageChanged: executionPlanner.coverageChanged, productionChanged: executionPlanner.productionChanged, tenereAuthenticationExecuted: executionPlanner.tenereAuthenticationExecuted },
   executionAgent: { schemaVersion: executionAgent.executionSchemaVersion, orchestratorSchemaVersion: executionAgent.orchestratorSchemaVersion, adapterSchemaVersion: executionAgent.adapterSchemaVersion, classification: executionAgent.audit.classification, adapters: executionAgent.syntheticAdapters, outcomes: executionAgent.outcomes, fixtureResults: executionAgent.fixtureResults, serviceCoreFieldCount: executionAgent.serviceCoreFieldCount, evidenceAdded: executionAgent.evidenceAdded, researchedNoEvidenceAdded: executionAgent.researchedNoEvidenceAdded, productionChanged: executionAgent.productionChanged, tenereAuthenticationExecuted: executionAgent.authentication.tenereAuthenticationExecuted },
   extractionAgent: { schemaVersion: extractionAgent.extractionSchemaVersion, executionSchemaVersion: extractionAgent.executionSchemaVersion, classification: extractionAgent.audit.classification, adapters: extractionAgent.syntheticAdapters, dispositions: extractionAgent.dispositions, examples: extractionAgent.examples, successfulCandidateFields: extractionAgent.successfulCandidateFields, provenance: extractionAgent.provenance, safety: extractionAgent.safety },
-  tests: { fullSuiteCommand: "node --test tests/*.test.js", lastKnownTotal: 522, lastKnownPassed: 522, failed: 0, skipped: 0, todo: 0 },
+  reviewQueue: { schemaVersion: reviewQueue.reviewQueueSchemaVersion, extractionSchemaVersion: reviewQueue.extractionSchemaVersion, classification: reviewQueue.audit.classification, queueStates: reviewQueue.queueStates, eligibilityStates: reviewQueue.eligibilityStates, entryCount: reviewQueue.entryCount, exactDuplicateCollapsed: reviewQueue.exactDuplicateCollapsed, ineligible: reviewQueue.ineligible, provenance: reviewQueue.provenance, rawPreservation: reviewQueue.rawPreservation, safety: reviewQueue.safety },
+  tests: { fullSuiteCommand: "node --test tests/*.test.js", lastKnownTotal: 545, lastKnownPassed: 545, failed: 0, skipped: 0, todo: 0 },
   productionBoundary: { researchImportedByIndex: false, runtimeEntry: "index.html", productionProfileCount: registry.length, batchPipelineNonProduction: true },
   release: { currentVersion: require("../js/app-release.js").currentVersion, latestRelease: require("../js/app-release.js").releases[0].version }
 };

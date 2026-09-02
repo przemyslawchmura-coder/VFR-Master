@@ -10,8 +10,8 @@ const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 const git = (...args) => cp.execFileSync("git", args, { cwd: path.join(__dirname, ".."), encoding: "utf8" }).trim();
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-extraction-agent-working-tree");
-  assert.equal(snapshot.snapshotImplementationPath, "research/factory/extraction-agent.js");
+  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-review-queue-working-tree");
+  assert.equal(snapshot.snapshotImplementationPath, "research/factory/review-queue.js");
   const containingCommit = git("log", "-1", "--format=%H", "--", snapshot.snapshotImplementationPath);
   const expectedBase = containingCommit ? git("rev-parse", `${containingCommit}^`) : git("rev-parse", "HEAD");
   assert.equal(snapshot.baseCommit, expectedBase);
@@ -144,6 +144,21 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.extractionAgent.safety.rawOnly, true);
   assert.equal(snapshot.extractionAgent.safety.reviewQueueStarted, false);
   assert.equal(snapshot.extractionAgent.safety.productionChanged, false);
+  assert.equal(snapshot.reviewQueue.schemaVersion, 1);
+  assert.equal(snapshot.reviewQueue.extractionSchemaVersion, 1);
+  assert.equal(snapshot.reviewQueue.classification, "ACCEPT-WITH-RISKS");
+  assert.deepEqual(snapshot.reviewQueue.queueStates, ["QUEUED"]);
+  assert.deepEqual(snapshot.reviewQueue.eligibilityStates, ["ELIGIBLE", "NOT-ELIGIBLE"]);
+  assert.equal(snapshot.reviewQueue.entryCount, 2);
+  assert.equal(snapshot.reviewQueue.exactDuplicateCollapsed, true);
+  assert.equal(snapshot.reviewQueue.provenance.resultBound, true);
+  assert.equal(snapshot.reviewQueue.provenance.candidateBound, true);
+  assert.equal(snapshot.reviewQueue.rawPreservation.normalized, false);
+  assert.equal(snapshot.reviewQueue.safety.humanDecisionsImplemented, false);
+  assert.equal(snapshot.reviewQueue.safety.researchedNoEvidenceAdded, false);
+  assert.equal(snapshot.reviewQueue.safety.persistenceImplemented, false);
+  assert.equal(snapshot.reviewQueue.safety.orchestratorEventsAdded, 0);
+  assert.equal(snapshot.reviewQueue.safety.productionChanged, false);
 });
 
 test("project-state report regenerates byte-for-byte from its semantic snapshot convention", () => {
@@ -159,7 +174,7 @@ test("project memory has one active roadmap phase and unique ADRs", () => {
   assert.equal(new Set(ids).size, ids.length);
   const state = read("docs/project/CURRENT_STATE.md");
   assert.equal((state.match(/\*\*NEXT\*\*/g) || []).length, 1);
-  assert.match(state, /Technical Research Factory Extraction Agent/);
+  assert.match(state, /Technical Research Factory Review Queue Foundation/);
 });
 
 test("project memory records production/research isolation", () => {

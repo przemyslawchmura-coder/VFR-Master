@@ -1,16 +1,16 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-02",
-  "snapshotBasis": "post-technical-research-factory-extraction-agent-working-tree",
-  "snapshotImplementationPath": "research/factory/extraction-agent.js",
-  "baseCommit": "caf8e8cd43d64eeea53d695cb9218b8a0dca6f68",
+  "snapshotBasis": "post-technical-research-factory-review-queue-working-tree",
+  "snapshotImplementationPath": "research/factory/review-queue.js",
+  "baseCommit": "27639a80eaefa7fe3e6fcf026d0c92cb910b2128",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 271,
-    "javascriptFiles": 169,
-    "testFiles": 57,
-    "documentationFiles": 64,
-    "researchAndToolingFiles": 107
+    "files": 279,
+    "javascriptFiles": 174,
+    "testFiles": 58,
+    "documentationFiles": 66,
+    "researchAndToolingFiles": 112
   },
   "catalogue": {
     "manufacturers": 13,
@@ -1074,10 +1074,78 @@
       "networkUsed": false
     }
   },
+  "reviewQueue": {
+    "schemaVersion": 1,
+    "extractionSchemaVersion": 1,
+    "classification": "ACCEPT-WITH-RISKS",
+    "queueStates": [
+      "QUEUED"
+    ],
+    "eligibilityStates": [
+      "ELIGIBLE",
+      "NOT-ELIGIBLE"
+    ],
+    "entryCount": 2,
+    "exactDuplicateCollapsed": true,
+    "ineligible": [
+      {
+        "disposition": "FIELD-UNMAPPED",
+        "reasonCode": "FIELD-UNMAPPED"
+      },
+      {
+        "disposition": "PARSE-FAILURE",
+        "reasonCode": "EXTRACTION-PARSE-FAILED"
+      },
+      {
+        "disposition": "CONTENT-DIGEST-MISMATCH",
+        "reasonCode": "CONTENT-INTEGRITY-FAILED"
+      },
+      {
+        "disposition": "NO-CANDIDATES",
+        "reasonCode": "ZERO-CANDIDATES"
+      },
+      {
+        "disposition": "PERMANENT-EXTRACTION-FAILURE",
+        "reasonCode": "EXTRACTION-PERMANENTLY-FAILED"
+      },
+      {
+        "disposition": "PROVENANCE-INCOMPLETE",
+        "reasonCode": "EXTRACTION-PROVENANCE-INCOMPLETE"
+      },
+      {
+        "disposition": "UNSUPPORTED-MEDIA",
+        "reasonCode": "UNSUPPORTED-EXTRACTION"
+      }
+    ],
+    "provenance": {
+      "resultBound": true,
+      "candidateBound": true,
+      "acquisitionBound": true,
+      "targetBound": true
+    },
+    "rawPreservation": {
+      "values": true,
+      "units": true,
+      "locations": true,
+      "applicabilityAndContext": true,
+      "normalized": false
+    },
+    "safety": {
+      "humanDecisionsImplemented": false,
+      "evidenceAdded": false,
+      "researchedNoEvidenceAdded": false,
+      "conflictResolutionImplemented": false,
+      "persistenceImplemented": false,
+      "orchestratorEventsAdded": 0,
+      "acquisitionAttemptsConsumed": 0,
+      "productionChanged": false,
+      "networkUsed": false
+    }
+  },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 522,
-    "lastKnownPassed": 522,
+    "lastKnownTotal": 545,
+    "lastKnownPassed": 545,
     "failed": 0,
     "skipped": 0,
     "todo": 0

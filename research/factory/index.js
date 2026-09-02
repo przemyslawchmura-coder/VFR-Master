@@ -22,5 +22,7 @@ const executionAgent = require("./execution-agent.js");
 const extractionContracts = require("./extraction-contracts.js");
 const extractionAdapters = require("./extraction-adapters.js");
 const extractionAgent = require("./extraction-agent.js");
+const reviewQueueContracts = require("./review-queue-contracts.js");
+const reviewQueue = require("./review-queue.js");
 
-module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...executionContracts, ...extractionContracts, ...applicability, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, ...executionAgent, ...extractionAgent, adapters, acquisitionAdapters, extractionAdapters, ids, events, orchestrationJson, plannerPriority: priority });
+module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...executionContracts, ...extractionContracts, ...reviewQueueContracts, ...applicability, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, ...executionAgent, ...extractionAgent, ...reviewQueue, adapters, acquisitionAdapters, extractionAdapters, ids, events, orchestrationJson, plannerPriority: priority });

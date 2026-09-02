@@ -3,8 +3,8 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-09-02
-Snapshot basis: post-Technical-Research-Factory-Extraction-Agent working tree, anchored semantically by `research/factory/extraction-agent.js` to first-parent base `caf8e8cd43d64eeea53d695cb9218b8a0dca6f68`.
-origin/main at task start: `caf8e8cd43d64eeea53d695cb9218b8a0dca6f68`
+Snapshot basis: post-Technical-Research-Factory-Review-Queue working tree, anchored semantically by `research/factory/review-queue.js` to first-parent base `27639a80eaefa7fe3e6fcf026d0c92cb910b2128`.
+origin/main at task start: `27639a80eaefa7fe3e6fcf026d0c92cb910b2128`
 Expected local relation after the single containing commit: ahead 1, behind 0
 
 ## Architecture and runtime
@@ -36,7 +36,8 @@ Research is quarantined under `research/` and is not imported by the production 
 - Technical Research Factory Execution Planner: `ACCEPT-WITH-RISKS`. Planner schema 1 deterministically maps canonical targets, GapPlans, prospects, readiness, explicit capabilities and finite policy into existing Orchestrator batch/work contracts. Decisions preserve missing/conflict/researched-no-evidence and classify planned/deferred/rejected/blocked/not-needed with typed reasons. Existing Honda/Yamaha/VFR are deferred, Harley rejected and Ténéré blocked; the planned path uses a synthetic local fixture because no current prospect is execution-ready. Capability provenance and typed execution-result ingestion remain deferred. No external research, evidence or production state changed.
 - Technical Research Factory Execution Agent / Source Acquisition Adapter Foundation: `ACCEPT-WITH-RISKS`. Execution schema 1 defines validated acquisition requests/outcomes/artifacts/observations, synthetic local adapters for all closed outcomes, bounded retry classification, untrusted-output validation, and canonical Orchestrator event mapping with checkpoint-safe idempotency. `ACQUIRED` remains pre-evidence and `NO-EVIDENCE` remains distinct from researched-no-evidence. Real Honda/Yamaha/VFR/Harley/Ténéré work remains gated; only a synthetic local ready work item executes. No external research, evidence or production state changed.
 - Technical Research Factory Extraction Agent / Local Extractor Adapter Foundation: `ACCEPT-WITH-RISKS`. Extraction schema 1 binds one canonical successful `ACQUIRED` result and synthetic UTF-8 content envelope to acquisition metadata before invoking one deterministic local adapter. Raw candidates preserve unnormalized values, units, locations, explicit applicability/context and canonical target/work/attempt/prospect/artifact provenance. Candidate IDs and ordering are semantic and deterministic. Extraction emits no Orchestrator events, consumes no acquisition attempts, changes no acquisition state, creates no evidence, and starts no Review Queue.
-- Latest completed-wave validation: targeted Extraction Agent tests 23/23; related Factory tests 87/87; full suite 522/522 passed with 0 failed, 0 skipped and 0 todo; changed JavaScript passed `node --check`; `git diff --check` clean; deterministic Extraction Agent and project-state reports regenerate byte-for-byte identically. The prior 498/498 Execution Agent checkpoint remains historical.
+- Technical Research Factory Review Queue Foundation: `ACCEPT-WITH-RISKS`. Review Queue schema 1 creates one immutable `QUEUED` entry per candidate from validated `CANDIDATES-PRODUCED` extraction results, preserving the complete raw candidate and canonical provenance. Exact duplicates collapse only when byte-equivalent; identity collisions fail closed. All other extraction dispositions remain typed ineligibility records, not evidence absence or human decisions. No transitions, decisions, persistence, Orchestrator events, retries, normalization, evidence or production state were added.
+- Latest completed-wave validation: targeted Review Queue tests 23/23; related Factory tests 110/110; full suite 545/545 passed with 0 failed, 0 skipped and 0 todo; changed JavaScript passed `node --check`; `git diff --check` clean; deterministic Review Queue and project-state reports regenerate byte-for-byte identically. The prior 522/522 Extraction Agent checkpoint remains historical.
 - Published application version: 0.3.0.
 
 ## Independent work streams
@@ -48,14 +49,14 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## WIP and blockers
 
-- P1: implement a separate bounded Technical Research Factory Review Queue Foundation over raw ExtractionCandidate outputs; Ténéré `BW3-F8197-E0` remains a later factory-pilot candidate.
+- P1: design a separate bounded Human Review Decisions layer over immutable Review Queue entries; Ténéré `BW3-F8197-E0` remains a later factory-pilot candidate.
 - P1: add production Technical Profiles only through deliberate promotion review; 1,094 catalogue variants remain without production profiles.
 - P2: improve source/document acquisition for blocked manuals and OEM parts.
 - P2: audit cloud/RLS behavior against a live Supabase project before claiming deployment readiness.
 
 ## Next actions
 
-**NEXT** — Design and implement the bounded Technical Research Factory Review Queue Foundation over immutable raw extraction candidates, without automatic evidence conversion, production promotion or canonical researched-no-evidence promotion.
+**NEXT** — Design the bounded Technical Research Factory Human Review Decisions layer over immutable queue entries, without automatic evidence conversion, normalization, conflict resolution, production promotion or canonical researched-no-evidence promotion.
 
 Deferred independent streams remain the live-backend production-readiness audit, controlled Technical Profile promotion design, and global catalogue gap audit; none is an active NEXT task.
 

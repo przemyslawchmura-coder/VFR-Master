@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "revlog-technical-research-factory-review-queue/v1",
+  "reviewQueueSchemaVersion": 1,
+  "extractionSchemaVersion": 1,
+  "queueStates": [
+    "QUEUED"
+  ],
+  "eligibilityStates": [
+    "ELIGIBLE",
+    "NOT-ELIGIBLE"
+  ],
+  "entryCount": 2,
+  "exactDuplicateCollapsed": true,
+  "orderedEntryIds": [
+    "review-queue-entry.21c672fcb5794c5b983d42a4",
+    "review-queue-entry.ffeee86d4c619ef1a4aea5f4"
+  ],
+  "ineligible": [
+    {
+      "disposition": "FIELD-UNMAPPED",
+      "reasonCode": "FIELD-UNMAPPED"
+    },
+    {
+      "disposition": "PARSE-FAILURE",
+      "reasonCode": "EXTRACTION-PARSE-FAILED"
+    },
+    {
+      "disposition": "CONTENT-DIGEST-MISMATCH",
+      "reasonCode": "CONTENT-INTEGRITY-FAILED"
+    },
+    {
+      "disposition": "NO-CANDIDATES",
+      "reasonCode": "ZERO-CANDIDATES"
+    },
+    {
+      "disposition": "PERMANENT-EXTRACTION-FAILURE",
+      "reasonCode": "EXTRACTION-PERMANENTLY-FAILED"
+    },
+    {
+      "disposition": "PROVENANCE-INCOMPLETE",
+      "reasonCode": "EXTRACTION-PROVENANCE-INCOMPLETE"
+    },
+    {
+      "disposition": "UNSUPPORTED-MEDIA",
+      "reasonCode": "UNSUPPORTED-EXTRACTION"
+    }
+  ],
+  "provenance": {
+    "resultBound": true,
+    "candidateBound": true,
+    "acquisitionBound": true,
+    "targetBound": true
+  },
+  "rawPreservation": {
+    "values": true,
+    "units": true,
+    "locations": true,
+    "applicabilityAndContext": true,
+    "normalized": false
+  },
+  "safety": {
+    "humanDecisionsImplemented": false,
+    "evidenceAdded": false,
+    "researchedNoEvidenceAdded": false,
+    "conflictResolutionImplemented": false,
+    "persistenceImplemented": false,
+    "orchestratorEventsAdded": 0,
+    "acquisitionAttemptsConsumed": 0,
+    "productionChanged": false,
+    "networkUsed": false
+  },
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "risks": [
+      "queue entries are in-memory values with caller-owned persistence",
+      "human review decisions and reviewer identity are deliberately deferred",
+      "eligibility is limited to validated candidate-producing extraction results"
+    ]
+  }
+}

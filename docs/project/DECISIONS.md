@@ -128,3 +128,11 @@ Decision: extraction accepts only a canonical successful `ACQUIRED` result plus 
 Rationale: acquisition metadata is not document content, and extractor output is untrusted. A content-integrity and provenance boundary prevents parsing the wrong bytes, forged ownership, hidden retry/state changes, premature normalization and accidental production coupling.
 Consequences: only deterministic local/synthetic UTF-8 adapters exist in this foundation; PDF/OCR/browser/network parsing, durable extraction persistence, evidence conversion and Review Queue lifecycle require later bounded work.
 Status: ACTIVE. Related design: Technical Research Factory Extraction Agent / Local Extractor Adapter Foundation.
+
+## ADR-018 — Review Queue is immutable eligibility, not a decision workflow
+
+Date: 2026-09-02
+Decision: Review Queue schema 1 creates one immutable `QUEUED` entry per validated raw extraction candidate and records non-reviewable extraction dispositions as typed ineligibility. Entries embed the unchanged candidate and bind it to canonical extraction and acquisition provenance. Queue construction has no mutable transitions, reviewer actions, evidence conversion or persistence.
+Rationale: eligibility for future human review is a different trust boundary from extraction and from a human decision. Keeping queue presence pre-decision prevents extraction failures or zero candidates from becoming rejections, evidence absence or accepted facts.
+Consequences: exact byte-equivalent duplicates may collapse by semantic entry identity, while identity collisions fail closed and different provenance remains distinct. Human Review Decisions, reviewer identity, normalization, conflict handling, evidence promotion, persistence and lifecycle integration require later bounded work.
+Status: ACTIVE. Related design: Technical Research Factory Review Queue Foundation.
