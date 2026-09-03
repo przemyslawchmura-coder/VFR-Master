@@ -9,6 +9,7 @@ const resolverApi = require("../js/technical/technical-profile-resolver.js");
 const formatterApi = require("../js/technical/technical-value-formatter.js");
 const searchApi = require("../js/technical/technical-profile-search.js");
 const ducatiProfile = require("../data/technical/ducati/monster937/profile-2021.js");
+const vfrProfile = require("../data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js");
 const riderServiceCoreSchema = require("../js/technical/technical-profile-core-matrix.js");
 
 const MOTORCYCLE = Object.freeze({
@@ -100,6 +101,17 @@ test("default visibility is identity-based and keeps practical VFR data", async 
   assert.equal(uiApi.STATUS_LABELS.verified, "Zweryfikowane");
 });
 
+test("verified VFR fuse and rear light records recover into Rider Core cells", async () => {
+  const before = JSON.stringify(vfrProfile);
+  const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
+  assert.match(view.entriesById["rider-core.fuse.main-rating"].formattedValue, /30 A · 30 A/);
+  assert.match(view.entriesById["rider-core.fuse.main-location"].formattedValue, /pod siedzeniem|Pod siedzeniem/);
+  assert.match(view.entriesById["rider-core.fuse.table"].formattedValue, /20 A.*PGM-FI/);
+  assert.match(view.entriesById["rider-core.lighting.rear-stop"].formattedValue, /12 V 21\/5 W/);
+  assert.equal(view.entriesById["rider-core.lighting.headlight"].formattedValue, "Brak danych");
+  assert.equal(JSON.stringify(vfrProfile), before);
+});
+
 test("categories and their entries are grouped deterministically", async () => {
   const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
   assert.equal(view.categories[0].id, "basic-motorcycle-data");
@@ -150,18 +162,19 @@ test("hidden VFR reference lighting data is not searchable by default", async ()
   assert.match(html, /Brak wyników wyszukiwania/);
 });
 
-test("unknown ABS leaves ABS-dependent entry ambiguous", async () => {
+test("known VFR fuse data remains visible without inventing ABS context", async () => {
   const entry = findEntry(await uiApi.prepareTechnicalProfileView(MOTORCYCLE), "rider-core.fuse.table");
-  assert.equal(entry.resolutionStatus, "ambiguous-context");
-  assert.match(uiApi.renderEntryHtml(entry), /informacja o ABS/);
+  assert.match(entry.formattedValue, /PGM-FI/);
 });
 
-test("unknown region is represented by an actionable refinement field", async () => {
-  assert.match(uiApi.renderTechnicalProfileHtml(await uiApi.prepareTechnicalProfileView(MOTORCYCLE)), /data-technical-clarification="region"/);
+test("market-specific headlight data stays unavailable without a region", async () => {
+  const entry = findEntry(await uiApi.prepareTechnicalProfileView(MOTORCYCLE), "rider-core.lighting.headlight");
+  assert.equal(entry.formattedValue, "Brak danych");
 });
 
-test("unknown ABS is represented by an actionable refinement field", async () => {
-  assert.match(uiApi.renderTechnicalProfileHtml(await uiApi.prepareTechnicalProfileView(MOTORCYCLE)), /data-technical-clarification="abs"/);
+test("unknown ABS does not fabricate an ABS-specific fuse table", async () => {
+  const entry = findEntry(await uiApi.prepareTechnicalProfileView(MOTORCYCLE), "rider-core.fuse.table");
+  assert.doesNotMatch(entry.formattedValue, /wersja ABS/);
 });
 
 test("unused unknown equipment is not shown as a passive warning", async () => {

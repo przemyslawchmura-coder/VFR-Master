@@ -243,6 +243,15 @@ test("browser headlight resolution remains ambiguous without region", async () =
   assert.ok(result.entryResolution.requiredContext.includes("region"));
 });
 
+test("browser Rider Core recovers verified VFR fuse and rear-light data", async () => {
+  const container = { innerHTML: "", querySelector() { return null; } };
+  const view = await browser.RevLogTechnicalProfileUi.renderTechnicalProfile(container, MOTORCYCLE, { shouldCommit: () => true });
+  assert.match(container.innerHTML, /30 A/);
+  assert.match(container.innerHTML, /PGM-FI/);
+  assert.match(container.innerHTML, /12 V 21\/5 W/);
+  assert.match(container.innerHTML, /Reflektor przedni — typ \/ moc[\s\S]*Brak danych/);
+});
+
 test("browser ABS resolution remains ambiguous when ABS is null", async () => {
   const result = await browser.RevLogMotorcycleTechnicalProfileBridge.resolveEntryForMotorcycle(MOTORCYCLE, "fuses.circuit.abs");
   assert.equal(result.entryResolution.status, "ambiguous-context");

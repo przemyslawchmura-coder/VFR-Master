@@ -2,6 +2,16 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-03 — Recover verified VFR Rider Core mappings
+
+Recovered existing verified Honda VFR800 MY2002 canonical fuse and rear
+stop/tail-light records into the frozen 95-field presentation matrix through
+deterministic aliases and lossless field-specific aggregation. Main fuse
+ratings/locations and PGM-FI circuit data remain associated; market-specific
+headlight data remains `Brak danych` without a proven region. No new research,
+matrix expansion, canonical value/profile change or Ducati change occurred.
+Phase 7 remains ACTIVE.
+
 ## 2026-09-03 — Triumph Street Triple 765 III prospect registration and readiness
 
 Selected representative MY2023 EU `triumph.street-triple.765-3` standard/base road scope. Authenticated Triumph's official Tier A `3850186_2-EN` owner handbook (issue 2, June 2023) through the controlled handbook library/API, but the handbook combines Street Triple S 660, R, R LRH and RS and its global EN record does not safely resolve EU market or base/R/RS equipment applicability. Canonical readiness remains `AUTHENTICATED-BUT-APPLICABILITY-PARTIAL`; no technical values, extraction, evidence, coverage, production or runtime changes occurred. NEXT: resolve only the remaining applicability metadata.
@@ -262,6 +272,7 @@ prior `COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR` blocker and was
 not part of this batch. Raw values/provenance and prior acquisition state were
 preserved; no evidence, production, VFR or coverage change occurred. Phase 7
 remains ACTIVE.
+
 ## 2026-09-03 — Ducati Rider Service Core evidence processing
 
 Processed exactly the 39 Ducati Rider Service Core candidates with canonical

@@ -123,7 +123,11 @@
     const matrix = presentation.coreMatrix;
     const rows = matrix.domains.flatMap(domain => domain.fieldIds.map(fieldId => {
       const matches = presentation.matrixEntryMatches(entries, fieldId).filter(presentation.isRiderServiceCoreEntry);
-      const views = matches.map(entry => buildEntryView(entry, resolver.resolveEntry(entry, context), profile, formatter, presentation));
+      const views = matches.map(entry => {
+        const view = buildEntryView(entry, resolver.resolveEntry(entry, context), profile, formatter, presentation);
+        if (view.formattedValue) view.formattedValue = presentation.matrixValueText(fieldId, entry, view.formattedValue);
+        return view;
+      });
       const base = views[0] || { resolutionStatus: "missing", requiredContext: [], candidates: {}, status: "missing", statusLabel: "Brak danych", description: "", sources: [] };
       return {
         ...base,
