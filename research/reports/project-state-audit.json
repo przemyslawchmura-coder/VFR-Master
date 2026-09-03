@@ -1,16 +1,16 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-03",
-  "snapshotBasis": "post-bmw-f900r-evidence-processing-working-tree",
-  "snapshotImplementationPath": "research/data/bmw-f900r-evidence-processing.js",
-  "baseCommit": "87206fee479d248db254d983fcf921622cc4d468",
+  "snapshotBasis": "post-triumph-streettriple765-prospect-registration-working-tree",
+  "snapshotImplementationPath": "research/data/triumph-streettriple765-prospect-registration.js",
+  "baseCommit": "d0d552010e7c0db9e1c4e764d34242ec0c48fc6a",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 345,
-    "javascriptFiles": 219,
-    "testFiles": 72,
+    "files": 349,
+    "javascriptFiles": 222,
+    "testFiles": 73,
     "documentationFiles": 72,
-    "researchAndToolingFiles": 157
+    "researchAndToolingFiles": 160
   },
   "catalogue": {
     "manufacturers": 13,
@@ -729,6 +729,146 @@
       ],
       "state": "PLANNED"
     }
+  },
+  "triumphStreetTriple765Registration": {
+    "classification": "AUTHENTICATED-BUT-APPLICABILITY-PARTIAL",
+    "target": {
+      "schemaVersion": 1,
+      "id": "target.triumph.streettriple765.gen3.my23.eu",
+      "catalogVariantKey": "triumph.street-triple.765-3",
+      "manufacturer": "Triumph",
+      "family": "Street Triple 765 III",
+      "scope": {
+        "schemaVersion": 1,
+        "model": {
+          "state": "KNOWN",
+          "values": [
+            "Street Triple 765"
+          ]
+        },
+        "generation": {
+          "state": "KNOWN",
+          "values": [
+            "III"
+          ]
+        },
+        "years": {
+          "kind": "EXACT",
+          "from": 2023,
+          "to": 2023
+        },
+        "markets": {
+          "state": "KNOWN",
+          "values": [
+            "EU"
+          ]
+        },
+        "transmissions": {
+          "state": "KNOWN",
+          "values": [
+            "manual"
+          ]
+        },
+        "abs": {
+          "state": "KNOWN",
+          "values": [
+            true
+          ]
+        },
+        "equipment": {
+          "state": "KNOWN",
+          "values": [
+            "standard/base road model"
+          ]
+        }
+      },
+      "sourcePriorityPolicyId": "policy.tier-a-first",
+      "serviceCoreBaseline": {
+        "verified": 0,
+        "total": 44
+      },
+      "knownSourceRefs": [],
+      "knownProspectRefs": [
+        "unknown.triumph.streettriple765"
+      ],
+      "researchHistoryRefs": [],
+      "riskFlags": [
+        "base/R/RS equipment boundary is unresolved",
+        "EU market applicability is not explicit in the authenticated global EN delivery record",
+        "official handbook combines Street Triple S 660, R, R LRH and RS"
+      ],
+      "state": "RESEARCH-MORE",
+      "gapPlanRef": null
+    },
+    "sourceTier": "A",
+    "documentClass": "owner handbook",
+    "officialLocations": [
+      {
+        "host": "api.triumphtechnicalinformation.com",
+        "path": "/handbooks/documents/6493f9eab74cf69ba9a7301d/pdf",
+        "role": "official Triumph Technical Information owner-handbook delivery"
+      },
+      {
+        "host": "www.triumphmotorcycles.com",
+        "path": "/owners/manuals",
+        "role": "official Triumph owner-handbook library"
+      }
+    ],
+    "readiness": {
+      "passed": false,
+      "rankingEligible": false,
+      "classification": "AUTHENTICATED-BUT-APPLICABILITY-PARTIAL",
+      "checks": {
+        "authorityKnown": true,
+        "documentIdentityKnown": true,
+        "identifierRelationshipResolved": true,
+        "documentClassKnown": true,
+        "officialPathKnown": true,
+        "modelKnown": true,
+        "yearKnown": true,
+        "marketKnown": false,
+        "transmissionKnown": true,
+        "absEquipmentSufficient": false,
+        "accessibilityFeasible": true,
+        "notExhausted": true,
+        "tierABIndependent": true
+      },
+      "applicability": {
+        "overall": "UNKNOWN",
+        "dimensions": {
+          "model": "MATCH",
+          "generation": "MATCH",
+          "year": "MATCH",
+          "market": "UNKNOWN",
+          "transmission": "MATCH",
+          "abs": "MATCH",
+          "equipment": "UNKNOWN"
+        },
+        "blockingDimensions": [
+          "market",
+          "equipment"
+        ],
+        "reasons": [
+          "market:UNKNOWN",
+          "equipment:UNKNOWN"
+        ]
+      },
+      "blockers": [
+        "absEquipmentSufficient",
+        "equipment:UNKNOWN",
+        "market:UNKNOWN",
+        "marketKnown"
+      ]
+    },
+    "blockers": [
+      "base versus R versus RS equipment applicability is unresolved",
+      "EU market applicability is unresolved for the global EN publication record",
+      "official document identity is a combined S/R/R LRH/RS handbook rather than a base-only identity"
+    ],
+    "technicalValuesInspected": false,
+    "evidenceRowsAdded": 0,
+    "serviceCoreCoverageChanged": false,
+    "productionChanged": false
   },
   "research": {
     "canonicalFieldCount": 183,
@@ -2016,8 +2156,8 @@
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 624,
-    "lastKnownPassed": 624,
+    "lastKnownTotal": 627,
+    "lastKnownPassed": 627,
     "failed": 0,
     "skipped": 0,
     "todo": 0

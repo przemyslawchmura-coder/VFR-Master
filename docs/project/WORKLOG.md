@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-03 — Triumph Street Triple 765 III prospect registration and readiness
+
+Selected representative MY2023 EU `triumph.street-triple.765-3` standard/base road scope. Authenticated Triumph's official Tier A `3850186_2-EN` owner handbook (issue 2, June 2023) through the controlled handbook library/API, but the handbook combines Street Triple S 660, R, R LRH and RS and its global EN record does not safely resolve EU market or base/R/RS equipment applicability. Canonical readiness remains `AUTHENTICATED-BUT-APPLICABILITY-PARTIAL`; no technical values, extraction, evidence, coverage, production or runtime changes occurred. NEXT: resolve only the remaining applicability metadata.
+
 ## 2026-09-03 — BMW F 900 R I evidence processing projection
 
 Fed exactly the 13 existing BMW Human Review Decisions and their Review Queue entries through the canonical Evidence Processing contract. Produced 13 records: 11 `ACCEPTED-FOR-PROCESSING` and 2 `CANNOT-ADVANCE` records for the processor-detected same-field solo tire-pressure raw-value disagreement. Raw values, units, applicability, provenance and upstream decisions remained unchanged; no conflict was resolved, no evidence rows were created, Service Core stayed 0/44, and production was unchanged. NEXT: hold these pre-promotion records and conflicts.

@@ -10,8 +10,8 @@ const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 const git = (...args) => cp.execFileSync("git", args, { cwd: path.join(__dirname, ".."), encoding: "utf8" }).trim();
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-bmw-f900r-evidence-processing-working-tree");
-  assert.equal(snapshot.snapshotImplementationPath, "research/data/bmw-f900r-evidence-processing.js");
+  assert.equal(snapshot.snapshotBasis, "post-triumph-streettriple765-prospect-registration-working-tree");
+  assert.equal(snapshot.snapshotImplementationPath, "research/data/triumph-streettriple765-prospect-registration.js");
   const containingCommit = git("log", "-1", "--format=%H", "--", snapshot.snapshotImplementationPath);
   const expectedBase = containingCommit ? git("rev-parse", `${containingCommit}^`) : git("rev-parse", "HEAD");
   assert.equal(snapshot.baseCommit, expectedBase);
@@ -150,6 +150,16 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.serviceCoreBefore, 0);
   assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.serviceCoreAfter, 0);
   assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.productionChanged, false);
+  assert.equal(snapshot.triumphStreetTriple765Registration.classification, "AUTHENTICATED-BUT-APPLICABILITY-PARTIAL");
+  assert.equal(snapshot.triumphStreetTriple765Registration.target.catalogVariantKey, "triumph.street-triple.765-3");
+  assert.equal(snapshot.triumphStreetTriple765Registration.target.scope.years.from, 2023);
+  assert.equal(snapshot.triumphStreetTriple765Registration.sourceTier, "A");
+  assert.equal(snapshot.triumphStreetTriple765Registration.documentClass, "owner handbook");
+  assert.equal(snapshot.triumphStreetTriple765Registration.readiness.passed, false);
+  assert.equal(snapshot.triumphStreetTriple765Registration.technicalValuesInspected, false);
+  assert.equal(snapshot.triumphStreetTriple765Registration.evidenceRowsAdded, 0);
+  assert.equal(snapshot.triumphStreetTriple765Registration.serviceCoreCoverageChanged, false);
+  assert.equal(snapshot.triumphStreetTriple765Registration.productionChanged, false);
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.classification, "ACCESS-BLOCKED");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.audit, "ACCEPT-WITH-RISKS");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.b7nLitRelationship, "UNRESOLVED");
