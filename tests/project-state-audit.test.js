@@ -10,8 +10,8 @@ const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 const git = (...args) => cp.execFileSync("git", args, { cwd: path.join(__dirname, ".."), encoding: "utf8" }).trim();
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-ducati-monster937-prospect-registration-working-tree");
-  assert.equal(snapshot.snapshotImplementationPath, "research/data/ducati-monster937-owner-manual-prospect-registration.js");
+  assert.equal(snapshot.snapshotBasis, "post-ducati-monster937-owner-manual-acquisition-working-tree");
+  assert.equal(snapshot.snapshotImplementationPath, "research/data/ducati-monster937-owner-manual-acquisition.js");
   const containingCommit = git("log", "-1", "--format=%H", "--", snapshot.snapshotImplementationPath);
   const expectedBase = containingCommit ? git("rev-parse", `${containingCommit}^`) : git("rev-parse", "HEAD");
   assert.equal(snapshot.baseCommit, expectedBase);
@@ -70,6 +70,15 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.ducatiMonster937Registration.readiness.passed, true);
   assert.equal(snapshot.ducatiMonster937Registration.technicalValuesInspected, false);
   assert.equal(snapshot.ducatiMonster937Registration.serviceCoreCoverageChanged, false);
+  assert.equal(snapshot.ducatiMonster937Acquisition.rawCandidates, 27);
+  assert.equal(snapshot.ducatiMonster937Acquisition.reviewDecisionCounts.queued, 27);
+  assert.equal(snapshot.ducatiMonster937Acquisition.evidenceRowsCreated, 0);
+  assert.equal(snapshot.ducatiMonster937Acquisition.serviceCoreBefore, 0);
+  assert.equal(snapshot.ducatiMonster937Acquisition.serviceCoreAfter, 0);
+  assert.equal(snapshot.ducatiMonster937Acquisition.practicalGain, 0);
+  assert.equal(snapshot.ducatiMonster937Acquisition.conflicts, 0);
+  assert.equal(snapshot.ducatiMonster937Acquisition.ambiguousFields, 0);
+  assert.equal(snapshot.ducatiMonster937Acquisition.productionChanged, false);
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.classification, "ACCESS-BLOCKED");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.audit, "ACCEPT-WITH-RISKS");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.b7nLitRelationship, "UNRESOLVED");

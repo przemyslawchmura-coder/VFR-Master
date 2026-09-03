@@ -1,0 +1,929 @@
+{
+  "schemaVersion": "revlog-ducati-owner-manual-acquisition/v1",
+  "researchDate": "2026-09-03",
+  "target": {
+    "catalogVariantKey": "ducati.monster.937",
+    "model": "Monster 937",
+    "year": 2021,
+    "market": "EU",
+    "equipment": "base Monster 937",
+    "excludedEquipment": "Monster SP 937",
+    "transmission": "manual",
+    "abs": true
+  },
+  "reusedProspectId": "unknown.ducati.monster937",
+  "source": {
+    "id": "ducati.acquisition.monster937.owner.my21",
+    "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+    "tier": "A",
+    "sourceClass": "official-owner-manual",
+    "publisher": "Ducati Motor Holding S.p.A.",
+    "title": "Monster 937 / 937 Plus Owner's Manual",
+    "publicationId": "OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+    "edition": "English, MY2021",
+    "publicationDate": 2021,
+    "url": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+    "officialHost": "downloads.ctfassets.net",
+    "disposition": "acquired-content",
+    "accessResult": "Ducati-controlled PDF content acquired for bounded text inspection",
+    "authenticationState": "OFFICIAL-DUCATI-MY2021-EU-BASE-MONSTER-CONFIRMED",
+    "language": "English",
+    "pageCount": null,
+    "models": [
+      "Monster 937",
+      "Monster 937 Plus"
+    ],
+    "years": {
+      "from": 2021,
+      "to": 2021
+    },
+    "markets": [
+      "EU"
+    ],
+    "abs": true,
+    "transmission": "manual",
+    "equipment": "base Monster common content; Monster SP excluded",
+    "inspectedPages": [
+      "152",
+      "176–179",
+      "182–187",
+      "193–196",
+      "203–207",
+      "211–212",
+      "216",
+      "218",
+      "220–224"
+    ],
+    "targets": [
+      "ducati.monster.937"
+    ],
+    "yieldedEvidence": false,
+    "applicabilityProof": {
+      "exactSource": "filename/title identifies Monster 937 / 937 Plus EN MY21",
+      "targetYear": "MY2021",
+      "market": "EU English owner-manual route",
+      "baseScope": "common Monster 937 content retained; Plus-only and SP content excluded",
+      "abs": "Cornering ABS is part of the manual/model scope",
+      "transmission": "manual six-speed Monster 937 scope",
+      "preExtractionCheckPassed": true
+    },
+    "stopCondition": "raw extraction stops before evidence conversion; human review and any later promotion remain separate"
+  },
+  "documents": [
+    {
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "sourceClass": "official-owner-manual",
+      "title": "Monster 937 / 937 Plus Owner's Manual",
+      "publicationId": "OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+      "publisher": "Ducati Motor Holding S.p.A.",
+      "publicationDate": 2021,
+      "revision": null,
+      "markets": [
+        "EU"
+      ],
+      "models": [
+        "Monster 937",
+        "Monster 937 Plus"
+      ],
+      "years": {
+        "from": 2021,
+        "to": 2021
+      },
+      "locations": [
+        "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf"
+      ],
+      "accessState": "acquired-content",
+      "authenticationState": "OFFICIAL-DUCATI-MY2021-EU-BASE-MONSTER-CONFIRMED",
+      "contentHash": null,
+      "inspectedPages": [
+        "152",
+        "176–179",
+        "182–187",
+        "193–196",
+        "203–207",
+        "211–212",
+        "216",
+        "218",
+        "220–224"
+      ],
+      "mirrorCount": 1
+    }
+  ],
+  "preExtractionIdentityCheck": {
+    "exactSource": "filename/title identifies Monster 937 / 937 Plus EN MY21",
+    "targetYear": "MY2021",
+    "market": "EU English owner-manual route",
+    "baseScope": "common Monster 937 content retained; Plus-only and SP content excluded",
+    "abs": "Cornering ABS is part of the manual/model scope",
+    "transmission": "manual six-speed Monster 937 scope",
+    "preExtractionCheckPassed": true
+  },
+  "rawCandidates": [
+    {
+      "id": "ducati.monster937.raw.001",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "lubrication.oil-specification",
+      "rawValue": "Ducati prescribes SAE 15W-50/JASO MA2 oil and recommends Shell Advance 4T Ultra 15W-50; UK version: Shell Advance DUCATI 15W-50 Fully Synthetic Oil.",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "195–196",
+      "section": "Check engine oil level; Recommendations concerning oil",
+      "sourceSection": "Check engine oil level; Recommendations concerning oil",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.002",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "lubrication.viscosity",
+      "rawValue": "SAE 15W-50",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "196, 211",
+      "section": "Recommendations concerning oil; Fuel, lubricants and other fluids",
+      "sourceSection": "Recommendations concerning oil; Fuel, lubricants and other fluids",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.003",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "lubrication.api-jaso",
+      "rawValue": "API: SN; JASO: MA2",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "195–196, 211",
+      "section": "Check engine oil level; Fuel, lubricants and other fluids",
+      "sourceSection": "Check engine oil level; Fuel, lubricants and other fluids",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.004",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "lubrication.capacity-drain",
+      "rawValue": "Oil sump and filter: 3.1 litres",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "211",
+      "section": "Fuel, lubricants and other fluids",
+      "sourceSection": "Fuel, lubricants and other fluids",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.005",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "lubrication.capacity-filter",
+      "rawValue": "Oil sump and filter: 3.1 litres",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "211",
+      "section": "Fuel, lubricants and other fluids",
+      "sourceSection": "Fuel, lubricants and other fluids",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.006",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "cooling.coolant-specification",
+      "rawValue": "ENI Agip Permanent Spezial antifreeze; do not dilute, use pure",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "176, 212",
+      "section": "Checking coolant level and topping up; Fuel, lubricants and other fluids",
+      "sourceSection": "Checking coolant level and topping up; Fuel, lubricants and other fluids",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.007",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "cooling.capacity",
+      "rawValue": "Cooling circuit: 2.25 litres",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "212",
+      "section": "Fuel, lubricants and other fluids",
+      "sourceSection": "Fuel, lubricants and other fluids",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.008",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "cooling.replacement-interval",
+      "rawValue": "Change coolant at 48 months",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "203–204",
+      "section": "Scheduled maintenance chart: dealer operations",
+      "sourceSection": "Scheduled maintenance chart: dealer operations",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.009",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "ignition.spark-plug-oem",
+      "rawValue": "NGK MAR9A-J",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "216",
+      "section": "Spark plugs",
+      "sourceSection": "Spark plugs",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.010",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "ignition.replacement-interval",
+      "rawValue": "Change spark plugs at Desmo Service",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "203–204",
+      "section": "Scheduled maintenance chart: dealer operations",
+      "sourceSection": "Scheduled maintenance chart: dealer operations",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.011",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "valve_train.inspection-interval",
+      "rawValue": "Desmo Service (Valve Clearance Check Service) every 30,000 km/18,000 mi",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "152",
+      "section": "Setting menu – Service",
+      "sourceSection": "Setting menu – Service",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.012",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "final_drive.chain-slack",
+      "rawValue": "Chain tension A = 51–53 mm (2.00–2.09 in), measured on the side stand at the tightest position",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "182",
+      "section": "Checking drive chain tension",
+      "sourceSection": "Checking drive chain tension",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.013",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "final_drive.chain-inspection",
+      "rawValue": "Inspect chain for stiff joints, missing/damaged O-rings and worn components; check wear and tension in scheduled service",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "182, 204–205",
+      "section": "Checking drive chain tension; Scheduled maintenance chart",
+      "sourceSection": "Checking drive chain tension; Scheduled maintenance chart",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.014",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "final_drive.chain-lubrication-interval",
+      "rawValue": "Lubricate at least every 1,000 km; more frequently, about every 400 km, in 40°C conditions or after long travels",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "185–187",
+      "section": "Lubricating the drive chain",
+      "sourceSection": "Lubricating the drive chain",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.015",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "brakes.brake-fluid",
+      "rawValue": "Front/rear brake circuit: DOT 4",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "177, 212",
+      "section": "Check clutch and brake fluid level; Fuel, lubricants and other fluids",
+      "sourceSection": "Check clutch and brake fluid level; Fuel, lubricants and other fluids",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.016",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "brakes.fluid-interval",
+      "rawValue": "Change brake and clutch fluid every 24 months",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "203–204",
+      "section": "Scheduled maintenance chart: dealer operations",
+      "sourceSection": "Scheduled maintenance chart: dealer operations",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.017",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "brakes.front-rear-configuration",
+      "rawValue": "Cornering ABS as standard; separate-action anti-lock brake system operated by wheel sensors",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "216",
+      "section": "Brakes",
+      "sourceSection": "Brakes",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.018",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "tires_wheels.front-size",
+      "rawValue": "Pirelli Diablo Rosso III tubeless radial; 120/70 ZR17 M/C 58W",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "219",
+      "section": "Technical data – Tyres",
+      "sourceSection": "Technical data – Tyres",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.019",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "tires_wheels.rear-size",
+      "rawValue": "Pirelli Diablo Rosso III tubeless radial; 180/55 ZR17 M/C 73W",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "219",
+      "section": "Technical data – Tyres",
+      "sourceSection": "Technical data – Tyres",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.020",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "tires_wheels.solo-pressures",
+      "rawValue": "Cold pressure, rider only: front 2.3 bar (33.35 psi); rear 2.5 bar (36.26 psi)",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "219",
+      "section": "Technical data – Tyres",
+      "sourceSection": "Technical data – Tyres",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.021",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "tires_wheels.loaded-pressures",
+      "rawValue": "Cold pressure, rider and passenger: front 2.5 bar (36.26 psi); rear 2.9 bar (40.06 psi)",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "219",
+      "section": "Technical data – Tyres",
+      "sourceSection": "Technical data – Tyres",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.022",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "electrical.battery-specification",
+      "rawValue": "YUASA YT 7B-BS DRY, 12 V",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "220",
+      "section": "Electric system",
+      "sourceSection": "Electric system",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.023",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "electrical.battery-capacity",
+      "rawValue": "6.5 Ah",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "220",
+      "section": "Electric system",
+      "sourceSection": "Electric system",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.024",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "maintenance.periodic-schedule",
+      "rawValue": "Scheduled maintenance chart includes dealer operations and customer operations",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "203–207",
+      "section": "Scheduled maintenance chart",
+      "sourceSection": "Scheduled maintenance chart",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.025",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "maintenance.schedule-mileage-intervals",
+      "rawValue": "First Service 1000 after 1,000 km; Oil Service every 15,000 km; Desmo Service every 30,000 km",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "152",
+      "section": "Setting menu – Service",
+      "sourceSection": "Setting menu – Service",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.026",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "maintenance.schedule-time-intervals",
+      "rawValue": "Annual Service every 12 months; brake and clutch fluid change every 24 months; coolant change every 48 months",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "152, 203–204",
+      "section": "Setting menu – Service; Scheduled maintenance chart",
+      "sourceSection": "Setting menu – Service; Scheduled maintenance chart",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    },
+    {
+      "id": "ducati.monster937.raw.027",
+      "catalogVariantKey": "ducati.monster.937",
+      "canonicalFieldId": "fuel_intake.tank-capacity",
+      "rawValue": "Fuel tank, including reserve of 3.5 litres: 14 litres",
+      "sourceId": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "printedPage": "211",
+      "section": "Fuel, lubricants and other fluids",
+      "sourceSection": "Fuel, lubricants and other fluids",
+      "applicability": {
+        "abs": true,
+        "transmission": "manual",
+        "equipment": "base-monster-common"
+      },
+      "extractionConfidence": "direct-page-text",
+      "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+      "normalizationState": "UNNORMALIZED",
+      "reviewState": "QUEUED",
+      "proofStatus": "PRE-EVIDENCE-CANDIDATE"
+    }
+  ],
+  "reviewQueue": [
+    {
+      "candidateId": "ducati.monster937.raw.001",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.002",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.003",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.004",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.005",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.006",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.007",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.008",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.009",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.010",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.011",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.012",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.013",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.014",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.015",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.016",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.017",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.018",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.019",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.020",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.021",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.022",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.023",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.024",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.025",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.026",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    },
+    {
+      "candidateId": "ducati.monster937.raw.027",
+      "catalogVariantKey": "ducati.monster.937",
+      "state": "QUEUED",
+      "eligibility": "ELIGIBLE",
+      "decision": null
+    }
+  ],
+  "reviewDecisionCounts": {
+    "accepted": 0,
+    "rejected": 0,
+    "needsMoreReview": 0,
+    "queued": 27
+  },
+  "evidence": [],
+  "conflicts": [],
+  "metrics": {
+    "rawCandidates": 27,
+    "acceptedItems": 0,
+    "rejectedItems": 0,
+    "needsReviewItems": 0,
+    "queuedItems": 27,
+    "evidenceRowsCreated": 0,
+    "serviceCoreBefore": 0,
+    "serviceCoreAfter": 0,
+    "practicalGain": 0,
+    "genericGain": 0,
+    "conflicts": 0,
+    "ambiguousFields": 0,
+    "tierCDContribution": 0,
+    "primaryDocumentsUsed": 1,
+    "primaryDocumentBudget": 1
+  },
+  "classification": "ACCEPT-WITH-RISKS",
+  "technicalValuesInspected": true,
+  "serviceCoreCoverageChanged": false,
+  "productionChanged": false,
+  "runtimeChanged": false,
+  "catalogueChanged": false,
+  "cloudBackendChanged": false,
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "conclusion": "The exact Ducati-controlled MY2021 owner manual was acquired and inspected for common base Monster 937 fields. Extraction produced immutable raw candidates with page/section provenance; repository review/evidence boundaries prevent automatic evidence creation or coverage change.",
+    "risks": [
+      "the official PDF combines Monster 937 and Monster 937 Plus; only common base-Monster scope was retained",
+      "all candidates remain queued because no human review decision was created",
+      "no direct source hash was persisted"
+    ],
+    "falsification": [
+      "SP-specific content was excluded",
+      "no second primary document was used",
+      "no Tier C/D source was used",
+      "no values were inferred across years or models"
+    ]
+  },
+  "exactNextTask": "Perform the bounded human review of the queued Ducati Monster 937 MY2021 EU base-Monster raw candidates; preserve raw values and provenance, create no production evidence or profile promotion automatically."
+}

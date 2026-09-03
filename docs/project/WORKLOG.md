@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-03 — Ducati Monster 937 MY2021 EU owner-manual acquisition
+
+Reused `unknown.ducati.monster937` and confirmed the Ducati-controlled `OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf` before extraction. Kept only common base Monster 937 scope for MY2021 EU manual transmission with ABS; Monster SP was excluded and no second primary or Tier C/D source was used. Extracted 27 immutable, unnormalized raw Service Core candidates with printed-page/section provenance. All remain queued because no human review decision was created: accepted 0, rejected 0, needs-review decisions 0, queued 27, evidence rows 0. Service Core stayed 0/44 before and after; practical/generic gain 0; conflicts and ambiguous fields 0; production unchanged. Next: bounded human review only.
+
 ## 2026-09-03 — Ducati Monster 937 Tier A/B prospect registration and readiness
 
 Objective: register one exact Tier A/B Ducati prospect for `ducati.monster.937` without technical extraction. Authenticated `unknown.ducati.monster937` as the official `Monster 937 Owner's Manual` route for representative MY2021 EU base Monster 937; Monster SP 937 is excluded, and Ducati metadata resolves Cornering ABS and manual six-speed transmission applicability. Canonical readiness passes at metadata level. No manual content or technical values were inspected; no evidence, researched-no-evidence, Service Core coverage, production, runtime, catalogue or cloud state changed. Validation: targeted registration/readiness tests, project-state checks, changed-file syntax checks and `git diff --check`; no Phase 6 work. Next: execute one bounded Ducati owner-manual acquisition under this exact scope.

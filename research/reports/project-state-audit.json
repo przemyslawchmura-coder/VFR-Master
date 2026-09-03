@@ -1,16 +1,16 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-03",
-  "snapshotBasis": "post-ducati-monster937-prospect-registration-working-tree",
-  "snapshotImplementationPath": "research/data/ducati-monster937-owner-manual-prospect-registration.js",
-  "baseCommit": "9f9b418bedfd3c8d0546fab25bb2775075662e84",
+  "snapshotBasis": "post-ducati-monster937-owner-manual-acquisition-working-tree",
+  "snapshotImplementationPath": "research/data/ducati-monster937-owner-manual-acquisition.js",
+  "baseCommit": "5d181091d360f4cb67aa0938479bd18b75937888",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 314,
-    "javascriptFiles": 196,
-    "testFiles": 64,
+    "files": 317,
+    "javascriptFiles": 198,
+    "testFiles": 65,
     "documentationFiles": 72,
-    "researchAndToolingFiles": 134
+    "researchAndToolingFiles": 136
   },
   "catalogue": {
     "manufacturers": 13,
@@ -72,6 +72,91 @@
     "technicalValuesInspected": false,
     "evidenceRowsAdded": 0,
     "serviceCoreCoverageChanged": false
+  },
+  "ducatiMonster937Acquisition": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "source": {
+      "id": "ducati.acquisition.monster937.owner.my21",
+      "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+      "tier": "A",
+      "sourceClass": "official-owner-manual",
+      "publisher": "Ducati Motor Holding S.p.A.",
+      "title": "Monster 937 / 937 Plus Owner's Manual",
+      "publicationId": "OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+      "edition": "English, MY2021",
+      "publicationDate": 2021,
+      "url": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+      "officialHost": "downloads.ctfassets.net",
+      "disposition": "acquired-content",
+      "accessResult": "Ducati-controlled PDF content acquired for bounded text inspection",
+      "authenticationState": "OFFICIAL-DUCATI-MY2021-EU-BASE-MONSTER-CONFIRMED",
+      "language": "English",
+      "pageCount": null,
+      "models": [
+        "Monster 937",
+        "Monster 937 Plus"
+      ],
+      "years": {
+        "from": 2021,
+        "to": 2021
+      },
+      "markets": [
+        "EU"
+      ],
+      "abs": true,
+      "transmission": "manual",
+      "equipment": "base Monster common content; Monster SP excluded",
+      "inspectedPages": [
+        "152",
+        "176–179",
+        "182–187",
+        "193–196",
+        "203–207",
+        "211–212",
+        "216",
+        "218",
+        "220–224"
+      ],
+      "targets": [
+        "ducati.monster.937"
+      ],
+      "yieldedEvidence": false,
+      "applicabilityProof": {
+        "exactSource": "filename/title identifies Monster 937 / 937 Plus EN MY21",
+        "targetYear": "MY2021",
+        "market": "EU English owner-manual route",
+        "baseScope": "common Monster 937 content retained; Plus-only and SP content excluded",
+        "abs": "Cornering ABS is part of the manual/model scope",
+        "transmission": "manual six-speed Monster 937 scope",
+        "preExtractionCheckPassed": true
+      },
+      "stopCondition": "raw extraction stops before evidence conversion; human review and any later promotion remain separate"
+    },
+    "target": {
+      "catalogVariantKey": "ducati.monster.937",
+      "model": "Monster 937",
+      "year": 2021,
+      "market": "EU",
+      "equipment": "base Monster 937",
+      "excludedEquipment": "Monster SP 937",
+      "transmission": "manual",
+      "abs": true
+    },
+    "rawCandidates": 27,
+    "reviewDecisionCounts": {
+      "accepted": 0,
+      "rejected": 0,
+      "needsMoreReview": 0,
+      "queued": 27
+    },
+    "evidenceRowsCreated": 0,
+    "serviceCoreBefore": 0,
+    "serviceCoreAfter": 0,
+    "practicalGain": 0,
+    "genericGain": 0,
+    "conflicts": 0,
+    "ambiguousFields": 0,
+    "productionChanged": false
   },
   "research": {
     "canonicalFieldCount": 183,
@@ -1359,8 +1444,8 @@
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 599,
-    "lastKnownPassed": 599,
+    "lastKnownTotal": 603,
+    "lastKnownPassed": 603,
     "failed": 0,
     "skipped": 0,
     "todo": 0
