@@ -28,7 +28,7 @@ Objective: increase verified practical Service Core coverage through a resumable
 
 ## Phase 6 — Controlled production promotion (ACTIVE)
 
-Objective: promote only reviewed, conflict-free, applicability-scoped candidates. Entry: batch evidence with source proof and review decisions. Completed foundation: authorization gate, six-entry Ducati schema projection, one authenticated Ducati source document with six citations, and one valid but unregistered Ducati review-status profile. Tasks remaining: deliberate registry insertion, production discovery regression, and rollback plan. Exit: one deliberate production profile addition with regressions. Status: ACTIVE.
+Objective: promote only reviewed, conflict-free, applicability-scoped candidates. Entry: batch evidence with source proof and review decisions. Completed foundation: authorization gate, six-entry Ducati schema projection, one authenticated Ducati source document with six citations, one valid Ducati review-status profile, and the first controlled registry insertion with discovery/resolution regressions. Tasks remaining: rollback plan and any future bounded profile expansions. Exit: one deliberate production profile addition with regressions. Status: ACTIVE.
 
 ## Phase 7 — Cloud/deployment hardening (NOT-STARTED)
 

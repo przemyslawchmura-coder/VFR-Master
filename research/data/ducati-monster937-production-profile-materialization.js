@@ -1,4 +1,4 @@
-// Bounded report for the unregistered Ducati production profile.
+// Bounded report for the Ducati production profile and its source graph.
 "use strict";
 
 const validator = require("../../js/technical/technical-profile-validator.js");

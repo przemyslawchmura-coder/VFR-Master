@@ -22,10 +22,10 @@ test("profile applicability and exclusions remain bounded", () => {
   assert.deepEqual(profile.motorcycle.applicability, { catalogVariantKeys: ["ducati.monster.937"], years: { from: 2021, to: 2021 }, regions: ["EU"], abs: true, equipment: ["base Monster 937"] }); assert.equal(profile.entries.some(entry => entry.id.startsWith("cooling.")), false); assert.equal(profile.entries.some(entry => entry.id.includes("bmw")), false); assert.equal(Object.keys(profile.documents).length, 1); assert.equal(Object.keys(profile.citations).length, 6); assert.equal(new Set(Object.keys(profile.citations)).size, 6);
 });
 
-test("Ducati remains unregistered and source/registry inputs are not mutated", () => {
-  const sourceBefore = structuredClone(source); const registryBefore = registry.listProfiles(); assert.equal(registry.findProfileDescriptor({ catalogVariantKey: "ducati.monster.937", year: 2021 }).status, "not-found"); assert.deepEqual(source, sourceBefore); assert.deepEqual(registry.listProfiles(), registryBefore); assert.equal(registryBefore.some(item => item.profileId === profile.profile.id), false);
+test("Ducati remains registered exactly once and source/registry inputs are not mutated", () => {
+  const sourceBefore = structuredClone(source); const registryBefore = registry.listProfiles(); assert.equal(registry.findProfileDescriptor({ catalogVariantKey: "ducati.monster.937", year: 2021 }).status, "found"); assert.deepEqual(source, sourceBefore); assert.deepEqual(registry.listProfiles(), registryBefore); assert.equal(registryBefore.filter(item => item.profileId === profile.profile.id).length, 1);
 });
 
 test("materialization report is deterministic and production-isolated", () => {
-  const first = report(); assert.deepEqual(report(), first); assert.equal(first.validatorResult.valid, true); assert.equal(first.entryCount, 6); assert.equal(first.registryChanged, false); assert.equal(first.runtimeDiscoverable, false); assert.equal(first.evidenceChanged, false); assert.equal(first.serviceCoreCoverageChanged, false); assert.deepEqual(JSON.parse(fs.readFileSync(path.join(__dirname, "../research/reports/ducati-monster937-production-profile-materialization.json"), "utf8")), first);
+  const first = report(); assert.deepEqual(report(), first); assert.equal(first.validatorResult.valid, true); assert.equal(first.entryCount, 6); assert.equal(first.registryChanged, false); assert.equal(first.runtimeDiscoverable, true); assert.equal(first.evidenceChanged, false); assert.equal(first.serviceCoreCoverageChanged, false); assert.deepEqual(JSON.parse(fs.readFileSync(path.join(__dirname, "../research/reports/ducati-monster937-production-profile-materialization.json"), "utf8")), first);
 });

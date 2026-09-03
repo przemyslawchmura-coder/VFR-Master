@@ -19,6 +19,14 @@
       moduleId: "data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js",
       status: "review",
       schemaVersion: "revlog-technical-profile/v1"
+    }),
+    Object.freeze({
+      profileId: "ducati.monster937.2021",
+      catalogVariantKeys: Object.freeze(["ducati.monster.937"]),
+      years: Object.freeze({ from: 2021, to: 2021 }),
+      moduleId: "data/technical/ducati/monster937/profile-2021.js",
+      status: "review",
+      schemaVersion: "revlog-technical-profile/v1"
     })
   ]);
 });

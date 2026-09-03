@@ -20,6 +20,8 @@ const BROWSER_SCRIPTS = [
   "js/technical/technical-profile-quality-report.js",
   "data/technical/documents/honda/vfr800-2002-documents.js",
   "data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js",
+  "data/technical/documents/ducati/monster937-2021-documents.js",
+  "data/technical/ducati/monster937/profile-2021.js",
   "js/technical/technical-profile-registry.js",
   "js/technical/technical-profile-loader.js",
   "js/technical/technical-profile-runtime.js",

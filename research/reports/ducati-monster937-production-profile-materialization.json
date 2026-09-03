@@ -72,7 +72,7 @@
   "pendingDucatiExcluded": 20,
   "bmwUnchanged": true,
   "registryChanged": false,
-  "runtimeDiscoverable": false,
+  "runtimeDiscoverable": true,
   "evidenceChanged": false,
   "serviceCoreCoverageChanged": false
 }

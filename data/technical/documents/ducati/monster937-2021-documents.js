@@ -1,5 +1,11 @@
-// Production-compatible Ducati source definitions only. No Technical Profile.
+(function attachDucatiMonster937Documents(root, factory) {
+  const registry = factory();
+  if (typeof module === "object" && module.exports) module.exports = registry;
+  if (root) root.RevLogDucatiMonster937SourceRegistry = registry;
+})(typeof globalThis !== "undefined" ? globalThis : this, function createDucatiMonster937Documents() {
 "use strict";
+
+// Production-compatible Ducati source definitions only. No Technical Profile.
 
 const documentId = "doc.ducati.monster937-2021.owners-manual";
 const documents = {
@@ -28,4 +34,5 @@ const citations = {
   "cite.ducati.monster937-2021.om.brake-fluid": { id: "cite.ducati.monster937-2021.om.brake-fluid", documentId, section: "Fuel, lubricants and other fluids", pages: ["177", "212"] }
 };
 
-module.exports = Object.freeze({ documentId, documents: Object.freeze(documents), citations: Object.freeze(citations) });
+return Object.freeze({ documentId, documents: Object.freeze(documents), citations: Object.freeze(citations) });
+});

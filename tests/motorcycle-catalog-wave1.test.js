@@ -59,7 +59,6 @@ test("parallel technical variants coexist and production gaps remain gaps", () =
 });
 
 test("catalog expansion does not create or register Technical Profiles", () => {
-  assert.equal(registry.length, 1);
-  assert.deepEqual(registry.flatMap(item => item.catalogVariantKeys), ["honda.vfr800.rc46.vtec.gen1"]);
+  assert.deepEqual(registry.flatMap(item => item.catalogVariantKeys), ["honda.vfr800.rc46.vtec.gen1", "ducati.monster.937"]);
   assert.ok(report.variants > registry.length);
 });

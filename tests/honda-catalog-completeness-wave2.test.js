@@ -67,8 +67,7 @@ test("documented discontinuities and parallel service variants are preserved", (
 test("VFR identity, profile mapping, form ordering contract and production isolation remain stable", () => {
   const vtec = family("vfr800").variants.find(item => item.id === "vtec");
   assert.deepEqual(vtec, { id: "vtec", key: "honda.vfr800.rc46.vtec.gen1", name: "VTEC — I", storedModel: "VFR800 VTEC", yearFrom: 2002, yearTo: 2005 });
-  assert.equal(registry.length, 1);
-  assert.deepEqual(registry[0].catalogVariantKeys, ["honda.vfr800.rc46.vtec.gen1"]);
+  assert.deepEqual(registry.map(item => item.catalogVariantKeys), [["honda.vfr800.rc46.vtec.gen1"], ["ducati.monster.937"]]);
   const context = { window: {} }; context.window = context; vm.createContext(context);
   ["data/motorcycle-catalog.js", "js/motorcycle-catalog.js"].forEach(file => vm.runInContext(fs.readFileSync(path.join(__dirname, "..", file), "utf8"), context));
   assert.deepEqual(JSON.parse(JSON.stringify(context.MotorcycleCatalog.getYears("honda", "cbr600f", "pc35-efi"))), [2006, 2005, 2004, 2003, 2002, 2001]);

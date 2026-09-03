@@ -80,5 +80,5 @@ test("Honda, Yamaha, Suzuki, Kawasaki and VFR production identities remain isola
   assert.deepEqual([brand("suzuki").models.length, suzuki.length, suzuki.reduce((n,v)=>n+v.yearTo-v.yearFrom+1,0)], [54,146,881]);
   assert.deepEqual([brand("kawasaki").models.length, kawasaki.length, kawasaki.reduce((n,v)=>n+v.yearTo-v.yearFrom+1,0)], [47,132,647]);
   assert.deepEqual(honda.find(item => item.key === "honda.vfr800.rc46.vtec.gen1"), { familyId: "vfr800", id: "vtec", key: "honda.vfr800.rc46.vtec.gen1", name: "VTEC — I", storedModel: "VFR800 VTEC", yearFrom: 2002, yearTo: 2005 });
-  assert.deepEqual(registry.flatMap(item => item.catalogVariantKeys), ["honda.vfr800.rc46.vtec.gen1"]);
+  assert.deepEqual(registry.flatMap(item => item.catalogVariantKeys), ["honda.vfr800.rc46.vtec.gen1", "ducati.monster.937"]);
 });

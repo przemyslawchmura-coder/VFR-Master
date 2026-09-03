@@ -85,6 +85,6 @@ test("Honda, Yamaha and VFR Technical Profile identities remain isolated", () =>
   assert.equal(yamaha.reduce((sum, item) => sum + item.yearTo - item.yearFrom + 1, 0), 905);
   const vfr = honda.find(item => item.key === "honda.vfr800.rc46.vtec.gen1");
   assert.deepEqual(vfr, { familyId: "vfr800", id: "vtec", key: "honda.vfr800.rc46.vtec.gen1", name: "VTEC — I", storedModel: "VFR800 VTEC", yearFrom: 2002, yearTo: 2005 });
-  assert.deepEqual(registry.flatMap(item => item.catalogVariantKeys), ["honda.vfr800.rc46.vtec.gen1"]);
+  assert.deepEqual(registry.flatMap(item => item.catalogVariantKeys), ["honda.vfr800.rc46.vtec.gen1", "ducati.monster.937"]);
   assert.equal(registry.some(item => item.catalogVariantKeys.some(key => key.startsWith("suzuki."))), false);
 });

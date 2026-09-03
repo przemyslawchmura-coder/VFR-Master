@@ -141,7 +141,7 @@ test("developer status CLI is deterministic, valid JSON and reports production i
   const command = [path.join(__dirname, "../scripts/technical-research-status.js")];
   const first = childProcess.execFileSync(process.execPath, command, { encoding: "utf8" });
   assert.equal(first, childProcess.execFileSync(process.execPath, command, { encoding: "utf8" }));
-  const output = JSON.parse(first); assert.ok(output.catalogueTargets > output.productionProfiles); assert.equal(output.productionProfiles, 1); assert.equal(output.structurallyValidResearchDataset, true);
+  const output = JSON.parse(first); assert.ok(output.catalogueTargets > output.productionProfiles); assert.equal(output.productionProfiles, 2); assert.equal(output.structurallyValidResearchDataset, true);
 });
 
 test("research pipeline is not imported by production runtime or browser store", () => {

@@ -76,5 +76,5 @@ test("prior manufacturers and VFR Technical Profile identity remain unchanged", 
   const expected = { honda: "0d29e7aeae2a97b206978a741eab612c08539548537698642783ac4bb4d151a0", yamaha: "4eaa2108f162a4700d4fbaa9228345724fbbaef36a7318528503ac84b3f9f373", suzuki: "4a5ec08639a6f18797479f1e2a66bb45df85258364114e067457a6b04c5dae9c", kawasaki: "81519200c36848783e3be044b0e9e81c2ba0de75d199b64dc2e44c4346921c5c", bmw: "fbb6f4e252cc64315539fb0abc85dac7ecb703136ee20fb1fbaa3b5e7b80f4b5" };
   Object.entries(expected).forEach(([id, digest]) => assert.equal(hash(flatten(brand(id))), digest, id));
   assert.deepEqual(flatten(brand("honda")).find(item => item.key === "honda.vfr800.rc46.vtec.gen1"), { familyId: "vfr800", id: "vtec", key: "honda.vfr800.rc46.vtec.gen1", name: "VTEC — I", storedModel: "VFR800 VTEC", yearFrom: 2002, yearTo: 2005 });
-  assert.deepEqual(registry.flatMap(item => item.catalogVariantKeys), ["honda.vfr800.rc46.vtec.gen1"]);
+  assert.deepEqual(registry.flatMap(item => item.catalogVariantKeys), ["honda.vfr800.rc46.vtec.gen1", "ducati.monster.937"]);
 });

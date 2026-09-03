@@ -51,6 +51,5 @@ test("production and VFR800 remain isolated", () => {
   assert.equal(report.catalogueChanged, false);
   assert.equal(report.cloudBackendChanged, false);
   assert.equal(report.vfr800ProductionChanged, false);
-  assert.equal(productionRegistry.length, 1);
-  assert.equal(productionRegistry[0].profileId, "honda.vfr800.rc46-vtec-gen1.2002");
+  assert.deepEqual(productionRegistry.map(item => item.profileId), ["honda.vfr800.rc46-vtec-gen1.2002", "ducati.monster937.2021"]);
 });

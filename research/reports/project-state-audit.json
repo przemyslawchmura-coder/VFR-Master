@@ -6,11 +6,11 @@
   "baseCommit": "b1c8575105c981d4eb39370bd32cff4c6dba4280",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 396,
-    "javascriptFiles": 261,
-    "testFiles": 85,
+    "files": 400,
+    "javascriptFiles": 264,
+    "testFiles": 86,
     "documentationFiles": 72,
-    "researchAndToolingFiles": 193
+    "researchAndToolingFiles": 196
   },
   "catalogue": {
     "manufacturers": 13,
@@ -39,7 +39,7 @@
     "latestCompletedExpansion": "Triumph Wave 2"
   },
   "technicalProfiles": {
-    "productionCount": 1,
+    "productionCount": 2,
     "details": [
       {
         "profileId": "honda.vfr800.rc46-vtec-gen1.2002",
@@ -56,6 +56,22 @@
         "verified": 94,
         "unresolved": 5,
         "sourceCount": 30
+      },
+      {
+        "profileId": "ducati.monster937.2021",
+        "catalogVariantKeys": [
+          "ducati.monster.937"
+        ],
+        "years": {
+          "from": 2021,
+          "to": 2021
+        },
+        "requiredContext": null,
+        "status": "review",
+        "entries": 6,
+        "verified": 6,
+        "unresolved": 0,
+        "sourceCount": 6
       }
     ]
   },
@@ -2389,8 +2405,8 @@
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 673,
-    "lastKnownPassed": 673,
+    "lastKnownTotal": 678,
+    "lastKnownPassed": 678,
     "failed": 0,
     "skipped": 0,
     "todo": 0
@@ -2398,7 +2414,7 @@
   "productionBoundary": {
     "researchImportedByIndex": false,
     "runtimeEntry": "index.html",
-    "productionProfileCount": 1,
+    "productionProfileCount": 2,
     "batchPipelineNonProduction": true
   },
   "release": {

@@ -1,9 +1,18 @@
-// Unregistered production Technical Profile for the bounded Ducati wave.
+(function attachDucatiMonster937Profile(root, factory) {
+  let sourceRegistry = root && root.RevLogDucatiMonster937SourceRegistry;
+  if (typeof module === "object" && module.exports) {
+    sourceRegistry = sourceRegistry || require("../../documents/ducati/monster937-2021-documents.js");
+  }
+  const profile = factory(sourceRegistry);
+  if (typeof module === "object" && module.exports) module.exports = profile;
+  if (root && root.RevLogTechnicalProfileBrowserStore) {
+    root.RevLogTechnicalProfileBrowserStore.registerProfile(profile);
+  }
+})(typeof globalThis !== "undefined" ? globalThis : this, function createDucatiMonster937Profile(sourceRegistry) {
 "use strict";
 
-const sourceRegistry = require("../../documents/ducati/monster937-2021-documents.js");
-
-module.exports = Object.freeze({
+// Unregistered production Technical Profile for the bounded Ducati wave.
+return Object.freeze({
   schemaVersion: "revlog-technical-profile/v1",
   profile: { id: "ducati.monster937.2021", revision: 1, status: "review", language: "en" },
   motorcycle: {
@@ -28,4 +37,5 @@ module.exports = Object.freeze({
     { id: "electrical.battery.specification", type: "consumable-part", categoryId: "electrical", label: "Battery", value: { type: "text", text: "YUASA YT 7B-BS DRY, 12 V" }, status: "verified", sourceIds: ["cite.ducati.monster937-2021.om.battery-specification"] },
     { id: "brakes.fluid.specification", type: "fluid", categoryId: "brakes", label: "Brake fluid", value: { type: "text", text: "Front/rear brake circuit: DOT 4" }, status: "verified", sourceIds: ["cite.ducati.monster937-2021.om.brake-fluid"] }
   ]
+});
 });

@@ -194,3 +194,9 @@ Added one production-compatible authenticated Ducati MY2021 EU owner-manual defi
 ## 2026-09-03 — Ducati Monster 937 six-entry production profile materialization
 
 Created the single valid `revlog-technical-profile/v1` Ducati Monster 937 MY2021 EU review-status profile with exactly six verified citation-backed entries, importing the existing Ducati source graph. The profile remains deliberately absent from `technical-profile-registry`; runtime discovery, evidence, coverage and BMW state are unchanged. Phase 6 is now active but incomplete. Next: separately authorize registry insertion and production discovery validation.
+## 2026-09-03 — Ducati Monster 937 production registry insertion
+
+Registered exactly one existing Ducati Monster 937 MY2021 profile descriptor for catalogue key `ducati.monster.937`, preserving the VFR descriptor and registry uniqueness. Normal registry discovery, loader validation and resolver paths now succeed for the six verified entries. Cooling, pending Ducati fields, BMW, source citations/documents, evidence and Service Core coverage remain unchanged. Phase 6 remains active after the first bounded production registry promotion.
+## 2026-09-03 — Ducati Monster 937 production registry insertion
+
+Registered exactly one existing Ducati Monster 937 MY2021 profile descriptor for catalogue key `ducati.monster.937`, preserving the VFR descriptor and registry uniqueness. Normal registry discovery, loader validation and resolver paths now succeed for the six verified entries. Cooling, pending Ducati fields, BMW, source citations/documents, evidence and Service Core coverage remain unchanged. Phase 6 remains active after the first bounded production registry promotion.

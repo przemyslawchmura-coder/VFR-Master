@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "revlog-ducati-monster937-production-registry-promotion/v1",
+  "registryProfileCountBefore": 2,
+  "registryProfileCountAfter": 2,
+  "registeredProfileIds": [
+    "honda.vfr800.rc46-vtec-gen1.2002",
+    "ducati.monster937.2021"
+  ],
+  "ducatiRegistryRecord": {
+    "profileId": "ducati.monster937.2021",
+    "catalogVariantKeys": [
+      "ducati.monster.937"
+    ],
+    "years": {
+      "from": 2021,
+      "to": 2021
+    },
+    "moduleId": "data/technical/ducati/monster937/profile-2021.js",
+    "status": "review",
+    "schemaVersion": "revlog-technical-profile/v1"
+  },
+  "catalogueVariantKey": "ducati.monster.937",
+  "yearRange": {
+    "from": 2021,
+    "to": 2021
+  },
+  "moduleId": "data/technical/ducati/monster937/profile-2021.js",
+  "loaderResult": {
+    "status": "loaded",
+    "profileId": "ducati.monster937.2021",
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    "discovery": {
+      "status": "found",
+      "descriptor": {
+        "profileId": "ducati.monster937.2021",
+        "catalogVariantKeys": [
+          "ducati.monster.937"
+        ],
+        "years": {
+          "from": 2021,
+          "to": 2021
+        },
+        "moduleId": "data/technical/ducati/monster937/profile-2021.js",
+        "status": "review",
+        "schemaVersion": "revlog-technical-profile/v1"
+      }
+    }
+  },
+  "resolverResult": {
+    "brakes.fluid.specification": {
+      "status": "resolved",
+      "value": {
+        "type": "text",
+        "text": "Front/rear brake circuit: DOT 4"
+      }
+    },
+    "electrical.battery.capacity": {
+      "status": "resolved",
+      "value": {
+        "type": "quantity",
+        "amount": 6.5,
+        "unit": "Ah"
+      }
+    },
+    "electrical.battery.specification": {
+      "status": "resolved",
+      "value": {
+        "type": "text",
+        "text": "YUASA YT 7B-BS DRY, 12 V"
+      }
+    },
+    "ignition.spark-plug.standard": {
+      "status": "resolved",
+      "value": {
+        "type": "text",
+        "text": "NGK MAR9A-J"
+      }
+    },
+    "lubrication.engine-oil.specification": {
+      "status": "resolved",
+      "value": {
+        "type": "text",
+        "text": "API: SN; JASO: MA2"
+      }
+    },
+    "lubrication.engine-oil.viscosity": {
+      "status": "resolved",
+      "value": {
+        "type": "text",
+        "text": "SAE 15W-50"
+      }
+    }
+  },
+  "entryIds": [
+    "ignition.spark-plug.standard",
+    "lubrication.engine-oil.viscosity",
+    "lubrication.engine-oil.specification",
+    "electrical.battery.capacity",
+    "electrical.battery.specification",
+    "brakes.fluid.specification"
+  ],
+  "coolingAbsent": true,
+  "pendingDucatiAbsent": true,
+  "bmwUnchanged": true,
+  "vfrUnchanged": true,
+  "citationsDocumentsUnchanged": true,
+  "evidenceChanged": false,
+  "serviceCoreCoverageChanged": false,
+  "runtimeDiscoverable": true,
+  "upstreamStateChanged": false
+}
