@@ -344,3 +344,14 @@ associations. Read-only Ducati regression confirms all 39 processed inputs are
 losslessly representable; the five deferred candidates and cooling remain
 excluded. No promotion, production profile, Human Review, evidence, VFR or
 coverage state changed. Phase 7 remains ACTIVE.
+
+## 2026-09-03 — Fixed Rider Service Core matrix
+
+Corrected the prior dynamic visibility interpretation with one closed shared
+Rider Service Core presentation matrix sourced from the existing canonical
+14-domain, 113-field research contract. Ducati Monster 937 MY2021 and Honda
+VFR800 VTEC MY2002 now render identical field IDs and order; verified values are
+shown and missing cells render `Brak danych`. Extended canonical records remain
+stored and excluded from default Core rows. No technical values, profile
+semantics, provenance, registry state or research decisions changed. Phase 7
+remains ACTIVE.

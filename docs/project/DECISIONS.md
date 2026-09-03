@@ -17,6 +17,20 @@ manuals or exposing internal source IDs as the user experience. Existing
 technical data and profiles remain unchanged.
 Status: ACTIVE. Related design: `docs/project/RIDER_SERVICE_CORE.md`.
 
+## ADR-027 — Rider Service Core is a fixed presentation matrix
+
+Date: 2026-09-03
+Decision: The default Rider Service Core UI renders one closed,
+manufacturer-neutral matrix from `research/schema/rider-service-core-v1.js`.
+Every supported motorcycle has the same 14 domains, 113 field IDs and stable
+ordering. Verified applicable data fills a cell; missing data is rendered as
+`Brak danych`, while explicit non-applicability requires evidence. Additional
+canonical Technical Profile entries remain stored but cannot create Core rows.
+Consequences: coverage has one shared denominator and research fills missing
+cells without profile-specific visibility rules or inference. Existing canonical
+profiles and values remain unchanged.
+Status: ACTIVE. Related design: `docs/project/RIDER_SERVICE_CORE.md`.
+
 ## ADR-026 — Default Technical Profile visibility is Rider Service Core first
 
 Date: 2026-09-03

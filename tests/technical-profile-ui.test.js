@@ -9,6 +9,7 @@ const resolverApi = require("../js/technical/technical-profile-resolver.js");
 const formatterApi = require("../js/technical/technical-value-formatter.js");
 const searchApi = require("../js/technical/technical-profile-search.js");
 const ducatiProfile = require("../data/technical/ducati/monster937/profile-2021.js");
+const riderServiceCoreSchema = require("../research/schema/rider-service-core-v1.js");
 
 const MOTORCYCLE = Object.freeze({
   id: "bike-ui",
@@ -64,40 +65,46 @@ test("profile name and stable ID are exposed to the view", async () => {
   assert.equal(view.profileId, "honda.vfr800.rc46-vtec-gen1.2002");
 });
 
+test("Ducati and VFR use the same closed Rider Service Core matrix", async () => {
+  const vfr = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
+  const ducati = await uiApi.prepareTechnicalProfileView(DUCATI_MOTORCYCLE);
+  assert.deepEqual(vfr.coreMatrix.fieldIds, riderServiceCoreSchema.fieldIds);
+  assert.deepEqual(ducati.coreMatrix.fieldIds, riderServiceCoreSchema.fieldIds);
+  assert.deepEqual(ducati.coreMatrix.fieldIds, vfr.coreMatrix.fieldIds);
+  assert.equal(vfr.coreMatrix.fieldIds.length, 113);
+});
+
 test("Ducati presentation is Polish while values and profile semantics remain unchanged", async () => {
   const before = JSON.stringify(ducatiProfile);
   const view = await uiApi.prepareTechnicalProfileView(DUCATI_MOTORCYCLE);
   assert.equal(view.profileId, "ducati.monster937.2021");
-  assert.deepEqual(view.categories.map(category => category.label), ["Dane ogólne", "Olej i filtry", "Świece i zapłon", "Koła i opony", "Napęd końcowy", "Hamulce", "Instalacja elektryczna", "Bezpieczniki", "Oświetlenie", "Obsługa okresowa"]);
-  assert.equal(view.entriesById["lubrication.engine-oil.viscosity"].label, "Lepkość oleju silnikowego");
-  assert.equal(view.entriesById["electrical.battery.capacity"].label, "Pojemność akumulatora");
-  assert.equal(view.entriesById["electrical.battery.capacity"].formattedValue, "6,5 Ah");
-  assert.equal(view.entriesById["brakes.fluid.specification"].formattedValue, "Obwód hamulca przedni/tylny: DOT 4");
+  assert.deepEqual(view.categories.map(category => category.label), ["Dane podstawowe", "Olej i filtry", "Układ chłodzenia", "Świece i zapłon", "Zawory", "Koła i opony", "Napęd końcowy", "Hamulce", "Instalacja elektryczna i akumulator", "Bezpieczniki", "Oświetlenie", "Obsługa okresowa", "Materiały eksploatacyjne", "Praktyczne momenty dokręcania"]);
+  assert.equal(view.entriesById["rider-core.lubrication.viscosity"].label, "Lepkość oleju silnikowego");
+  assert.equal(view.entriesById["rider-core.electrical.battery-capacity"].label, "Pojemność akumulatora");
+  assert.equal(view.entriesById["rider-core.electrical.battery-capacity"].formattedValue, "6,5 Ah");
+  assert.equal(view.entriesById["rider-core.brakes.brake-fluid"].formattedValue, "Obwód hamulca przedni/tylny: DOT 4");
   assert.equal(JSON.stringify(ducatiProfile), before);
 });
 
 test("default visibility is identity-based and keeps practical VFR data", async () => {
   const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
-  assert.ok(view.entriesById["general.engine.displacement"]);
-  assert.ok(view.entriesById["lubrication.engine-oil.capacity-with-filter"]);
-  assert.equal(view.entriesById["general.engine.bore"], undefined);
-  assert.equal(view.entriesById["general.chassis.wheelbase"], undefined);
-  assert.equal(view.entriesById["lighting.headlight"], undefined);
-  assert.equal(view.entriesById["electrical.charging.stator-resistance"], undefined);
+  assert.ok(view.entriesById["rider-core.engine.displacement"]);
+  assert.ok(view.entriesById["rider-core.lubrication.capacity-filter"]);
+  assert.equal(view.entriesById["rider-core.engine.bore"].formattedValue, "Brak danych");
+  assert.equal(view.entriesById["rider-core.dimensions_mass.wheelbase"].formattedValue, "Brak danych");
+  assert.equal(view.entriesById["rider-core.lighting.combined-high-low"].formattedValue, "Brak danych");
+  assert.equal(view.entriesById["rider-core.electrical.charging-test-values"].formattedValue, "Brak danych");
   assert.equal(uiApi.STATUS_LABELS.verified, "Zweryfikowane");
 });
 
 test("categories and their entries are grouped deterministically", async () => {
   const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
-  assert.equal(view.categories[0].id, "general");
-  for (const category of view.categories) {
-    const labels = category.entries.map(entry => entry.label);
-    assert.deepEqual(labels, [...labels].sort((a, b) => a.localeCompare(b, "pl")));
-  }
+  assert.equal(view.categories[0].id, "basic-motorcycle-data");
+  assert.deepEqual(view.categories.flatMap(category => category.entries).map(entry => entry.id), view.coreMatrix.fieldIds.map(fieldId => `rider-core.${fieldId}`));
 });
 
 test("resolved oil drain bolt renders 30 N·m", async () => {
-  const entry = findEntry(await uiApi.prepareTechnicalProfileView(MOTORCYCLE), "torque.engine.oil-drain-bolt");
+  const entry = findEntry(await uiApi.prepareTechnicalProfileView(MOTORCYCLE), "rider-core.torques.oil-drain-bolt");
   assert.equal(entry.resolutionStatus, "resolved");
   assert.equal(entry.formattedValue, "30 N·m");
 });
@@ -114,13 +121,13 @@ test("existing Technical Value Formatter is used", async () => {
 test("search for korek oleju finds the oil drain bolt", async () => {
   const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
   const html = uiApi.renderSearchResultsHtml(view, "korek oleju", searchApi);
-  assert.match(html, /torque\.engine\.oil-drain-bolt/);
+  assert.match(html, /rider-core\.lubrication\.drain-plug-torque/);
   assert.match(html, /30 N·m/);
 });
 
 test("empty search returns the category view without crashing", async () => {
   const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
-  assert.match(uiApi.renderSearchResultsHtml(view, "   ", searchApi), /Dane ogólne/);
+  assert.match(uiApi.renderSearchResultsHtml(view, "   ", searchApi), /Dane podstawowe/);
 });
 
 test("search with no results renders an explicit message", async () => {
@@ -141,7 +148,7 @@ test("hidden VFR reference lighting data is not searchable by default", async ()
 });
 
 test("unknown ABS leaves ABS-dependent entry ambiguous", async () => {
-  const entry = findEntry(await uiApi.prepareTechnicalProfileView(MOTORCYCLE), "fuses.circuit.abs");
+  const entry = findEntry(await uiApi.prepareTechnicalProfileView(MOTORCYCLE), "rider-core.electrical.fuse-ratings");
   assert.equal(entry.resolutionStatus, "ambiguous-context");
   assert.match(uiApi.renderEntryHtml(entry), /informacja o ABS/);
 });
@@ -256,7 +263,7 @@ test("legacy fallback remains available and callable", async () => {
 });
 
 test("verified status and real citation metadata are rendered neutrally", async () => {
-  const entry = findEntry(await uiApi.prepareTechnicalProfileView(MOTORCYCLE), "torque.engine.oil-drain-bolt");
+  const entry = findEntry(await uiApi.prepareTechnicalProfileView(MOTORCYCLE), "rider-core.torques.oil-drain-bolt");
   const html = uiApi.renderEntryHtml(entry);
   assert.match(html, /Zweryfikowane/);
   assert.match(html, /Instrukcja serwisowa Honda VFR800\/VFR800A 2002/);

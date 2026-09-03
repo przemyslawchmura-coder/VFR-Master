@@ -54,8 +54,14 @@ a priority/coverage layer, not a destructive rewrite and not a reason to remove
 useful secondary VFR or Ducati data.
 
 Coverage reports must show Core fields supported, missing, blocked by
-applicability, blocked by conflict and secondary/non-Core fields. No percentage
-denominator is valid until a canonical field matrix is explicitly defined.
+applicability, blocked by conflict and secondary/non-Core fields. The
+closed matrix is `research/schema/rider-service-core-v1.js`: 14 domains and 113
+stable field IDs with deterministic domain and field ordering. Every motorcycle
+uses that same denominator and field sequence. A verified value fills a cell;
+otherwise the presentation is exactly `Brak danych`, except for an explicitly
+evidenced not-applicable state. Additional canonical profile data never expands
+the default Core rows, and research targets missing cells rather than adding
+profile-specific fields.
 
 ## Source trust and verification
 

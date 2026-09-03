@@ -46,7 +46,8 @@
         formatter,
         presentation
       ));
-      const grouped = groupEntries(profile.categories, entryViews);
+      const matrixView = buildCoreMatrixView(profile, profile.entries, context, resolver, formatter, presentation);
+      const grouped = matrixView.categories;
       const searchIndex = search.buildSearchIndex({ ...profile, entries: visibleEntries }, context);
 
       return {
@@ -58,9 +59,10 @@
         resolutionContext: readinessResult.resolutionContext,
         clarification: motorcycle && motorcycle.clarification ? { ...motorcycle.clarification } : {},
         categories: grouped,
-        entriesById: Object.fromEntries(entryViews.map(entry => [entry.id, entry])),
+        entriesById: Object.fromEntries(matrixView.entries.map(entry => [entry.id, entry])),
+        coreMatrix: { schemaVersion: matrixView.schemaVersion, fieldIds: [...matrixView.fieldIds] },
         searchIndex,
-        categoryLabels: Object.fromEntries([...categoryMap].map(([id, category]) => [id, presentation.categoryLabel(category)]))
+        categoryLabels: Object.fromEntries(matrixView.categories.map(category => [category.id, category.label]))
       };
     }
 
@@ -115,6 +117,33 @@
         pages: Array.isArray(citation.pages) ? [...citation.pages] : []
       };
     }).filter(Boolean);
+  }
+
+  function buildCoreMatrixView(profile, entries, context, resolver, formatter, presentation) {
+    const matrix = presentation.coreMatrix;
+    const rows = matrix.domains.flatMap(domain => domain.fieldIds.map(fieldId => {
+      const matches = presentation.matrixEntryMatches(entries, fieldId).filter(presentation.isRiderServiceCoreEntry);
+      const views = matches.map(entry => buildEntryView(entry, resolver.resolveEntry(entry, context), profile, formatter, presentation));
+      const base = views[0] || { resolutionStatus: "missing", requiredContext: [], candidates: {}, status: "missing", statusLabel: "Brak danych", description: "", sources: [] };
+      return {
+        ...base,
+        id: `rider-core.${fieldId}`,
+        categoryId: domain.id,
+        label: presentation.coreMatrixLabel(fieldId),
+        matchedEntryIds: views.map(view => view.id),
+        formattedValue: views.length ? views.map(view => view.formattedValue || "Brak danych").join(" · ") : "Brak danych",
+        status: views.length ? base.status : "missing",
+        statusLabel: views.length ? base.statusLabel : "Brak danych",
+        resolutionStatus: views.length ? base.resolutionStatus : "missing",
+        sources: views.flatMap(view => view.sources).filter((source, index, all) => all.findIndex(item => item.id === source.id) === index)
+      };
+    }));
+    return {
+      schemaVersion: matrix.schemaVersion,
+      entries: rows,
+      categories: matrix.domains.map(domain => ({ id: domain.id, label: presentation.CORE_DOMAIN_LABELS[domain.id] || domain.id, entries: rows.filter(row => row.categoryId === domain.id) })),
+      fieldIds: [...matrix.fieldIds]
+    };
   }
 
   function groupEntries(categories, entries) {
@@ -212,7 +241,7 @@
   }
 
   function renderEntryHtml(entry) {
-    const value = entry.resolutionStatus === "resolved"
+    const value = entry.resolutionStatus === "resolved" || entry.resolutionStatus === "missing"
       ? `<strong class="technical-entry-value">${escapeHtml(entry.formattedValue || "—")}</strong>`
       : `<strong class="technical-entry-ambiguous">Wymaga doprecyzowania: ${escapeHtml(entry.requiredContext.map(contextLabel).join(", "))}</strong>`;
     const sourceDetails = entry.sources.length
@@ -230,7 +259,7 @@
       return '<div class="card"><div class="empty">Nie udało się przeszukać bazy technicznej.</div></div>';
     }
     if (!results.length) return '<div class="card"><div class="empty">Brak wyników wyszukiwania.</div></div>';
-    const entries = results.map(result => view.entriesById[result.entryId]).filter(Boolean);
+    const entries = results.map(result => view.entriesById[result.entryId] || Object.values(view.entriesById).find(entry => (entry.matchedEntryIds || []).includes(result.entryId))).filter(Boolean);
     return `<section class="card technical-profile-category"><h3>Wyniki wyszukiwania</h3>${entries.map(renderEntryHtml).join("")}</section>`;
   }
 

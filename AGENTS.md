@@ -357,3 +357,15 @@ must use stable canonical identities or semantic metadata, never translated
 labels or rendered prose. Do not delete canonical data or create a separate
 profile to implement this policy; an optional extended view is a separate
 future feature.
+
+## 19. Fixed Rider Service Core matrix
+
+The Rider Service Core user-facing contract is one fixed, closed,
+manufacturer-neutral matrix defined by `research/schema/rider-service-core-v1.js`.
+Every supported motorcycle renders the same matrix field IDs, category order and
+field order. A verified applicable value is shown in its matrix cell; otherwise
+the cell shows exactly `Brak danych`, unless explicit evidence proves a distinct
+not-applicable state. Extra canonical Technical Profile data must not add rows to
+the default Core view, and missing data must not remove rows. Research priority is
+to fill missing matrix cells with exact applicable evidence under the zero-
+inference rule.
