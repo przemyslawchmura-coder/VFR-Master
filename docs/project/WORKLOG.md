@@ -286,6 +286,16 @@ blocks, 0 validation failures, 0 conflicts. The five deferred candidates and
 cooling blocker remain excluded; no Human Review, evidence, production, VFR or
 coverage state changed. Phase 7 remains ACTIVE.
 
+## 2026-09-03 — Ducati production runtime/presentation hardening
+
+Fixed the real browser Technical Profile render path for Ducati Monster 937
+MY2021. The centralized generic presentation layer now labels all 45 loaded
+entries in Polish and presents structured Rider Service Core maintenance, fuse,
+lighting and wheel data without flattening or changing canonical values,
+provenance or applicability. Browser/runtime regression coverage confirms the
+registry, loader, resolver, Ducati and VFR paths remain stable; blocked and
+deferred research records remain absent from production. Phase 7 remains ACTIVE.
+
 ## 2026-09-03 — Ducati Rider Service Core conditional production promotion
 
 Reassessed exactly the existing 39 Ducati Monster 937 MY2021

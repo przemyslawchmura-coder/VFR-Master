@@ -91,6 +91,13 @@ Research is quarantined under `research/` and is not imported by the production 
   meaning and Service Core research coverage are unchanged. Phase 7 remains
   ACTIVE.
 
+- Ducati Monster 937 MY2021 runtime/presentation hardening: the real browser
+  path loads and resolves all 45 registered entries deterministically. Generic
+  Rider Service Core labels and structured maintenance, fuse, lighting and
+  wheel presentation are localized at render time in Polish; canonical IDs,
+  values, provenance, applicability, Ducati profile semantics and VFR remain
+  unchanged. Phase 7 remains ACTIVE.
+
 ## Independent work streams
 
 - **Stream A — Catalogue expansion:** identify and add missing manufacturers, families, generations, variants, model years, aliases and market/applicability identities.

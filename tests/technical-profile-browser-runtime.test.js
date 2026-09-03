@@ -85,6 +85,20 @@ test("real browser/runtime path renders Ducati labels in Polish", async () => {
   assert.equal(Object.keys(view.entriesById).length, 45);
 });
 
+test("Ducati Rider Service Core presentation keeps structured meanings", async () => {
+  const container = { innerHTML: "", querySelector() { return null; } };
+  const view = await browser.RevLogTechnicalProfileUi.renderTechnicalProfile(container, DUCATI_MOTORCYCLE, { shouldCommit: () => true });
+  assert.equal(view.categories.length, 10);
+  assert.match(container.innerHTML, /Kontrola okresowa|Wymiana okresowa|Regulacja okresowa|Smarowanie okresowe/);
+  assert.match(container.innerHTML, /Skrzynka bezpieczników/);
+  assert.match(container.innerHTML, /LED/);
+  assert.match(container.innerHTML, /Rozmiary obręczy/);
+  const visibleText = container.innerHTML.replace(/<[^>]*>/g, " ");
+  assert.doesNotMatch(visibleText, /engine\.service-limits|dimensions_mass\.|final_drive\.|lighting\./);
+  assert.equal(view.entriesById["rider-service-core.lighting-front-indicators"].label, "Przednie kierunkowskazy");
+  assert.equal(view.entriesById["rider-service-core.maintenance-inspect"].label, "Kontrola okresowa");
+});
+
 test("browser profile store registers the reference profile", () => {
   assert.equal(browser.RevLogTechnicalProfileBrowserStore.hasProfile(PROFILE_ID), true);
 });
