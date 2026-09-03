@@ -6,11 +6,11 @@
   "baseCommit": "b1c8575105c981d4eb39370bd32cff4c6dba4280",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 372,
-    "javascriptFiles": 241,
-    "testFiles": 79,
+    "files": 379,
+    "javascriptFiles": 247,
+    "testFiles": 81,
     "documentationFiles": 72,
-    "researchAndToolingFiles": 177
+    "researchAndToolingFiles": 182
   },
   "catalogue": {
     "manufacturers": 13,
@@ -1089,6 +1089,21 @@
     "upstreamResearchStateChanged": false,
     "productionStateChanged": false,
     "promotionConversionPerformed": false
+  },
+  "ducatiSchemaConversionProjection": {
+    "total": 7,
+    "conversionReady": 4,
+    "conversionBlocked": 3,
+    "blockedReasons": {
+      "BATTERY-PAIR-REQUIRES-LOSSY-MERGE": 2,
+      "COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR": 1,
+      "NO-LOSSLESS-STANDALONE-BATTERY-CAPACITY-ENTRY": 1
+    },
+    "batteryLossless": false,
+    "coolingCapacityExact": false,
+    "productionProfileCreated": false,
+    "registryChanged": false,
+    "upstreamStateChanged": false
   },
   "research": {
     "canonicalFieldCount": 183,
@@ -2376,8 +2391,8 @@
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 652,
-    "lastKnownPassed": 652,
+    "lastKnownTotal": 660,
+    "lastKnownPassed": 660,
     "failed": 0,
     "skipped": 0,
     "todo": 0
