@@ -32,4 +32,4 @@ Objective: promote only reviewed, conflict-free, applicability-scoped candidates
 
 ## Phase 7 — Cloud/deployment hardening (ACTIVE)
 
-Objective: verify auth, persistence, RLS, deployment and operational error handling. Entry: selected test backend and deployment environment. Tasks: live-safe verification, security review, Pages observation, recovery paths. Exit: evidence-backed release readiness. Status: ACTIVE.
+Objective: verify auth, persistence, RLS, deployment and operational error handling. Entry: selected test backend and deployment environment. Completed repository baseline: reproducible `motorcycles`/`service_records` ownership schema, composite ownership constraint and authenticated CRUD RLS policies; no live application performed. Tasks remaining: live-safe parity and backup review, separately authorized migration application, auth/recovery hardening, deployment and operational recovery checks. Exit: evidence-backed release readiness. Status: ACTIVE.

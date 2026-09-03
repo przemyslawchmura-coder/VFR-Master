@@ -17,6 +17,7 @@ Snapshot basis: post-Triumph Street Triple 765 prospect-registration working tre
 - Phase 6 completion audit: the stated exit criteria all pass — one deliberate Ducati profile addition, production discovery/resolver/runtime regressions, and a deterministic rollback target. Phase 6 is COMPLETE; pending Ducati/BMW work and cooling remain future bounded expansions.
 - Phase 7 transition: Cloud/deployment hardening is ACTIVE only as a project-state transition. No Supabase, authentication, persistence, RLS or deployment work has started.
 - Phase 7 live-safe cloud/deployment audit: repository evidence shows client-side auth and cloud persistence paths, but live Supabase schema, RLS ownership policies, recovery configuration, deployment configuration and operational recovery are not proven. No live inspection or cloud change was performed.
+- Phase 7 Supabase reproducibility baseline: migration `20260903_ownership_rls_baseline.sql` defines the desired `motorcycles`/`service_records` schema, composite ownership constraint, authenticated RLS policies and removal of random `user_id` defaults. It is repository-only and unapplied; leaked-password protection remains disabled and live parity is not claimed.
 
 - Post-BMW/Triumph Phase 5 reassessment: repository-known supply is `EXHAUSTED-OR-BLOCKED`; 18 prospect records were reassessed, with 2 held pre-promotion, 4 access-blocked, 2 applicability-blocked, 6 exhausted, 2 mismatched and 2 explicitly deferred. No viable next prospect-registration target was selected.
 origin/main at task start: `b3fbabf94278617125cc713da3ebc21c5e10cc70`
@@ -86,7 +87,7 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Perform a read-only live Supabase schema/RLS/auth inspection for `motorcycles` and `service_records`, then define the smallest reproducible migration/policy test task; make no cloud change during inspection.
+**NEXT** — Execute a separately authorized live-safe migration/apply plan for the repository ownership/RLS baseline after read-only parity and backup checks; do not change auth settings in that task.
 
 Deferred independent streams remain future bounded Ducati/BMW profile expansion, cooling-scope resolution and the global catalogue gap audit; none is an active NEXT task.
 

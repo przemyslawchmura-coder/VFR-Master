@@ -41,7 +41,7 @@ Two production profiles exist: `honda.vfr800.rc46-vtec-gen1.2002` (MY2002, 99 en
 
 ## Security/configuration
 
-Supabase URL and publishable client configuration are visible in `js/supabase.js`; no secret service-role credential was found in the audited files. Session persistence and token refresh are configured, but password recovery, auth event handling and recovery-path validation are absent from the repository. `motorcycles` and `service_records` queries carry/derive `user_id` ownership, but reads and several updates/deletes rely on live RLS policies that are not represented by the repository migration set. The only migration is an additive `motorcycles.technical_clarification` column; schema/RLS reproducibility is incomplete. Supabase is loaded from an unpinned external CDN URL (`@supabase/supabase-js@2`), and no deployment workflow/configuration or recovery runbook is present.
+Supabase URL and publishable client configuration are visible in `js/supabase.js`; no secret service-role credential was found in the audited files. Session persistence and token refresh are configured, but password recovery, auth event handling and recovery-path validation are absent from the repository. A repository-controlled ownership/RLS baseline now defines authenticated-user isolation, composite motorcycle ownership for service records and removal of random ownership defaults, but it has not been applied to live Supabase. The pre-existing schema migration remains additive for `technical_clarification`; full live schema parity and policy application are still unverified. Supabase is loaded from an unpinned external CDN URL (`@supabase/supabase-js@2`), and no deployment workflow/configuration or recovery runbook is present.
 
 ## Dead/duplicate/legacy observations
 
