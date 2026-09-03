@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-03 — BMW F 900 R I rider-manual acquisition and raw extraction
+
+Reused the authenticated BMW Tier A `F_0K11_RM_0520_76.pdf` prospect and confirmed the exact MY2020 EU F 900 R 0K11 source before inspection. Through the existing Factory execution, extraction and Review Queue contracts, produced and queued 13 immutable raw candidates from directly attributable owner-level and technical-data excerpts. Preserved raw values, units, PDF page/section provenance, extraction method and explicit base-road/manual/ABS applicability; excluded A2 0K31 and F 900 XR. No ambiguous/conflicting candidates, evidence, Service Core coverage or production changes. NEXT: bounded human review only.
+
 ## 2026-09-03 — BMW F 900 R I prospect registration and readiness
 
 Selected representative MY2020 EU `bmw.f-roadster-xr.f900r-1` standard road scope with manual transmission and ABS. Authenticated the official BMW Motorrad Tier A rider manual `F_0K11_RM_0520_76.pdf` for base F 900 R model code 0K11; the manual's separately identified F 900 R A2 0K31 variant, F 900 XR and unrelated BMW models remain out of scope. Canonical readiness is `EXECUTION-READY`. No technical values, candidates, queue entries, decisions, processing records, evidence, coverage, production, runtime, catalogue or cloud state changed. NEXT: bounded acquisition only under this exact scope.
