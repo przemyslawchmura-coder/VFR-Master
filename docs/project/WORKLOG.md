@@ -209,6 +209,9 @@ Added the repository-only ownership/RLS migration baseline for `motorcycles` and
 ## 2026-09-03 — Phase 7 ownership/RLS migration live-parity correction
 
 Corrected the unapplied migration to harden the existing live tables rather than recreate or reconcile unrelated schema. It now explicitly removes the recorded `users_can_*` policies on both tables before creating canonical ownership policies, while retaining only owner-default removal, ownership constraints and RLS changes. Focused tests verify no table creation, unrelated column alteration or data-loss operation is present. No live SQL or application state changed. NEXT: separately authorized immediate live preflight and transactional apply decision.
+## 2026-09-03 — Phase 7 password reset/recovery flow
+
+Implemented the bounded repository-side Supabase Auth v2 recovery flow: neutral reset request messaging, runtime-derived redirect, recovery callback/session guard, dedicated new-password state, local validation and fail-safe update handling. Existing login/registration remains intact and the recovery update preserves the current account identity. No live Supabase/auth setting, RLS, data, deployment, production or research state changed. Dashboard redirect allow-list verification/configuration remains pending; leaked-password protection remains separate.
 ## 2026-09-03 — Phase 6 production promotion rollback/governance closeout
 
 Defined and validated the generic immutable rollback/governance contract for the exact Ducati registry promotion. The deterministic record proves the prior VFR-only set, current VFR+Ducati set, six promoted entries, one document, six citations and retained production/research history; rollback would remove only Ducati registry exposure and was not executed. Ducati remains registered and discoverable; BMW, VFR, evidence and Service Core coverage are unchanged. Phase 6 remains ACTIVE with rollback/governance closed and future bounded expansions remaining.

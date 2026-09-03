@@ -15,9 +15,10 @@ Snapshot basis: post-Triumph Street Triple 765 prospect-registration working tre
 - Ducati registry insertion validation: the exact catalogue key `ducati.monster.937` is registered only for MY2021 via `data/technical/ducati/monster937/profile-2021.js`; normal loader and resolver paths resolve all six entries, with cooling, pending fields and BMW excluded.
 - Phase 6 rollback/governance closeout: the exact Ducati promotion has an immutable fail-closed rollback record. Rollback is eligible only to remove Ducati registry exposure and restore the prior VFR-only set; the profile, source graph and research/promotion history are retained, and no rollback was executed.
 - Phase 6 completion audit: the stated exit criteria all pass — one deliberate Ducati profile addition, production discovery/resolver/runtime regressions, and a deterministic rollback target. Phase 6 is COMPLETE; pending Ducati/BMW work and cooling remain future bounded expansions.
-- Phase 7 transition: Cloud/deployment hardening is ACTIVE only as a project-state transition. No Supabase, authentication, persistence, RLS or deployment work has started.
-- Phase 7 live-safe cloud/deployment audit: repository evidence shows client-side auth and cloud persistence paths, but live Supabase schema, RLS ownership policies, recovery configuration, deployment configuration and operational recovery are not proven. No live inspection or cloud change was performed.
-- Phase 7 Supabase reproducibility baseline: migration `20260903_ownership_rls_baseline.sql` is a repository-only live-parity hardening migration for the existing `motorcycles`/`service_records` tables. It preserves unrelated schema, removes random `user_id` defaults, adds the composite ownership constraint, replaces the recorded `users_can_*` policies with canonical authenticated RLS policies, and remains unapplied; leaked-password protection remains disabled and live parity is not claimed.
+- Phase 7 transition: Cloud/deployment hardening is ACTIVE. The live ownership/RLS migration was applied and post-migration verification passed; deployment and operational recovery remain incomplete.
+- Phase 7 live-safe cloud/deployment audit: repository evidence shows client-side auth and cloud persistence paths, while deployment reproducibility and operational recovery remain unproven. Live ownership/RLS parity is now operator-verified after the authorized migration apply; no auth setting was changed.
+- Phase 7 Supabase reproducibility baseline: migration `20260903_ownership_rls_baseline.sql` defines the live-parity hardening for the existing `motorcycles`/`service_records` tables. It preserves unrelated schema, removes random `user_id` defaults, adds the composite ownership constraint and replaces the recorded `users_can_*` policies with canonical authenticated RLS policies. It is applied and verified; leaked-password protection remains disabled and separate.
+- Phase 7 password recovery: repository-side recovery request, callback/session guard and new-password flow are implemented using Supabase Auth v2. The Supabase Dashboard redirect allow-list still requires separate verification/configuration; no live auth setting was changed.
 
 - Post-BMW/Triumph Phase 5 reassessment: repository-known supply is `EXHAUSTED-OR-BLOCKED`; 18 prospect records were reassessed, with 2 held pre-promotion, 4 access-blocked, 2 applicability-blocked, 6 exhausted, 2 mismatched and 2 explicitly deferred. No viable next prospect-registration target was selected.
 origin/main at task start: `b3fbabf94278617125cc713da3ebc21c5e10cc70`
@@ -87,7 +88,7 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Execute a separately authorized live-safe migration/apply plan for the repository ownership/RLS baseline after read-only parity and backup checks; do not change auth settings in that task.
+**NEXT** — Separately verify/configure the Supabase Dashboard recovery redirect allow-list, then address leaked-password protection and deployment/recovery hardening in bounded tasks.
 
 Deferred independent streams remain future bounded Ducati/BMW profile expansion, cooling-scope resolution and the global catalogue gap audit; none is an active NEXT task.
 

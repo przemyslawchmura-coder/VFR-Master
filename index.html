@@ -431,7 +431,7 @@
 
     <div class="auth-brand">RevLog</div>
     <p class="auth-tagline">Your motorcycle. Your history.</p>
-    <h2>Zaloguj się</h2>
+    <h2 id="authTitle">Zaloguj się</h2>
 
     <label for="authEmail">Email</label>
 
@@ -440,24 +440,31 @@
       type="email"
       autocomplete="email">
 
-    <label for="authPassword">Hasło</label>
+    <label id="authPasswordLabel" for="authPassword">Hasło</label>
 
     <input
       id="authPassword"
       type="password"
       autocomplete="current-password">
 
-    <button
-      class="primary"
-      onclick="handleSignIn()">
-      Zaloguj
-    </button>
+    <div id="authLoginActions">
+      <button class="primary" onclick="handleSignIn()">Zaloguj</button>
+      <button class="secondary" onclick="handleSignUp()">Utwórz konto</button>
+      <button class="secondary" onclick="showPasswordRecoveryRequest()">Nie pamiętasz hasła?</button>
+    </div>
 
-    <button
-      class="secondary"
-      onclick="handleSignUp()">
-      Utwórz konto
-    </button>
+    <div id="passwordRecoveryRequest" hidden>
+      <button class="primary" onclick="handlePasswordRecoveryRequest()">Wyślij instrukcję</button>
+      <button class="secondary" onclick="showLoginMode()">Wróć do logowania</button>
+    </div>
+
+    <div id="passwordRecoveryForm" hidden>
+      <label for="recoveryPassword">Nowe hasło</label>
+      <input id="recoveryPassword" type="password" autocomplete="new-password">
+      <label for="recoveryPasswordConfirmation">Powtórz nowe hasło</label>
+      <input id="recoveryPasswordConfirmation" type="password" autocomplete="new-password">
+      <button class="primary" onclick="handlePasswordRecoveryUpdate()">Zmień hasło</button>
+    </div>
 
     <p
       id="authMessage"

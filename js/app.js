@@ -1184,6 +1184,36 @@ function showAuthPanel(message = "") {
   setAuthMessage(message);
 }
 
+function setAuthMode(mode) {
+  const loginActions = document.getElementById("authLoginActions");
+  const recoveryRequest = document.getElementById("passwordRecoveryRequest");
+  const recoveryForm = document.getElementById("passwordRecoveryForm");
+  const password = document.getElementById("authPassword");
+  const passwordLabel = document.getElementById("authPasswordLabel");
+  const title = document.getElementById("authTitle");
+  if (loginActions) loginActions.hidden = mode !== "login";
+  if (recoveryRequest) recoveryRequest.hidden = mode !== "request";
+  if (recoveryForm) recoveryForm.hidden = mode !== "reset";
+  if (password) password.hidden = mode !== "login";
+  if (passwordLabel) passwordLabel.hidden = mode !== "login";
+  if (title) title.textContent = mode === "reset" ? "Ustaw nowe hasło" : mode === "request" ? "Odzyskaj hasło" : "Zaloguj się";
+}
+
+function showLoginMode(message = "") {
+  setAuthMode("login");
+  showAuthPanel(message);
+}
+
+function showPasswordRecoveryRequest() {
+  setAuthMode("request");
+  showAuthPanel();
+}
+
+function showPasswordRecovery(message = "") {
+  setAuthMode("reset");
+  showAuthPanel(message);
+}
+
 function showApplication() {
   document.getElementById("authPanel").hidden = true;
   document.getElementById("appHeader").hidden = false;
@@ -1210,6 +1240,49 @@ function validateAuthCredentials(email, password) {
   }
 
   return true;
+}
+
+function validateRecoveryPassword(password, confirmation) {
+  if (!password || !confirmation) return "Wpisz nowe hasło i jego potwierdzenie.";
+  if (password.length < 8) return "Nowe hasło musi mieć co najmniej 8 znaków.";
+  if (password !== confirmation) return "Hasła muszą być takie same.";
+  return "";
+}
+
+async function handlePasswordRecoveryRequest() {
+  const email = document.getElementById("authEmail").value.trim();
+  if (!email) {
+    setAuthMessage("Podaj adres email.");
+    return;
+  }
+  setAuthMessage("Wysyłanie instrukcji...");
+  try {
+    await window.requestPasswordReset(email);
+    showPasswordRecoveryRequest();
+    setAuthMessage("Jeśli konto z tym adresem istnieje, wysłaliśmy wiadomość z instrukcją zmiany hasła.");
+  } catch (_) {
+    showPasswordRecoveryRequest("Nie udało się wysłać instrukcji. Spróbuj ponownie później.");
+  }
+}
+
+async function handlePasswordRecoveryUpdate() {
+  const password = document.getElementById("recoveryPassword").value;
+  const confirmation = document.getElementById("recoveryPasswordConfirmation").value;
+  const validationMessage = validateRecoveryPassword(password, confirmation);
+  if (validationMessage) {
+    setAuthMessage(validationMessage);
+    return;
+  }
+  setAuthMessage("Zmiana hasła...");
+  try {
+    await window.updateRecoveryPassword(password);
+    window.setPasswordRecoveryPending(false);
+    alert("Hasło zostało zmienione.");
+    showApplication();
+    await VFRApp.init();
+  } catch (_) {
+    showPasswordRecovery("Nie udało się zmienić hasła. Link mógł wygasnąć lub sesja nie jest już aktywna.");
+  }
 }
 
 async function handleSignIn() {
@@ -1274,7 +1347,7 @@ async function handleSignOut() {
   try {
     await window.signOut();
     clearRuntimeCache();
-    showAuthPanel();
+    showLoginMode();
   } catch (error) {
     alert(
       error && error.message
@@ -1286,17 +1359,27 @@ async function handleSignOut() {
 
 async function initializeAuth() {
   try {
+    const recoveryState = window.getPasswordRecoveryState();
+    if (recoveryState.active) {
+      if (recoveryState.error) {
+        window.setPasswordRecoveryPending(false);
+        showLoginMode("Link do zmiany hasła jest nieprawidłowy lub wygasł.");
+      } else {
+        showPasswordRecovery();
+      }
+      return;
+    }
     const session = await window.getCurrentSession();
 
     if (!session) {
-      showAuthPanel();
+      showLoginMode();
       return;
     }
 
     showApplication();
     await VFRApp.init();
   } catch (error) {
-    showAuthPanel(
+    showLoginMode(
       error && error.message
         ? error.message
         : "Nie udało się sprawdzić sesji. Sprawdź połączenie z siecią."
