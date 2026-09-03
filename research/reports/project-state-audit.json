@@ -1,16 +1,16 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-03",
-  "snapshotBasis": "post-bmw-f900r-owner-manual-acquisition-working-tree",
-  "snapshotImplementationPath": "research/data/bmw-f900r-owner-manual-acquisition.js",
-  "baseCommit": "10e661bf80ba23922fcb3d13dfd36bf6920442b2",
+  "snapshotBasis": "post-bmw-f900r-human-review-working-tree",
+  "snapshotImplementationPath": "research/data/bmw-f900r-human-review.js",
+  "baseCommit": "9d913d4635218f51b80a77ba307d3bea68238296",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 337,
-    "javascriptFiles": 213,
-    "testFiles": 70,
+    "files": 341,
+    "javascriptFiles": 216,
+    "testFiles": 71,
     "documentationFiles": 72,
-    "researchAndToolingFiles": 151
+    "researchAndToolingFiles": 154
   },
   "catalogue": {
     "manufacturers": 13,
@@ -578,6 +578,20 @@
     "ambiguousCandidates": 0,
     "conflictingCandidates": 0,
     "technicalValuesInspected": true,
+    "evidenceRowsCreated": 0,
+    "serviceCoreBefore": 0,
+    "serviceCoreAfter": 0,
+    "productionChanged": false
+  },
+  "bmwF900RHumanReview": {
+    "candidatesReviewed": 13,
+    "decisionCounts": {
+      "ACCEPT": 13,
+      "REJECT": 0,
+      "NEEDS-MORE-REVIEW": 0
+    },
+    "unresolvedOrAmbiguous": 0,
+    "rawValuesAndProvenanceUnchanged": true,
     "evidenceRowsCreated": 0,
     "serviceCoreBefore": 0,
     "serviceCoreAfter": 0,
@@ -1869,8 +1883,8 @@
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 618,
-    "lastKnownPassed": 618,
+    "lastKnownTotal": 621,
+    "lastKnownPassed": 621,
     "failed": 0,
     "skipped": 0,
     "todo": 0

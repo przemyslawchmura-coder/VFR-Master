@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-03 — BMW F 900 R I human review of queued raw candidates
+
+Ran exactly the 13 existing BMW Review Queue entries through the canonical Human Review Decisions contract. All 13 received explicit `ACCEPT` decisions based on direct source support and preserved raw values, units, applicability, and page/section provenance; no normalization or conflict resolution occurred. Evidence rows and Service Core coverage remained 0/44, and production was unchanged. NEXT: separate Evidence Processing only.
+
 ## 2026-09-03 — BMW F 900 R I rider-manual acquisition and raw extraction
 
 Reused the authenticated BMW Tier A `F_0K11_RM_0520_76.pdf` prospect and confirmed the exact MY2020 EU F 900 R 0K11 source before inspection. Through the existing Factory execution, extraction and Review Queue contracts, produced and queued 13 immutable raw candidates from directly attributable owner-level and technical-data excerpts. Preserved raw values, units, PDF page/section provenance, extraction method and explicit base-road/manual/ABS applicability; excluded A2 0K31 and F 900 XR. No ambiguous/conflicting candidates, evidence, Service Core coverage or production changes. NEXT: bounded human review only.

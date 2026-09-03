@@ -1,0 +1,1265 @@
+{
+  "schemaVersion": "revlog-bmw-f900r-human-review/v1",
+  "target": {
+    "schemaVersion": 1,
+    "id": "target.bmw.f900r.gen1.my20.eu",
+    "catalogVariantKey": "bmw.f-roadster-xr.f900r-1",
+    "manufacturer": "BMW",
+    "family": "F 900 R I",
+    "scope": {
+      "schemaVersion": 1,
+      "model": {
+        "state": "KNOWN",
+        "values": [
+          "F 900 R"
+        ]
+      },
+      "generation": {
+        "state": "KNOWN",
+        "values": [
+          "I"
+        ]
+      },
+      "years": {
+        "kind": "EXACT",
+        "from": 2020,
+        "to": 2020
+      },
+      "markets": {
+        "state": "KNOWN",
+        "values": [
+          "EU"
+        ]
+      },
+      "transmissions": {
+        "state": "KNOWN",
+        "values": [
+          "manual"
+        ]
+      },
+      "abs": {
+        "state": "KNOWN",
+        "values": [
+          true
+        ]
+      },
+      "equipment": {
+        "state": "KNOWN",
+        "values": [
+          "standard road model"
+        ]
+      }
+    },
+    "sourcePriorityPolicyId": "policy.tier-a-first",
+    "serviceCoreBaseline": {
+      "verified": 0,
+      "total": 44
+    },
+    "knownSourceRefs": [],
+    "knownProspectRefs": [
+      "unknown.bmw.f900r"
+    ],
+    "researchHistoryRefs": [],
+    "riskFlags": [
+      "official manual also identifies F 900 R A2 (0K31); only base F 900 R (0K11) is in scope",
+      "country-specific equipment variations remain outside this metadata registration"
+    ],
+    "state": "PLANNED"
+  },
+  "source": {
+    "id": "bmw.acquisition.f900r.owner.my20.eu",
+    "documentId": "BMW|F_0K11_RM_0520_76",
+    "tier": "A",
+    "sourceClass": "official-rider-manual",
+    "publisher": "BMW Motorrad / BMW AG",
+    "title": "Rider's Manual F 900 R (0K11), May 2020, 2nd edition",
+    "publicationId": "F_0K11_RM_0520_76.pdf",
+    "edition": "Slovenian EU edition, May 2020",
+    "publicationDate": 2020,
+    "url": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/F_0K11_RM_0520_76.pdf",
+    "officialHost": "manuals.bmw-motorrad.com",
+    "disposition": "acquired-content",
+    "accessResult": "BMW-controlled PDF downloaded and locally text-inspected",
+    "authenticationState": "OFFICIAL-BMW-MY2020-EU-F900R-0K11-CONFIRMED",
+    "language": "Slovenian",
+    "pageCount": 312,
+    "pdfSha256": "fdf81e96ef463f7125780fc511dbcc6f209219f03a0c7429110f030da4a8db29",
+    "models": [
+      "F 900 R (0K11)"
+    ],
+    "years": {
+      "from": 2020,
+      "to": 2020
+    },
+    "markets": [
+      "EU"
+    ],
+    "abs": true,
+    "transmission": "manual",
+    "equipment": "base F 900 R 0K11; F 900 R A2 0K31 excluded",
+    "targets": [
+      "bmw.f-roadster-xr.f900r-1"
+    ],
+    "yieldedEvidence": false,
+    "applicabilityProof": {
+      "exactSource": "official filename and title identify F 900 R 0K11 May 2020",
+      "targetYear": "MY2020",
+      "market": "EU edition",
+      "baseScope": "F 900 R 0K11 only; A2 0K31 and F 900 XR excluded",
+      "abs": "ABS is explicitly defined in the manual and retained as target applicability",
+      "transmission": "manual six-speed transmission",
+      "preExtractionCheckPassed": true
+    },
+    "stopCondition": "raw extraction stops before human review, evidence processing and production promotion"
+  },
+  "reusedProspectId": "unknown.bmw.f900r",
+  "candidatesReviewed": 13,
+  "accountedCandidateIds": [
+    "extraction-candidate.12533ea9efca77dba2b3e6bc",
+    "extraction-candidate.45dbd28bf13008b71db1048a",
+    "extraction-candidate.536f09717f5e373a5e714a57",
+    "extraction-candidate.725865e10df27d0bb5480a76",
+    "extraction-candidate.7b4d2a8557e9e0830f00fd82",
+    "extraction-candidate.98e80b16b8446a2e4ae9f8e9",
+    "extraction-candidate.9bac05e8dd3312e15f905462",
+    "extraction-candidate.a570125b288cbdce1daea997",
+    "extraction-candidate.a5d71511ef4dbb169883b815",
+    "extraction-candidate.bc58f8863c90ab45c4fb6266",
+    "extraction-candidate.e1a57c2f6c8a9d66df63d4ac",
+    "extraction-candidate.e514ff9fae1f05853b76f151",
+    "extraction-candidate.f43ac21d1a01dbf8001c5076"
+  ],
+  "reviewQueue": {
+    "entries": [
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidate": {
+          "adapterId": "bmw.official-pdf-text-extractor",
+          "adapterVersion": "1",
+          "applicability": {
+            "abs": true,
+            "equipment": "standard road model",
+            "excludedEquipment": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "generation": "I",
+            "market": "EU",
+            "model": "F 900 R",
+            "modelCode": "0K11",
+            "transmission": "manual",
+            "year": 2020
+          },
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+          "batchId": "batch.15eaa8040378742811f575bf",
+          "context": {
+            "exclusions": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "market": "EU",
+            "modelCode": "0K11",
+            "modelYear": "2020",
+            "scope": "base F 900 R standard road model",
+            "sourceDocument": "BMW|F_0K11_RM_0520_76"
+          },
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "fieldId": "tires_wheels.solo-pressures",
+          "id": "extraction-candidate.12533ea9efca77dba2b3e6bc",
+          "ordinal": 4,
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "rawUnit": "bar",
+          "rawValue": "2,5",
+          "schemaVersion": 1,
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-174",
+            "page": 174,
+            "section": "Pnevmatike — tlak spredaj"
+          },
+          "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+          "targetId": "target.bmw.f900r.gen1.my20.eu",
+          "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+        },
+        "candidateId": "extraction-candidate.12533ea9efca77dba2b3e6bc",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-queue-entry.4228fad1ea06e49070216b47",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "state": "QUEUED",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidate": {
+          "adapterId": "bmw.official-pdf-text-extractor",
+          "adapterVersion": "1",
+          "applicability": {
+            "abs": true,
+            "equipment": "standard road model",
+            "excludedEquipment": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "generation": "I",
+            "market": "EU",
+            "model": "F 900 R",
+            "modelCode": "0K11",
+            "transmission": "manual",
+            "year": 2020
+          },
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+          "batchId": "batch.15eaa8040378742811f575bf",
+          "context": {
+            "exclusions": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "market": "EU",
+            "modelCode": "0K11",
+            "modelYear": "2020",
+            "scope": "base F 900 R standard road model",
+            "sourceDocument": "BMW|F_0K11_RM_0520_76"
+          },
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "fieldId": "electrical.main-fuse",
+          "id": "extraction-candidate.bc58f8863c90ab45c4fb6266",
+          "ordinal": 9,
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "rawUnit": "A",
+          "rawValue": "40",
+          "schemaVersion": 1,
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-227",
+            "page": 227,
+            "section": "Električni sistem"
+          },
+          "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+          "targetId": "target.bmw.f900r.gen1.my20.eu",
+          "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+        },
+        "candidateId": "extraction-candidate.bc58f8863c90ab45c4fb6266",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-queue-entry.469fffd2fa991c65fd9aedc9",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "state": "QUEUED",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidate": {
+          "adapterId": "bmw.official-pdf-text-extractor",
+          "adapterVersion": "1",
+          "applicability": {
+            "abs": true,
+            "equipment": "standard road model",
+            "excludedEquipment": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "generation": "I",
+            "market": "EU",
+            "model": "F 900 R",
+            "modelCode": "0K11",
+            "transmission": "manual",
+            "year": 2020
+          },
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+          "batchId": "batch.15eaa8040378742811f575bf",
+          "context": {
+            "exclusions": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "market": "EU",
+            "modelCode": "0K11",
+            "modelYear": "2020",
+            "scope": "base F 900 R standard road model",
+            "sourceDocument": "BMW|F_0K11_RM_0520_76"
+          },
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "fieldId": "ignition.spark-plug-oem",
+          "id": "extraction-candidate.725865e10df27d0bb5480a76",
+          "ordinal": 12,
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "rawUnit": null,
+          "rawValue": "NGK LMAR9J-9E",
+          "schemaVersion": 1,
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-228",
+            "page": 228,
+            "section": "Vžigalne svečke"
+          },
+          "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+          "targetId": "target.bmw.f900r.gen1.my20.eu",
+          "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+        },
+        "candidateId": "extraction-candidate.725865e10df27d0bb5480a76",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-queue-entry.677a19baeb51d4e5f1f0e9c2",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "state": "QUEUED",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidate": {
+          "adapterId": "bmw.official-pdf-text-extractor",
+          "adapterVersion": "1",
+          "applicability": {
+            "abs": true,
+            "equipment": "standard road model",
+            "excludedEquipment": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "generation": "I",
+            "market": "EU",
+            "model": "F 900 R",
+            "modelCode": "0K11",
+            "transmission": "manual",
+            "year": 2020
+          },
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+          "batchId": "batch.15eaa8040378742811f575bf",
+          "context": {
+            "exclusions": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "market": "EU",
+            "modelCode": "0K11",
+            "modelYear": "2020",
+            "scope": "base F 900 R standard road model",
+            "sourceDocument": "BMW|F_0K11_RM_0520_76"
+          },
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "fieldId": "brakes.brake-fluid",
+          "id": "extraction-candidate.9bac05e8dd3312e15f905462",
+          "ordinal": 3,
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "rawUnit": "DOT4",
+          "rawValue": "Zavorna tekočina, DOT4",
+          "schemaVersion": 1,
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-172",
+            "page": 172,
+            "section": "Zavorna tekočina zadaj"
+          },
+          "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+          "targetId": "target.bmw.f900r.gen1.my20.eu",
+          "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+        },
+        "candidateId": "extraction-candidate.9bac05e8dd3312e15f905462",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-queue-entry.8b101eef513f025ef2e8d9ad",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "state": "QUEUED",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidate": {
+          "adapterId": "bmw.official-pdf-text-extractor",
+          "adapterVersion": "1",
+          "applicability": {
+            "abs": true,
+            "equipment": "standard road model",
+            "excludedEquipment": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "generation": "I",
+            "market": "EU",
+            "model": "F 900 R",
+            "modelCode": "0K11",
+            "transmission": "manual",
+            "year": 2020
+          },
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+          "batchId": "batch.15eaa8040378742811f575bf",
+          "context": {
+            "exclusions": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "market": "EU",
+            "modelCode": "0K11",
+            "modelYear": "2020",
+            "scope": "base F 900 R standard road model",
+            "sourceDocument": "BMW|F_0K11_RM_0520_76"
+          },
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "fieldId": "tires_wheels.solo-pressures",
+          "id": "extraction-candidate.a5d71511ef4dbb169883b815",
+          "ordinal": 5,
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "rawUnit": "bar",
+          "rawValue": "2,9",
+          "schemaVersion": 1,
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-175",
+            "page": 175,
+            "section": "Pnevmatike — tlak zadaj"
+          },
+          "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+          "targetId": "target.bmw.f900r.gen1.my20.eu",
+          "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+        },
+        "candidateId": "extraction-candidate.a5d71511ef4dbb169883b815",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-queue-entry.a5c2bced0b73de30a55697b6",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "state": "QUEUED",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidate": {
+          "adapterId": "bmw.official-pdf-text-extractor",
+          "adapterVersion": "1",
+          "applicability": {
+            "abs": true,
+            "equipment": "standard road model",
+            "excludedEquipment": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "generation": "I",
+            "market": "EU",
+            "model": "F 900 R",
+            "modelCode": "0K11",
+            "transmission": "manual",
+            "year": 2020
+          },
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+          "batchId": "batch.15eaa8040378742811f575bf",
+          "context": {
+            "exclusions": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "market": "EU",
+            "modelCode": "0K11",
+            "modelYear": "2020",
+            "scope": "base F 900 R standard road model",
+            "sourceDocument": "BMW|F_0K11_RM_0520_76"
+          },
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "fieldId": "electrical.battery-specification",
+          "id": "extraction-candidate.98e80b16b8446a2e4ae9f8e9",
+          "ordinal": 10,
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "rawUnit": null,
+          "rawValue": "Akumulator AGM",
+          "schemaVersion": 1,
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-228",
+            "page": 228,
+            "section": "Električni sistem"
+          },
+          "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+          "targetId": "target.bmw.f900r.gen1.my20.eu",
+          "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+        },
+        "candidateId": "extraction-candidate.98e80b16b8446a2e4ae9f8e9",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-queue-entry.ab9453c366007e848db2a7c3",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "state": "QUEUED",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidate": {
+          "adapterId": "bmw.official-pdf-text-extractor",
+          "adapterVersion": "1",
+          "applicability": {
+            "abs": true,
+            "equipment": "standard road model",
+            "excludedEquipment": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "generation": "I",
+            "market": "EU",
+            "model": "F 900 R",
+            "modelCode": "0K11",
+            "transmission": "manual",
+            "year": 2020
+          },
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+          "batchId": "batch.15eaa8040378742811f575bf",
+          "context": {
+            "exclusions": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "market": "EU",
+            "modelCode": "0K11",
+            "modelYear": "2020",
+            "scope": "base F 900 R standard road model",
+            "sourceDocument": "BMW|F_0K11_RM_0520_76"
+          },
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "fieldId": "final_drive.chain-inspection",
+          "id": "extraction-candidate.a570125b288cbdce1daea997",
+          "ordinal": 8,
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "rawUnit": "mm",
+          "rawValue": "maks. 144",
+          "schemaVersion": 1,
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-187",
+            "page": 187,
+            "section": "Veriga — dovoljena dolžina verige"
+          },
+          "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+          "targetId": "target.bmw.f900r.gen1.my20.eu",
+          "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+        },
+        "candidateId": "extraction-candidate.a570125b288cbdce1daea997",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-queue-entry.b3ce5794929bdeaa1fe82f5c",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "state": "QUEUED",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidate": {
+          "adapterId": "bmw.official-pdf-text-extractor",
+          "adapterVersion": "1",
+          "applicability": {
+            "abs": true,
+            "equipment": "standard road model",
+            "excludedEquipment": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "generation": "I",
+            "market": "EU",
+            "model": "F 900 R",
+            "modelCode": "0K11",
+            "transmission": "manual",
+            "year": 2020
+          },
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+          "batchId": "batch.15eaa8040378742811f575bf",
+          "context": {
+            "exclusions": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "market": "EU",
+            "modelCode": "0K11",
+            "modelYear": "2020",
+            "scope": "base F 900 R standard road model",
+            "sourceDocument": "BMW|F_0K11_RM_0520_76"
+          },
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "fieldId": "maintenance.periodic-schedule",
+          "id": "extraction-candidate.e1a57c2f6c8a9d66df63d4ac",
+          "ordinal": 13,
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "rawUnit": null,
+          "rawValue": "a letno ali vsakih 10.000 km (kar pride prej); b prvič po enem letu, nato vsaki dve leti",
+          "schemaVersion": 1,
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-237",
+            "page": 237,
+            "section": "Načrt vzdrževanja"
+          },
+          "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+          "targetId": "target.bmw.f900r.gen1.my20.eu",
+          "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+        },
+        "candidateId": "extraction-candidate.e1a57c2f6c8a9d66df63d4ac",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-queue-entry.bf895eecc9ba388ee9ea2419",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "state": "QUEUED",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidate": {
+          "adapterId": "bmw.official-pdf-text-extractor",
+          "adapterVersion": "1",
+          "applicability": {
+            "abs": true,
+            "equipment": "standard road model",
+            "excludedEquipment": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "generation": "I",
+            "market": "EU",
+            "model": "F 900 R",
+            "modelCode": "0K11",
+            "transmission": "manual",
+            "year": 2020
+          },
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+          "batchId": "batch.15eaa8040378742811f575bf",
+          "context": {
+            "exclusions": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "market": "EU",
+            "modelCode": "0K11",
+            "modelYear": "2020",
+            "scope": "base F 900 R standard road model",
+            "sourceDocument": "BMW|F_0K11_RM_0520_76"
+          },
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "fieldId": "final_drive.chain-lubrication-interval",
+          "id": "extraction-candidate.e514ff9fae1f05853b76f151",
+          "ordinal": 7,
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "rawUnit": null,
+          "rawValue": "Namažite ob vsakem 3. postanku na bencinski črpalki",
+          "schemaVersion": 1,
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-188",
+            "page": 188,
+            "section": "Veriga — mazanje verige"
+          },
+          "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+          "targetId": "target.bmw.f900r.gen1.my20.eu",
+          "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+        },
+        "candidateId": "extraction-candidate.e514ff9fae1f05853b76f151",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-queue-entry.c8e3413d7061361784996c4d",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "state": "QUEUED",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidate": {
+          "adapterId": "bmw.official-pdf-text-extractor",
+          "adapterVersion": "1",
+          "applicability": {
+            "abs": true,
+            "equipment": "standard road model",
+            "excludedEquipment": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "generation": "I",
+            "market": "EU",
+            "model": "F 900 R",
+            "modelCode": "0K11",
+            "transmission": "manual",
+            "year": 2020
+          },
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+          "batchId": "batch.15eaa8040378742811f575bf",
+          "context": {
+            "exclusions": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "market": "EU",
+            "modelCode": "0K11",
+            "modelYear": "2020",
+            "scope": "base F 900 R standard road model",
+            "sourceDocument": "BMW|F_0K11_RM_0520_76"
+          },
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "fieldId": "electrical.battery-capacity",
+          "id": "extraction-candidate.536f09717f5e373a5e714a57",
+          "ordinal": 11,
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "rawUnit": "Ah",
+          "rawValue": "12",
+          "schemaVersion": 1,
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-228",
+            "page": 228,
+            "section": "Električni sistem"
+          },
+          "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+          "targetId": "target.bmw.f900r.gen1.my20.eu",
+          "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+        },
+        "candidateId": "extraction-candidate.536f09717f5e373a5e714a57",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-queue-entry.ca10609e2d4aefac2fde1d1a",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "state": "QUEUED",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidate": {
+          "adapterId": "bmw.official-pdf-text-extractor",
+          "adapterVersion": "1",
+          "applicability": {
+            "abs": true,
+            "equipment": "standard road model",
+            "excludedEquipment": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "generation": "I",
+            "market": "EU",
+            "model": "F 900 R",
+            "modelCode": "0K11",
+            "transmission": "manual",
+            "year": 2020
+          },
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+          "batchId": "batch.15eaa8040378742811f575bf",
+          "context": {
+            "exclusions": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "market": "EU",
+            "modelCode": "0K11",
+            "modelYear": "2020",
+            "scope": "base F 900 R standard road model",
+            "sourceDocument": "BMW|F_0K11_RM_0520_76"
+          },
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "fieldId": "lubrication.oil-specification",
+          "id": "extraction-candidate.7b4d2a8557e9e0830f00fd82",
+          "ordinal": 1,
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "rawUnit": null,
+          "rawValue": "SAE 5W-40, API SL / JASO MA2",
+          "schemaVersion": 1,
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-221",
+            "page": 221,
+            "section": "Motorno olje"
+          },
+          "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+          "targetId": "target.bmw.f900r.gen1.my20.eu",
+          "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+        },
+        "candidateId": "extraction-candidate.7b4d2a8557e9e0830f00fd82",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-queue-entry.d65bfbd67274be6067115246",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "state": "QUEUED",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidate": {
+          "adapterId": "bmw.official-pdf-text-extractor",
+          "adapterVersion": "1",
+          "applicability": {
+            "abs": true,
+            "equipment": "standard road model",
+            "excludedEquipment": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "generation": "I",
+            "market": "EU",
+            "model": "F 900 R",
+            "modelCode": "0K11",
+            "transmission": "manual",
+            "year": 2020
+          },
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+          "batchId": "batch.15eaa8040378742811f575bf",
+          "context": {
+            "exclusions": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "market": "EU",
+            "modelCode": "0K11",
+            "modelYear": "2020",
+            "scope": "base F 900 R standard road model",
+            "sourceDocument": "BMW|F_0K11_RM_0520_76"
+          },
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "fieldId": "brakes.brake-fluid",
+          "id": "extraction-candidate.45dbd28bf13008b71db1048a",
+          "ordinal": 2,
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "rawUnit": "DOT4",
+          "rawValue": "Zavorna tekočina, DOT4",
+          "schemaVersion": 1,
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-171",
+            "page": 171,
+            "section": "Zavorna tekočina spredaj"
+          },
+          "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+          "targetId": "target.bmw.f900r.gen1.my20.eu",
+          "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+        },
+        "candidateId": "extraction-candidate.45dbd28bf13008b71db1048a",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-queue-entry.ecdc2f861c3fea8fe479d2cd",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "state": "QUEUED",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidate": {
+          "adapterId": "bmw.official-pdf-text-extractor",
+          "adapterVersion": "1",
+          "applicability": {
+            "abs": true,
+            "equipment": "standard road model",
+            "excludedEquipment": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "generation": "I",
+            "market": "EU",
+            "model": "F 900 R",
+            "modelCode": "0K11",
+            "transmission": "manual",
+            "year": 2020
+          },
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+          "batchId": "batch.15eaa8040378742811f575bf",
+          "context": {
+            "exclusions": [
+              "F 900 R A2 (0K31)",
+              "F 900 XR"
+            ],
+            "market": "EU",
+            "modelCode": "0K11",
+            "modelYear": "2020",
+            "scope": "base F 900 R standard road model",
+            "sourceDocument": "BMW|F_0K11_RM_0520_76"
+          },
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "fieldId": "final_drive.chain-slack",
+          "id": "extraction-candidate.f43ac21d1a01dbf8001c5076",
+          "ordinal": 6,
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "rawUnit": "mm",
+          "rawValue": "35...45",
+          "schemaVersion": 1,
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-224",
+            "page": 224,
+            "section": "Pogon zadnjega kolesa"
+          },
+          "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+          "targetId": "target.bmw.f900r.gen1.my20.eu",
+          "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+        },
+        "candidateId": "extraction-candidate.f43ac21d1a01dbf8001c5076",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-queue-entry.f5c629ac55f708473dbd8266",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "state": "QUEUED",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      }
+    ],
+    "ineligible": [],
+    "schemaVersion": 1
+  },
+  "decisions": {
+    "decisions": [
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidateId": "extraction-candidate.725865e10df27d0bb5480a76",
+        "comment": "Direct BMW Motorrad MY2020 EU F 900 R 0K11 source text is present at Vžigalne svečke; raw value/unit/context and provenance are accepted unchanged for future processing only. Candidate source identity BMW|F_0K11_RM_0520_76 remains bound; no normalization or conflict resolution performed.",
+        "decision": "ACCEPT",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-decision.1ddb82a646f1c9996c09727d",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "queueEntryId": "review-queue-entry.677a19baeb51d4e5f1f0e9c2",
+        "reviewerId": "reviewer.bmw-f900r.phase5",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidateId": "extraction-candidate.536f09717f5e373a5e714a57",
+        "comment": "Direct BMW Motorrad MY2020 EU F 900 R 0K11 source text is present at Električni sistem; raw value/unit/context and provenance are accepted unchanged for future processing only. Candidate source identity BMW|F_0K11_RM_0520_76 remains bound; no normalization or conflict resolution performed.",
+        "decision": "ACCEPT",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-decision.1eca67e7188260675a8ec97d",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "queueEntryId": "review-queue-entry.ca10609e2d4aefac2fde1d1a",
+        "reviewerId": "reviewer.bmw-f900r.phase5",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidateId": "extraction-candidate.a5d71511ef4dbb169883b815",
+        "comment": "Direct BMW Motorrad MY2020 EU F 900 R 0K11 source text is present at Pnevmatike — tlak zadaj; raw value/unit/context and provenance are accepted unchanged for future processing only. Candidate source identity BMW|F_0K11_RM_0520_76 remains bound; no normalization or conflict resolution performed.",
+        "decision": "ACCEPT",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-decision.3ee7b718284f8199bfadff95",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "queueEntryId": "review-queue-entry.a5c2bced0b73de30a55697b6",
+        "reviewerId": "reviewer.bmw-f900r.phase5",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidateId": "extraction-candidate.45dbd28bf13008b71db1048a",
+        "comment": "Direct BMW Motorrad MY2020 EU F 900 R 0K11 source text is present at Zavorna tekočina spredaj; raw value/unit/context and provenance are accepted unchanged for future processing only. Candidate source identity BMW|F_0K11_RM_0520_76 remains bound; no normalization or conflict resolution performed.",
+        "decision": "ACCEPT",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-decision.4cbeee9a51a91e24b93f7b3e",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "queueEntryId": "review-queue-entry.ecdc2f861c3fea8fe479d2cd",
+        "reviewerId": "reviewer.bmw-f900r.phase5",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidateId": "extraction-candidate.12533ea9efca77dba2b3e6bc",
+        "comment": "Direct BMW Motorrad MY2020 EU F 900 R 0K11 source text is present at Pnevmatike — tlak spredaj; raw value/unit/context and provenance are accepted unchanged for future processing only. Candidate source identity BMW|F_0K11_RM_0520_76 remains bound; no normalization or conflict resolution performed.",
+        "decision": "ACCEPT",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-decision.54dd8143678345b2764e72ea",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "queueEntryId": "review-queue-entry.4228fad1ea06e49070216b47",
+        "reviewerId": "reviewer.bmw-f900r.phase5",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidateId": "extraction-candidate.a570125b288cbdce1daea997",
+        "comment": "Direct BMW Motorrad MY2020 EU F 900 R 0K11 source text is present at Veriga — dovoljena dolžina verige; raw value/unit/context and provenance are accepted unchanged for future processing only. Candidate source identity BMW|F_0K11_RM_0520_76 remains bound; no normalization or conflict resolution performed.",
+        "decision": "ACCEPT",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-decision.5ef0bf1870830fd507e80660",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "queueEntryId": "review-queue-entry.b3ce5794929bdeaa1fe82f5c",
+        "reviewerId": "reviewer.bmw-f900r.phase5",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidateId": "extraction-candidate.7b4d2a8557e9e0830f00fd82",
+        "comment": "Direct BMW Motorrad MY2020 EU F 900 R 0K11 source text is present at Motorno olje; raw value/unit/context and provenance are accepted unchanged for future processing only. Candidate source identity BMW|F_0K11_RM_0520_76 remains bound; no normalization or conflict resolution performed.",
+        "decision": "ACCEPT",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-decision.64ee8464a1bf3eafbddad151",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "queueEntryId": "review-queue-entry.d65bfbd67274be6067115246",
+        "reviewerId": "reviewer.bmw-f900r.phase5",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidateId": "extraction-candidate.e514ff9fae1f05853b76f151",
+        "comment": "Direct BMW Motorrad MY2020 EU F 900 R 0K11 source text is present at Veriga — mazanje verige; raw value/unit/context and provenance are accepted unchanged for future processing only. Candidate source identity BMW|F_0K11_RM_0520_76 remains bound; no normalization or conflict resolution performed.",
+        "decision": "ACCEPT",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-decision.6c9edda51d4b98b8bc29511d",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "queueEntryId": "review-queue-entry.c8e3413d7061361784996c4d",
+        "reviewerId": "reviewer.bmw-f900r.phase5",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidateId": "extraction-candidate.9bac05e8dd3312e15f905462",
+        "comment": "Direct BMW Motorrad MY2020 EU F 900 R 0K11 source text is present at Zavorna tekočina zadaj; raw value/unit/context and provenance are accepted unchanged for future processing only. Candidate source identity BMW|F_0K11_RM_0520_76 remains bound; no normalization or conflict resolution performed.",
+        "decision": "ACCEPT",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-decision.7101ed6f123ea78c2cf31de5",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "queueEntryId": "review-queue-entry.8b101eef513f025ef2e8d9ad",
+        "reviewerId": "reviewer.bmw-f900r.phase5",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidateId": "extraction-candidate.f43ac21d1a01dbf8001c5076",
+        "comment": "Direct BMW Motorrad MY2020 EU F 900 R 0K11 source text is present at Pogon zadnjega kolesa; raw value/unit/context and provenance are accepted unchanged for future processing only. Candidate source identity BMW|F_0K11_RM_0520_76 remains bound; no normalization or conflict resolution performed.",
+        "decision": "ACCEPT",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-decision.8f981953cd1816e4a2286281",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "queueEntryId": "review-queue-entry.f5c629ac55f708473dbd8266",
+        "reviewerId": "reviewer.bmw-f900r.phase5",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidateId": "extraction-candidate.e1a57c2f6c8a9d66df63d4ac",
+        "comment": "Direct BMW Motorrad MY2020 EU F 900 R 0K11 source text is present at Načrt vzdrževanja; raw value/unit/context and provenance are accepted unchanged for future processing only. Candidate source identity BMW|F_0K11_RM_0520_76 remains bound; no normalization or conflict resolution performed.",
+        "decision": "ACCEPT",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-decision.95575ed2e4c1994dadff79fa",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "queueEntryId": "review-queue-entry.bf895eecc9ba388ee9ea2419",
+        "reviewerId": "reviewer.bmw-f900r.phase5",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidateId": "extraction-candidate.bc58f8863c90ab45c4fb6266",
+        "comment": "Direct BMW Motorrad MY2020 EU F 900 R 0K11 source text is present at Električni sistem; raw value/unit/context and provenance are accepted unchanged for future processing only. Candidate source identity BMW|F_0K11_RM_0520_76 remains bound; no normalization or conflict resolution performed.",
+        "decision": "ACCEPT",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-decision.b86f7a38b8cd5baebd16d112",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "queueEntryId": "review-queue-entry.469fffd2fa991c65fd9aedc9",
+        "reviewerId": "reviewer.bmw-f900r.phase5",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      },
+      {
+        "adapterId": "bmw.official-pdf-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.36bcda4addfe579c7e535eec",
+        "attemptId": "attempt.3bf2e52591fb1e61e742d77c",
+        "batchId": "batch.15eaa8040378742811f575bf",
+        "candidateId": "extraction-candidate.98e80b16b8446a2e4ae9f8e9",
+        "comment": "Direct BMW Motorrad MY2020 EU F 900 R 0K11 source text is present at Električni sistem; raw value/unit/context and provenance are accepted unchanged for future processing only. Candidate source identity BMW|F_0K11_RM_0520_76 remains bound; no normalization or conflict resolution performed.",
+        "decision": "ACCEPT",
+        "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+        "id": "review-decision.e3aca53038170e148e7ac4be",
+        "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+        "queueEntryId": "review-queue-entry.ab9453c366007e848db2a7c3",
+        "reviewerId": "reviewer.bmw-f900r.phase5",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.9d6779822d9294b062088124",
+        "targetId": "target.bmw.f900r.gen1.my20.eu",
+        "targetWorkId": "target-work.1ff0ea3bcc4b526f9e14da3f"
+      }
+    ],
+    "schemaVersion": 1
+  },
+  "decisionCounts": {
+    "ACCEPT": 13,
+    "REJECT": 0,
+    "NEEDS-MORE-REVIEW": 0
+  },
+  "unresolvedOrAmbiguous": 0,
+  "rawValuesAndProvenanceUnchanged": true,
+  "evidenceRowsCreated": 0,
+  "serviceCoreBefore": 0,
+  "serviceCoreAfter": 0,
+  "serviceCoreCoverageChange": 0,
+  "productionChanged": false,
+  "researchedNoEvidenceCreated": false,
+  "normalizationPerformed": false,
+  "conflictsResolved": false,
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "conclusion": "All 13 existing BMW Review Queue entries received explicit ACCEPT decisions because their raw field mappings, direct source excerpts, units/context and exact 0K11 applicability are present. Decisions remain pre-evidence; raw payloads and provenance were not changed and no conflict was resolved.",
+    "risks": [
+      "same-field candidates remain independently represented for any later processing conflict check",
+      "ACCEPT is not verified production evidence",
+      "the Slovenian EU manual's A2 material remains excluded by candidate applicability"
+    ],
+    "falsification": [
+      "no new candidates or source documents were introduced",
+      "no values or units were normalized",
+      "no Evidence Processing or production stage was invoked"
+    ]
+  },
+  "exactNextTask": "Process only these 13 explicit BMW Human Review Decisions through the separate Evidence Processing contract; preserve any same-field disagreement as unresolved and create no production evidence automatically."
+}
