@@ -175,6 +175,7 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.heldPromotionProjection.productionStateChanged, false);
   assert.equal(snapshot.heldPromotionProjection.evidenceRowsCreated, 0);
   assert.equal(snapshot.heldPromotionProjection.serviceCoreCoverageChanged, false);
+  assert.deepEqual(snapshot.heldPromotionReviewProjection, { ducatiEligible: 27, bmwEligible: 11, bmwExcluded: 2, bmwBlockedReasons: { noUnresolvedConflict: 2, processingAccepted: 2 }, approvalsCreated: 0, upstreamResearchStateChanged: false, productionStateChanged: false });
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.classification, "ACCESS-BLOCKED");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.audit, "ACCEPT-WITH-RISKS");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.b7nLitRelationship, "UNRESOLVED");

@@ -30,5 +30,7 @@ const evidenceProcessingContracts = require("./evidence-processing-contracts.js"
 const evidenceProcessing = require("./evidence-processing.js");
 const promotionContracts = require("./promotion-contracts.js");
 const promotionReadiness = require("./promotion-readiness.js");
+const promotionReviewContracts = require("./promotion-review-contracts.js");
+const promotionReview = require("./promotion-review.js");
 
-module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...executionContracts, ...extractionContracts, ...reviewQueueContracts, ...reviewDecisionContracts, ...evidenceProcessingContracts, ...promotionContracts, ...applicability, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, ...executionAgent, ...extractionAgent, ...reviewQueue, ...reviewDecisions, ...evidenceProcessing, ...promotionReadiness, adapters, acquisitionAdapters, extractionAdapters, ids, events, orchestrationJson, plannerPriority: priority });
+module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...executionContracts, ...extractionContracts, ...reviewQueueContracts, ...reviewDecisionContracts, ...evidenceProcessingContracts, ...promotionContracts, ...promotionReviewContracts, ...applicability, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, ...executionAgent, ...extractionAgent, ...reviewQueue, ...reviewDecisions, ...evidenceProcessing, ...promotionReadiness, ...promotionReview, adapters, acquisitionAdapters, extractionAdapters, ids, events, orchestrationJson, plannerPriority: priority });

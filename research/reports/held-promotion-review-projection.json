@@ -1,0 +1,2070 @@
+{
+  "schemaVersion": "revlog-held-promotion-review-projection/v1",
+  "date": "2026-09-03",
+  "mode": "READ-ONLY",
+  "ducati": {
+    "name": "Ducati Monster 937 MY2021 EU",
+    "total": 27,
+    "eligibleReviewPackets": 27,
+    "blockedOrExcluded": 0,
+    "blockedReasons": {},
+    "packets": [
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "lubrication.capacity-drain",
+        "evidenceProcessingRecordId": "evidence-processing.0f5b9a451a9dbf29ed6c3669",
+        "humanReviewDecisionId": "review-decision.604a8c8b66cb46bcb3b91af8",
+        "id": "promotion-review-packet.fcf42ce523173c6cac04802b",
+        "promotionPacketId": "promotion-candidate.c30d942727a280209ed0c9a9",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.223254fb78746e85ee5eae93",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:211",
+            "page": null,
+            "section": "Fuel, lubricants and other fluids"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Oil sump and filter: 3.1 litres",
+        "reviewQueueEntryId": "review-queue-entry.0abc2e29e60d214b5e7c5e71",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "ignition.spark-plug-oem",
+        "evidenceProcessingRecordId": "evidence-processing.24734adfa894376633f42315",
+        "humanReviewDecisionId": "review-decision.28acd141d71bd3428117e152",
+        "id": "promotion-review-packet.1e83fddea642a8d0fa66f0f2",
+        "promotionPacketId": "promotion-candidate.d54a579828356b55afb8024d",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.db57f7df4e3a5cc87f515544",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:216",
+            "page": null,
+            "section": "Spark plugs"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "NGK MAR9A-J",
+        "reviewQueueEntryId": "review-queue-entry.ef647b3b70be78cd3a16b42c",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "lubrication.capacity-filter",
+        "evidenceProcessingRecordId": "evidence-processing.335b62bd0d7988f52e9fd264",
+        "humanReviewDecisionId": "review-decision.31e2f8e4ebc2d73de8eaf099",
+        "id": "promotion-review-packet.314fb577df9092dbd49e1fd7",
+        "promotionPacketId": "promotion-candidate.421d59e875dce437cb4b7f0f",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.6822b5fc6677309d5a63b01d",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:211",
+            "page": null,
+            "section": "Fuel, lubricants and other fluids"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Oil sump and filter: 3.1 litres",
+        "reviewQueueEntryId": "review-queue-entry.b992cd963e570839829fc73c",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "cooling.replacement-interval",
+        "evidenceProcessingRecordId": "evidence-processing.3e7ef83836a2cd5f76dfc8c7",
+        "humanReviewDecisionId": "review-decision.feaf1f6b700721d580c626c1",
+        "id": "promotion-review-packet.f89c6d099ceea6e38de3c631",
+        "promotionPacketId": "promotion-candidate.54536435158795c799c2b3e7",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.76fded0ce50a201497ee19f7",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:203–204",
+            "page": null,
+            "section": "Scheduled maintenance chart: dealer operations"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Change coolant at 48 months",
+        "reviewQueueEntryId": "review-queue-entry.b35337312ee5460c57b5756d",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "fuel_intake.tank-capacity",
+        "evidenceProcessingRecordId": "evidence-processing.4522f819acd3600c80ae381e",
+        "humanReviewDecisionId": "review-decision.8e2dd1dc78cae1505d6caee8",
+        "id": "promotion-review-packet.e0f14a014710549ba9e74c93",
+        "promotionPacketId": "promotion-candidate.b8dea582003053011dec4e4e",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.6fe80f9300a6cf21572f1134",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:211",
+            "page": null,
+            "section": "Fuel, lubricants and other fluids"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Fuel tank, including reserve of 3.5 litres: 14 litres",
+        "reviewQueueEntryId": "review-queue-entry.79faa749504336f97dc51943",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "lubrication.viscosity",
+        "evidenceProcessingRecordId": "evidence-processing.466b61a7853399baad3e379c",
+        "humanReviewDecisionId": "review-decision.02c34335e74a2bd4b5202fa5",
+        "id": "promotion-review-packet.075d6b761f2aa57617182b92",
+        "promotionPacketId": "promotion-candidate.16d5b34a359a5d76ef0de3bc",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.401ccb62a4054106d4b3cd21",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:196, 211",
+            "page": null,
+            "section": "Recommendations concerning oil; Fuel, lubricants and other fluids"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "SAE 15W-50",
+        "reviewQueueEntryId": "review-queue-entry.a5471c65a9c4a1171fba188b",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "ignition.replacement-interval",
+        "evidenceProcessingRecordId": "evidence-processing.4de054c88d288fb195aa40b8",
+        "humanReviewDecisionId": "review-decision.e249c202819ad916ae408da9",
+        "id": "promotion-review-packet.2a5f57de1c3be61c05bd8ec4",
+        "promotionPacketId": "promotion-candidate.e8d7813e754e77d3350334a1",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.e62b58c0f955129da9f7d741",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:203–204",
+            "page": null,
+            "section": "Scheduled maintenance chart: dealer operations"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Change spark plugs at Desmo Service",
+        "reviewQueueEntryId": "review-queue-entry.d67aa84544a569282edb845b",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "tires_wheels.front-size",
+        "evidenceProcessingRecordId": "evidence-processing.5c36db151d7a10e5b0d87b80",
+        "humanReviewDecisionId": "review-decision.73a0f8a27b74cbcfb6d5060d",
+        "id": "promotion-review-packet.7ddd2534855b009ef4f9f9f9",
+        "promotionPacketId": "promotion-candidate.f5d7228b3d93abb5d55f7ce8",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.a8773b53cfa15b45ddb2b3ce",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:219",
+            "page": null,
+            "section": "Technical data – Tyres"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Pirelli Diablo Rosso III tubeless radial; 120/70 ZR17 M/C 58W",
+        "reviewQueueEntryId": "review-queue-entry.569f4c10100a69a8d4e84ebe",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "brakes.brake-fluid",
+        "evidenceProcessingRecordId": "evidence-processing.697de9ce5fab81ed90d4540f",
+        "humanReviewDecisionId": "review-decision.8e441e5334ecff6f609ac52c",
+        "id": "promotion-review-packet.de7593d846584df98d151201",
+        "promotionPacketId": "promotion-candidate.dc88f865328e79994ff64a72",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.206d1d29f94c1d6d7fba20ba",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:177, 212",
+            "page": null,
+            "section": "Check clutch and brake fluid level; Fuel, lubricants and other fluids"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Front/rear brake circuit: DOT 4",
+        "reviewQueueEntryId": "review-queue-entry.63a4f851c274fc7144688b96",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "maintenance.schedule-mileage-intervals",
+        "evidenceProcessingRecordId": "evidence-processing.6f24f6e94eceea455c3f7f91",
+        "humanReviewDecisionId": "review-decision.46240f0d952981a7a2ec3af9",
+        "id": "promotion-review-packet.7023494be137a35c95921bd9",
+        "promotionPacketId": "promotion-candidate.dd3a486beb2ab338db156c9c",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.7c03f249943fc623e38f9083",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:152",
+            "page": null,
+            "section": "Setting menu – Service"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "First Service 1000 after 1,000 km; Oil Service every 15,000 km; Desmo Service every 30,000 km",
+        "reviewQueueEntryId": "review-queue-entry.13a81133a180a435a32278e0",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "lubrication.oil-specification",
+        "evidenceProcessingRecordId": "evidence-processing.75cbe20fd000b12caf8c59bf",
+        "humanReviewDecisionId": "review-decision.8af25693affd7d679654128c",
+        "id": "promotion-review-packet.e3ac90f6c89893c4887bca35",
+        "promotionPacketId": "promotion-candidate.a78e1d02c9889f29bfac4f5a",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.307982e90e5193d834370fcd",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:195–196",
+            "page": null,
+            "section": "Check engine oil level; Recommendations concerning oil"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Ducati prescribes SAE 15W-50/JASO MA2 oil and recommends Shell Advance 4T Ultra 15W-50; UK version: Shell Advance DUCATI 15W-50 Fully Synthetic Oil.",
+        "reviewQueueEntryId": "review-queue-entry.bee315fba28959e4e19d0a97",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "electrical.battery-capacity",
+        "evidenceProcessingRecordId": "evidence-processing.7f5dd3ba164697dccb4fec5b",
+        "humanReviewDecisionId": "review-decision.bec0b05a732d260ba2bc71a8",
+        "id": "promotion-review-packet.17d55a78f043ab02f6541df6",
+        "promotionPacketId": "promotion-candidate.e576129406a06d68f4f63fe2",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.a5a5b2a7a746011a92559696",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:220",
+            "page": null,
+            "section": "Electric system"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "6.5 Ah",
+        "reviewQueueEntryId": "review-queue-entry.93e767e248b386135c71aa84",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "cooling.capacity",
+        "evidenceProcessingRecordId": "evidence-processing.a2b6907fca5364b153b2abcb",
+        "humanReviewDecisionId": "review-decision.c1abd8af38bbe144df9e11b0",
+        "id": "promotion-review-packet.a06115b1c776509565dc9042",
+        "promotionPacketId": "promotion-candidate.a3b8a57fb6bbeeb58ee5ec37",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.07c0b1ed8c90b0f707c85234",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:212",
+            "page": null,
+            "section": "Fuel, lubricants and other fluids"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Cooling circuit: 2.25 litres",
+        "reviewQueueEntryId": "review-queue-entry.48f89eeec0f9ac13aa72b068",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "tires_wheels.loaded-pressures",
+        "evidenceProcessingRecordId": "evidence-processing.a7cda7d92b13a870ce0b6d86",
+        "humanReviewDecisionId": "review-decision.3431545fc2f9c09f4ff39cdb",
+        "id": "promotion-review-packet.ea915b67b881cb11345930d9",
+        "promotionPacketId": "promotion-candidate.ed65ce77b5beb1711e51f803",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.7a34dcc45418dfb60cf6d8c1",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:219",
+            "page": null,
+            "section": "Technical data – Tyres"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Cold pressure, rider and passenger: front 2.5 bar (36.26 psi); rear 2.9 bar (40.06 psi)",
+        "reviewQueueEntryId": "review-queue-entry.3cf7e429ae26e4a4def9fc51",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "valve_train.inspection-interval",
+        "evidenceProcessingRecordId": "evidence-processing.a8b09c9d64c0e56534460853",
+        "humanReviewDecisionId": "review-decision.3fc727b0ee52db0456d6762b",
+        "id": "promotion-review-packet.ffe5e96c2d9418025ef6e977",
+        "promotionPacketId": "promotion-candidate.85be1d5dc061ab7779acc3c7",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.94a44238411d6a83f7b3db3e",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:152",
+            "page": null,
+            "section": "Setting menu – Service"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Desmo Service (Valve Clearance Check Service) every 30,000 km/18,000 mi",
+        "reviewQueueEntryId": "review-queue-entry.c234bab5c2ac14cec8be0135",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "tires_wheels.solo-pressures",
+        "evidenceProcessingRecordId": "evidence-processing.cb1a27f6b1fb506e4c856397",
+        "humanReviewDecisionId": "review-decision.ce550b62bb5cd63e7da93ead",
+        "id": "promotion-review-packet.b6e93144a323119cb82666d2",
+        "promotionPacketId": "promotion-candidate.2ffaa09920d53877f2b507fe",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.e8497102e1af8218de7a6f52",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:219",
+            "page": null,
+            "section": "Technical data – Tyres"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Cold pressure, rider only: front 2.3 bar (33.35 psi); rear 2.5 bar (36.26 psi)",
+        "reviewQueueEntryId": "review-queue-entry.6cf8aaef950d57e6128a08df",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "electrical.battery-specification",
+        "evidenceProcessingRecordId": "evidence-processing.d52429b5ca44d75da13073b8",
+        "humanReviewDecisionId": "review-decision.375be18b59197acdc48eb9bf",
+        "id": "promotion-review-packet.77df0ca27619514de36a5c23",
+        "promotionPacketId": "promotion-candidate.3f390d1553a4adf54846f46b",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.6aed69b91904158d34350512",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:220",
+            "page": null,
+            "section": "Electric system"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "YUASA YT 7B-BS DRY, 12 V",
+        "reviewQueueEntryId": "review-queue-entry.4c2c3d9b9f0a8acefc599905",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "lubrication.api-jaso",
+        "evidenceProcessingRecordId": "evidence-processing.d5da84b323a8c7311bb7579b",
+        "humanReviewDecisionId": "review-decision.b2874ec48117c371356f93b8",
+        "id": "promotion-review-packet.301cf7502e55332999989e01",
+        "promotionPacketId": "promotion-candidate.e18c92612a844f764489729d",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.4912a9df0e74c5972d5629be",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:195–196, 211",
+            "page": null,
+            "section": "Check engine oil level; Fuel, lubricants and other fluids"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "API: SN; JASO: MA2",
+        "reviewQueueEntryId": "review-queue-entry.aa3024bcbc3b18e3e7401f4a",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "cooling.coolant-specification",
+        "evidenceProcessingRecordId": "evidence-processing.db7f95a704bfe950c5794441",
+        "humanReviewDecisionId": "review-decision.5d54d5abd648238f1af2ec8d",
+        "id": "promotion-review-packet.43dcd9f4f364e892a72833cc",
+        "promotionPacketId": "promotion-candidate.bfa221767e125ce02bd8b6f5",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.6f3ecc3965f1529a4ddc2e40",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:176, 212",
+            "page": null,
+            "section": "Checking coolant level and topping up; Fuel, lubricants and other fluids"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "ENI Agip Permanent Spezial antifreeze; do not dilute, use pure",
+        "reviewQueueEntryId": "review-queue-entry.e972a1b9c96d71d34cd19a01",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "tires_wheels.rear-size",
+        "evidenceProcessingRecordId": "evidence-processing.e382947c6b7a27939adbdd84",
+        "humanReviewDecisionId": "review-decision.5ed42ea703563ea8370fd0b0",
+        "id": "promotion-review-packet.2ba4ab8b9466863cbc8b1370",
+        "promotionPacketId": "promotion-candidate.55963d5867dd01c60c42cd65",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.7dc38fe83de4317584d17aca",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:219",
+            "page": null,
+            "section": "Technical data – Tyres"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Pirelli Diablo Rosso III tubeless radial; 180/55 ZR17 M/C 73W",
+        "reviewQueueEntryId": "review-queue-entry.c38606ccac610528eb314f37",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "final_drive.chain-inspection",
+        "evidenceProcessingRecordId": "evidence-processing.e8ec7ae546c4cae9dee94e2a",
+        "humanReviewDecisionId": "review-decision.f51681e74697e524198c3a65",
+        "id": "promotion-review-packet.23e8dc3474dc868c50e0819a",
+        "promotionPacketId": "promotion-candidate.8d5107b5b63825d9b408410e",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.c6d64bdf732756c6813e2302",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:182, 204–205",
+            "page": null,
+            "section": "Checking drive chain tension; Scheduled maintenance chart"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Inspect chain for stiff joints, missing/damaged O-rings and worn components; check wear and tension in scheduled service",
+        "reviewQueueEntryId": "review-queue-entry.0fd19d3f2354c2abcf4125fc",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "maintenance.periodic-schedule",
+        "evidenceProcessingRecordId": "evidence-processing.eda583e6201ebafcbe97b4ff",
+        "humanReviewDecisionId": "review-decision.8137bcd24fd04e7645c72604",
+        "id": "promotion-review-packet.b770e022519043d220d98cc2",
+        "promotionPacketId": "promotion-candidate.c75ff128b304fad6dd0ee2d5",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.1cf5a176f51adfb1c753aa9f",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:203–207",
+            "page": null,
+            "section": "Scheduled maintenance chart"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Scheduled maintenance chart includes dealer operations and customer operations",
+        "reviewQueueEntryId": "review-queue-entry.010cd19061902165357d525b",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "maintenance.schedule-time-intervals",
+        "evidenceProcessingRecordId": "evidence-processing.ef2220d7b6d50f6fb7e4e1b0",
+        "humanReviewDecisionId": "review-decision.6d957a830bbd9c3ba54e4347",
+        "id": "promotion-review-packet.64cfde169fc529fb7547dce9",
+        "promotionPacketId": "promotion-candidate.89f722b24c43d874d3d74df5",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.71cf115bdbe8a9e0ba614f77",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:152, 203–204",
+            "page": null,
+            "section": "Setting menu – Service; Scheduled maintenance chart"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Annual Service every 12 months; brake and clutch fluid change every 24 months; coolant change every 48 months",
+        "reviewQueueEntryId": "review-queue-entry.255de310691a6407d5be6cd7",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "final_drive.chain-slack",
+        "evidenceProcessingRecordId": "evidence-processing.f78f7d72534cd89f5676b719",
+        "humanReviewDecisionId": "review-decision.986c9156369bf5584c1c13d6",
+        "id": "promotion-review-packet.93e2aa858a388dfa78169d5a",
+        "promotionPacketId": "promotion-candidate.805c5705c900030994319bf4",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.850ce12391d25ae0bad38545",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:182",
+            "page": null,
+            "section": "Checking drive chain tension"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Chain tension A = 51–53 mm (2.00–2.09 in), measured on the side stand at the tightest position",
+        "reviewQueueEntryId": "review-queue-entry.edc9fb584001d012388b0c62",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "brakes.fluid-interval",
+        "evidenceProcessingRecordId": "evidence-processing.f838ffc889cbb2eaec7fe2af",
+        "humanReviewDecisionId": "review-decision.2412851f393bedcf204a4641",
+        "id": "promotion-review-packet.94c302abf940005ddf4918e1",
+        "promotionPacketId": "promotion-candidate.9f1f2c092d1da14bd9b1e87c",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.61f5b87d4d682c96f3b769ca",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:203–204",
+            "page": null,
+            "section": "Scheduled maintenance chart: dealer operations"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Change brake and clutch fluid every 24 months",
+        "reviewQueueEntryId": "review-queue-entry.1f3da85db89f280b260f289c",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "brakes.front-rear-configuration",
+        "evidenceProcessingRecordId": "evidence-processing.fccaf6e68020e64dbc3139b3",
+        "humanReviewDecisionId": "review-decision.05de40ed1da6c62a0b79b9dd",
+        "id": "promotion-review-packet.4773621353d9d109d7ee07f8",
+        "promotionPacketId": "promotion-candidate.b8761eac6e8defc86beebc57",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.f190de35a8df86804ec3f654",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:216",
+            "page": null,
+            "section": "Brakes"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Cornering ABS as standard; separate-action anti-lock brake system operated by wheel sensors",
+        "reviewQueueEntryId": "review-queue-entry.fa30435ed4601a18d2c58305",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "final_drive.chain-lubrication-interval",
+        "evidenceProcessingRecordId": "evidence-processing.fd5373109cf0c52c5839d649",
+        "humanReviewDecisionId": "review-decision.900e55433baa8419294c1f45",
+        "id": "promotion-review-packet.b5e2dc9a695538b0c731f04e",
+        "promotionPacketId": "promotion-candidate.198a3f08a2f24200c495b36f",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "candidateId": "extraction-candidate.81c05cef505ebed39c062480",
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "sourceLocation": {
+            "locator": "printed-page:185–187",
+            "page": null,
+            "section": "Lubricating the drive chain"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Lubricate at least every 1,000 km; more frequently, about every 400 km, in 40°C conditions or after long travels",
+        "reviewQueueEntryId": "review-queue-entry.6a06e6111bb1b6baf6ec3ef5",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      }
+    ],
+    "excluded": [],
+    "upstreamUnchanged": true
+  },
+  "bmw": {
+    "name": "BMW F 900 R I MY2020 EU",
+    "total": 13,
+    "eligibleReviewPackets": 11,
+    "blockedOrExcluded": 2,
+    "blockedReasons": {
+      "noUnresolvedConflict": 2,
+      "processingAccepted": 2
+    },
+    "packets": [
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "final_drive.chain-lubrication-interval",
+        "evidenceProcessingRecordId": "evidence-processing.20846e9b524a34186727bdc5",
+        "humanReviewDecisionId": "review-decision.6c9edda51d4b98b8bc29511d",
+        "id": "promotion-review-packet.1a69a01ca2e57a75cb9aacec",
+        "promotionPacketId": "promotion-candidate.f590e321b5dbc9de23257bcb",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "candidateId": "extraction-candidate.e514ff9fae1f05853b76f151",
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-188",
+            "page": 188,
+            "section": "Veriga — mazanje verige"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Namažite ob vsakem 3. postanku na bencinski črpalki",
+        "reviewQueueEntryId": "review-queue-entry.c8e3413d7061361784996c4d",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "BMW Motorrad / BMW AG",
+          "documentId": "BMW|F_0K11_RM_0520_76",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/F_0K11_RM_0520_76.pdf",
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "sourceId": "bmw.acquisition.f900r.owner.my20.eu",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "bmw.f-roadster-xr.f900r-1",
+          "equipment": "standard road model",
+          "id": "target.bmw.f900r.gen1.my20.eu",
+          "market": "EU",
+          "model": "F 900 R",
+          "state": "KNOWN",
+          "year": 2020
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "maintenance.periodic-schedule",
+        "evidenceProcessingRecordId": "evidence-processing.35e476074fff9e7b1f1993fa",
+        "humanReviewDecisionId": "review-decision.95575ed2e4c1994dadff79fa",
+        "id": "promotion-review-packet.59a56a6b93d820662698655b",
+        "promotionPacketId": "promotion-candidate.aa85fdda0a3a497a48b56e9f",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "candidateId": "extraction-candidate.e1a57c2f6c8a9d66df63d4ac",
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-237",
+            "page": 237,
+            "section": "Načrt vzdrževanja"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "a letno ali vsakih 10.000 km (kar pride prej); b prvič po enem letu, nato vsaki dve leti",
+        "reviewQueueEntryId": "review-queue-entry.bf895eecc9ba388ee9ea2419",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "BMW Motorrad / BMW AG",
+          "documentId": "BMW|F_0K11_RM_0520_76",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/F_0K11_RM_0520_76.pdf",
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "sourceId": "bmw.acquisition.f900r.owner.my20.eu",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "bmw.f-roadster-xr.f900r-1",
+          "equipment": "standard road model",
+          "id": "target.bmw.f900r.gen1.my20.eu",
+          "market": "EU",
+          "model": "F 900 R",
+          "state": "KNOWN",
+          "year": 2020
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "electrical.main-fuse",
+        "evidenceProcessingRecordId": "evidence-processing.45afead92b150c8fd1da379f",
+        "humanReviewDecisionId": "review-decision.b86f7a38b8cd5baebd16d112",
+        "id": "promotion-review-packet.f184fdcb559b761f5b577537",
+        "promotionPacketId": "promotion-candidate.840d39c42b0a1c85c30f635e",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "candidateId": "extraction-candidate.bc58f8863c90ab45c4fb6266",
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-227",
+            "page": 227,
+            "section": "Električni sistem"
+          }
+        },
+        "rawUnit": "A",
+        "rawValue": "40",
+        "reviewQueueEntryId": "review-queue-entry.469fffd2fa991c65fd9aedc9",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "BMW Motorrad / BMW AG",
+          "documentId": "BMW|F_0K11_RM_0520_76",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/F_0K11_RM_0520_76.pdf",
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "sourceId": "bmw.acquisition.f900r.owner.my20.eu",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "bmw.f-roadster-xr.f900r-1",
+          "equipment": "standard road model",
+          "id": "target.bmw.f900r.gen1.my20.eu",
+          "market": "EU",
+          "model": "F 900 R",
+          "state": "KNOWN",
+          "year": 2020
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "final_drive.chain-slack",
+        "evidenceProcessingRecordId": "evidence-processing.672115e4c00a63eeeb52bd27",
+        "humanReviewDecisionId": "review-decision.8f981953cd1816e4a2286281",
+        "id": "promotion-review-packet.e140c576e849ca0b90455a26",
+        "promotionPacketId": "promotion-candidate.38e6451c5b1c05967ef3ff0d",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "candidateId": "extraction-candidate.f43ac21d1a01dbf8001c5076",
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-224",
+            "page": 224,
+            "section": "Pogon zadnjega kolesa"
+          }
+        },
+        "rawUnit": "mm",
+        "rawValue": "35...45",
+        "reviewQueueEntryId": "review-queue-entry.f5c629ac55f708473dbd8266",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "BMW Motorrad / BMW AG",
+          "documentId": "BMW|F_0K11_RM_0520_76",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/F_0K11_RM_0520_76.pdf",
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "sourceId": "bmw.acquisition.f900r.owner.my20.eu",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "bmw.f-roadster-xr.f900r-1",
+          "equipment": "standard road model",
+          "id": "target.bmw.f900r.gen1.my20.eu",
+          "market": "EU",
+          "model": "F 900 R",
+          "state": "KNOWN",
+          "year": 2020
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "electrical.battery-specification",
+        "evidenceProcessingRecordId": "evidence-processing.8673c27e0ce3d1081a065ca4",
+        "humanReviewDecisionId": "review-decision.e3aca53038170e148e7ac4be",
+        "id": "promotion-review-packet.71d1f0e0886b5b12482dbf39",
+        "promotionPacketId": "promotion-candidate.148f9082786eca765cb91451",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "candidateId": "extraction-candidate.98e80b16b8446a2e4ae9f8e9",
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-228",
+            "page": 228,
+            "section": "Električni sistem"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Akumulator AGM",
+        "reviewQueueEntryId": "review-queue-entry.ab9453c366007e848db2a7c3",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "BMW Motorrad / BMW AG",
+          "documentId": "BMW|F_0K11_RM_0520_76",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/F_0K11_RM_0520_76.pdf",
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "sourceId": "bmw.acquisition.f900r.owner.my20.eu",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "bmw.f-roadster-xr.f900r-1",
+          "equipment": "standard road model",
+          "id": "target.bmw.f900r.gen1.my20.eu",
+          "market": "EU",
+          "model": "F 900 R",
+          "state": "KNOWN",
+          "year": 2020
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "electrical.battery-capacity",
+        "evidenceProcessingRecordId": "evidence-processing.8912e428cb6f35ca6b066ca8",
+        "humanReviewDecisionId": "review-decision.1eca67e7188260675a8ec97d",
+        "id": "promotion-review-packet.169ff6f0b430bd0c32bfe369",
+        "promotionPacketId": "promotion-candidate.552e53b3cd66d838906236a8",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "candidateId": "extraction-candidate.536f09717f5e373a5e714a57",
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-228",
+            "page": 228,
+            "section": "Električni sistem"
+          }
+        },
+        "rawUnit": "Ah",
+        "rawValue": "12",
+        "reviewQueueEntryId": "review-queue-entry.ca10609e2d4aefac2fde1d1a",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "BMW Motorrad / BMW AG",
+          "documentId": "BMW|F_0K11_RM_0520_76",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/F_0K11_RM_0520_76.pdf",
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "sourceId": "bmw.acquisition.f900r.owner.my20.eu",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "bmw.f-roadster-xr.f900r-1",
+          "equipment": "standard road model",
+          "id": "target.bmw.f900r.gen1.my20.eu",
+          "market": "EU",
+          "model": "F 900 R",
+          "state": "KNOWN",
+          "year": 2020
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "final_drive.chain-inspection",
+        "evidenceProcessingRecordId": "evidence-processing.a216ec1663433a1e2413b043",
+        "humanReviewDecisionId": "review-decision.5ef0bf1870830fd507e80660",
+        "id": "promotion-review-packet.61800e348799a823876f1304",
+        "promotionPacketId": "promotion-candidate.eef1e24004a4d9626f50f656",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "candidateId": "extraction-candidate.a570125b288cbdce1daea997",
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-187",
+            "page": 187,
+            "section": "Veriga — dovoljena dolžina verige"
+          }
+        },
+        "rawUnit": "mm",
+        "rawValue": "maks. 144",
+        "reviewQueueEntryId": "review-queue-entry.b3ce5794929bdeaa1fe82f5c",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "BMW Motorrad / BMW AG",
+          "documentId": "BMW|F_0K11_RM_0520_76",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/F_0K11_RM_0520_76.pdf",
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "sourceId": "bmw.acquisition.f900r.owner.my20.eu",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "bmw.f-roadster-xr.f900r-1",
+          "equipment": "standard road model",
+          "id": "target.bmw.f900r.gen1.my20.eu",
+          "market": "EU",
+          "model": "F 900 R",
+          "state": "KNOWN",
+          "year": 2020
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "lubrication.oil-specification",
+        "evidenceProcessingRecordId": "evidence-processing.b6eec2fd6f93277af9b2c503",
+        "humanReviewDecisionId": "review-decision.64ee8464a1bf3eafbddad151",
+        "id": "promotion-review-packet.2b028934740b93af62284f09",
+        "promotionPacketId": "promotion-candidate.91d730c2a1d1171b38059dd1",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "candidateId": "extraction-candidate.7b4d2a8557e9e0830f00fd82",
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-221",
+            "page": 221,
+            "section": "Motorno olje"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "SAE 5W-40, API SL / JASO MA2",
+        "reviewQueueEntryId": "review-queue-entry.d65bfbd67274be6067115246",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "BMW Motorrad / BMW AG",
+          "documentId": "BMW|F_0K11_RM_0520_76",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/F_0K11_RM_0520_76.pdf",
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "sourceId": "bmw.acquisition.f900r.owner.my20.eu",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "bmw.f-roadster-xr.f900r-1",
+          "equipment": "standard road model",
+          "id": "target.bmw.f900r.gen1.my20.eu",
+          "market": "EU",
+          "model": "F 900 R",
+          "state": "KNOWN",
+          "year": 2020
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "ignition.spark-plug-oem",
+        "evidenceProcessingRecordId": "evidence-processing.bc0cf7614a5e29e0b911175e",
+        "humanReviewDecisionId": "review-decision.1ddb82a646f1c9996c09727d",
+        "id": "promotion-review-packet.6d8e28db00735cd5a7fc70d0",
+        "promotionPacketId": "promotion-candidate.21951b22dc5c51e1ff7ec4ee",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "candidateId": "extraction-candidate.725865e10df27d0bb5480a76",
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-228",
+            "page": 228,
+            "section": "Vžigalne svečke"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "NGK LMAR9J-9E",
+        "reviewQueueEntryId": "review-queue-entry.677a19baeb51d4e5f1f0e9c2",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "BMW Motorrad / BMW AG",
+          "documentId": "BMW|F_0K11_RM_0520_76",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/F_0K11_RM_0520_76.pdf",
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "sourceId": "bmw.acquisition.f900r.owner.my20.eu",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "bmw.f-roadster-xr.f900r-1",
+          "equipment": "standard road model",
+          "id": "target.bmw.f900r.gen1.my20.eu",
+          "market": "EU",
+          "model": "F 900 R",
+          "state": "KNOWN",
+          "year": 2020
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "brakes.brake-fluid",
+        "evidenceProcessingRecordId": "evidence-processing.d1faac678a6643eb758ffbc8",
+        "humanReviewDecisionId": "review-decision.4cbeee9a51a91e24b93f7b3e",
+        "id": "promotion-review-packet.29aa34cdfd16a0be806663fa",
+        "promotionPacketId": "promotion-candidate.b146decb1cbca05564274d53",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "candidateId": "extraction-candidate.45dbd28bf13008b71db1048a",
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-171",
+            "page": 171,
+            "section": "Zavorna tekočina spredaj"
+          }
+        },
+        "rawUnit": "DOT4",
+        "rawValue": "Zavorna tekočina, DOT4",
+        "reviewQueueEntryId": "review-queue-entry.ecdc2f861c3fea8fe479d2cd",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "BMW Motorrad / BMW AG",
+          "documentId": "BMW|F_0K11_RM_0520_76",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/F_0K11_RM_0520_76.pdf",
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "sourceId": "bmw.acquisition.f900r.owner.my20.eu",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "bmw.f-roadster-xr.f900r-1",
+          "equipment": "standard road model",
+          "id": "target.bmw.f900r.gen1.my20.eu",
+          "market": "EU",
+          "model": "F 900 R",
+          "state": "KNOWN",
+          "year": 2020
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "brakes.brake-fluid",
+        "evidenceProcessingRecordId": "evidence-processing.e250e00948891d7dedf45d7a",
+        "humanReviewDecisionId": "review-decision.7101ed6f123ea78c2cf31de5",
+        "id": "promotion-review-packet.624b69943f633e2bf650db82",
+        "promotionPacketId": "promotion-candidate.2118d740d52c719785dde96c",
+        "promotionReadiness": {
+          "passed": true,
+          "reasons": [],
+          "state": "PROMOTION-READY"
+        },
+        "provenance": {
+          "artifactId": "artifact.36bcda4addfe579c7e535eec",
+          "candidateId": "extraction-candidate.9bac05e8dd3312e15f905462",
+          "extractionMethod": "BMW-controlled PDF text-layer inspection",
+          "extractionResultId": "extraction-result.8a35bd7b035ea8b4ec427ce0",
+          "sourceLocation": {
+            "locator": "F_0K11_RM_0520_76.pdf#pdf-page-172",
+            "page": 172,
+            "section": "Zavorna tekočina zadaj"
+          }
+        },
+        "rawUnit": "DOT4",
+        "rawValue": "Zavorna tekočina, DOT4",
+        "reviewQueueEntryId": "review-queue-entry.8b101eef513f025ef2e8d9ad",
+        "reviewState": "PENDING-PROMOTION-REVIEW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "BMW Motorrad / BMW AG",
+          "documentId": "BMW|F_0K11_RM_0520_76",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/F_0K11_RM_0520_76.pdf",
+          "prospectId": "prospect.bmw.f900r.owner.my20.eu",
+          "sourceId": "bmw.acquisition.f900r.owner.my20.eu",
+          "tier": "A"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "bmw.f-roadster-xr.f900r-1",
+          "equipment": "standard road model",
+          "id": "target.bmw.f900r.gen1.my20.eu",
+          "market": "EU",
+          "model": "F 900 R",
+          "state": "KNOWN",
+          "year": 2020
+        }
+      }
+    ],
+    "excluded": [
+      {
+        "processingRecordId": "evidence-processing.29dd441bae56b6acf6b4b95a",
+        "reasons": [
+          "processingAccepted",
+          "noUnresolvedConflict"
+        ]
+      },
+      {
+        "processingRecordId": "evidence-processing.7c27b7486bb1087a0d95a472",
+        "reasons": [
+          "processingAccepted",
+          "noUnresolvedConflict"
+        ]
+      }
+    ],
+    "upstreamUnchanged": true
+  },
+  "promotionApprovalsCreated": 0,
+  "upstreamResearchStateChanged": false,
+  "productionStateChanged": false,
+  "evidenceRowsCreated": 0,
+  "serviceCoreCoverageChanged": false,
+  "researchHumanReviewAcceptMeansPromotionApproval": false,
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "conclusion": "Only PROMOTION-READY held records were presented as PENDING-PROMOTION-REVIEW packets. No promotion-review approval, rejection or needs-review decision was created; research Human Review ACCEPT remains a separate pre-evidence decision."
+  },
+  "exactNextTask": "Keep packets pending; obtain a separate explicit human promotion-review decision before any future schema conversion."
+}
