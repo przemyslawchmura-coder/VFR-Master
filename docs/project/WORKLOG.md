@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-03 — BMW F 900 R I prospect registration and readiness
+
+Selected representative MY2020 EU `bmw.f-roadster-xr.f900r-1` standard road scope with manual transmission and ABS. Authenticated the official BMW Motorrad Tier A rider manual `F_0K11_RM_0520_76.pdf` for base F 900 R model code 0K11; the manual's separately identified F 900 R A2 0K31 variant, F 900 XR and unrelated BMW models remain out of scope. Canonical readiness is `EXECUTION-READY`. No technical values, candidates, queue entries, decisions, processing records, evidence, coverage, production, runtime, catalogue or cloud state changed. NEXT: bounded acquisition only under this exact scope.
+
 ## 2026-09-03 — Kawasaki Ninja 650 II prospect registration and readiness
 
 Selected representative MY2020 EU `kawasaki.ninja-650.gen2` standard road scope with manual transmission and ABS. Kawasaki Europe’s official owner-manual route and 2020 EU model context were checked; the owner-manual portal redirected in a loop and did not expose an exact EU MY2020 Tier A/B document identity. Canonical readiness is `ACCESS-BLOCKED` with source year/market binding and feasible full-content access unresolved. No technical values, candidates, queue entries, decisions, processing records, evidence, coverage, production, runtime, catalogue or cloud state changed. NEXT: revisit only with genuinely new Kawasaki-controlled exact-source metadata.

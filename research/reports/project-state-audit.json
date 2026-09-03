@@ -1,16 +1,16 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-03",
-  "snapshotBasis": "post-kawasaki-ninja650-prospect-registration-working-tree",
-  "snapshotImplementationPath": "research/data/kawasaki-ninja650-prospect-registration.js",
-  "baseCommit": "e2a09929d2b39aab4dc9afe089514faa0cbae04b",
+  "snapshotBasis": "post-bmw-f900r-prospect-registration-working-tree",
+  "snapshotImplementationPath": "research/data/bmw-f900r-prospect-registration.js",
+  "baseCommit": "1114004a547480fe3105639f2c876ff169b330ec",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 329,
-    "javascriptFiles": 207,
-    "testFiles": 68,
+    "files": 333,
+    "javascriptFiles": 210,
+    "testFiles": 69,
     "documentationFiles": 72,
-    "researchAndToolingFiles": 145
+    "researchAndToolingFiles": 148
   },
   "catalogue": {
     "manufacturers": 13,
@@ -336,6 +336,125 @@
       "source EU market applicability is unresolved",
       "source MY2020 applicability is unresolved"
     ],
+    "technicalValuesInspected": false,
+    "evidenceRowsAdded": 0,
+    "serviceCoreCoverageChanged": false,
+    "productionChanged": false
+  },
+  "bmwF900RRegistration": {
+    "classification": "EXECUTION-READY",
+    "target": {
+      "schemaVersion": 1,
+      "id": "target.bmw.f900r.gen1.my20.eu",
+      "catalogVariantKey": "bmw.f-roadster-xr.f900r-1",
+      "manufacturer": "BMW",
+      "family": "F 900 R I",
+      "scope": {
+        "schemaVersion": 1,
+        "model": {
+          "state": "KNOWN",
+          "values": [
+            "F 900 R"
+          ]
+        },
+        "generation": {
+          "state": "KNOWN",
+          "values": [
+            "I"
+          ]
+        },
+        "years": {
+          "kind": "EXACT",
+          "from": 2020,
+          "to": 2020
+        },
+        "markets": {
+          "state": "KNOWN",
+          "values": [
+            "EU"
+          ]
+        },
+        "transmissions": {
+          "state": "KNOWN",
+          "values": [
+            "manual"
+          ]
+        },
+        "abs": {
+          "state": "KNOWN",
+          "values": [
+            true
+          ]
+        },
+        "equipment": {
+          "state": "KNOWN",
+          "values": [
+            "standard road model"
+          ]
+        }
+      },
+      "sourcePriorityPolicyId": "policy.tier-a-first",
+      "serviceCoreBaseline": {
+        "verified": 0,
+        "total": 44
+      },
+      "knownSourceRefs": [],
+      "knownProspectRefs": [
+        "unknown.bmw.f900r"
+      ],
+      "researchHistoryRefs": [],
+      "riskFlags": [
+        "country-specific equipment variations remain outside this metadata registration",
+        "official manual also identifies F 900 R A2 (0K31); only base F 900 R (0K11) is in scope"
+      ],
+      "state": "PLANNED",
+      "gapPlanRef": null
+    },
+    "sourceTier": "A",
+    "documentClass": "rider manual",
+    "officialLocations": [
+      {
+        "host": "manuals.bmw-motorrad.com",
+        "path": "/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/F_0K11_RM_0520_76.pdf",
+        "role": "official BMW Motorrad rider manual"
+      }
+    ],
+    "readiness": {
+      "passed": true,
+      "rankingEligible": true,
+      "classification": "EXECUTION-READY",
+      "checks": {
+        "authorityKnown": true,
+        "documentIdentityKnown": true,
+        "identifierRelationshipResolved": true,
+        "documentClassKnown": true,
+        "officialPathKnown": true,
+        "modelKnown": true,
+        "yearKnown": true,
+        "marketKnown": true,
+        "transmissionKnown": true,
+        "absEquipmentSufficient": true,
+        "accessibilityFeasible": true,
+        "notExhausted": true,
+        "tierABIndependent": true
+      },
+      "applicability": {
+        "overall": "MATCH",
+        "dimensions": {
+          "model": "MATCH",
+          "generation": "MATCH",
+          "year": "MATCH",
+          "market": "MATCH",
+          "transmission": "MATCH",
+          "abs": "MATCH",
+          "equipment": "MATCH"
+        },
+        "blockingDimensions": [],
+        "reasons": []
+      },
+      "blockers": []
+    },
+    "blockers": [],
     "technicalValuesInspected": false,
     "evidenceRowsAdded": 0,
     "serviceCoreCoverageChanged": false,
@@ -1627,8 +1746,8 @@
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 612,
-    "lastKnownPassed": 612,
+    "lastKnownTotal": 615,
+    "lastKnownPassed": 615,
     "failed": 0,
     "skipped": 0,
     "todo": 0

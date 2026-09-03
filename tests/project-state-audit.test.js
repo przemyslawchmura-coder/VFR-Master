@@ -10,8 +10,8 @@ const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 const git = (...args) => cp.execFileSync("git", args, { cwd: path.join(__dirname, ".."), encoding: "utf8" }).trim();
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-kawasaki-ninja650-prospect-registration-working-tree");
-  assert.equal(snapshot.snapshotImplementationPath, "research/data/kawasaki-ninja650-prospect-registration.js");
+  assert.equal(snapshot.snapshotBasis, "post-bmw-f900r-prospect-registration-working-tree");
+  assert.equal(snapshot.snapshotImplementationPath, "research/data/bmw-f900r-prospect-registration.js");
   const containingCommit = git("log", "-1", "--format=%H", "--", snapshot.snapshotImplementationPath);
   const expectedBase = containingCommit ? git("rev-parse", `${containingCommit}^`) : git("rev-parse", "HEAD");
   assert.equal(snapshot.baseCommit, expectedBase);
@@ -106,6 +106,16 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.kawasakiNinja650Registration.evidenceRowsAdded, 0);
   assert.equal(snapshot.kawasakiNinja650Registration.serviceCoreCoverageChanged, false);
   assert.equal(snapshot.kawasakiNinja650Registration.productionChanged, false);
+  assert.equal(snapshot.bmwF900RRegistration.classification, "EXECUTION-READY");
+  assert.equal(snapshot.bmwF900RRegistration.target.catalogVariantKey, "bmw.f-roadster-xr.f900r-1");
+  assert.equal(snapshot.bmwF900RRegistration.target.scope.years.from, 2020);
+  assert.equal(snapshot.bmwF900RRegistration.sourceTier, "A");
+  assert.equal(snapshot.bmwF900RRegistration.documentClass, "rider manual");
+  assert.equal(snapshot.bmwF900RRegistration.readiness.passed, true);
+  assert.equal(snapshot.bmwF900RRegistration.technicalValuesInspected, false);
+  assert.equal(snapshot.bmwF900RRegistration.evidenceRowsAdded, 0);
+  assert.equal(snapshot.bmwF900RRegistration.serviceCoreCoverageChanged, false);
+  assert.equal(snapshot.bmwF900RRegistration.productionChanged, false);
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.classification, "ACCESS-BLOCKED");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.audit, "ACCEPT-WITH-RISKS");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.b7nLitRelationship, "UNRESOLVED");
