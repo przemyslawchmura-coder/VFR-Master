@@ -25,7 +25,7 @@ Authentication and login/logout: FUNCTIONAL-PARTIAL (implemented, live backend n
 
 ## Data flows
 
-Auth → Supabase session → database queries; garage → local/cloud persistence; selection → catalogue → resolver → clarification → active motorcycle; active motorcycle → registry → profile loader → resolved technical UI/search; research → evidence validation → review → optional promotion. Live backend/RLS and production promotion remain unverified/not implemented.
+Auth → Supabase session → database queries; garage → local/cloud persistence; selection → catalogue → resolver → clarification → active motorcycle; active motorcycle → registry → profile loader → resolved technical UI/search; research → evidence validation → review → optional promotion. Live backend/RLS and cloud deployment remain unverified; production promotion is implemented for the bounded registered Ducati profile.
 
 The Technical Research Factory audit classifies the research path as reusable primitives under manual orchestration, not yet a resumable factory. The accepted-with-risks architecture defines stable target/prospect/applicability/gap contracts, one fail-closed gate, bounded work state, review/checkpoint identities and a generic core with optional discovery-only manufacturer adapters. Ténéré `BW3-F8197-E0` is metadata-authenticated as its own 2020 service publication with an official Yamaha access/delivery route, and its public applicability-authentication path is exhausted. Suzuki `SV650/A/XA (L7-M4)` is now an authenticated Tier A service-manual prospect through Suzuki’s official European Service Portal, but its exact EU SV650A L9 applicability remains blocked; no technical values or evidence were inspected.
 
@@ -33,15 +33,15 @@ Foundation #1 supplies canonical contracts/gates; Orchestration schema 1 supplie
 
 ## Catalogue and research
 
-Catalogue boundary is MY1990–2025 with 13 manufacturers, 318 families, 1,095 variants and 5,317 variant-years. Research represents 167 targets and 283 candidates in the aggregate dataset, plus Honda Service Core, batch fixtures and the executed five-target pilot. VFR800 and CBR500R are regression fixtures; 1,094 catalogue variants have no production profile.
+Catalogue boundary is MY1990–2025 with 13 manufacturers, 318 families, 1,095 variants and 5,317 variant-years. Research represents 167 targets and 283 candidates in the aggregate dataset, plus Honda Service Core, batch fixtures and the executed five-target pilot. VFR800 and CBR500R are regression fixtures; 1,093 catalogue variants have no production profile.
 
 ## Technical Profile inventory
 
-One production profile exists: `honda.vfr800.rc46-vtec-gen1.2002`, MY2002, 99 entries, 94 verified, 5 pending, 30 unique source IDs. No other production profile is registered. Synthetic/candidate profiles remain research/test-only.
+Two production profiles exist: `honda.vfr800.rc46-vtec-gen1.2002` (MY2002, 99 entries, 94 verified, 5 pending, 30 unique source IDs) and bounded `ducati.monster937.2021` (MY2021, 6 verified entries). Synthetic/candidate profiles remain research/test-only.
 
 ## Security/configuration
 
-Supabase URL and anon client configuration are visible in `js/supabase.js`; no secret service-role credential was found in the audited files. RLS and live backend configuration are repository expectations, not verified live facts. External CDN loading exists for Supabase; research remains offline/bundled.
+Supabase URL and publishable client configuration are visible in `js/supabase.js`; no secret service-role credential was found in the audited files. Session persistence and token refresh are configured, but password recovery, auth event handling and recovery-path validation are absent from the repository. `motorcycles` and `service_records` queries carry/derive `user_id` ownership, but reads and several updates/deletes rely on live RLS policies that are not represented by the repository migration set. The only migration is an additive `motorcycles.technical_clarification` column; schema/RLS reproducibility is incomplete. Supabase is loaded from an unpinned external CDN URL (`@supabase/supabase-js@2`), and no deployment workflow/configuration or recovery runbook is present.
 
 ## Dead/duplicate/legacy observations
 
@@ -49,7 +49,7 @@ Supabase URL and anon client configuration are visible in `js/supabase.js`; no s
 
 ## Release readiness
 
-Local development: READY-WITH-RISKS. Authenticated beta: NOT-READY until live auth/RLS/error paths are verified. Public beta/production: NOT-READY due single-profile coverage, backend verification gap and incomplete operational deployment evidence. Published version remains 0.3.0.
+Local development: READY-WITH-RISKS. Authenticated beta: NOT-READY until live auth/RLS/error paths are verified. Public beta/production: NOT-READY due incomplete backend ownership proof, recovery/configuration gaps and incomplete deployment/recovery evidence. Phase 7 first bounded task is read-only live Supabase schema/RLS/auth inspection; no fix is authorized by this audit. Published version remains 0.3.0.
 
 ## Independent audit correction
 
@@ -75,7 +75,7 @@ The final bounded reconciliation found no Yamaha-controlled B7N record or B7N/LI
 
 P0: none identified. P1: resolve Suzuki SV650 prospect applicability only through new authenticated Suzuki metadata or portal access; do not repeat exhausted public Ténéré authentication. P2: cloud/RLS verification; blocked-source acquisition; broader profile coverage. P3: market/scooter/125 expansion.
 
-Technical debt: HIGH — only one production Technical Profile and live backend/deployment claims are unverified. MEDIUM — parallel historical report formats and limited document-content hashing. LOW — presentation/report consolidation.
+Technical debt: HIGH — live backend/deployment claims, ownership policies and recovery paths are unverified. MEDIUM — parallel historical report formats and limited document-content hashing. LOW — presentation/report consolidation.
 
 ## Scorecard (0–5)
 
