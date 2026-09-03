@@ -81,3 +81,13 @@ test("password validation is local and fail-closed", () => {
   assert.match(app, /window\.updateRecoveryPassword\(password\)/);
   assert.doesNotMatch(app, /signUp\([^\n]*recovery/);
 });
+
+test("all authentication password fields have independent visibility controls", () => {
+  assert.equal((index.match(/data-password-toggle/g) || []).length, 3);
+  for (const id of ["authPassword", "recoveryPassword", "recoveryPasswordConfirmation"]) {
+    assert.match(index, new RegExp(`data-target="${id}"[\\s\\S]+togglePasswordVisibility\\('${id}'`));
+  }
+  assert.match(app, /input\.type = visible \? "text" : "password"/);
+  assert.match(app, /button\.setAttribute\("aria-label", visible \? "Ukryj hasło" : "Pokaż hasło"\)/);
+  assert.match(app, /button\.setAttribute\("aria-pressed", String\(visible\)\)/);
+});

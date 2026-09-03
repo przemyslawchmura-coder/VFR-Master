@@ -1214,6 +1214,17 @@ function showPasswordRecovery(message = "") {
   showAuthPanel(message);
 }
 
+function togglePasswordVisibility(inputId, button) {
+  const input = document.getElementById(inputId);
+  if (!input || !button) return;
+  const visible = input.type === "password";
+  input.type = visible ? "text" : "password";
+  button.setAttribute("aria-label", visible ? "Ukryj hasło" : "Pokaż hasło");
+  button.setAttribute("aria-pressed", String(visible));
+  const icon = button.querySelector("[aria-hidden='true']");
+  if (icon) icon.textContent = visible ? "◌" : "◉";
+}
+
 function showApplication() {
   document.getElementById("authPanel").hidden = true;
   document.getElementById("appHeader").hidden = false;
