@@ -26,6 +26,7 @@ const executionAgent = require("../research/data/technical-research-factory-exec
 const extractionAgent = require("../research/data/technical-research-factory-extraction-agent.js").buildReport();
 const reviewQueue = require("../research/data/technical-research-factory-review-queue.js").buildReport();
 const humanReviewDecisions = require("../research/data/technical-research-factory-human-review-decisions.js").buildReport();
+const evidenceProcessing = require("../research/data/technical-research-factory-evidence-processing.js").buildReport();
 
 const root = path.join(__dirname, "..");
 const git = (...args) => cp.execFileSync("git", args, { cwd: root, encoding: "utf8" }).trim();
@@ -35,7 +36,7 @@ const countBy = predicate => allFiles.filter(predicate).length;
 // A commit cannot embed its own SHA. Anchor the snapshot to the wave's implementation
 // path and persist only its stable first-parent base. Before the new path is committed,
 // HEAD is that base; after commit, the path's containing commit has the same parent.
-const snapshotImplementationPath = "research/factory/review-decisions.js";
+const snapshotImplementationPath = "research/factory/evidence-processing.js";
 const snapshotContainingCommit = git("log", "-1", "--format=%H", "--", snapshotImplementationPath);
 const snapshotBaseCommit = snapshotContainingCommit
   ? git("rev-parse", `${snapshotContainingCommit}^`)
@@ -48,8 +49,8 @@ const profileDetails = registry.map(descriptor => {
 const perManufacturer = report.find(item => item.id === "honda") ? report : [];
 const snapshot = {
   schemaVersion: "revlog-project-state/v1",
-  snapshotDate: "2026-09-02",
-  snapshotBasis: "post-technical-research-factory-human-review-decisions-working-tree",
+  snapshotDate: "2026-09-03",
+  snapshotBasis: "post-technical-research-factory-evidence-processing-working-tree",
   snapshotImplementationPath,
   baseCommit: snapshotBaseCommit,
   commitsFromBaseThroughContaining: 1,
@@ -65,7 +66,8 @@ const snapshot = {
   extractionAgent: { schemaVersion: extractionAgent.extractionSchemaVersion, executionSchemaVersion: extractionAgent.executionSchemaVersion, classification: extractionAgent.audit.classification, adapters: extractionAgent.syntheticAdapters, dispositions: extractionAgent.dispositions, examples: extractionAgent.examples, successfulCandidateFields: extractionAgent.successfulCandidateFields, provenance: extractionAgent.provenance, safety: extractionAgent.safety },
   reviewQueue: { schemaVersion: reviewQueue.reviewQueueSchemaVersion, extractionSchemaVersion: reviewQueue.extractionSchemaVersion, classification: reviewQueue.audit.classification, queueStates: reviewQueue.queueStates, eligibilityStates: reviewQueue.eligibilityStates, entryCount: reviewQueue.entryCount, exactDuplicateCollapsed: reviewQueue.exactDuplicateCollapsed, ineligible: reviewQueue.ineligible, provenance: reviewQueue.provenance, rawPreservation: reviewQueue.rawPreservation, safety: reviewQueue.safety },
   humanReviewDecisions: { schemaVersion: humanReviewDecisions.reviewDecisionSchemaVersion, reviewQueueSchemaVersion: humanReviewDecisions.reviewQueueSchemaVersion, classification: humanReviewDecisions.audit.classification, decisionVocabulary: humanReviewDecisions.decisionVocabulary, examples: humanReviewDecisions.examples, decisionCount: humanReviewDecisions.decisionCount, provenance: humanReviewDecisions.provenance, semantics: humanReviewDecisions.semantics, safety: humanReviewDecisions.safety },
-  tests: { fullSuiteCommand: "node --test tests/*.test.js", lastKnownTotal: 567, lastKnownPassed: 567, failed: 0, skipped: 0, todo: 0 },
+  evidenceProcessing: { schemaVersion: evidenceProcessing.evidenceProcessingSchemaVersion, reviewDecisionSchemaVersion: evidenceProcessing.reviewDecisionSchemaVersion, classification: evidenceProcessing.audit.classification, states: evidenceProcessing.states, recordCount: evidenceProcessing.recordCount, statesProduced: evidenceProcessing.statesProduced, provenance: evidenceProcessing.provenance, rawPreservation: evidenceProcessing.rawPreservation, semantics: evidenceProcessing.semantics, safety: evidenceProcessing.safety },
+  tests: { fullSuiteCommand: "node --test tests/*.test.js", lastKnownTotal: 579, lastKnownPassed: 579, failed: 0, skipped: 0, todo: 0 },
   productionBoundary: { researchImportedByIndex: false, runtimeEntry: "index.html", productionProfileCount: registry.length, batchPipelineNonProduction: true },
   release: { currentVersion: require("../js/app-release.js").currentVersion, latestRelease: require("../js/app-release.js").releases[0].version }
 };

@@ -10,8 +10,8 @@ const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 const git = (...args) => cp.execFileSync("git", args, { cwd: path.join(__dirname, ".."), encoding: "utf8" }).trim();
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-human-review-decisions-working-tree");
-  assert.equal(snapshot.snapshotImplementationPath, "research/factory/review-decisions.js");
+  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-evidence-processing-working-tree");
+  assert.equal(snapshot.snapshotImplementationPath, "research/factory/evidence-processing.js");
   const containingCommit = git("log", "-1", "--format=%H", "--", snapshot.snapshotImplementationPath);
   const expectedBase = containingCommit ? git("rev-parse", `${containingCommit}^`) : git("rev-parse", "HEAD");
   assert.equal(snapshot.baseCommit, expectedBase);

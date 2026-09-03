@@ -2,9 +2,9 @@
 
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
-Snapshot date: 2026-09-02
-Snapshot basis: post-Technical-Research-Factory-Human-Review-Decisions working tree, anchored semantically by `research/factory/review-decisions.js` to first-parent base `59a4897d58a673397deb8df9f6979c5d7ab76146`.
-origin/main at task start: `59a4897d58a673397deb8df9f6979c5d7ab76146`
+Snapshot date: 2026-09-03
+Snapshot basis: post-Technical-Research-Factory-Evidence-Processing working tree, anchored semantically by `research/factory/evidence-processing.js` to first-parent base `f446875e66d8ea92e507c26088d68f0a28dc1591`.
+origin/main at task start: `f446875e66d8ea92e507c26088d68f0a28dc1591`
 Expected local relation after the single containing commit: ahead 1, behind 0
 
 ## Architecture and runtime
@@ -38,7 +38,8 @@ Research is quarantined under `research/` and is not imported by the production 
 - Technical Research Factory Extraction Agent / Local Extractor Adapter Foundation: `ACCEPT-WITH-RISKS`. Extraction schema 1 binds one canonical successful `ACQUIRED` result and synthetic UTF-8 content envelope to acquisition metadata before invoking one deterministic local adapter. Raw candidates preserve unnormalized values, units, locations, explicit applicability/context and canonical target/work/attempt/prospect/artifact provenance. Candidate IDs and ordering are semantic and deterministic. Extraction emits no Orchestrator events, consumes no acquisition attempts, changes no acquisition state, creates no evidence, and starts no Review Queue.
 - Technical Research Factory Review Queue Foundation: `ACCEPT-WITH-RISKS`. Review Queue schema 1 creates one immutable `QUEUED` entry per candidate from validated `CANDIDATES-PRODUCED` extraction results, preserving the complete raw candidate and canonical provenance. Exact duplicates collapse only when byte-equivalent; identity collisions fail closed. All other extraction dispositions remain typed ineligibility records, not evidence absence or human decisions. No transitions, decisions, persistence, Orchestrator events, retries, normalization, evidence or production state were added.
 - Technical Research Factory Human Review Decisions Foundation: `ACCEPT-WITH-RISKS`. Decision schema 1 accepts valid queue entries plus explicit opaque reviewer IDs and optional raw comments, producing immutable `ACCEPT`, `REJECT` or `NEEDS-MORE-REVIEW` records with canonical provenance and semantic IDs/order. Exact duplicates are idempotent; conflicting decisions or metadata for one queue entry fail closed. Decisions create no evidence, researched-no-evidence, normalization, conflict resolution, routing, persistence, retries, Orchestrator events or production state.
-- Latest completed-wave validation: targeted Human Review Decisions tests 22/22; Review Queue tests 23/23; Extraction Agent tests 23/23; related Factory tests 132/132; full suite 567/567 passed with 0 failed, 0 skipped and 0 todo; changed JavaScript passed `node --check`; `git diff --check` clean; deterministic Human Review Decisions and project-state reports regenerate byte-for-byte identically. The prior 545/545 Review Queue checkpoint remains historical.
+- Technical Research Factory Evidence-Processing Contract Foundation: `ACCEPT-WITH-RISKS`. Evidence-processing schema 1 projects immutable Human Review Decisions plus validated queue entries into explicit pre-promotion states: accepted-for-processing, rejected-candidate, needs-more-review, ineligible and cannot-advance. Raw candidate values and canonical provenance are preserved; directly observable accepted disagreements remain independently represented and unresolved. No evidence, normalization, researched-no-evidence, promotion, lifecycle, retry or production changes were added.
+- Latest completed-wave validation: targeted Evidence Processing tests 12/12; Human Review Decisions tests 22/22; Review Queue tests 23/23; Extraction Agent tests 23/23; full suite 579/579 passed with 0 failed, 0 skipped and 0 todo; changed JavaScript passed `node --check`; `git diff --check` clean; deterministic Evidence Processing and project-state reports regenerate byte-for-byte identically. The prior 567/567 Human Review Decisions checkpoint remains historical.
 - Published application version: 0.3.0.
 
 ## Independent work streams
@@ -50,14 +51,14 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## WIP and blockers
 
-- P1: design a separate bounded evidence-processing contract over immutable Human Review Decision records; Ténéré `BW3-F8197-E0` remains a later factory-pilot candidate.
+- P1: design a bounded interrupted/resumed Ténéré Batch Pilot over the completed research-only processing layers; Ténéré `BW3-F8197-E0` remains gated until its source path is authenticated.
 - P1: add production Technical Profiles only through deliberate promotion review; 1,094 catalogue variants remain without production profiles.
 - P2: improve source/document acquisition for blocked manuals and OEM parts.
 - P2: audit cloud/RLS behavior against a live Supabase project before claiming deployment readiness.
 
 ## Next actions
 
-**NEXT** — Design the bounded Technical Research Factory evidence-processing contract over immutable Human Review Decision records, without production promotion, normalization, conflict resolution or canonical researched-no-evidence conversion.
+**NEXT** — Design the bounded interrupted/resumed Ténéré Batch Pilot over the completed research-only factory layers, without production promotion, normalization, conflict resolution or canonical researched-no-evidence conversion.
 
 Deferred independent streams remain the live-backend production-readiness audit, controlled Technical Profile promotion design, and global catalogue gap audit; none is an active NEXT task.
 

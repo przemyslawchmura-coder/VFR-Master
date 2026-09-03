@@ -144,3 +144,11 @@ Decision: Human Review Decision schema 1 records exactly one internally consiste
 Rationale: a human outcome must be auditable without conflating reviewer intent with evidence verification or production acceptance. Deterministic identities and fail-closed duplicate conflicts prevent silent overwrite while preserving all upstream raw data.
 Consequences: `ACCEPT` only permits future evidence processing, `REJECT` is candidate-local, and `NEEDS-MORE-REVIEW` triggers no automation. Authentication, supersession, evidence conversion, normalization, conflict resolution, researched-no-evidence, persistence and production promotion require later bounded work.
 Status: ACTIVE. Related design: Technical Research Factory Human Review Decisions Foundation.
+
+## ADR-020 — Evidence processing remains an explicit pre-promotion projection
+
+Date: 2026-09-03
+Decision: Evidence Processing schema 1 consumes immutable Human Review Decision records with their validated Review Queue entries and produces explicit `ACCEPTED-FOR-PROCESSING`, `REJECTED-CANDIDATE`, `NEEDS-MORE-REVIEW`, `INELIGIBLE` and `CANNOT-ADVANCE` records. It preserves raw candidates and canonical provenance; it does not create evidence or promote `ACCEPT`.
+Rationale: an accepted human candidate still requires a separate, auditable processing boundary before normalization, conflict resolution or production evidence can be considered.
+Consequences: rejected and deferred candidates remain non-advancing, missing queue context is typed ineligible, and directly observable accepted disagreements remain unresolved without winner selection. Evidence creation, researched-no-evidence conversion, normalization, promotion, persistence and lifecycle integration remain later layers.
+Status: ACTIVE. Related design: Technical Research Factory Evidence-Processing Contract Foundation.

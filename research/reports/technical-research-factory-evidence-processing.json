@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "revlog-technical-research-factory-evidence-processing/v1",
+  "evidenceProcessingSchemaVersion": 1,
+  "reviewDecisionSchemaVersion": 1,
+  "states": [
+    "ACCEPTED-FOR-PROCESSING",
+    "REJECTED-CANDIDATE",
+    "NEEDS-MORE-REVIEW",
+    "INELIGIBLE",
+    "CANNOT-ADVANCE"
+  ],
+  "recordCount": 2,
+  "statesProduced": [
+    "NEEDS-MORE-REVIEW",
+    "ACCEPTED-FOR-PROCESSING"
+  ],
+  "provenance": {
+    "queueBound": true,
+    "candidateBound": true,
+    "extractionBound": true,
+    "acquisitionBound": true
+  },
+  "rawPreservation": {
+    "values": true,
+    "normalized": false
+  },
+  "semantics": {
+    "acceptIsPrePromotion": true,
+    "rejectIsCandidateLocal": true,
+    "needsMoreReviewDoesNotAdvance": true
+  },
+  "safety": {
+    "evidenceCreated": false,
+    "researchedNoEvidenceAdded": false,
+    "normalizationImplemented": false,
+    "promotionImplemented": false,
+    "conflictResolutionImplemented": false,
+    "orchestratorEventsAdded": 0,
+    "acquisitionAttemptsConsumed": 0,
+    "productionChanged": false,
+    "networkUsed": false
+  },
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "risks": [
+      "accepted disagreements remain unresolved until a later conflict layer",
+      "processing records are in-memory with caller-owned persistence",
+      "decision provenance depends on the supplied immutable queue entries"
+    ]
+  }
+}

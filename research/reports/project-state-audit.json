@@ -1,16 +1,16 @@
 {
   "schemaVersion": "revlog-project-state/v1",
-  "snapshotDate": "2026-09-02",
-  "snapshotBasis": "post-technical-research-factory-human-review-decisions-working-tree",
-  "snapshotImplementationPath": "research/factory/review-decisions.js",
-  "baseCommit": "59a4897d58a673397deb8df9f6979c5d7ab76146",
+  "snapshotDate": "2026-09-03",
+  "snapshotBasis": "post-technical-research-factory-evidence-processing-working-tree",
+  "snapshotImplementationPath": "research/factory/evidence-processing.js",
+  "baseCommit": "f446875e66d8ea92e507c26088d68f0a28dc1591",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 287,
-    "javascriptFiles": 179,
-    "testFiles": 59,
-    "documentationFiles": 68,
-    "researchAndToolingFiles": 117
+    "files": 295,
+    "javascriptFiles": 184,
+    "testFiles": 60,
+    "documentationFiles": 69,
+    "researchAndToolingFiles": 122
   },
   "catalogue": {
     "manufacturers": 13,
@@ -1184,10 +1184,53 @@
       "networkUsed": false
     }
   },
+  "evidenceProcessing": {
+    "schemaVersion": 1,
+    "reviewDecisionSchemaVersion": 1,
+    "classification": "ACCEPT-WITH-RISKS",
+    "states": [
+      "ACCEPTED-FOR-PROCESSING",
+      "REJECTED-CANDIDATE",
+      "NEEDS-MORE-REVIEW",
+      "INELIGIBLE",
+      "CANNOT-ADVANCE"
+    ],
+    "recordCount": 2,
+    "statesProduced": [
+      "NEEDS-MORE-REVIEW",
+      "ACCEPTED-FOR-PROCESSING"
+    ],
+    "provenance": {
+      "queueBound": true,
+      "candidateBound": true,
+      "extractionBound": true,
+      "acquisitionBound": true
+    },
+    "rawPreservation": {
+      "values": true,
+      "normalized": false
+    },
+    "semantics": {
+      "acceptIsPrePromotion": true,
+      "rejectIsCandidateLocal": true,
+      "needsMoreReviewDoesNotAdvance": true
+    },
+    "safety": {
+      "evidenceCreated": false,
+      "researchedNoEvidenceAdded": false,
+      "normalizationImplemented": false,
+      "promotionImplemented": false,
+      "conflictResolutionImplemented": false,
+      "orchestratorEventsAdded": 0,
+      "acquisitionAttemptsConsumed": 0,
+      "productionChanged": false,
+      "networkUsed": false
+    }
+  },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 567,
-    "lastKnownPassed": 567,
+    "lastKnownTotal": 579,
+    "lastKnownPassed": 579,
     "failed": 0,
     "skipped": 0,
     "todo": 0
