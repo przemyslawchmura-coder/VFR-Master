@@ -6,11 +6,11 @@
   "baseCommit": "b1c8575105c981d4eb39370bd32cff4c6dba4280",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 353,
-    "javascriptFiles": 225,
-    "testFiles": 74,
+    "files": 356,
+    "javascriptFiles": 228,
+    "testFiles": 75,
     "documentationFiles": 72,
-    "researchAndToolingFiles": 163
+    "researchAndToolingFiles": 165
   },
   "catalogue": {
     "manufacturers": 13,
@@ -1035,6 +1035,17 @@
       "conclusion": "Post-BMW/Triumph reassessment used repository metadata only and selected no next prospect-registration target. Phase 5 remains paused until a genuinely new, in-scope prospect becomes available."
     },
     "exactNextTask": "Record a new repository-known Tier A/B prospect only when it is not held, exhausted, access-blocked, applicability-blocked or explicitly deferred; otherwise keep Phase 5 paused."
+  },
+  "promotionFoundation": {
+    "contract": "PromotionPacket/v1",
+    "gate": "PROMOTION-READY-or-BLOCKED",
+    "positiveFixture": "synthetic-only",
+    "productionConversion": false,
+    "registryInsertion": false,
+    "evidenceRowsCreated": false,
+    "rawNormalization": false,
+    "realResearchRecordsConsumed": false,
+    "gateExported": true
   },
   "research": {
     "canonicalFieldCount": 183,
@@ -2322,8 +2333,8 @@
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 631,
-    "lastKnownPassed": 631,
+    "lastKnownTotal": 636,
+    "lastKnownPassed": 636,
     "failed": 0,
     "skipped": 0,
     "todo": 0

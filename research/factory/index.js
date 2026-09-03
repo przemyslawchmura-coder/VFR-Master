@@ -28,5 +28,7 @@ const reviewDecisionContracts = require("./review-decision-contracts.js");
 const reviewDecisions = require("./review-decisions.js");
 const evidenceProcessingContracts = require("./evidence-processing-contracts.js");
 const evidenceProcessing = require("./evidence-processing.js");
+const promotionContracts = require("./promotion-contracts.js");
+const promotionReadiness = require("./promotion-readiness.js");
 
-module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...executionContracts, ...extractionContracts, ...reviewQueueContracts, ...reviewDecisionContracts, ...evidenceProcessingContracts, ...applicability, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, ...executionAgent, ...extractionAgent, ...reviewQueue, ...reviewDecisions, ...evidenceProcessing, adapters, acquisitionAdapters, extractionAdapters, ids, events, orchestrationJson, plannerPriority: priority });
+module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...executionContracts, ...extractionContracts, ...reviewQueueContracts, ...reviewDecisionContracts, ...evidenceProcessingContracts, ...promotionContracts, ...applicability, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, ...executionAgent, ...extractionAgent, ...reviewQueue, ...reviewDecisions, ...evidenceProcessing, ...promotionReadiness, adapters, acquisitionAdapters, extractionAdapters, ids, events, orchestrationJson, plannerPriority: priority });
