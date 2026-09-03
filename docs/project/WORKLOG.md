@@ -349,7 +349,7 @@ coverage state changed. Phase 7 remains ACTIVE.
 
 Corrected the prior dynamic visibility interpretation with one closed shared
 Rider Service Core presentation matrix sourced from the existing canonical
-14-domain, 113-field research contract. Ducati Monster 937 MY2021 and Honda
+previous dynamic 14-domain research contract. Ducati Monster 937 MY2021 and Honda
 VFR800 VTEC MY2002 now render identical field IDs and order; verified values are
 shown and missing cells render `Brak danych`. Extended canonical records remain
 stored and excluded from default Core rows. No technical values, profile

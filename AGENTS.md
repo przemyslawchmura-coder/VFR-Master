@@ -361,7 +361,8 @@ future feature.
 ## 19. Fixed Rider Service Core matrix
 
 The Rider Service Core user-facing contract is one fixed, closed,
-manufacturer-neutral matrix defined by `research/schema/rider-service-core-v1.js`.
+manufacturer-neutral presentation matrix defined by
+`js/technical/technical-profile-core-matrix.js`.
 Every supported motorcycle renders the same matrix field IDs, category order and
 field order. A verified applicable value is shown in its matrix cell; otherwise
 the cell shows exactly `Brak danych`, unless explicit evidence proves a distinct

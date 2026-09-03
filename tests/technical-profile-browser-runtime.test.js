@@ -80,24 +80,24 @@ test("real browser/runtime path renders Ducati labels in Polish", async () => {
   const view = await browser.RevLogTechnicalProfileUi.renderTechnicalProfile(container, DUCATI_MOTORCYCLE, { shouldCommit: () => true });
   assert.equal(view.profileId, "ducati.monster937.2021");
   assert.equal(view.categories.length, 14);
-  for (const label of ["Olej i filtry", "Świece i zapłon", "Hamulce", "Instalacja elektryczna", "Specyfikacja oleju silnikowego", "Lepkość oleju silnikowego", "Zalecana świeca zapłonowa", "Pojemność akumulatora", "Akumulator", "Specyfikacja płynu hamulcowego"]) assert.match(container.innerHTML, new RegExp(label));
+  for (const label of ["Olej i filtry", "Świece i zapłon", "Hamulce", "Instalacja elektryczna", "Specyfikacja oleju", "Lepkość oleju", "Model / oznaczenie świecy zapłonowej", "Pojemność akumulatora Ah", "Typ / model akumulatora", "Specyfikacja płynu hamulcowego"]) assert.match(container.innerHTML, new RegExp(label));
   for (const label of ["Lubrication", "Engine oil specification", "Engine oil viscosity", "Ignition", "Spark plug"]) assert.doesNotMatch(container.innerHTML, new RegExp(label));
   for (const value of ["NGK MAR9A-J", "SAE 15W-50", "API: SN; JASO: MA2", "6,5 Ah", "YUASA YT 7B-BS DRY, 12 V", "Obwód hamulca przedni/tylny: DOT 4"]) assert.match(container.innerHTML, new RegExp(value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-  assert.equal(Object.keys(view.entriesById).length, 113);
+  assert.equal(Object.keys(view.entriesById).length, 95);
 });
 
 test("Ducati Rider Service Core presentation keeps structured meanings", async () => {
   const container = { innerHTML: "", querySelector() { return null; } };
   const view = await browser.RevLogTechnicalProfileUi.renderTechnicalProfile(container, DUCATI_MOTORCYCLE, { shouldCommit: () => true });
   assert.equal(view.categories.length, 14);
-  assert.match(container.innerHTML, /Kontrola okresowa|Wymiana okresowa|Regulacja okresowa|Smarowanie okresowe/);
+  assert.match(container.innerHTML, /Interwał wymiany filtra powietrza|Interwał kontroli układu napędowego/);
   assert.match(container.innerHTML, /Skrzynka bezpieczników/);
   assert.match(container.innerHTML, /LED/);
-  assert.match(container.innerHTML, /Rozmiary obręczy/);
+  assert.match(container.innerHTML, /Rozmiar przedniej felgi/);
   const visibleText = container.innerHTML.replace(/<[^>]*>/g, " ");
   assert.doesNotMatch(visibleText, /engine\.service-limits|dimensions_mass\.|final_drive\.|lighting\./);
-  assert.equal(view.entriesById["rider-core.lighting.combined-high-low"].label, "Reflektor — światła mijania i drogowe");
-  assert.equal(view.entriesById["rider-core.maintenance.inspect"].label, "Kontrola okresowa");
+  assert.equal(view.entriesById["rider-core.lighting.headlight"].label, "Reflektor przedni — typ / moc");
+  assert.equal(view.entriesById["rider-core.maintenance.final-drive-interval"].label, "Interwał kontroli układu napędowego");
 });
 
 test("browser profile store registers the reference profile", () => {

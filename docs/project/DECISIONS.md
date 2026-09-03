@@ -21,8 +21,9 @@ Status: ACTIVE. Related design: `docs/project/RIDER_SERVICE_CORE.md`.
 
 Date: 2026-09-03
 Decision: The default Rider Service Core UI renders one closed,
-manufacturer-neutral matrix from `research/schema/rider-service-core-v1.js`.
-Every supported motorcycle has the same 14 domains, 113 field IDs and stable
+manufacturer-neutral presentation matrix from
+`js/technical/technical-profile-core-matrix.js`.
+Every supported motorcycle has the same 14 domains, 95 field IDs and stable
 ordering. Verified applicable data fills a cell; missing data is rendered as
 `Brak danych`, while explicit non-applicability requires evidence. Additional
 canonical Technical Profile entries remain stored but cannot create Core rows.

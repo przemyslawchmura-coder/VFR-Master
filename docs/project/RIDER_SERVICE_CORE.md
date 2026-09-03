@@ -55,7 +55,8 @@ useful secondary VFR or Ducati data.
 
 Coverage reports must show Core fields supported, missing, blocked by
 applicability, blocked by conflict and secondary/non-Core fields. The
-closed matrix is `research/schema/rider-service-core-v1.js`: 14 domains and 113
+closed presentation matrix is `js/technical/technical-profile-core-matrix.js`:
+14 domains and 95
 stable field IDs with deterministic domain and field ordering. Every motorcycle
 uses that same denominator and field sequence. A verified value fills a cell;
 otherwise the presentation is exactly `Brak danych`, except for an explicitly

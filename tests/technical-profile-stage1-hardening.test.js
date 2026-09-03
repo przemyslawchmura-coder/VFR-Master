@@ -99,8 +99,8 @@ test("formatter handles every resolved VFR value without invalid output", () => 
 test("default production view contains only verified Rider Service Core entries with deterministic grouping", async () => {
   const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
   const entries = view.categories.flatMap(category => category.entries);
-  assert.equal(entries.length, 113);
-  assert.equal(new Set(entries.map(entry => entry.id)).size, 113);
+  assert.equal(entries.length, 95);
+  assert.equal(new Set(entries.map(entry => entry.id)).size, 95);
   assert.ok(entries.every(entry => entry.statusLabel && view.categories.some(category => category.id === entry.categoryId)));
   assert.deepEqual(view.categories.map(category => category.id), ["basic-motorcycle-data", "engine-oil-filter", "cooling", "spark-plugs-ignition", "valves", "wheels-tires", "final-drive", "brakes", "electrical-battery", "fuses", "lighting", "periodic-maintenance", "consumables", "practical-torques"]);
 });
@@ -144,7 +144,7 @@ test("search and formatter failures produce controlled UI output without stack t
   assert.doesNotMatch(failedSearch, /secret stack|Error:/);
   const localUi = uiApi.createTechnicalProfileUi({ formatter: { formatValue() { throw new Error("broken"); } } });
   const localView = await localUi.prepareTechnicalProfileView(MOTORCYCLE);
-  assert.equal(localView.entriesById["rider-core.torques.oil-drain-bolt"].formattedValue, "Nieprawidłowa wartość");
+  assert.equal(localView.entriesById["rider-core.oil.drain-plug-torque"].formattedValue, "Nieprawidłowa wartość");
 });
 
 test("Node and browser profile modules expose semantically identical data", () => {
@@ -195,7 +195,7 @@ test("one render resolves entries once, builds one index, and queries reuse it",
   const view = await localUi.prepareTechnicalProfileView(MOTORCYCLE);
   uiApi.renderSearchResultsHtml(view, "olej", search);
   uiApi.renderSearchResultsHtml(view, "korek oleju", search);
-  assert.deepEqual({ readinessCalls, resolutionCalls, indexBuilds }, { readinessCalls: 1, resolutionCalls: 125, indexBuilds: 1 });
+  assert.deepEqual({ readinessCalls, resolutionCalls, indexBuilds }, { readinessCalls: 1, resolutionCalls: 105, indexBuilds: 1 });
 });
 
 test("browser integrity reports an orphan store registration as warning, not fatal", async () => {

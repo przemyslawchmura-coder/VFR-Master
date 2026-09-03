@@ -16,18 +16,14 @@ test("Rider Service Core matrix is deterministic and covers all 14 domains", () 
 
 test("legacy factory fields remain in the aligned canonical set", () => {
   assert.ok(factory.SERVICE_CORE_FIELDS.includes("engine.idle-speed"));
-  assert.ok(factory.SERVICE_CORE_FIELDS.includes("lubrication.capacity-filter"));
   assert.ok(factory.SERVICE_CORE_FIELDS.includes("final_drive.chain-slack"));
-  assert.ok(factory.SERVICE_CORE_FIELDS.includes("dimensions_mass.seat-height"));
-  assert.ok(factory.SERVICE_CORE_FIELDS.includes("lighting.combined-high-low"));
+  assert.ok(factory.SERVICE_CORE_FIELDS.includes("lubrication.capacity-filter"));
   assert.throws(() => matrix.validateFieldIdentity("duplicate-or-unknown"), /unknown Rider Service Core/);
 });
 
 test("repeating field definitions preserve associations without normalizing values", () => {
-  assert.deepEqual(matrix.fieldMap["maintenance.inspect"].associationKeys, ["item", "sourceLocation", "applicability"]);
   assert.deepEqual(matrix.fieldMap["electrical.fuse-ratings"].associationKeys, ["item", "sourceLocation", "applicability"]);
   assert.deepEqual(matrix.fieldMap["lighting.combined-high-low"].associationKeys, ["item", "sourceLocation", "applicability"]);
-  assert.equal(matrix.fieldMap["maintenance.inspect"].representation, "repeating");
   assert.equal(matrix.fieldMap["electrical.fuse-ratings"].representation, "repeating");
   assert.equal(matrix.fieldMap["lighting.combined-high-low"].representation, "repeating");
 });
