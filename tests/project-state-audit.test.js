@@ -10,8 +10,8 @@ const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 const git = (...args) => cp.execFileSync("git", args, { cwd: path.join(__dirname, ".."), encoding: "utf8" }).trim();
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-ducati-monster937-evidence-processing-working-tree");
-  assert.equal(snapshot.snapshotImplementationPath, "research/data/ducati-monster937-evidence-processing.js");
+  assert.equal(snapshot.snapshotBasis, "post-kawasaki-ninja650-prospect-registration-working-tree");
+  assert.equal(snapshot.snapshotImplementationPath, "research/data/kawasaki-ninja650-prospect-registration.js");
   const containingCommit = git("log", "-1", "--format=%H", "--", snapshot.snapshotImplementationPath);
   const expectedBase = containingCommit ? git("rev-parse", `${containingCommit}^`) : git("rev-parse", "HEAD");
   assert.equal(snapshot.baseCommit, expectedBase);
@@ -96,6 +96,16 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.ducatiMonster937EvidenceProcessing.rawValuesAndProvenancePreserved, true);
   assert.equal(snapshot.ducatiMonster937EvidenceProcessing.evidenceRowsCreated, 0);
   assert.equal(snapshot.ducatiMonster937EvidenceProcessing.productionChanged, false);
+  assert.equal(snapshot.kawasakiNinja650Registration.classification, "ACCESS-BLOCKED");
+  assert.equal(snapshot.kawasakiNinja650Registration.target.catalogVariantKey, "kawasaki.ninja-650.gen2");
+  assert.equal(snapshot.kawasakiNinja650Registration.target.scope.years.from, 2020);
+  assert.equal(snapshot.kawasakiNinja650Registration.sourceTier, "A");
+  assert.equal(snapshot.kawasakiNinja650Registration.documentClass, "owner manual");
+  assert.equal(snapshot.kawasakiNinja650Registration.readiness.passed, false);
+  assert.equal(snapshot.kawasakiNinja650Registration.technicalValuesInspected, false);
+  assert.equal(snapshot.kawasakiNinja650Registration.evidenceRowsAdded, 0);
+  assert.equal(snapshot.kawasakiNinja650Registration.serviceCoreCoverageChanged, false);
+  assert.equal(snapshot.kawasakiNinja650Registration.productionChanged, false);
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.classification, "ACCESS-BLOCKED");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.audit, "ACCEPT-WITH-RISKS");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.b7nLitRelationship, "UNRESOLVED");

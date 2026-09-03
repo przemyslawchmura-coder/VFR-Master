@@ -1,16 +1,16 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-03",
-  "snapshotBasis": "post-ducati-monster937-evidence-processing-working-tree",
-  "snapshotImplementationPath": "research/data/ducati-monster937-evidence-processing.js",
-  "baseCommit": "214a9da229afc903c4aa5209eb325b445be00780",
+  "snapshotBasis": "post-kawasaki-ninja650-prospect-registration-working-tree",
+  "snapshotImplementationPath": "research/data/kawasaki-ninja650-prospect-registration.js",
+  "baseCommit": "e2a09929d2b39aab4dc9afe089514faa0cbae04b",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 325,
-    "javascriptFiles": 204,
-    "testFiles": 67,
+    "files": 329,
+    "javascriptFiles": 207,
+    "testFiles": 68,
     "documentationFiles": 72,
-    "researchAndToolingFiles": 142
+    "researchAndToolingFiles": 145
   },
   "catalogue": {
     "manufacturers": 13,
@@ -195,6 +195,151 @@
     "researchedNoEvidenceCreated": false,
     "normalizationPerformed": false,
     "conflictsResolved": false
+  },
+  "kawasakiNinja650Registration": {
+    "classification": "ACCESS-BLOCKED",
+    "target": {
+      "schemaVersion": 1,
+      "id": "target.kawasaki.ninja650.gen2.my20.eu",
+      "catalogVariantKey": "kawasaki.ninja-650.gen2",
+      "manufacturer": "Kawasaki",
+      "family": "Ninja 650 II",
+      "scope": {
+        "schemaVersion": 1,
+        "model": {
+          "state": "KNOWN",
+          "values": [
+            "Ninja 650"
+          ]
+        },
+        "generation": {
+          "state": "KNOWN",
+          "values": [
+            "II"
+          ]
+        },
+        "years": {
+          "kind": "EXACT",
+          "from": 2020,
+          "to": 2020
+        },
+        "markets": {
+          "state": "KNOWN",
+          "values": [
+            "EU"
+          ]
+        },
+        "transmissions": {
+          "state": "KNOWN",
+          "values": [
+            "manual"
+          ]
+        },
+        "abs": {
+          "state": "KNOWN",
+          "values": [
+            true
+          ]
+        },
+        "equipment": {
+          "state": "KNOWN",
+          "values": [
+            "standard road model"
+          ]
+        }
+      },
+      "sourcePriorityPolicyId": "policy.tier-a-first",
+      "serviceCoreBaseline": {
+        "verified": 0,
+        "total": 44
+      },
+      "knownSourceRefs": [],
+      "knownProspectRefs": [
+        "unknown.kawasaki.ninja650"
+      ],
+      "researchHistoryRefs": [],
+      "riskFlags": [
+        "exact EU manual identity unavailable",
+        "official manual portal redirect loop",
+        "source applicability not fully proven"
+      ],
+      "state": "BLOCKED",
+      "gapPlanRef": null
+    },
+    "sourceTier": "A",
+    "documentClass": "owner manual",
+    "officialLocations": [
+      {
+        "host": "pws.ktivs.net",
+        "path": "/manuals",
+        "role": "Kawasaki EU-linked owner-manual delivery route"
+      },
+      {
+        "host": "www.kawasaki.eu",
+        "path": "/en/service/Useful_links.html",
+        "role": "Kawasaki Europe official route index"
+      }
+    ],
+    "readiness": {
+      "passed": false,
+      "rankingEligible": false,
+      "classification": "ACCESS-BLOCKED",
+      "checks": {
+        "authorityKnown": true,
+        "documentIdentityKnown": false,
+        "identifierRelationshipResolved": false,
+        "documentClassKnown": true,
+        "officialPathKnown": true,
+        "modelKnown": true,
+        "yearKnown": false,
+        "marketKnown": false,
+        "transmissionKnown": true,
+        "absEquipmentSufficient": true,
+        "accessibilityFeasible": false,
+        "notExhausted": true,
+        "tierABIndependent": true
+      },
+      "applicability": {
+        "overall": "UNKNOWN",
+        "dimensions": {
+          "model": "MATCH",
+          "generation": "MATCH",
+          "year": "UNKNOWN",
+          "market": "UNKNOWN",
+          "transmission": "MATCH",
+          "abs": "MATCH",
+          "equipment": "MATCH"
+        },
+        "blockingDimensions": [
+          "year",
+          "market"
+        ],
+        "reasons": [
+          "year:UNKNOWN",
+          "market:UNKNOWN"
+        ]
+      },
+      "blockers": [
+        "accessibilityFeasible",
+        "documentIdentityKnown",
+        "identifierRelationshipResolved",
+        "market:UNKNOWN",
+        "marketKnown",
+        "year:UNKNOWN",
+        "yearKnown"
+      ]
+    },
+    "blockers": [
+      "exact Tier A/B document identity is not exposed by the official owner-manual route",
+      "full content accessibility is not feasible without resolving the official route",
+      "Kawasaki owner-manual portal returned a redirect loop",
+      "source EU market applicability is unresolved",
+      "source MY2020 applicability is unresolved"
+    ],
+    "technicalValuesInspected": false,
+    "evidenceRowsAdded": 0,
+    "serviceCoreCoverageChanged": false,
+    "productionChanged": false
   },
   "research": {
     "canonicalFieldCount": 183,
@@ -1482,8 +1627,8 @@
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 609,
-    "lastKnownPassed": 609,
+    "lastKnownTotal": 612,
+    "lastKnownPassed": 612,
     "failed": 0,
     "skipped": 0,
     "todo": 0

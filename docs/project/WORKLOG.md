@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-03 — Kawasaki Ninja 650 II prospect registration and readiness
+
+Selected representative MY2020 EU `kawasaki.ninja-650.gen2` standard road scope with manual transmission and ABS. Kawasaki Europe’s official owner-manual route and 2020 EU model context were checked; the owner-manual portal redirected in a loop and did not expose an exact EU MY2020 Tier A/B document identity. Canonical readiness is `ACCESS-BLOCKED` with source year/market binding and feasible full-content access unresolved. No technical values, candidates, queue entries, decisions, processing records, evidence, coverage, production, runtime, catalogue or cloud state changed. NEXT: revisit only with genuinely new Kawasaki-controlled exact-source metadata.
+
 ## 2026-09-03 — Ducati Monster 937 MY2021 EU owner-manual acquisition
 
 Reused `unknown.ducati.monster937` and confirmed the Ducati-controlled `OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf` before extraction. Kept only common base Monster 937 scope for MY2021 EU manual transmission with ABS; Monster SP was excluded and no second primary or Tier C/D source was used. Extracted 27 immutable, unnormalized raw Service Core candidates with printed-page/section provenance. All remain queued because no human review decision was created: accepted 0, rejected 0, needs-review decisions 0, queued 27, evidence rows 0. Service Core stayed 0/44 before and after; practical/generic gain 0; conflicts and ambiguous fields 0; production unchanged. Next: bounded human review only.
