@@ -72,7 +72,7 @@ test("Ducati presentation is Polish while values and profile semantics remain un
   assert.equal(view.entriesById["lubrication.engine-oil.viscosity"].label, "Lepkość oleju silnikowego");
   assert.equal(view.entriesById["electrical.battery.capacity"].label, "Pojemność akumulatora");
   assert.equal(view.entriesById["electrical.battery.capacity"].formattedValue, "6,5 Ah");
-  assert.equal(view.entriesById["brakes.fluid.specification"].formattedValue, "Front/rear brake circuit: DOT 4");
+  assert.equal(view.entriesById["brakes.fluid.specification"].formattedValue, "Obwód hamulca przedni/tylny: DOT 4");
   assert.equal(JSON.stringify(ducatiProfile), before);
 });
 

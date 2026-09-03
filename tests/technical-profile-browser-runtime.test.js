@@ -80,7 +80,7 @@ test("real browser/runtime path renders Ducati labels in Polish", async () => {
   assert.equal(view.categories.length, 4);
   for (const label of ["Olej i filtry", "Świece i zapłon", "Hamulce", "Instalacja elektryczna", "Specyfikacja oleju silnikowego", "Lepkość oleju silnikowego", "Zalecana świeca zapłonowa", "Pojemność akumulatora", "Akumulator", "Specyfikacja płynu hamulcowego"]) assert.match(container.innerHTML, new RegExp(label));
   for (const label of ["Lubrication", "Engine oil specification", "Engine oil viscosity", "Ignition", "Spark plug"]) assert.doesNotMatch(container.innerHTML, new RegExp(label));
-  for (const value of ["NGK MAR9A-J", "SAE 15W-50", "API: SN; JASO: MA2", "6,5 Ah", "YUASA YT 7B-BS DRY, 12 V", "Front/rear brake circuit: DOT 4"]) assert.match(container.innerHTML, new RegExp(value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  for (const value of ["NGK MAR9A-J", "SAE 15W-50", "API: SN; JASO: MA2", "6,5 Ah", "YUASA YT 7B-BS DRY, 12 V", "Obwód hamulca przedni/tylny: DOT 4"]) assert.match(container.innerHTML, new RegExp(value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   assert.equal(Object.keys(view.entriesById).length, 6);
 });
 

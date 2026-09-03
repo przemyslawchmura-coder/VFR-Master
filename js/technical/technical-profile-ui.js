@@ -93,7 +93,7 @@
       resolutionStatus: resolution.status,
       requiredContext: [...(resolution.requiredContext || [])],
       candidates: resolution.candidates || {},
-      formattedValue: resolved && effective.value ? safeFormat(formatter, effective.value) : null,
+      formattedValue: resolved && effective.value ? presentation.valueText(entry, safeFormat(formatter, effective.value)) : null,
       status: effective.status || entry.status || null,
       statusLabel: presentation.statusLabel(effective.status || entry.status),
       description: effective.description || effective.notes || "",

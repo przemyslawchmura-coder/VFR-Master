@@ -33,6 +33,9 @@
     "Monster 937 / 937 Plus Owner's Manual": "Instrukcja obsługi Monster 937 / 937 Plus"
   });
   const STATUS_LABELS = Object.freeze({ verified: "Zweryfikowane", "pending-verification": "Do weryfikacji", "conflicting-sources": "Sprzeczne źródła", "legacy-unverified": "Niezweryfikowane", deprecated: "Wycofane" });
+  const TEXT_VALUE_LABELS = Object.freeze({
+    "brakes.fluid.specification": Object.freeze({ "Front/rear brake circuit: DOT 4": "Obwód hamulca przedni/tylny: DOT 4" })
+  });
 
   function categoryLabel(category) {
     const id = typeof category === "string" ? category : category && category.id;
@@ -45,7 +48,10 @@
     if (!section) return "";
     return String(section).replace(/\bMaintenance\b/g, "Obsługa okresowa").replace(/\bEngine oil\b/g, "Olej silnikowy").replace(/\boil filter\b/g, "filtr oleju").replace(/\bSpark plugs\b/g, "Świece zapłonowe").replace(/\bFuel, lubricants and other fluids\b/g, "Paliwo, smary i inne płyny").replace(/\bElectric system\b/g, "Instalacja elektryczna");
   }
+  function valueText(entry, formattedValue) {
+    return TEXT_VALUE_LABELS[entry && entry.id]?.[formattedValue] || formattedValue;
+  }
   function contextLabel(field) { return ({ region: "region motocykla", abs: "informacja o ABS", equipment: "wyposażenie" })[field] || field; }
 
-  return Object.freeze({ CATEGORY_LABELS, ENTRY_LABELS, DOCUMENT_TITLE_LABELS, STATUS_LABELS, categoryLabel, entryLabel, statusLabel, sourceTitle, sourceSection, contextLabel });
+  return Object.freeze({ CATEGORY_LABELS, ENTRY_LABELS, DOCUMENT_TITLE_LABELS, STATUS_LABELS, TEXT_VALUE_LABELS, categoryLabel, entryLabel, statusLabel, sourceTitle, sourceSection, valueText, contextLabel });
 });

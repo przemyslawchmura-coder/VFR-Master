@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "revlog-ducati-monster937-coverage-expansion/v1",
+  "target": {
+    "profileId": "ducati.monster937.2021",
+    "catalogVariantKey": "ducati.monster.937",
+    "year": 2021,
+    "market": "EU"
+  },
+  "productionEntriesBefore": 6,
+  "productionEntriesAfter": 6,
+  "netNewEntries": 0,
+  "categoriesWithEntries": ["lubrication", "ignition", "brakes", "electrical"],
+  "categoriesWithoutEvidence": ["general", "cooling", "valves", "wheels", "final-drive", "fuses", "lighting", "adjustments", "maintenance", "consumables", "torques"],
+  "vfrTaxonomyCategories": ["general", "lubrication", "cooling", "ignition", "valves", "wheels", "final-drive", "brakes", "electrical", "fuses", "lighting", "adjustments", "maintenance", "consumables", "torques"],
+  "productionByCategory": {
+    "general": [],
+    "lubrication": ["lubrication.engine-oil.viscosity", "lubrication.engine-oil.specification"],
+    "cooling": [],
+    "ignition": ["ignition.spark-plug.standard"],
+    "valves": [],
+    "wheels": [],
+    "final-drive": [],
+    "brakes": ["brakes.fluid.specification"],
+    "electrical": ["electrical.battery.capacity", "electrical.battery.specification"],
+    "fuses": [],
+    "lighting": [],
+    "adjustments": [],
+    "maintenance": [],
+    "consumables": [],
+    "torques": []
+  },
+  "fieldsPromotedInThisWave": [],
+  "fieldsBlockedByConflict": [],
+  "fieldsBlockedByApplicability": [{"fieldId": "cooling.capacity", "reasons": ["COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR"]}],
+  "fieldsStillMissing": ["lubrication.oil-specification", "lubrication.capacity-drain", "lubrication.capacity-filter", "cooling.coolant-specification", "cooling.replacement-interval", "ignition.replacement-interval", "valve_train.inspection-interval", "final_drive.chain-slack", "final_drive.chain-inspection", "final_drive.chain-lubrication-interval", "brakes.fluid-interval", "brakes.front-rear-configuration", "tires_wheels.front-size", "tires_wheels.rear-size", "tires_wheels.solo-pressures", "tires_wheels.loaded-pressures", "maintenance.periodic-schedule", "maintenance.schedule-mileage-intervals", "maintenance.schedule-time-intervals", "fuel_intake.tank-capacity"],
+  "sourceDocumentsUsed": ["doc.ducati.monster937-2021.owners-manual"],
+  "currentlyPromotedFields": ["brakes.fluid.specification", "electrical.battery.capacity", "electrical.battery.specification", "ignition.spark-plug.standard", "lubrication.engine-oil.specification", "lubrication.engine-oil.viscosity"],
+  "sourceEvidenceFieldCount": 27,
+  "canonicalDataInferred": false,
+  "vfrProfileChanged": false
+}

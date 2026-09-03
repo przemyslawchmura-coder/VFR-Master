@@ -11,7 +11,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function createDucatiMonster937Profile(sourceRegistry) {
 "use strict";
 
-// Unregistered production Technical Profile for the bounded Ducati wave.
+// Bounded production Technical Profile; presentation localization is applied by the UI layer.
 return Object.freeze({
   schemaVersion: "revlog-technical-profile/v1",
   profile: { id: "ducati.monster937.2021", revision: 1, status: "review", language: "en" },
@@ -22,10 +22,21 @@ return Object.freeze({
     applicability: { catalogVariantKeys: ["ducati.monster.937"], years: { from: 2021, to: 2021 }, regions: ["EU"], abs: true, equipment: ["base Monster 937"] }
   },
   categories: [
+    { id: "general", label: "General", order: 10 },
+    { id: "cooling", label: "Cooling", order: 30 },
     { id: "ignition", label: "Ignition", order: 40 },
+    { id: "valves", label: "Valves", order: 50 },
+    { id: "wheels", label: "Wheels and tires", order: 60 },
+    { id: "final-drive", label: "Final drive", order: 70 },
     { id: "lubrication", label: "Lubrication", order: 20 },
+    { id: "brakes", label: "Brakes", order: 80 },
     { id: "electrical", label: "Electrical", order: 90 },
-    { id: "brakes", label: "Brakes", order: 80 }
+    { id: "fuses", label: "Fuses", order: 100 },
+    { id: "lighting", label: "Lighting", order: 110 },
+    { id: "adjustments", label: "Adjustments", order: 120 },
+    { id: "maintenance", label: "Maintenance", order: 130 },
+    { id: "consumables", label: "Consumables", order: 140 },
+    { id: "torques", label: "Torques", order: 150 }
   ],
   documents: sourceRegistry.documents,
   citations: sourceRegistry.citations,

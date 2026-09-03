@@ -219,6 +219,9 @@ Operator-supplied production verification recorded: recovery redirect, recovery 
 ## 2026-09-03 — Technical Profile Polish presentation layer
 
 Added one centralized render-time presentation mapping for Polish Technical Profile categories, common field labels, statuses and source titles/sections, and wired it into the browser UI. Honda VFR800 and Ducati Monster 937 resolution, canonical identifiers, stored values, units, profile semantics and entry counts remain unchanged; search indexing/ranking inputs remain unchanged. No technical coverage or data expansion occurred. Phase 7 remains ACTIVE; future technical-data expansion is separate.
+## 2026-09-03 — Ducati Monster 937 VFR-aligned coverage expansion
+
+Audited all repository Ducati acquisition, review, processing, conversion, authorization and production evidence. No additional technical field passed the existing promotion rules: six verified entries remain unchanged, cooling remains blocked by `COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR`, and the other 20 candidates remain pre-promotion. Added the remaining empty VFR-aligned taxonomy categories without placeholder values; coverage is present only in lubrication, ignition, brakes and electrical. No inference, VFR change or new technical coverage occurred. Phase 7 remains ACTIVE.
 ## 2026-09-03 — Phase 6 production promotion rollback/governance closeout
 
 Defined and validated the generic immutable rollback/governance contract for the exact Ducati registry promotion. The deterministic record proves the prior VFR-only set, current VFR+Ducati set, six promoted entries, one document, six citations and retained production/research history; rollback would remove only Ducati registry exposure and was not executed. Ducati remains registered and discoverable; BMW, VFR, evidence and Service Core coverage are unchanged. Phase 6 remains ACTIVE with rollback/governance closed and future bounded expansions remaining.
