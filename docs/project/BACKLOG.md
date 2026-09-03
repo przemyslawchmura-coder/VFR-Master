@@ -33,6 +33,8 @@ Planning items only; none are executed by this stocktake.
 - Improve source acquisition for blocked service manuals and OEM parts.
 - Add document content hashing where local copies are legally available.
 - Add richer field-level conflict explanations and applicability review.
+- Run Human Review Decisions for the 44 newly queued Ducati Rider Service Core candidates; keep cooling capacity blocked until complete-circuit scope is proven and keep all production promotion separately authorized.
+- Evaluate a genuinely separate authoritative Ducati publication for technical cross-checks where useful; the owner-manual identity mirror remains document verification only.
 
 ## Future manufacturers
 

@@ -238,3 +238,16 @@ coverage reporting and the future lawful “Instrukcja źródłowa” contract. 
 only the genuinely future source-link and Garage/Service maintenance-due items
 to the backlog. Existing VFR/Ducati data, application code, cloud state and
 Phase 7 state were unchanged; Phase 7 remains ACTIVE.
+## 2026-09-03 — Ducati Monster 937 Rider Service Core acquisition
+
+Re-inspected the authenticated official Ducati `OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf`
+for the owner-first Core checklist. Preserved the existing 27 candidates and
+added 44 deterministic direct-page raw candidates covering engine,
+dimensions/mass, transmission/final drive, brakes, wheels/tires,
+electrical/fuses/LED lighting and maintenance. All new candidates remain
+queued, unnormalized and scoped to EU MY2021 common base Monster 937 with
+ABS/manual applicability. Ducati's official owner-manual library verified
+document identity; no independent technical cross-check was found in the
+bounded Ducati-controlled search. Cooling capacity remains blocked because
+complete circuit scope is not proven. No evidence, production, VFR, cloud or
+coverage state changed; Phase 7 remains ACTIVE.
