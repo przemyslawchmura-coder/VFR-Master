@@ -1,0 +1,653 @@
+{
+  "schemaVersion": "revlog-ducati-monster937-rider-service-core-evidence-processing/v1",
+  "target": {
+    "catalogVariantKey": "ducati.monster.937",
+    "model": "Monster 937",
+    "year": 2021,
+    "market": "EU",
+    "equipment": "base Monster 937",
+    "excludedEquipment": "Monster SP 937",
+    "transmission": "manual",
+    "abs": true,
+    "profileId": "ducati.monster937.2021",
+    "scope": "common base Monster 937; Monster+ only where common; Monster SP excluded"
+  },
+  "source": {
+    "id": "ducati.acquisition.monster937.owner.my21",
+    "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+    "tier": "A",
+    "sourceClass": "official-owner-manual",
+    "publisher": "Ducati Motor Holding S.p.A.",
+    "title": "Monster 937 / 937 Plus Owner's Manual",
+    "publicationId": "OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+    "edition": "English, MY2021",
+    "publicationDate": 2021,
+    "url": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+    "officialHost": "downloads.ctfassets.net",
+    "disposition": "acquired-content",
+    "accessResult": "Ducati-controlled PDF content acquired for bounded text inspection",
+    "authenticationState": "OFFICIAL-DUCATI-MY2021-EU-BASE-MONSTER-CONFIRMED",
+    "language": "English",
+    "pageCount": null,
+    "models": [
+      "Monster 937",
+      "Monster 937 Plus"
+    ],
+    "years": {
+      "from": 2021,
+      "to": 2021
+    },
+    "markets": [
+      "EU"
+    ],
+    "abs": true,
+    "transmission": "manual",
+    "equipment": "base Monster common content; Monster SP excluded",
+    "inspectedPages": [
+      "152",
+      "176–179",
+      "182–187",
+      "193–196",
+      "203–207",
+      "211–212",
+      "216",
+      "218",
+      "220–224"
+    ],
+    "targets": [
+      "ducati.monster.937"
+    ],
+    "yieldedEvidence": false,
+    "applicabilityProof": {
+      "exactSource": "filename/title identifies Monster 937 / 937 Plus EN MY21",
+      "targetYear": "MY2021",
+      "market": "EU English owner-manual route",
+      "baseScope": "common Monster 937 content retained; Plus-only and SP content excluded",
+      "abs": "Cornering ABS is part of the manual/model scope",
+      "transmission": "manual six-speed Monster 937 scope",
+      "preExtractionCheckPassed": true
+    },
+    "stopCondition": "raw extraction stops before evidence conversion; human review and any later promotion remain separate"
+  },
+  "acceptedCandidatesReceived": 39,
+  "successfullyProcessed": 3,
+  "processingContractBlocked": 36,
+  "validationFailures": 0,
+  "duplicatesOrCollisions": 0,
+  "processingReadyOutputs": 3,
+  "evidenceProcessingRecords": [
+    {
+      "adapterId": "adapter.ducati-owner-manual-core-text",
+      "adapterVersion": "1",
+      "artifactId": "artifact.ducati.monster937.core.owner.my21",
+      "attemptId": "attempt.ducati.monster937.core.owner.my21.001",
+      "batchId": "batch.ducati.monster937.core.processing.my21.eu",
+      "candidate": {
+        "adapterId": "adapter.ducati-owner-manual-core-text",
+        "adapterVersion": "1",
+        "applicability": {
+          "abs": true,
+          "equipment": "base-monster-common",
+          "market": "EU",
+          "modelYear": 2021,
+          "transmission": "manual"
+        },
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "attemptId": "attempt.ducati.monster937.core.owner.my21.001",
+        "batchId": "batch.ducati.monster937.core.processing.my21.eu",
+        "context": {
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "originalCandidateId": "ducati.monster937.core.raw.001",
+          "printedPage": "214",
+          "sourceId": "ducati.acquisition.monster937.owner.my21"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "fieldId": "engine.configuration",
+        "id": "extraction-candidate.e0c799a4873bdfc597af773a",
+        "ordinal": 1,
+        "prospectId": "unknown.ducati.monster937",
+        "rawUnit": null,
+        "rawValue": "Testastretta 11°, V2 90°, 4 valves per cylinder, desmodromic timing system, liquid cooling.",
+        "schemaVersion": 1,
+        "sourceLocation": {
+          "locator": "printed-page:214",
+          "page": null,
+          "section": "Engine"
+        },
+        "sourceWorkItemId": "source-work.ducati.monster937.core.owner.my21",
+        "targetId": "target.ducati.monster.937.my21.eu",
+        "targetWorkId": "target-work.ducati.monster937.core.my21.eu"
+      },
+      "candidateId": "extraction-candidate.e0c799a4873bdfc597af773a",
+      "decisionId": "review-decision.084f1c99ac3f26b57adde681",
+      "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+      "id": "evidence-processing.11b7a8ef0c521e8d0b52a4d0",
+      "prospectId": "unknown.ducati.monster937",
+      "queueEntryId": "review-queue-entry.7fbb85733cdbf3d437ee9fbd",
+      "reasonCode": "ACCEPTED-DECISION",
+      "schemaVersion": 1,
+      "sourceWorkItemId": "source-work.ducati.monster937.core.owner.my21",
+      "state": "ACCEPTED-FOR-PROCESSING",
+      "targetId": "target.ducati.monster.937.my21.eu",
+      "targetWorkId": "target-work.ducati.monster937.core.my21.eu"
+    },
+    {
+      "adapterId": "adapter.ducati-owner-manual-core-text",
+      "adapterVersion": "1",
+      "artifactId": "artifact.ducati.monster937.core.owner.my21",
+      "attemptId": "attempt.ducati.monster937.core.owner.my21.001",
+      "batchId": "batch.ducati.monster937.core.processing.my21.eu",
+      "candidate": {
+        "adapterId": "adapter.ducati-owner-manual-core-text",
+        "adapterVersion": "1",
+        "applicability": {
+          "abs": true,
+          "equipment": "base-monster-common",
+          "market": "EU",
+          "modelYear": 2021,
+          "transmission": "manual"
+        },
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "attemptId": "attempt.ducati.monster937.core.owner.my21.001",
+        "batchId": "batch.ducati.monster937.core.processing.my21.eu",
+        "context": {
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "originalCandidateId": "ducati.monster937.core.raw.017",
+          "printedPage": "218",
+          "sourceId": "ducati.acquisition.monster937.owner.my21"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "fieldId": "final_drive.chain-size",
+        "id": "extraction-candidate.7255303b9b387f142021c9e7",
+        "ordinal": 3,
+        "prospectId": "unknown.ducati.monster937",
+        "rawUnit": null,
+        "rawValue": "Drive chain from gearbox to rear wheel. Make: Regina; Type: 520 ZRDK; Links: 106.",
+        "schemaVersion": 1,
+        "sourceLocation": {
+          "locator": "printed-page:218",
+          "page": null,
+          "section": "Technical data; Transmission"
+        },
+        "sourceWorkItemId": "source-work.ducati.monster937.core.owner.my21",
+        "targetId": "target.ducati.monster.937.my21.eu",
+        "targetWorkId": "target-work.ducati.monster937.core.my21.eu"
+      },
+      "candidateId": "extraction-candidate.7255303b9b387f142021c9e7",
+      "decisionId": "review-decision.4b1a2025dc3abebba323e168",
+      "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+      "id": "evidence-processing.3278eb28a1880c59a30d8c50",
+      "prospectId": "unknown.ducati.monster937",
+      "queueEntryId": "review-queue-entry.b5a213fcd25e31dd6c30c8ad",
+      "reasonCode": "ACCEPTED-DECISION",
+      "schemaVersion": 1,
+      "sourceWorkItemId": "source-work.ducati.monster937.core.owner.my21",
+      "state": "ACCEPTED-FOR-PROCESSING",
+      "targetId": "target.ducati.monster.937.my21.eu",
+      "targetWorkId": "target-work.ducati.monster937.core.my21.eu"
+    },
+    {
+      "adapterId": "adapter.ducati-owner-manual-core-text",
+      "adapterVersion": "1",
+      "artifactId": "artifact.ducati.monster937.core.owner.my21",
+      "attemptId": "attempt.ducati.monster937.core.owner.my21.001",
+      "batchId": "batch.ducati.monster937.core.processing.my21.eu",
+      "candidate": {
+        "adapterId": "adapter.ducati-owner-manual-core-text",
+        "adapterVersion": "1",
+        "applicability": {
+          "abs": true,
+          "equipment": "base-monster-common",
+          "market": "EU",
+          "modelYear": 2021,
+          "transmission": "manual"
+        },
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "attemptId": "attempt.ducati.monster937.core.owner.my21.001",
+        "batchId": "batch.ducati.monster937.core.processing.my21.eu",
+        "context": {
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "originalCandidateId": "ducati.monster937.core.raw.002",
+          "printedPage": "214",
+          "sourceId": "ducati.acquisition.monster937.owner.my21"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "fieldId": "engine.displacement",
+        "id": "extraction-candidate.cf01bdc17689c758e99374d7",
+        "ordinal": 2,
+        "prospectId": "unknown.ducati.monster937",
+        "rawUnit": null,
+        "rawValue": "Total displacement: 937 cu. cm (57.18 cu in)",
+        "schemaVersion": 1,
+        "sourceLocation": {
+          "locator": "printed-page:214",
+          "page": null,
+          "section": "Engine"
+        },
+        "sourceWorkItemId": "source-work.ducati.monster937.core.owner.my21",
+        "targetId": "target.ducati.monster.937.my21.eu",
+        "targetWorkId": "target-work.ducati.monster937.core.my21.eu"
+      },
+      "candidateId": "extraction-candidate.cf01bdc17689c758e99374d7",
+      "decisionId": "review-decision.2756356b45479f47c3d52a16",
+      "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+      "id": "evidence-processing.4ab93e0113781561c6907f82",
+      "prospectId": "unknown.ducati.monster937",
+      "queueEntryId": "review-queue-entry.ef326dbc4fc3030a828e3ee0",
+      "reasonCode": "ACCEPTED-DECISION",
+      "schemaVersion": 1,
+      "sourceWorkItemId": "source-work.ducati.monster937.core.owner.my21",
+      "state": "ACCEPTED-FOR-PROCESSING",
+      "targetId": "target.ducati.monster.937.my21.eu",
+      "targetWorkId": "target-work.ducati.monster937.core.my21.eu"
+    }
+  ],
+  "outcomes": [
+    {
+      "candidateId": "ducati.monster937.core.raw.001",
+      "canonicalFieldId": "engine.configuration",
+      "upstreamHumanReviewDecisionId": "review-decision.b004ba38dc78ef86b1ef9c52",
+      "outcome": "PROCESSED",
+      "processingState": "ACCEPTED-FOR-PROCESSING",
+      "reasonCode": "ACCEPTED-DECISION",
+      "evidenceProcessingRecordId": "evidence-processing.11b7a8ef0c521e8d0b52a4d0"
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.002",
+      "canonicalFieldId": "engine.displacement",
+      "upstreamHumanReviewDecisionId": "review-decision.2ac0a6e270967d33ee85e48f",
+      "outcome": "PROCESSED",
+      "processingState": "ACCEPTED-FOR-PROCESSING",
+      "reasonCode": "ACCEPTED-DECISION",
+      "evidenceProcessingRecordId": "evidence-processing.4ab93e0113781561c6907f82"
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.003",
+      "canonicalFieldId": "engine.bore",
+      "upstreamHumanReviewDecisionId": "review-decision.7c1e40299d2c5ca6fce91629",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.004",
+      "canonicalFieldId": "engine.stroke",
+      "upstreamHumanReviewDecisionId": "review-decision.c2d56a430a2c0f731bbeae4b",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.005",
+      "canonicalFieldId": "engine.compression-ratio",
+      "upstreamHumanReviewDecisionId": "review-decision.ee8a71c6ab6c7f7d3e60c23f",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.006",
+      "canonicalFieldId": "engine.service-limits",
+      "upstreamHumanReviewDecisionId": "review-decision.c94300b6ba55a9805eda08d3",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.007",
+      "canonicalFieldId": "dimensions_mass.wet-kerb-mass",
+      "upstreamHumanReviewDecisionId": "review-decision.87aa2952d8b5bf093f4817bc",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.008",
+      "canonicalFieldId": "dimensions_mass.dry-mass",
+      "upstreamHumanReviewDecisionId": "review-decision.f8b10834f4fc779becd74f50",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.010",
+      "canonicalFieldId": "dimensions_mass.seat-height",
+      "upstreamHumanReviewDecisionId": "review-decision.1c2d608106757e957670cc77",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.011",
+      "canonicalFieldId": "dimensions_mass.wheelbase",
+      "upstreamHumanReviewDecisionId": "review-decision.2ed77fc3d5601eeac9b8761b",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.012",
+      "canonicalFieldId": "steering_chassis.rake",
+      "upstreamHumanReviewDecisionId": "review-decision.b0320f6011b572abd99af912",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.013",
+      "canonicalFieldId": "steering_chassis.trail",
+      "upstreamHumanReviewDecisionId": "review-decision.3aa972bea76f872e0c860a29",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.014",
+      "canonicalFieldId": "fuel_intake.fuel-type-octane",
+      "upstreamHumanReviewDecisionId": "review-decision.01c1d7379bb1ea1f311dbf16",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.015",
+      "canonicalFieldId": "transmission_clutch.transmission-type",
+      "upstreamHumanReviewDecisionId": "review-decision.d1b28099235357a840793c94",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.016",
+      "canonicalFieldId": "transmission_clutch.clutch-type",
+      "upstreamHumanReviewDecisionId": "review-decision.ede8864ac59e0c3e5b71e478",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.017",
+      "canonicalFieldId": "final_drive.chain-size",
+      "upstreamHumanReviewDecisionId": "review-decision.f9e4f596f99cff349c052bb9",
+      "outcome": "PROCESSED",
+      "processingState": "ACCEPTED-FOR-PROCESSING",
+      "reasonCode": "ACCEPTED-DECISION",
+      "evidenceProcessingRecordId": "evidence-processing.3278eb28a1880c59a30d8c50"
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.018",
+      "canonicalFieldId": "final_drive.front-sprocket",
+      "upstreamHumanReviewDecisionId": "review-decision.36680ff22d09595734dbffb9",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.019",
+      "canonicalFieldId": "final_drive.rear-sprocket",
+      "upstreamHumanReviewDecisionId": "review-decision.0108894b268c1a7d067815a5",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.020",
+      "canonicalFieldId": "final_drive.final-ratio",
+      "upstreamHumanReviewDecisionId": "review-decision.5ca8cae5aea123dec8b28597",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.021",
+      "canonicalFieldId": "final_drive.oem-chain-sprocket",
+      "upstreamHumanReviewDecisionId": "review-decision.a9bf3df83e423ecdfc05d47e",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.022",
+      "canonicalFieldId": "tires_wheels.oem-tire-models",
+      "upstreamHumanReviewDecisionId": "review-decision.e9b83dbe28a3ffaa70c1571b",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.023",
+      "canonicalFieldId": "tires_wheels.rim-sizes",
+      "upstreamHumanReviewDecisionId": "review-decision.c16f125afe463ed10c447bcb",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.024",
+      "canonicalFieldId": "brakes.disc-diameter",
+      "upstreamHumanReviewDecisionId": "review-decision.8454635218eeebaeaa38eea6",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.025",
+      "canonicalFieldId": "brakes.disc-thickness",
+      "upstreamHumanReviewDecisionId": "review-decision.8ec3086a3779da5397eb9212",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.026",
+      "canonicalFieldId": "brakes.disc-service-limit",
+      "upstreamHumanReviewDecisionId": "review-decision.ae172b43959e9b9ed407cb82",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.027",
+      "canonicalFieldId": "electrical.alternator-output",
+      "upstreamHumanReviewDecisionId": "review-decision.84093335ce06be3f1054bc63",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.028",
+      "canonicalFieldId": "electrical.fuse-ratings",
+      "upstreamHumanReviewDecisionId": "review-decision.b98797bdf22099e8d2db7a5b",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.030",
+      "canonicalFieldId": "lighting.combined-high-low",
+      "upstreamHumanReviewDecisionId": "review-decision.6d3996538b4a6a993c3f53d0",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.032",
+      "canonicalFieldId": "lighting.front-indicators",
+      "upstreamHumanReviewDecisionId": "review-decision.8888d0f822688a94fed5d7f8",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.033",
+      "canonicalFieldId": "lighting.rear-indicators",
+      "upstreamHumanReviewDecisionId": "review-decision.9699a4c700e169872ec3c37b",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.034",
+      "canonicalFieldId": "lighting.rear-tail",
+      "upstreamHumanReviewDecisionId": "review-decision.c118953a46476dd735a8c7a3",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.035",
+      "canonicalFieldId": "lighting.brake-light",
+      "upstreamHumanReviewDecisionId": "review-decision.1e071f47787f47be86a701a9",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.036",
+      "canonicalFieldId": "lighting.license-plate",
+      "upstreamHumanReviewDecisionId": "review-decision.45b96953b92e09570a976a75",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.038",
+      "canonicalFieldId": "maintenance.inspect",
+      "upstreamHumanReviewDecisionId": "review-decision.ef05eb124c57c0d53eb48815",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.039",
+      "canonicalFieldId": "maintenance.replace",
+      "upstreamHumanReviewDecisionId": "review-decision.3488ea5979071d0e5a5e16c7",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.040",
+      "canonicalFieldId": "maintenance.adjust",
+      "upstreamHumanReviewDecisionId": "review-decision.985107c660fce4012da3b3e9",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.041",
+      "canonicalFieldId": "maintenance.lubricate",
+      "upstreamHumanReviewDecisionId": "review-decision.1446f4c902667ef46bf3fc75",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.042",
+      "canonicalFieldId": "maintenance.clean",
+      "upstreamHumanReviewDecisionId": "review-decision.6c2c68a8f422f038d26aa7c6",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.044",
+      "canonicalFieldId": "maintenance.severe-use",
+      "upstreamHumanReviewDecisionId": "review-decision.9021a41cdd8a7e031d2be156",
+      "outcome": "CONTRACT-BLOCKED",
+      "processingState": "CANNOT-ADVANCE",
+      "reasonCode": "FIELD-NOT-IN-CANONICAL-SERVICE-CORE",
+      "evidenceProcessingRecordId": null
+    }
+  ],
+  "outputsByRiderServiceCoreDomain": {
+    "basicMotorcycleData": 13,
+    "engineOilFilter": 0,
+    "cooling": 0,
+    "sparkPlugsIgnition": 0,
+    "valves": 0,
+    "wheelsTires": 2,
+    "finalDrive": 5,
+    "brakes": 3,
+    "electricalBattery": 1,
+    "fuses": 1,
+    "lighting": 6,
+    "periodicMaintenance": 6,
+    "consumables": 0,
+    "practicalTorques": 0
+  },
+  "maintenanceProcessing": {
+    "acceptedInputs": 6,
+    "processingReady": 0,
+    "contractGap": "maintenance fields are outside the existing canonical factory Service Core list"
+  },
+  "fuseProcessing": {
+    "acceptedInputs": 1,
+    "processingReady": 0,
+    "contractGap": "electrical.fuse-ratings is outside the existing canonical factory Service Core list"
+  },
+  "lightingProcessing": {
+    "acceptedInputs": 6,
+    "processingReady": 0,
+    "contractGap": "lighting Core fields are outside the existing canonical factory Service Core list"
+  },
+  "coolingCapacity": {
+    "enteredProcessing": false,
+    "state": "BLOCKED",
+    "reason": "COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR"
+  },
+  "excludedNeedsMoreReview": 5,
+  "productionDucatiChanged": false,
+  "productionDucatiEntryCount": 6,
+  "vfrChanged": false,
+  "evidenceRowsCreated": 0,
+  "serviceCoreCoverageChanged": false,
+  "rawValuesProvenanceApplicabilityPreserved": true,
+  "upstreamReviewStateChanged": false,
+  "newlyDiscoveredContractGaps": [
+    "Rider Service Core acquisition uses fields outside the existing factory SERVICE_CORE_FIELDS; 36 accepted inputs cannot enter canonical Evidence Processing without a separately authorized generic contract/schema update."
+  ],
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "conclusion": "The 39 existing Ducati ACCEPT decisions were derived exactly once. Three fields are representable by the existing Evidence Processing contract and produced ACCEPTED-FOR-PROCESSING records. Thirty-six accepted Rider Service Core fields remain explicit CANNOT-ADVANCE contract-gap outcomes; no schema was broadened and no evidence or production state changed."
+  },
+  "exactNextTask": "Separately authorize a manufacturer-neutral Rider Service Core field-contract alignment before reprocessing the 36 contract-blocked accepted candidates; do not promote or resolve cooling by inference."
+}

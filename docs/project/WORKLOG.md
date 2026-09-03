@@ -262,3 +262,13 @@ prior `COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR` blocker and was
 not part of this batch. Raw values/provenance and prior acquisition state were
 preserved; no evidence, production, VFR or coverage change occurred. Phase 7
 remains ACTIVE.
+## 2026-09-03 — Ducati Rider Service Core evidence processing
+
+Processed exactly the 39 Ducati Rider Service Core candidates with canonical
+`ACCEPT` decisions. Three fields passed the existing Evidence Processing
+boundary and produced `ACCEPTED-FOR-PROCESSING` records; 36 received explicit
+`CANNOT-ADVANCE` outcomes for the discovered factory field-contract gap. The
+five `NEEDS-MORE-REVIEW` candidates, cooling capacity, prior Ducati candidates
+and all other motorcycles were excluded. Raw values, provenance and
+applicability were preserved; no normalization, evidence, production, VFR or
+coverage change occurred. Phase 7 remains ACTIVE.
