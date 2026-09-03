@@ -209,6 +209,9 @@ Added the repository-only ownership/RLS migration baseline for `motorcycles` and
 ## 2026-09-03 — Phase 7 ownership/RLS migration live-parity correction
 
 Corrected the unapplied migration to harden the existing live tables rather than recreate or reconcile unrelated schema. It now explicitly removes the recorded `users_can_*` policies on both tables before creating canonical ownership policies, while retaining only owner-default removal, ownership constraints and RLS changes. Focused tests verify no table creation, unrelated column alteration or data-loss operation is present. No live SQL or application state changed. NEXT: separately authorized immediate live preflight and transactional apply decision.
+## 2026-09-03 — Technical Profile localization runtime regression correction
+
+The actual browser/runtime Ducati render path was verified through the production dependency order and now has a deterministic renderer cache-bust; final Ducati HTML renders Polish category/entry labels while canonical profile data remains unchanged. The prior localized helper was present, but the renderer asset URL was unversioned and could remain cached in static hosting. Operator-supplied production recovery verification is now reflected as verified rather than pending; no live setting changed. Phase 7 remains ACTIVE.
 ## 2026-09-03 — Phase 7 password reset/recovery flow
 
 Implemented the bounded repository-side Supabase Auth v2 recovery flow: neutral reset request messaging, runtime-derived redirect, recovery callback/session guard, dedicated new-password state, local validation and fail-safe update handling. Existing login/registration remains intact and the recovery update preserves the current account identity. No live Supabase/auth setting, RLS, data, deployment, production or research state changed. Dashboard redirect allow-list verification/configuration remains pending; leaked-password protection remains separate.

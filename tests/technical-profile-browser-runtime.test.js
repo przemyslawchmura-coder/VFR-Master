@@ -39,6 +39,13 @@ const MOTORCYCLE = {
   year: 2002,
   catalogVariantKey: "honda.vfr800.rc46.vtec.gen1"
 };
+const DUCATI_MOTORCYCLE = {
+  id: "browser-ducati-bike",
+  brand: "Ducati",
+  model: "Monster 937",
+  year: 2021,
+  catalogVariantKey: "ducati.monster.937"
+};
 
 function loadBrowserRuntime() {
   const context = vm.createContext({
@@ -55,14 +62,26 @@ const browser = loadBrowserRuntime();
 
 test("index.html loads the browser runtime in tested dependency order", () => {
   const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
-  const positions = BROWSER_SCRIPTS.map(relativePath => html.indexOf(`src="${relativePath}"`));
+  const positions = BROWSER_SCRIPTS.map(relativePath => html.indexOf(`src="${relativePath}`));
   assert.ok(positions.every(position => position >= 0));
+  assert.match(html, /src="js\/technical\/technical-profile-ui\.js\?v=revlog-polish-1"/);
   assert.deepEqual([...positions].sort((left, right) => left - right), positions);
   assert.ok(positions.at(-1) < html.indexOf('src="js/technical-ui.js'));
 });
 
 test("production Technical Profile UI entry point is available in browser runtime", () => {
   assert.equal(typeof browser.RevLogTechnicalProfileUi.renderTechnicalProfile, "function");
+});
+
+test("real browser/runtime path renders Ducati labels in Polish", async () => {
+  const container = { innerHTML: "", querySelector() { return null; } };
+  const view = await browser.RevLogTechnicalProfileUi.renderTechnicalProfile(container, DUCATI_MOTORCYCLE, { shouldCommit: () => true });
+  assert.equal(view.profileId, "ducati.monster937.2021");
+  assert.equal(view.categories.length, 4);
+  for (const label of ["Olej i filtry", "Świece i zapłon", "Hamulce", "Instalacja elektryczna", "Specyfikacja oleju silnikowego", "Lepkość oleju silnikowego", "Zalecana świeca zapłonowa", "Pojemność akumulatora", "Akumulator", "Specyfikacja płynu hamulcowego"]) assert.match(container.innerHTML, new RegExp(label));
+  for (const label of ["Lubrication", "Engine oil specification", "Engine oil viscosity", "Ignition", "Spark plug"]) assert.doesNotMatch(container.innerHTML, new RegExp(label));
+  for (const value of ["NGK MAR9A-J", "SAE 15W-50", "API: SN; JASO: MA2", "6,5 Ah", "YUASA YT 7B-BS DRY, 12 V", "Front/rear brake circuit: DOT 4"]) assert.match(container.innerHTML, new RegExp(value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  assert.equal(Object.keys(view.entriesById).length, 6);
 });
 
 test("browser profile store registers the reference profile", () => {
