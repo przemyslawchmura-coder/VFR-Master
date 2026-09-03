@@ -9,11 +9,16 @@ const sql = fs.readFileSync(path.join(__dirname, "../supabase/migrations/2026090
 const database = fs.readFileSync(path.join(__dirname, "../js/database.js"), "utf8");
 const service = fs.readFileSync(path.join(__dirname, "../js/service.js"), "utf8");
 
-test("ownership migration defines both tables, RLS and complete policy coverage", () => {
-  assert.match(sql, /create table if not exists public\.motorcycles/i);
-  assert.match(sql, /create table if not exists public\.service_records/i);
+test("ownership migration hardens existing tables with RLS and complete policy coverage", () => {
+  assert.doesNotMatch(sql, /create table if not exists public\.(motorcycles|service_records)/i);
+  assert.doesNotMatch(sql, /create extension if not exists pgcrypto/i);
   assert.match(sql, /alter table public\.motorcycles enable row level security/i);
   assert.match(sql, /alter table public\.service_records enable row level security/i);
+  for (const table of ["motorcycles", "service_records"]) {
+    for (const action of ["select", "insert", "update", "delete"]) {
+      assert.match(sql, new RegExp(`drop policy if exists users_can_${action} on public\\.${table}`, "i"));
+    }
+  }
   for (const table of ["motorcycles", "service_records"]) {
     for (const action of ["select", "insert", "update", "delete"]) assert.match(sql, new RegExp(`create policy ${table}_[^\\n]+ on public\\.${table}\\s+for ${action}`, "i"));
   }
@@ -34,4 +39,12 @@ test("existing application payloads remain compatible and unchanged", () => {
   assert.match(service, /const payload\s*=\s*\{[\s\S]*motorcycle_id:\s*bike\.id,[\s\S]*user_id:\s*session\.user\.id/i);
   assert.match(database, /from\("motorcycles"\)/);
   assert.match(service, /from\("service_records"\)/);
+});
+
+test("migration is data-preserving and does not reconcile unrelated columns", () => {
+  assert.doesNotMatch(sql, /drop table|delete from|truncate|alter table public\.(motorcycles|service_records) drop column/i);
+  assert.doesNotMatch(sql, /alter table public\.(motorcycles|service_records) alter column (?!user_id)/i);
+  assert.match(sql, /alter table public\.motorcycles alter column user_id drop default/i);
+  assert.match(sql, /alter table public\.service_records alter column user_id drop default/i);
+  assert.match(sql, /service_records_motorcycle_owner_fkey/i);
 });

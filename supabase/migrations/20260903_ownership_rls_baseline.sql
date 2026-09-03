@@ -1,39 +1,6 @@
--- Repository-controlled ownership and RLS baseline for the authenticated app.
--- Apply only through a separately authorized live-safe migration task.
-
-create extension if not exists pgcrypto;
-
-create table if not exists public.motorcycles (
-  id uuid primary key default gen_random_uuid(),
-  user_id uuid not null references auth.users(id) on delete cascade,
-  brand text not null,
-  model text not null,
-  year integer,
-  mileage numeric not null default 0,
-  vin text,
-  nickname text,
-  catalog_variant_key text,
-  technical_clarification jsonb,
-  created_at timestamptz not null default now()
-);
-
-create table if not exists public.service_records (
-  id uuid primary key default gen_random_uuid(),
-  motorcycle_id uuid not null,
-  user_id uuid not null references auth.users(id) on delete cascade,
-  type text not null,
-  description text not null,
-  service_date date,
-  mileage numeric not null default 0,
-  parts_cost numeric not null default 0,
-  labor_cost numeric not null default 0,
-  workshop text,
-  note text,
-  next_service_date date,
-  next_service_mileage numeric,
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
-);
+-- Repository-controlled ownership/RLS hardening for the existing authenticated
+-- app tables. Apply only through a separately authorized live-safe migration
+-- task, transactionally and after a schema/policy preflight.
 
 alter table public.motorcycles alter column user_id drop default;
 alter table public.service_records alter column user_id drop default;
@@ -57,6 +24,17 @@ end $$;
 
 alter table public.motorcycles enable row level security;
 alter table public.service_records enable row level security;
+
+-- The live baseline uses these names on both tables. Remove them before
+-- creating canonical policies so obsolete permissive policies cannot remain.
+drop policy if exists users_can_select on public.motorcycles;
+drop policy if exists users_can_insert on public.motorcycles;
+drop policy if exists users_can_update on public.motorcycles;
+drop policy if exists users_can_delete on public.motorcycles;
+drop policy if exists users_can_select on public.service_records;
+drop policy if exists users_can_insert on public.service_records;
+drop policy if exists users_can_update on public.service_records;
+drop policy if exists users_can_delete on public.service_records;
 
 drop policy if exists motorcycles_select_own on public.motorcycles;
 create policy motorcycles_select_own on public.motorcycles
