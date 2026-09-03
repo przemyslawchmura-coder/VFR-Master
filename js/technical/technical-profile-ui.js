@@ -3,37 +3,33 @@
   let resolverApi = root && root.RevLogTechnicalProfileResolver;
   let formatterApi = root && root.RevLogTechnicalValueFormatter;
   let searchApi = root && root.RevLogTechnicalProfileSearch;
+  let presentationApi = root && root.RevLogTechnicalProfilePresentation;
   if (typeof module === "object" && module.exports) {
     readinessApi = readinessApi || require("./technical-profile-readiness.js");
     resolverApi = resolverApi || require("./technical-profile-resolver.js");
     formatterApi = formatterApi || require("./technical-value-formatter.js");
     searchApi = searchApi || require("./technical-profile-search.js");
+    presentationApi = presentationApi || require("./technical-profile-presentation.js");
   }
 
-  const api = factory(readinessApi, resolverApi, formatterApi, searchApi);
+  const api = factory(readinessApi, resolverApi, formatterApi, searchApi, presentationApi);
   if (typeof module === "object" && module.exports) module.exports = api;
   if (root) root.RevLogTechnicalProfileUi = api;
 })(typeof globalThis !== "undefined" ? globalThis : this, function createUiModule(
   defaultReadiness,
   defaultResolver,
   defaultFormatter,
-  defaultSearch
+  defaultSearch,
+  defaultPresentation
 ) {
   "use strict";
-
-  const STATUS_LABELS = Object.freeze({
-    verified: "Zweryfikowane",
-    "pending-verification": "Do weryfikacji",
-    "conflicting-sources": "Sprzeczne źródła",
-    "legacy-unverified": "Niezweryfikowane",
-    deprecated: "Wycofane"
-  });
 
   function createTechnicalProfileUi(options = {}) {
     const readiness = options.readiness || defaultReadiness;
     const resolver = options.resolver || defaultResolver;
     const formatter = options.formatter || defaultFormatter;
     const search = options.search || defaultSearch;
+    const presentation = options.presentation || defaultPresentation;
 
     async function prepareTechnicalProfileView(motorcycle) {
       if (!motorcycle) return { status: "empty", message: "Najpierw wybierz motocykl w garażu." };
@@ -46,7 +42,8 @@
         entry,
         resolver.resolveEntry(entry, context),
         profile,
-        formatter
+        formatter,
+        presentation
       ));
       const grouped = groupEntries(profile.categories, entryViews);
       const searchIndex = search.buildSearchIndex(profile, context);
@@ -62,7 +59,7 @@
         categories: grouped,
         entriesById: Object.fromEntries(entryViews.map(entry => [entry.id, entry])),
         searchIndex,
-        categoryLabels: Object.fromEntries([...categoryMap].map(([id, category]) => [id, category.label]))
+        categoryLabels: Object.fromEntries([...categoryMap].map(([id, category]) => [id, presentation.categoryLabel(category)]))
       };
     }
 
@@ -86,19 +83,19 @@
     return Object.freeze({ prepareTechnicalProfileView, renderTechnicalProfile });
   }
 
-  function buildEntryView(entry, resolution, profile, formatter) {
+  function buildEntryView(entry, resolution, profile, formatter, presentation) {
     const resolved = resolution.status === "resolved";
     const effective = resolved ? resolution.entry : entry;
     return {
       id: entry.id,
       categoryId: entry.categoryId,
-      label: entry.label,
+      label: presentation.entryLabel(entry),
       resolutionStatus: resolution.status,
       requiredContext: [...(resolution.requiredContext || [])],
       candidates: resolution.candidates || {},
       formattedValue: resolved && effective.value ? safeFormat(formatter, effective.value) : null,
       status: effective.status || entry.status || null,
-      statusLabel: STATUS_LABELS[effective.status || entry.status] || "Status nieznany",
+      statusLabel: presentation.statusLabel(effective.status || entry.status),
       description: effective.description || effective.notes || "",
       sources: buildSources(effective.sourceIds || entry.sourceIds || [], profile)
     };
@@ -111,9 +108,9 @@
       if (!citation || !document) return null;
       return {
         id: sourceId,
-        title: document.title,
-        section: citation.section || "",
-        subsection: citation.subsection || "",
+        title: defaultPresentation.sourceTitle(document),
+        section: defaultPresentation.sourceSection(citation.section || ""),
+        subsection: defaultPresentation.sourceSection(citation.subsection || ""),
         pages: Array.isArray(citation.pages) ? [...citation.pages] : []
       };
     }).filter(Boolean);
@@ -128,7 +125,7 @@
     );
     return categoryOrder.map(category => ({
       id: category.id,
-      label: category.label,
+      label: defaultPresentation.categoryLabel(category),
       entries: entries.filter(entry => entry.categoryId === category.id).sort((left, right) =>
         String(left.label).localeCompare(String(right.label), "pl") || String(left.id).localeCompare(String(right.id))
       )
@@ -150,7 +147,7 @@
     if (view.status !== "ready") return renderStateHtml(view, options);
     return `
       <div class="card hero technical-profile-hero">
-        <div class="logo">REVLOG • TECHNICAL PROFILE</div>
+        <div class="logo">REVLOG • PROFIL TECHNICZNY</div>
         <h2>${escapeHtml(view.profileName)}</h2>
         <p class="section-note">Rok ${escapeHtml(view.motorcycleYear)} · Profil ${escapeHtml(view.profileId)}</p>
       </div>
@@ -248,7 +245,7 @@
   }
 
   function contextLabel(field) {
-    return ({ region: "region motocykla", abs: "informacja o ABS", equipment: "wyposażenie" })[field] || field;
+    return defaultPresentation.contextLabel(field);
   }
 
   function safeFormat(formatter, value) {
@@ -270,6 +267,6 @@
     getClarificationOptions,
     buildContextRefinementRequirements,
     escapeHtml,
-    STATUS_LABELS
+    STATUS_LABELS: defaultPresentation.STATUS_LABELS
   });
 });

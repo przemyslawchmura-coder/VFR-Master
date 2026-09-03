@@ -17,6 +17,7 @@ const BROWSER_SCRIPTS = [
   "js/technical/technical-value-formatter.js",
   "js/technical/technical-search-synonyms.js",
   "js/technical/technical-profile-search.js",
+  "js/technical/technical-profile-presentation.js",
   "js/technical/technical-profile-quality-report.js",
   "data/technical/documents/honda/vfr800-2002-documents.js",
   "data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js",

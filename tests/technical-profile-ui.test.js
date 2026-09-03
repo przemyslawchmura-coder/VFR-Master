@@ -8,6 +8,7 @@ const readinessApi = require("../js/technical/technical-profile-readiness.js");
 const resolverApi = require("../js/technical/technical-profile-resolver.js");
 const formatterApi = require("../js/technical/technical-value-formatter.js");
 const searchApi = require("../js/technical/technical-profile-search.js");
+const ducatiProfile = require("../data/technical/ducati/monster937/profile-2021.js");
 
 const MOTORCYCLE = Object.freeze({
   id: "bike-ui",
@@ -15,6 +16,14 @@ const MOTORCYCLE = Object.freeze({
   model: "VFR800 VTEC",
   year: 2002,
   catalogVariantKey: "honda.vfr800.rc46.vtec.gen1"
+});
+
+const DUCATI_MOTORCYCLE = Object.freeze({
+  id: "ducati-ui",
+  brand: "Ducati",
+  model: "Monster 937",
+  year: 2021,
+  catalogVariantKey: "ducati.monster.937"
 });
 
 function stateUi(status) {
@@ -53,6 +62,18 @@ test("profile name and stable ID are exposed to the view", async () => {
   const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
   assert.equal(view.profileName, "Honda VFR800 VTEC");
   assert.equal(view.profileId, "honda.vfr800.rc46-vtec-gen1.2002");
+});
+
+test("Ducati presentation is Polish while values and profile semantics remain unchanged", async () => {
+  const before = JSON.stringify(ducatiProfile);
+  const view = await uiApi.prepareTechnicalProfileView(DUCATI_MOTORCYCLE);
+  assert.equal(view.profileId, "ducati.monster937.2021");
+  assert.deepEqual(view.categories.map(category => category.label), ["Olej i filtry", "Świece i zapłon", "Hamulce", "Instalacja elektryczna"]);
+  assert.equal(view.entriesById["lubrication.engine-oil.viscosity"].label, "Lepkość oleju silnikowego");
+  assert.equal(view.entriesById["electrical.battery.capacity"].label, "Pojemność akumulatora");
+  assert.equal(view.entriesById["electrical.battery.capacity"].formattedValue, "6,5 Ah");
+  assert.equal(view.entriesById["brakes.fluid.specification"].formattedValue, "Front/rear brake circuit: DOT 4");
+  assert.equal(JSON.stringify(ducatiProfile), before);
 });
 
 test("categories and their entries are grouped deterministically", async () => {
@@ -226,6 +247,6 @@ test("verified status and real citation metadata are rendered neutrally", async 
   const entry = findEntry(await uiApi.prepareTechnicalProfileView(MOTORCYCLE), "torque.engine.oil-drain-bolt");
   const html = uiApi.renderEntryHtml(entry);
   assert.match(html, /Zweryfikowane/);
-  assert.match(html, /Honda VFR800\/VFR800A 2002 Service Manual/);
-  assert.match(html, /Engine oil \/ oil filter/);
+  assert.match(html, /Instrukcja serwisowa Honda VFR800\/VFR800A 2002/);
+  assert.match(html, /Olej silnikowy \/ filtr oleju/);
 });
