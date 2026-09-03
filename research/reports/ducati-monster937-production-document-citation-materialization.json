@@ -1,0 +1,83 @@
+{
+  "authorizationReadyConsumed": 6,
+  "bmwInvolvement": false,
+  "citationCount": 6,
+  "citations": [
+    {
+      "citationId": "cite.ducati.monster937-2021.om.battery-capacity",
+      "documentId": "doc.ducati.monster937-2021.owners-manual",
+      "pages": [
+        "220"
+      ],
+      "researchField": "electrical.battery-capacity",
+      "section": "Electric system"
+    },
+    {
+      "citationId": "cite.ducati.monster937-2021.om.battery-specification",
+      "documentId": "doc.ducati.monster937-2021.owners-manual",
+      "pages": [
+        "220"
+      ],
+      "researchField": "electrical.battery-specification",
+      "section": "Electric system"
+    },
+    {
+      "citationId": "cite.ducati.monster937-2021.om.brake-fluid",
+      "documentId": "doc.ducati.monster937-2021.owners-manual",
+      "pages": [
+        "177",
+        "212"
+      ],
+      "researchField": "brakes.brake-fluid",
+      "section": "Fuel, lubricants and other fluids"
+    },
+    {
+      "citationId": "cite.ducati.monster937-2021.om.oil-api-jaso",
+      "documentId": "doc.ducati.monster937-2021.owners-manual",
+      "pages": [
+        "195–196",
+        "211"
+      ],
+      "researchField": "lubrication.api-jaso",
+      "section": "Recommendations concerning oil; Fuel, lubricants and other fluids"
+    },
+    {
+      "citationId": "cite.ducati.monster937-2021.om.oil-viscosity",
+      "documentId": "doc.ducati.monster937-2021.owners-manual",
+      "pages": [
+        "196",
+        "211"
+      ],
+      "researchField": "lubrication.viscosity",
+      "section": "Recommendations concerning oil; Fuel, lubricants and other fluids"
+    },
+    {
+      "citationId": "cite.ducati.monster937-2021.om.spark-plug",
+      "documentId": "doc.ducati.monster937-2021.owners-manual",
+      "pages": [
+        "216"
+      ],
+      "researchField": "ignition.spark-plug-oem",
+      "section": "Spark plugs"
+    }
+  ],
+  "coolingExcluded": true,
+  "coverageChanged": false,
+  "coveredFields": [
+    "brakes.brake-fluid",
+    "electrical.battery-capacity",
+    "electrical.battery-specification",
+    "ignition.spark-plug-oem",
+    "lubrication.api-jaso",
+    "lubrication.viscosity"
+  ],
+  "date": "2026-09-03",
+  "documentCount": 1,
+  "documentId": "doc.ducati.monster937-2021.owners-manual",
+  "evidenceChanged": false,
+  "pendingDucatiExcluded": 20,
+  "productionProfileCreated": false,
+  "registryChanged": false,
+  "schemaVersion": "revlog-ducati-monster937-production-document-citation-materialization/v1",
+  "upstreamStateChanged": false
+}

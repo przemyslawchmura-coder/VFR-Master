@@ -188,3 +188,6 @@ Objective: resolve only the prior battery and cooling conversion blockers using 
 ## 2026-09-03 — Ducati production-promotion authorization gate foundation
 
 Added the generic immutable fail-closed authorization contract and read-only Ducati projection. Exactly six `CONVERSION-READY` schema projections are `AUTHORIZATION-READY`; cooling remains excluded at conversion. The gate preserves the full identity/provenance/applicability chain and records future production document, citation, profile and registry materialization as separate requirements. No production or upstream research state changed. Next: separately authorize a bounded materialization task only after human confirmation.
+## 2026-09-03 — Ducati production document/citation materialization foundation
+
+Added one production-compatible authenticated Ducati MY2021 EU owner-manual definition and six deterministic citations for the authorization-ready fields. The definitions are not attached to a Technical Profile and create no entries, registry insertion, evidence or coverage. Cooling, pending Ducati fields and BMW remain excluded. Next: keep source definitions separate until a future bounded profile materialization task is explicitly authorized.
