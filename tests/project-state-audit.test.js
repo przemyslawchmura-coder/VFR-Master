@@ -300,6 +300,8 @@ test("project-state report regenerates byte-for-byte from its semantic snapshot 
 test("project memory has one active roadmap phase and unique ADRs", () => {
   const roadmap = read("docs/project/ROADMAP.md");
   assert.equal((roadmap.match(/\(ACTIVE\)/g) || []).length, 1);
+  assert.match(roadmap, /Phase 6 — Controlled production promotion \(COMPLETE\)/);
+  assert.match(roadmap, /Phase 7 — Cloud\/deployment hardening \(ACTIVE\)/);
   const decisions = read("docs/project/DECISIONS.md");
   const ids = [...decisions.matchAll(/## (ADR-\d+)/g)].map(match => match[1]);
   assert.equal(new Set(ids).size, ids.length);

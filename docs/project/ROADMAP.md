@@ -26,10 +26,10 @@ Objective: separate research from production and establish provenance/status sem
 
 Objective: increase verified practical Service Core coverage through a resumable, deterministic research factory. Entry: working generic validators, Service Core, deduplication, conflict/coverage/yield reporting and Honda/Yamaha fixtures. Completed checkpoints: Honda produced +50 verified/+48 practical slots; Yamaha +58/+54; Harley stopped at a wrong-year/access gate; all bounded factory foundations, Ducati/BMW waves and blocked/exhausted prospect reassessment are complete for the audited scope. Ducati and BMW remain isolated pre-promotion research state, with no research evidence or Service Core change; Phase 6 now owns the separately controlled production promotion path. Status: COMPLETE FOR AUDITED SCOPE.
 
-## Phase 6 — Controlled production promotion (ACTIVE)
+## Phase 6 — Controlled production promotion (COMPLETE)
 
-Objective: promote only reviewed, conflict-free, applicability-scoped candidates. Entry: batch evidence with source proof and review decisions. Completed foundation: authorization gate, six-entry Ducati schema projection, one authenticated Ducati source document with six citations, one valid Ducati review-status profile, the first controlled registry insertion with discovery/resolution regressions, and the immutable rollback/governance closeout record. Tasks remaining: future bounded profile expansions. Exit: one deliberate production profile addition with regressions and a deterministic rollback target. Status: ACTIVE.
+Objective: promote only reviewed, conflict-free, applicability-scoped candidates. Entry: batch evidence with source proof and review decisions. Completed: one deliberate Ducati production profile addition, registry/loader/resolver/runtime regressions, and an immutable deterministic rollback target with governance closeout. Future bounded profile expansions are optional follow-on work, not Phase 6 exit requirements. Exit: one deliberate production profile addition with regressions and a deterministic rollback target. Status: COMPLETE.
 
-## Phase 7 — Cloud/deployment hardening (NOT-STARTED)
+## Phase 7 — Cloud/deployment hardening (ACTIVE)
 
-Objective: verify auth, persistence, RLS, deployment and operational error handling. Entry: selected test backend and deployment environment. Tasks: live-safe verification, security review, Pages observation, recovery paths. Exit: evidence-backed release readiness. Status: NOT-STARTED.
+Objective: verify auth, persistence, RLS, deployment and operational error handling. Entry: selected test backend and deployment environment. Tasks: live-safe verification, security review, Pages observation, recovery paths. Exit: evidence-backed release readiness. Status: ACTIVE.
