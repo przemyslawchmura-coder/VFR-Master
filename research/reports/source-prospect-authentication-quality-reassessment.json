@@ -409,6 +409,62 @@
     },
     {
       "sourceTier": "A",
+      "documentCode": null,
+      "officialHost": "www.ducati.com",
+      "alternateHosts": [],
+      "authenticationDate": "2026-09-03",
+      "access": "ACCESSIBLE-OFFICIAL",
+      "modelStatus": "MY2021 base Monster 937",
+      "generationStatus": "Monster 937",
+      "yearStatus": "MY2021",
+      "marketStatus": "EU via Ducati Italy/global owner-manual selector",
+      "absStatus": "Cornering ABS explicitly listed for the EU Monster 937 model",
+      "transmissionStatus": "six-speed gearbox explicitly listed for Monster 937",
+      "equipmentStatus": "base Monster only; Monster SP 937 excluded",
+      "priorYield": "none",
+      "duplicateStatus": "fresh exact owner-manual registration",
+      "expectedMarginalPracticalGapClass": "HIGH",
+      "blockers": [],
+      "nextAction": "bounded acquisition may begin; inspect only after preserving this exact scope",
+      "id": "unknown.ducati.monster937",
+      "manufacturer": "Ducati",
+      "catalogVariantKey": "ducati.monster.937",
+      "target": "Monster 937 base",
+      "years": {
+        "from": 2021,
+        "to": 2021
+      },
+      "markets": [
+        "EU"
+      ],
+      "title": "Monster 937 Owner's Manual",
+      "documentClass": "owner manual",
+      "publisher": "Ducati Motor Holding S.p.A.",
+      "currentIdentity": "Ducati's official owner-manual selector provides the exact MY2021 Monster 937 model/year route; Monster SP 937 is excluded from this base-model prospect",
+      "priorHistory": "previously UNKNOWN; no document identity registered",
+      "classification": "EXECUTION-READY",
+      "gate": {
+        "authorityKnown": true,
+        "documentIdentityKnown": true,
+        "documentClassKnown": true,
+        "officialPathKnown": true,
+        "modelKnown": true,
+        "yearKnown": true,
+        "marketKnown": true,
+        "accessibilityFeasible": true,
+        "safetyScopeSufficient": true,
+        "notExhausted": true,
+        "tierABIndependent": true
+      },
+      "readinessGate": {
+        "passed": true,
+        "failed": [],
+        "rankingEligible": true
+      },
+      "rank": null
+    },
+    {
+      "sourceTier": "A",
       "documentCode": "31MLRB00 / 00X31-MLR-B000",
       "officialHost": "cdn.powersports.honda.com",
       "alternateHosts": [],
@@ -1133,21 +1189,84 @@
       "rank": null
     }
   ],
-  "readyProspects": [],
-  "rankedReadyProspects": [],
+  "readyProspects": [
+    {
+      "sourceTier": "A",
+      "documentCode": null,
+      "officialHost": "www.ducati.com",
+      "alternateHosts": [],
+      "authenticationDate": "2026-09-03",
+      "access": "ACCESSIBLE-OFFICIAL",
+      "modelStatus": "MY2021 base Monster 937",
+      "generationStatus": "Monster 937",
+      "yearStatus": "MY2021",
+      "marketStatus": "EU via Ducati Italy/global owner-manual selector",
+      "absStatus": "Cornering ABS explicitly listed for the EU Monster 937 model",
+      "transmissionStatus": "six-speed gearbox explicitly listed for Monster 937",
+      "equipmentStatus": "base Monster only; Monster SP 937 excluded",
+      "priorYield": "none",
+      "duplicateStatus": "fresh exact owner-manual registration",
+      "expectedMarginalPracticalGapClass": "HIGH",
+      "blockers": [],
+      "nextAction": "bounded acquisition may begin; inspect only after preserving this exact scope",
+      "id": "unknown.ducati.monster937",
+      "manufacturer": "Ducati",
+      "catalogVariantKey": "ducati.monster.937",
+      "target": "Monster 937 base",
+      "years": {
+        "from": 2021,
+        "to": 2021
+      },
+      "markets": [
+        "EU"
+      ],
+      "title": "Monster 937 Owner's Manual",
+      "documentClass": "owner manual",
+      "publisher": "Ducati Motor Holding S.p.A.",
+      "currentIdentity": "Ducati's official owner-manual selector provides the exact MY2021 Monster 937 model/year route; Monster SP 937 is excluded from this base-model prospect",
+      "priorHistory": "previously UNKNOWN; no document identity registered",
+      "classification": "EXECUTION-READY",
+      "gate": {
+        "authorityKnown": true,
+        "documentIdentityKnown": true,
+        "documentClassKnown": true,
+        "officialPathKnown": true,
+        "modelKnown": true,
+        "yearKnown": true,
+        "marketKnown": true,
+        "accessibilityFeasible": true,
+        "safetyScopeSufficient": true,
+        "notExhausted": true,
+        "tierABIndependent": true
+      },
+      "readinessGate": {
+        "passed": true,
+        "failed": [],
+        "rankingEligible": true
+      },
+      "rank": null
+    }
+  ],
+  "rankedReadyProspects": [
+    {
+      "id": "unknown.ducati.monster937",
+      "expectedMarginalPracticalGapClass": "HIGH",
+      "score": null
+    }
+  ],
   "thirdManufacturerAnswer": "NO",
   "rankingModel": "Only gate-passing prospects are eligible; then rank expected marginal practical Service Core gain per primary document, adjusted for remaining gap, document class, prior richness, duplicate/exhaustion, safety risk and access friction.",
   "selectedNextClass": "C",
-  "exactNextTask": "Authenticate only the existing Yamaha Ténéré 700 service-manual prospect BW3-F8197-E0 for yamaha.tenere-700.gen1 MY2019 EU standard: resolve official Yamaha identity, delivery/access, exact year/market and standard-versus-named-equipment scope without inspecting service values or creating Service Core evidence.",
+  "exactNextTask": "Execute one bounded Ducati Monster 937 MY2021 EU base-owner-manual acquisition under the authenticated scope; inspect technical values only in that later task and create no production evidence automatically.",
   "audit": {
     "classification": "ACCEPT-WITH-RISKS",
     "risks": [
-      "no prospect currently passes the full gate",
+      "Ducati readiness is metadata-only and content remains uninspected",
       "MT-09 B7N/LIT equivalence and EU applicability remain unresolved and its bounded path is exhausted",
       "official complete LIT content is access-gated",
       "VFR research and production source-identity histories require separate reconciliation"
     ],
-    "conclusion": "The gate learns from Harley by requiring exact year, official path and feasible access before ranking. MT-09 reconciliation remained blocked and exhausted its bounded path, so the next metadata task moves to the already-registered Ténéré prospect."
+    "conclusion": "The gate requires exact year, official path and feasible access before ranking. Ducati now supplies one metadata-level execution-ready prospect; all unresolved prospects remain fail-closed."
   },
   "externalTechnicalEvidenceAcquired": false,
   "serviceCoreCoverageChanged": false,

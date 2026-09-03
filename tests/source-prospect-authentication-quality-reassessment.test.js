@@ -40,8 +40,8 @@ test("UNKNOWN and PARTIAL prospects are unranked", () => {
 });
 
 test("only execution-ready prospects may enter ranking", () => {
-  assert.equal(report.readyProspects.length, 0);
-  assert.equal(report.rankedReadyProspects.length, 0);
+  assert.equal(report.readyProspects.length, 1);
+  assert.equal(report.rankedReadyProspects.length, 1);
   assert.ok(report.prospects.every(item => item.readinessGate.rankingEligible === (item.classification === "EXECUTION-READY" && item.readinessGate.failed.length === 0)));
 });
 
@@ -52,11 +52,11 @@ test("prior exhausted and no-yield sources cannot pass the gate", () => {
 });
 
 test("inventory is bounded and exact NEXT is metadata-only", () => {
-  assert.equal(report.prospects.length, 17);
+  assert.equal(report.prospects.length, 18);
   assert.equal(new Set(report.prospects.map(item => item.manufacturer)).size, 8);
   assert.equal(report.thirdManufacturerAnswer, "NO");
-  assert.match(report.exactNextTask, /Ténéré 700 service-manual prospect BW3-F8197-E0/);
-  assert.match(report.exactNextTask, /without inspecting service values/);
+  assert.match(report.exactNextTask, /Ducati Monster 937/);
+  assert.match(report.exactNextTask, /inspect technical values only in that later task/);
 });
 
 test("reassessment changes no evidence, coverage or production", () => {

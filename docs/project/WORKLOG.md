@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-03 — Ducati Monster 937 Tier A/B prospect registration and readiness
+
+Objective: register one exact Tier A/B Ducati prospect for `ducati.monster.937` without technical extraction. Authenticated `unknown.ducati.monster937` as the official `Monster 937 Owner's Manual` route for representative MY2021 EU base Monster 937; Monster SP 937 is excluded, and Ducati metadata resolves Cornering ABS and manual six-speed transmission applicability. Canonical readiness passes at metadata level. No manual content or technical values were inspected; no evidence, researched-no-evidence, Service Core coverage, production, runtime, catalogue or cloud state changed. Validation: targeted registration/readiness tests, project-state checks, changed-file syntax checks and `git diff --check`; no Phase 6 work. Next: execute one bounded Ducati owner-manual acquisition under this exact scope.
+
 ## 2026-09-03 — Suzuki SV650 III Tier A/B prospect selection and readiness
 
 Selected the existing `unknown.suzuki.sv650` prospect for representative EU `SV650A L9` MY2019 and authenticated Suzuki’s official European `SV650/A/XA (L7-M4)` service-manual family as Tier A metadata. The official portal path is known and content remains inaccessible. Exact year/document binding, EU scope, standard-versus-X equipment, ABS separability and manual-transmission applicability remain incomplete; readiness is fail-closed and not execution-ready. No service values, extraction, evidence, researched-no-evidence, coverage, production, runtime, catalogue or cloud changes occurred. Validation: targeted tests and project-state checks pass; full suite, syntax and diff checks follow. Next: resolve Suzuki applicability only if new authenticated material/access becomes available.

@@ -10,8 +10,8 @@ const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 const git = (...args) => cp.execFileSync("git", args, { cwd: path.join(__dirname, ".."), encoding: "utf8" }).trim();
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-yamaha-tenere-service-manual-authentication-working-tree");
-  assert.equal(snapshot.snapshotImplementationPath, "research/data/yamaha-tenere-service-manual-prospect-authentication.js");
+  assert.equal(snapshot.snapshotBasis, "post-ducati-monster937-prospect-registration-working-tree");
+  assert.equal(snapshot.snapshotImplementationPath, "research/data/ducati-monster937-owner-manual-prospect-registration.js");
   const containingCommit = git("log", "-1", "--format=%H", "--", snapshot.snapshotImplementationPath);
   const expectedBase = containingCommit ? git("rev-parse", `${containingCommit}^`) : git("rev-parse", "HEAD");
   assert.equal(snapshot.baseCommit, expectedBase);
@@ -59,11 +59,17 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.research.postYamahaTransferDesign.historicalStatus, "SUPERSEDED-BY-EXECUTION");
   assert.equal(snapshot.research.postYamahaTransferDesign.currentHarleyProspectClassification, "REJECTED-MISMATCH");
   assert.equal(snapshot.research.sourceProspectReadiness.classification, "ACCEPT-WITH-RISKS");
-  assert.equal(snapshot.research.sourceProspectReadiness.inventory, 17);
+  assert.equal(snapshot.research.sourceProspectReadiness.inventory, 18);
   assert.equal(snapshot.research.sourceProspectReadiness.manufacturers, 8);
-  assert.equal(snapshot.research.sourceProspectReadiness.executionReady, 0);
+  assert.equal(snapshot.research.sourceProspectReadiness.executionReady, 1);
   assert.equal(snapshot.research.sourceProspectReadiness.thirdManufacturerAnswer, "NO");
   assert.equal(snapshot.research.sourceProspectReadiness.serviceCoreCoverageChanged, false);
+  assert.equal(snapshot.ducatiMonster937Registration.classification, "EXECUTION-READY");
+  assert.equal(snapshot.ducatiMonster937Registration.sourceTier, "A");
+  assert.equal(snapshot.ducatiMonster937Registration.documentClass, "owner manual");
+  assert.equal(snapshot.ducatiMonster937Registration.readiness.passed, true);
+  assert.equal(snapshot.ducatiMonster937Registration.technicalValuesInspected, false);
+  assert.equal(snapshot.ducatiMonster937Registration.serviceCoreCoverageChanged, false);
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.classification, "ACCESS-BLOCKED");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.audit, "ACCEPT-WITH-RISKS");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.b7nLitRelationship, "UNRESOLVED");

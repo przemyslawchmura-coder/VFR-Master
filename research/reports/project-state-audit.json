@@ -1,16 +1,16 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-03",
-  "snapshotBasis": "post-yamaha-tenere-service-manual-authentication-working-tree",
-  "snapshotImplementationPath": "research/data/yamaha-tenere-service-manual-prospect-authentication.js",
-  "baseCommit": "58e657c8e073650f695ae590232d1035978ac1da",
+  "snapshotBasis": "post-ducati-monster937-prospect-registration-working-tree",
+  "snapshotImplementationPath": "research/data/ducati-monster937-owner-manual-prospect-registration.js",
+  "baseCommit": "9f9b418bedfd3c8d0546fab25bb2775075662e84",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 311,
-    "javascriptFiles": 194,
-    "testFiles": 63,
+    "files": 314,
+    "javascriptFiles": 196,
+    "testFiles": 64,
     "documentationFiles": 72,
-    "researchAndToolingFiles": 132
+    "researchAndToolingFiles": 134
   },
   "catalogue": {
     "manufacturers": 13,
@@ -58,6 +58,20 @@
         "sourceCount": 30
       }
     ]
+  },
+  "ducatiMonster937Registration": {
+    "classification": "EXECUTION-READY",
+    "sourceTier": "A",
+    "documentClass": "owner manual",
+    "officialPath": "https://www.ducati.com/ww/en/service-maintenance/owner-manuals",
+    "readiness": {
+      "passed": true,
+      "failed": [],
+      "rankingEligible": true
+    },
+    "technicalValuesInspected": false,
+    "evidenceRowsAdded": 0,
+    "serviceCoreCoverageChanged": false
   },
   "research": {
     "canonicalFieldCount": 183,
@@ -549,11 +563,11 @@
     },
     "sourceProspectReadiness": {
       "classification": "ACCEPT-WITH-RISKS",
-      "inventory": 17,
+      "inventory": 18,
       "manufacturers": 8,
-      "executionReady": 0,
+      "executionReady": 1,
       "thirdManufacturerAnswer": "NO",
-      "exactNextTask": "Authenticate only the existing Yamaha Ténéré 700 service-manual prospect BW3-F8197-E0 for yamaha.tenere-700.gen1 MY2019 EU standard: resolve official Yamaha identity, delivery/access, exact year/market and standard-versus-named-equipment scope without inspecting service values or creating Service Core evidence.",
+      "exactNextTask": "Execute one bounded Ducati Monster 937 MY2021 EU base-owner-manual acquisition under the authenticated scope; inspect technical values only in that later task and create no production evidence automatically.",
       "evidenceAcquired": false,
       "serviceCoreCoverageChanged": false
     },
@@ -1345,8 +1359,8 @@
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 587,
-    "lastKnownPassed": 587,
+    "lastKnownTotal": 599,
+    "lastKnownPassed": 599,
     "failed": 0,
     "skipped": 0,
     "todo": 0

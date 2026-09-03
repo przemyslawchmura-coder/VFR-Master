@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "revlog-source-prospect-registration/v1",
+  "date": "2026-09-03",
+  "target": {
+    "catalogVariantKey": "ducati.monster.937",
+    "model": "Monster 937",
+    "modelDesignation": "Monster 937 base",
+    "year": 2021,
+    "market": "EU",
+    "transmission": "manual",
+    "abs": true,
+    "equipment": "base Monster",
+    "excludedEquipment": "Monster SP 937"
+  },
+  "startingProspectId": "unknown.ducati.monster937",
+  "prospect": {
+    "id": "unknown.ducati.monster937",
+    "publication": "Monster 937 Owner's Manual",
+    "documentClass": "owner manual",
+    "sourceTier": "A",
+    "publisher": "Ducati Motor Holding S.p.A.",
+    "identity": {
+      "state": "AUTHENTICATED-METADATA",
+      "title": "Monster 937 Owner's Manual",
+      "modelYear": "Monster 937 MY2021",
+      "proof": "Ducati's controlled owner-manual selector exposes year and model selection; the EU Ducati model page identifies the base Monster 937 and distinguishes no SP content in this base route.",
+      "contentAccessible": false,
+      "authenticityVerified": true
+    },
+    "officialDelivery": {
+      "classification": "ACCESSIBLE-OFFICIAL",
+      "officialHost": "www.ducati.com",
+      "path": "https://www.ducati.com/ww/en/service-maintenance/owner-manuals",
+      "accessDetail": "Official Ducati owner-manual selector; choose MY2021 and Monster 937. No manual content was acquired or opened.",
+      "directContentAccessFeasible": true
+    },
+    "applicability": {
+      "model": {
+        "state": "KNOWN-METADATA",
+        "finding": "Ducati's EU model metadata identifies Monster 937; this registration is base Monster only."
+      },
+      "year": {
+        "state": "KNOWN-METADATA",
+        "finding": "MY2021 is selected as the representative year and is supported by the catalogue."
+      },
+      "euMarket": {
+        "state": "KNOWN-METADATA",
+        "finding": "The Ducati Italy/EU controlled model and owner-manual routes support the EU target."
+      },
+      "standard": {
+        "state": "KNOWN-METADATA",
+        "finding": "Base Monster 937 is the selected equipment scope."
+      },
+      "sp": {
+        "state": "EXCLUDED",
+        "finding": "Monster SP 937 is explicitly outside this prospect."
+      },
+      "abs": {
+        "state": "KNOWN-METADATA",
+        "finding": "Ducati EU model metadata explicitly lists Cornering ABS."
+      },
+      "transmission": {
+        "state": "KNOWN-METADATA",
+        "finding": "Ducati model metadata explicitly lists a six-speed gearbox; target transmission is manual."
+      }
+    },
+    "accessibility": "ACCESSIBLE-OFFICIAL",
+    "directContentAccessFeasible": true,
+    "finalClassification": "EXECUTION-READY",
+    "blockers": [],
+    "gate": {
+      "authorityKnown": true,
+      "documentIdentityKnown": true,
+      "documentClassKnown": true,
+      "officialPathKnown": true,
+      "modelKnown": true,
+      "yearKnown": true,
+      "marketKnown": true,
+      "accessibilityFeasible": true,
+      "safetyScopeSufficient": true,
+      "notExhausted": true,
+      "tierABIndependent": true
+    }
+  },
+  "readinessGate": {
+    "passed": true,
+    "failed": [],
+    "rankingEligible": true
+  },
+  "externalResearchPerformed": true,
+  "technicalValuesInspected": false,
+  "evidenceRowsAdded": 0,
+  "researchedNoEvidenceAdded": 0,
+  "serviceCoreCoverageChanged": false,
+  "productionChanged": false,
+  "runtimeChanged": false,
+  "catalogueChanged": false,
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "conclusion": "One exact Tier A Ducati owner-manual prospect is authenticated for the EU MY2021 base Monster 937. Readiness passes metadata-only; no content or technical values were inspected.",
+    "risks": [
+      "owner-manual content remains uninspected",
+      "future acquisition must preserve base Monster and MY2021 EU applicability"
+    ],
+    "falsification": [
+      "Monster SP 937 was kept outside the prospect",
+      "no technical page or manual values were inspected",
+      "no production or evidence path was invoked"
+    ]
+  },
+  "exactNextTask": "Execute one bounded Ducati Monster 937 MY2021 EU base-owner-manual acquisition under the authenticated scope; inspect technical values only in that later task and create no production evidence automatically."
+}
