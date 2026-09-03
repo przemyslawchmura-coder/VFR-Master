@@ -296,6 +296,16 @@ provenance or applicability. Browser/runtime regression coverage confirms the
 registry, loader, resolver, Ducati and VFR paths remain stable; blocked and
 deferred research records remain absent from production. Phase 7 remains ACTIVE.
 
+## 2026-09-03 — Rider Service Core visibility gate
+
+Added the generic canonical-identity visibility policy for the default
+Technical Profile UI. Ducati’s 45-entry profile now presents only verified,
+practical Rider Service Core data by default, while extended engineering and
+workshop reference entries remain intact in canonical production data. The
+same policy hides unverified/reference VFR data without changing its profile,
+values, provenance, resolver behavior or registry state. Default search uses
+the same boundary; no technical data was deleted. Phase 7 remains ACTIVE.
+
 ## 2026-09-03 — Ducati Rider Service Core conditional production promotion
 
 Reassessed exactly the existing 39 Ducati Monster 937 MY2021

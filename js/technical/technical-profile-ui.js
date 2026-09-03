@@ -37,8 +37,9 @@
       if (readinessResult.status !== "ready") return readinessView(readinessResult);
       const profile = readinessResult.profile;
       const context = readinessResult.technicalContext;
+      const visibleEntries = profile.entries.filter(presentation.isRiderServiceCoreEntry);
       const categoryMap = new Map(profile.categories.map(category => [category.id, category]));
-      const entryViews = profile.entries.map(entry => buildEntryView(
+      const entryViews = visibleEntries.map(entry => buildEntryView(
         entry,
         resolver.resolveEntry(entry, context),
         profile,
@@ -46,7 +47,7 @@
         presentation
       ));
       const grouped = groupEntries(profile.categories, entryViews);
-      const searchIndex = search.buildSearchIndex(profile, context);
+      const searchIndex = search.buildSearchIndex({ ...profile, entries: visibleEntries }, context);
 
       return {
         status: "ready",

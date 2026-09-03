@@ -345,3 +345,15 @@ human-readable English descriptions, preserve the canonical/source value
 internally and localize it at the presentation layer where appropriate. Do
 not duplicate Technical Profiles or technical datasets merely to support
 another UI language.
+
+## 18. Default Technical Profile Visibility
+
+Evidence-supported Technical Profile data does not automatically belong in the
+default application UI. The default presentation is Rider Service Core first:
+show practical owner, routine-service, maintenance, consumable, basic-check
+and service-planning data, while extended workshop, engineering and diagnostic
+reference data remains stored but hidden by default. Visibility classification
+must use stable canonical identities or semantic metadata, never translated
+labels or rendered prose. Do not delete canonical data or create a separate
+profile to implement this policy; an optional extended view is a separate
+future feature.

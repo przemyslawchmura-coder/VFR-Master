@@ -96,24 +96,20 @@ test("formatter handles every resolved VFR value without invalid output", () => 
   }
 });
 
-test("full production view contains all 99 unique entries with deterministic grouping", async () => {
+test("default production view contains only verified Rider Service Core entries with deterministic grouping", async () => {
   const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
   const entries = view.categories.flatMap(category => category.entries);
-  assert.equal(entries.length, 99);
-  assert.equal(new Set(entries.map(entry => entry.id)).size, 99);
+  assert.equal(entries.length, 74);
+  assert.equal(new Set(entries.map(entry => entry.id)).size, 74);
   assert.ok(entries.every(entry => entry.statusLabel && profile.categories.some(category => category.id === entry.categoryId)));
   assert.deepEqual(view.categories.map(category => category.id), profile.categories.slice().sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity) || a.label.localeCompare(b.label, "pl") || a.id.localeCompare(b.id)).map(category => category.id));
 });
 
 test("ambiguous regional and ABS values never leak candidate values to UI or search", async () => {
   const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
-  const headlightHtml = uiApi.renderEntryHtml(view.entriesById["lighting.headlight"]);
-  assert.doesNotMatch(headlightHtml, /55 W|60\/55 W/);
-  const index = search.buildSearchIndex(profile, CONTEXT);
-  const headlight = index.items.find(item => item.entryId === "lighting.headlight");
-  assert.equal(headlight.resolutionStatus, "ambiguous-context");
-  assert.equal(headlight.formattedValue, null);
-  const abs = index.items.find(item => item.entryId === "fuses.circuit.abs");
+  assert.equal(view.entriesById["lighting.headlight"], undefined);
+  assert.equal(view.searchIndex.items.some(item => item.entryId === "lighting.headlight"), false);
+  const abs = view.searchIndex.items.find(item => item.entryId === "fuses.circuit.abs");
   assert.equal(abs.resolutionStatus, "ambiguous-context");
   assert.equal(abs.formattedValue, null);
 });
@@ -199,7 +195,7 @@ test("one render resolves entries once, builds one index, and queries reuse it",
   const view = await localUi.prepareTechnicalProfileView(MOTORCYCLE);
   uiApi.renderSearchResultsHtml(view, "olej", search);
   uiApi.renderSearchResultsHtml(view, "korek oleju", search);
-  assert.deepEqual({ readinessCalls, resolutionCalls, indexBuilds }, { readinessCalls: 1, resolutionCalls: 99, indexBuilds: 1 });
+  assert.deepEqual({ readinessCalls, resolutionCalls, indexBuilds }, { readinessCalls: 1, resolutionCalls: 74, indexBuilds: 1 });
 });
 
 test("browser integrity reports an orphan store registration as warning, not fatal", async () => {

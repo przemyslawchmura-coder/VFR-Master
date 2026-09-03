@@ -76,6 +76,17 @@ test("Ducati presentation is Polish while values and profile semantics remain un
   assert.equal(JSON.stringify(ducatiProfile), before);
 });
 
+test("default visibility is identity-based and keeps practical VFR data", async () => {
+  const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
+  assert.ok(view.entriesById["general.engine.displacement"]);
+  assert.ok(view.entriesById["lubrication.engine-oil.capacity-with-filter"]);
+  assert.equal(view.entriesById["general.engine.bore"], undefined);
+  assert.equal(view.entriesById["general.chassis.wheelbase"], undefined);
+  assert.equal(view.entriesById["lighting.headlight"], undefined);
+  assert.equal(view.entriesById["electrical.charging.stator-resistance"], undefined);
+  assert.equal(uiApi.STATUS_LABELS.verified, "Zweryfikowane");
+});
+
 test("categories and their entries are grouped deterministically", async () => {
   const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
   assert.equal(view.categories[0].id, "general");
@@ -117,15 +128,16 @@ test("search with no results renders an explicit message", async () => {
   assert.match(uiApi.renderSearchResultsHtml(view, "zzzz-nie-istnieje", searchApi), /Brak wyników wyszukiwania/);
 });
 
-test("headlight without region is rendered as ambiguous", async () => {
-  const entry = findEntry(await uiApi.prepareTechnicalProfileView(MOTORCYCLE), "lighting.headlight");
-  assert.equal(entry.resolutionStatus, "ambiguous-context");
-  assert.match(uiApi.renderEntryHtml(entry), /Wymaga doprecyzowania: region motocykla/);
+test("unverified VFR reference lighting data is hidden from the default view", async () => {
+  const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
+  assert.equal(findEntry(view, "lighting.headlight"), undefined);
+  assert.doesNotMatch(uiApi.renderTechnicalProfileHtml(view), /lighting\.headlight/);
 });
 
-test("ambiguous headlight does not expose EU or USA values", async () => {
-  const html = uiApi.renderEntryHtml(findEntry(await uiApi.prepareTechnicalProfileView(MOTORCYCLE), "lighting.headlight"));
-  assert.doesNotMatch(html, /55 W|60\/55 W/);
+test("hidden VFR reference lighting data is not searchable by default", async () => {
+  const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
+  const html = uiApi.renderSearchResultsHtml(view, "headlight", searchApi);
+  assert.match(html, /Brak wyników wyszukiwania/);
 });
 
 test("unknown ABS leaves ABS-dependent entry ambiguous", async () => {

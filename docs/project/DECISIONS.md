@@ -17,6 +17,20 @@ manuals or exposing internal source IDs as the user experience. Existing
 technical data and profiles remain unchanged.
 Status: ACTIVE. Related design: `docs/project/RIDER_SERVICE_CORE.md`.
 
+## ADR-026 — Default Technical Profile visibility is Rider Service Core first
+
+Date: 2026-09-03
+Decision: Evidence-supported data remains canonical even when it is not
+appropriate for the default user-facing Technical Profile UI. The default
+view exposes practical Rider Service Core data and hides extended
+engineering/workshop/diagnostic reference data using stable canonical entry
+identity or semantic metadata. Polish labels and rendered prose are never
+used as the classifier.
+Consequences: production profiles remain lossless and unchanged, while the
+default UI stays useful for ownership and service planning. Search uses the
+same visibility boundary; a future optional extended view would be separate.
+Status: ACTIVE. Related design: `docs/project/RIDER_SERVICE_CORE.md`.
+
 ## ADR-024 — Rider Service Core matrix aligns shared factory contracts
 
 Date: 2026-09-03

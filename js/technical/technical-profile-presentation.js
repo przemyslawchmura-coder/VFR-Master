@@ -55,6 +55,14 @@
     "lighting.combined-high-low": "Reflektor — światła mijania i drogowe", "lighting.front-indicators": "Przednie kierunkowskazy", "lighting.rear-indicators": "Tylne kierunkowskazy", "lighting.rear-tail": "Tylne światło pozycyjne", "lighting.brake-light": "Światło hamowania", "lighting.license-plate": "Oświetlenie tablicy rejestracyjnej",
     "maintenance.inspect": "Kontrola okresowa", "maintenance.replace": "Wymiana okresowa", "maintenance.adjust": "Regulacja okresowa", "maintenance.clean": "Czyszczenie okresowe", "maintenance.lubricate": "Smarowanie okresowe", "maintenance.severe-use": "Trudne warunki eksploatacji"
   });
+  const EXTENDED_CORE_FIELDS = Object.freeze(new Set([
+    "engine.service-limits", "engine.bore", "engine.stroke", "engine.compression-ratio", "dimensions_mass.dry-mass", "dimensions_mass.wheelbase",
+    "steering_chassis.rake", "steering_chassis.trail", "final_drive.final-ratio", "maintenance.severe-use"
+  ]));
+  const EXTENDED_ENTRY_PATTERNS = Object.freeze([
+    /(?:^|\.)bore$/, /(?:^|\.)stroke$/, /(?:^|\.)compression-ratio$/, /(?:^|\.)overall-(?:length|width|height)$/, /(?:^|\.)wheelbase$/, /(?:^|\.)rake$/, /(?:^|\.)trail$/, /(?:^|\.)dry-mass$/, /(?:^|\.)service-limits$/, /(?:^|\.)ratio$/,
+    /^cooling\.thermostat\./, /^cooling\.radiator-cap\./, /^wheels\.suspension\./, /^electrical\.charging\.(?:stator|regulated)-/, /(?:^|\.)cylinder-head-cover$/
+  ]);
   const CORE_TEXT_REPLACEMENTS = Object.freeze([
     ["Dealer operations include checking and/or adjusting", "Czynności serwisowe obejmują kontrolę i/lub regulację"], ["Customer operations", "Czynności użytkownika"], ["Customer operation", "Czynność użytkownika"], ["Front and rear", "Przednia i tylna"], ["Front disc maximum wear", "Maksymalne zużycie przedniej tarczy"], ["rear disc maximum wear", "maksymalne zużycie tylnej tarczy"], ["Front disc thickness", "Grubość przedniej tarczy"], ["rear disc thickness", "grubość tylnej tarczy"], ["Max. rotation speed", "Maksymalna prędkość obrotowa"], ["Overall weight", "Masa całkowita"], ["in running order with", "w stanie gotowym do jazdy z"], ["Dry weight", "Masa sucha"], ["without fluids and battery", "bez płynów i akumulatora"], ["Compression ratio", "Stopień sprężania"], ["Gearbox output sprocket/rear chain sprocket ratio", "Przełożenie zębatki wyjściowej skrzyni do tylnej zębatki łańcucha"], ["checking and/or adjusting", "kontrolę i/lub regulację"], ["checking", "kontrolę"], ["checks", "kontrole"], ["changing", "wymianę"], ["cleaning", "czyszczenie"], ["lubrication", "smarowanie"], ["at the listed schedule points", "w punktach podanych w harmonogramie"], ["is described separately", "opisano osobno"], ["is provided", "podano"], ["Front rim", "Przednia obręcz"], ["rear rim", "tylna obręcz"], ["Front:", "Przód:"], ["rear:", "tył:"], ["Drive chain", "Łańcuch napędowy"], ["Gearbox output sprocket", "Zębatka wyjściowa skrzyni"], ["Rear chain sprocket", "Tylna zębatka łańcucha"], ["Seat height", "Wysokość siedzenia"], ["Wheelbase", "Rozstaw osi"], ["Bore", "Średnica cylindra"], ["Stroke", "Skok tłoka"], ["Trail in mm", "Wyprzedzenie w mm"], ["Steering head angle", "Kąt główki ramy"], ["Total displacement", "Pojemność skokowa"], ["Fuel supply", "Zasilanie paliwem"], ["Wet clutch", "Sprzęgło mokre"], ["controlled by the lever on left-hand side of the handlebar", "sterowane dźwignią po lewej stronie kierownicy"], ["LED", "LED"], ["Fuse box", "Skrzynka bezpieczników"], ["protected", "chroniony"], ["Positions and ratings are marked on the box cover", "Położenia i wartości są oznaczone na pokrywie skrzynki"], ["Tail light", "Tylne światło"], ["Headlight", "Reflektor"], ["turn indicators", "kierunkowskazy"], ["parking light", "światło pozycyjne"], ["number plate light", "oświetlenie tablicy"], ["no.", "nr"], ["per cylinder", "na cylinder"], ["desmodromic timing system", "rozrząd desmodromiczny"], ["liquid cooling", "chłodzenie cieczą"], ["tubeless radial type", "bezdętkowy typ radialny"], ["teeth", "zębów"]
   ]);
@@ -69,6 +77,13 @@
     const known = CORE_SEGMENT_LABELS[parts.at(-1)] || CORE_SEGMENT_LABELS[parts.slice(1).join("_")] || parts.at(-1);
     const domain = CORE_SEGMENT_LABELS[parts[0]] || "Dane techniczne";
     return `${domain} — ${known}`;
+  }
+  function isRiderServiceCoreEntry(entry) {
+    if (!entry || (entry.status && entry.status !== "verified")) return false;
+    const fieldId = entry.riderServiceCore && entry.riderServiceCore.canonicalFieldId;
+    if (fieldId) return !EXTENDED_CORE_FIELDS.has(fieldId) && !EXTENDED_ENTRY_PATTERNS.some(pattern => pattern.test(fieldId));
+    const id = String(entry.id || "");
+    return !EXTENDED_ENTRY_PATTERNS.some(pattern => pattern.test(id));
   }
   function entryLabel(entry) {
     if (!entry) return "Pole techniczne";
@@ -92,5 +107,5 @@
   }
   function contextLabel(field) { return ({ region: "region motocykla", abs: "informacja o ABS", equipment: "wyposażenie" })[field] || field; }
 
-  return Object.freeze({ CATEGORY_LABELS, ENTRY_LABELS, DOCUMENT_TITLE_LABELS, STATUS_LABELS, TEXT_VALUE_LABELS, CORE_SEGMENT_LABELS, CORE_FIELD_LABELS, categoryLabel, entryLabel, statusLabel, sourceTitle, sourceSection, valueText, contextLabel, riderServiceCoreLabel });
+  return Object.freeze({ CATEGORY_LABELS, ENTRY_LABELS, DOCUMENT_TITLE_LABELS, STATUS_LABELS, TEXT_VALUE_LABELS, CORE_SEGMENT_LABELS, CORE_FIELD_LABELS, categoryLabel, entryLabel, statusLabel, sourceTitle, sourceSection, valueText, contextLabel, riderServiceCoreLabel, isRiderServiceCoreEntry });
 });
