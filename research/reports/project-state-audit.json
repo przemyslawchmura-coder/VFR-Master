@@ -2156,8 +2156,8 @@
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 627,
-    "lastKnownPassed": 627,
+    "lastKnownTotal": 628,
+    "lastKnownPassed": 628,
     "failed": 0,
     "skipped": 0,
     "todo": 0

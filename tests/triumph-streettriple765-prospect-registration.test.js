@@ -32,6 +32,17 @@ test("authenticates the official Triumph handbook but fails closed on EU and equ
   assert.equal(result.productionChanged, false);
 });
 
+test("records bounded metadata resolution without changing applicability", () => {
+  const result = report();
+  assert.equal(result.metadataResolution.euApplicability, "UNRESOLVED");
+  assert.equal(result.metadataResolution.catalogueIdentitySupport, "UNRESOLVED");
+  assert.equal(result.metadataResolution.equipmentScope, "UNRESOLVED");
+  assert.equal(result.metadataResolution.absApplicability, "KNOWN");
+  assert.equal(result.metadataResolution.manualTransmissionApplicability, "KNOWN");
+  assert.equal(result.technicalValuesInspected, false);
+  assert.equal(result.catalogueChanged, false);
+});
+
 test("registration report is deterministic and stored output matches", () => {
   const first = report();
   assert.deepEqual(report(), first);

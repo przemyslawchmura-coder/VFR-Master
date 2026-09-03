@@ -161,3 +161,6 @@ Objective: establish Honda Service Data Wave 1 and correct status semantics. Com
 ## Prior published catalogue/release work (`49a17a7`, `97f0811`, `582cbd0`, `6e41ec7`, `80e669f`)
 
 Objective: publish RevLog 0.2/0.3 and expand audited Ducati/Triumph/Honda-era catalogue coverage. Result: current catalogue foundation and release history. Unresolved: catalogue scope is not worldwide-complete.
+## 2026-09-03 — Triumph Street Triple 765 III applicability metadata resolution
+
+Objective: resolve only EU, equipment, catalogue-key, ABS and transmission applicability for the authenticated MY2023 Triumph handbook. Bounded Triumph-controlled metadata confirmed ABS/manual dimensions but left EU binding, base/R/R LRH/RS separation and safe catalogue-key mapping unresolved because `3850186_2-EN` combines those equipment identities and is recorded as global EN. Canonical readiness remains `AUTHENTICATED-BUT-APPLICABILITY-PARTIAL` and fail-closed. No technical values, candidates, evidence, coverage, production, runtime or catalogue state changed. Next: obtain genuinely new controlled applicability metadata only; do not acquire or inspect handbook content while unresolved.
