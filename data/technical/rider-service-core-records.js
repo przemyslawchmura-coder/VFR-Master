@@ -9,6 +9,9 @@ const SCHEMA_VERSION = "revlog-rider-service-core-record/v1";
 const RECORD_TYPES = Object.freeze(["scalar", "structured", "repeating"]);
 const STRUCTURED_TYPES = Object.freeze(["maintenance", "fuse", "lighting", "practical-torque", "consumable-reference", "tire-pressure", "generic-structured"]);
 const ACTIONS = Object.freeze(["INSPECT", "REPLACE", "ADJUST", "CLEAN", "LUBRICATE"]);
+const productionTypeFor = record => record.recordType === "repeating"
+  ? ({ maintenance: "maintenance-task", fuse: "fuse", lighting: "light-source" }[record.structureType] || "specification")
+  : "specification";
 const assert = (condition, message) => { if (!condition) throw new TypeError(message); };
 const semanticId = input => `service-core-record.${crypto.createHash("sha256").update(json.canonicalSerialize(input)).digest("hex").slice(0, 24)}`;
 
@@ -56,4 +59,22 @@ function createRecord({ canonicalFieldId, recordType, structureType = null, rawV
   return validateRecord(input);
 }
 
-module.exports = Object.freeze({ SCHEMA_VERSION, RECORD_TYPES, STRUCTURED_TYPES, ACTIONS, semanticId, validateRecord, createRecord });
+function toTechnicalProfileEntry(record, { id, categoryId, label, sourceIds }) {
+  const validated = validateRecord(record);
+  assert(typeof id === "string" && id.length > 0, "Technical Profile entry id is required");
+  assert(typeof categoryId === "string" && categoryId.length > 0, "Technical Profile categoryId is required");
+  assert(typeof label === "string" && label.length > 0, "Technical Profile entry label is required");
+  assert(Array.isArray(sourceIds) && sourceIds.length > 0, "Technical Profile sourceIds are required");
+  return Object.freeze({
+    id,
+    type: productionTypeFor(validated),
+    categoryId,
+    label,
+    value: { type: "text", text: validated.value.rawValue },
+    riderServiceCore: validated,
+    status: "verified",
+    sourceIds: Object.freeze([...sourceIds])
+  });
+}
+
+module.exports = Object.freeze({ SCHEMA_VERSION, RECORD_TYPES, STRUCTURED_TYPES, ACTIONS, semanticId, validateRecord, createRecord, productionTypeFor, toTechnicalProfileEntry });

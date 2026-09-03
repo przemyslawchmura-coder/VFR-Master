@@ -28,8 +28,8 @@ test("Ducati processed records are all representable and excluded inputs remain 
   assert.equal(report.recordTypes.repeating > 0, true);
   assert.equal(report.records.some(record => record.canonicalFieldId === "cooling.capacity"), false);
   assert.equal(report.excludedNeedsMoreReview, 5);
-  assert.equal(report.productionDucatiChanged, false);
-  assert.equal(report.productionDucatiEntryCount, 6);
+  assert.equal(report.productionDucatiChanged, true);
+  assert.equal(report.productionDucatiEntryCount, 45);
   assert.equal(report.vfrChanged, false);
 });
 

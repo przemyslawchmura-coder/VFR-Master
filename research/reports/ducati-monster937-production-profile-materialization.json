@@ -3,14 +3,53 @@
   "profileId": "ducati.monster937.2021",
   "profileSchemaVersion": "revlog-technical-profile/v1",
   "profileStatus": "review",
-  "entryCount": 6,
+  "entryCount": 45,
   "entryIds": [
     "ignition.spark-plug.standard",
     "lubrication.engine-oil.viscosity",
     "lubrication.engine-oil.specification",
     "electrical.battery.capacity",
     "electrical.battery.specification",
-    "brakes.fluid.specification"
+    "brakes.fluid.specification",
+    "rider-service-core.engine-service-limits",
+    "rider-service-core.dimensions-mass-wet-kerb-mass",
+    "rider-service-core.maintenance-adjust",
+    "rider-service-core.brakes-disc-service-limit",
+    "rider-service-core.lighting-rear-indicators",
+    "rider-service-core.dimensions-mass-wheelbase",
+    "rider-service-core.final-drive-final-ratio",
+    "rider-service-core.dimensions-mass-dry-mass",
+    "rider-service-core.lighting-combined-high-low",
+    "rider-service-core.lighting-brake-light",
+    "rider-service-core.maintenance-lubricate",
+    "rider-service-core.maintenance-inspect",
+    "rider-service-core.brakes-disc-thickness",
+    "rider-service-core.tires-wheels-oem-tire-models",
+    "rider-service-core.brakes-disc-diameter",
+    "rider-service-core.engine-compression-ratio",
+    "rider-service-core.transmission-clutch-transmission-type",
+    "rider-service-core.steering-chassis-trail",
+    "rider-service-core.tires-wheels-rim-sizes",
+    "rider-service-core.electrical-alternator-output",
+    "rider-service-core.final-drive-oem-chain-sprocket",
+    "rider-service-core.final-drive-chain-size",
+    "rider-service-core.final-drive-front-sprocket",
+    "rider-service-core.engine-bore",
+    "rider-service-core.final-drive-rear-sprocket",
+    "rider-service-core.steering-chassis-rake",
+    "rider-service-core.maintenance-severe-use",
+    "rider-service-core.electrical-fuse-ratings",
+    "rider-service-core.engine-configuration",
+    "rider-service-core.dimensions-mass-seat-height",
+    "rider-service-core.maintenance-replace",
+    "rider-service-core.fuel-intake-fuel-type-octane",
+    "rider-service-core.lighting-front-indicators",
+    "rider-service-core.lighting-license-plate",
+    "rider-service-core.engine-displacement",
+    "rider-service-core.maintenance-clean",
+    "rider-service-core.transmission-clutch-clutch-type",
+    "rider-service-core.engine-stroke",
+    "rider-service-core.lighting-rear-tail"
   ],
   "entries": [
     {
@@ -59,6 +98,318 @@
       "status": "verified",
       "citationIds": [
         "cite.ducati.monster937-2021.om.oil-viscosity"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.brakes-disc-diameter",
+      "researchField": "brakes.disc-diameter",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.brakes-disc-diameter"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.brakes-disc-service-limit",
+      "researchField": "brakes.disc-service-limit",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.brakes-disc-service-limit"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.brakes-disc-thickness",
+      "researchField": "brakes.disc-thickness",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.brakes-disc-thickness"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.dimensions-mass-dry-mass",
+      "researchField": "dimensions_mass.dry-mass",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.dimensions_mass-dry-mass"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.dimensions-mass-seat-height",
+      "researchField": "dimensions_mass.seat-height",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.dimensions_mass-seat-height"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.dimensions-mass-wet-kerb-mass",
+      "researchField": "dimensions_mass.wet-kerb-mass",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.dimensions_mass-wet-kerb-mass"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.dimensions-mass-wheelbase",
+      "researchField": "dimensions_mass.wheelbase",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.dimensions_mass-wheelbase"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.electrical-alternator-output",
+      "researchField": "electrical.alternator-output",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.electrical-alternator-output"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.electrical-fuse-ratings",
+      "researchField": "electrical.fuse-ratings",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.electrical-fuse-ratings"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.engine-bore",
+      "researchField": "engine.bore",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.engine-bore"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.engine-compression-ratio",
+      "researchField": "engine.compression-ratio",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.engine-compression-ratio"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.engine-configuration",
+      "researchField": "engine.configuration",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.engine-configuration"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.engine-displacement",
+      "researchField": "engine.displacement",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.engine-displacement"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.engine-service-limits",
+      "researchField": "engine.service-limits",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.engine-service-limits"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.engine-stroke",
+      "researchField": "engine.stroke",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.engine-stroke"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.final-drive-chain-size",
+      "researchField": "final_drive.chain-size",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.final_drive-chain-size"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.final-drive-final-ratio",
+      "researchField": "final_drive.final-ratio",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.final_drive-final-ratio"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.final-drive-front-sprocket",
+      "researchField": "final_drive.front-sprocket",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.final_drive-front-sprocket"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.final-drive-oem-chain-sprocket",
+      "researchField": "final_drive.oem-chain-sprocket",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.final_drive-oem-chain-sprocket"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.final-drive-rear-sprocket",
+      "researchField": "final_drive.rear-sprocket",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.final_drive-rear-sprocket"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.fuel-intake-fuel-type-octane",
+      "researchField": "fuel_intake.fuel-type-octane",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.fuel_intake-fuel-type-octane"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.lighting-brake-light",
+      "researchField": "lighting.brake-light",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.lighting-brake-light"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.lighting-combined-high-low",
+      "researchField": "lighting.combined-high-low",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.lighting-combined-high-low"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.lighting-front-indicators",
+      "researchField": "lighting.front-indicators",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.lighting-front-indicators"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.lighting-license-plate",
+      "researchField": "lighting.license-plate",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.lighting-license-plate"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.lighting-rear-indicators",
+      "researchField": "lighting.rear-indicators",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.lighting-rear-indicators"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.lighting-rear-tail",
+      "researchField": "lighting.rear-tail",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.lighting-rear-tail"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.maintenance-adjust",
+      "researchField": "maintenance.adjust",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.maintenance-adjust"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.maintenance-clean",
+      "researchField": "maintenance.clean",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.maintenance-clean"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.maintenance-inspect",
+      "researchField": "maintenance.inspect",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.maintenance-inspect"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.maintenance-lubricate",
+      "researchField": "maintenance.lubricate",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.maintenance-lubricate"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.maintenance-replace",
+      "researchField": "maintenance.replace",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.maintenance-replace"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.maintenance-severe-use",
+      "researchField": "maintenance.severe-use",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.maintenance-severe-use"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.steering-chassis-rake",
+      "researchField": "steering_chassis.rake",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.steering_chassis-rake"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.steering-chassis-trail",
+      "researchField": "steering_chassis.trail",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.steering_chassis-trail"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.tires-wheels-oem-tire-models",
+      "researchField": "tires_wheels.oem-tire-models",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.tires_wheels-oem-tire-models"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.tires-wheels-rim-sizes",
+      "researchField": "tires_wheels.rim-sizes",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.tires_wheels-rim-sizes"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.transmission-clutch-clutch-type",
+      "researchField": "transmission_clutch.clutch-type",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.transmission_clutch-clutch-type"
+      ]
+    },
+    {
+      "entryId": "rider-service-core.transmission-clutch-transmission-type",
+      "researchField": "transmission_clutch.transmission-type",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.core.transmission_clutch-transmission-type"
       ]
     }
   ],

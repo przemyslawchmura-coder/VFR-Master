@@ -81,6 +81,16 @@ Research is quarantined under `research/` and is not imported by the production 
 - Latest completed-wave validation: Ducati registry/loader/resolver/isolation targeted tests passed 58/58; rollback/governance targeted tests passed 9/9; full suite passed 681/681; deterministic reports and project-state audit passed; changed JavaScript passed `node --check`; `git diff --check` passed.
 - Published application version: 0.3.0.
 
+- Ducati Monster 937 MY2021 Rider Service Core promotion: exactly the same 39
+  ACCEPTED-FOR-PROCESSING records passed individual reassessment against the
+  generic representation with zero duplicates or blockers. Exactly 39 new
+  citation-backed production entries were added to the existing profile,
+  increasing it from 6 to 45 entries. The profile, registry, loader, resolver
+  and runtime validate; the five NEEDS-MORE-REVIEW records and cooling.capacity
+  remain excluded. VFR, BMW, Human Review decisions, Evidence Processing
+  meaning and Service Core research coverage are unchanged. Phase 7 remains
+  ACTIVE.
+
 ## Independent work streams
 
 - **Stream A — Catalogue expansion:** identify and add missing manufacturers, families, generations, variants, model years, aliases and market/applicability identities.

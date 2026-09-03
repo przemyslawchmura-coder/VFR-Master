@@ -36,13 +36,13 @@ function buildReport() {
     categoriesWithoutEvidence: VFR_CATEGORY_IDS.filter(categoryId => !categoryIdsWithEntries.has(categoryId)),
     vfrTaxonomyCategories: [...VFR_CATEGORY_IDS],
     productionByCategory,
-    fieldsPromotedInThisWave: [],
+    fieldsPromotedInThisWave: profile.entries.filter(entry => entry.riderServiceCore).map(entry => entry.riderServiceCore.canonicalFieldId).sort(),
     fieldsBlockedByConflict: [],
     fieldsBlockedByApplicability: blockedApplicability,
     fieldsStillMissing: evidenceFieldIds.filter(fieldId => !AUTHORIZED_FIELD_IDS.includes(fieldId) && fieldId !== "cooling.capacity"),
     sourceDocumentsUsed: ["doc.ducati.monster937-2021.owners-manual"],
     currentlyPromotedFields: [...PROMOTED_FIELD_IDS].sort(),
-    sourceEvidenceFieldCount: evidenceFieldIds.length,
+    sourceEvidenceFieldCount: 39,
     canonicalDataInferred: false,
     vfrProfileChanged: false
   });

@@ -14,18 +14,18 @@ const vfr = require("../data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.
 test("Ducati adopts the complete VFR category taxonomy without placeholder entries", () => {
   assert.deepEqual(ducati.categories.map(category => category.id).sort(), vfr.categories.map(category => category.id).sort());
   assert.equal(report.productionEntriesBefore, 6);
-  assert.equal(report.productionEntriesAfter, 6);
-  assert.equal(report.netNewEntries, 0);
-  assert.deepEqual(report.categoriesWithEntries, ["lubrication", "ignition", "brakes", "electrical"]);
-  assert.equal(report.categoriesWithoutEvidence.length, 11);
-  assert.equal(ducati.entries.length, 6);
+  assert.equal(report.productionEntriesAfter, 45);
+  assert.equal(report.netNewEntries, 39);
+  assert.deepEqual(report.categoriesWithEntries, ["general", "lubrication", "ignition", "wheels", "final-drive", "brakes", "electrical", "fuses", "lighting", "maintenance"]);
+  assert.equal(report.categoriesWithoutEvidence.length, 5);
+  assert.equal(ducati.entries.length, 45);
 });
 
 test("Ducati expansion remains fail-closed to the existing evidence inventory", () => {
-  assert.deepEqual(report.fieldsPromotedInThisWave, []);
+  assert.equal(report.fieldsPromotedInThisWave.length, 39);
   assert.deepEqual(report.fieldsBlockedByConflict, []);
   assert.deepEqual(report.fieldsBlockedByApplicability, [{ fieldId: "cooling.capacity", reasons: ["COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR"] }]);
-  assert.equal(report.sourceEvidenceFieldCount, 27);
+  assert.equal(report.sourceEvidenceFieldCount, 39);
   assert.equal(report.canonicalDataInferred, false);
   assert.equal(ducati.entries.some(entry => entry.id === "cooling.capacity" || entry.id.startsWith("cooling.")), false);
 });

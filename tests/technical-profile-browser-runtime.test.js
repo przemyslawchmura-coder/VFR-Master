@@ -22,6 +22,7 @@ const BROWSER_SCRIPTS = [
   "data/technical/documents/honda/vfr800-2002-documents.js",
   "data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js",
   "data/technical/documents/ducati/monster937-2021-documents.js",
+  "data/technical/ducati/monster937/rider-service-core-entries-2021.js",
   "data/technical/ducati/monster937/profile-2021.js",
   "js/technical/technical-profile-registry.js",
   "js/technical/technical-profile-loader.js",
@@ -77,11 +78,11 @@ test("real browser/runtime path renders Ducati labels in Polish", async () => {
   const container = { innerHTML: "", querySelector() { return null; } };
   const view = await browser.RevLogTechnicalProfileUi.renderTechnicalProfile(container, DUCATI_MOTORCYCLE, { shouldCommit: () => true });
   assert.equal(view.profileId, "ducati.monster937.2021");
-  assert.equal(view.categories.length, 4);
+  assert.equal(view.categories.length, 10);
   for (const label of ["Olej i filtry", "Świece i zapłon", "Hamulce", "Instalacja elektryczna", "Specyfikacja oleju silnikowego", "Lepkość oleju silnikowego", "Zalecana świeca zapłonowa", "Pojemność akumulatora", "Akumulator", "Specyfikacja płynu hamulcowego"]) assert.match(container.innerHTML, new RegExp(label));
   for (const label of ["Lubrication", "Engine oil specification", "Engine oil viscosity", "Ignition", "Spark plug"]) assert.doesNotMatch(container.innerHTML, new RegExp(label));
   for (const value of ["NGK MAR9A-J", "SAE 15W-50", "API: SN; JASO: MA2", "6,5 Ah", "YUASA YT 7B-BS DRY, 12 V", "Obwód hamulca przedni/tylny: DOT 4"]) assert.match(container.innerHTML, new RegExp(value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-  assert.equal(Object.keys(view.entriesById).length, 6);
+  assert.equal(Object.keys(view.entriesById).length, 45);
 });
 
 test("browser profile store registers the reference profile", () => {

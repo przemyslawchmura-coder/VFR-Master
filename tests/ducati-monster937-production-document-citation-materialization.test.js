@@ -10,9 +10,9 @@ const report = require("../research/data/ducati-monster937-production-document-c
 
 test("Ducati materialization defines one exact document and six citations", () => {
   const result = report();
-  assert.equal(result.documentCount, 1); assert.equal(result.citationCount, 6); assert.equal(Object.keys(source.documents).length, 1); assert.equal(Object.keys(source.citations).length, 6);
+  assert.equal(result.documentCount, 1); assert.equal(result.citationCount, 45); assert.equal(Object.keys(source.documents).length, 1); assert.equal(Object.keys(source.citations).length, 45);
   assert.equal(source.documents[source.documentId].type, "oem-owners-manual"); assert.equal(source.documents[source.documentId].manufacturer, "Ducati Motor Holding S.p.A."); assert.deepEqual(source.documents[source.documentId].years, { from: 2021, to: 2021 }); assert.deepEqual(source.documents[source.documentId].regions, ["EU"]);
-  assert.equal(new Set(Object.keys(source.documents)).size, 1); assert.equal(new Set(Object.keys(source.citations)).size, 6); assert.ok(Object.values(source.citations).every(item => item.documentId === source.documentId));
+  assert.equal(new Set(Object.keys(source.documents)).size, 1); assert.equal(new Set(Object.keys(source.citations)).size, 45); assert.ok(Object.values(source.citations).every(item => item.documentId === source.documentId));
 });
 
 test("citations retain exact six fields and source locations", () => {

@@ -153,7 +153,7 @@ test("search and formatter failures produce controlled UI output without stack t
 
 test("Node and browser profile modules expose semantically identical data", () => {
   const context = vm.createContext({ URL, console: { error() {} } });
-  const scripts = ["js/technical/technical-profile-browser-store.js", "data/technical/documents/honda/vfr800-2002-documents.js", "data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js", "data/technical/documents/ducati/monster937-2021-documents.js", "data/technical/ducati/monster937/profile-2021.js"];
+  const scripts = ["js/technical/technical-profile-browser-store.js", "data/technical/documents/honda/vfr800-2002-documents.js", "data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js", "data/technical/documents/ducati/monster937-2021-documents.js", "data/technical/ducati/monster937/rider-service-core-entries-2021.js", "data/technical/ducati/monster937/profile-2021.js"];
   scripts.forEach(file => vm.runInContext(fs.readFileSync(path.join(ROOT, file), "utf8"), context, { filename: file }));
   const browserProfile = context.RevLogTechnicalProfileBrowserStore.getProfile(profile.profile.id);
   const summary = item => ({ id: item.profile.id, schema: item.schemaVersion, categories: item.categories.map(value => value.id), entries: item.entries.map(value => value.id), documents: Object.keys(item.documents), citations: Object.keys(item.citations), statuses: quality.buildQualityReport(item) });
@@ -208,7 +208,7 @@ test("browser integrity reports an orphan store registration as warning, not fat
     "data/technical/technical-profile-registry.js", "js/technical/technical-profile-browser-store.js",
     "js/technical/technical-profile-units.js", "js/technical/technical-profile-sources.js",
     "js/technical/technical-profile-validator.js", "data/technical/documents/honda/vfr800-2002-documents.js",
-    "data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js", "data/technical/documents/ducati/monster937-2021-documents.js", "data/technical/ducati/monster937/profile-2021.js", "js/technical/technical-profile-registry.js",
+    "data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js", "data/technical/documents/ducati/monster937-2021-documents.js", "data/technical/ducati/monster937/rider-service-core-entries-2021.js", "data/technical/ducati/monster937/profile-2021.js", "js/technical/technical-profile-registry.js",
     "js/technical/technical-profile-loader.js"
   ];
   scripts.forEach(file => vm.runInContext(fs.readFileSync(path.join(ROOT, file), "utf8"), context, { filename: file }));

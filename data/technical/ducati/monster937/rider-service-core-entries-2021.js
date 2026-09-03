@@ -1,38 +1,21 @@
-{
-  "schemaVersion": "revlog-rider-service-core-production-representation/v1",
-  "target": {
-    "catalogVariantKey": "ducati.monster.937",
-    "model": "Monster 937",
-    "year": 2021,
-    "market": "EU",
-    "equipment": "base Monster 937",
-    "excludedEquipment": "Monster SP 937",
-    "transmission": "manual",
-    "abs": true,
-    "profileId": "ducati.monster937.2021",
-    "scope": "common base Monster 937; Monster+ only where common; Monster SP excluded"
-  },
-  "processedInputsInspected": 39,
-  "losslesslyRepresentable": 39,
-  "stillNotRepresentable": 0,
-  "remainingStructuralBlockers": [],
-  "recordTypes": {
-    "scalar": 21,
-    "structured": 11,
-    "repeating": 7
-  },
-  "outputsByDomain": {
-    "basic-motorcycle-data": 15,
-    "brakes": 3,
-    "electrical-battery": 1,
-    "final-drive": 5,
-    "fuses": 1,
-    "lighting": 6,
-    "periodic-maintenance": 6,
-    "wheels-tires": 2
-  },
-  "records": [
-    {
+// Generated from the existing read-only Ducati Rider Service Core representation; production promotion consumes no research module at runtime.
+(function attachDucatiMonster937RiderServiceCoreEntries(root, factory) {
+  const api = factory();
+  if (typeof module === "object" && module.exports) module.exports = api;
+  if (root) root.RevLogDucatiMonster937RiderServiceCoreEntries = api;
+})(typeof globalThis !== "undefined" ? globalThis : this, function createEntries() {
+"use strict";
+const entries = Object.freeze([
+  {
+    "id": "rider-service-core.engine-service-limits",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "engine.service-limits",
+    "value": {
+      "type": "text",
+      "text": "Max. rotation speed: 10200 rpm."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -61,7 +44,21 @@
         "rawValue": "Max. rotation speed: 10200 rpm."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.engine-service-limits"
+    ]
+  },
+  {
+    "id": "rider-service-core.dimensions-mass-wet-kerb-mass",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "dimensions_mass.wet-kerb-mass",
+    "value": {
+      "type": "text",
+      "text": "Overall weight (in running order with 90% of fuel - 44/2014/EU Annex XI): 166 kg (365.97 lb)."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -90,7 +87,21 @@
         "rawValue": "Overall weight (in running order with 90% of fuel - 44/2014/EU Annex XI): 166 kg (365.97 lb)."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.dimensions_mass-wet-kerb-mass"
+    ]
+  },
+  {
+    "id": "rider-service-core.maintenance-adjust",
+    "type": "maintenance-task",
+    "categoryId": "maintenance",
+    "label": "maintenance.adjust",
+    "value": {
+      "type": "text",
+      "text": "Dealer operations include checking and/or adjusting valve clearance; customer operation includes checking drive-chain tension."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -130,7 +141,21 @@
         "rawValue": "Dealer operations include checking and/or adjusting valve clearance; customer operation includes checking drive-chain tension."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.maintenance-adjust"
+    ]
+  },
+  {
+    "id": "rider-service-core.brakes-disc-service-limit",
+    "type": "specification",
+    "categoryId": "brakes",
+    "label": "brakes.disc-service-limit",
+    "value": {
+      "type": "text",
+      "text": "Front disc maximum wear: 4.0 mm; rear disc maximum wear: 3.6 mm."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -170,7 +195,21 @@
         "rawValue": "Front disc maximum wear: 4.0 mm; rear disc maximum wear: 3.6 mm."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.brakes-disc-service-limit"
+    ]
+  },
+  {
+    "id": "rider-service-core.lighting-rear-indicators",
+    "type": "specification",
+    "categoryId": "lighting",
+    "label": "lighting.rear-indicators",
+    "value": {
+      "type": "text",
+      "text": "LED rear turn indicators: no. 7."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -206,7 +245,21 @@
         "rawValue": "LED rear turn indicators: no. 7."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.lighting-rear-indicators"
+    ]
+  },
+  {
+    "id": "rider-service-core.dimensions-mass-wheelbase",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "dimensions_mass.wheelbase",
+    "value": {
+      "type": "text",
+      "text": "Wheelbase: 1474 mm (58.03 in)."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -235,7 +288,21 @@
         "rawValue": "Wheelbase: 1474 mm (58.03 in)."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.dimensions_mass-wheelbase"
+    ]
+  },
+  {
+    "id": "rider-service-core.final-drive-final-ratio",
+    "type": "specification",
+    "categoryId": "final-drive",
+    "label": "final_drive.final-ratio",
+    "value": {
+      "type": "text",
+      "text": "Gearbox output sprocket/rear chain sprocket ratio: 15/43."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -264,7 +331,21 @@
         "rawValue": "Gearbox output sprocket/rear chain sprocket ratio: 15/43."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.final_drive-final-ratio"
+    ]
+  },
+  {
+    "id": "rider-service-core.dimensions-mass-dry-mass",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "dimensions_mass.dry-mass",
+    "value": {
+      "type": "text",
+      "text": "Dry weight (without fluids and battery): 188 kg (414.47 lb)."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -293,7 +374,21 @@
         "rawValue": "Dry weight (without fluids and battery): 188 kg (414.47 lb)."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.dimensions_mass-dry-mass"
+    ]
+  },
+  {
+    "id": "rider-service-core.lighting-combined-high-low",
+    "type": "light-source",
+    "categoryId": "lighting",
+    "label": "lighting.combined-high-low",
+    "value": {
+      "type": "text",
+      "text": "Headlight: LED low beam no. 1; LED high beam no. 4."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -329,7 +424,21 @@
         "rawValue": "Headlight: LED low beam no. 1; LED high beam no. 4."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.lighting-combined-high-low"
+    ]
+  },
+  {
+    "id": "rider-service-core.lighting-brake-light",
+    "type": "specification",
+    "categoryId": "lighting",
+    "label": "lighting.brake-light",
+    "value": {
+      "type": "text",
+      "text": "Tail light: LED rear stop light no. 9."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -365,7 +474,21 @@
         "rawValue": "Tail light: LED rear stop light no. 9."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.lighting-brake-light"
+    ]
+  },
+  {
+    "id": "rider-service-core.maintenance-lubricate",
+    "type": "maintenance-task",
+    "categoryId": "maintenance",
+    "label": "maintenance.lubricate",
+    "value": {
+      "type": "text",
+      "text": "Customer operation: check the drive chain tension and lubrication; chain lubrication procedure is described separately."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -405,7 +528,21 @@
         "rawValue": "Customer operation: check the drive chain tension and lubrication; chain lubrication procedure is described separately."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.maintenance-lubricate"
+    ]
+  },
+  {
+    "id": "rider-service-core.maintenance-inspect",
+    "type": "maintenance-task",
+    "categoryId": "maintenance",
+    "label": "maintenance.inspect",
+    "value": {
+      "type": "text",
+      "text": "Customer operations: check engine oil level; brake fluid level; tyre pressure and wear; drive chain tension and lubrication; brake pads. Dealer operations include checks of air filter, brake/clutch fluid, discs/pads, wheel fasteners, bearings and other listed items."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -445,7 +582,21 @@
         "rawValue": "Customer operations: check engine oil level; brake fluid level; tyre pressure and wear; drive chain tension and lubrication; brake pads. Dealer operations include checks of air filter, brake/clutch fluid, discs/pads, wheel fasteners, bearings and other listed items."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.maintenance-inspect"
+    ]
+  },
+  {
+    "id": "rider-service-core.brakes-disc-thickness",
+    "type": "specification",
+    "categoryId": "brakes",
+    "label": "brakes.disc-thickness",
+    "value": {
+      "type": "text",
+      "text": "Front disc thickness: 4.5 mm; rear disc thickness: 4.2 mm."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -485,7 +636,21 @@
         "rawValue": "Front disc thickness: 4.5 mm; rear disc thickness: 4.2 mm."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.brakes-disc-thickness"
+    ]
+  },
+  {
+    "id": "rider-service-core.tires-wheels-oem-tire-models",
+    "type": "specification",
+    "categoryId": "wheels",
+    "label": "tires_wheels.oem-tire-models",
+    "value": {
+      "type": "text",
+      "text": "Front and rear: Pirelli Diablo Rosso III, tubeless radial type."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -514,7 +679,21 @@
         "rawValue": "Front and rear: Pirelli Diablo Rosso III, tubeless radial type."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.tires_wheels-oem-tire-models"
+    ]
+  },
+  {
+    "id": "rider-service-core.brakes-disc-diameter",
+    "type": "specification",
+    "categoryId": "brakes",
+    "label": "brakes.disc-diameter",
+    "value": {
+      "type": "text",
+      "text": "Front: 2 drilled stainless steel discs, 320 mm; rear: fixed drilled steel disk, 245 mm."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -554,7 +733,21 @@
         "rawValue": "Front: 2 drilled stainless steel discs, 320 mm; rear: fixed drilled steel disk, 245 mm."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.brakes-disc-diameter"
+    ]
+  },
+  {
+    "id": "rider-service-core.engine-compression-ratio",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "engine.compression-ratio",
+    "value": {
+      "type": "text",
+      "text": "Compression ratio: 13.3±0.5:1"
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -583,7 +776,21 @@
         "rawValue": "Compression ratio: 13.3±0.5:1"
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.engine-compression-ratio"
+    ]
+  },
+  {
+    "id": "rider-service-core.transmission-clutch-transmission-type",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "transmission_clutch.transmission-type",
+    "value": {
+      "type": "text",
+      "text": "6-speed gearbox with constant mesh gears, and gear change pedal on left side of motorcycle."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -612,7 +819,21 @@
         "rawValue": "6-speed gearbox with constant mesh gears, and gear change pedal on left side of motorcycle."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.transmission_clutch-transmission-type"
+    ]
+  },
+  {
+    "id": "rider-service-core.steering-chassis-trail",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "steering_chassis.trail",
+    "value": {
+      "type": "text",
+      "text": "Trail in mm: 93 (3.66 in)."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -641,7 +862,21 @@
         "rawValue": "Trail in mm: 93 (3.66 in)."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.steering_chassis-trail"
+    ]
+  },
+  {
+    "id": "rider-service-core.tires-wheels-rim-sizes",
+    "type": "specification",
+    "categoryId": "wheels",
+    "label": "tires_wheels.rim-sizes",
+    "value": {
+      "type": "text",
+      "text": "Front rim MT3.50x17; rear rim MT5.50x17."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -681,7 +916,21 @@
         "rawValue": "Front rim MT3.50x17; rear rim MT5.50x17."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.tires_wheels-rim-sizes"
+    ]
+  },
+  {
+    "id": "rider-service-core.electrical-alternator-output",
+    "type": "specification",
+    "categoryId": "electrical",
+    "label": "electrical.alternator-output",
+    "value": {
+      "type": "text",
+      "text": "Generator Denso 14V - 490W."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -710,7 +959,21 @@
         "rawValue": "Generator Denso 14V - 490W."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.electrical-alternator-output"
+    ]
+  },
+  {
+    "id": "rider-service-core.final-drive-oem-chain-sprocket",
+    "type": "specification",
+    "categoryId": "final-drive",
+    "label": "final_drive.oem-chain-sprocket",
+    "value": {
+      "type": "text",
+      "text": "Drive chain: Regina 520 ZRDK, 106 links; gearbox output sprocket/rear chain sprocket ratio 15/43."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -750,7 +1013,21 @@
         "rawValue": "Drive chain: Regina 520 ZRDK, 106 links; gearbox output sprocket/rear chain sprocket ratio 15/43."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.final_drive-oem-chain-sprocket"
+    ]
+  },
+  {
+    "id": "rider-service-core.final-drive-chain-size",
+    "type": "specification",
+    "categoryId": "final-drive",
+    "label": "final_drive.chain-size",
+    "value": {
+      "type": "text",
+      "text": "Drive chain from gearbox to rear wheel. Make: Regina; Type: 520 ZRDK; Links: 106."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -779,7 +1056,21 @@
         "rawValue": "Drive chain from gearbox to rear wheel. Make: Regina; Type: 520 ZRDK; Links: 106."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.final_drive-chain-size"
+    ]
+  },
+  {
+    "id": "rider-service-core.final-drive-front-sprocket",
+    "type": "specification",
+    "categoryId": "final-drive",
+    "label": "final_drive.front-sprocket",
+    "value": {
+      "type": "text",
+      "text": "Gearbox output sprocket: 15 teeth."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -808,7 +1099,21 @@
         "rawValue": "Gearbox output sprocket: 15 teeth."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.final_drive-front-sprocket"
+    ]
+  },
+  {
+    "id": "rider-service-core.engine-bore",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "engine.bore",
+    "value": {
+      "type": "text",
+      "text": "Bore: 94 mm (3.70 in)"
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -837,7 +1142,21 @@
         "rawValue": "Bore: 94 mm (3.70 in)"
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.engine-bore"
+    ]
+  },
+  {
+    "id": "rider-service-core.final-drive-rear-sprocket",
+    "type": "specification",
+    "categoryId": "final-drive",
+    "label": "final_drive.rear-sprocket",
+    "value": {
+      "type": "text",
+      "text": "Rear chain sprocket: 43 teeth."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -866,7 +1185,21 @@
         "rawValue": "Rear chain sprocket: 43 teeth."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.final_drive-rear-sprocket"
+    ]
+  },
+  {
+    "id": "rider-service-core.steering-chassis-rake",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "steering_chassis.rake",
+    "value": {
+      "type": "text",
+      "text": "Steering head angle: 24°"
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -895,7 +1228,21 @@
         "rawValue": "Steering head angle: 24°"
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.steering_chassis-rake"
+    ]
+  },
+  {
+    "id": "rider-service-core.maintenance-severe-use",
+    "type": "specification",
+    "categoryId": "maintenance",
+    "label": "maintenance.severe-use",
+    "value": {
+      "type": "text",
+      "text": "Extreme damp/muddy or dusty/dry conditions can cause above-average wear of the drive system, brakes or air filter and may require earlier service or replacement."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -935,7 +1282,21 @@
         "rawValue": "Extreme damp/muddy or dusty/dry conditions can cause above-average wear of the drive system, brakes or air filter and may require earlier service or replacement."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.maintenance-severe-use"
+    ]
+  },
+  {
+    "id": "rider-service-core.electrical-fuse-ratings",
+    "type": "fuse",
+    "categoryId": "fuses",
+    "label": "electrical.fuse-ratings",
+    "value": {
+      "type": "text",
+      "text": "Fuse box A: Key 1 ECU/ABS/IMU 5 A; Key 2 Dashboard/BBS 15 A; Key 3 Accessories 10 A; Diagnostics 7.5 A; Fuel pump relay 10 A. Fuse box B: El. loads relay 25 A; Starter relay 7.5 A; Dashboard 20 A; BBS 10 A; ABS 20 A; ABS 25 A. Positions and ratings are marked on the box cover."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -972,7 +1333,21 @@
         "rawValue": "Fuse box A: Key 1 ECU/ABS/IMU 5 A; Key 2 Dashboard/BBS 15 A; Key 3 Accessories 10 A; Diagnostics 7.5 A; Fuel pump relay 10 A. Fuse box B: El. loads relay 25 A; Starter relay 7.5 A; Dashboard 20 A; BBS 10 A; ABS 20 A; ABS 25 A. Positions and ratings are marked on the box cover."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.electrical-fuse-ratings"
+    ]
+  },
+  {
+    "id": "rider-service-core.engine-configuration",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "engine.configuration",
+    "value": {
+      "type": "text",
+      "text": "Testastretta 11°, V2 90°, 4 valves per cylinder, desmodromic timing system, liquid cooling."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -1001,7 +1376,21 @@
         "rawValue": "Testastretta 11°, V2 90°, 4 valves per cylinder, desmodromic timing system, liquid cooling."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.engine-configuration"
+    ]
+  },
+  {
+    "id": "rider-service-core.dimensions-mass-seat-height",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "dimensions_mass.seat-height",
+    "value": {
+      "type": "text",
+      "text": "Seat height: 820 mm (32.28 in), lowered seat (Performance) 800 mm (31.50 in)."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -1030,7 +1419,21 @@
         "rawValue": "Seat height: 820 mm (32.28 in), lowered seat (Performance) 800 mm (31.50 in)."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.dimensions_mass-seat-height"
+    ]
+  },
+  {
+    "id": "rider-service-core.maintenance-replace",
+    "type": "maintenance-task",
+    "categoryId": "maintenance",
+    "label": "maintenance.replace",
+    "value": {
+      "type": "text",
+      "text": "Dealer operations include changing engine oil and filter, air filter, timing belts, spark plugs, coolant, front fork fluid and brake/clutch fluid at the listed schedule points."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -1070,7 +1473,21 @@
         "rawValue": "Dealer operations include changing engine oil and filter, air filter, timing belts, spark plugs, coolant, front fork fluid and brake/clutch fluid at the listed schedule points."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.maintenance-replace"
+    ]
+  },
+  {
+    "id": "rider-service-core.fuel-intake-fuel-type-octane",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "fuel_intake.fuel-type-octane",
+    "value": {
+      "type": "text",
+      "text": "Fuel supply: 95-98 RON."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -1099,7 +1516,21 @@
         "rawValue": "Fuel supply: 95-98 RON."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.fuel_intake-fuel-type-octane"
+    ]
+  },
+  {
+    "id": "rider-service-core.lighting-front-indicators",
+    "type": "specification",
+    "categoryId": "lighting",
+    "label": "lighting.front-indicators",
+    "value": {
+      "type": "text",
+      "text": "LED front turn indicators: no. 6; LED front turn indicators (USA-ROK): no. 3."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -1135,7 +1566,21 @@
         "rawValue": "LED front turn indicators: no. 6; LED front turn indicators (USA-ROK): no. 3."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.lighting-front-indicators"
+    ]
+  },
+  {
+    "id": "rider-service-core.lighting-license-plate",
+    "type": "specification",
+    "categoryId": "lighting",
+    "label": "lighting.license-plate",
+    "value": {
+      "type": "text",
+      "text": "Tail light: LED number plate light no. 3."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -1171,7 +1616,21 @@
         "rawValue": "Tail light: LED number plate light no. 3."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.lighting-license-plate"
+    ]
+  },
+  {
+    "id": "rider-service-core.engine-displacement",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "engine.displacement",
+    "value": {
+      "type": "text",
+      "text": "Total displacement: 937 cu. cm (57.18 cu in)"
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -1200,7 +1659,21 @@
         "rawValue": "Total displacement: 937 cu. cm (57.18 cu in)"
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.engine-displacement"
+    ]
+  },
+  {
+    "id": "rider-service-core.maintenance-clean",
+    "type": "maintenance-task",
+    "categoryId": "maintenance",
+    "label": "maintenance.clean",
+    "value": {
+      "type": "text",
+      "text": "Dealer operations include checking and cleaning the air filter; chain cleaning guidance is provided in the drive-chain maintenance section."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -1240,7 +1713,21 @@
         "rawValue": "Dealer operations include checking and cleaning the air filter; chain cleaning guidance is provided in the drive-chain maintenance section."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.maintenance-clean"
+    ]
+  },
+  {
+    "id": "rider-service-core.transmission-clutch-clutch-type",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "transmission_clutch.clutch-type",
+    "value": {
+      "type": "text",
+      "text": "Wet clutch controlled by the lever on left-hand side of the handlebar."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -1269,7 +1756,21 @@
         "rawValue": "Wet clutch controlled by the lever on left-hand side of the handlebar."
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.transmission_clutch-clutch-type"
+    ]
+  },
+  {
+    "id": "rider-service-core.engine-stroke",
+    "type": "specification",
+    "categoryId": "general",
+    "label": "engine.stroke",
+    "value": {
+      "type": "text",
+      "text": "Stroke: 67.5 mm (2.66 in)"
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -1298,7 +1799,21 @@
         "rawValue": "Stroke: 67.5 mm (2.66 in)"
       }
     },
-    {
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.engine-stroke"
+    ]
+  },
+  {
+    "id": "rider-service-core.lighting-rear-tail",
+    "type": "specification",
+    "categoryId": "lighting",
+    "label": "lighting.rear-tail",
+    "value": {
+      "type": "text",
+      "text": "Tail light: LED parking light no. 4."
+    },
+    "riderServiceCore": {
       "applicability": {
         "abs": true,
         "equipment": "base Monster 937",
@@ -1333,24 +1848,12 @@
         "rawUnit": null,
         "rawValue": "Tail light: LED parking light no. 4."
       }
-    }
-  ],
-  "excludedNeedsMoreReview": 5,
-  "coolingCapacity": {
-    "entered": false,
-    "state": "BLOCKED",
-    "reason": "COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR"
-  },
-  "humanReviewDecisionsChanged": false,
-  "evidenceProcessingMeaningChanged": false,
-  "productionDucatiChanged": true,
-  "productionDucatiEntryCount": 45,
-  "vfrChanged": false,
-  "evidenceRowsCreated": 0,
-  "serviceCoreCoverageChanged": false,
-  "audit": {
-    "classification": "ACCEPT-WITH-RISKS",
-    "conclusion": "The generic Rider Service Core production representation validates all 39 processed Ducati inputs. Their subsequent bounded promotion is reported separately; scalar values remain raw/value pairs and structured/repeating records retain source text, explicit action/type and source associations."
-  },
-  "exactNextTask": "Keep the five deferred candidates and cooling exclusion; do not broaden Ducati promotion without separate authorization."
-}
+    },
+    "status": "verified",
+    "sourceIds": [
+      "cite.ducati.monster937-2021.om.core.lighting-rear-tail"
+    ]
+  }
+]);
+return Object.freeze({ records: Object.freeze([]), entries });
+});

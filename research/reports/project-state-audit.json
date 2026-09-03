@@ -6,11 +6,11 @@
   "baseCommit": "b1c8575105c981d4eb39370bd32cff4c6dba4280",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 437,
-    "javascriptFiles": 292,
+    "files": 442,
+    "javascriptFiles": 296,
     "testFiles": 96,
     "documentationFiles": 73,
-    "researchAndToolingFiles": 219
+    "researchAndToolingFiles": 223
   },
   "catalogue": {
     "manufacturers": 13,
@@ -68,10 +68,10 @@
         },
         "requiredContext": null,
         "status": "review",
-        "entries": 6,
-        "verified": 6,
+        "entries": 45,
+        "verified": 45,
         "unresolved": 0,
-        "sourceCount": 6
+        "sourceCount": 45
       }
     ]
   },

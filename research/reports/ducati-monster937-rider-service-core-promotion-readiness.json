@@ -70,26 +70,26 @@
     "stopCondition": "raw extraction stops before evidence conversion; human review and any later promotion remain separate"
   },
   "processedInputsReceived": 39,
-  "promotionReady": 0,
+  "promotionReady": 39,
   "alreadyCovered": 0,
-  "productionRepresentationBlocked": 39,
+  "productionRepresentationBlocked": 0,
   "structuralRepresentationBlocked": 0,
   "provenanceApplicabilityConflictBlocked": 0,
   "otherReadinessOutcomes": 0,
   "duplicatesOrCollisions": 0,
   "readyByRiderServiceCoreDomain": {
-    "basic-motorcycle-data": 0,
+    "basic-motorcycle-data": 15,
     "engine-oil-filter": 0,
     "cooling": 0,
     "spark-plugs-ignition": 0,
     "valves": 0,
-    "wheels-tires": 0,
-    "final-drive": 0,
-    "brakes": 0,
-    "electrical-battery": 0,
-    "fuses": 0,
-    "lighting": 0,
-    "periodic-maintenance": 0,
+    "wheels-tires": 2,
+    "final-drive": 5,
+    "brakes": 3,
+    "electrical-battery": 1,
+    "fuses": 1,
+    "lighting": 6,
+    "periodic-maintenance": 6,
     "consumables": 0,
     "practical-torques": 0
   },
@@ -123,11 +123,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.engine-configuration",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -190,11 +189,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.engine-displacement",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -257,11 +255,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.engine-bore",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -324,11 +321,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.engine-stroke",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -391,11 +387,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.engine-compression-ratio",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -458,11 +453,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.engine-service-limits",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -525,11 +519,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.dimensions-mass-wet-kerb-mass",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -592,11 +585,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.dimensions-mass-dry-mass",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -659,11 +651,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.dimensions-mass-seat-height",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -726,11 +717,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.dimensions-mass-wheelbase",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -793,11 +783,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.steering-chassis-rake",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -860,11 +849,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.steering-chassis-trail",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -927,11 +915,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.fuel-intake-fuel-type-octane",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -994,11 +981,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.transmission-clutch-transmission-type",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -1061,11 +1047,10 @@
       "riderServiceCoreDomain": "basic-motorcycle-data",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.transmission-clutch-clutch-type",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -1128,11 +1113,10 @@
       "riderServiceCoreDomain": "final-drive",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.final-drive-chain-size",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -1195,11 +1179,10 @@
       "riderServiceCoreDomain": "final-drive",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.final-drive-front-sprocket",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -1262,11 +1245,10 @@
       "riderServiceCoreDomain": "final-drive",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.final-drive-rear-sprocket",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -1329,11 +1311,10 @@
       "riderServiceCoreDomain": "final-drive",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.final-drive-final-ratio",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -1396,11 +1377,10 @@
       "riderServiceCoreDomain": "final-drive",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.final-drive-oem-chain-sprocket",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -1474,11 +1454,10 @@
       "riderServiceCoreDomain": "wheels-tires",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.tires-wheels-oem-tire-models",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -1541,11 +1520,10 @@
       "riderServiceCoreDomain": "wheels-tires",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.tires-wheels-rim-sizes",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -1619,11 +1597,10 @@
       "riderServiceCoreDomain": "brakes",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.brakes-disc-diameter",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -1697,11 +1674,10 @@
       "riderServiceCoreDomain": "brakes",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.brakes-disc-thickness",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -1775,11 +1751,10 @@
       "riderServiceCoreDomain": "brakes",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.brakes-disc-service-limit",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -1853,11 +1828,10 @@
       "riderServiceCoreDomain": "electrical-battery",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.electrical-alternator-output",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -1920,11 +1894,10 @@
       "riderServiceCoreDomain": "fuses",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.electrical-fuse-ratings",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -1995,11 +1968,10 @@
       "riderServiceCoreDomain": "lighting",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.lighting-combined-high-low",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -2069,11 +2041,10 @@
       "riderServiceCoreDomain": "lighting",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.lighting-front-indicators",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -2143,11 +2114,10 @@
       "riderServiceCoreDomain": "lighting",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.lighting-rear-indicators",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -2217,11 +2187,10 @@
       "riderServiceCoreDomain": "lighting",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.lighting-rear-tail",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -2291,11 +2260,10 @@
       "riderServiceCoreDomain": "lighting",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.lighting-brake-light",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -2365,11 +2333,10 @@
       "riderServiceCoreDomain": "lighting",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.lighting-license-plate",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -2439,11 +2406,10 @@
       "riderServiceCoreDomain": "periodic-maintenance",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.maintenance-inspect",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -2517,11 +2483,10 @@
       "riderServiceCoreDomain": "periodic-maintenance",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.maintenance-replace",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -2595,11 +2560,10 @@
       "riderServiceCoreDomain": "periodic-maintenance",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.maintenance-adjust",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -2673,11 +2637,10 @@
       "riderServiceCoreDomain": "periodic-maintenance",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.maintenance-lubricate",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -2751,11 +2714,10 @@
       "riderServiceCoreDomain": "periodic-maintenance",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.maintenance-clean",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -2829,11 +2791,10 @@
       "riderServiceCoreDomain": "periodic-maintenance",
       "gateState": "PROMOTION-READY",
       "gateReasons": [],
-      "readinessState": "BLOCKED",
-      "readinessReasons": [
-        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
-      ],
+      "readinessState": "PROMOTION-READY",
+      "readinessReasons": [],
       "duplicateProductionEntry": false,
+      "proposedProductionEntryId": "rider-service-core.maintenance-severe-use",
       "productionRecord": {
         "applicability": {
           "abs": true,
@@ -2901,14 +2862,14 @@
     }
   ],
   "productionDucatiChanged": false,
-  "productionDucatiEntryCount": 6,
+  "productionDucatiEntryCount": 45,
   "vfrChanged": false,
   "evidenceRowsCreated": 0,
   "serviceCoreCoverageChanged": false,
   "humanReviewDecisionsChanged": false,
   "audit": {
     "classification": "ACCEPT-WITH-RISKS",
-    "conclusion": "All 39 processed Ducati Rider Service Core records pass the canonical identity/provenance/applicability gate, but remain blocked because no lossless production-schema mapping has been established for these fields. The fuse candidate also lacks a preserved structured association in the current processing payload, so it is not promoted by inference. Existing production entries, structured source meaning and upstream review state remain unchanged."
+    "conclusion": "All 39 processed Ducati Rider Service Core records pass the canonical identity, provenance, applicability and generic production-representation gates. They remain non-production projections until a separately authorized promotion operation materializes them."
   },
-  "exactNextTask": "Define and review lossless generic production mappings for the blocked Core fields before any separate promotion wave; keep the five deferred candidates and cooling excluded."
+  "exactNextTask": "Materialize only the 39 PROMOTION-READY Ducati records through the existing production profile and citation contracts; retain five deferred candidates and cooling exclusion."
 }

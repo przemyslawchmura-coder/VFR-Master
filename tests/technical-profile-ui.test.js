@@ -68,7 +68,7 @@ test("Ducati presentation is Polish while values and profile semantics remain un
   const before = JSON.stringify(ducatiProfile);
   const view = await uiApi.prepareTechnicalProfileView(DUCATI_MOTORCYCLE);
   assert.equal(view.profileId, "ducati.monster937.2021");
-  assert.deepEqual(view.categories.map(category => category.label), ["Olej i filtry", "Świece i zapłon", "Hamulce", "Instalacja elektryczna"]);
+  assert.deepEqual(view.categories.map(category => category.label), ["Dane ogólne", "Olej i filtry", "Świece i zapłon", "Koła i opony", "Napęd końcowy", "Hamulce", "Instalacja elektryczna", "Bezpieczniki", "Oświetlenie", "Obsługa okresowa"]);
   assert.equal(view.entriesById["lubrication.engine-oil.viscosity"].label, "Lepkość oleju silnikowego");
   assert.equal(view.entriesById["electrical.battery.capacity"].label, "Pojemność akumulatora");
   assert.equal(view.entriesById["electrical.battery.capacity"].formattedValue, "6,5 Ah");

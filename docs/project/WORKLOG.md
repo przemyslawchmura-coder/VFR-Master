@@ -285,6 +285,19 @@ the same 39 Ducati `ACCEPT` inputs: 39 `ACCEPTED-FOR-PROCESSING`, 0 contract
 blocks, 0 validation failures, 0 conflicts. The five deferred candidates and
 cooling blocker remain excluded; no Human Review, evidence, production, VFR or
 coverage state changed. Phase 7 remains ACTIVE.
+
+## 2026-09-03 — Ducati Rider Service Core conditional production promotion
+
+Reassessed exactly the existing 39 Ducati Monster 937 MY2021
+`ACCEPTED-FOR-PROCESSING` records against the generic lossless production
+representation. All 39 were individually `PROMOTION-READY`, with zero
+duplicates, conflicts or blockers. Materialized exactly those 39 records as
+new citation-backed entries in the existing Ducati profile, preserving the
+original six entries unchanged. The profile now contains 45 entries and
+passes validator, registry, loader, resolver and runtime regressions. The five
+`NEEDS-MORE-REVIEW` candidates and `cooling.capacity` remain excluded; no BMW,
+VFR, Human Review, Evidence Processing meaning or Service Core research
+coverage changed. Phase 7 remains ACTIVE.
 ## 2026-09-03 — Ducati Rider Service Core promotion readiness
 
 Audited exactly the 39 aligned `ACCEPTED-FOR-PROCESSING` Ducati records through

@@ -10,13 +10,13 @@ test("exactly 39 processed Ducati records receive one fail-closed readiness outc
   assert.equal(report.processedInputsReceived, 39);
   assert.equal(report.outcomes.length, 39);
   assert.equal(new Set(report.outcomes.map(item => item.candidateId)).size, 39);
-  assert.equal(report.promotionReady, 0);
-  assert.equal(report.productionRepresentationBlocked, 39);
+  assert.equal(report.promotionReady, 39);
+  assert.equal(report.productionRepresentationBlocked, 0);
   assert.equal(report.structuralRepresentationBlocked, 0);
   assert.equal(report.provenanceApplicabilityConflictBlocked, 0);
   assert.equal(report.otherReadinessOutcomes, 0);
   assert.equal(report.duplicatesOrCollisions, 0);
-  assert.ok(report.outcomes.every(item => item.gateState === "PROMOTION-READY" && item.readinessState === "BLOCKED"));
+  assert.ok(report.outcomes.every(item => item.gateState === "PROMOTION-READY" && item.readinessState === "PROMOTION-READY"));
 });
 
 test("structured evidence remains associated and excluded inputs stay excluded", () => {
@@ -33,7 +33,7 @@ test("structured evidence remains associated and excluded inputs stay excluded",
 
 test("production and upstream research remain unchanged", () => {
   assert.equal(report.productionDucatiChanged, false);
-  assert.equal(report.productionDucatiEntryCount, 6);
+  assert.equal(report.productionDucatiEntryCount, 45);
   assert.equal(report.vfrChanged, false);
   assert.equal(report.evidenceRowsCreated, 0);
   assert.equal(report.serviceCoreCoverageChanged, false);

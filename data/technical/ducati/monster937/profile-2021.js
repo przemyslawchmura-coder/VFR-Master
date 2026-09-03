@@ -1,14 +1,16 @@
 (function attachDucatiMonster937Profile(root, factory) {
   let sourceRegistry = root && root.RevLogDucatiMonster937SourceRegistry;
+  let riderServiceCore = root && root.RevLogDucatiMonster937RiderServiceCoreEntries;
   if (typeof module === "object" && module.exports) {
     sourceRegistry = sourceRegistry || require("../../documents/ducati/monster937-2021-documents.js");
+    riderServiceCore = riderServiceCore || require("./rider-service-core-entries-2021.js");
   }
-  const profile = factory(sourceRegistry);
+  const profile = factory(sourceRegistry, riderServiceCore);
   if (typeof module === "object" && module.exports) module.exports = profile;
   if (root && root.RevLogTechnicalProfileBrowserStore) {
     root.RevLogTechnicalProfileBrowserStore.registerProfile(profile);
   }
-})(typeof globalThis !== "undefined" ? globalThis : this, function createDucatiMonster937Profile(sourceRegistry) {
+})(typeof globalThis !== "undefined" ? globalThis : this, function createDucatiMonster937Profile(sourceRegistry, riderServiceCore) {
 "use strict";
 
 // Bounded production Technical Profile; presentation localization is applied by the UI layer.
@@ -46,7 +48,8 @@ return Object.freeze({
     { id: "lubrication.engine-oil.specification", type: "fluid", categoryId: "lubrication", label: "Engine oil specification", value: { type: "text", text: "API: SN; JASO: MA2" }, status: "verified", sourceIds: ["cite.ducati.monster937-2021.om.oil-api-jaso"] },
     { id: "electrical.battery.capacity", type: "specification", categoryId: "electrical", label: "Battery capacity", value: { type: "quantity", amount: 6.5, unit: "Ah" }, status: "verified", sourceIds: ["cite.ducati.monster937-2021.om.battery-capacity"] },
     { id: "electrical.battery.specification", type: "consumable-part", categoryId: "electrical", label: "Battery", value: { type: "text", text: "YUASA YT 7B-BS DRY, 12 V" }, status: "verified", sourceIds: ["cite.ducati.monster937-2021.om.battery-specification"] },
-    { id: "brakes.fluid.specification", type: "fluid", categoryId: "brakes", label: "Brake fluid", value: { type: "text", text: "Front/rear brake circuit: DOT 4" }, status: "verified", sourceIds: ["cite.ducati.monster937-2021.om.brake-fluid"] }
+    { id: "brakes.fluid.specification", type: "fluid", categoryId: "brakes", label: "Brake fluid", value: { type: "text", text: "Front/rear brake circuit: DOT 4" }, status: "verified", sourceIds: ["cite.ducati.monster937-2021.om.brake-fluid"] },
+    ...riderServiceCore.entries
   ]
 });
 });
