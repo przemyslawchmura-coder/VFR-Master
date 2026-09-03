@@ -125,12 +125,12 @@
       "batchId": "batch.6769a5f3e63da3b177b3db84",
       "targetWorkId": "target-work.28e9abb14db8c19f8f9e27f4",
       "sourceWorkId": "source-work.43171763599abfc83cd5c8ba",
-      "readiness": "REGISTERED-NOT-REAUTHENTICATED",
+      "readiness": "ACCESS-BLOCKED",
       "applicability": "UNKNOWN",
       "workState": "BLOCKED",
       "attemptsUsed": 0,
       "remainingAttempts": 2,
-      "checkpointId": "checkpoint.f7a2716b3e2957b452d89151",
+      "checkpointId": "checkpoint.142294d08ed99ea0226c6d57",
       "replayVerified": true
     }
   ],

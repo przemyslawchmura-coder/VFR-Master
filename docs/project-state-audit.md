@@ -2,7 +2,7 @@
 
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE, NOT HISTORICAL CLAIMS.**
 
-Snapshot: `research/reports/project-state-audit.json` (2026-09-01 post-Technical-Research-Factory-Execution-Planner working tree based on `67f5472`; the containing commit is authoritative).
+Snapshot: `research/reports/project-state-audit.json` (2026-09-03 post-Technical-Research-Factory-Ténéré source-authentication working tree; the containing commit is authoritative).
 
 ## Repository map
 
@@ -27,7 +27,7 @@ Authentication and login/logout: FUNCTIONAL-PARTIAL (implemented, live backend n
 
 Auth → Supabase session → database queries; garage → local/cloud persistence; selection → catalogue → resolver → clarification → active motorcycle; active motorcycle → registry → profile loader → resolved technical UI/search; research → evidence validation → review → optional promotion. Live backend/RLS and production promotion remain unverified/not implemented.
 
-The Technical Research Factory audit classifies the research path as reusable primitives under manual orchestration, not yet a resumable factory. The accepted-with-risks architecture defines stable target/prospect/applicability/gap contracts, one fail-closed gate, bounded work state, review/checkpoint identities and a generic core with optional discovery-only manufacturer adapters. Ténéré `BW3-F8197-E0` is retained as a future factory-pilot candidate; no source authentication or evidence acquisition occurred.
+The Technical Research Factory audit classifies the research path as reusable primitives under manual orchestration, not yet a resumable factory. The accepted-with-risks architecture defines stable target/prospect/applicability/gap contracts, one fail-closed gate, bounded work state, review/checkpoint identities and a generic core with optional discovery-only manufacturer adapters. Ténéré `BW3-F8197-E0` is metadata-authenticated as its own 2020 service publication with an official Yamaha access/delivery route, but remains a blocked future factory-pilot candidate because exact MY2019 EU standard ABS/manual applicability is unresolved; no technical values or evidence were inspected.
 
 Foundation #1 supplies canonical contracts/gates; Orchestration schema 1 supplies replayable bounded state; Planner schema 1 now supplies explicit gap capabilities, semantic finite policy, deterministic typed decisions and canonical batch/work output. Existing Honda/Yamaha/VFR defer, Harley rejects and Ténéré blocks without mutation; a synthetic local fixture proves the planned path. Durable event storage and typed execution-result ingestion remain deferred; historical data was not migrated.
 
@@ -73,7 +73,7 @@ The final bounded reconciliation found no Yamaha-controlled B7N record or B7N/LI
 
 ## WIP and debt
 
-P0: none identified. P1: one-prospect MT-09 service-manual registration/authentication; controlled profile promotion. P2: cloud/RLS verification; blocked-source acquisition; broader profile coverage. P3: market/scooter/125 expansion.
+P0: none identified. P1: resolve remaining Ténéré BW3-F8197-E0 MY2019 EU standard ABS/manual applicability; controlled profile promotion. P2: cloud/RLS verification; blocked-source acquisition; broader profile coverage. P3: market/scooter/125 expansion.
 
 Technical debt: HIGH — only one production Technical Profile and live backend/deployment claims are unverified. MEDIUM — parallel historical report formats and limited document-content hashing. LOW — presentation/report consolidation.
 

@@ -163,13 +163,13 @@ test("real MT-09 blocked and Harley mismatch shapes reach canonical outcomes", (
   assert.equal(result.classification, "REJECTED-MISMATCH");
 });
 
-test("Ténéré prospect remains registered, unauthenticated and a factory pilot candidate", () => {
+test("Ténéré prospect remains applicability-partial and a factory pilot candidate", () => {
   const tenere = readinessInventory.prospects.find(item => item.id === "yamaha.tenere700.service.bw3-f8197-e0");
   const before = JSON.stringify(tenere);
   const t = factory.adapters.fromLegacyResearchTarget({ catalogVariantKey: tenere.catalogVariantKey, manufacturer: "Yamaha", family: "Ténéré 700", generation: "I", years: tenere.years, markets: tenere.markets, transmission: "manual", abs: true, equipment: "standard" }, { verified: 29 });
   const p = factory.adapters.fromLegacySourceProspect(tenere, t);
-  assert.equal(p.authenticationState, "REGISTERED-NOT-REAUTHENTICATED");
-  assert.equal(factory.evaluateReadiness(t, p).classification, "REGISTERED-NOT-REAUTHENTICATED");
+  assert.equal(p.authenticationState, "PARTIAL");
+  assert.equal(factory.evaluateReadiness(t, p).classification, "ACCESS-BLOCKED");
   assert.equal(JSON.stringify(tenere), before);
   assert.equal(require("../research/data/technical-research-factory-architecture.js").tenerePilot.role, "FACTORY-PILOT-CANDIDATE");
 });

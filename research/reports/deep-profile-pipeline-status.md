@@ -32,5 +32,5 @@
 - Applicability blockers: identity.region, identity.abs, identity.equipment-variant
 - Next source classes: OEM parts catalogue, applicability/market research, owner-manual follow-up, service/workshop manual
 - Owner-manual evidence exhausted: yes
-- Service manual: identified=true, accessible=false, authentic=false, inspected=false, evidence=false
+- Service manual: identified=true, accessible=false, authentic=true, inspected=false, evidence=false
 - OEM parts catalogue: identified=false, accessible=false, inspected=false, evidence=false

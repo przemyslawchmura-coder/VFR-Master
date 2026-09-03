@@ -12,14 +12,14 @@ test("Ténéré pilot design binds the exact target, prospect and applicability"
   assert.deepEqual(design.target.years, { kind: "EXACT", from: 2019, to: 2019 });
   assert.deepEqual(design.target.markets, { state: "KNOWN", values: ["EU"] });
   assert.equal(design.prospect.publication, "BW3-F8197-E0");
-  assert.equal(design.prospect.state, "REGISTERED-NOT-REAUTHENTICATED");
+  assert.equal(design.prospect.state, "PARTIAL");
   assert.equal(design.prospect.executionReady, false);
   assert.equal(design.budgets.targets, 1); assert.equal(design.budgets.sourceWorkItems, 1); assert.equal(design.budgets.maxAttemptsPerWorkItem, 1);
 });
 
 test("real Ténéré readiness remains blocked and distinct from the synthetic path", () => {
   assert.equal(pilot.blockedProspect.id, "yamaha.tenere700.service.bw3-f8197-e0");
-  assert.equal(pilot.blockedProspect.authenticationState, "REGISTERED-NOT-REAUTHENTICATED");
+  assert.equal(pilot.blockedProspect.authenticationState, "PARTIAL");
   assert.equal(factory.evaluateReadiness(pilot.target, pilot.blockedProspect).passed, false);
   assert.notEqual(pilot.blockedProspect.id, pilot.syntheticProspect.id);
 });

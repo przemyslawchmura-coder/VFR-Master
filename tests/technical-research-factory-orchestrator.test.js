@@ -162,7 +162,7 @@ test("existing Honda Yamaha Harley and Ténéré fixtures integrate without muta
     const before = JSON.stringify({ target, prospect }); const r = records(target, prospect); const snapshot = factory.reduceEvents(initialEvents(r));
     assert.equal(snapshot.sourceWorkItems[0].state, expected[name]); assert.equal(JSON.stringify({ target, prospect }), before);
   }
-  assert.equal(fixtures.tenere[1].authenticationState, "REGISTERED-NOT-REAUTHENTICATED");
+  assert.equal(fixtures.tenere[1].authenticationState, "PARTIAL");
 });
 
 test("completed work cannot restart and completed batch is terminal", () => {

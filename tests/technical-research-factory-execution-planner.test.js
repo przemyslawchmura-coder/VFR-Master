@@ -149,7 +149,7 @@ test("existing Honda VFR800 Yamaha Harley and Ténéré fixtures remain safely u
   assert.equal(plan.summary.workItemsProduced, 0);
   const decisions = Object.fromEntries(fixtures.map(item => [item.name, plan.decisions.find(decision => decision.prospectId === item.prospect.id).decision]));
   assert.deepEqual(decisions, { honda: "DEFERRED", harley: "REJECTED", tenere: "BLOCKED", vfr800: "DEFERRED", yamaha: "DEFERRED" });
-  assert.equal(JSON.stringify(fixtures), before); assert.equal(fixtures.find(item => item.name === "tenere").prospect.authenticationState, "REGISTERED-NOT-REAUTHENTICATED");
+  assert.equal(JSON.stringify(fixtures), before); assert.equal(fixtures.find(item => item.name === "tenere").prospect.authenticationState, "PARTIAL");
 });
 
 test("planner report is reproducible, isolated and selects one execution-adapter NEXT", () => {

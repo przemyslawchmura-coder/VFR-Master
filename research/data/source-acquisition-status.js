@@ -15,7 +15,7 @@ const profiles = {
   },
   "yamaha.tenere700.gen1": {
     ownerManual: { publicationIdentified: true, contentAccessible: true, authenticityVerified: true, relevantSectionInspected: true, fieldEvidenceExtracted: true, sourceIds: ["research.yamaha.tenere700.2019.owner-manual"] },
-    serviceManual: { publicationIdentified: true, contentAccessible: false, authenticityVerified: false, relevantSectionInspected: false, fieldEvidenceExtracted: false, publicationId: "BW3-F8197-E0" },
+    serviceManual: { publicationIdentified: true, contentAccessible: false, authenticityVerified: true, relevantSectionInspected: false, fieldEvidenceExtracted: false, publicationId: "BW3-F8197-E0", accessClassification: "ACCESS-BLOCKED-AUTH", officialPathKnown: true, applicabilityClassification: "AUTHENTICATED-BUT-APPLICABILITY-PARTIAL", unresolvedDimensions: ["MY2019", "EU", "standard-versus-named-equipment", "ABS", "manual transmission"] },
     partsCatalogue: { publicationIdentified: false, contentAccessible: false, authenticityVerified: false, relevantSectionInspected: false, fieldEvidenceExtracted: false }
   }
 };

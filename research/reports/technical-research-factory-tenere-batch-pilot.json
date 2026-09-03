@@ -38,7 +38,7 @@
   "prospect": {
     "id": "yamaha.tenere700.service.bw3-f8197-e0",
     "publication": "BW3-F8197-E0",
-    "state": "REGISTERED-NOT-REAUTHENTICATED",
+    "state": "PARTIAL",
     "role": "FACTORY-PILOT-CANDIDATE",
     "executionReady": false
   },
@@ -97,7 +97,7 @@
   ],
   "isolation": {
     "realProspectReadinessUnchanged": true,
-    "realProspectState": "REGISTERED-NOT-REAUTHENTICATED",
+    "realProspectState": "PARTIAL",
     "syntheticOnlyExecution": true,
     "evidenceCreated": false,
     "coverageChanged": false,
