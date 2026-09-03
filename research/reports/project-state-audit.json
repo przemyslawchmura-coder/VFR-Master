@@ -1,16 +1,16 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-03",
-  "snapshotBasis": "post-ducati-monster937-owner-manual-acquisition-working-tree",
-  "snapshotImplementationPath": "research/data/ducati-monster937-owner-manual-acquisition.js",
-  "baseCommit": "5d181091d360f4cb67aa0938479bd18b75937888",
+  "snapshotBasis": "post-ducati-monster937-owner-manual-human-review-working-tree",
+  "snapshotImplementationPath": "research/data/ducati-monster937-owner-manual-human-review.js",
+  "baseCommit": "ed03aedb2b0fb505bd4a7b1b7322e125ca2c3d6f",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 317,
-    "javascriptFiles": 198,
-    "testFiles": 65,
+    "files": 321,
+    "javascriptFiles": 201,
+    "testFiles": 66,
     "documentationFiles": 72,
-    "researchAndToolingFiles": 136
+    "researchAndToolingFiles": 139
   },
   "catalogue": {
     "manufacturers": 13,
@@ -157,6 +157,25 @@
     "conflicts": 0,
     "ambiguousFields": 0,
     "productionChanged": false
+  },
+  "ducatiMonster937HumanReview": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "candidatesReviewed": 27,
+    "decisionCounts": {
+      "ACCEPT": 27,
+      "REJECT": 0,
+      "NEEDS-MORE-REVIEW": 0
+    },
+    "unresolvedOrAmbiguous": 0,
+    "rawValuesAndProvenanceUnchanged": true,
+    "evidenceRowsCreated": 0,
+    "serviceCoreBefore": 0,
+    "serviceCoreAfter": 0,
+    "serviceCoreCoverageChange": 0,
+    "productionChanged": false,
+    "researchedNoEvidenceCreated": false,
+    "normalizationPerformed": false,
+    "conflictsResolved": false
   },
   "research": {
     "canonicalFieldCount": 183,
@@ -1444,8 +1463,8 @@
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 603,
-    "lastKnownPassed": 603,
+    "lastKnownTotal": 606,
+    "lastKnownPassed": 606,
     "failed": 0,
     "skipped": 0,
     "todo": 0
