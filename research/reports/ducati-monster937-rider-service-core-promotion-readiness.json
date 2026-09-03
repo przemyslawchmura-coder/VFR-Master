@@ -1,0 +1,1612 @@
+{
+  "schemaVersion": "revlog-ducati-monster937-rider-service-core-promotion-readiness/v1",
+  "target": {
+    "catalogVariantKey": "ducati.monster.937",
+    "model": "Monster 937",
+    "year": 2021,
+    "market": "EU",
+    "equipment": "base Monster 937",
+    "excludedEquipment": "Monster SP 937",
+    "transmission": "manual",
+    "abs": true,
+    "profileId": "ducati.monster937.2021",
+    "scope": "common base Monster 937; Monster+ only where common; Monster SP excluded"
+  },
+  "source": {
+    "id": "ducati.acquisition.monster937.owner.my21",
+    "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+    "tier": "A",
+    "sourceClass": "official-owner-manual",
+    "publisher": "Ducati Motor Holding S.p.A.",
+    "title": "Monster 937 / 937 Plus Owner's Manual",
+    "publicationId": "OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+    "edition": "English, MY2021",
+    "publicationDate": 2021,
+    "url": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+    "officialHost": "downloads.ctfassets.net",
+    "disposition": "acquired-content",
+    "accessResult": "Ducati-controlled PDF content acquired for bounded text inspection",
+    "authenticationState": "OFFICIAL-DUCATI-MY2021-EU-BASE-MONSTER-CONFIRMED",
+    "language": "English",
+    "pageCount": null,
+    "models": [
+      "Monster 937",
+      "Monster 937 Plus"
+    ],
+    "years": {
+      "from": 2021,
+      "to": 2021
+    },
+    "markets": [
+      "EU"
+    ],
+    "abs": true,
+    "transmission": "manual",
+    "equipment": "base Monster common content; Monster SP excluded",
+    "inspectedPages": [
+      "152",
+      "176–179",
+      "182–187",
+      "193–196",
+      "203–207",
+      "211–212",
+      "216",
+      "218",
+      "220–224"
+    ],
+    "targets": [
+      "ducati.monster.937"
+    ],
+    "yieldedEvidence": false,
+    "applicabilityProof": {
+      "exactSource": "filename/title identifies Monster 937 / 937 Plus EN MY21",
+      "targetYear": "MY2021",
+      "market": "EU English owner-manual route",
+      "baseScope": "common Monster 937 content retained; Plus-only and SP content excluded",
+      "abs": "Cornering ABS is part of the manual/model scope",
+      "transmission": "manual six-speed Monster 937 scope",
+      "preExtractionCheckPassed": true
+    },
+    "stopCondition": "raw extraction stops before evidence conversion; human review and any later promotion remain separate"
+  },
+  "processedInputsReceived": 39,
+  "promotionReady": 0,
+  "alreadyCovered": 0,
+  "productionRepresentationBlocked": 39,
+  "structuralRepresentationBlocked": 1,
+  "provenanceApplicabilityConflictBlocked": 0,
+  "otherReadinessOutcomes": 0,
+  "duplicatesOrCollisions": 0,
+  "readyByRiderServiceCoreDomain": {
+    "basic-motorcycle-data": 0,
+    "engine-oil-filter": 0,
+    "cooling": 0,
+    "spark-plugs-ignition": 0,
+    "valves": 0,
+    "wheels-tires": 0,
+    "final-drive": 0,
+    "brakes": 0,
+    "electrical-battery": 0,
+    "fuses": 0,
+    "lighting": 0,
+    "periodic-maintenance": 0,
+    "consumables": 0,
+    "practical-torques": 0
+  },
+  "maintenanceReadiness": {
+    "inputs": 6,
+    "blocked": 0,
+    "semanticsPreserved": true
+  },
+  "fuseReadiness": {
+    "inputs": 1,
+    "blocked": 1,
+    "associationPreserved": false
+  },
+  "lightingReadiness": {
+    "inputs": 6,
+    "blocked": 0,
+    "semanticsPreserved": true
+  },
+  "coolingCapacity": {
+    "entered": false,
+    "state": "BLOCKED",
+    "reason": "COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR"
+  },
+  "excludedNeedsMoreReview": 5,
+  "outcomes": [
+    {
+      "candidateId": "ducati.monster937.core.raw.001",
+      "evidenceProcessingRecordId": "evidence-processing.11b7a8ef0c521e8d0b52a4d0",
+      "humanReviewDecisionId": "review-decision.b004ba38dc78ef86b1ef9c52",
+      "canonicalFieldId": "engine.configuration",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Testastretta 11°, V2 90°, 4 valves per cylinder, desmodromic timing system, liquid cooling.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.e0c799a4873bdfc597af773a",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:214",
+          "page": null,
+          "section": "Engine"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.002",
+      "evidenceProcessingRecordId": "evidence-processing.4ab93e0113781561c6907f82",
+      "humanReviewDecisionId": "review-decision.2ac0a6e270967d33ee85e48f",
+      "canonicalFieldId": "engine.displacement",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Total displacement: 937 cu. cm (57.18 cu in)",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.cf01bdc17689c758e99374d7",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:214",
+          "page": null,
+          "section": "Engine"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.003",
+      "evidenceProcessingRecordId": "evidence-processing.e633328e00dcc58380c224fa",
+      "humanReviewDecisionId": "review-decision.7c1e40299d2c5ca6fce91629",
+      "canonicalFieldId": "engine.bore",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Bore: 94 mm (3.70 in)",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.01f432aa1f9f8e79721ad06e",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:214",
+          "page": null,
+          "section": "Engine"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.004",
+      "evidenceProcessingRecordId": "evidence-processing.8d4f6c9f0a9bd339323960b9",
+      "humanReviewDecisionId": "review-decision.c2d56a430a2c0f731bbeae4b",
+      "canonicalFieldId": "engine.stroke",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Stroke: 67.5 mm (2.66 in)",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.e3937800396a66b35584ee27",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:214",
+          "page": null,
+          "section": "Engine"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.005",
+      "evidenceProcessingRecordId": "evidence-processing.f0164f969505c14cf72ed4f3",
+      "humanReviewDecisionId": "review-decision.ee8a71c6ab6c7f7d3e60c23f",
+      "canonicalFieldId": "engine.compression-ratio",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Compression ratio: 13.3±0.5:1",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.71b060837bc3cb3a238df95a",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:214",
+          "page": null,
+          "section": "Engine"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.006",
+      "evidenceProcessingRecordId": "evidence-processing.6d05b6f7150e305275f66007",
+      "humanReviewDecisionId": "review-decision.c94300b6ba55a9805eda08d3",
+      "canonicalFieldId": "engine.service-limits",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Max. rotation speed: 10200 rpm.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.c53fc0a5d51ab4c2f5658e3a",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:214",
+          "page": null,
+          "section": "Engine"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.007",
+      "evidenceProcessingRecordId": "evidence-processing.b2e2635f25dacc710ffd8a2f",
+      "humanReviewDecisionId": "review-decision.87aa2952d8b5bf093f4817bc",
+      "canonicalFieldId": "dimensions_mass.wet-kerb-mass",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Overall weight (in running order with 90% of fuel - 44/2014/EU Annex XI): 166 kg (365.97 lb).",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.e5370c8ab314ee63f11e4efa",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:208",
+          "page": null,
+          "section": "Technical data; Weights"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.008",
+      "evidenceProcessingRecordId": "evidence-processing.84b5020c87461374fecb5724",
+      "humanReviewDecisionId": "review-decision.f8b10834f4fc779becd74f50",
+      "canonicalFieldId": "dimensions_mass.dry-mass",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Dry weight (without fluids and battery): 188 kg (414.47 lb).",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.fe07608fdfbd5da7cbc49889",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:208",
+          "page": null,
+          "section": "Technical data; Weights"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.010",
+      "evidenceProcessingRecordId": "evidence-processing.99cf539a5c42b6045e734b28",
+      "humanReviewDecisionId": "review-decision.1c2d608106757e957670cc77",
+      "canonicalFieldId": "dimensions_mass.seat-height",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Seat height: 820 mm (32.28 in), lowered seat (Performance) 800 mm (31.50 in).",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.742db18c70854d2f2b34d152",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:209",
+          "page": null,
+          "section": "Technical data; Dimensions; Monster 937"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.011",
+      "evidenceProcessingRecordId": "evidence-processing.b72f0b7375510cbe98d409d7",
+      "humanReviewDecisionId": "review-decision.2ed77fc3d5601eeac9b8761b",
+      "canonicalFieldId": "dimensions_mass.wheelbase",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Wheelbase: 1474 mm (58.03 in).",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.9ae8c2022ca34615784b02f9",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:209",
+          "page": null,
+          "section": "Technical data; Dimensions; Monster 937"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.012",
+      "evidenceProcessingRecordId": "evidence-processing.fb1c0f88bb7ab671880f5245",
+      "humanReviewDecisionId": "review-decision.b0320f6011b572abd99af912",
+      "canonicalFieldId": "steering_chassis.rake",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Steering head angle: 24°",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.9ab4ea8bb73e7be99ea92f56",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:219",
+          "page": null,
+          "section": "Technical data; Frame"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.013",
+      "evidenceProcessingRecordId": "evidence-processing.e47f89ed6225987b0d1f061b",
+      "humanReviewDecisionId": "review-decision.3aa972bea76f872e0c860a29",
+      "canonicalFieldId": "steering_chassis.trail",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Trail in mm: 93 (3.66 in).",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.7b8ded1ed8d740cf80116893",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:219",
+          "page": null,
+          "section": "Technical data; Frame"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.014",
+      "evidenceProcessingRecordId": "evidence-processing.e94561f3af7dc6bb49111401",
+      "humanReviewDecisionId": "review-decision.01c1d7379bb1ea1f311dbf16",
+      "canonicalFieldId": "fuel_intake.fuel-type-octane",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Fuel supply: 95-98 RON.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.4575f31910a59f46a186b6f9",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:216",
+          "page": null,
+          "section": "Performance data; Fuel system"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.015",
+      "evidenceProcessingRecordId": "evidence-processing.e22701395cf17139071a1802",
+      "humanReviewDecisionId": "review-decision.d1b28099235357a840793c94",
+      "canonicalFieldId": "transmission_clutch.transmission-type",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "6-speed gearbox with constant mesh gears, and gear change pedal on left side of motorcycle.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.f16f41038e98cd82c4785179",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:218",
+          "page": null,
+          "section": "Technical data; Transmission"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.016",
+      "evidenceProcessingRecordId": "evidence-processing.de806f49911b6399b68c4409",
+      "humanReviewDecisionId": "review-decision.ede8864ac59e0c3e5b71e478",
+      "canonicalFieldId": "transmission_clutch.clutch-type",
+      "riderServiceCoreDomain": "basic-motorcycle-data",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Wet clutch controlled by the lever on left-hand side of the handlebar.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.9b3013f70c7459e2f618ebd8",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:218",
+          "page": null,
+          "section": "Technical data; Transmission"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.017",
+      "evidenceProcessingRecordId": "evidence-processing.cc2788e7a5d99711b7cae268",
+      "humanReviewDecisionId": "review-decision.f9e4f596f99cff349c052bb9",
+      "canonicalFieldId": "final_drive.chain-size",
+      "riderServiceCoreDomain": "final-drive",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Drive chain from gearbox to rear wheel. Make: Regina; Type: 520 ZRDK; Links: 106.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.421632574c7e45ff769341b6",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:218",
+          "page": null,
+          "section": "Technical data; Transmission"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.018",
+      "evidenceProcessingRecordId": "evidence-processing.9642fefc09b2a0e743676df2",
+      "humanReviewDecisionId": "review-decision.36680ff22d09595734dbffb9",
+      "canonicalFieldId": "final_drive.front-sprocket",
+      "riderServiceCoreDomain": "final-drive",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Gearbox output sprocket: 15 teeth.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.838a900a1dd66226f281f99d",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:218",
+          "page": null,
+          "section": "Technical data; Transmission"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.019",
+      "evidenceProcessingRecordId": "evidence-processing.3104faca76ef429fc8ff1675",
+      "humanReviewDecisionId": "review-decision.0108894b268c1a7d067815a5",
+      "canonicalFieldId": "final_drive.rear-sprocket",
+      "riderServiceCoreDomain": "final-drive",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Rear chain sprocket: 43 teeth.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.69d6c5ec9cc194373f6d7636",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:218",
+          "page": null,
+          "section": "Technical data; Transmission"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.020",
+      "evidenceProcessingRecordId": "evidence-processing.8d6363601c51d8cec7940c8b",
+      "humanReviewDecisionId": "review-decision.5ca8cae5aea123dec8b28597",
+      "canonicalFieldId": "final_drive.final-ratio",
+      "riderServiceCoreDomain": "final-drive",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Gearbox output sprocket/rear chain sprocket ratio: 15/43.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.7071da1f545cd79994c6b5ba",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:218",
+          "page": null,
+          "section": "Technical data; Transmission"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.021",
+      "evidenceProcessingRecordId": "evidence-processing.77c72f7ea9f14e6c5bc49be6",
+      "humanReviewDecisionId": "review-decision.a9bf3df83e423ecdfc05d47e",
+      "canonicalFieldId": "final_drive.oem-chain-sprocket",
+      "riderServiceCoreDomain": "final-drive",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Drive chain: Regina 520 ZRDK, 106 links; gearbox output sprocket/rear chain sprocket ratio 15/43.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.059c61b30866b216e47be83d",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:218",
+          "page": null,
+          "section": "Technical data; Transmission"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.022",
+      "evidenceProcessingRecordId": "evidence-processing.2439a1bd3b3396b0f6cb8faa",
+      "humanReviewDecisionId": "review-decision.e9b83dbe28a3ffaa70c1571b",
+      "canonicalFieldId": "tires_wheels.oem-tire-models",
+      "riderServiceCoreDomain": "wheels-tires",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Front and rear: Pirelli Diablo Rosso III, tubeless radial type.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.2d373e75f0e42f0f5e16e82f",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:219",
+          "page": null,
+          "section": "Technical data; Tyres"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.023",
+      "evidenceProcessingRecordId": "evidence-processing.1a584ed6e37e4fac10c39400",
+      "humanReviewDecisionId": "review-decision.c16f125afe463ed10c447bcb",
+      "canonicalFieldId": "tires_wheels.rim-sizes",
+      "riderServiceCoreDomain": "wheels-tires",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Front rim MT3.50x17; rear rim MT5.50x17.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.959e99505a0c73875ec57414",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:219",
+          "page": null,
+          "section": "Technical data; Wheels"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.024",
+      "evidenceProcessingRecordId": "evidence-processing.9ac6ccb6d2b0341cb792a201",
+      "humanReviewDecisionId": "review-decision.8454635218eeebaeaa38eea6",
+      "canonicalFieldId": "brakes.disc-diameter",
+      "riderServiceCoreDomain": "brakes",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Front: 2 drilled stainless steel discs, 320 mm; rear: fixed drilled steel disk, 245 mm.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.d40bd4d5acb956fa2b293658",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:217",
+          "page": null,
+          "section": "Technical data; Brakes"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.025",
+      "evidenceProcessingRecordId": "evidence-processing.03b7d8a486965bb693985963",
+      "humanReviewDecisionId": "review-decision.8ec3086a3779da5397eb9212",
+      "canonicalFieldId": "brakes.disc-thickness",
+      "riderServiceCoreDomain": "brakes",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Front disc thickness: 4.5 mm; rear disc thickness: 4.2 mm.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.bbbd14a9d39214026b6a9907",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:217",
+          "page": null,
+          "section": "Technical data; Brakes"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.026",
+      "evidenceProcessingRecordId": "evidence-processing.9738d2295a3f6487953d9996",
+      "humanReviewDecisionId": "review-decision.ae172b43959e9b9ed407cb82",
+      "canonicalFieldId": "brakes.disc-service-limit",
+      "riderServiceCoreDomain": "brakes",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Front disc maximum wear: 4.0 mm; rear disc maximum wear: 3.6 mm.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.70fae5d1e3ec3a93119d80eb",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:217",
+          "page": null,
+          "section": "Technical data; Brakes"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.027",
+      "evidenceProcessingRecordId": "evidence-processing.5665f78d5c60dbfd2fd6c50e",
+      "humanReviewDecisionId": "review-decision.84093335ce06be3f1054bc63",
+      "canonicalFieldId": "electrical.alternator-output",
+      "riderServiceCoreDomain": "electrical-battery",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Generator Denso 14V - 490W.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.4963af1e9835ac6d75d1e210",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:221",
+          "page": null,
+          "section": "Technical data; Electric system"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.028",
+      "evidenceProcessingRecordId": "evidence-processing.bb689d40b9e236bdb4f864c9",
+      "humanReviewDecisionId": "review-decision.b98797bdf22099e8d2db7a5b",
+      "canonicalFieldId": "electrical.fuse-ratings",
+      "riderServiceCoreDomain": "fuses",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": false,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Fuse box A: Key 1 ECU/ABS/IMU 5 A; Key 2 Dashboard/BBS 15 A; Key 3 Accessories 10 A; Diagnostics 7.5 A; Fuel pump relay 10 A. Fuse box B: El. loads relay 25 A; Starter relay 7.5 A; Dashboard 20 A; BBS 10 A; ABS 20 A; ABS 25 A. Positions and ratings are marked on the box cover.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.0cadd1fa0027b4d9117c881f",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:222-224",
+          "page": null,
+          "section": "Technical data; Fuses"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.030",
+      "evidenceProcessingRecordId": "evidence-processing.b275c7c176d2e4ffe3a5d756",
+      "humanReviewDecisionId": "review-decision.6d3996538b4a6a993c3f53d0",
+      "canonicalFieldId": "lighting.combined-high-low",
+      "riderServiceCoreDomain": "lighting",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Headlight: LED low beam no. 1; LED high beam no. 4.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.8e3b2d4db57b4fe127f5bf1d",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:221",
+          "page": null,
+          "section": "Technical data; Electric system"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.032",
+      "evidenceProcessingRecordId": "evidence-processing.fd88f36abea7b6b5d8fd2eaa",
+      "humanReviewDecisionId": "review-decision.8888d0f822688a94fed5d7f8",
+      "canonicalFieldId": "lighting.front-indicators",
+      "riderServiceCoreDomain": "lighting",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "LED front turn indicators: no. 6; LED front turn indicators (USA-ROK): no. 3.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.e905fe19a848c8b061d8ced2",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:221",
+          "page": null,
+          "section": "Technical data; Electric system"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.033",
+      "evidenceProcessingRecordId": "evidence-processing.968c9ba308f0a9a65753789b",
+      "humanReviewDecisionId": "review-decision.9699a4c700e169872ec3c37b",
+      "canonicalFieldId": "lighting.rear-indicators",
+      "riderServiceCoreDomain": "lighting",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "LED rear turn indicators: no. 7.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.66935eac00e12d9997ead630",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:221",
+          "page": null,
+          "section": "Technical data; Electric system"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.034",
+      "evidenceProcessingRecordId": "evidence-processing.264791fd00650b8ae37c3f31",
+      "humanReviewDecisionId": "review-decision.c118953a46476dd735a8c7a3",
+      "canonicalFieldId": "lighting.rear-tail",
+      "riderServiceCoreDomain": "lighting",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Tail light: LED parking light no. 4.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.134a5f9753ed5cf3692acb24",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:221",
+          "page": null,
+          "section": "Technical data; Electric system"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.035",
+      "evidenceProcessingRecordId": "evidence-processing.450e6588c540120ed4f22c92",
+      "humanReviewDecisionId": "review-decision.1e071f47787f47be86a701a9",
+      "canonicalFieldId": "lighting.brake-light",
+      "riderServiceCoreDomain": "lighting",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Tail light: LED rear stop light no. 9.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.fb1dd164958e426f0f91e1b4",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:221",
+          "page": null,
+          "section": "Technical data; Electric system"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.036",
+      "evidenceProcessingRecordId": "evidence-processing.2d40bf921d010ce3029e9e8c",
+      "humanReviewDecisionId": "review-decision.45b96953b92e09570a976a75",
+      "canonicalFieldId": "lighting.license-plate",
+      "riderServiceCoreDomain": "lighting",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Tail light: LED number plate light no. 3.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.14005ff03b277a8608fb649e",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:221",
+          "page": null,
+          "section": "Technical data; Electric system"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.038",
+      "evidenceProcessingRecordId": "evidence-processing.0354965ceecc81310c47c6ca",
+      "humanReviewDecisionId": "review-decision.ef05eb124c57c0d53eb48815",
+      "canonicalFieldId": "maintenance.inspect",
+      "riderServiceCoreDomain": "periodic-maintenance",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Customer operations: check engine oil level; brake fluid level; tyre pressure and wear; drive chain tension and lubrication; brake pads. Dealer operations include checks of air filter, brake/clutch fluid, discs/pads, wheel fasteners, bearings and other listed items.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.e096b66d25dd2ba312687a5b",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:204-207",
+          "page": null,
+          "section": "Scheduled maintenance chart"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.039",
+      "evidenceProcessingRecordId": "evidence-processing.6dee514092bd6ceeaa5f9b2d",
+      "humanReviewDecisionId": "review-decision.3488ea5979071d0e5a5e16c7",
+      "canonicalFieldId": "maintenance.replace",
+      "riderServiceCoreDomain": "periodic-maintenance",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Dealer operations include changing engine oil and filter, air filter, timing belts, spark plugs, coolant, front fork fluid and brake/clutch fluid at the listed schedule points.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.f82840f67cbe31ec181f7075",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:203-205",
+          "page": null,
+          "section": "Scheduled maintenance chart"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.040",
+      "evidenceProcessingRecordId": "evidence-processing.a9a5fd6010b2b1fc7572bfac",
+      "humanReviewDecisionId": "review-decision.985107c660fce4012da3b3e9",
+      "canonicalFieldId": "maintenance.adjust",
+      "riderServiceCoreDomain": "periodic-maintenance",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Dealer operations include checking and/or adjusting valve clearance; customer operation includes checking drive-chain tension.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.1d5db0e803dbb9e206755856",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:204, 207",
+          "page": null,
+          "section": "Scheduled maintenance chart"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.041",
+      "evidenceProcessingRecordId": "evidence-processing.6ac70eb28519cf5648806406",
+      "humanReviewDecisionId": "review-decision.1446f4c902667ef46bf3fc75",
+      "canonicalFieldId": "maintenance.lubricate",
+      "riderServiceCoreDomain": "periodic-maintenance",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Customer operation: check the drive chain tension and lubrication; chain lubrication procedure is described separately.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.2c09a62ed7fbbcd5391369c7",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:185-187, 207",
+          "page": null,
+          "section": "Lubricating the drive chain; Scheduled maintenance chart"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.042",
+      "evidenceProcessingRecordId": "evidence-processing.7c3a70aebfbdda848716bc1d",
+      "humanReviewDecisionId": "review-decision.6c2c68a8f422f038d26aa7c6",
+      "canonicalFieldId": "maintenance.clean",
+      "riderServiceCoreDomain": "periodic-maintenance",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Dealer operations include checking and cleaning the air filter; chain cleaning guidance is provided in the drive-chain maintenance section.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.d82d25a3079b703345ae60e0",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:185, 204",
+          "page": null,
+          "section": "Checking drive chain tension; Scheduled maintenance chart"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    },
+    {
+      "candidateId": "ducati.monster937.core.raw.044",
+      "evidenceProcessingRecordId": "evidence-processing.45dfdf6c0933f5516ad98bd0",
+      "humanReviewDecisionId": "review-decision.9021a41cdd8a7e031d2be156",
+      "canonicalFieldId": "maintenance.severe-use",
+      "riderServiceCoreDomain": "periodic-maintenance",
+      "gateState": "PROMOTION-READY",
+      "gateReasons": [],
+      "readinessState": "BLOCKED",
+      "readinessReasons": [
+        "NO-LOSSLESS-PRODUCTION-MAPPING-ESTABLISHED"
+      ],
+      "duplicateProductionEntry": false,
+      "maintenanceStructurePreserved": true,
+      "fuseAssociationPreserved": true,
+      "lightingSemanticsPreserved": true,
+      "rawValue": "Extreme damp/muddy or dusty/dry conditions can cause above-average wear of the drive system, brakes or air filter and may require earlier service or replacement.",
+      "rawUnit": null,
+      "provenance": {
+        "candidateId": "extraction-candidate.7f6a6f9769b8f3d8d3c55069",
+        "extractionResultId": "extraction-result.0b0bb51303b92a6becfa8fc3",
+        "artifactId": "artifact.ducati.monster937.core.owner.my21",
+        "sourceLocation": {
+          "locator": "printed-page:30, 203, 207",
+          "page": null,
+          "section": "Intended use; Scheduled maintenance chart"
+        },
+        "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+      },
+      "applicability": {
+        "modelYear": "KNOWN",
+        "market": "KNOWN",
+        "equipment": "SUFFICIENT",
+        "abs": "KNOWN",
+        "transmission": "KNOWN",
+        "context": "SUFFICIENT"
+      }
+    }
+  ],
+  "productionDucatiChanged": false,
+  "productionDucatiEntryCount": 6,
+  "vfrChanged": false,
+  "evidenceRowsCreated": 0,
+  "serviceCoreCoverageChanged": false,
+  "humanReviewDecisionsChanged": false,
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "conclusion": "All 39 processed Ducati Rider Service Core records pass the canonical identity/provenance/applicability gate, but remain blocked because no lossless production-schema mapping has been established for these fields. The fuse candidate also lacks a preserved structured association in the current processing payload, so it is not promoted by inference. Existing production entries, structured source meaning and upstream review state remain unchanged."
+  },
+  "exactNextTask": "Define and review lossless generic production mappings for the blocked Core fields before any separate promotion wave; keep the five deferred candidates and cooling excluded."
+}

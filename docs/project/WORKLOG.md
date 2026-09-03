@@ -285,3 +285,16 @@ the same 39 Ducati `ACCEPT` inputs: 39 `ACCEPTED-FOR-PROCESSING`, 0 contract
 blocks, 0 validation failures, 0 conflicts. The five deferred candidates and
 cooling blocker remain excluded; no Human Review, evidence, production, VFR or
 coverage state changed. Phase 7 remains ACTIVE.
+## 2026-09-03 — Ducati Rider Service Core promotion readiness
+
+Audited exactly the 39 aligned `ACCEPTED-FOR-PROCESSING` Ducati records through
+the existing promotion-readiness gate and production-materialization boundary.
+All 39 receive one deterministic outcome; the canonical gate passes identity,
+provenance, applicability and conflict checks, but final readiness is
+`0 PROMOTION-READY / 39 production-representation-blocked` because no lossless
+production mappings have been established. Maintenance raw action/interval and
+lighting LED meaning remain preserved; fuse materialization is additionally
+blocked because the current processing payload does not retain the source
+rating/function/location association. Five `NEEDS-MORE-REVIEW` candidates and
+cooling remain excluded. No decisions, evidence, production, VFR or coverage
+state changed. Phase 7 remains ACTIVE.
