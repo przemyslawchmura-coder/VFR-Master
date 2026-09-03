@@ -17,6 +17,11 @@ const profiles = {
     ownerManual: { publicationIdentified: true, contentAccessible: true, authenticityVerified: true, relevantSectionInspected: true, fieldEvidenceExtracted: true, sourceIds: ["research.yamaha.tenere700.2019.owner-manual"] },
     serviceManual: { publicationIdentified: true, contentAccessible: false, authenticityVerified: true, relevantSectionInspected: false, fieldEvidenceExtracted: false, publicationId: "BW3-F8197-E0", accessClassification: "ACCESS-BLOCKED-AUTH", officialPathKnown: true, applicabilityClassification: "AUTHENTICATED-BUT-APPLICABILITY-PARTIAL", antiLoopClassification: "TENERE-APPLICABILITY-AUTHENTICATION-PATH-EXHAUSTED", unresolvedDimensions: ["MY2019", "EU", "standard-versus-named-equipment", "ABS", "manual transmission"], nextAction: "do not repeat public applicability authentication without new Yamaha-controlled material or authenticated RMI/manual access" },
     partsCatalogue: { publicationIdentified: false, contentAccessible: false, authenticityVerified: false, relevantSectionInspected: false, fieldEvidenceExtracted: false }
+  },
+  "suzuki.sv650.gen3": {
+    ownerManual: { publicationIdentified: true, contentAccessible: false, authenticityVerified: false, relevantSectionInspected: false, fieldEvidenceExtracted: false },
+    serviceManual: { publicationIdentified: true, contentAccessible: false, authenticityVerified: true, relevantSectionInspected: false, fieldEvidenceExtracted: false, publicationId: "SV650/A/XA (L7-M4)", accessClassification: "ACCESS-BLOCKED-AUTH", officialPathKnown: true, applicabilityClassification: "AUTHENTICATED-BUT-APPLICABILITY-PARTIAL", unresolvedDimensions: ["MY2019", "EU document binding", "standard-versus-SV650X", "ABS", "manual transmission"], nextAction: "retain blocked pending exact Suzuki applicability metadata or authenticated portal access" },
+    partsCatalogue: { publicationIdentified: false, contentAccessible: false, authenticityVerified: false, relevantSectionInspected: false, fieldEvidenceExtracted: false }
   }
 };
 module.exports = Object.freeze({ states: STATES, profiles: Object.freeze(Object.fromEntries(Object.entries(profiles).map(([key, value]) => [key, Object.freeze(Object.fromEntries(Object.entries(value).map(([kind, status]) => [kind, Object.freeze(status)])))]))) });

@@ -3,14 +3,14 @@
   "snapshotDate": "2026-09-03",
   "snapshotBasis": "post-yamaha-tenere-service-manual-authentication-working-tree",
   "snapshotImplementationPath": "research/data/yamaha-tenere-service-manual-prospect-authentication.js",
-  "baseCommit": "666e7051bf322553feccb825f9dd533023706a98",
+  "baseCommit": "58e657c8e073650f695ae590232d1035978ac1da",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 306,
-    "javascriptFiles": 191,
-    "testFiles": 62,
-    "documentationFiles": 71,
-    "researchAndToolingFiles": 129
+    "files": 311,
+    "javascriptFiles": 194,
+    "testFiles": 63,
+    "documentationFiles": 72,
+    "researchAndToolingFiles": 132
   },
   "catalogue": {
     "manufacturers": 13,
@@ -555,6 +555,22 @@
       "thirdManufacturerAnswer": "NO",
       "exactNextTask": "Authenticate only the existing Yamaha Ténéré 700 service-manual prospect BW3-F8197-E0 for yamaha.tenere-700.gen1 MY2019 EU standard: resolve official Yamaha identity, delivery/access, exact year/market and standard-versus-named-equipment scope without inspecting service values or creating Service Core evidence.",
       "evidenceAcquired": false,
+      "serviceCoreCoverageChanged": false
+    },
+    "suzukiSv650ServiceProspectAuthentication": {
+      "classification": "AUTHENTICATED-BUT-APPLICABILITY-PARTIAL",
+      "access": "ACCESS-BLOCKED-AUTH",
+      "readiness": {
+        "passed": false,
+        "failed": [
+          "yearKnown",
+          "marketKnown",
+          "safetyScopeSufficient"
+        ],
+        "rankingEligible": false
+      },
+      "technicalValuesInspected": false,
+      "evidenceRowsAdded": 0,
       "serviceCoreCoverageChanged": false
     },
     "tenereServiceProspectAuthentication": {

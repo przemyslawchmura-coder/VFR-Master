@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-03 — Suzuki SV650 III Tier A/B prospect selection and readiness
+
+Selected the existing `unknown.suzuki.sv650` prospect for representative EU `SV650A L9` MY2019 and authenticated Suzuki’s official European `SV650/A/XA (L7-M4)` service-manual family as Tier A metadata. The official portal path is known and content remains inaccessible. Exact year/document binding, EU scope, standard-versus-X equipment, ABS separability and manual-transmission applicability remain incomplete; readiness is fail-closed and not execution-ready. No service values, extraction, evidence, researched-no-evidence, coverage, production, runtime, catalogue or cloud changes occurred. Validation: targeted tests and project-state checks pass; full suite, syntax and diff checks follow. Next: resolve Suzuki applicability only if new authenticated material/access becomes available.
+
 ## 2026-09-03 — Ténéré BW3-F8197-E0 public applicability path exhaustion (current)
 
 Recorded `TENERE-APPLICABILITY-AUTHENTICATION-PATH-EXHAUSTED` on the existing prospect after the bounded public metadata path yielded no authoritative resolution. Preserved `AUTHENTICATED-BUT-APPLICABILITY-PARTIAL`, `authenticityVerified: true`, `contentAccessible: false`, canonical readiness blocked, and unresolved MY2019, EU, standard/named-equipment, ABS and manual-transmission dimensions. Further repetition is not justified without genuinely new Yamaha-controlled material or authenticated RMI/manual access. No external research, technical inspection, acquisition, downstream records, evidence, researched-no-evidence, coverage, production, runtime, catalogue or cloud changes occurred. Next: do not repeat public applicability authentication; continue Phase 5 through another bounded research-factory task.
