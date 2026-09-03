@@ -6,11 +6,11 @@
   "baseCommit": "b1c8575105c981d4eb39370bd32cff4c6dba4280",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 391,
-    "javascriptFiles": 257,
-    "testFiles": 84,
+    "files": 396,
+    "javascriptFiles": 261,
+    "testFiles": 85,
     "documentationFiles": 72,
-    "researchAndToolingFiles": 190
+    "researchAndToolingFiles": 193
   },
   "catalogue": {
     "manufacturers": 13,
@@ -2389,8 +2389,8 @@
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 669,
-    "lastKnownPassed": 669,
+    "lastKnownTotal": 673,
+    "lastKnownPassed": 673,
     "failed": 0,
     "skipped": 0,
     "todo": 0

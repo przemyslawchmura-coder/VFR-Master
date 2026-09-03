@@ -191,3 +191,6 @@ Added the generic immutable fail-closed authorization contract and read-only Duc
 ## 2026-09-03 — Ducati production document/citation materialization foundation
 
 Added one production-compatible authenticated Ducati MY2021 EU owner-manual definition and six deterministic citations for the authorization-ready fields. The definitions are not attached to a Technical Profile and create no entries, registry insertion, evidence or coverage. Cooling, pending Ducati fields and BMW remain excluded. Next: keep source definitions separate until a future bounded profile materialization task is explicitly authorized.
+## 2026-09-03 — Ducati Monster 937 six-entry production profile materialization
+
+Created the single valid `revlog-technical-profile/v1` Ducati Monster 937 MY2021 EU review-status profile with exactly six verified citation-backed entries, importing the existing Ducati source graph. The profile remains deliberately absent from `technical-profile-registry`; runtime discovery, evidence, coverage and BMW state are unchanged. Phase 6 is now active but incomplete. Next: separately authorize registry insertion and production discovery validation.

@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "revlog-ducati-monster937-production-profile-materialization/v1",
+  "profileId": "ducati.monster937.2021",
+  "profileSchemaVersion": "revlog-technical-profile/v1",
+  "profileStatus": "review",
+  "entryCount": 6,
+  "entryIds": [
+    "ignition.spark-plug.standard",
+    "lubrication.engine-oil.viscosity",
+    "lubrication.engine-oil.specification",
+    "electrical.battery.capacity",
+    "electrical.battery.specification",
+    "brakes.fluid.specification"
+  ],
+  "entries": [
+    {
+      "entryId": "brakes.fluid.specification",
+      "researchField": "brakes.brake-fluid",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.brake-fluid"
+      ]
+    },
+    {
+      "entryId": "electrical.battery.capacity",
+      "researchField": "electrical.battery-capacity",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.battery-capacity"
+      ]
+    },
+    {
+      "entryId": "electrical.battery.specification",
+      "researchField": "electrical.battery-specification",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.battery-specification"
+      ]
+    },
+    {
+      "entryId": "ignition.spark-plug.standard",
+      "researchField": "ignition.spark-plug-oem",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.spark-plug"
+      ]
+    },
+    {
+      "entryId": "lubrication.engine-oil.specification",
+      "researchField": "lubrication.api-jaso",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.oil-api-jaso"
+      ]
+    },
+    {
+      "entryId": "lubrication.engine-oil.viscosity",
+      "researchField": "lubrication.viscosity",
+      "status": "verified",
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.oil-viscosity"
+      ]
+    }
+  ],
+  "validatorResult": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "sourceCitationValidation": true,
+  "coolingExcluded": true,
+  "pendingDucatiExcluded": 20,
+  "bmwUnchanged": true,
+  "registryChanged": false,
+  "runtimeDiscoverable": false,
+  "evidenceChanged": false,
+  "serviceCoreCoverageChanged": false
+}

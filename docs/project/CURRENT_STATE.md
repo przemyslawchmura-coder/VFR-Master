@@ -9,9 +9,9 @@ Snapshot basis: post-Triumph Street Triple 765 prospect-registration working tre
 - Held promotion projection: the real 27 Ducati and 13 BMW pre-promotion records were read-only projected through `PromotionPacket/v1`; Ducati produced 27 `PROMOTION-READY`, BMW 11 `PROMOTION-READY` and 2 `BLOCKED` conflict records. Upstream research objects and all production state remained unchanged.
 - Promotion review packet foundation: generic immutable `PromotionReviewPacket/v1` creation now presents only `PROMOTION-READY` records as `PENDING-PROMOTION-REVIEW`; held-record projection derives 27 Ducati and 11 BMW eligible packets, excludes both BMW conflicts, and creates zero approval decisions. Research Human Review ACCEPT remains distinct from promotion approval.
 - Ducati promotion review batch: exactly seven existing Ducati packets received one explicit `APPROVED-FOR-CONVERSION` decision for the requested low-ambiguity fields; 20 Ducati packets remain `PENDING-PROMOTION-REVIEW`. No BMW decision, schema conversion, evidence, coverage or production change occurred.
-- Ducati schema-conversion projection closeout: repository validation supports a distinct `electrical.battery.capacity` quantity entry (`6.5 Ah`) alongside `electrical.battery.specification` as `consumable-part`; 6 projections are `CONVERSION-READY` and cooling remains the sole `CONVERSION-BLOCKED` mapping because circuit scope is not proven equivalent to engine/radiator scope. No Ducati profile, citation, registry or production data was created.
+- Ducati schema-conversion projection closeout: repository validation supports a distinct `electrical.battery.capacity` quantity entry (`6.5 Ah`) alongside `electrical.battery.specification` as `consumable-part`; 6 projections are `CONVERSION-READY` and cooling remains the sole `CONVERSION-BLOCKED` mapping because circuit scope is not proven equivalent to engine/radiator scope.
 - Ducati production-promotion authorization foundation: exactly the six `CONVERSION-READY` projections are read-only `AUTHORIZATION-READY`; cooling is excluded, and future document/citation/profile/registry materialization remains explicit and separate. No production artifacts or upstream research changes were made.
-- Ducati production document/citation materialization foundation: one authenticated MY2021 EU owner-manual definition and six exact source citations now exist as production-compatible source definitions only; no Ducati profile, registry, evidence or coverage change was made.
+- Ducati production document/citation/profile materialization: one authenticated MY2021 EU owner-manual definition, six exact source citations and one unregistered review-status Ducati profile with six verified entries now exist; registry, evidence and coverage remain unchanged.
 
 - Post-BMW/Triumph Phase 5 reassessment: repository-known supply is `EXHAUSTED-OR-BLOCKED`; 18 prospect records were reassessed, with 2 held pre-promotion, 4 access-blocked, 2 applicability-blocked, 6 exhausted, 2 mismatched and 2 explicitly deferred. No viable next prospect-registration target was selected.
 origin/main at task start: `b3fbabf94278617125cc713da3ebc21c5e10cc70`
@@ -26,7 +26,7 @@ Research is quarantined under `research/` and is not imported by the production 
 ## Current facts
 
 - Catalogue inventory: 13 manufacturers, 318 families, 1,095 variants, 5,317 variant-years, MY1990–2025. Catalogue infrastructure/identity is mature for the tested scope; global catalogue content coverage remains incomplete and has no defensible percentage denominator.
-- Production Technical Profiles: 1 real profile, VFR800 MY2002, 99 entries (94 verified, 5 pending).
+- Production Technical Profiles: 2 real profile modules, VFR800 MY2002 (registered, 99 entries) and Ducati Monster 937 MY2021 (unregistered, 6 verified entries).
 - Research schema: 183 canonical fields; Service Core: 44 fields.
 - Honda Service Data Wave 1 population: 8 targets and 51/352 aggregate Service Core slots (the denominator is specifically 8 × 44).
 - VFR800: 13/44, 24 source-identity-uncertain rows, `RESEARCH-MORE`.
@@ -62,7 +62,7 @@ Research is quarantined under `research/` and is not imported by the production 
 - Technical Research Factory Human Review Decisions Foundation: `ACCEPT-WITH-RISKS`. Decision schema 1 accepts valid queue entries plus explicit opaque reviewer IDs and optional raw comments, producing immutable `ACCEPT`, `REJECT` or `NEEDS-MORE-REVIEW` records with canonical provenance and semantic IDs/order. Exact duplicates are idempotent; conflicting decisions or metadata for one queue entry fail closed. Decisions create no evidence, researched-no-evidence, normalization, conflict resolution, routing, persistence, retries, Orchestrator events or production state.
 - Technical Research Factory Evidence-Processing Contract Foundation: `ACCEPT-WITH-RISKS`. Evidence-processing schema 1 projects immutable Human Review Decisions plus validated queue entries into explicit pre-promotion states: accepted-for-processing, rejected-candidate, needs-more-review, ineligible and cannot-advance. Raw candidate values and canonical provenance are preserved; directly observable accepted disagreements remain independently represented and unresolved. No evidence, normalization, researched-no-evidence, promotion, lifecycle, retry or production changes were added.
 - Technical Research Factory Ténéré Interrupted/Resumed Batch Pilot Design: `ACCEPT-WITH-RISKS`. Design schema 1 fixes the canonical Yamaha Ténéré 700 MY2019 EU standard target and BW3-F8197-E0 prospect, retains the real prospect as `REGISTERED-NOT-REAUTHENTICATED`, defines one-target/one-work/one-attempt limits, and proves pause/checkpoint/validated-resume equivalence through a synthetic local path across acquisition, extraction, Review Queue, Human Review Decisions and Evidence Processing. No real authentication, acquisition, technical inspection, evidence, coverage, readiness, production or retry changes occurred.
-- Latest completed-wave validation: Ducati authorization/schema-conversion and document/citation targeted tests passed 45/45; deterministic reports and project-state audit passed; changed JavaScript passed `node --check`; full suite passed 669/669.
+- Latest completed-wave validation: Ducati profile/source/registry targeted tests passed 31/31; deterministic reports and project-state audit passed; changed JavaScript passed `node --check`; full suite passed 673/673.
 - Published application version: 0.3.0.
 
 ## Independent work streams
@@ -81,7 +81,7 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Resolve only Triumph MY2023 EU and base/R/RS applicability metadata for authenticated handbook `3850186_2-EN`; do not acquire or inspect content while those dimensions remain unresolved. Hold BMW/Ducati processing records, keep Kawasaki/Suzuki blocked, and do not revisit exhausted Ténéré/MT-09 paths.
+**NEXT** — Keep the Ducati profile unregistered; separately authorize only the registry-insertion and production-discovery task after reviewing the six materialized entries. Keep cooling and the 20 pending Ducati packets excluded, and hold BMW unchanged.
 
 Deferred independent streams remain the live-backend production-readiness audit, controlled Technical Profile promotion design, and global catalogue gap audit; none is an active NEXT task.
 
