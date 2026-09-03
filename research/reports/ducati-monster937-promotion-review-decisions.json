@@ -1,0 +1,245 @@
+{
+  "schemaVersion": "revlog-ducati-monster937-promotion-review-decisions/v1",
+  "date": "2026-09-03",
+  "reviewerId": "human-promotion-review.ducati.monster937.batch1",
+  "scope": [
+    [
+      "ignition.spark-plug-oem",
+      "NGK MAR9A-J"
+    ],
+    [
+      "lubrication.viscosity",
+      "SAE 15W-50"
+    ],
+    [
+      "lubrication.api-jaso",
+      "API: SN; JASO: MA2"
+    ],
+    [
+      "electrical.battery-capacity",
+      "6.5 Ah"
+    ],
+    [
+      "electrical.battery-specification",
+      "YUASA YT 7B-BS DRY, 12 V"
+    ],
+    [
+      "cooling.capacity",
+      "Cooling circuit: 2.25 litres"
+    ],
+    [
+      "brakes.brake-fluid",
+      "Front/rear brake circuit: DOT 4"
+    ]
+  ],
+  "reviewed": [
+    {
+      "fieldId": "ignition.spark-plug-oem",
+      "rawValue": "NGK MAR9A-J",
+      "promotionReviewPacketId": "promotion-review-packet.1e83fddea642a8d0fa66f0f2",
+      "promotionPacketId": "promotion-candidate.d54a579828356b55afb8024d",
+      "evidenceProcessingRecordId": "evidence-processing.24734adfa894376633f42315",
+      "decision": {
+        "canonicalFieldId": "ignition.spark-plug-oem",
+        "decision": "APPROVED-FOR-CONVERSION",
+        "evidenceProcessingRecordId": "evidence-processing.24734adfa894376633f42315",
+        "id": "promotion-review-decision.18acbbaa7fe1a41042e68bcd",
+        "promotionPacketId": "promotion-candidate.d54a579828356b55afb8024d",
+        "promotionReviewPacketId": "promotion-review-packet.1e83fddea642a8d0fa66f0f2",
+        "rationale": "Exact canonical field identity, raw value, provenance and applicability are present in the existing pending packet; approval permits only a later bounded schema-conversion review and performs no conversion.",
+        "reviewerId": "human-promotion-review.ducati.monster937.batch1",
+        "schemaVersion": 1,
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      }
+    },
+    {
+      "fieldId": "lubrication.viscosity",
+      "rawValue": "SAE 15W-50",
+      "promotionReviewPacketId": "promotion-review-packet.075d6b761f2aa57617182b92",
+      "promotionPacketId": "promotion-candidate.16d5b34a359a5d76ef0de3bc",
+      "evidenceProcessingRecordId": "evidence-processing.466b61a7853399baad3e379c",
+      "decision": {
+        "canonicalFieldId": "lubrication.viscosity",
+        "decision": "APPROVED-FOR-CONVERSION",
+        "evidenceProcessingRecordId": "evidence-processing.466b61a7853399baad3e379c",
+        "id": "promotion-review-decision.1d2d7cd1e3f97cf7c5f706ed",
+        "promotionPacketId": "promotion-candidate.16d5b34a359a5d76ef0de3bc",
+        "promotionReviewPacketId": "promotion-review-packet.075d6b761f2aa57617182b92",
+        "rationale": "Exact canonical field identity, raw value, provenance and applicability are present in the existing pending packet; approval permits only a later bounded schema-conversion review and performs no conversion.",
+        "reviewerId": "human-promotion-review.ducati.monster937.batch1",
+        "schemaVersion": 1,
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      }
+    },
+    {
+      "fieldId": "lubrication.api-jaso",
+      "rawValue": "API: SN; JASO: MA2",
+      "promotionReviewPacketId": "promotion-review-packet.301cf7502e55332999989e01",
+      "promotionPacketId": "promotion-candidate.e18c92612a844f764489729d",
+      "evidenceProcessingRecordId": "evidence-processing.d5da84b323a8c7311bb7579b",
+      "decision": {
+        "canonicalFieldId": "lubrication.api-jaso",
+        "decision": "APPROVED-FOR-CONVERSION",
+        "evidenceProcessingRecordId": "evidence-processing.d5da84b323a8c7311bb7579b",
+        "id": "promotion-review-decision.bb93340e0c6c5c1e3af0e065",
+        "promotionPacketId": "promotion-candidate.e18c92612a844f764489729d",
+        "promotionReviewPacketId": "promotion-review-packet.301cf7502e55332999989e01",
+        "rationale": "Exact canonical field identity, raw value, provenance and applicability are present in the existing pending packet; approval permits only a later bounded schema-conversion review and performs no conversion.",
+        "reviewerId": "human-promotion-review.ducati.monster937.batch1",
+        "schemaVersion": 1,
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      }
+    },
+    {
+      "fieldId": "electrical.battery-capacity",
+      "rawValue": "6.5 Ah",
+      "promotionReviewPacketId": "promotion-review-packet.17d55a78f043ab02f6541df6",
+      "promotionPacketId": "promotion-candidate.e576129406a06d68f4f63fe2",
+      "evidenceProcessingRecordId": "evidence-processing.7f5dd3ba164697dccb4fec5b",
+      "decision": {
+        "canonicalFieldId": "electrical.battery-capacity",
+        "decision": "APPROVED-FOR-CONVERSION",
+        "evidenceProcessingRecordId": "evidence-processing.7f5dd3ba164697dccb4fec5b",
+        "id": "promotion-review-decision.203410ebe23c5a708f1fd9de",
+        "promotionPacketId": "promotion-candidate.e576129406a06d68f4f63fe2",
+        "promotionReviewPacketId": "promotion-review-packet.17d55a78f043ab02f6541df6",
+        "rationale": "Exact canonical field identity, raw value, provenance and applicability are present in the existing pending packet; approval permits only a later bounded schema-conversion review and performs no conversion.",
+        "reviewerId": "human-promotion-review.ducati.monster937.batch1",
+        "schemaVersion": 1,
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      }
+    },
+    {
+      "fieldId": "electrical.battery-specification",
+      "rawValue": "YUASA YT 7B-BS DRY, 12 V",
+      "promotionReviewPacketId": "promotion-review-packet.77df0ca27619514de36a5c23",
+      "promotionPacketId": "promotion-candidate.3f390d1553a4adf54846f46b",
+      "evidenceProcessingRecordId": "evidence-processing.d52429b5ca44d75da13073b8",
+      "decision": {
+        "canonicalFieldId": "electrical.battery-specification",
+        "decision": "APPROVED-FOR-CONVERSION",
+        "evidenceProcessingRecordId": "evidence-processing.d52429b5ca44d75da13073b8",
+        "id": "promotion-review-decision.eba0868b22aeed67aca3cc3f",
+        "promotionPacketId": "promotion-candidate.3f390d1553a4adf54846f46b",
+        "promotionReviewPacketId": "promotion-review-packet.77df0ca27619514de36a5c23",
+        "rationale": "Exact canonical field identity, raw value, provenance and applicability are present in the existing pending packet; approval permits only a later bounded schema-conversion review and performs no conversion.",
+        "reviewerId": "human-promotion-review.ducati.monster937.batch1",
+        "schemaVersion": 1,
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      }
+    },
+    {
+      "fieldId": "cooling.capacity",
+      "rawValue": "Cooling circuit: 2.25 litres",
+      "promotionReviewPacketId": "promotion-review-packet.a06115b1c776509565dc9042",
+      "promotionPacketId": "promotion-candidate.a3b8a57fb6bbeeb58ee5ec37",
+      "evidenceProcessingRecordId": "evidence-processing.a2b6907fca5364b153b2abcb",
+      "decision": {
+        "canonicalFieldId": "cooling.capacity",
+        "decision": "APPROVED-FOR-CONVERSION",
+        "evidenceProcessingRecordId": "evidence-processing.a2b6907fca5364b153b2abcb",
+        "id": "promotion-review-decision.5429692681793be0e1347ec2",
+        "promotionPacketId": "promotion-candidate.a3b8a57fb6bbeeb58ee5ec37",
+        "promotionReviewPacketId": "promotion-review-packet.a06115b1c776509565dc9042",
+        "rationale": "Exact canonical field identity, raw value, provenance and applicability are present in the existing pending packet; approval permits only a later bounded schema-conversion review and performs no conversion.",
+        "reviewerId": "human-promotion-review.ducati.monster937.batch1",
+        "schemaVersion": 1,
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      }
+    },
+    {
+      "fieldId": "brakes.brake-fluid",
+      "rawValue": "Front/rear brake circuit: DOT 4",
+      "promotionReviewPacketId": "promotion-review-packet.de7593d846584df98d151201",
+      "promotionPacketId": "promotion-candidate.dc88f865328e79994ff64a72",
+      "evidenceProcessingRecordId": "evidence-processing.697de9ce5fab81ed90d4540f",
+      "decision": {
+        "canonicalFieldId": "brakes.brake-fluid",
+        "decision": "APPROVED-FOR-CONVERSION",
+        "evidenceProcessingRecordId": "evidence-processing.697de9ce5fab81ed90d4540f",
+        "id": "promotion-review-decision.4267aa98565e5156e5754caf",
+        "promotionPacketId": "promotion-candidate.dc88f865328e79994ff64a72",
+        "promotionReviewPacketId": "promotion-review-packet.de7593d846584df98d151201",
+        "rationale": "Exact canonical field identity, raw value, provenance and applicability are present in the existing pending packet; approval permits only a later bounded schema-conversion review and performs no conversion.",
+        "reviewerId": "human-promotion-review.ducati.monster937.batch1",
+        "schemaVersion": 1,
+        "targetIdentity": {
+          "catalogVariantKey": "ducati.monster.937",
+          "equipment": "base Monster 937",
+          "id": "target.ducati.monster.937.my21.eu",
+          "market": "EU",
+          "model": "Monster 937",
+          "state": "KNOWN",
+          "year": 2021
+        }
+      }
+    }
+  ],
+  "counts": {
+    "reviewed": 7,
+    "approvedForConversion": 7,
+    "needsPromotionReview": 0,
+    "rejectedForPromotion": 0,
+    "remainingDucatiPending": 20
+  },
+  "bmwUnchanged": true,
+  "upstreamResearchStateChanged": false,
+  "productionStateChanged": false,
+  "evidenceRowsCreated": 0,
+  "serviceCoreCoverageChanged": false,
+  "researchHumanReviewAcceptMeansPromotionApproval": false,
+  "promotionConversionPerformed": false,
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "conclusion": "Exactly seven existing Ducati pending promotion-review packets received one explicit APPROVED-FOR-CONVERSION decision. This is a pre-conversion review outcome only; research Human Review ACCEPT was not reused as promotion approval and no conversion or production mutation occurred."
+  },
+  "exactNextTask": "Keep the seven decisions pre-conversion and all other Ducati/BMW packets unchanged; separately authorize any future schema-conversion task."
+}
