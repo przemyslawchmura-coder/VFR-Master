@@ -7,6 +7,8 @@ Planning items only; none are executed by this stocktake.
 - Expand production Technical Profiles beyond the VFR reference path.
 - Review mobile/iOS interaction and offline error states.
 - Improve authenticated empty/loading/error flows.
+- Add future “Instrukcja źródłowa” presentation: show a profile’s lawful principal manual link with title, type, applicability and publication number, plus an optional verification link. Do not download/copy manuals or expose internal source IDs as the primary UX.
+- Integrate periodic-maintenance mileage/time inspect/replace/adjust data with Garage and Service history reminders. Preserve model applicability and keep this separate from the current governance foundation.
 - **RevLog PL/EN internationalization (i18n)** — future bounded feature. Polish remains the default language; add a Polish/English selector through one centralized deterministic i18n/presentation layer. Gradually move user-facing strings to translation keys instead of duplicated hard-coded PL/EN branches. Keep technical data single-source and language-independent: translate presentation labels/descriptions, not canonical technical identities or values. Persist the language preference for the user/device when implemented. Cover authentication, dashboard, garage, service, Technical Database, search, errors, empty states, source presentation and About consistently. Do not implement i18n or add the selector in the current wave.
 
 ## Cloud/backend

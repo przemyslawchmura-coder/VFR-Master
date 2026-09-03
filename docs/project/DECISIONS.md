@@ -1,5 +1,22 @@
 # Architectural decisions
 
+## ADR-023 — Rider Service Core and Source Trust Model
+
+Date: 2026-09-03
+Decision: RevLog is owner-first: Rider Service Core is the permanent priority
+and coverage layer over the broader Technical Profile taxonomy. An exact-
+applicable official manufacturer publication is authoritative within scope.
+A separately hosted copy of the same publication can verify document identity,
+but cannot count as an independent technical claim; a genuinely separate
+authoritative publication is an optional technical cross-check where available.
+The zero-inference rule remains mandatory.
+Consequences: coverage reports distinguish Core support, missing data,
+applicability/conflict blockers and secondary fields. A future “Instrukcja
+źródłowa” presentation may expose a lawful publication link without copying
+manuals or exposing internal source IDs as the user experience. Existing
+technical data and profiles remain unchanged.
+Status: ACTIVE. Related design: `docs/project/RIDER_SERVICE_CORE.md`.
+
 ## ADR-001 — Stable catalogue identity is the join key
 
 Date: 2026-08-30 (recovered from history)

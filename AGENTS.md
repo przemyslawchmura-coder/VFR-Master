@@ -288,6 +288,27 @@ Prefer reporting:
 
 Do not spend substantial tokens narrating routine exploration.
 
+## 17. Rider Service Core and Source Trust Model
+
+The canonical owner-first priority and source model is documented in
+`docs/project/RIDER_SERVICE_CORE.md`. Rider Service Core prioritizes practical
+owner/service fields over encyclopedic specification count and is a coverage
+layer over the broader Technical Profile taxonomy.
+
+An exact-applicable official manufacturer publication is authoritative within
+its documented scope. A second copy of the same publication may verify document
+identity only; it is not an independent technical claim. Separate authoritative
+publications may provide technical cross-checks where available, but their
+absence does not automatically block an otherwise applicable primary manual.
+The zero-inference rule, explicit applicability and conflict handling remain
+mandatory.
+
+Future profiles may expose a lawful principal source link as “Instrukcja
+źródłowa”; internal source IDs remain implementation details and copyrighted
+manuals must not be copied into RevLog. Coverage reporting must distinguish
+Core supported/missing/blocked fields from secondary data without inventing a
+percentage denominator.
+
 ## 14. Stop Conditions
 
 Stop and report rather than guessing when:

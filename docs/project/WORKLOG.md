@@ -228,3 +228,13 @@ Defined and validated the generic immutable rollback/governance contract for the
 ## 2026-09-03 — Ducati Monster 937 production registry insertion
 
 Registered exactly one existing Ducati Monster 937 MY2021 profile descriptor for catalogue key `ducati.monster.937`, preserving the VFR descriptor and registry uniqueness. Normal registry discovery, loader validation and resolver paths now succeed for the six verified entries. Cooling, pending Ducati fields, BMW, source citations/documents, evidence and Service Core coverage remain unchanged. Phase 6 remains active after the first bounded production registry promotion.
+## 2026-09-03 — Rider Service Core and Source Trust Model
+
+Defined the permanent owner-first Rider Service Core taxonomy and the
+manufacturer-neutral Source Trust Model in `docs/project/RIDER_SERVICE_CORE.md`.
+Recorded official-primary authority, same-publication document-identity
+verification versus independent technical cross-checks, zero inference,
+coverage reporting and the future lawful “Instrukcja źródłowa” contract. Added
+only the genuinely future source-link and Garage/Service maintenance-due items
+to the backlog. Existing VFR/Ducati data, application code, cloud state and
+Phase 7 state were unchanged; Phase 7 remains ACTIVE.
