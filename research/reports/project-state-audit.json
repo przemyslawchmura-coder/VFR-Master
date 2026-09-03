@@ -1092,14 +1092,12 @@
   },
   "ducatiSchemaConversionProjection": {
     "total": 7,
-    "conversionReady": 4,
-    "conversionBlocked": 3,
+    "conversionReady": 6,
+    "conversionBlocked": 1,
     "blockedReasons": {
-      "BATTERY-PAIR-REQUIRES-LOSSY-MERGE": 2,
-      "COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR": 1,
-      "NO-LOSSLESS-STANDALONE-BATTERY-CAPACITY-ENTRY": 1
+      "COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR": 1
     },
-    "batteryLossless": false,
+    "batteryLossless": true,
     "coolingCapacityExact": false,
     "productionProfileCreated": false,
     "registryChanged": false,

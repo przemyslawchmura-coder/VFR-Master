@@ -11,16 +11,18 @@ test("projects exactly the seven approved Ducati decisions", () => {
     ["ignition.spark-plug-oem", "NGK MAR9A-J"], ["lubrication.viscosity", "SAE 15W-50"], ["lubrication.api-jaso", "API: SN; JASO: MA2"], ["electrical.battery-capacity", "6.5 Ah"], ["electrical.battery-specification", "YUASA YT 7B-BS DRY, 12 V"], ["cooling.capacity", "Cooling circuit: 2.25 litres"], ["brakes.brake-fluid", "Front/rear brake circuit: DOT 4"]
   ]);
   assert.equal(result.counts.total, 7);
-  assert.equal(result.counts.conversionReady, 4);
-  assert.equal(result.counts.conversionBlocked, 3);
+  assert.equal(result.counts.conversionReady, 6);
+  assert.equal(result.counts.conversionBlocked, 1);
   assert.ok(result.projections.every(item => item.sourceProvenance.packet.rawValue));
 });
 
 test("battery and cooling mappings fail closed without altering upstream state", () => {
   const result = report();
-  assert.equal(result.batteryLossless, false);
+  assert.equal(result.batteryLossless, true);
   assert.equal(result.coolingCapacityExact, false);
-  assert.equal(result.blockedReasons["BATTERY-PAIR-REQUIRES-LOSSY-MERGE"], 2);
+  assert.equal(result.projections.find(item => item.researchCanonicalFieldId === "electrical.battery-specification").proposedProduction.type, "consumable-part");
+  assert.equal(result.projections.find(item => item.researchCanonicalFieldId === "electrical.battery-capacity").proposedProduction.entryId, "electrical.battery.capacity");
+  assert.equal(result.projections.find(item => item.researchCanonicalFieldId === "electrical.battery-capacity").proposedProduction.value.unit, "Ah");
   assert.equal(result.blockedReasons["COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR"], 1);
   assert.equal(result.upstreamStateChanged, false);
   assert.equal(result.productionProfileCreated, false);

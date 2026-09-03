@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "revlog-ducati-monster937-schema-conversion-projection/v1",
+  "schemaVersion": "revlog-ducati-monster937-schema-conversion-projection/v2",
   "date": "2026-09-03",
   "approvedSourceFields": [
     [
@@ -133,6 +133,61 @@
           "locator": "printed-page:177, 212",
           "page": null,
           "section": "Check clutch and brake fluid level; Fuel, lubricants and other fluids"
+        }
+      },
+      "targetApplicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      }
+    },
+    {
+      "blockedReasons": [],
+      "conversionState": "CONVERSION-READY",
+      "evidenceProcessingRecordId": "evidence-processing.7f5dd3ba164697dccb4fec5b",
+      "id": "schema-conversion.23189bbc738bab7cd4a13ead",
+      "promotionPacketId": "promotion-candidate.e576129406a06d68f4f63fe2",
+      "promotionReviewDecisionId": "promotion-review-decision.203410ebe23c5a708f1fd9de",
+      "promotionReviewPacketId": "promotion-review-packet.17d55a78f043ab02f6541df6",
+      "proposedProduction": {
+        "categoryId": "electrical",
+        "entryId": "electrical.battery.capacity",
+        "type": "specification",
+        "value": {
+          "amount": 6.5,
+          "type": "quantity",
+          "unit": "Ah"
+        }
+      },
+      "researchCanonicalFieldId": "electrical.battery-capacity",
+      "schemaVersion": 1,
+      "sourceProvenance": {
+        "packet": {
+          "canonicalFieldId": "electrical.battery-capacity",
+          "evidenceProcessingRecordId": "evidence-processing.7f5dd3ba164697dccb4fec5b",
+          "promotionPacketId": "promotion-candidate.e576129406a06d68f4f63fe2",
+          "promotionReviewPacketId": "promotion-review-packet.17d55a78f043ab02f6541df6",
+          "provenance": {
+            "artifactId": "artifact.ducati.monster937.owner.my21",
+            "candidateId": "extraction-candidate.a5a5b2a7a746011a92559696",
+            "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+            "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+            "sourceLocation": {
+              "locator": "printed-page:220",
+              "page": null,
+              "section": "Electric system"
+            }
+          },
+          "rawUnit": null,
+          "rawValue": "6.5 Ah"
+        },
+        "sourceLocation": {
+          "locator": "printed-page:220",
+          "page": null,
+          "section": "Electric system"
         }
       },
       "targetApplicability": {
@@ -310,77 +365,17 @@
       }
     },
     {
-      "blockedReasons": [
-        "BATTERY-PAIR-REQUIRES-LOSSY-MERGE",
-        "NO-LOSSLESS-STANDALONE-BATTERY-CAPACITY-ENTRY"
-      ],
-      "conversionState": "CONVERSION-BLOCKED",
-      "evidenceProcessingRecordId": "evidence-processing.7f5dd3ba164697dccb4fec5b",
-      "id": "schema-conversion.6c732f2604322ebbe6381d56",
-      "promotionPacketId": "promotion-candidate.e576129406a06d68f4f63fe2",
-      "promotionReviewDecisionId": "promotion-review-decision.203410ebe23c5a708f1fd9de",
-      "promotionReviewPacketId": "promotion-review-packet.17d55a78f043ab02f6541df6",
-      "proposedProduction": {
-        "categoryId": "electrical",
-        "entryId": null,
-        "type": "specification",
-        "value": {
-          "amount": 6.5,
-          "type": "quantity",
-          "unit": "Ah"
-        }
-      },
-      "researchCanonicalFieldId": "electrical.battery-capacity",
-      "schemaVersion": 1,
-      "sourceProvenance": {
-        "packet": {
-          "canonicalFieldId": "electrical.battery-capacity",
-          "evidenceProcessingRecordId": "evidence-processing.7f5dd3ba164697dccb4fec5b",
-          "promotionPacketId": "promotion-candidate.e576129406a06d68f4f63fe2",
-          "promotionReviewPacketId": "promotion-review-packet.17d55a78f043ab02f6541df6",
-          "provenance": {
-            "artifactId": "artifact.ducati.monster937.owner.my21",
-            "candidateId": "extraction-candidate.a5a5b2a7a746011a92559696",
-            "extractionMethod": "Ducati-controlled PDF text-layer inspection",
-            "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
-            "sourceLocation": {
-              "locator": "printed-page:220",
-              "page": null,
-              "section": "Electric system"
-            }
-          },
-          "rawUnit": null,
-          "rawValue": "6.5 Ah"
-        },
-        "sourceLocation": {
-          "locator": "printed-page:220",
-          "page": null,
-          "section": "Electric system"
-        }
-      },
-      "targetApplicability": {
-        "abs": "KNOWN",
-        "context": "SUFFICIENT",
-        "equipment": "SUFFICIENT",
-        "market": "KNOWN",
-        "modelYear": "KNOWN",
-        "transmission": "KNOWN"
-      }
-    },
-    {
-      "blockedReasons": [
-        "BATTERY-PAIR-REQUIRES-LOSSY-MERGE"
-      ],
-      "conversionState": "CONVERSION-BLOCKED",
+      "blockedReasons": [],
+      "conversionState": "CONVERSION-READY",
       "evidenceProcessingRecordId": "evidence-processing.d52429b5ca44d75da13073b8",
-      "id": "schema-conversion.7adc4d0452e19a33d947713c",
+      "id": "schema-conversion.9605a523afac8e04d09ca7fd",
       "promotionPacketId": "promotion-candidate.3f390d1553a4adf54846f46b",
       "promotionReviewDecisionId": "promotion-review-decision.eba0868b22aeed67aca3cc3f",
       "promotionReviewPacketId": "promotion-review-packet.77df0ca27619514de36a5c23",
       "proposedProduction": {
         "categoryId": "electrical",
         "entryId": "electrical.battery.specification",
-        "type": "specification",
+        "type": "consumable-part",
         "value": {
           "text": "YUASA YT 7B-BS DRY, 12 V",
           "type": "text"
@@ -426,15 +421,13 @@
   ],
   "counts": {
     "total": 7,
-    "conversionReady": 4,
-    "conversionBlocked": 3
+    "conversionReady": 6,
+    "conversionBlocked": 1
   },
   "blockedReasons": {
-    "BATTERY-PAIR-REQUIRES-LOSSY-MERGE": 2,
-    "COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR": 1,
-    "NO-LOSSLESS-STANDALONE-BATTERY-CAPACITY-ENTRY": 1
+    "COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR": 1
   },
-  "batteryLossless": false,
+  "batteryLossless": true,
   "coolingCapacityExact": false,
   "productionProfileCreated": false,
   "registryChanged": false,
@@ -443,7 +436,7 @@
   "serviceCoreCoverageChanged": false,
   "audit": {
     "classification": "ACCEPT-WITH-RISKS",
-    "conclusion": "The seven explicitly approved Ducati records were mapped against existing production entry conventions without schema conversion. Four mappings are lossless projections; cooling capacity is blocked by scope mismatch and both battery fields are blocked because the existing schema has no lossless standalone pair representation."
+    "conclusion": "The seven explicitly approved Ducati records were mapped against existing production entry conventions without schema conversion. Battery specification and battery capacity are now separate lossless projections using existing v1 type semantics; cooling capacity remains blocked because circuit scope is not proven equivalent to engine-and-radiator scope."
   },
-  "exactNextTask": "Keep this projection read-only; separately authorize production citation/materialization and conversion only after the blocked cooling and battery mappings are resolved."
+  "exactNextTask": "Keep this projection read-only; separately authorize production citation/materialization and conversion only after the cooling mapping is resolved."
 }
