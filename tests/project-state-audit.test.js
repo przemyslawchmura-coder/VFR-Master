@@ -10,8 +10,8 @@ const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 const git = (...args) => cp.execFileSync("git", args, { cwd: path.join(__dirname, ".."), encoding: "utf8" }).trim();
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-bmw-f900r-human-review-working-tree");
-  assert.equal(snapshot.snapshotImplementationPath, "research/data/bmw-f900r-human-review.js");
+  assert.equal(snapshot.snapshotBasis, "post-bmw-f900r-evidence-processing-working-tree");
+  assert.equal(snapshot.snapshotImplementationPath, "research/data/bmw-f900r-evidence-processing.js");
   const containingCommit = git("log", "-1", "--format=%H", "--", snapshot.snapshotImplementationPath);
   const expectedBase = containingCommit ? git("rev-parse", `${containingCommit}^`) : git("rev-parse", "HEAD");
   assert.equal(snapshot.baseCommit, expectedBase);
@@ -135,6 +135,21 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.bmwF900RHumanReview.serviceCoreBefore, 0);
   assert.equal(snapshot.bmwF900RHumanReview.serviceCoreAfter, 0);
   assert.equal(snapshot.bmwF900RHumanReview.productionChanged, false);
+  assert.equal(snapshot.bmwF900REvidenceProcessing.target.catalogVariantKey, "bmw.f-roadster-xr.f900r-1");
+  assert.equal(snapshot.bmwF900REvidenceProcessing.source.publicationId, "F_0K11_RM_0520_76.pdf");
+  assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.processingRecords, 13);
+  assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.acceptedForProcessing, 11);
+  assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.cannotAdvance, 2);
+  assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.rejectedCandidate, 0);
+  assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.needsMoreReview, 0);
+  assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.ineligible, 0);
+  assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.conflictsDetected, 2);
+  assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.rawValuesAndProvenancePreserved, true);
+  assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.humanReviewDecisionsUnchanged, true);
+  assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.evidenceRowsCreated, 0);
+  assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.serviceCoreBefore, 0);
+  assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.serviceCoreAfter, 0);
+  assert.equal(snapshot.bmwF900REvidenceProcessing.metrics.productionChanged, false);
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.classification, "ACCESS-BLOCKED");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.audit, "ACCEPT-WITH-RISKS");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.b7nLitRelationship, "UNRESOLVED");

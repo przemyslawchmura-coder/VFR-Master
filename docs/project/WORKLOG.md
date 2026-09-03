@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-03 — BMW F 900 R I evidence processing projection
+
+Fed exactly the 13 existing BMW Human Review Decisions and their Review Queue entries through the canonical Evidence Processing contract. Produced 13 records: 11 `ACCEPTED-FOR-PROCESSING` and 2 `CANNOT-ADVANCE` records for the processor-detected same-field solo tire-pressure raw-value disagreement. Raw values, units, applicability, provenance and upstream decisions remained unchanged; no conflict was resolved, no evidence rows were created, Service Core stayed 0/44, and production was unchanged. NEXT: hold these pre-promotion records and conflicts.
+
 ## 2026-09-03 — BMW F 900 R I human review of queued raw candidates
 
 Ran exactly the 13 existing BMW Review Queue entries through the canonical Human Review Decisions contract. All 13 received explicit `ACCEPT` decisions based on direct source support and preserved raw values, units, applicability, and page/section provenance; no normalization or conflict resolution occurred. Evidence rows and Service Core coverage remained 0/44, and production was unchanged. NEXT: separate Evidence Processing only.

@@ -1,16 +1,16 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-03",
-  "snapshotBasis": "post-bmw-f900r-human-review-working-tree",
-  "snapshotImplementationPath": "research/data/bmw-f900r-human-review.js",
-  "baseCommit": "9d913d4635218f51b80a77ba307d3bea68238296",
+  "snapshotBasis": "post-bmw-f900r-evidence-processing-working-tree",
+  "snapshotImplementationPath": "research/data/bmw-f900r-evidence-processing.js",
+  "baseCommit": "87206fee479d248db254d983fcf921622cc4d468",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 341,
-    "javascriptFiles": 216,
-    "testFiles": 71,
+    "files": 345,
+    "javascriptFiles": 219,
+    "testFiles": 72,
     "documentationFiles": 72,
-    "researchAndToolingFiles": 154
+    "researchAndToolingFiles": 157
   },
   "catalogue": {
     "manufacturers": 13,
@@ -596,6 +596,139 @@
     "serviceCoreBefore": 0,
     "serviceCoreAfter": 0,
     "productionChanged": false
+  },
+  "bmwF900REvidenceProcessing": {
+    "metrics": {
+      "processingRecords": 13,
+      "acceptedForProcessing": 11,
+      "cannotAdvance": 2,
+      "rejectedCandidate": 0,
+      "needsMoreReview": 0,
+      "ineligible": 0,
+      "conflictsDetected": 2,
+      "rawValuesAndProvenancePreserved": true,
+      "upstreamInputsUnchanged": true,
+      "humanReviewDecisionsUnchanged": true,
+      "evidenceRowsCreated": 0,
+      "serviceCoreBefore": 0,
+      "serviceCoreAfter": 0,
+      "productionChanged": false,
+      "researchedNoEvidenceCreated": false,
+      "normalizationPerformed": false,
+      "conflictsResolved": false
+    },
+    "source": {
+      "id": "bmw.acquisition.f900r.owner.my20.eu",
+      "documentId": "BMW|F_0K11_RM_0520_76",
+      "tier": "A",
+      "sourceClass": "official-rider-manual",
+      "publisher": "BMW Motorrad / BMW AG",
+      "title": "Rider's Manual F 900 R (0K11), May 2020, 2nd edition",
+      "publicationId": "F_0K11_RM_0520_76.pdf",
+      "edition": "Slovenian EU edition, May 2020",
+      "publicationDate": 2020,
+      "url": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/F_0K11_RM_0520_76.pdf",
+      "officialHost": "manuals.bmw-motorrad.com",
+      "disposition": "acquired-content",
+      "accessResult": "BMW-controlled PDF downloaded and locally text-inspected",
+      "authenticationState": "OFFICIAL-BMW-MY2020-EU-F900R-0K11-CONFIRMED",
+      "language": "Slovenian",
+      "pageCount": 312,
+      "pdfSha256": "fdf81e96ef463f7125780fc511dbcc6f209219f03a0c7429110f030da4a8db29",
+      "models": [
+        "F 900 R (0K11)"
+      ],
+      "years": {
+        "from": 2020,
+        "to": 2020
+      },
+      "markets": [
+        "EU"
+      ],
+      "abs": true,
+      "transmission": "manual",
+      "equipment": "base F 900 R 0K11; F 900 R A2 0K31 excluded",
+      "targets": [
+        "bmw.f-roadster-xr.f900r-1"
+      ],
+      "yieldedEvidence": false,
+      "applicabilityProof": {
+        "exactSource": "official filename and title identify F 900 R 0K11 May 2020",
+        "targetYear": "MY2020",
+        "market": "EU edition",
+        "baseScope": "F 900 R 0K11 only; A2 0K31 and F 900 XR excluded",
+        "abs": "ABS is explicitly defined in the manual and retained as target applicability",
+        "transmission": "manual six-speed transmission",
+        "preExtractionCheckPassed": true
+      },
+      "stopCondition": "raw extraction stops before human review, evidence processing and production promotion"
+    },
+    "target": {
+      "schemaVersion": 1,
+      "id": "target.bmw.f900r.gen1.my20.eu",
+      "catalogVariantKey": "bmw.f-roadster-xr.f900r-1",
+      "manufacturer": "BMW",
+      "family": "F 900 R I",
+      "scope": {
+        "schemaVersion": 1,
+        "model": {
+          "state": "KNOWN",
+          "values": [
+            "F 900 R"
+          ]
+        },
+        "generation": {
+          "state": "KNOWN",
+          "values": [
+            "I"
+          ]
+        },
+        "years": {
+          "kind": "EXACT",
+          "from": 2020,
+          "to": 2020
+        },
+        "markets": {
+          "state": "KNOWN",
+          "values": [
+            "EU"
+          ]
+        },
+        "transmissions": {
+          "state": "KNOWN",
+          "values": [
+            "manual"
+          ]
+        },
+        "abs": {
+          "state": "KNOWN",
+          "values": [
+            true
+          ]
+        },
+        "equipment": {
+          "state": "KNOWN",
+          "values": [
+            "standard road model"
+          ]
+        }
+      },
+      "sourcePriorityPolicyId": "policy.tier-a-first",
+      "serviceCoreBaseline": {
+        "verified": 0,
+        "total": 44
+      },
+      "knownSourceRefs": [],
+      "knownProspectRefs": [
+        "unknown.bmw.f900r"
+      ],
+      "researchHistoryRefs": [],
+      "riskFlags": [
+        "official manual also identifies F 900 R A2 (0K31); only base F 900 R (0K11) is in scope",
+        "country-specific equipment variations remain outside this metadata registration"
+      ],
+      "state": "PLANNED"
+    }
   },
   "research": {
     "canonicalFieldCount": 183,
@@ -1883,8 +2016,8 @@
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 621,
-    "lastKnownPassed": 621,
+    "lastKnownTotal": 624,
+    "lastKnownPassed": 624,
     "failed": 0,
     "skipped": 0,
     "todo": 0
