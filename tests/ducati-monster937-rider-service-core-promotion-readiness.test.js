@@ -12,7 +12,7 @@ test("exactly 39 processed Ducati records receive one fail-closed readiness outc
   assert.equal(new Set(report.outcomes.map(item => item.candidateId)).size, 39);
   assert.equal(report.promotionReady, 0);
   assert.equal(report.productionRepresentationBlocked, 39);
-  assert.equal(report.structuralRepresentationBlocked, 1);
+  assert.equal(report.structuralRepresentationBlocked, 0);
   assert.equal(report.provenanceApplicabilityConflictBlocked, 0);
   assert.equal(report.otherReadinessOutcomes, 0);
   assert.equal(report.duplicatesOrCollisions, 0);
@@ -23,8 +23,8 @@ test("structured evidence remains associated and excluded inputs stay excluded",
   assert.equal(report.maintenanceReadiness.inputs, 6);
   assert.equal(report.maintenanceReadiness.semanticsPreserved, true);
   assert.equal(report.fuseReadiness.inputs, 1);
-  assert.equal(report.fuseReadiness.associationPreserved, false);
-  assert.equal(report.fuseReadiness.blocked, 1);
+  assert.equal(report.fuseReadiness.associationPreserved, true);
+  assert.equal(report.fuseReadiness.blocked, 0);
   assert.equal(report.lightingReadiness.inputs, 6);
   assert.equal(report.lightingReadiness.semanticsPreserved, true);
   assert.deepEqual(report.coolingCapacity, { entered: false, state: "BLOCKED", reason: "COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR" });

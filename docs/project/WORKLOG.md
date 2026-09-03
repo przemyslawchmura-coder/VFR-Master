@@ -298,3 +298,16 @@ blocked because the current processing payload does not retain the source
 rating/function/location association. Five `NEEDS-MORE-REVIEW` candidates and
 cooling remain excluded. No decisions, evidence, production, VFR or coverage
 state changed. Phase 7 remains ACTIVE.
+## 2026-09-03 — Generic Rider Service Core production representation
+
+Added the manufacturer-neutral `revlog-rider-service-core-record/v1`
+production-compatible representation contract. It supports scalar, structured
+and repeating records while preserving raw values/units, applicability and
+shared provenance; typed structures cover maintenance operations, fuse
+associations, lighting semantics, practical torques, consumable references and
+tire-pressure variants. The shared processing boundary now carries the already
+recorded source context needed to preserve fuse rating/function/location
+associations. Read-only Ducati regression confirms all 39 processed inputs are
+losslessly representable; the five deferred candidates and cooling remain
+excluded. No promotion, production profile, Human Review, evidence, VFR or
+coverage state changed. Phase 7 remains ACTIVE.

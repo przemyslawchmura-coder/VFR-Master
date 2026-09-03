@@ -36,7 +36,7 @@ Planning items only; none are executed by this stocktake.
 - Clarify the five Ducati Rider Service Core candidates left `NEEDS-MORE-REVIEW` (payload/GVWR, main-fuse rating, DRL applicability, LED replaceability and initial-service semantics); keep cooling capacity blocked until complete-circuit scope is proven and keep all production promotion separately authorized.
 - Evaluate richer typed materialization for repeating Rider Service Core records if future evidence/promotion requires it; current aligned processing preserves raw source/context and association semantics without normalization.
 - Evaluate a genuinely separate authoritative Ducati publication for technical cross-checks where useful; the owner-manual identity mirror remains document verification only.
-- Define generic lossless production mappings for newly processed Rider Service Core fields before promotion; extend processing context to retain fuse rating/function/location associations before any fuse materialization. Keep maintenance and lighting semantics explicit and do not flatten structured records.
+- Define field-level production mappings for the now-representable Rider Service Core records before promotion; keep maintenance and lighting semantics explicit and do not flatten structured records. The shared processing context now retains fuse rating/function/location associations.
 
 ## Future manufacturers
 

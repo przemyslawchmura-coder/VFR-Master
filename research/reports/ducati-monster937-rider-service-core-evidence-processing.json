@@ -1617,6 +1617,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.038",
           "printedPage": "204-207",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -1673,6 +1674,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.025",
           "printedPage": "217",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -1729,6 +1731,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.001",
           "printedPage": "214",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -1785,6 +1788,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.023",
           "printedPage": "219",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -1841,6 +1845,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.022",
           "printedPage": "219",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -1897,6 +1902,9 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.034",
           "printedPage": "221",
+          "sourceContext": {
+            "replaceability": "LED module; no bulb/socket claimed"
+          },
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -1953,6 +1961,9 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.036",
           "printedPage": "221",
+          "sourceContext": {
+            "replaceability": "LED module; no bulb/socket claimed"
+          },
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2009,6 +2020,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.019",
           "printedPage": "218",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2065,6 +2077,9 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.035",
           "printedPage": "221",
+          "sourceContext": {
+            "replaceability": "LED module; no bulb/socket claimed"
+          },
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2121,6 +2136,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.044",
           "printedPage": "30, 203, 207",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2177,6 +2193,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.002",
           "printedPage": "214",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2233,6 +2250,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.027",
           "printedPage": "221",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2289,6 +2307,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.041",
           "printedPage": "185-187, 207",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2345,6 +2364,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.006",
           "printedPage": "214",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2401,6 +2421,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.039",
           "printedPage": "203-205",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2457,6 +2478,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.021",
           "printedPage": "218",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2513,6 +2535,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.042",
           "printedPage": "185, 204",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2569,6 +2592,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.008",
           "printedPage": "208",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2625,6 +2649,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.004",
           "printedPage": "214",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2681,6 +2706,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.020",
           "printedPage": "218",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2737,6 +2763,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.018",
           "printedPage": "218",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2793,6 +2820,9 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.033",
           "printedPage": "221",
+          "sourceContext": {
+            "replaceability": "LED module; no bulb/socket claimed"
+          },
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2849,6 +2879,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.026",
           "printedPage": "217",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2905,6 +2936,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.010",
           "printedPage": "209",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -2961,6 +2993,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.024",
           "printedPage": "217",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -3017,6 +3050,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.040",
           "printedPage": "204, 207",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -3073,6 +3107,9 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.030",
           "printedPage": "221",
+          "sourceContext": {
+            "replaceability": "LED module; no bulb/socket claimed"
+          },
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -3129,6 +3166,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.007",
           "printedPage": "208",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -3185,6 +3223,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.011",
           "printedPage": "209",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -3241,6 +3280,10 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.028",
           "printedPage": "222-224",
+          "sourceContext": {
+            "location": "RH central side under RH side cover; box A LH, box B RH",
+            "structure": "function-amperage-location"
+          },
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -3297,6 +3340,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.017",
           "printedPage": "218",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -3353,6 +3397,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.016",
           "printedPage": "218",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -3409,6 +3454,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.015",
           "printedPage": "218",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -3465,6 +3511,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.013",
           "printedPage": "219",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -3521,6 +3568,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.003",
           "printedPage": "214",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -3577,6 +3625,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.014",
           "printedPage": "216",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -3633,6 +3682,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.005",
           "printedPage": "214",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -3689,6 +3739,7 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.012",
           "printedPage": "219",
+          "sourceContext": null,
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",
@@ -3745,6 +3796,9 @@
           "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
           "originalCandidateId": "ducati.monster937.core.raw.032",
           "printedPage": "221",
+          "sourceContext": {
+            "replaceability": "LED module; market-specific USA-ROK alternative retained"
+          },
           "sourceId": "ducati.acquisition.monster937.owner.my21"
         },
         "extractionMethod": "Ducati-controlled PDF text-layer inspection",

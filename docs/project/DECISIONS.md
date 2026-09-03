@@ -32,6 +32,21 @@ and production boundaries remain unchanged. Missing, conflicting or
 inapplicable values still fail closed at their existing stages.
 Status: ACTIVE. Related design: `docs/project/RIDER_SERVICE_CORE.md`.
 
+## ADR-025 — Rider Service Core production representation is additive and structured
+
+Date: 2026-09-03
+Decision: Production-compatible Rider Service Core data uses one generic
+`revlog-rider-service-core-record/v1` envelope. Scalar facts retain the
+existing raw value/unit shape; maintenance, fuses, lighting, practical
+torques, consumable references and tire-pressure variants use structured or
+repeating records with shared applicability and provenance. The representation
+layer never promotes records or changes Technical Profiles.
+Consequences: naturally repeating owner-service facts remain machine-readable
+and traceable without manufacturer-specific schemas or lossy prose flattening.
+Unknowns remain unknown, and a representable record still requires the normal
+review, evidence, readiness and promotion gates before production use.
+Status: ACTIVE. Related design: `docs/project/RIDER_SERVICE_CORE.md`.
+
 ## ADR-001 — Stable catalogue identity is the join key
 
 Date: 2026-08-30 (recovered from history)
