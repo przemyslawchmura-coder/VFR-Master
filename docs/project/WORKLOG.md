@@ -251,3 +251,14 @@ document identity; no independent technical cross-check was found in the
 bounded Ducati-controlled search. Cooling capacity remains blocked because
 complete circuit scope is not proven. No evidence, production, VFR, cloud or
 coverage state changed; Phase 7 remains ACTIVE.
+## 2026-09-03 — Ducati Monster 937 Rider Service Core human review
+
+Reviewed exactly the 44 newly queued candidates from the bounded Core
+acquisition. Existing review vocabulary produced 39 `ACCEPT`, 0 `REJECT` and
+5 `NEEDS-MORE-REVIEW` decisions; the five fail-closed clarifications cover
+payload/GVWR semantics, missing main-fuse rating, DRL applicability, LED
+replaceability and mixed initial-service text. Cooling capacity remained the
+prior `COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR` blocker and was
+not part of this batch. Raw values/provenance and prior acquisition state were
+preserved; no evidence, production, VFR or coverage change occurred. Phase 7
+remains ACTIVE.
