@@ -160,3 +160,11 @@ Decision: The future Ténéré batch pilot is designed for exactly `yamaha.tener
 Rationale: checkpoint/resume behavior can be proven deterministically without weakening readiness or authenticating an external source.
 Consequences: the real prospect remains `REGISTERED-NOT-REAUTHENTICATED` and `FACTORY-PILOT-CANDIDATE`; authentication, applicability proof, acquisition, extraction, review and processing remain future gated stages. No real evidence or production state can be produced by this design fixture.
 Status: ACTIVE. Related design: Technical Research Factory Ténéré Interrupted/Resumed Batch Pilot Design.
+
+## ADR-022 — Production promotion rollback is registry-exposure-only
+
+Date: 2026-09-03
+Decision: every bounded production registry promotion must retain an immutable record of the exact prior and resulting registry sets, promoted profile identity, entry/source graph and a deterministic rollback target. Rollback may remove only the exact promoted profile's registry exposure and restore the prior set; it must not delete production/source artifacts or alter research history, catalogue, evidence or coverage.
+Rationale: registry exposure is the smallest reversible production boundary, while profile and provenance artifacts must remain auditable after rollback. A fail-closed record prevents ambiguous rollback scope and protects unrelated registered profiles.
+Consequences: promotion governance is not complete without recorded prior/current sets, retained artifacts and regression validation. This Ducati record is readiness-only; no rollback is automatic or executed by the contract.
+Status: ACTIVE. Related design: Phase 6 Production Promotion Rollback / Governance Closeout.

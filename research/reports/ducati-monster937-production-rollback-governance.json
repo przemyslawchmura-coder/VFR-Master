@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "revlog-ducati-monster937-production-rollback-governance/v1",
+  "promotedProfileId": "ducati.monster937.2021",
+  "catalogueVariantKey": "ducati.monster.937",
+  "moduleId": "data/technical/ducati/monster937/profile-2021.js",
+  "yearRange": {
+    "from": 2021,
+    "to": 2021
+  },
+  "registryStatus": "review",
+  "prePromotionRegistryIds": [
+    "honda.vfr800.rc46-vtec-gen1.2002"
+  ],
+  "currentRegistryIds": [
+    "honda.vfr800.rc46-vtec-gen1.2002",
+    "ducati.monster937.2021"
+  ],
+  "expectedRollbackRegistryIds": [
+    "honda.vfr800.rc46-vtec-gen1.2002"
+  ],
+  "promotedEntryCount": 6,
+  "promotedEntryIds": [
+    "ignition.spark-plug.standard",
+    "lubrication.engine-oil.viscosity",
+    "lubrication.engine-oil.specification",
+    "electrical.battery.capacity",
+    "electrical.battery.specification",
+    "brakes.fluid.specification"
+  ],
+  "sourceDocumentCount": 1,
+  "citationCount": 6,
+  "rollbackEligible": true,
+  "rollbackBlockers": [],
+  "rollbackActionScope": [
+    "REMOVE-EXACT-PROFILE-REGISTRY-EXPOSURE",
+    "RESTORE-PREVIOUS-REGISTERED-PROFILE-SET"
+  ],
+  "productionFilesRetained": true,
+  "citationsRetained": true,
+  "evidenceRetained": true,
+  "reviewConversionAuthorizationHistoryRetained": true,
+  "vfrUnchanged": true,
+  "bmwUnchanged": true,
+  "ducatiCurrentlyDiscoverable": true,
+  "actualRollbackExecuted": false,
+  "governanceRecord": {
+    "actualRollbackExecuted": false,
+    "catalogueVariantKey": "ducati.monster.937",
+    "citationsRetained": true,
+    "currentRegistryIds": [
+      "honda.vfr800.rc46-vtec-gen1.2002",
+      "ducati.monster937.2021"
+    ],
+    "evidenceRetained": true,
+    "id": "rollback-governance.8ab7868529d5f38648224f30",
+    "moduleId": "data/technical/ducati/monster937/profile-2021.js",
+    "postPromotionRegistryIds": [
+      "honda.vfr800.rc46-vtec-gen1.2002",
+      "ducati.monster937.2021"
+    ],
+    "prePromotionRegistryIds": [
+      "honda.vfr800.rc46-vtec-gen1.2002"
+    ],
+    "productionFilesRetained": true,
+    "profileIdentity": {
+      "profileId": "ducati.monster937.2021"
+    },
+    "promotedEntryCount": 6,
+    "promotedEntryIds": [
+      "ignition.spark-plug.standard",
+      "lubrication.engine-oil.viscosity",
+      "lubrication.engine-oil.specification",
+      "electrical.battery.capacity",
+      "electrical.battery.specification",
+      "brakes.fluid.specification"
+    ],
+    "registryIdentity": {
+      "descriptorProfileId": "ducati.monster937.2021",
+      "registryName": "technical-profile-registry"
+    },
+    "registryStatus": "review",
+    "reviewConversionAuthorizationHistoryRetained": true,
+    "rollbackActionScope": [
+      "REMOVE-EXACT-PROFILE-REGISTRY-EXPOSURE",
+      "RESTORE-PREVIOUS-REGISTERED-PROFILE-SET"
+    ],
+    "rollbackBlockers": [],
+    "rollbackEligible": true,
+    "schemaVersion": 1,
+    "schemaVersionRef": "revlog-technical-profile/v1",
+    "sourceIdentity": {
+      "citationIds": [
+        "cite.ducati.monster937-2021.om.spark-plug",
+        "cite.ducati.monster937-2021.om.oil-viscosity",
+        "cite.ducati.monster937-2021.om.oil-api-jaso",
+        "cite.ducati.monster937-2021.om.battery-capacity",
+        "cite.ducati.monster937-2021.om.battery-specification",
+        "cite.ducati.monster937-2021.om.brake-fluid"
+      ],
+      "documentId": "doc.ducati.monster937-2021.owners-manual"
+    },
+    "yearRange": {
+      "from": 2021,
+      "to": 2021
+    }
+  }
+}

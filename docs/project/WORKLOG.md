@@ -197,6 +197,9 @@ Created the single valid `revlog-technical-profile/v1` Ducati Monster 937 MY2021
 ## 2026-09-03 — Ducati Monster 937 production registry insertion
 
 Registered exactly one existing Ducati Monster 937 MY2021 profile descriptor for catalogue key `ducati.monster.937`, preserving the VFR descriptor and registry uniqueness. Normal registry discovery, loader validation and resolver paths now succeed for the six verified entries. Cooling, pending Ducati fields, BMW, source citations/documents, evidence and Service Core coverage remain unchanged. Phase 6 remains active after the first bounded production registry promotion.
+## 2026-09-03 — Phase 6 production promotion rollback/governance closeout
+
+Defined and validated the generic immutable rollback/governance contract for the exact Ducati registry promotion. The deterministic record proves the prior VFR-only set, current VFR+Ducati set, six promoted entries, one document, six citations and retained production/research history; rollback would remove only Ducati registry exposure and was not executed. Ducati remains registered and discoverable; BMW, VFR, evidence and Service Core coverage are unchanged. Phase 6 remains ACTIVE with rollback/governance closed and future bounded expansions remaining.
 ## 2026-09-03 — Ducati Monster 937 production registry insertion
 
 Registered exactly one existing Ducati Monster 937 MY2021 profile descriptor for catalogue key `ducati.monster.937`, preserving the VFR descriptor and registry uniqueness. Normal registry discovery, loader validation and resolver paths now succeed for the six verified entries. Cooling, pending Ducati fields, BMW, source citations/documents, evidence and Service Core coverage remain unchanged. Phase 6 remains active after the first bounded production registry promotion.
