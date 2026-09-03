@@ -160,6 +160,14 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.triumphStreetTriple765Registration.evidenceRowsAdded, 0);
   assert.equal(snapshot.triumphStreetTriple765Registration.serviceCoreCoverageChanged, false);
   assert.equal(snapshot.triumphStreetTriple765Registration.productionChanged, false);
+  assert.equal(snapshot.postBmwTriumphPhase5Reassessment.candidatesReassessed, 18);
+  assert.equal(snapshot.postBmwTriumphPhase5Reassessment.viableCandidatesRemaining.length, 0);
+  assert.equal(snapshot.postBmwTriumphPhase5Reassessment.selectedNextTarget, null);
+  assert.equal(snapshot.postBmwTriumphPhase5Reassessment.newExternalResearchPerformed, false);
+  assert.equal(snapshot.postBmwTriumphPhase5Reassessment.technicalValuesInspected, false);
+  assert.equal(snapshot.postBmwTriumphPhase5Reassessment.evidenceRowsAdded, 0);
+  assert.equal(snapshot.postBmwTriumphPhase5Reassessment.serviceCoreCoverageChanged, false);
+  assert.equal(snapshot.postBmwTriumphPhase5Reassessment.productionChanged, false);
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.classification, "ACCESS-BLOCKED");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.audit, "ACCEPT-WITH-RISKS");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.b7nLitRelationship, "UNRESOLVED");
