@@ -1,0 +1,532 @@
+{
+  "schemaVersion": "revlog-ducati-monster937-production-promotion-authorization/v1",
+  "date": "2026-09-03",
+  "consumedConversionReady": 6,
+  "authorizations": [
+    {
+      "authorizationState": "AUTHORIZATION-READY",
+      "evidenceProcessingRecordId": "evidence-processing.24734adfa894376633f42315",
+      "futureMaterializationRequirements": [
+        "PRODUCTION-DOCUMENT-MATERIALIZATION",
+        "PRODUCTION-CITATION-MATERIALIZATION",
+        "TECHNICAL-PROFILE-ENTRY-MATERIALIZATION",
+        "REGISTRY-INSERTION"
+      ],
+      "id": "production-authorization.25703c78ddefe3dac531f82b",
+      "productionCreated": false,
+      "promotionPacketId": "promotion-candidate.d54a579828356b55afb8024d",
+      "promotionReviewDecisionId": "promotion-review-decision.18acbbaa7fe1a41042e68bcd",
+      "promotionReviewPacketId": "promotion-review-packet.1e83fddea642a8d0fa66f0f2",
+      "proposedProduction": {
+        "categoryId": "ignition",
+        "entryId": "ignition.spark-plug.standard",
+        "manufacturer": "NGK",
+        "partNumbers": [
+          "MAR9A-J"
+        ],
+        "type": "spark-plug",
+        "value": {
+          "text": "NGK MAR9A-J",
+          "type": "text"
+        }
+      },
+      "rawSource": {
+        "provenance": {
+          "packet": {
+            "canonicalFieldId": "ignition.spark-plug-oem",
+            "evidenceProcessingRecordId": "evidence-processing.24734adfa894376633f42315",
+            "promotionPacketId": "promotion-candidate.d54a579828356b55afb8024d",
+            "promotionReviewPacketId": "promotion-review-packet.1e83fddea642a8d0fa66f0f2",
+            "provenance": {
+              "artifactId": "artifact.ducati.monster937.owner.my21",
+              "candidateId": "extraction-candidate.db57f7df4e3a5cc87f515544",
+              "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+              "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+              "sourceLocation": {
+                "locator": "printed-page:216",
+                "page": null,
+                "section": "Spark plugs"
+              }
+            },
+            "rawUnit": null,
+            "rawValue": "NGK MAR9A-J"
+          },
+          "sourceLocation": {
+            "locator": "printed-page:216",
+            "page": null,
+            "section": "Spark plugs"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "NGK MAR9A-J"
+      },
+      "reasons": [],
+      "researchCanonicalFieldId": "ignition.spark-plug-oem",
+      "schemaConversionProjectionId": "schema-conversion.12579a811b2daae7c6219456",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "Ducati Motor Holding S.p.A.",
+        "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+        "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+        "prospectId": "unknown.ducati.monster937",
+        "sourceId": "ducati.acquisition.monster937.owner.my21",
+        "tier": "A"
+      },
+      "targetApplicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "ducati.monster.937",
+        "equipment": "base Monster 937",
+        "id": "target.ducati.monster.937.my21.eu",
+        "market": "EU",
+        "model": "Monster 937",
+        "state": "KNOWN",
+        "year": 2021
+      }
+    },
+    {
+      "authorizationState": "AUTHORIZATION-READY",
+      "evidenceProcessingRecordId": "evidence-processing.7f5dd3ba164697dccb4fec5b",
+      "futureMaterializationRequirements": [
+        "PRODUCTION-DOCUMENT-MATERIALIZATION",
+        "PRODUCTION-CITATION-MATERIALIZATION",
+        "TECHNICAL-PROFILE-ENTRY-MATERIALIZATION",
+        "REGISTRY-INSERTION"
+      ],
+      "id": "production-authorization.2defc44f11159520b6b4831a",
+      "productionCreated": false,
+      "promotionPacketId": "promotion-candidate.e576129406a06d68f4f63fe2",
+      "promotionReviewDecisionId": "promotion-review-decision.203410ebe23c5a708f1fd9de",
+      "promotionReviewPacketId": "promotion-review-packet.17d55a78f043ab02f6541df6",
+      "proposedProduction": {
+        "categoryId": "electrical",
+        "entryId": "electrical.battery.capacity",
+        "type": "specification",
+        "value": {
+          "amount": 6.5,
+          "type": "quantity",
+          "unit": "Ah"
+        }
+      },
+      "rawSource": {
+        "provenance": {
+          "packet": {
+            "canonicalFieldId": "electrical.battery-capacity",
+            "evidenceProcessingRecordId": "evidence-processing.7f5dd3ba164697dccb4fec5b",
+            "promotionPacketId": "promotion-candidate.e576129406a06d68f4f63fe2",
+            "promotionReviewPacketId": "promotion-review-packet.17d55a78f043ab02f6541df6",
+            "provenance": {
+              "artifactId": "artifact.ducati.monster937.owner.my21",
+              "candidateId": "extraction-candidate.a5a5b2a7a746011a92559696",
+              "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+              "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+              "sourceLocation": {
+                "locator": "printed-page:220",
+                "page": null,
+                "section": "Electric system"
+              }
+            },
+            "rawUnit": null,
+            "rawValue": "6.5 Ah"
+          },
+          "sourceLocation": {
+            "locator": "printed-page:220",
+            "page": null,
+            "section": "Electric system"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "6.5 Ah"
+      },
+      "reasons": [],
+      "researchCanonicalFieldId": "electrical.battery-capacity",
+      "schemaConversionProjectionId": "schema-conversion.23189bbc738bab7cd4a13ead",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "Ducati Motor Holding S.p.A.",
+        "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+        "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+        "prospectId": "unknown.ducati.monster937",
+        "sourceId": "ducati.acquisition.monster937.owner.my21",
+        "tier": "A"
+      },
+      "targetApplicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "ducati.monster.937",
+        "equipment": "base Monster 937",
+        "id": "target.ducati.monster.937.my21.eu",
+        "market": "EU",
+        "model": "Monster 937",
+        "state": "KNOWN",
+        "year": 2021
+      }
+    },
+    {
+      "authorizationState": "AUTHORIZATION-READY",
+      "evidenceProcessingRecordId": "evidence-processing.466b61a7853399baad3e379c",
+      "futureMaterializationRequirements": [
+        "PRODUCTION-DOCUMENT-MATERIALIZATION",
+        "PRODUCTION-CITATION-MATERIALIZATION",
+        "TECHNICAL-PROFILE-ENTRY-MATERIALIZATION",
+        "REGISTRY-INSERTION"
+      ],
+      "id": "production-authorization.4c983ad8bac93ece7204f9fd",
+      "productionCreated": false,
+      "promotionPacketId": "promotion-candidate.16d5b34a359a5d76ef0de3bc",
+      "promotionReviewDecisionId": "promotion-review-decision.1d2d7cd1e3f97cf7c5f706ed",
+      "promotionReviewPacketId": "promotion-review-packet.075d6b761f2aa57617182b92",
+      "proposedProduction": {
+        "categoryId": "lubrication",
+        "entryId": "lubrication.engine-oil.viscosity",
+        "type": "fluid",
+        "value": {
+          "text": "SAE 15W-50",
+          "type": "text"
+        }
+      },
+      "rawSource": {
+        "provenance": {
+          "packet": {
+            "canonicalFieldId": "lubrication.viscosity",
+            "evidenceProcessingRecordId": "evidence-processing.466b61a7853399baad3e379c",
+            "promotionPacketId": "promotion-candidate.16d5b34a359a5d76ef0de3bc",
+            "promotionReviewPacketId": "promotion-review-packet.075d6b761f2aa57617182b92",
+            "provenance": {
+              "artifactId": "artifact.ducati.monster937.owner.my21",
+              "candidateId": "extraction-candidate.401ccb62a4054106d4b3cd21",
+              "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+              "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+              "sourceLocation": {
+                "locator": "printed-page:196, 211",
+                "page": null,
+                "section": "Recommendations concerning oil; Fuel, lubricants and other fluids"
+              }
+            },
+            "rawUnit": null,
+            "rawValue": "SAE 15W-50"
+          },
+          "sourceLocation": {
+            "locator": "printed-page:196, 211",
+            "page": null,
+            "section": "Recommendations concerning oil; Fuel, lubricants and other fluids"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "SAE 15W-50"
+      },
+      "reasons": [],
+      "researchCanonicalFieldId": "lubrication.viscosity",
+      "schemaConversionProjectionId": "schema-conversion.53a1d8e713833590d4b5000c",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "Ducati Motor Holding S.p.A.",
+        "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+        "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+        "prospectId": "unknown.ducati.monster937",
+        "sourceId": "ducati.acquisition.monster937.owner.my21",
+        "tier": "A"
+      },
+      "targetApplicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "ducati.monster.937",
+        "equipment": "base Monster 937",
+        "id": "target.ducati.monster.937.my21.eu",
+        "market": "EU",
+        "model": "Monster 937",
+        "state": "KNOWN",
+        "year": 2021
+      }
+    },
+    {
+      "authorizationState": "AUTHORIZATION-READY",
+      "evidenceProcessingRecordId": "evidence-processing.d5da84b323a8c7311bb7579b",
+      "futureMaterializationRequirements": [
+        "PRODUCTION-DOCUMENT-MATERIALIZATION",
+        "PRODUCTION-CITATION-MATERIALIZATION",
+        "TECHNICAL-PROFILE-ENTRY-MATERIALIZATION",
+        "REGISTRY-INSERTION"
+      ],
+      "id": "production-authorization.898c2c54a99478e0caee77be",
+      "productionCreated": false,
+      "promotionPacketId": "promotion-candidate.e18c92612a844f764489729d",
+      "promotionReviewDecisionId": "promotion-review-decision.bb93340e0c6c5c1e3af0e065",
+      "promotionReviewPacketId": "promotion-review-packet.301cf7502e55332999989e01",
+      "proposedProduction": {
+        "categoryId": "lubrication",
+        "entryId": "lubrication.engine-oil.specification",
+        "type": "fluid",
+        "value": {
+          "text": "API: SN; JASO: MA2",
+          "type": "text"
+        }
+      },
+      "rawSource": {
+        "provenance": {
+          "packet": {
+            "canonicalFieldId": "lubrication.api-jaso",
+            "evidenceProcessingRecordId": "evidence-processing.d5da84b323a8c7311bb7579b",
+            "promotionPacketId": "promotion-candidate.e18c92612a844f764489729d",
+            "promotionReviewPacketId": "promotion-review-packet.301cf7502e55332999989e01",
+            "provenance": {
+              "artifactId": "artifact.ducati.monster937.owner.my21",
+              "candidateId": "extraction-candidate.4912a9df0e74c5972d5629be",
+              "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+              "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+              "sourceLocation": {
+                "locator": "printed-page:195–196, 211",
+                "page": null,
+                "section": "Check engine oil level; Fuel, lubricants and other fluids"
+              }
+            },
+            "rawUnit": null,
+            "rawValue": "API: SN; JASO: MA2"
+          },
+          "sourceLocation": {
+            "locator": "printed-page:195–196, 211",
+            "page": null,
+            "section": "Check engine oil level; Fuel, lubricants and other fluids"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "API: SN; JASO: MA2"
+      },
+      "reasons": [],
+      "researchCanonicalFieldId": "lubrication.api-jaso",
+      "schemaConversionProjectionId": "schema-conversion.5e118d0ef0c9b420782de883",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "Ducati Motor Holding S.p.A.",
+        "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+        "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+        "prospectId": "unknown.ducati.monster937",
+        "sourceId": "ducati.acquisition.monster937.owner.my21",
+        "tier": "A"
+      },
+      "targetApplicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "ducati.monster.937",
+        "equipment": "base Monster 937",
+        "id": "target.ducati.monster.937.my21.eu",
+        "market": "EU",
+        "model": "Monster 937",
+        "state": "KNOWN",
+        "year": 2021
+      }
+    },
+    {
+      "authorizationState": "AUTHORIZATION-READY",
+      "evidenceProcessingRecordId": "evidence-processing.697de9ce5fab81ed90d4540f",
+      "futureMaterializationRequirements": [
+        "PRODUCTION-DOCUMENT-MATERIALIZATION",
+        "PRODUCTION-CITATION-MATERIALIZATION",
+        "TECHNICAL-PROFILE-ENTRY-MATERIALIZATION",
+        "REGISTRY-INSERTION"
+      ],
+      "id": "production-authorization.a175d65e219ea69c6c7c7480",
+      "productionCreated": false,
+      "promotionPacketId": "promotion-candidate.dc88f865328e79994ff64a72",
+      "promotionReviewDecisionId": "promotion-review-decision.4267aa98565e5156e5754caf",
+      "promotionReviewPacketId": "promotion-review-packet.de7593d846584df98d151201",
+      "proposedProduction": {
+        "categoryId": "brakes",
+        "entryId": "brakes.fluid.specification",
+        "type": "fluid",
+        "value": {
+          "text": "Front/rear brake circuit: DOT 4",
+          "type": "text"
+        }
+      },
+      "rawSource": {
+        "provenance": {
+          "packet": {
+            "canonicalFieldId": "brakes.brake-fluid",
+            "evidenceProcessingRecordId": "evidence-processing.697de9ce5fab81ed90d4540f",
+            "promotionPacketId": "promotion-candidate.dc88f865328e79994ff64a72",
+            "promotionReviewPacketId": "promotion-review-packet.de7593d846584df98d151201",
+            "provenance": {
+              "artifactId": "artifact.ducati.monster937.owner.my21",
+              "candidateId": "extraction-candidate.206d1d29f94c1d6d7fba20ba",
+              "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+              "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+              "sourceLocation": {
+                "locator": "printed-page:177, 212",
+                "page": null,
+                "section": "Check clutch and brake fluid level; Fuel, lubricants and other fluids"
+              }
+            },
+            "rawUnit": null,
+            "rawValue": "Front/rear brake circuit: DOT 4"
+          },
+          "sourceLocation": {
+            "locator": "printed-page:177, 212",
+            "page": null,
+            "section": "Check clutch and brake fluid level; Fuel, lubricants and other fluids"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "Front/rear brake circuit: DOT 4"
+      },
+      "reasons": [],
+      "researchCanonicalFieldId": "brakes.brake-fluid",
+      "schemaConversionProjectionId": "schema-conversion.230a6ff6cf86aee0b401b82c",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "Ducati Motor Holding S.p.A.",
+        "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+        "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+        "prospectId": "unknown.ducati.monster937",
+        "sourceId": "ducati.acquisition.monster937.owner.my21",
+        "tier": "A"
+      },
+      "targetApplicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "ducati.monster.937",
+        "equipment": "base Monster 937",
+        "id": "target.ducati.monster.937.my21.eu",
+        "market": "EU",
+        "model": "Monster 937",
+        "state": "KNOWN",
+        "year": 2021
+      }
+    },
+    {
+      "authorizationState": "AUTHORIZATION-READY",
+      "evidenceProcessingRecordId": "evidence-processing.d52429b5ca44d75da13073b8",
+      "futureMaterializationRequirements": [
+        "PRODUCTION-DOCUMENT-MATERIALIZATION",
+        "PRODUCTION-CITATION-MATERIALIZATION",
+        "TECHNICAL-PROFILE-ENTRY-MATERIALIZATION",
+        "REGISTRY-INSERTION"
+      ],
+      "id": "production-authorization.e7199f6cb8af460274760906",
+      "productionCreated": false,
+      "promotionPacketId": "promotion-candidate.3f390d1553a4adf54846f46b",
+      "promotionReviewDecisionId": "promotion-review-decision.eba0868b22aeed67aca3cc3f",
+      "promotionReviewPacketId": "promotion-review-packet.77df0ca27619514de36a5c23",
+      "proposedProduction": {
+        "categoryId": "electrical",
+        "entryId": "electrical.battery.specification",
+        "type": "consumable-part",
+        "value": {
+          "text": "YUASA YT 7B-BS DRY, 12 V",
+          "type": "text"
+        }
+      },
+      "rawSource": {
+        "provenance": {
+          "packet": {
+            "canonicalFieldId": "electrical.battery-specification",
+            "evidenceProcessingRecordId": "evidence-processing.d52429b5ca44d75da13073b8",
+            "promotionPacketId": "promotion-candidate.3f390d1553a4adf54846f46b",
+            "promotionReviewPacketId": "promotion-review-packet.77df0ca27619514de36a5c23",
+            "provenance": {
+              "artifactId": "artifact.ducati.monster937.owner.my21",
+              "candidateId": "extraction-candidate.6aed69b91904158d34350512",
+              "extractionMethod": "Ducati-controlled PDF text-layer inspection",
+              "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+              "sourceLocation": {
+                "locator": "printed-page:220",
+                "page": null,
+                "section": "Electric system"
+              }
+            },
+            "rawUnit": null,
+            "rawValue": "YUASA YT 7B-BS DRY, 12 V"
+          },
+          "sourceLocation": {
+            "locator": "printed-page:220",
+            "page": null,
+            "section": "Electric system"
+          }
+        },
+        "rawUnit": null,
+        "rawValue": "YUASA YT 7B-BS DRY, 12 V"
+      },
+      "reasons": [],
+      "researchCanonicalFieldId": "electrical.battery-specification",
+      "schemaConversionProjectionId": "schema-conversion.9605a523afac8e04d09ca7fd",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "Ducati Motor Holding S.p.A.",
+        "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+        "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+        "prospectId": "unknown.ducati.monster937",
+        "sourceId": "ducati.acquisition.monster937.owner.my21",
+        "tier": "A"
+      },
+      "targetApplicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "ducati.monster.937",
+        "equipment": "base Monster 937",
+        "id": "target.ducati.monster.937.my21.eu",
+        "market": "EU",
+        "model": "Monster 937",
+        "state": "KNOWN",
+        "year": 2021
+      }
+    }
+  ],
+  "counts": {
+    "total": 6,
+    "authorizationReady": 6,
+    "authorizationBlocked": 0
+  },
+  "excluded": {
+    "coolingCapacity": 1,
+    "pendingDucatiPromotionReviewPackets": 20,
+    "bmwRecords": 0
+  },
+  "futureMaterializationRequired": true,
+  "productionProfileCreated": false,
+  "registryChanged": false,
+  "productionDocumentsOrCitationsCreated": false,
+  "evidenceRowsCreated": 0,
+  "serviceCoreCoverageChanged": false,
+  "upstreamStateChanged": false,
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "conclusion": "Exactly the six CONVERSION-READY Ducati projections are authorization-ready for a separately authorized future materialization task. Authorization creates no production artifacts; cooling remains excluded at schema conversion."
+  },
+  "exactNextTask": "Separately authorize production document/citation materialization and Technical Profile conversion only after human confirmation; do not treat AUTHORIZATION-READY as materialized."
+}

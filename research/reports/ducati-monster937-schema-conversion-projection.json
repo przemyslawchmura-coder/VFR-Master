@@ -39,6 +39,7 @@
       "id": "schema-conversion.12579a811b2daae7c6219456",
       "promotionPacketId": "promotion-candidate.d54a579828356b55afb8024d",
       "promotionReviewDecisionId": "promotion-review-decision.18acbbaa7fe1a41042e68bcd",
+      "promotionReviewDecisionState": "APPROVED-FOR-CONVERSION",
       "promotionReviewPacketId": "promotion-review-packet.1e83fddea642a8d0fa66f0f2",
       "proposedProduction": {
         "categoryId": "ignition",
@@ -55,6 +56,14 @@
       },
       "researchCanonicalFieldId": "ignition.spark-plug-oem",
       "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "Ducati Motor Holding S.p.A.",
+        "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+        "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+        "prospectId": "unknown.ducati.monster937",
+        "sourceId": "ducati.acquisition.monster937.owner.my21",
+        "tier": "A"
+      },
       "sourceProvenance": {
         "packet": {
           "canonicalFieldId": "ignition.spark-plug-oem",
@@ -88,6 +97,15 @@
         "market": "KNOWN",
         "modelYear": "KNOWN",
         "transmission": "KNOWN"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "ducati.monster.937",
+        "equipment": "base Monster 937",
+        "id": "target.ducati.monster.937.my21.eu",
+        "market": "EU",
+        "model": "Monster 937",
+        "state": "KNOWN",
+        "year": 2021
       }
     },
     {
@@ -97,6 +115,7 @@
       "id": "schema-conversion.230a6ff6cf86aee0b401b82c",
       "promotionPacketId": "promotion-candidate.dc88f865328e79994ff64a72",
       "promotionReviewDecisionId": "promotion-review-decision.4267aa98565e5156e5754caf",
+      "promotionReviewDecisionState": "APPROVED-FOR-CONVERSION",
       "promotionReviewPacketId": "promotion-review-packet.de7593d846584df98d151201",
       "proposedProduction": {
         "categoryId": "brakes",
@@ -109,6 +128,14 @@
       },
       "researchCanonicalFieldId": "brakes.brake-fluid",
       "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "Ducati Motor Holding S.p.A.",
+        "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+        "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+        "prospectId": "unknown.ducati.monster937",
+        "sourceId": "ducati.acquisition.monster937.owner.my21",
+        "tier": "A"
+      },
       "sourceProvenance": {
         "packet": {
           "canonicalFieldId": "brakes.brake-fluid",
@@ -142,6 +169,15 @@
         "market": "KNOWN",
         "modelYear": "KNOWN",
         "transmission": "KNOWN"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "ducati.monster.937",
+        "equipment": "base Monster 937",
+        "id": "target.ducati.monster.937.my21.eu",
+        "market": "EU",
+        "model": "Monster 937",
+        "state": "KNOWN",
+        "year": 2021
       }
     },
     {
@@ -151,6 +187,7 @@
       "id": "schema-conversion.23189bbc738bab7cd4a13ead",
       "promotionPacketId": "promotion-candidate.e576129406a06d68f4f63fe2",
       "promotionReviewDecisionId": "promotion-review-decision.203410ebe23c5a708f1fd9de",
+      "promotionReviewDecisionState": "APPROVED-FOR-CONVERSION",
       "promotionReviewPacketId": "promotion-review-packet.17d55a78f043ab02f6541df6",
       "proposedProduction": {
         "categoryId": "electrical",
@@ -164,6 +201,14 @@
       },
       "researchCanonicalFieldId": "electrical.battery-capacity",
       "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "Ducati Motor Holding S.p.A.",
+        "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+        "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+        "prospectId": "unknown.ducati.monster937",
+        "sourceId": "ducati.acquisition.monster937.owner.my21",
+        "tier": "A"
+      },
       "sourceProvenance": {
         "packet": {
           "canonicalFieldId": "electrical.battery-capacity",
@@ -197,6 +242,15 @@
         "market": "KNOWN",
         "modelYear": "KNOWN",
         "transmission": "KNOWN"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "ducati.monster.937",
+        "equipment": "base Monster 937",
+        "id": "target.ducati.monster.937.my21.eu",
+        "market": "EU",
+        "model": "Monster 937",
+        "state": "KNOWN",
+        "year": 2021
       }
     },
     {
@@ -208,6 +262,7 @@
       "id": "schema-conversion.42f5ce8e472eb438c5059fc7",
       "promotionPacketId": "promotion-candidate.a3b8a57fb6bbeeb58ee5ec37",
       "promotionReviewDecisionId": "promotion-review-decision.5429692681793be0e1347ec2",
+      "promotionReviewDecisionState": "APPROVED-FOR-CONVERSION",
       "promotionReviewPacketId": "promotion-review-packet.a06115b1c776509565dc9042",
       "proposedProduction": {
         "categoryId": "cooling",
@@ -221,6 +276,14 @@
       },
       "researchCanonicalFieldId": "cooling.capacity",
       "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "Ducati Motor Holding S.p.A.",
+        "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+        "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+        "prospectId": "unknown.ducati.monster937",
+        "sourceId": "ducati.acquisition.monster937.owner.my21",
+        "tier": "A"
+      },
       "sourceProvenance": {
         "packet": {
           "canonicalFieldId": "cooling.capacity",
@@ -254,6 +317,15 @@
         "market": "KNOWN",
         "modelYear": "KNOWN",
         "transmission": "KNOWN"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "ducati.monster.937",
+        "equipment": "base Monster 937",
+        "id": "target.ducati.monster.937.my21.eu",
+        "market": "EU",
+        "model": "Monster 937",
+        "state": "KNOWN",
+        "year": 2021
       }
     },
     {
@@ -263,6 +335,7 @@
       "id": "schema-conversion.53a1d8e713833590d4b5000c",
       "promotionPacketId": "promotion-candidate.16d5b34a359a5d76ef0de3bc",
       "promotionReviewDecisionId": "promotion-review-decision.1d2d7cd1e3f97cf7c5f706ed",
+      "promotionReviewDecisionState": "APPROVED-FOR-CONVERSION",
       "promotionReviewPacketId": "promotion-review-packet.075d6b761f2aa57617182b92",
       "proposedProduction": {
         "categoryId": "lubrication",
@@ -275,6 +348,14 @@
       },
       "researchCanonicalFieldId": "lubrication.viscosity",
       "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "Ducati Motor Holding S.p.A.",
+        "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+        "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+        "prospectId": "unknown.ducati.monster937",
+        "sourceId": "ducati.acquisition.monster937.owner.my21",
+        "tier": "A"
+      },
       "sourceProvenance": {
         "packet": {
           "canonicalFieldId": "lubrication.viscosity",
@@ -308,6 +389,15 @@
         "market": "KNOWN",
         "modelYear": "KNOWN",
         "transmission": "KNOWN"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "ducati.monster.937",
+        "equipment": "base Monster 937",
+        "id": "target.ducati.monster.937.my21.eu",
+        "market": "EU",
+        "model": "Monster 937",
+        "state": "KNOWN",
+        "year": 2021
       }
     },
     {
@@ -317,6 +407,7 @@
       "id": "schema-conversion.5e118d0ef0c9b420782de883",
       "promotionPacketId": "promotion-candidate.e18c92612a844f764489729d",
       "promotionReviewDecisionId": "promotion-review-decision.bb93340e0c6c5c1e3af0e065",
+      "promotionReviewDecisionState": "APPROVED-FOR-CONVERSION",
       "promotionReviewPacketId": "promotion-review-packet.301cf7502e55332999989e01",
       "proposedProduction": {
         "categoryId": "lubrication",
@@ -329,6 +420,14 @@
       },
       "researchCanonicalFieldId": "lubrication.api-jaso",
       "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "Ducati Motor Holding S.p.A.",
+        "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+        "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+        "prospectId": "unknown.ducati.monster937",
+        "sourceId": "ducati.acquisition.monster937.owner.my21",
+        "tier": "A"
+      },
       "sourceProvenance": {
         "packet": {
           "canonicalFieldId": "lubrication.api-jaso",
@@ -362,6 +461,15 @@
         "market": "KNOWN",
         "modelYear": "KNOWN",
         "transmission": "KNOWN"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "ducati.monster.937",
+        "equipment": "base Monster 937",
+        "id": "target.ducati.monster.937.my21.eu",
+        "market": "EU",
+        "model": "Monster 937",
+        "state": "KNOWN",
+        "year": 2021
       }
     },
     {
@@ -371,6 +479,7 @@
       "id": "schema-conversion.9605a523afac8e04d09ca7fd",
       "promotionPacketId": "promotion-candidate.3f390d1553a4adf54846f46b",
       "promotionReviewDecisionId": "promotion-review-decision.eba0868b22aeed67aca3cc3f",
+      "promotionReviewDecisionState": "APPROVED-FOR-CONVERSION",
       "promotionReviewPacketId": "promotion-review-packet.77df0ca27619514de36a5c23",
       "proposedProduction": {
         "categoryId": "electrical",
@@ -383,6 +492,14 @@
       },
       "researchCanonicalFieldId": "electrical.battery-specification",
       "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "Ducati Motor Holding S.p.A.",
+        "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+        "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+        "prospectId": "unknown.ducati.monster937",
+        "sourceId": "ducati.acquisition.monster937.owner.my21",
+        "tier": "A"
+      },
       "sourceProvenance": {
         "packet": {
           "canonicalFieldId": "electrical.battery-specification",
@@ -416,6 +533,15 @@
         "market": "KNOWN",
         "modelYear": "KNOWN",
         "transmission": "KNOWN"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "ducati.monster.937",
+        "equipment": "base Monster 937",
+        "id": "target.ducati.monster.937.my21.eu",
+        "market": "EU",
+        "model": "Monster 937",
+        "state": "KNOWN",
+        "year": 2021
       }
     }
   ],

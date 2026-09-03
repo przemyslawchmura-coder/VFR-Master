@@ -6,7 +6,7 @@ const json = require("./json.js");
 
 const SCHEMA_CONVERSION_SCHEMA_VERSION = 1;
 const CONVERSION_STATES = Object.freeze(["CONVERSION-READY", "CONVERSION-BLOCKED"]);
-const fields = new Set(["schemaVersion", "id", "promotionReviewDecisionId", "promotionReviewPacketId", "promotionPacketId", "evidenceProcessingRecordId", "researchCanonicalFieldId", "proposedProduction", "sourceProvenance", "targetApplicability", "conversionState", "blockedReasons"]);
+const fields = new Set(["schemaVersion", "id", "promotionReviewDecisionId", "promotionReviewDecisionState", "promotionReviewPacketId", "promotionPacketId", "evidenceProcessingRecordId", "researchCanonicalFieldId", "targetIdentity", "sourceIdentity", "proposedProduction", "sourceProvenance", "targetApplicability", "conversionState", "blockedReasons"]);
 const assert = (condition, message) => { if (!condition) throw new TypeError(message); };
 const semanticId = value => `schema-conversion.${crypto.createHash("sha256").update(json.canonicalSerialize(value)).digest("hex").slice(0, 24)}`;
 const schemaConversionId = ({ promotionReviewDecisionId, researchCanonicalFieldId, conversionState }) => semanticId({ promotionReviewDecisionId, researchCanonicalFieldId, conversionState });
@@ -17,6 +17,9 @@ function validateSchemaConversionProjection(input) {
   Object.keys(input).forEach(field => assert(fields.has(field), `SchemaConversionProjection.${field} is unsupported`));
   assert(typeof input.id === "string" && /^schema-conversion\.[a-f0-9]{24}$/.test(input.id), "SchemaConversionProjection.id is invalid");
   ["promotionReviewDecisionId", "promotionReviewPacketId", "promotionPacketId", "evidenceProcessingRecordId", "researchCanonicalFieldId"].forEach(field => assert(typeof input[field] === "string" && input[field].length > 0, `SchemaConversionProjection.${field} is required`));
+  assert(input.promotionReviewDecisionState === "APPROVED-FOR-CONVERSION", "SchemaConversionProjection.promotionReviewDecisionState is not approved");
+  assert(input.targetIdentity && typeof input.targetIdentity.id === "string" && input.targetIdentity.id.length > 0, "SchemaConversionProjection.targetIdentity is incomplete");
+  assert(input.sourceIdentity && typeof input.sourceIdentity === "object" && typeof input.sourceIdentity.prospectId === "string" && typeof input.sourceIdentity.documentId === "string", "SchemaConversionProjection.sourceIdentity is incomplete");
   assert(input.proposedProduction && typeof input.proposedProduction === "object", "SchemaConversionProjection.proposedProduction is required");
   ["entryId", "categoryId", "type", "value"].forEach(field => assert(Object.prototype.hasOwnProperty.call(input.proposedProduction, field), `SchemaConversionProjection.proposedProduction.${field} is required`));
   if (input.conversionState === "CONVERSION-READY") ["entryId", "categoryId", "type"].forEach(field => assert(typeof input.proposedProduction[field] === "string" && input.proposedProduction[field].length > 0, `SchemaConversionProjection.proposedProduction.${field} is incomplete`));
