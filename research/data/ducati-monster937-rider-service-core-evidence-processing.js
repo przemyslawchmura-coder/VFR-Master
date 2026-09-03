@@ -48,6 +48,10 @@ function buildReport() {
     schemaVersion: "revlog-ducati-monster937-rider-service-core-evidence-processing/v1",
     target: acquisition.target,
     source: acquisition.source,
+    riderServiceCoreMatrix: Object.freeze({ schemaVersion: factory.RIDER_SERVICE_CORE_MATRIX.schemaVersion, domains: factory.RIDER_SERVICE_CORE_MATRIX.domains, fieldIds: factory.RIDER_SERVICE_CORE_MATRIX.fieldIds, fieldMap: factory.RIDER_SERVICE_CORE_MATRIX.fieldMap }),
+    riderServiceCoreDomainCount: factory.RIDER_SERVICE_CORE_MATRIX.domains.length,
+    legacyServiceCoreFieldCount: factory.LEGACY_SERVICE_CORE_FIELDS.length,
+    canonicalServiceCoreFieldCount: factory.SERVICE_CORE_FIELDS.length,
     acceptedCandidatesReceived: acceptedCandidateIds.length,
     successfullyProcessed: processedOutcomes.length,
     processingContractBlocked: contractBlockedCandidateIds.length,
@@ -56,10 +60,10 @@ function buildReport() {
     processingReadyOutputs: processedOutcomes.filter(outcome => outcome.processingState === "ACCEPTED-FOR-PROCESSING").length,
     evidenceProcessingRecords: processed.records,
     outcomes,
-    outputsByRiderServiceCoreDomain: Object.freeze({ basicMotorcycleData: countByPrefix("engine.") + countByPrefix("dimensions_mass.") + countByPrefix("steering_chassis.") + countByPrefix("fuel_intake."), engineOilFilter: countByPrefix("lubrication."), cooling: 0, sparkPlugsIgnition: 0, valves: 0, wheelsTires: countByPrefix("tires_wheels."), finalDrive: countByPrefix("final_drive."), brakes: countByPrefix("brakes."), electricalBattery: outcomes.filter(outcome => outcome.canonicalFieldId === "electrical.alternator-output").length, fuses: outcomes.filter(outcome => outcome.canonicalFieldId.startsWith("electrical.") && outcome.canonicalFieldId.includes("fuse")).length, lighting: countByPrefix("lighting."), periodicMaintenance: countByPrefix("maintenance."), consumables: 0, practicalTorques: 0 }),
-    maintenanceProcessing: Object.freeze({ acceptedInputs: countByPrefix("maintenance."), processingReady: 0, contractGap: "maintenance fields are outside the existing canonical factory Service Core list" }),
-    fuseProcessing: Object.freeze({ acceptedInputs: countByPrefix("electrical.fuse"), processingReady: 0, contractGap: "electrical.fuse-ratings is outside the existing canonical factory Service Core list" }),
-    lightingProcessing: Object.freeze({ acceptedInputs: countByPrefix("lighting."), processingReady: 0, contractGap: "lighting Core fields are outside the existing canonical factory Service Core list" }),
+    outputsByRiderServiceCoreDomain: Object.freeze({ basicMotorcycleData: countByPrefix("engine.") + countByPrefix("dimensions_mass.") + countByPrefix("steering_chassis.") + countByPrefix("fuel_intake.") + countByPrefix("transmission_clutch."), engineOilFilter: countByPrefix("lubrication."), cooling: 0, sparkPlugsIgnition: 0, valves: 0, wheelsTires: countByPrefix("tires_wheels."), finalDrive: countByPrefix("final_drive."), brakes: countByPrefix("brakes."), electricalBattery: outcomes.filter(outcome => outcome.canonicalFieldId === "electrical.alternator-output").length, fuses: outcomes.filter(outcome => outcome.canonicalFieldId.startsWith("electrical.") && outcome.canonicalFieldId.includes("fuse")).length, lighting: countByPrefix("lighting."), periodicMaintenance: countByPrefix("maintenance."), consumables: 0, practicalTorques: 0 }),
+    maintenanceProcessing: Object.freeze({ acceptedInputs: countByPrefix("maintenance."), processingReady: countByPrefix("maintenance."), contractGap: null, structuredRepresentation: "repeating/structured raw candidates retain source action and interval text" }),
+    fuseProcessing: Object.freeze({ acceptedInputs: countByPrefix("electrical.fuse"), processingReady: countByPrefix("electrical.fuse"), contractGap: null, associationRepresentation: "raw candidate retains amperage, protected function and box/location association" }),
+    lightingProcessing: Object.freeze({ acceptedInputs: countByPrefix("lighting."), processingReady: countByPrefix("lighting."), contractGap: null, ledRepresentation: "raw candidate retains explicit LED/module wording without inferred socket or wattage" }),
     coolingCapacity: Object.freeze({ enteredProcessing: false, state: "BLOCKED", reason: "COOLING-CIRCUIT-SCOPE-NOT-PROVEN-ENGINE-AND-RADIATOR" }),
     excludedNeedsMoreReview: 5,
     productionDucatiChanged: false,
@@ -69,9 +73,9 @@ function buildReport() {
     serviceCoreCoverageChanged: false,
     rawValuesProvenanceApplicabilityPreserved: rawPreserved && rawSnapshot === factory.orchestrationJson.canonicalSerialize(acquisition.additionalCandidates),
     upstreamReviewStateChanged: false,
-    newlyDiscoveredContractGaps: ["Rider Service Core acquisition uses fields outside the existing factory SERVICE_CORE_FIELDS; 36 accepted inputs cannot enter canonical Evidence Processing without a separately authorized generic contract/schema update."],
-    audit: Object.freeze({ classification: "ACCEPT-WITH-RISKS", conclusion: "The 39 existing Ducati ACCEPT decisions were derived exactly once. Three fields are representable by the existing Evidence Processing contract and produced ACCEPTED-FOR-PROCESSING records. Thirty-six accepted Rider Service Core fields remain explicit CANNOT-ADVANCE contract-gap outcomes; no schema was broadened and no evidence or production state changed." }),
-    exactNextTask: "Separately authorize a manufacturer-neutral Rider Service Core field-contract alignment before reprocessing the 36 contract-blocked accepted candidates; do not promote or resolve cooling by inference."
+    newlyDiscoveredContractGaps: [],
+    audit: Object.freeze({ classification: "ACCEPT-WITH-RISKS", conclusion: "The shared factory now derives its accepted extraction field contract from the manufacturer-neutral 14-domain Rider Service Core matrix while retaining the legacy field set. All 39 existing Ducati ACCEPT decisions were derived exactly once and produced ACCEPTED-FOR-PROCESSING records; no schema-specific Ducati shortcut, evidence or production change was introduced." }),
+    exactNextTask: "Keep the 39 Ducati processing records pre-promotion; separately authorize evidence/review progression and clarify the five deferred candidates without resolving cooling by inference."
   });
 }
 

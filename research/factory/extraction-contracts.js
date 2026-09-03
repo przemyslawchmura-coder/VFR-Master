@@ -4,12 +4,14 @@
 const crypto = require("node:crypto");
 const json = require("./json.js");
 const pipeline = require("../lib/batch-research-pipeline.js");
+const riderServiceCore = require("../schema/rider-service-core-v1.js");
 
 const EXTRACTION_SCHEMA_VERSION = 1;
 const EXTRACTION_OPERATION = "extract-raw-candidates";
 const EXTRACTION_DISPOSITIONS = Object.freeze(["CANDIDATES-PRODUCED", "NO-CANDIDATES", "UNSUPPORTED-MEDIA", "CONTENT-DIGEST-MISMATCH", "PROVENANCE-INCOMPLETE", "FIELD-UNMAPPED", "PARSE-FAILURE", "PERMANENT-EXTRACTION-FAILURE"]);
 const EXTRACTION_OBSERVATION_TYPES = Object.freeze(["CANDIDATE-EXTRACTED", "NO-CANDIDATES", "UNSUPPORTED-MEDIA", "CONTENT-INTEGRITY-FAILED", "PROVENANCE-INCOMPLETE", "FIELD-UNMAPPED", "PARSE-FAILED", "PERMANENT-FAILURE"]);
-const SERVICE_CORE_FIELDS = Object.freeze([...pipeline.serviceCoreFields]);
+const SERVICE_CORE_FIELDS = Object.freeze([...new Set([...pipeline.serviceCoreFields, ...riderServiceCore.fieldIds])]);
+const LEGACY_SERVICE_CORE_FIELDS = pipeline.serviceCoreFields;
 const serviceCore = new Set(SERVICE_CORE_FIELDS);
 const idPattern = /^[a-z][a-z-]*\.[a-f0-9]{24}$/;
 const assert = (condition, message) => { if (!condition) throw new TypeError(message); };
@@ -96,4 +98,4 @@ function validateExtractionResult(input) {
   return json.immutableClone(input);
 }
 
-module.exports = Object.freeze({ EXTRACTION_SCHEMA_VERSION, EXTRACTION_OPERATION, EXTRACTION_DISPOSITIONS, EXTRACTION_OBSERVATION_TYPES, SERVICE_CORE_FIELDS, sha256, candidateId, extractionResultId, validateArtifactContentEnvelope, validateExtractorAdapterDeclaration, validateExtractionObservation, validateExtractionCandidate, validateExtractionResult });
+module.exports = Object.freeze({ EXTRACTION_SCHEMA_VERSION, EXTRACTION_OPERATION, EXTRACTION_DISPOSITIONS, EXTRACTION_OBSERVATION_TYPES, LEGACY_SERVICE_CORE_FIELDS, SERVICE_CORE_FIELDS, RIDER_SERVICE_CORE_MATRIX: riderServiceCore, sha256, candidateId, extractionResultId, validateArtifactContentEnvelope, validateExtractorAdapterDeclaration, validateExtractionObservation, validateExtractionCandidate, validateExtractionResult });

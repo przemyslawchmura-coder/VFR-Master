@@ -17,6 +17,21 @@ manuals or exposing internal source IDs as the user experience. Existing
 technical data and profiles remain unchanged.
 Status: ACTIVE. Related design: `docs/project/RIDER_SERVICE_CORE.md`.
 
+## ADR-024 — Rider Service Core matrix aligns shared factory contracts
+
+Date: 2026-09-03
+Decision: The Technical Research Factory Evidence Processing field contract
+derives from one manufacturer-neutral 14-domain Rider Service Core matrix
+while retaining the legacy supported field set. Matrix metadata identifies
+structured/repeating representations and association keys for maintenance,
+fuses, lighting and other naturally repeating owner-service facts; it does not
+normalize values or imply review, evidence or production readiness.
+Consequences: legitimate Core candidates can be processed consistently across
+manufacturers without Ducati-specific shortcuts, while legacy research meaning
+and production boundaries remain unchanged. Missing, conflicting or
+inapplicable values still fail closed at their existing stages.
+Status: ACTIVE. Related design: `docs/project/RIDER_SERVICE_CORE.md`.
+
 ## ADR-001 — Stable catalogue identity is the join key
 
 Date: 2026-08-30 (recovered from history)

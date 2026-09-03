@@ -34,7 +34,7 @@ Planning items only; none are executed by this stocktake.
 - Add document content hashing where local copies are legally available.
 - Add richer field-level conflict explanations and applicability review.
 - Clarify the five Ducati Rider Service Core candidates left `NEEDS-MORE-REVIEW` (payload/GVWR, main-fuse rating, DRL applicability, LED replaceability and initial-service semantics); keep cooling capacity blocked until complete-circuit scope is proven and keep all production promotion separately authorized.
-- Define a separately authorized manufacturer-neutral alignment between the owner-first Rider Service Core field matrix and the existing factory Evidence Processing `SERVICE_CORE_FIELDS`; do not reprocess the 36 contract-blocked Ducati candidates until that contract is reviewed.
+- Evaluate richer typed materialization for repeating Rider Service Core records if future evidence/promotion requires it; current aligned processing preserves raw source/context and association semantics without normalization.
 - Evaluate a genuinely separate authoritative Ducati publication for technical cross-checks where useful; the owner-manual identity mirror remains document verification only.
 
 ## Future manufacturers

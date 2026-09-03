@@ -272,3 +272,16 @@ five `NEEDS-MORE-REVIEW` candidates, cooling capacity, prior Ducati candidates
 and all other motorcycles were excluded. Raw values, provenance and
 applicability were preserved; no normalization, evidence, production, VFR or
 coverage change occurred. Phase 7 remains ACTIVE.
+## 2026-09-03 — Rider Service Core / Evidence Processing contract alignment
+
+Confirmed the root cause of the prior 36 contract blocks: the shared factory
+used a legacy 44-field allowlist that did not include the broader owner-first
+Core identities. Added a manufacturer-neutral 14-domain machine matrix and
+aligned the shared extraction contract to its union with the legacy fields,
+retaining legacy meaning and fail-closed processing. Structured/repeating
+metadata preserves maintenance actions/interval context, fuse rating/function/
+location associations and explicit lighting LED semantics. Reprocessed exactly
+the same 39 Ducati `ACCEPT` inputs: 39 `ACCEPTED-FOR-PROCESSING`, 0 contract
+blocks, 0 validation failures, 0 conflicts. The five deferred candidates and
+cooling blocker remain excluded; no Human Review, evidence, production, VFR or
+coverage state changed. Phase 7 remains ACTIVE.
