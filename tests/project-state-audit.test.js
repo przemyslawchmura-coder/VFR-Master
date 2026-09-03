@@ -169,6 +169,12 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.postBmwTriumphPhase5Reassessment.serviceCoreCoverageChanged, false);
   assert.equal(snapshot.postBmwTriumphPhase5Reassessment.productionChanged, false);
   assert.deepEqual(snapshot.promotionFoundation, { contract: "PromotionPacket/v1", gate: "PROMOTION-READY-or-BLOCKED", positiveFixture: "synthetic-only", productionConversion: false, registryInsertion: false, evidenceRowsCreated: false, rawNormalization: false, realResearchRecordsConsumed: false, gateExported: true });
+  assert.deepEqual(snapshot.heldPromotionProjection.ducati, { total: 27, promotionReady: 27, blocked: 0 });
+  assert.deepEqual(snapshot.heldPromotionProjection.bmw, { total: 13, promotionReady: 11, blocked: 2, blockedReasons: { noUnresolvedConflict: 2, processingAccepted: 2 } });
+  assert.equal(snapshot.heldPromotionProjection.upstreamResearchStateChanged, false);
+  assert.equal(snapshot.heldPromotionProjection.productionStateChanged, false);
+  assert.equal(snapshot.heldPromotionProjection.evidenceRowsCreated, 0);
+  assert.equal(snapshot.heldPromotionProjection.serviceCoreCoverageChanged, false);
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.classification, "ACCESS-BLOCKED");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.audit, "ACCEPT-WITH-RISKS");
   assert.equal(snapshot.research.mt09ServiceProspectAuthentication.b7nLitRelationship, "UNRESOLVED");

@@ -6,11 +6,11 @@
   "baseCommit": "b1c8575105c981d4eb39370bd32cff4c6dba4280",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 356,
-    "javascriptFiles": 228,
-    "testFiles": 75,
+    "files": 360,
+    "javascriptFiles": 231,
+    "testFiles": 76,
     "documentationFiles": 72,
-    "researchAndToolingFiles": 165
+    "researchAndToolingFiles": 168
   },
   "catalogue": {
     "manufacturers": 13,
@@ -1046,6 +1046,26 @@
     "rawNormalization": false,
     "realResearchRecordsConsumed": false,
     "gateExported": true
+  },
+  "heldPromotionProjection": {
+    "ducati": {
+      "total": 27,
+      "promotionReady": 27,
+      "blocked": 0
+    },
+    "bmw": {
+      "total": 13,
+      "promotionReady": 11,
+      "blocked": 2,
+      "blockedReasons": {
+        "noUnresolvedConflict": 2,
+        "processingAccepted": 2
+      }
+    },
+    "upstreamResearchStateChanged": false,
+    "productionStateChanged": false,
+    "evidenceRowsCreated": 0,
+    "serviceCoreCoverageChanged": false
   },
   "research": {
     "canonicalFieldCount": 183,
@@ -2333,8 +2353,8 @@
   },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 636,
-    "lastKnownPassed": 636,
+    "lastKnownTotal": 639,
+    "lastKnownPassed": 639,
     "failed": 0,
     "skipped": 0,
     "todo": 0
