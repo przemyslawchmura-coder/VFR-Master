@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-03 — Technical Research Factory Ténéré Interrupted/Resumed Batch Pilot Design (current)
+
+Objective: design, without executing, the bounded Ténéré pilot over completed research-only Factory layers. Fixed target `yamaha.tenere-700.gen1` MY2019 EU standard and prospect `BW3-F8197-E0`; preserved real readiness as `REGISTERED-NOT-REAUTHENTICATED`; defined one target/work/attempt budget, pause after acquisition, checkpoint validation, resume equivalence and duplicate prevention; and added a synthetic/local traversal through acquisition, extraction, Review Queue, Human Review Decisions and Evidence Processing. No authentication, external access, technical inspection, evidence, coverage, readiness, production or retry changes occurred. Validation: targeted Ténéré pilot tests 8/8, project-state tests 6/6, full suite 587/587, syntax checks, diff check and deterministic memory/report checks. Audit: `ACCEPT-WITH-RISKS`; real execution remains gated. Next: authenticate only the existing BW3-F8197-E0 prospect without inspecting service values.
+
 ## 2026-09-03 — Technical Research Factory Evidence-Processing Contract Foundation (current)
 
 Objective: create the smallest explicit pre-promotion boundary over immutable Human Review Decisions. Added schema 1 processing states, deterministic IDs/order, queue-bound provenance validation, raw candidate preservation, typed ineligibility, unresolved accepted-candidate disagreement handling, immutable outputs and deterministic reporting. No evidence, normalization, conflict resolution, researched-no-evidence, promotion, retries, Orchestrator events or production behavior were added. Validation: targeted Evidence Processing tests 12/12, Human Review Decisions 22/22, Review Queue 23/23, Extraction Agent 23/23, full suite 579/579, syntax checks, diff check and deterministic memory/report checks. Audit: `ACCEPT-WITH-RISKS`; persistence and later evidence promotion remain NOT STARTED. Next: bounded interrupted/resumed Ténéré Batch Pilot design.

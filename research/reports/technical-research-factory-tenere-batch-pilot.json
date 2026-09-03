@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "revlog-technical-research-factory-tenere-batch-pilot/v1",
+  "target": {
+    "id": "target.yamaha.tenere-700.gen1.2019.eu",
+    "catalogVariantKey": "yamaha.tenere-700.gen1",
+    "manufacturer": "Yamaha",
+    "family": "Ténéré 700",
+    "years": {
+      "kind": "EXACT",
+      "from": 2019,
+      "to": 2019
+    },
+    "markets": {
+      "state": "KNOWN",
+      "values": [
+        "EU"
+      ]
+    },
+    "transmission": {
+      "state": "KNOWN",
+      "values": [
+        "manual"
+      ]
+    },
+    "abs": {
+      "state": "KNOWN",
+      "values": [
+        true
+      ]
+    },
+    "equipment": {
+      "state": "KNOWN",
+      "values": [
+        "standard"
+      ]
+    }
+  },
+  "prospect": {
+    "id": "yamaha.tenere700.service.bw3-f8197-e0",
+    "publication": "BW3-F8197-E0",
+    "state": "REGISTERED-NOT-REAUTHENTICATED",
+    "role": "FACTORY-PILOT-CANDIDATE",
+    "executionReady": false
+  },
+  "budgets": {
+    "targets": 1,
+    "sourceWorkItems": 1,
+    "maxAttemptsPerWorkItem": 1,
+    "totalAttempts": 1,
+    "primaryDocuments": 1
+  },
+  "interruption": {
+    "point": "after the single acquisition attempt completes and before downstream processing is consumed",
+    "requiredState": "PAUSED",
+    "checkpoint": "validated event-count/event-digest/snapshot-digest checkpoint",
+    "resume": "verify checkpoint prefix, replay canonical snapshot, append one batch-resumed event, reject any second attempt for completed work"
+  },
+  "preconditions": [
+    "official Yamaha identity and delivery/access path authenticated",
+    "BW3-F8197-E0 applicability explicitly covers MY2019 EU standard Ténéré 700",
+    "standard versus Rally/World Raid/Explore/Extreme scope resolved",
+    "ABS, transmission and safety-field applicability resolved",
+    "source content acquired with immutable artifact digest and byte length",
+    "all downstream records remain research-only and caller-persisted"
+  ],
+  "stopConditions": [
+    "real prospect remains not execution-ready",
+    "identity, access, year, market, equipment or ABS applicability unresolved",
+    "artifact provenance or digest mismatch",
+    "checkpoint prefix/snapshot verification failure",
+    "attempt/work identity duplication",
+    "any adapter attempts to add canonical state or evidence",
+    "any downstream stage requests normalization, conflict resolution or production promotion"
+  ],
+  "acceptance": [
+    "one target and one bounded work item only",
+    "one attempt maximum with no duplicate after resume",
+    "uninterrupted and resumed snapshots are byte-equivalent",
+    "real BW3-F8197-E0 readiness remains REGISTERED-NOT-REAUTHENTICATED",
+    "synthetic path reaches every completed research-only layer exactly once",
+    "no evidence, coverage, production, retry-budget or Orchestrator redesign changes"
+  ],
+  "checkpoint": {
+    "eventCount": 7,
+    "replayState": "PAUSED",
+    "uninterruptedState": "ACTIVE",
+    "resumedState": "ACTIVE",
+    "equivalent": true,
+    "duplicateAttemptRejected": true
+  },
+  "downstream": [
+    "ACQUIRED artifact",
+    "raw extraction result",
+    "Review Queue entry",
+    "Human Review Decision",
+    "Evidence Processing pre-promotion record"
+  ],
+  "isolation": {
+    "realProspectReadinessUnchanged": true,
+    "realProspectState": "REGISTERED-NOT-REAUTHENTICATED",
+    "syntheticOnlyExecution": true,
+    "evidenceCreated": false,
+    "coverageChanged": false,
+    "productionChanged": false,
+    "networkUsed": false
+  },
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "risks": [
+      "real service prospect still requires authentication and applicability proof",
+      "checkpoint and event storage remain caller-owned",
+      "synthetic downstream traversal does not authenticate or evidence the real publication"
+    ]
+  }
+}

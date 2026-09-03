@@ -1,16 +1,16 @@
 {
   "schemaVersion": "revlog-project-state/v1",
   "snapshotDate": "2026-09-03",
-  "snapshotBasis": "post-technical-research-factory-evidence-processing-working-tree",
-  "snapshotImplementationPath": "research/factory/evidence-processing.js",
-  "baseCommit": "f446875e66d8ea92e507c26088d68f0a28dc1591",
+  "snapshotBasis": "post-technical-research-factory-tenere-batch-pilot-design-working-tree",
+  "snapshotImplementationPath": "research/data/technical-research-factory-tenere-batch-pilot.js",
+  "baseCommit": "b3fbabf94278617125cc713da3ebc21c5e10cc70",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 295,
-    "javascriptFiles": 184,
-    "testFiles": 60,
-    "documentationFiles": 69,
-    "researchAndToolingFiles": 122
+    "files": 301,
+    "javascriptFiles": 188,
+    "testFiles": 61,
+    "documentationFiles": 70,
+    "researchAndToolingFiles": 126
   },
   "catalogue": {
     "manufacturers": 13,
@@ -1227,10 +1227,93 @@
       "networkUsed": false
     }
   },
+  "tenereBatchPilot": {
+    "schemaVersion": "revlog-technical-research-factory-tenere-batch-pilot/v1",
+    "target": {
+      "id": "target.yamaha.tenere-700.gen1.2019.eu",
+      "catalogVariantKey": "yamaha.tenere-700.gen1",
+      "manufacturer": "Yamaha",
+      "family": "Ténéré 700",
+      "years": {
+        "kind": "EXACT",
+        "from": 2019,
+        "to": 2019
+      },
+      "markets": {
+        "state": "KNOWN",
+        "values": [
+          "EU"
+        ]
+      },
+      "transmission": {
+        "state": "KNOWN",
+        "values": [
+          "manual"
+        ]
+      },
+      "abs": {
+        "state": "KNOWN",
+        "values": [
+          true
+        ]
+      },
+      "equipment": {
+        "state": "KNOWN",
+        "values": [
+          "standard"
+        ]
+      }
+    },
+    "prospect": {
+      "id": "yamaha.tenere700.service.bw3-f8197-e0",
+      "publication": "BW3-F8197-E0",
+      "state": "REGISTERED-NOT-REAUTHENTICATED",
+      "role": "FACTORY-PILOT-CANDIDATE",
+      "executionReady": false
+    },
+    "budgets": {
+      "targets": 1,
+      "sourceWorkItems": 1,
+      "maxAttemptsPerWorkItem": 1,
+      "totalAttempts": 1,
+      "primaryDocuments": 1
+    },
+    "interruption": {
+      "point": "after the single acquisition attempt completes and before downstream processing is consumed",
+      "requiredState": "PAUSED",
+      "checkpoint": "validated event-count/event-digest/snapshot-digest checkpoint",
+      "resume": "verify checkpoint prefix, replay canonical snapshot, append one batch-resumed event, reject any second attempt for completed work"
+    },
+    "checkpoint": {
+      "eventCount": 7,
+      "replayState": "PAUSED",
+      "uninterruptedState": "ACTIVE",
+      "resumedState": "ACTIVE",
+      "equivalent": true,
+      "duplicateAttemptRejected": true
+    },
+    "downstream": [
+      "ACQUIRED artifact",
+      "raw extraction result",
+      "Review Queue entry",
+      "Human Review Decision",
+      "Evidence Processing pre-promotion record"
+    ],
+    "isolation": {
+      "realProspectReadinessUnchanged": true,
+      "realProspectState": "REGISTERED-NOT-REAUTHENTICATED",
+      "syntheticOnlyExecution": true,
+      "evidenceCreated": false,
+      "coverageChanged": false,
+      "productionChanged": false,
+      "networkUsed": false
+    },
+    "classification": "ACCEPT-WITH-RISKS"
+  },
   "tests": {
     "fullSuiteCommand": "node --test tests/*.test.js",
-    "lastKnownTotal": 579,
-    "lastKnownPassed": 579,
+    "lastKnownTotal": 587,
+    "lastKnownPassed": 587,
     "failed": 0,
     "skipped": 0,
     "todo": 0

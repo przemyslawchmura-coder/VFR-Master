@@ -3,8 +3,8 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-09-03
-Snapshot basis: post-Technical-Research-Factory-Evidence-Processing working tree, anchored semantically by `research/factory/evidence-processing.js` to first-parent base `f446875e66d8ea92e507c26088d68f0a28dc1591`.
-origin/main at task start: `f446875e66d8ea92e507c26088d68f0a28dc1591`
+Snapshot basis: post-Technical-Research-Factory-Ténéré-Batch-Pilot-Design working tree, anchored semantically by `research/data/technical-research-factory-tenere-batch-pilot.js` to first-parent base `b3fbabf94278617125cc713da3ebc21c5e10cc70`.
+origin/main at task start: `b3fbabf94278617125cc713da3ebc21c5e10cc70`
 Expected local relation after the single containing commit: ahead 1, behind 0
 
 ## Architecture and runtime
@@ -39,7 +39,8 @@ Research is quarantined under `research/` and is not imported by the production 
 - Technical Research Factory Review Queue Foundation: `ACCEPT-WITH-RISKS`. Review Queue schema 1 creates one immutable `QUEUED` entry per candidate from validated `CANDIDATES-PRODUCED` extraction results, preserving the complete raw candidate and canonical provenance. Exact duplicates collapse only when byte-equivalent; identity collisions fail closed. All other extraction dispositions remain typed ineligibility records, not evidence absence or human decisions. No transitions, decisions, persistence, Orchestrator events, retries, normalization, evidence or production state were added.
 - Technical Research Factory Human Review Decisions Foundation: `ACCEPT-WITH-RISKS`. Decision schema 1 accepts valid queue entries plus explicit opaque reviewer IDs and optional raw comments, producing immutable `ACCEPT`, `REJECT` or `NEEDS-MORE-REVIEW` records with canonical provenance and semantic IDs/order. Exact duplicates are idempotent; conflicting decisions or metadata for one queue entry fail closed. Decisions create no evidence, researched-no-evidence, normalization, conflict resolution, routing, persistence, retries, Orchestrator events or production state.
 - Technical Research Factory Evidence-Processing Contract Foundation: `ACCEPT-WITH-RISKS`. Evidence-processing schema 1 projects immutable Human Review Decisions plus validated queue entries into explicit pre-promotion states: accepted-for-processing, rejected-candidate, needs-more-review, ineligible and cannot-advance. Raw candidate values and canonical provenance are preserved; directly observable accepted disagreements remain independently represented and unresolved. No evidence, normalization, researched-no-evidence, promotion, lifecycle, retry or production changes were added.
-- Latest completed-wave validation: targeted Evidence Processing tests 12/12; Human Review Decisions tests 22/22; Review Queue tests 23/23; Extraction Agent tests 23/23; full suite 579/579 passed with 0 failed, 0 skipped and 0 todo; changed JavaScript passed `node --check`; `git diff --check` clean; deterministic Evidence Processing and project-state reports regenerate byte-for-byte identically. The prior 567/567 Human Review Decisions checkpoint remains historical.
+- Technical Research Factory Ténéré Interrupted/Resumed Batch Pilot Design: `ACCEPT-WITH-RISKS`. Design schema 1 fixes the canonical Yamaha Ténéré 700 MY2019 EU standard target and BW3-F8197-E0 prospect, retains the real prospect as `REGISTERED-NOT-REAUTHENTICATED`, defines one-target/one-work/one-attempt limits, and proves pause/checkpoint/validated-resume equivalence through a synthetic local path across acquisition, extraction, Review Queue, Human Review Decisions and Evidence Processing. No real authentication, acquisition, technical inspection, evidence, coverage, readiness, production or retry changes occurred.
+- Latest completed-wave validation: targeted Ténéré pilot tests 8/8; Evidence Processing tests 12/12; project-state tests 6/6; full suite 587/587 passed with 0 failed, 0 skipped and 0 todo; changed JavaScript passed `node --check`; `git diff --check` clean; deterministic Ténéré pilot and project-state reports regenerate byte-for-byte identically. The prior 579/579 Evidence Processing checkpoint remains historical.
 - Published application version: 0.3.0.
 
 ## Independent work streams
@@ -51,14 +52,14 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## WIP and blockers
 
-- P1: design a bounded interrupted/resumed Ténéré Batch Pilot over the completed research-only processing layers; Ténéré `BW3-F8197-E0` remains gated until its source path is authenticated.
+- P1: authenticate only the existing Ténéré `BW3-F8197-E0` prospect and resolve exact source/applicability gates before any execution; no technical values should be inspected during authentication.
 - P1: add production Technical Profiles only through deliberate promotion review; 1,094 catalogue variants remain without production profiles.
 - P2: improve source/document acquisition for blocked manuals and OEM parts.
 - P2: audit cloud/RLS behavior against a live Supabase project before claiming deployment readiness.
 
 ## Next actions
 
-**NEXT** — Design the bounded interrupted/resumed Ténéré Batch Pilot over the completed research-only factory layers, without production promotion, normalization, conflict resolution or canonical researched-no-evidence conversion.
+**NEXT** — Authenticate only the existing Yamaha Ténéré 700 service-manual prospect `BW3-F8197-E0` for `yamaha.tenere-700.gen1` MY2019 EU standard, without inspecting service values or creating evidence.
 
 Deferred independent streams remain the live-backend production-readiness audit, controlled Technical Profile promotion design, and global catalogue gap audit; none is an active NEXT task.
 

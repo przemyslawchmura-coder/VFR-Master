@@ -152,3 +152,11 @@ Decision: Evidence Processing schema 1 consumes immutable Human Review Decision 
 Rationale: an accepted human candidate still requires a separate, auditable processing boundary before normalization, conflict resolution or production evidence can be considered.
 Consequences: rejected and deferred candidates remain non-advancing, missing queue context is typed ineligible, and directly observable accepted disagreements remain unresolved without winner selection. Evidence creation, researched-no-evidence conversion, normalization, promotion, persistence and lifecycle integration remain later layers.
 Status: ACTIVE. Related design: Technical Research Factory Evidence-Processing Contract Foundation.
+
+## ADR-021 — Ténéré pilot design preserves blocked readiness and synthetic traversal
+
+Date: 2026-09-03
+Decision: The future Ténéré batch pilot is designed for exactly `yamaha.tenere-700.gen1` MY2019 EU standard against prospect `BW3-F8197-E0`, with one source work item and one attempt. Interruption occurs after acquisition completion and before downstream processing; a validated checkpoint and replayed resume must equal uninterrupted state. A clearly separate synthetic/local prospect is the only executable fixture until the real prospect becomes execution-ready.
+Rationale: checkpoint/resume behavior can be proven deterministically without weakening readiness or authenticating an external source.
+Consequences: the real prospect remains `REGISTERED-NOT-REAUTHENTICATED` and `FACTORY-PILOT-CANDIDATE`; authentication, applicability proof, acquisition, extraction, review and processing remain future gated stages. No real evidence or production state can be produced by this design fixture.
+Status: ACTIVE. Related design: Technical Research Factory Ténéré Interrupted/Resumed Batch Pilot Design.
