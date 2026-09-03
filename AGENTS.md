@@ -309,3 +309,18 @@ Finish the current bounded stage first.
 
 The repository should evolve through controlled, validated increments rather
 than simultaneous unfinished feature branches.
+
+## 16. RevLog Language Policy
+
+RevLog is Polish-first. Polish is the default user-facing language, and every
+new user-facing string must have a natural Polish presentation. Raw English
+labels, descriptions, statuses, errors, source descriptions or explanatory
+text must not leak into the Polish UI unintentionally.
+
+Technical identifiers, source IDs, profile IDs, catalogue keys, schema keys,
+OEM numbers, units and other canonical machine-facing data must not be
+translated merely for presentation. Where technical source values contain
+human-readable English descriptions, preserve the canonical/source value
+internally and localize it at the presentation layer where appropriate. Do
+not duplicate Technical Profiles or technical datasets merely to support
+another UI language.
