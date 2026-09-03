@@ -2,6 +2,10 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-03 — Ténéré BW3-F8197-E0 public applicability path exhaustion (current)
+
+Recorded `TENERE-APPLICABILITY-AUTHENTICATION-PATH-EXHAUSTED` on the existing prospect after the bounded public metadata path yielded no authoritative resolution. Preserved `AUTHENTICATED-BUT-APPLICABILITY-PARTIAL`, `authenticityVerified: true`, `contentAccessible: false`, canonical readiness blocked, and unresolved MY2019, EU, standard/named-equipment, ABS and manual-transmission dimensions. Further repetition is not justified without genuinely new Yamaha-controlled material or authenticated RMI/manual access. No external research, technical inspection, acquisition, downstream records, evidence, researched-no-evidence, coverage, production, runtime, catalogue or cloud changes occurred. Next: do not repeat public applicability authentication; continue Phase 5 through another bounded research-factory task.
+
 ## 2026-09-03 — Ténéré BW3-F8197-E0 source authentication (current)
 
 Objective: authenticate only the registered Yamaha Ténéré service prospect for MY2019 EU standard without inspecting service values or creating evidence. Authenticated the prospect’s own 2020 Ténéré 700 / XTZ690 / XTZ690-U service-publication metadata and recorded Yamaha-controlled RMI subscription and dealer-delivery routes. Exact MY2019 EU standard scope, ABS, manual transmission and named-equipment boundaries remain unresolved; final classification is `AUTHENTICATED-BUT-APPLICABILITY-PARTIAL`, canonical readiness is blocked, and content remains inaccessible. No technical values, candidates, queue records, decisions, processing records, evidence, researched-no-evidence, coverage, production, runtime, catalogue or cloud state changed. Validation: targeted authentication and related Factory tests 62/62, syntax checks, `git diff --check`, deterministic reports and project-state consistency. Next: resolve only the remaining applicability metadata.

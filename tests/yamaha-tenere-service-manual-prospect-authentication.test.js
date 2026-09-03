@@ -11,6 +11,7 @@ test("authenticates only BW3-F8197-E0 identity and official delivery", () => {
   assert.equal(report.prospect.identity.state, "AUTHENTICATED-METADATA");
   assert.equal(report.prospect.identity.contentAccessible, false);
   assert.equal(report.prospect.identity.authenticityVerified, true);
+  assert.equal(report.prospect.antiLoopClassification, "TENERE-APPLICABILITY-AUTHENTICATION-PATH-EXHAUSTED");
   assert.equal(report.prospect.officialDelivery.classification, "ACCESS-BLOCKED-AUTH");
   assert.match(report.prospect.officialDelivery.path, /^https:\/\/rmi\.yamaha-motor\.eu\//);
   assert.equal(acquisitionStatus.profiles["yamaha.tenere700.gen1"].serviceManual.contentAccessible, false);
@@ -22,6 +23,7 @@ test("keeps exact applicability fail-closed", () => {
   assert.equal(report.prospect.applicability.euMarket.state, "UNRESOLVED");
   assert.equal(report.prospect.applicability.abs.state, "UNKNOWN");
   assert.equal(report.prospect.applicability.transmission.state, "UNKNOWN");
+  assert.match(report.exactNextTask, /Do not repeat public BW3-F8197-E0 applicability authentication/);
   assert.equal(report.readinessGate.passed, false);
   assert.deepEqual(report.readinessGate.failed, ["yearKnown", "marketKnown", "safetyScopeSufficient"]);
 });
