@@ -24,5 +24,7 @@ const extractionAdapters = require("./extraction-adapters.js");
 const extractionAgent = require("./extraction-agent.js");
 const reviewQueueContracts = require("./review-queue-contracts.js");
 const reviewQueue = require("./review-queue.js");
+const reviewDecisionContracts = require("./review-decision-contracts.js");
+const reviewDecisions = require("./review-decisions.js");
 
-module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...executionContracts, ...extractionContracts, ...reviewQueueContracts, ...applicability, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, ...executionAgent, ...extractionAgent, ...reviewQueue, adapters, acquisitionAdapters, extractionAdapters, ids, events, orchestrationJson, plannerPriority: priority });
+module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...executionContracts, ...extractionContracts, ...reviewQueueContracts, ...reviewDecisionContracts, ...applicability, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, ...executionAgent, ...extractionAgent, ...reviewQueue, ...reviewDecisions, adapters, acquisitionAdapters, extractionAdapters, ids, events, orchestrationJson, plannerPriority: priority });

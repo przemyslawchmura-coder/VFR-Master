@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "revlog-technical-research-factory-human-review-decisions/v1",
+  "reviewDecisionSchemaVersion": 1,
+  "reviewQueueSchemaVersion": 1,
+  "decisionVocabulary": [
+    "ACCEPT",
+    "REJECT",
+    "NEEDS-MORE-REVIEW"
+  ],
+  "examples": {
+    "ACCEPT": "ACCEPT",
+    "REJECT": "REJECT",
+    "NEEDS-MORE-REVIEW": "NEEDS-MORE-REVIEW"
+  },
+  "decisionCount": 2,
+  "orderedDecisionIds": [
+    "review-decision.a63d9156314681f91122c312",
+    "review-decision.caeefa552ab0080fa5bae2be"
+  ],
+  "provenance": {
+    "queueEntryBound": true,
+    "candidateBound": true,
+    "extractionBound": true,
+    "acquisitionBound": true
+  },
+  "semantics": {
+    "acceptMeansProceedToFutureProcessingOnly": true,
+    "rejectIsCandidateLocalOnly": true,
+    "needsMoreReviewTriggersNoAutomation": true,
+    "reviewerIdentityOpaque": true,
+    "commentRawAndIdentityNeutral": true
+  },
+  "safety": {
+    "evidenceAdded": false,
+    "researchedNoEvidenceAdded": false,
+    "normalizationImplemented": false,
+    "conflictResolutionImplemented": false,
+    "persistenceImplemented": false,
+    "orchestratorEventsAdded": 0,
+    "acquisitionAttemptsConsumed": 0,
+    "queueEntriesMutated": false,
+    "extractionResultsMutated": false,
+    "productionChanged": false,
+    "networkUsed": false
+  },
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "risks": [
+      "reviewer identity is caller-supplied opaque metadata without authentication",
+      "decisions remain in-memory immutable records with caller-owned persistence",
+      "evidence processing and decision supersession remain deliberately deferred"
+    ]
+  }
+}

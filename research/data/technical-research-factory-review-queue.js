@@ -4,9 +4,14 @@
 const factory = require("../factory/index.js");
 const extractionData = require("./technical-research-factory-extraction-agent.js");
 
-function buildReport() {
+function buildFixture() {
   const fixture = extractionData.buildFixture();
   const produced = extractionData.run(fixture, "candidates");
+  return Object.freeze({ fixture, produced, queue: factory.buildReviewQueue([produced]) });
+}
+
+function buildReport() {
+  const { produced } = buildFixture();
   const nonReviewable = factory.EXTRACTION_DISPOSITIONS.filter(disposition => disposition !== "CANDIDATES-PRODUCED").map((disposition, index) => {
     const adapterVersion = `report-${index + 1}`;
     const id = factory.extractionResultId({ batchId: produced.batchId, targetId: produced.targetId, targetWorkId: produced.targetWorkId, sourceWorkItemId: produced.sourceWorkItemId, attemptId: produced.attemptId, prospectId: produced.prospectId, artifactId: produced.artifactId, adapterId: produced.adapterId, adapterVersion, operation: factory.EXTRACTION_OPERATION });
@@ -30,4 +35,4 @@ function buildReport() {
   });
 }
 
-module.exports = Object.freeze({ buildReport });
+module.exports = Object.freeze({ buildReport, buildFixture });

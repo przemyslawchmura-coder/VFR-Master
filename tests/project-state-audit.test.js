@@ -10,8 +10,8 @@ const read = file => fs.readFileSync(path.join(__dirname, "..", file), "utf8");
 const git = (...args) => cp.execFileSync("git", args, { cwd: path.join(__dirname, ".."), encoding: "utf8" }).trim();
 
 test("project-state snapshot contains executable audit invariants", () => {
-  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-review-queue-working-tree");
-  assert.equal(snapshot.snapshotImplementationPath, "research/factory/review-queue.js");
+  assert.equal(snapshot.snapshotBasis, "post-technical-research-factory-human-review-decisions-working-tree");
+  assert.equal(snapshot.snapshotImplementationPath, "research/factory/review-decisions.js");
   const containingCommit = git("log", "-1", "--format=%H", "--", snapshot.snapshotImplementationPath);
   const expectedBase = containingCommit ? git("rev-parse", `${containingCommit}^`) : git("rev-parse", "HEAD");
   assert.equal(snapshot.baseCommit, expectedBase);
@@ -159,6 +159,23 @@ test("project-state snapshot contains executable audit invariants", () => {
   assert.equal(snapshot.reviewQueue.safety.persistenceImplemented, false);
   assert.equal(snapshot.reviewQueue.safety.orchestratorEventsAdded, 0);
   assert.equal(snapshot.reviewQueue.safety.productionChanged, false);
+  assert.equal(snapshot.humanReviewDecisions.schemaVersion, 1);
+  assert.equal(snapshot.humanReviewDecisions.reviewQueueSchemaVersion, 1);
+  assert.equal(snapshot.humanReviewDecisions.classification, "ACCEPT-WITH-RISKS");
+  assert.deepEqual(snapshot.humanReviewDecisions.decisionVocabulary, ["ACCEPT", "REJECT", "NEEDS-MORE-REVIEW"]);
+  assert.equal(snapshot.humanReviewDecisions.examples.ACCEPT, "ACCEPT");
+  assert.equal(snapshot.humanReviewDecisions.decisionCount, 2);
+  assert.equal(snapshot.humanReviewDecisions.provenance.queueEntryBound, true);
+  assert.equal(snapshot.humanReviewDecisions.provenance.candidateBound, true);
+  assert.equal(snapshot.humanReviewDecisions.semantics.acceptMeansProceedToFutureProcessingOnly, true);
+  assert.equal(snapshot.humanReviewDecisions.semantics.needsMoreReviewTriggersNoAutomation, true);
+  assert.equal(snapshot.humanReviewDecisions.safety.evidenceAdded, false);
+  assert.equal(snapshot.humanReviewDecisions.safety.researchedNoEvidenceAdded, false);
+  assert.equal(snapshot.humanReviewDecisions.safety.normalizationImplemented, false);
+  assert.equal(snapshot.humanReviewDecisions.safety.conflictResolutionImplemented, false);
+  assert.equal(snapshot.humanReviewDecisions.safety.persistenceImplemented, false);
+  assert.equal(snapshot.humanReviewDecisions.safety.orchestratorEventsAdded, 0);
+  assert.equal(snapshot.humanReviewDecisions.safety.productionChanged, false);
 });
 
 test("project-state report regenerates byte-for-byte from its semantic snapshot convention", () => {
@@ -174,7 +191,7 @@ test("project memory has one active roadmap phase and unique ADRs", () => {
   assert.equal(new Set(ids).size, ids.length);
   const state = read("docs/project/CURRENT_STATE.md");
   assert.equal((state.match(/\*\*NEXT\*\*/g) || []).length, 1);
-  assert.match(state, /Technical Research Factory Review Queue Foundation/);
+  assert.match(state, /Technical Research Factory Human Review Decisions Foundation/);
 });
 
 test("project memory records production/research isolation", () => {

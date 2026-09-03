@@ -136,3 +136,11 @@ Decision: Review Queue schema 1 creates one immutable `QUEUED` entry per validat
 Rationale: eligibility for future human review is a different trust boundary from extraction and from a human decision. Keeping queue presence pre-decision prevents extraction failures or zero candidates from becoming rejections, evidence absence or accepted facts.
 Consequences: exact byte-equivalent duplicates may collapse by semantic entry identity, while identity collisions fail closed and different provenance remains distinct. Human Review Decisions, reviewer identity, normalization, conflict handling, evidence promotion, persistence and lifecycle integration require later bounded work.
 Status: ACTIVE. Related design: Technical Research Factory Review Queue Foundation.
+
+## ADR-019 — Human review decisions are immutable pre-evidence records
+
+Date: 2026-09-02
+Decision: Human Review Decision schema 1 records exactly one internally consistent decision payload per Review Queue entry in a bounded set using `ACCEPT`, `REJECT` or `NEEDS-MORE-REVIEW`. Records retain canonical queue/extraction/acquisition references, explicit opaque reviewer identity and an optional raw comment. They are immutable and create no evidence or workflow transition.
+Rationale: a human outcome must be auditable without conflating reviewer intent with evidence verification or production acceptance. Deterministic identities and fail-closed duplicate conflicts prevent silent overwrite while preserving all upstream raw data.
+Consequences: `ACCEPT` only permits future evidence processing, `REJECT` is candidate-local, and `NEEDS-MORE-REVIEW` triggers no automation. Authentication, supersession, evidence conversion, normalization, conflict resolution, researched-no-evidence, persistence and production promotion require later bounded work.
+Status: ACTIVE. Related design: Technical Research Factory Human Review Decisions Foundation.
