@@ -174,7 +174,53 @@ test("market-specific headlight data stays unavailable without a region", async 
 
 test("unknown ABS does not fabricate an ABS-specific fuse table", async () => {
   const entry = findEntry(await uiApi.prepareTechnicalProfileView(MOTORCYCLE), "rider-core.fuse.table");
+  assert.equal(entry.resolutionStatus, "blocked-applicability");
+  assert.ok(entry.requiredContext.includes("abs"));
   assert.doesNotMatch(entry.formattedValue, /wersja ABS/);
+});
+
+test("known ABS selects only the applicable fuse variant", async () => {
+  const view = await uiApi.prepareTechnicalProfileView({ ...MOTORCYCLE, region: "USA", abs: true });
+  const entry = findEntry(view, "rider-core.fuse.table");
+  assert.equal(entry.resolutionStatus, "resolved");
+  assert.match(entry.formattedValue, /PGM-FI/);
+  assert.match(entry.formattedValue, /Obwody chronione/);
+  assert.doesNotMatch(entry.formattedValue, /wersja standardowa/);
+  assert.ok(entry.sources.some(source => source.id.includes("wiring-abs")));
+});
+
+test("known non-ABS selects only the applicable USA fuse variant", async () => {
+  const view = await uiApi.prepareTechnicalProfileView({ ...MOTORCYCLE, region: "USA", abs: false });
+  const entry = findEntry(view, "rider-core.fuse.table");
+  assert.equal(entry.resolutionStatus, "resolved");
+  assert.match(entry.formattedValue, /PGM-FI/);
+  assert.match(entry.formattedValue, /zegar 10 A/);
+  assert.doesNotMatch(entry.formattedValue, /Obwody chronione/);
+  assert.ok(entry.sources.some(source => source.id.includes("wiring-standard")));
+});
+
+test("VTEC and standard valve clearances remain labelled and separately sourced", async () => {
+  const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
+  const entry = findEntry(view, "rider-core.valves.intake-clearance");
+  assert.equal(entry.resolutionStatus, "resolved");
+  assert.match(entry.formattedValue, /standardowy/);
+  assert.match(entry.formattedValue, /VTEC/);
+  assert.ok(entry.sources.some(source => source.id.includes("valve-procedure")));
+});
+
+test("JP-only brake-system evidence is blocked outside a known region", async () => {
+  const unknown = findEntry(await uiApi.prepareTechnicalProfileView(MOTORCYCLE), "rider-core.brakes.abs-system");
+  assert.equal(unknown.resolutionStatus, "blocked-applicability");
+  assert.equal(unknown.sources.length, 0);
+  const japan = findEntry(await uiApi.prepareTechnicalProfileView({ ...MOTORCYCLE, region: "JP" }), "rider-core.brakes.abs-system");
+  assert.equal(japan.resolutionStatus, "resolved");
+  assert.ok(japan.sources.some(source => source.id.includes("dual-cbs")));
+});
+
+test("VFR Core keeps the frozen 95-field and 14-category shape", async () => {
+  const view = await uiApi.prepareTechnicalProfileView(MOTORCYCLE);
+  assert.equal(view.coreMatrix.fieldIds.length, 95);
+  assert.equal(view.categories.length, 14);
 });
 
 test("unused unknown equipment is not shown as a passive warning", async () => {

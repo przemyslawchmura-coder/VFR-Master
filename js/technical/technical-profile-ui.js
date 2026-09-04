@@ -48,7 +48,7 @@
       ));
       const matrixView = buildCoreMatrixView(profile, profile.entries, context, resolver, formatter, presentation);
       const grouped = matrixView.categories;
-      const searchIndex = search.buildSearchIndex({ ...profile, entries: visibleEntries }, context);
+      const searchIndex = search.buildSearchIndex({ ...profile, entries: visibleEntries.filter(entry => entry.status === "verified") }, context);
 
       return {
         status: "ready",
@@ -96,6 +96,7 @@
       resolutionStatus: resolution.status,
       requiredContext: [...(resolution.requiredContext || [])],
       candidates: resolution.candidates || {},
+      applicability: entry.applicability || entry.conditions || null,
       formattedValue: resolved && effective.value ? presentation.valueText(entry, safeFormat(formatter, effective.value)) : null,
       status: effective.status || entry.status || null,
       statusLabel: presentation.statusLabel(effective.status || entry.status),
@@ -128,18 +129,21 @@
         if (view.formattedValue) view.formattedValue = presentation.matrixValueText(fieldId, entry, view.formattedValue);
         return view;
       });
-      const base = views[0] || { resolutionStatus: "missing", requiredContext: [], candidates: {}, status: "missing", statusLabel: "Brak danych", description: "", sources: [] };
+      const projected = projectCoreField(fieldId, views);
+      const base = projected.base || views[0] || { resolutionStatus: "missing", requiredContext: [], candidates: {}, status: "missing", statusLabel: "Brak danych", description: "", sources: [] };
       return {
         ...base,
         id: `rider-core.${fieldId}`,
         categoryId: domain.id,
         label: presentation.coreMatrixLabel(fieldId),
         matchedEntryIds: views.map(view => view.id),
-        formattedValue: views.length ? views.map(view => view.formattedValue || "Brak danych").join(" · ") : "Brak danych",
-        status: views.length ? base.status : "missing",
-        statusLabel: views.length ? base.statusLabel : "Brak danych",
-        resolutionStatus: views.length ? base.resolutionStatus : "missing",
-        sources: views.flatMap(view => view.sources).filter((source, index, all) => all.findIndex(item => item.id === source.id) === index)
+        formattedValue: projected.formattedValue,
+        status: projected.status,
+        statusLabel: projected.statusLabel,
+        resolutionStatus: projected.resolutionStatus,
+        requiredContext: projected.requiredContext,
+        candidates: projected.candidates,
+        sources: projected.sources
       };
     }));
     return {
@@ -149,6 +153,38 @@
       fieldIds: [...matrix.fieldIds]
     };
   }
+
+  function projectCoreField(fieldId, views) {
+    if (!views.length) return { formattedValue: "Brak danych", status: "missing", statusLabel: "Brak danych", resolutionStatus: "missing", requiredContext: [], candidates: {}, sources: [] };
+    const resolved = views.filter(view => view.resolutionStatus === "resolved" && view.status === "verified");
+    const blocked = views.filter(view => view.resolutionStatus === "ambiguous-context");
+    const applicable = views.filter(view => view.resolutionStatus !== "not-applicable");
+    const requiredContext = unique(applicable.flatMap(view => view.requiredContext || []));
+    const candidates = mergeCandidates(blocked);
+    if (fieldId === "fuse.table") {
+      const safe = resolved;
+      return projected(safe, safe.map(view => view.formattedValue).filter(Boolean), blocked.length ? "blocked-applicability" : safe.length ? "resolved" : "missing", requiredContext, candidates);
+    }
+    if (fieldId === "valves.intake-clearance" || fieldId === "valves.exhaust-clearance") {
+      const values = resolved.map(view => `${valveConditionLabel(view.id)}: ${view.formattedValue}`).filter(Boolean);
+      return projected(resolved, values, blocked.length ? "blocked-applicability" : resolved.length ? "resolved" : "missing", requiredContext, candidates);
+    }
+    return projected(resolved, resolved.map(view => view.formattedValue).filter(Boolean), blocked.length ? "blocked-applicability" : resolved.length ? "resolved" : "missing", requiredContext, candidates);
+  }
+
+  function projected(views, values, resolutionStatus, requiredContext, candidates) {
+    const status = resolutionStatus === "resolved" ? "verified" : resolutionStatus === "missing" ? "missing" : "blocked-applicability";
+    return { base: views[0], formattedValue: values.length ? values.join(" · ") : "Brak danych", status, statusLabel: status === "verified" ? "Zweryfikowane" : status === "blocked-applicability" ? "Zablokowane — niepełny kontekst" : "Brak danych", resolutionStatus, requiredContext, candidates, sources: listSources(views) };
+  }
+
+  function listSources(views) { return views.flatMap(view => view.sources || []).filter((source, index, all) => all.findIndex(item => item.id === source.id) === index); }
+  function mergeCandidates(views) {
+    const result = {};
+    views.forEach(view => Object.entries(view.candidates || {}).forEach(([field, values]) => { result[field] = [...(result[field] || []), ...values]; }));
+    return Object.fromEntries(Object.entries(result).map(([field, values]) => [field, unique(values)]));
+  }
+  function unique(values) { return [...new Set(values)]; }
+  function valveConditionLabel(id) { return String(id).endsWith("-vtec") ? "Zawór VTEC" : "Zawór standardowy"; }
 
   function groupEntries(categories, entries) {
     const categoryOrder = [...categories].sort((left, right) =>
@@ -213,7 +249,7 @@
 
   function buildContextRefinementRequirements(view) {
     const supported = new Set(["region", "abs", "equipment"]);
-    const fields = [...new Set(Object.values(view.entriesById || {}).flatMap(entry => entry.resolutionStatus === "ambiguous-context" ? entry.requiredContext : []))].filter(field => supported.has(field));
+    const fields = [...new Set(Object.values(view.entriesById || {}).flatMap(entry => ["ambiguous-context", "blocked-applicability"].includes(entry.resolutionStatus) ? entry.requiredContext : []))].filter(field => supported.has(field));
     return fields.map(contextField => ({
       key: contextField === "region" ? "market" : contextField,
       contextField,
@@ -247,6 +283,8 @@
   function renderEntryHtml(entry) {
     const value = entry.resolutionStatus === "resolved" || entry.resolutionStatus === "missing"
       ? `<strong class="technical-entry-value">${escapeHtml(entry.formattedValue || "—")}</strong>`
+      : entry.formattedValue && entry.formattedValue !== "Brak danych"
+        ? `<strong class="technical-entry-value">${escapeHtml(entry.formattedValue)}</strong><strong class="technical-entry-ambiguous">Wymaga doprecyzowania: ${escapeHtml(entry.requiredContext.map(contextLabel).join(", "))}</strong>`
       : `<strong class="technical-entry-ambiguous">Wymaga doprecyzowania: ${escapeHtml(entry.requiredContext.map(contextLabel).join(", "))}</strong>`;
     const sourceDetails = entry.sources.length
       ? `<details class="technical-entry-sources"><summary>Źródła (${entry.sources.length})</summary>${entry.sources.map(source => `<div class="muted"><b>${escapeHtml(source.title)}</b>${source.section ? ` · ${escapeHtml(source.section)}` : ""}${source.subsection ? ` / ${escapeHtml(source.subsection)}` : ""}${source.pages.length ? ` · s. ${escapeHtml(source.pages.join(", "))}` : ""}</div>`).join("")}</details>`

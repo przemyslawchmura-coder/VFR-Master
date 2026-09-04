@@ -195,7 +195,7 @@ test("one render resolves entries once, builds one index, and queries reuse it",
   const view = await localUi.prepareTechnicalProfileView(MOTORCYCLE);
   uiApi.renderSearchResultsHtml(view, "olej", search);
   uiApi.renderSearchResultsHtml(view, "korek oleju", search);
-  assert.deepEqual({ readinessCalls, resolutionCalls, indexBuilds }, { readinessCalls: 1, resolutionCalls: 111, indexBuilds: 1 });
+  assert.deepEqual({ readinessCalls, resolutionCalls, indexBuilds }, { readinessCalls: 1, resolutionCalls: 116, indexBuilds: 1 });
 });
 
 test("browser integrity reports an orphan store registration as warning, not fatal", async () => {

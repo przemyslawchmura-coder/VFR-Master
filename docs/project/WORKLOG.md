@@ -2,6 +2,21 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-04 — Correct Rider Core applicability projection
+
+Corrected field-level Rider Service Core projection so unresolved ABS and
+regional alternatives become explicit `blocked-applicability` cells instead
+of being merged behind a resolved candidate. VFR PGM-FI remains visible with
+its own provenance while standard/ABS fuse rows are selected only for known
+context; regional headlight and JP-only Dual CBS remain fail-closed. Valve
+standard/VTEC values are labelled separately and the universal standard spark
+plug remains unaffected by the cold-climate alternative. VFR Core recalculates
+to 32 verified / 60 missing / 3 blocked / 0 not-applicable across the frozen
+95 fields; Ducati remains semantically unchanged with 45 canonical entries.
+Canonical profiles, registry identity and the 95-field matrix were unchanged.
+Targeted Node/browser tests, syntax checks and diff checks passed. No context
+fields, research data, evidence or production values were added or changed.
+
 ## 2026-09-03 — Recover verified VFR Rider Core mappings
 
 Recovered existing verified Honda VFR800 MY2002 canonical fuse and rear

@@ -101,10 +101,27 @@
     const exact = entries.filter(entry => entry.riderServiceCore && entry.riderServiceCore.canonicalFieldId === fieldId);
     if (exact.length) return exact;
     const aliases = [...new Set([...(MATRIX_ALIASES[fieldId] || []), ...(LEGACY_VERIFIED_MATRIX_ALIASES[fieldId] || []), ...(LEGACY_CORE_ALIASES[fieldId] ? [LEGACY_CORE_ALIASES[fieldId]] : [])])];
-    return entries.filter(entry => aliases.includes(entry.id) || aliases.includes(entry.riderServiceCore && entry.riderServiceCore.canonicalFieldId));
+    const matches = entries.filter(entry => aliases.includes(entry.id) || aliases.includes(entry.riderServiceCore && entry.riderServiceCore.canonicalFieldId));
+    if (fieldId === "brakes.abs-system") {
+      return [...matches, ...entries.filter(entry => entry.id === "brakes.system.linked-cbs")];
+    }
+    if (fieldId === "valves.intake-clearance") {
+      return [...matches, ...entries.filter(entry => entry.id === "valves.clearance.intake-vtec")];
+    }
+    if (fieldId === "valves.exhaust-clearance") {
+      return [...matches, ...entries.filter(entry => entry.id === "valves.clearance.exhaust-vtec")];
+    }
+    return matches;
   }
   function isRiderServiceCoreEntry(entry) {
-    if (!entry || (entry.status && entry.status !== "verified")) return false;
+    if (!entry) return false;
+    if (entry.status && entry.status !== "verified") {
+      // A pending base may still carry verified, applicability-scoped
+      // variants. The projection may expose those variants only after the
+      // resolver selects a region; the pending base value itself is never
+      // used as verified output.
+      if (!(entry.id === "lighting.headlight" && Array.isArray(entry.variants) && entry.variants.some(variant => variant.status === "verified"))) return false;
+    }
     const fieldId = entry.riderServiceCore && entry.riderServiceCore.canonicalFieldId;
     if (fieldId) return !EXTENDED_CORE_FIELDS.has(fieldId) && !EXTENDED_ENTRY_PATTERNS.some(pattern => pattern.test(fieldId));
     const id = String(entry.id || "");
