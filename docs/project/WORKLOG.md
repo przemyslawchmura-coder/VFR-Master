@@ -405,3 +405,12 @@ missing because no verified canonical power record exists; fuse, regional
 lighting, ABS and valve/spark applicability behavior remains fail-closed. No
 canonical values, provenance, profile identities or matrix fields changed.
 Phase 7 remains ACTIVE.
+
+## 2026-09-06 — RevLog 0.4.0 release metadata
+
+Published canonical RevLog 0.4.0 metadata dated 2026-09-06 for the completed
+runtime hardening and Rider Core projection waves. Release notes cover safer
+Technical Profile context handling, independent service due dimensions,
+current-mileage and active-motorcycle persistence, and presentation of existing
+verified VFR/Ducati data without claiming new technical research. Phase 7
+remains ACTIVE.

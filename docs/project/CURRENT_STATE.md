@@ -140,3 +140,7 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   verified / 74 missing. VFR and Ducati canonical counts remain 99 and 45, and
   the frozen matrix remains 95 fields across 14 categories. Phase 7 remains
   ACTIVE.
+- RevLog release metadata is now 0.4.0 dated 2026-09-06. The release records
+  the completed runtime hardening and Rider Core production projection work;
+  it adds no technical data and does not change application behavior. Phase 7
+  remains ACTIVE.

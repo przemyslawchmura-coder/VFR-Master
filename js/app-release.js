@@ -7,6 +7,20 @@
 
   const releases = [
     Object.freeze({
+      version: "0.4.0",
+      date: "2026-09-06",
+      title: "Stabilniejszy profil techniczny i Rider Core",
+      changes: Object.freeze([
+        "Ulepszone wyjaśnienia kontekstu i bezpieczne stosowanie danych profilu technicznego.",
+        "Obsługa kodu modelu, wariantu skrzyni biegów i wariantu emisji przy rozstrzyganiu danych.",
+        "Poprawione rozliczanie terminów serwisowych niezależnie dla przebiegu i daty.",
+        "Dodana aktualizacja bieżącego przebiegu oraz bezpieczniejszy zapis danych w chmurze.",
+        "Aktywny motocykl jest zachowywany między uruchomieniami aplikacji.",
+        "Przywrócono prezentację istniejących, zweryfikowanych danych VFR800 i Ducati w Rider Core.",
+        "Wydanie nie dodaje nowych badań ani nowych danych technicznych."
+      ])
+    }),
+    Object.freeze({
       version: "0.3.0",
       date: "2026-08-30",
       title: "Triumph Wave 1 i Wave 2",

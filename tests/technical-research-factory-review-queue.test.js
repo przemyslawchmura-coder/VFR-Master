@@ -186,7 +186,7 @@ test("Review Queue modules remain outside production runtime imports", () => {
   const root = path.resolve(__dirname, "..");
   const productionFiles = ["index.html", ...fs.readdirSync(path.join(root, "js")).filter(name => name.endsWith(".js")).map(name => `js/${name}`), ...fs.readdirSync(path.join(root, "js/technical")).filter(name => name.endsWith(".js")).map(name => `js/technical/${name}`)];
   productionFiles.forEach(file => assert.doesNotMatch(fs.readFileSync(path.join(root, file), "utf8"), /review-queue/));
-  assert.equal(require("../js/app-release.js").currentVersion, "0.3.0");
+  assert.equal(require("../js/app-release.js").currentVersion, "0.4.0");
 });
 
 test("Review Queue report is deterministic and records strict boundaries", () => {
