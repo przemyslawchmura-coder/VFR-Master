@@ -252,6 +252,20 @@ test("browser Rider Core recovers verified VFR fuse and rear-light data", async 
   assert.match(container.innerHTML, /Reflektor przedni — typ \/ moc[\s\S]*Brak danych/);
 });
 
+test("browser Rider Core keeps restored canonical projection aliases", async () => {
+  const container = { innerHTML: "", querySelector() { return null; } };
+  const view = await browser.RevLogTechnicalProfileUi.renderTechnicalProfile(container, MOTORCYCLE, { shouldCommit: () => true });
+  assert.match(container.innerHTML, /Napięcie ładowania[\s\S]*poniżej 15,5 V/);
+  assert.equal(view.entriesById["rider-core.brake-discs.front-minimum-thickness"].resolutionStatus, "resolved");
+
+  const ducatiContainer = { innerHTML: "", querySelector() { return null; } };
+  const ducatiView = await browser.RevLogTechnicalProfileUi.renderTechnicalProfile(ducatiContainer, DUCATI_MOTORCYCLE, { shouldCommit: () => true });
+  assert.match(ducatiContainer.innerHTML, /Rozmiar tylnej felgi[\s\S]*MT5\.50x17/);
+  assert.match(ducatiContainer.innerHTML, /Łańcuch — numer \/ specyfikacja OEM[\s\S]*520 ZRDK/);
+  assert.equal(ducatiView.entriesById["rider-core.brake-discs.front-minimum-thickness"].resolutionStatus, "resolved");
+  assert.equal(ducatiView.entriesById["rider-core.brake-discs.rear-minimum-thickness"].resolutionStatus, "resolved");
+});
+
 test("browser ABS resolution remains ambiguous when ABS is null", async () => {
   const result = await browser.RevLogMotorcycleTechnicalProfileBridge.resolveEntryForMotorcycle(MOTORCYCLE, "fuses.circuit.abs");
   assert.equal(result.entryResolution.status, "ambiguous-context");

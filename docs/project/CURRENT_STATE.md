@@ -133,3 +133,10 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   unchanged; active motorcycle selection persists with stale/malformed storage
   fallback. No canonical production values, profile identities or Rider Core
   matrix fields changed. Phase 7 remains ACTIVE.
+- Rider Core production projection audit completed for VFR800 RC46 VTEC MY2002
+  and Ducati Monster 937 MY2021. Existing verified canonical entries now map
+  through generic presentation aliases for six VFR Core cells and four Ducati
+  Core cells; VFR remains 38 verified / 54 missing / 3 blocked and Ducati 21
+  verified / 74 missing. VFR and Ducati canonical counts remain 99 and 45, and
+  the frozen matrix remains 95 fields across 14 categories. Phase 7 remains
+  ACTIVE.

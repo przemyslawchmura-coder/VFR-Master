@@ -65,7 +65,7 @@
   ]));
   const EXTENDED_ENTRY_PATTERNS = Object.freeze([
     /(?:^|\.)bore$/, /(?:^|\.)stroke$/, /(?:^|\.)compression-ratio$/, /(?:^|\.)overall-(?:length|width|height)$/, /(?:^|\.)wheelbase$/, /(?:^|\.)rake$/, /(?:^|\.)trail$/, /(?:^|\.)dry-mass$/, /(?:^|\.)service-limits$/, /(?:^|\.)ratio$/,
-    /^cooling\.thermostat\./, /^cooling\.radiator-cap\./, /^wheels\.suspension\./, /^electrical\.charging\.(?:stator|regulated)-/, /(?:^|\.)cylinder-head-cover$/
+    /^cooling\.thermostat\./, /^cooling\.radiator-cap\./, /^wheels\.suspension\./, /^electrical\.charging\.stator-/, /(?:^|\.)cylinder-head-cover$/
   ]);
   const CORE_DOMAIN_LABELS = Object.freeze({ "basic-motorcycle-data": "Dane podstawowe", "engine-oil-filter": "Olej i filtry", cooling: "Układ chłodzenia", "spark-plugs-ignition": "Świece i zapłon", valves: "Zawory", "wheels-tires": "Koła i opony", "final-drive": "Napęd końcowy", brakes: "Hamulce", "electrical-battery": "Instalacja elektryczna i akumulator", fuses: "Bezpieczniki", lighting: "Oświetlenie", "periodic-maintenance": "Obsługa okresowa", consumables: "Materiały eksploatacyjne", "practical-torques": "Praktyczne momenty dokręcania" });
   const LEGACY_CORE_ALIASES = Object.freeze({
@@ -79,6 +79,15 @@
     "fuse.main-location": ["fuses.main-a", "fuses.main-b"],
     "fuse.table": ["fuses.pgm-fi", "fuses.circuit.standard", "fuses.circuit.abs"],
     "lighting.rear-stop": ["lighting.brake-tail"]
+  });
+  const ADDITIONAL_MATRIX_ALIASES = Object.freeze({
+    "spark-plug.gap": ["ignition.spark-plug.gap"],
+    "tires.rear-pressure-solo": ["wheels.tire.rear.pressure-cold"],
+    "charging.voltage": ["electrical.charging.regulated-voltage"],
+    "brake-discs.front-minimum-thickness": ["brakes.disc.front.service-limit", "brakes.disc-service-limit"],
+    "brake-discs.rear-minimum-thickness": ["brakes.disc.rear.service-limit", "brakes.disc-service-limit"],
+    "rims.rear-size": ["tires_wheels.rim-sizes", "wheels.rim.rear.size"],
+    "oem.chain": ["final_drive.oem-chain-sprocket"]
   });
   const CORE_TEXT_REPLACEMENTS = Object.freeze([
     ["Dealer operations include checking and/or adjusting", "Czynności serwisowe obejmują kontrolę i/lub regulację"], ["Customer operations", "Czynności użytkownika"], ["Customer operation", "Czynność użytkownika"], ["Front and rear", "Przednia i tylna"], ["Front disc maximum wear", "Maksymalne zużycie przedniej tarczy"], ["rear disc maximum wear", "maksymalne zużycie tylnej tarczy"], ["Front disc thickness", "Grubość przedniej tarczy"], ["rear disc thickness", "grubość tylnej tarczy"], ["Max. rotation speed", "Maksymalna prędkość obrotowa"], ["Overall weight", "Masa całkowita"], ["in running order with", "w stanie gotowym do jazdy z"], ["Dry weight", "Masa sucha"], ["without fluids and battery", "bez płynów i akumulatora"], ["Compression ratio", "Stopień sprężania"], ["Gearbox output sprocket/rear chain sprocket ratio", "Przełożenie zębatki wyjściowej skrzyni do tylnej zębatki łańcucha"], ["checking and/or adjusting", "kontrolę i/lub regulację"], ["checking", "kontrolę"], ["checks", "kontrole"], ["changing", "wymianę"], ["cleaning", "czyszczenie"], ["lubrication", "smarowanie"], ["at the listed schedule points", "w punktach podanych w harmonogramie"], ["is described separately", "opisano osobno"], ["is provided", "podano"], ["Front rim", "Przednia obręcz"], ["rear rim", "tylna obręcz"], ["Front:", "Przód:"], ["rear:", "tył:"], ["Drive chain", "Łańcuch napędowy"], ["Gearbox output sprocket", "Zębatka wyjściowa skrzyni"], ["Rear chain sprocket", "Tylna zębatka łańcucha"], ["Seat height", "Wysokość siedzenia"], ["Wheelbase", "Rozstaw osi"], ["Bore", "Średnica cylindra"], ["Stroke", "Skok tłoka"], ["Trail in mm", "Wyprzedzenie w mm"], ["Steering head angle", "Kąt główki ramy"], ["Total displacement", "Pojemność skokowa"], ["Fuel supply", "Zasilanie paliwem"], ["Wet clutch", "Sprzęgło mokre"], ["controlled by the lever on left-hand side of the handlebar", "sterowane dźwignią po lewej stronie kierownicy"], ["LED", "LED"], ["Fuse box", "Skrzynka bezpieczników"], ["protected", "chroniony"], ["Positions and ratings are marked on the box cover", "Położenia i wartości są oznaczone na pokrywie skrzynki"], ["Tail light", "Tylne światło"], ["Headlight", "Reflektor"], ["turn indicators", "kierunkowskazy"], ["parking light", "światło pozycyjne"], ["number plate light", "oświetlenie tablicy"], ["no.", "nr"], ["per cylinder", "na cylinder"], ["desmodromic timing system", "rozrząd desmodromiczny"], ["liquid cooling", "chłodzenie cieczą"], ["tubeless radial type", "bezdętkowy typ radialny"], ["teeth", "zębów"]
@@ -100,7 +109,7 @@
   function matrixEntryMatches(entries, fieldId) {
     const exact = entries.filter(entry => entry.riderServiceCore && entry.riderServiceCore.canonicalFieldId === fieldId);
     if (exact.length) return exact;
-    const aliases = [...new Set([...(MATRIX_ALIASES[fieldId] || []), ...(LEGACY_VERIFIED_MATRIX_ALIASES[fieldId] || []), ...(LEGACY_CORE_ALIASES[fieldId] ? [LEGACY_CORE_ALIASES[fieldId]] : [])])];
+    const aliases = [...new Set([...(MATRIX_ALIASES[fieldId] || []), ...(ADDITIONAL_MATRIX_ALIASES[fieldId] || []), ...(LEGACY_VERIFIED_MATRIX_ALIASES[fieldId] || []), ...(LEGACY_CORE_ALIASES[fieldId] ? [LEGACY_CORE_ALIASES[fieldId]] : [])])];
     const matches = entries.filter(entry => aliases.includes(entry.id) || aliases.includes(entry.riderServiceCore && entry.riderServiceCore.canonicalFieldId));
     if (fieldId === "brakes.abs-system") {
       return [...matches, ...entries.filter(entry => entry.id === "brakes.system.linked-cbs")];
@@ -150,6 +159,17 @@
   function matrixValueText(fieldId, entry, formattedValue) {
     if (fieldId === "fuse.main-location" && entry && entry.location) return entry.location;
     if (fieldId === "fuse.table" && entry && entry.circuit && formattedValue) return `${formattedValue} — ${entry.circuit} — ${entry.location || ""}`.replace(/ — $/, "");
+    const rawText = entry && entry.value && entry.value.type === "text" ? entry.value.text : "";
+    if (entry && entry.riderServiceCore && entry.riderServiceCore.canonicalFieldId === "brakes.disc-service-limit") {
+      const side = fieldId.includes("front") ? "Front" : fieldId.includes("rear") ? "rear" : null;
+      const match = side && rawText.match(new RegExp(`${side} disc maximum wear:\\s*([^;]+)`, "i"));
+      if (match) return match[1].trim();
+    }
+    if (entry && entry.riderServiceCore && entry.riderServiceCore.canonicalFieldId === "tires_wheels.rim-sizes") {
+      const side = fieldId.includes("front") ? "Front" : fieldId.includes("rear") ? "rear" : null;
+      const match = side && rawText.match(new RegExp(`${side} rim\\s+([^;]+)`, "i"));
+      if (match) return match[1].trim();
+    }
     return valueText(entry, formattedValue);
   }
   function contextLabel(field) { return ({ region: "region motocykla", abs: "informacja o ABS", equipment: "wyposażenie", modelCode: "kod modelu", transmission: "wariant skrzyni biegów", emissionsVariant: "wariant emisji" })[field] || field; }

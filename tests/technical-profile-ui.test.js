@@ -97,7 +97,7 @@ test("default visibility is identity-based and keeps practical VFR data", async 
   assert.equal(view.entriesById["rider-core.engine.bore"], undefined);
   assert.equal(view.entriesById["rider-core.dimensions_mass.wheelbase"], undefined);
   assert.ok(view.entriesById["rider-core.lighting.headlight"]);
-  assert.equal(view.entriesById["rider-core.charging.voltage"].formattedValue, "Brak danych");
+  assert.match(view.entriesById["rider-core.charging.voltage"].formattedValue, /poniżej 15,5 V/);
   assert.equal(uiApi.STATUS_LABELS.verified, "Zweryfikowane");
 });
 

@@ -393,3 +393,15 @@ clarification writes do not alter local context, and active motorcycle selection
 survives reload with deterministic stale-ID fallback. Added focused runtime,
 database, resolver and service regressions; VFR/Ducati profiles and the frozen
 Core matrix remain unchanged. Phase 7 remains ACTIVE.
+
+## 2026-09-06 — Rider Core production projection audit
+
+Audited the complete frozen 95-field Rider Service Core projection for the
+Honda VFR800 RC46 VTEC MY2002 and Ducati Monster 937 MY2021. Restored generic
+presentation aliases for existing verified charging, tire-pressure, rear-rim,
+disc-service-limit and OEM-chain records, and added deterministic extraction
+for Ducati composite rim and disc values. VFR engine power remains correctly
+missing because no verified canonical power record exists; fuse, regional
+lighting, ABS and valve/spark applicability behavior remains fail-closed. No
+canonical values, provenance, profile identities or matrix fields changed.
+Phase 7 remains ACTIVE.
