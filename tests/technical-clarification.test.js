@@ -1,9 +1,9 @@
 "use strict";
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const context = require("../js/technical/motorcycle-technical-context.js");
 const ui = require("../js/technical/technical-profile-ui.js");
 const resolver = require("../js/technical/technical-profile-resolver.js");
+const context = require("../js/technical/motorcycle-technical-context.js");
 
 test("clarification metadata is optional and mapped without guessing", () => {
   const legacy = context.buildTechnicalContext({ catalogVariantKey: "x", year: 2021, brand: "Yamaha", model: "MT-09" });
@@ -39,6 +39,31 @@ test("ABS options preserve false and saved values are selected", () => {
   assert.doesNotMatch(html, /value="true" selected/);
 });
 
+test("saved transmission variants remain selected after clarification re-render", () => {
+  const base = { status: "ready", profileName: "Test", profileId: "test", motorcycleYear: 2021, resolutionContext: {}, categories: [], searchIndex: {}, entriesById: {
+    transmission: { id: "transmission", label: "Transmission", resolutionStatus: "ambiguous-context", requiredContext: ["transmission"], candidates: { transmission: ["manual", "dct"] }, status: "verified", statusLabel: "Zweryfikowane", sources: [] }
+  } };
+  for (const value of ["manual", "dct"]) {
+    const html = ui.renderTechnicalProfileHtml({ ...base, clarification: { transmissionVariant: value } });
+    assert.match(html, new RegExp(`value="${value}" selected`));
+    assert.doesNotMatch(html, new RegExp(`value="${value === "manual" ? "dct" : "manual"}" selected`));
+  }
+  assert.match(ui.renderTechnicalProfileHtml({ ...base, clarification: { transmissionVariant: null } }), /value="" selected/);
+});
+
+test("clarification field names round-trip through context and resolver", () => {
+  const motorcycle = { catalogVariantKey: "x", year: 2021, clarification: { market: "EU", abs: false, equipmentVariant: "touring", modelCode: "A", transmissionVariant: "manual", emissionsVariant: "EURO-3" } };
+  const built = context.buildTechnicalContext(motorcycle);
+  assert.equal(built.context.region, "EU");
+  assert.equal(built.context.abs, false);
+  assert.deepEqual(built.context.equipment, ["touring"]);
+  assert.equal(built.context.modelCode, "A");
+  assert.equal(built.context.transmission, "manual");
+  assert.equal(built.context.emissionsVariant, "EURO-3");
+  const entry = { id: "x", value: { type: "text", text: "base" }, variants: [{ id: "manual", when: { transmission: "manual" }, patch: { value: { type: "text", text: "manual" } } }] };
+  assert.equal(resolver.resolveEntry(entry, built.context).entry.value.text, "manual");
+});
+
 test("clarification option extraction excludes only nullish/empty values", () => {
   const options = ui.getClarificationOptions({ entriesById: { x: { candidates: { abs: [true, false, null, undefined], region: ["EU", "", "USA"] } } } }, "abs");
   assert.deepEqual(options, [true, false]);
@@ -63,7 +88,7 @@ test("context refinement requirements are explicit, minimal and safe", () => {
   assert.deepEqual(ui.buildContextRefinementRequirements(requirementView(["region"])).map(item => item.key), ["market"]);
   assert.deepEqual(ui.buildContextRefinementRequirements(requirementView(["region", "abs"])).map(item => item.contextField), ["region", "abs"]);
   assert.deepEqual(ui.buildContextRefinementRequirements(requirementView(["abs"], {}, "resolved")), []);
-  assert.deepEqual(ui.buildContextRefinementRequirements(requirementView(["abs", "modelCode", "unknown"])).map(item => item.contextField), ["abs"]);
+  assert.deepEqual(ui.buildContextRefinementRequirements(requirementView(["abs", "modelCode", "unknown"])).map(item => item.contextField), ["abs", "modelCode"]);
   assert.equal(ui.buildContextRefinementRequirements(requirementView(["abs"], { abs: false }))[0].currentValue, false);
   assert.equal(ui.buildContextRefinementRequirements(requirementView(["region"], { market: "EU" }))[0].currentValue, "EU");
   assert.deepEqual(ui.buildContextRefinementRequirements(requirementView(["equipment"])).map(item => item.contextField), ["equipment"]);

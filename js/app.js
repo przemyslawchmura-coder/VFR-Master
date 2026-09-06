@@ -7,22 +7,39 @@ function getFriendlyVariantName(bike) {
 
 function getServicePlanStatus(bike, nextService, today = new Date()) {
   if (!bike || !nextService) return { key: "empty", label: "Brak danych do oceny" };
-  const dueByMileage = nextService.nextMileage && Number(nextService.nextMileage) <= Number(bike.mileage || 0);
-  const dueByDate = nextService.nextDate && new Date(nextService.nextDate).getTime() <= today.getTime();
-  if (dueByMileage || dueByDate) return { key: "danger", label: "Serwis do wykonania" };
-  const kmLeft = nextService.nextMileage ? Number(nextService.nextMileage) - Number(bike.mileage || 0) : Infinity;
-  const daysLeft = nextService.nextDate ? (new Date(nextService.nextDate).getTime() - today.getTime()) / 86400000 : Infinity;
-  if (kmLeft <= 1000 || daysLeft <= 30) return { key: "warning", label: "Serwis zbliża się" };
+  const state = typeof ServiceModule !== "undefined" && ServiceModule.getServiceDueState
+    ? ServiceModule.getServiceDueState(nextService, bike, today)
+    : calculateServiceDueState(nextService, bike, today);
+  if (state.overdue) return { key: "danger", label: "Serwis do wykonania" };
+  if (state.dueSoon) return { key: "warning", label: "Serwis zbliża się" };
   return { key: "ok", label: "Plan serwisowy OK" };
+}
+
+function calculateServiceDueState(service, bike, today) {
+  const currentMileage = Number(bike && bike.mileage);
+  const targetMileage = service && !["", null, undefined].includes(service.nextMileage) ? Number(service.nextMileage) : NaN;
+  const hasMileage = Number.isFinite(targetMileage) && targetMileage >= 0;
+  const date = service && /^\d{4}-\d{2}-\d{2}$/.test(service.nextDate || "") ? new Date(`${service.nextDate}T00:00:00`) : null;
+  const hasDate = Boolean(date) && !Number.isNaN(date.getTime());
+  const dueByMileage = hasMileage && Number.isFinite(currentMileage) && targetMileage <= currentMileage;
+  const dueByDate = hasDate && date.getTime() <= today.getTime();
+  return { hasMileage, hasDate, dueByMileage, dueByDate, overdue: dueByMileage || dueByDate, dueSoon: (hasMileage && !dueByMileage && Number.isFinite(currentMileage) && targetMileage - currentMileage <= 1000) || (hasDate && !dueByDate && (date.getTime() - today.getTime()) / 86400000 <= 30) };
 }
 
 function formatNextService(nextService, bike) {
   if (!nextService) return "Brak zaplanowanego serwisu";
-  if (nextService.nextMileage) {
-    const left = Number(nextService.nextMileage) - Number(bike.mileage || 0);
-    return left > 0 ? `za ${left.toLocaleString("pl-PL")} km` : "do wykonania";
+  const parts = [];
+  if (nextService.nextMileage !== "" && nextService.nextMileage !== null && nextService.nextMileage !== undefined) {
+    const current = Number(bike && bike.mileage);
+    const target = Number(nextService.nextMileage);
+    parts.push(Number.isFinite(current) && Number.isFinite(target) && target > current ? `za ${(target - current).toLocaleString("pl-PL")} km` : "przebieg: do wykonania");
   }
-  return nextService.nextDate ? `do ${nextService.nextDate}` : "zaplanowany";
+  if (nextService.nextDate) parts.push(`termin: ${nextService.nextDate}`);
+  return parts.join(" · ") || "zaplanowany";
+}
+
+function hasNextMileage(service) {
+  return service && service.nextMileage !== "" && service.nextMileage !== null && service.nextMileage !== undefined;
 }
 
 function renderDashboard() {
@@ -508,6 +525,12 @@ function showBikeCard(bike) {
         <span class="icon">💰</span>
         Koszty
       </button>
+      <button
+        class="tile"
+        onclick="updateActiveMileage()">
+        <span class="icon">🏍️</span>
+        Aktualizuj przebieg
+      </button>
     </div>
     <div class="card">
       <h3>
@@ -533,7 +556,7 @@ function showBikeCard(bike) {
                     : ""
                 }
                 ${
-                  nextService.nextMileage
+                  hasNextMileage(nextService)
                     ? "<br>🏍️ " +
                       Number(
                         nextService.nextMileage
@@ -581,6 +604,24 @@ function showBikeCard(bike) {
       </div>
     </div>
   `;
+}
+
+async function updateActiveMileage() {
+  const bike = MotorcycleDatabase.getActive();
+  if (!bike) {
+    alert("Najpierw wybierz motocykl.");
+    return;
+  }
+  const input = prompt("Podaj aktualny przebieg w km:", String(bike.mileage ?? 0));
+  if (input === null) return;
+  const result = await MotorcycleDatabase.updateMileage(bike.id, input.trim());
+  if (result.status !== "saved") {
+    alert(MotorcycleDatabase.lastError || "Nie udało się zapisać przebiegu.");
+    return;
+  }
+  VFRApp.renderGarage();
+  renderDashboard();
+  showBikeCard(result.motorcycle);
 }
 /* =====================================================
    SERWIS — ZAPIS
@@ -969,7 +1010,7 @@ async function renderServiceHistory(loadFromSupabase = true) {
         }
         ${
           service.nextDate ||
-          service.nextMileage
+          hasNextMileage(service)
             ? `
               <br><br>
               <span class="muted">
@@ -983,7 +1024,7 @@ async function renderServiceHistory(loadFromSupabase = true) {
                     : ""
                 }
                 ${
-                  service.nextMileage
+                  hasNextMileage(service)
                     ? "<br>🏍️ " +
                       Number(
                         service.nextMileage

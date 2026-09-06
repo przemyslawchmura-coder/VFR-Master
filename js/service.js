@@ -19,6 +19,24 @@ const ServiceModule = {
     }
   },
 
+  validateService(service = {}) {
+    const errors = [];
+    const isBlank = value => value === undefined || value === null || value === "";
+    const finiteNonNegative = (value, field, optional = true) => {
+      if (optional && isBlank(value)) return;
+      const number = Number(value);
+      if (!Number.isFinite(number) || number < 0) errors.push(field);
+    };
+    if (typeof service.description !== "string" || !service.description.trim()) errors.push("description");
+    if (!isValidStorageDate(service.date)) errors.push("date");
+    finiteNonNegative(service.mileage, "mileage");
+    finiteNonNegative(service.partsCost, "partsCost");
+    finiteNonNegative(service.laborCost, "laborCost");
+    finiteNonNegative(service.nextMileage, "nextMileage");
+    if (!isBlank(service.nextDate) && !isValidStorageDate(service.nextDate)) errors.push("nextDate");
+    return { valid: errors.length === 0, errors };
+  },
+
   toUiService(record) {
     return {
       id: record.id,
@@ -31,9 +49,9 @@ const ServiceModule = {
       workshop: record.workshop || "",
       note: record.note || "",
       nextDate: record.next_service_date || "",
-      nextMileage: Number(
-        record.next_service_mileage || 0
-      )
+      nextMileage: record.next_service_mileage === null || record.next_service_mileage === undefined || record.next_service_mileage === ""
+        ? null
+        : Number(record.next_service_mileage)
     };
   },
 
@@ -50,6 +68,7 @@ const ServiceModule = {
       next_service_date: service.nextDate || null,
       next_service_mileage:
         service.nextMileage === "" ||
+        service.nextMileage === null ||
         service.nextMileage === undefined
           ? null
           : Number(service.nextMileage)
@@ -182,6 +201,12 @@ const ServiceModule = {
 
     this.lastError = null;
 
+    const validation = this.validateService(service);
+    if (!validation.valid) {
+      this.setError(null, "Dane serwisu są niepoprawne.");
+      return false;
+    }
+
     const session = await this.getSession();
 
     if (!session) {
@@ -246,6 +271,12 @@ const ServiceModule = {
     }
 
     this.lastError = null;
+
+    const validation = this.validateService(service);
+    if (!validation.valid) {
+      this.setError(null, "Dane serwisu są niepoprawne.");
+      return false;
+    }
 
     const session = await this.getSession();
 
@@ -478,88 +509,40 @@ const ServiceModule = {
       : null;
   },
 
+  getServiceDueState(service, bike, today = new Date()) {
+    return getServiceDueState(service, bike, today);
+  },
+
   getNextService() {
-
-    const services =
-      this.getServices()
-        .filter(
-          service =>
-            service.nextDate ||
-            service.nextMileage
-        );
-
-
-    if (!services.length) {
-      return null;
-    }
-
-
-    const withDate =
-      services
-
-        .filter(
-          service =>
-            service.nextDate
-        )
-
-        .map(
-          service => ({
-
-            service,
-
-            time:
-              new Date(
-                service.nextDate
-              ).getTime()
-
-          })
-        )
-
-        .filter(
-          item =>
-            !Number.isNaN(
-              item.time
-            )
-        )
-
-        .sort(
-          (a, b) =>
-            a.time - b.time
-        );
-
-
-    if (
-      withDate.length
-    ) {
-
-      return (
-        withDate[0]
-          .service
-      );
-
-    }
-
-
-    return services
-      .slice()
-      .sort(
-        (a, b) =>
-
-          Number(
-            a.nextMileage ||
-            Infinity
-          )
-
-          -
-
-          Number(
-            b.nextMileage ||
-            Infinity
-          )
-      )[0] || null;
+    const bike = this.getActiveBike();
+    const candidates = this.getServices()
+      .map((service, index) => ({ service, index, state: getServiceDueState(service, bike) }))
+      .filter(item => item.state.hasDate || item.state.hasMileage);
+    if (!candidates.length) return null;
+    const priority = item => item.state.overdue ? 0 : item.state.dueSoon ? 1 : item.state.hasMileage ? 2 : 3;
+    return candidates.sort((a, b) => priority(a) - priority(b) || a.index - b.index)[0].service;
   }
 
 };
+
+function isValidStorageDate(value) {
+  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const date = new Date(`${value}T00:00:00`);
+  return !Number.isNaN(date.getTime()) && date.getFullYear() === Number(value.slice(0, 4)) && date.getMonth() + 1 === Number(value.slice(5, 7)) && date.getDate() === Number(value.slice(8, 10));
+}
+
+function getServiceDueState(service, bike, today = new Date()) {
+  const currentMileage = Number(bike && bike.mileage);
+  const targetMileage = service && !["", null, undefined].includes(service.nextMileage) ? Number(service.nextMileage) : NaN;
+  const hasMileage = Number.isFinite(targetMileage) && targetMileage >= 0;
+  const date = service && isValidStorageDate(service.nextDate) ? new Date(`${service.nextDate}T00:00:00`) : null;
+  const hasDate = Boolean(date);
+  const dueByMileage = hasMileage && Number.isFinite(currentMileage) && targetMileage <= currentMileage;
+  const dueByDate = hasDate && date.getTime() <= today.getTime();
+  const mileageSoon = hasMileage && Number.isFinite(currentMileage) && !dueByMileage && targetMileage - currentMileage <= 1000;
+  const dateSoon = hasDate && !dueByDate && (date.getTime() - today.getTime()) / 86400000 <= 30;
+  return { hasMileage, hasDate, mileageUnknown: hasMileage && !Number.isFinite(currentMileage), dueByMileage, dueByDate, overdue: dueByMileage || dueByDate, dueSoon: mileageSoon || dateSoon, mileageSoon, dateSoon };
+}
 
 
 window.ServiceModule =

@@ -16,7 +16,10 @@
     "years",
     "regions",
     "abs",
-    "equipment"
+    "equipment",
+    "modelCode",
+    "transmission",
+    "emissionsVariant"
   ]);
 
   function resolveProfileApplicability(profile, inputContext = {}) {
@@ -246,6 +249,20 @@
       }
     }
 
+    ["modelCode", "transmission", "emissionsVariant"].forEach(field => {
+      const constraint = conditions[field];
+      if (constraint === undefined || constraint === null || constraint === "") return;
+      const allowed = Array.isArray(constraint) ? constraint : [constraint];
+      if (context[field] === null) {
+        requiredContext.add(field);
+        candidates[field] = [...allowed];
+      } else if (allowed.includes(context[field])) {
+        matchedConditions.push(field);
+      } else {
+        failedConditions.push(field);
+      }
+    });
+
     if (Array.isArray(conditions.equipment) && conditions.equipment.length) {
       if (context.equipment === null) {
         requiredContext.add("equipment");
@@ -288,6 +305,9 @@
       year: Number.isInteger(context.year) ? context.year : null,
       region: nonEmptyStringOrNull(context.region),
       abs: typeof context.abs === "boolean" ? context.abs : null,
+      modelCode: nonEmptyStringOrNull(context.modelCode),
+      transmission: nonEmptyStringOrNull(context.transmission),
+      emissionsVariant: nonEmptyStringOrNull(context.emissionsVariant),
       equipment: Array.isArray(context.equipment)
         ? [...new Set(context.equipment.filter(item => typeof item === "string"))]
         : null
@@ -303,7 +323,7 @@
         ? typeof value === "boolean"
         : Array.isArray(value)
           ? value.length > 0 && !value.includes("ALL")
-          : value && typeof value === "object";
+          : value && (typeof value === "object" || typeof value === "string");
       return score + (constrained ? 1 : 0);
     }, 0);
   }

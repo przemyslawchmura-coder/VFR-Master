@@ -35,6 +35,8 @@ const MotorcycleDatabase = {
 
   clarificationStorageKey: "vfrMasterTechnicalClarification",
 
+  activeMotorcycleStorageKey: "vfrMasterActiveMotorcycleId",
+
   setError(error, fallbackMessage) {
     this.lastError =
       error && error.message
@@ -103,11 +105,47 @@ const MotorcycleDatabase = {
     const normalized = normalizeTechnicalClarification(clarification);
     const bike = this.motorcycles.find(item => item.id === motorcycleId);
     if (!bike) return { status: "not-found" };
-    bike.clarification = normalized;
-    try { localStorage.setItem(this.clarificationStorageKey, JSON.stringify(Object.fromEntries(this.motorcycles.map(item => [item.id, item.clarification])))); } catch (error) { this.setError(error, "Nie udało się zapisać doprecyzowania lokalnie."); }
     if (window.supabaseClient) {
       const { error } = await window.supabaseClient.from("motorcycles").update({ technical_clarification: normalized }).eq("id", motorcycleId);
       if (error) { this.setError(error, "Nie udało się zapisać doprecyzowania w chmurze."); return { status: "cloud-error", error }; }
+    }
+    bike.clarification = normalized;
+    try { localStorage.setItem(this.clarificationStorageKey, JSON.stringify(Object.fromEntries(this.motorcycles.map(item => [item.id, item.clarification])))); } catch (error) { this.setError(error, "Nie udało się zapisać doprecyzowania lokalnie."); }
+    return { status: "saved", motorcycle: bike };
+  },
+
+  async updateMileage(motorcycleId, mileage) {
+    const bike = this.motorcycles.find(item => item.id === motorcycleId);
+    const value = mileage === "" || mileage === null || mileage === undefined ? NaN : Number(mileage);
+    if (!bike) return { status: "not-found" };
+    if (!Number.isFinite(value) || value < 0) {
+      this.setError(null, "Przebieg musi być skończoną liczbą większą lub równą 0.");
+      return { status: "invalid" };
+    }
+    const current = Number(bike.mileage || 0);
+    if (!Number.isFinite(current) || value < current) {
+      this.setError(null, "Nowy przebieg nie może być mniejszy od zapisanego.");
+      return { status: "invalid" };
+    }
+    if (window.supabaseClient) {
+      const { data, error } = await window.supabaseClient
+        .from("motorcycles")
+        .update({ mileage: value })
+        .eq("id", motorcycleId)
+        .select(this.motorcycleColumns)
+        .single();
+      if (error) {
+        this.setError(error, "Nie udało się zapisać przebiegu w chmurze.");
+        return { status: "cloud-error", error };
+      }
+      const persistedMileage = Number(data && data.mileage);
+      if (!Number.isFinite(persistedMileage) || persistedMileage < current) {
+        this.setError(null, "Supabase zwrócił nieprawidłowy przebieg.");
+        return { status: "cloud-error" };
+      }
+      bike.mileage = persistedMileage;
+    } else {
+      bike.mileage = value;
     }
     return { status: "saved", motorcycle: bike };
   },
@@ -491,6 +529,7 @@ const MotorcycleDatabase = {
     if (!session) {
       this.motorcycles = [];
       this.activeMotorcycleId = null;
+      this.persistActiveMotorcycleId();
 
       return false;
     }
@@ -525,10 +564,7 @@ const MotorcycleDatabase = {
           )
       );
 
-      this.activeMotorcycleId =
-        this.motorcycles.length
-          ? this.motorcycles[0].id
-          : null;
+      this.activeMotorcycleId = this.restoreActiveMotorcycleId();
 
       return true;
     } catch (error) {
@@ -594,6 +630,7 @@ const MotorcycleDatabase = {
       if (this.activeMotorcycleId === null) {
         this.activeMotorcycleId =
           savedMotorcycle.id;
+        this.persistActiveMotorcycleId();
       }
 
       return savedMotorcycle;
@@ -655,6 +692,7 @@ const MotorcycleDatabase = {
           this.motorcycles.length
             ? this.motorcycles[0].id
             : null;
+        this.persistActiveMotorcycleId();
       }
 
       return true;
@@ -685,8 +723,35 @@ const MotorcycleDatabase = {
 
     this.lastError = null;
     this.activeMotorcycleId = id;
+    this.persistActiveMotorcycleId();
 
     return bike;
+  },
+
+  persistActiveMotorcycleId() {
+    try {
+      if (this.activeMotorcycleId === null) {
+        if (typeof localStorage.removeItem === "function") localStorage.removeItem(this.activeMotorcycleStorageKey);
+        else localStorage.setItem(this.activeMotorcycleStorageKey, "");
+      }
+      else localStorage.setItem(this.activeMotorcycleStorageKey, this.activeMotorcycleId);
+    } catch (error) {
+      this.setError(error, "Nie udało się zapisać aktywnego motocykla lokalnie.");
+    }
+  },
+
+  restoreActiveMotorcycleId() {
+    const fallback = this.motorcycles.length ? this.motorcycles[0].id : null;
+    try {
+      const saved = localStorage.getItem(this.activeMotorcycleStorageKey);
+      const exists = this.motorcycles.some(item => item.id === saved);
+      this.activeMotorcycleId = exists ? saved : fallback;
+    } catch (error) {
+      this.setError(error, "Nie udało się wczytać aktywnego motocykla.");
+      this.activeMotorcycleId = fallback;
+    }
+    this.persistActiveMotorcycleId();
+    return this.activeMotorcycleId;
   }
 };
 

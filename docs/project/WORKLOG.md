@@ -381,3 +381,15 @@ shown and missing cells render `Brak danych`. Extended canonical records remain
 stored and excluded from default Core rows. No technical values, profile
 semantics, provenance, registry state or research decisions changed. Phase 7
 remains ACTIVE.
+## 2026-09-06 — RevLog Core runtime hardening
+
+Completed one bounded production/runtime hardening wave. Technical clarification
+now projects the existing model-code, transmission and emissions dimensions into
+the generic applicability resolver, with fail-closed unknown context and Polish
+clarification controls. Service due evaluation keeps date and mileage as
+independent dimensions, validation rejects invalid domain values before direct
+persistence, current mileage updates are cloud-confirmed and monotonic, failed
+clarification writes do not alter local context, and active motorcycle selection
+survives reload with deterministic stale-ID fallback. Added focused runtime,
+database, resolver and service regressions; VFR/Ducati profiles and the frozen
+Core matrix remain unchanged. Phase 7 remains ACTIVE.

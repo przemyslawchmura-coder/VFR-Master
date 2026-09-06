@@ -262,6 +262,22 @@ test("unknown ABS for ABS variants returns ambiguous-context", () => {
   assert.deepEqual(result.candidates.abs, [true, false]);
 });
 
+test("generic model, transmission, and emissions constraints fail closed", () => {
+  const entry = { id: "variant", value: { type: "text", text: "base" }, variants: [
+    { id: "manual", when: { transmission: "manual", modelCode: "A", emissionsVariant: "EURO-3" }, patch: { value: { type: "text", text: "manual-A" } } },
+    { id: "dct", when: { transmission: "dct", modelCode: "A", emissionsVariant: "EURO-4" }, patch: { value: { type: "text", text: "dct-A" } } }
+  ] };
+  assert.equal(resolver.resolveEntry(entry, { transmission: "manual", modelCode: "A", emissionsVariant: "EURO-3" }).entry.value.text, "manual-A");
+  assert.equal(resolver.resolveEntry(entry, { transmission: "dct", modelCode: "A", emissionsVariant: "EURO-4" }).entry.value.text, "dct-A");
+  const nonMatching = resolver.resolveEntry(entry, { transmission: "automatic", modelCode: "A", emissionsVariant: "EURO-3" });
+  assert.equal(nonMatching.status, "resolved");
+  assert.equal(nonMatching.selectedVariantId, null);
+  assert.equal(nonMatching.entry.value.text, "base");
+  const unknown = resolver.resolveEntry(entry, { modelCode: "A", emissionsVariant: "EURO-3" });
+  assert.equal(unknown.status, "ambiguous-context");
+  assert.ok(unknown.requiredContext.includes("transmission"));
+});
+
 test("year variant resolves for matching year", () => {
   const entry = getEntry(fixture, "torque.engine.spark-plug");
   const result = resolver.resolveEntry(entry, { year: 2099, equipment: [] });

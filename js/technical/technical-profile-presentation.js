@@ -152,7 +152,7 @@
     if (fieldId === "fuse.table" && entry && entry.circuit && formattedValue) return `${formattedValue} — ${entry.circuit} — ${entry.location || ""}`.replace(/ — $/, "");
     return valueText(entry, formattedValue);
   }
-  function contextLabel(field) { return ({ region: "region motocykla", abs: "informacja o ABS", equipment: "wyposażenie" })[field] || field; }
+  function contextLabel(field) { return ({ region: "region motocykla", abs: "informacja o ABS", equipment: "wyposażenie", modelCode: "kod modelu", transmission: "wariant skrzyni biegów", emissionsVariant: "wariant emisji" })[field] || field; }
 
   return Object.freeze({ CATEGORY_LABELS, ENTRY_LABELS, DOCUMENT_TITLE_LABELS, STATUS_LABELS, TEXT_VALUE_LABELS, CORE_SEGMENT_LABELS, CORE_FIELD_LABELS, CORE_DOMAIN_LABELS, coreMatrix, categoryLabel, entryLabel, statusLabel, sourceTitle, sourceSection, valueText, matrixValueText, contextLabel, riderServiceCoreLabel, coreMatrixLabel, matrixEntryMatches, isRiderServiceCoreEntry });
 });

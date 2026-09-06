@@ -62,6 +62,16 @@ test("explicit resolution fields are preserved and equipment is normalized", () 
   assert.deepEqual(result.context.equipment, ["heated-grips", "luggage"]);
 });
 
+test("persisted clarification projects model, transmission, and emissions context", () => {
+  const result = contextApi.buildTechnicalContext({
+    ...STORED_MOTORCYCLE,
+    clarification: { modelCode: "RC46", transmissionVariant: "manual", emissionsVariant: "EURO-3" }
+  });
+  assert.equal(result.context.modelCode, "RC46");
+  assert.equal(result.context.transmission, "manual");
+  assert.equal(result.context.emissionsVariant, "EURO-3");
+});
+
 test("missing year is reported explicitly", () => {
   const result = contextApi.buildTechnicalContext({ ...STORED_MOTORCYCLE, year: null });
   assert.equal(result.status, "insufficient-context");

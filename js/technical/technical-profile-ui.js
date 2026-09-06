@@ -236,26 +236,27 @@
     const required = requirements.map(item => item.contextField);
     const field = name => {
       if (!required.includes(name)) return "";
-      const key = name === "region" ? "market" : name;
+      const key = clarificationPropertyForContextField(name);
       const current = view.clarification || {};
       const options = requirements.find(item => item.contextField === name).options;
       const optionLabels = { EU: "Europa", USA: "USA", UK: "Wielka Brytania", AU: "Australia", JP: "Japonia", true: "ABS", false: "Bez ABS" };
       const choices = options.map(value => `<option value="${escapeHtml(value)}"${String(current[key]) === String(value) ? " selected" : ""}>${escapeHtml(name === "equipment" ? value : optionLabels[value] || value)}</option>`).join("");
       const unknownSelected = current[key] === null || current[key] === undefined || current[key] === "";
-      return `<label>${escapeHtml(name === "region" ? "Rynek / region" : name === "abs" ? "Wersja ABS" : "Wyposażenie")}<select data-technical-clarification="${escapeHtml(name)}"><option value=""${unknownSelected ? " selected" : ""}>Nie wiem</option>${choices}</select></label>`;
+      const labels = { region: "Rynek / region", abs: "Wersja ABS", equipment: "Wyposażenie", modelCode: "Kod modelu", transmission: "Wariant skrzyni biegów", emissionsVariant: "Wariant emisji" };
+      return `<label>${escapeHtml(labels[name] || name)}<select data-technical-clarification="${escapeHtml(name)}"><option value=""${unknownSelected ? " selected" : ""}>Nie wiem</option>${choices}</select></label>`;
     };
     return `<div class="card technical-clarification"><h3>Doprecyzuj wersję motocykla</h3><p class="section-note">Niektóre dane techniczne wymagają dodatkowych informacji.</p><details open><summary>Uzupełnij dane</summary><form data-technical-clarification-form>${required.map(field).join("")}<button type="submit" class="primary">Zapisz i odśwież profil</button></form></details></div>`;
   }
 
   function buildContextRefinementRequirements(view) {
-    const supported = new Set(["region", "abs", "equipment"]);
+    const supported = new Set(["region", "abs", "equipment", "modelCode", "transmission", "emissionsVariant"]);
     const fields = [...new Set(Object.values(view.entriesById || {}).flatMap(entry => ["ambiguous-context", "blocked-applicability"].includes(entry.resolutionStatus) ? entry.requiredContext : []))].filter(field => supported.has(field));
     return fields.map(contextField => ({
-      key: contextField === "region" ? "market" : contextField,
+      key: clarificationPropertyForContextField(contextField),
       contextField,
-      label: contextField === "region" ? "Rynek / region" : contextField === "abs" ? "Wersja ABS" : "Wyposażenie",
+      label: ({ region: "Rynek / region", abs: "Wersja ABS", equipment: "Wyposażenie", modelCode: "Kod modelu", transmission: "Wariant skrzyni biegów", emissionsVariant: "Wariant emisji" })[contextField] || contextField,
       type: contextField === "abs" ? "boolean" : "select",
-      currentValue: (view.clarification || {})[contextField === "region" ? "market" : contextField] ?? null,
+      currentValue: (view.clarification || {})[clarificationPropertyForContextField(contextField)] ?? null,
       options: getClarificationOptions(view, contextField)
     }));
   }
@@ -265,6 +266,10 @@
     return [...new Set(values)].filter(value => value !== null && value !== undefined && !(typeof value === "string" && !value.trim()));
   }
 
+  function clarificationPropertyForContextField(field) {
+    return ({ region: "market", equipment: "equipmentVariant", transmission: "transmissionVariant" })[field] || field;
+  }
+
   function renderStateHtml(view, options = {}) {
     return `<div class="card"><div class="empty">${escapeHtml(view.message || "Baza techniczna jest niedostępna.")}</div>${options.legacyAvailable ? '<button class="secondary" data-technical-legacy-fallback>Otwórz starszą bazę techniczną</button>' : ""}</div>`;
   }
@@ -272,7 +277,7 @@
   function renderContextNotice(context = {}) {
     const unknown = Object.entries(context).filter(([, state]) => state === "unknown");
     if (!unknown.length) return "";
-    const labels = { region: "Region", abs: "ABS", equipment: "Wyposażenie" };
+    const labels = { region: "Region", abs: "ABS", equipment: "Wyposażenie", modelCode: "Kod modelu", transmission: "Wariant skrzyni biegów", emissionsVariant: "Wariant emisji" };
     return `<div class="card technical-context-notice"><b>Niektóre dane wymagają dodatkowych informacji o motocyklu.</b><div class="muted">${unknown.map(([field]) => `${escapeHtml(labels[field] || field)}: nieznane`).join(" · ")}</div></div>`;
   }
 
@@ -313,7 +318,7 @@
     const results = container.querySelector("#technicalProfileResults");
     if (input && results) input.addEventListener("input", () => { results.innerHTML = renderSearchResultsHtml(view, input.value, search); });
     const form = container.querySelector("[data-technical-clarification-form]");
-    if (form && typeof options.onClarificationSave === "function") form.addEventListener("submit", async event => { event.preventDefault(); const clarification = { ...(view.clarification || {}) }; form.querySelectorAll("[data-technical-clarification]").forEach(select => { const field = select.dataset.technicalClarification; const key = field === "region" ? "market" : field; const value = select.value; clarification[key] = field === "abs" ? (value === "" ? null : value === "true") : (value || null); }); const result = await options.onClarificationSave(clarification); if (result && result.status === "cloud-error") { const notice = container.querySelector("[data-technical-clarification-error]"); if (notice) notice.textContent = "Nie udało się zapisać zmiany w chmurze. Spróbuj ponownie."; else if (form.insertAdjacentHTML) form.insertAdjacentHTML("beforeend", '<p class="section-note" data-technical-clarification-error>Nie udało się zapisać zmiany w chmurze. Spróbuj ponownie.</p>'); } });
+    if (form && typeof options.onClarificationSave === "function") form.addEventListener("submit", async event => { event.preventDefault(); const clarification = { ...(view.clarification || {}) }; form.querySelectorAll("[data-technical-clarification]").forEach(select => { const field = select.dataset.technicalClarification; const key = clarificationPropertyForContextField(field); const value = select.value; clarification[key] = field === "abs" ? (value === "" ? null : value === "true") : (value || null); }); const result = await options.onClarificationSave(clarification); if (result && result.status === "cloud-error") { const notice = container.querySelector("[data-technical-clarification-error]"); if (notice) notice.textContent = "Nie udało się zapisać zmiany w chmurze. Spróbuj ponownie."; else if (form.insertAdjacentHTML) form.insertAdjacentHTML("beforeend", '<p class="section-note" data-technical-clarification-error>Nie udało się zapisać zmiany w chmurze. Spróbuj ponownie.</p>'); } });
   }
 
   function contextLabel(field) {

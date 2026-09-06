@@ -13,6 +13,9 @@
       year: Number.isInteger(source.year) ? source.year : null,
       region: nonEmptyStringOrNull(source.region ?? clarification.market ?? clarification.region),
       abs: typeof source.abs === "boolean" ? source.abs : (typeof clarification.abs === "boolean" ? clarification.abs : null),
+      modelCode: nonEmptyStringOrNull(source.modelCode ?? clarification.modelCode),
+      transmission: nonEmptyStringOrNull(source.transmission ?? clarification.transmissionVariant),
+      emissionsVariant: nonEmptyStringOrNull(source.emissionsVariant ?? clarification.emissionsVariant),
       equipment: Array.isArray(source.equipment)
         ? uniqueStrings(source.equipment)
         : Array.isArray(clarification.equipment)

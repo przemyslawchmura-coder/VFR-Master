@@ -123,3 +123,13 @@ Deferred independent streams remain future bounded Ducati/BMW profile expansion,
 The future **GLOBAL CATALOGUE GAP / COVERAGE AUDIT** is a separate bounded checkpoint: inventory what exists, identify missing manufacturers/families/generations/years and regional/ABS/transmission gaps, then prioritize additions. It is not executed yet.
 
 Operator-reported live fact (not independently verified by Codex): Supabase Auth Site URL was corrected from the GitHub Pages root to the deployed VFR-Master project path, and a fresh signup/email-confirmation flow was manually tested successfully.
+- RevLog Core Hardening Wave completed locally on top of `cc961cf`: existing
+  clarification fields `modelCode`, `transmissionVariant` and
+  `emissionsVariant` now reach generic Technical Profile applicability
+  resolution; service due state preserves independent date/mileage semantics;
+  direct ServiceModule validation is finite/non-negative and optional-safe;
+  mileage updates are confirmed before local mutation and cannot decrease the
+  stored odometer; failed cloud clarification writes leave local context
+  unchanged; active motorcycle selection persists with stale/malformed storage
+  fallback. No canonical production values, profile identities or Rider Core
+  matrix fields changed. Phase 7 remains ACTIVE.
