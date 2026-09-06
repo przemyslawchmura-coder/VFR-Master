@@ -32,6 +32,34 @@ Planning items only; none are executed by this stocktake.
 
 - **Technical Profile user-facing textual-value localization** — future bounded presentation work for source values containing human-readable descriptions, such as Ducati `Front/rear brake circuit: DOT 4`. Preserve the canonical technical/source value internally while allowing the Polish UI to present a natural Polish description; do not alter the stored value or technical identity.
 - Complete the deferred Technical Research Factory waves after the completed contract/orchestrator/planner/execution-agent/extraction-agent/review-queue/human-decision/evidence-processing foundations: interrupted/resumed Ténéré Batch Pilot, then measured 10/25-target scale-up. Do not attempt 100 targets before checkpoint/review bottlenecks are measured.
+- **Research Factory throughput optimization / OEM-direct fast path** — explicitly
+  deferred until the current Technical Research Factory scope is formally closed
+  out. Verify the authoritative OEM publication and exact applicability first;
+  an authenticated publication may eventually support straight-through handling
+  of a directly stated, losslessly representable value without mandatory
+  redundant second-source confirmation. Applicability must be explicit for
+  manufacturer/model, year, market, ABS, transmission and equipment wherever
+  material; unknown context remains unknown and conditional records route only
+  the affected value to blocking or review. Preserve the zero-inference rule:
+  no ABS/non-ABS, DCT/manual, regional, year, equipment, model or conditional-
+  alternative inheritance is allowed. Future risk routing should distinguish
+  **OEM DIRECT**, **OEM CONDITIONAL** and **SUPPORTING / EXTERNAL** material;
+  these are design concepts only and are not current schema or runtime classes.
+  Prefer document-centric authenticate-once, extract-once, applicability-map and
+  project-many processing when one publication explicitly covers multiple
+  motorcycles, years or variants, while retaining field/table/section scope.
+  Human Review should be exception-driven for ambiguity, conflict, uncertain
+  extraction, unit or semantic mapping issues, multiple conditional variants,
+  safety-critical conflicts or lossless-representation failures. A safe record
+  must not be blocked by an unrelated problematic record from the same
+  publication. After Factory closeout, audit bottlenecks and run only a measured
+  pilot of approximately 10 motorcycles, tracking authenticated/extracted
+  publications, covered scopes, extracted/straight-through/review/blocked
+  records, conflicts, practical Rider Service Core gain, review workload and
+  effort per motorcycle before considering any scale-up. Governing rule: **one
+  authoritative OEM source may be sufficient; clear applicability is mandatory;
+  ambiguity and conflict require review; missing information remains missing;
+  no inference is introduced for throughput.**
 - Resolve the VFR800 research-versus-production `61MCW07` source-identity history in a dedicated non-production reconciliation task; do not use the mirror-only prospect for immediate acquisition.
 - Build controlled evidence-to-production promotion packets.
 - Improve source acquisition for blocked service manuals and OEM parts.

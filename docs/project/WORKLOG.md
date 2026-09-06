@@ -424,3 +424,11 @@ production Supabase runtime contract and documented that the existing two
 migrations are incremental: the empty-project base schema and some dashboard
 configuration remain unproven. No live Supabase mutation, deployment or
 application behavior change occurred. Phase 7 remains ACTIVE.
+
+## 2026-09-06 — Deferred Research Factory throughput concept
+
+Recorded a backlog-only future concept for an OEM-direct fast path: explicit
+source/applicability verification, exception-driven review, document reuse and
+measured pilot evaluation without weakening zero-inference or provenance. The
+concept remains deferred until the current Technical Research Factory scope is
+formally closed; no research, production or schema implementation occurred.
