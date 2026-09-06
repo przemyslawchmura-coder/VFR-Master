@@ -414,3 +414,13 @@ Technical Profile context handling, independent service due dimensions,
 current-mileage and active-motorcycle persistence, and presentation of existing
 verified VFR/Ducati data without claiming new technical research. Phase 7
 remains ACTIVE.
+
+## 2026-09-06 — CI validation and Supabase reproducibility audit foundation
+
+Added a minimal secret-free GitHub Actions validation workflow for pull
+requests and pushes to `main`, using Node.js 22, repository-wide JavaScript
+syntax checks, the full test suite and the project-state audit CLI. Audited the
+production Supabase runtime contract and documented that the existing two
+migrations are incremental: the empty-project base schema and some dashboard
+configuration remain unproven. No live Supabase mutation, deployment or
+application behavior change occurred. Phase 7 remains ACTIVE.

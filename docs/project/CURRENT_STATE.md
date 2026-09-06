@@ -144,3 +144,9 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   the completed runtime hardening and Rider Core production projection work;
   it adds no technical data and does not change application behavior. Phase 7
   remains ACTIVE.
+- CI validation and Supabase reproducibility audit foundation completed. The
+  repository now has a secret-free pull-request/main validation workflow using
+  Node.js 22, while `docs/project/SUPABASE_REPRODUCIBILITY_AUDIT.md` records
+  that the two existing migrations are incremental and do not yet reconstruct
+  an empty project. No live Supabase mutation or application behavior change
+  occurred. Phase 7 remains ACTIVE.

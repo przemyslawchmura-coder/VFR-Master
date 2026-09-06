@@ -14,6 +14,10 @@ Planning items only; none are executed by this stocktake.
 ## Cloud/backend
 
 - Verify Supabase schema, RLS and ownership in a controlled live environment.
+- Build and validate an authorized complete Supabase baseline migration and
+  document the remaining dashboard-managed Auth/project configuration so an
+  empty project can be reconstructed reproducibly. The current audit remains
+  documentation-only and does not prove the live schema.
 - Add operational sync diagnostics and recovery documentation.
 
 ## Catalogue and market coverage
