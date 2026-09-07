@@ -2,6 +2,19 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-07 — Supabase clean-baseline foundation
+
+Added the earliest ordered repository migration for the verified `motorcycles`
+and `service_records` table foundations, preserving the later ownership/RLS and
+technical-clarification migrations as separate incremental layers. Added
+deterministic focused tests for migration order, column ownership, the runtime
+schema contract and preservation of existing hardening semantics. Updated the
+reproducibility audit to distinguish repository foundation, supplied live facts
+and external configuration. Clean-project replay remains unproven because no
+disposable Supabase/Postgres environment was used; no live database, runtime or
+production data changed. NEXT: validate migration replay in a clean disposable
+environment.
+
 ## 2026-09-07 — Leaked-password protection plan blocker
 
 Recorded the verified live Supabase finding for project `vfr-master`: Auth >

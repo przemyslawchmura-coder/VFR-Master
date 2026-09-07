@@ -1,21 +1,36 @@
 # Supabase reproducibility audit
 
-Status: audit foundation only; clean-project reconstruction is not yet
-reproducible from repository migrations alone.
+Status: clean-baseline foundation added; clean-project reconstruction is not yet
+proven against a disposable Supabase/Postgres environment.
 
-Audit basis: repository-controlled runtime code and migrations only. No live
-Supabase project was queried or changed, and no production data was inspected.
+Audit basis: repository migrations/runtime code plus independently supplied live
+schema facts for project `vfr-master`. No live Supabase project was changed and
+no production data was inspected by this repository wave.
 
 ## Current migration inventory
 
 | Migration | Repository-controlled content | Boundary |
 | --- | --- | --- |
+| `20260828_create_runtime_tables.sql` | Creates the verified `motorcycles` and `service_records` table foundations, base columns, primary keys and direct foreign keys. | Earliest foundation; intentionally does not create `technical_clarification`, composite ownership hardening, RLS or policies. |
 | `20260829_add_technical_clarification.sql` | Adds nullable `technical_clarification jsonb` to `public.motorcycles` when absent. | Incremental column addition; assumes `public.motorcycles` already exists. |
 | `20260903_ownership_rls_baseline.sql` | Adjusts defaults, adds a composite uniqueness constraint and composite-owner foreign key, enables RLS, and creates owner-scoped motorcycle/service policies. | Incremental ownership/RLS hardening; assumes both tables, their columns, and the authenticated role context already exist. |
 
-There is no repository migration that creates the initial tables, their
-complete columns, primary keys, types, defaults, indexes, or a complete auth
-configuration.
+The repository now contains the required ordered table foundation, but it does
+not by itself prove the migration chain against an empty disposable database or
+encode complete Auth/project configuration.
+
+## Verified live schema facts
+
+Independent live inspection supplied the following facts for project
+`vfr-master` on PostgreSQL 17: both runtime tables exist with the columns,
+defaults, nullability, primary keys, foreign keys, indexes, RLS state and eight
+named owner policies represented by the ordered repository migration chain. No
+triggers exist on either table. The live migration history currently contains
+only `20260903170109 ownership_rls_live_parity_hardening`; it was not changed by
+this wave.
+
+These facts are live verification, not proof that a clean project can replay
+the repository migrations successfully.
 
 ## Production runtime requirements
 
@@ -105,23 +120,20 @@ reproducible solely from repository-controlled migrations**.
 
 ## Exact path to reproducibility
 
-The later bounded schema wave should, with authorized schema evidence:
+The remaining bounded validation wave should:
 
-1. capture and review the complete current schema for the runtime tables,
-   including types, nullability, defaults, keys, indexes, triggers, grants and
-   policies;
-2. identify which auth/project settings are dashboard-managed and record their
+1. apply the ordered repository migrations to an empty disposable
+   Supabase/Postgres environment and verify the final schema/policies;
+2. compare the reconstructed result with the supplied live schema, including
+   grants and any settings not represented in the migrations;
+3. identify which auth/project settings are dashboard-managed and record their
    non-secret required values;
-3. add a reviewed repository baseline migration that creates the required
-   objects in dependency order;
-4. retain or reconcile the two existing incremental migrations so a clean
-   project applies the complete ordered history exactly once;
-5. validate the resulting migrations against an empty disposable Supabase
-   project and run the repository database/auth regressions;
-6. document any intentionally external configuration that cannot be encoded in
+4. validate the resulting migrations against the disposable project and run
+   targeted repository database/auth regressions;
+5. document any intentionally external configuration that cannot be encoded in
    SQL.
 
-No speculative baseline SQL is created by this audit.
+No live migration apply or production data operation is part of this wave.
 
 ## Security boundary
 
