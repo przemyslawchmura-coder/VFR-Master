@@ -16,7 +16,8 @@ test("factory pipeline stages are explicit and externally distinct", () => {
 
 test("core contracts expose target, prospect, applicability and GapPlan", () => {
   ["ResearchTarget", "SourceProspect", "ApplicabilityScope", "GapPlan", "SourceWorkItem", "EvidenceCandidate", "ReviewItem"].forEach(name => assert.ok(design.contracts[name]));
-  ["catalogVariantKey", "generation", "years", "markets", "transmission", "abs", "equipment"].forEach(field => assert.ok(design.contracts.ApplicabilityScope.dimensions.includes(field)));
+  ["model", "generation", "years", "markets", "transmissions", "abs", "equipment", "bodyStyles"].forEach(field => assert.ok(design.contracts.ApplicabilityScope.dimensions.includes(field)));
+  assert.ok(design.contracts.ResearchRuntimeIdentityMapping);
   assert.ok(design.contracts.GapPlan.required.includes("remainingFields"));
   assert.equal(pipeline.serviceCoreFields.length, 44);
 });

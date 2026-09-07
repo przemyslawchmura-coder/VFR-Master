@@ -25,6 +25,7 @@ Objective: separate research from production and establish provenance/status sem
 ## Phase 5 — Scalable batch research (COMPLETE FOR AUDITED SCOPE)
 
 Objective: increase verified practical Service Core coverage through a resumable, deterministic research factory. Entry: working generic validators, Service Core, deduplication, conflict/coverage/yield reporting and Honda/Yamaha fixtures. Completed checkpoints: Honda produced +50 verified/+48 practical slots; Yamaha +58/+54; Harley stopped at a wrong-year/access gate; all bounded factory foundations, Ducati/BMW waves and blocked/exhausted prospect reassessment are complete for the audited scope. Ducati and BMW remain isolated pre-promotion research state, with no research evidence or Service Core change; Phase 6 now owns the separately controlled production promotion path. Status: COMPLETE FOR AUDITED SCOPE.
+Identity-mapping infrastructure is now available for a future bounded FZ1 source-authentication wave; this does not reopen the completed audited scope or authorize source acquisition.
 
 ## Phase 6 — Controlled production promotion (COMPLETE)
 

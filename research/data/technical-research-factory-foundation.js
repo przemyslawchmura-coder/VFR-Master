@@ -44,7 +44,7 @@ function buildReport() {
     applicabilityStates: factory.APPLICABILITY_STATES,
     readinessClassifications: factory.READINESS,
     accessibilityClassifications: factory.ACCESSIBILITY,
-    applicabilityDimensions: Object.freeze(["model", "generation", "year", "market", "transmission", "abs", "equipment"]),
+    applicabilityDimensions: Object.freeze(["model", "generation", "year", "market", "transmission", "abs", "equipment", "bodyStyle"]),
     adapters: Object.freeze(["fromLegacyResearchTarget", "fromLegacySourceProspect", "fromLegacyAcquiredSource"]),
     fixtures,
     gapPlan: Object.freeze({ targetId: gapPlan.targetId, startingCoverage: gapPlan.startingCoverage, remaining: gapPlan.remainingFields.length, researchedNoEvidence: gapPlan.researchedNoEvidenceFields.length, conflicts: gapPlan.conflictedFields.length, expectedMarginalOpportunity: gapPlan.expectedMarginalOpportunity }),

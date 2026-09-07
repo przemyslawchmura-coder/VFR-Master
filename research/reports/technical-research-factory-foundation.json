@@ -48,7 +48,8 @@
     "market",
     "transmission",
     "abs",
-    "equipment"
+    "equipment",
+    "bodyStyle"
   ],
   "adapters": [
     "fromLegacyResearchTarget",

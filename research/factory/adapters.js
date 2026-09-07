@@ -39,7 +39,8 @@ function fromLegacyResearchTarget(record, options = {}) {
       markets: markets.length ? knownSet(markets) : unknownSet(),
       transmissions: transmissionSet(snapshot.transmission ?? options.transmission),
       abs: absSet(snapshot.abs ?? options.abs),
-      equipment: equipmentValues(snapshot.equipment ?? options.equipment)
+      equipment: equipmentValues(snapshot.equipment ?? options.equipment),
+      ...((snapshot.bodyStyles || options.bodyStyles) ? { bodyStyles: knownSet(snapshot.bodyStyles || options.bodyStyles) } : {})
     },
     sourcePriorityPolicyId: options.sourcePriorityPolicyId || "tier-ab-practical-marginal-v1",
     serviceCoreBaseline: { verified: options.verified ?? snapshot.evidenceCount ?? snapshot.before ?? 0, total: 44 },
@@ -74,7 +75,8 @@ function fromLegacySourceProspect(record, target, options = {}) {
     markets: gate.marketKnown === true && markets.length ? knownSet(markets) : unknownSet(),
     transmissions: options.transmissions ? knownSet(options.transmissions) : /manual/.test(snapshot.transmissionStatus || "") && !/not independently|likely/i.test(snapshot.transmissionStatus || "") ? knownSet(["manual"]) : unknownSet(),
     abs: options.absValues ? knownSet(options.absValues) : unknownSet(),
-    equipment: options.equipmentValues ? knownSet(options.equipmentValues) : unknownSet()
+    equipment: options.equipmentValues ? knownSet(options.equipmentValues) : unknownSet(),
+    ...(options.bodyStyles ? { bodyStyles: knownSet(options.bodyStyles) } : {})
   };
   const access = accessFromLegacy(snapshot.access);
   return contracts.validateSourceProspect({
@@ -125,7 +127,8 @@ function fromLegacyAcquiredSource(record, target, options = {}) {
       markets: snapshot.markets?.length ? knownSet(snapshot.markets) : unknownSet(),
       transmissions: transmissionSet(snapshot.transmission),
       abs: absSet(snapshot.abs),
-      equipment: equipmentValues(snapshot.equipment)
+      equipment: equipmentValues(snapshot.equipment),
+      ...(snapshot.bodyStyles ? { bodyStyles: knownSet(snapshot.bodyStyles) } : {})
     },
     exhaustionState: snapshot.stopCondition ? "LOW-MARGINAL-YIELD" : "ACTIVE",
     priorAttemptRefs: [],

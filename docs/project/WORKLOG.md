@@ -2,6 +2,19 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-07 — Research-to-runtime identity mapping contract foundation
+
+Added the generic non-production mapping contract that separates research
+grouping identity, one-or-more runtime catalogue identities and explicit
+applicability constraints. Added the generic `bodyStyles` applicability
+dimension with backward-compatible UNKNOWN defaults and fail-closed resolution,
+plus deterministic ordering/IDs and JSON replay. FZ1 fixtures map
+`yamaha.fz1.gen1` only to `yamaha.fz-fazer.fzs1000`, and `yamaha.fz1.gen2` to
+distinct N/S runtime identities without universalizing unresolved applicability.
+No source research, technical values, legacy-data promotion, FZ6 change,
+catalogue change, production profile or Rider Service Core projection occurred.
+NEXT: bounded FZ1 source-authentication/research planning.
+
 ## 2026-09-07 — Verified Supabase local clean replay
 
 Recorded two successful clean local replays of the normalized three-migration

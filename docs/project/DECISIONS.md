@@ -244,3 +244,22 @@ Decision: every bounded production registry promotion must retain an immutable r
 Rationale: registry exposure is the smallest reversible production boundary, while profile and provenance artifacts must remain auditable after rollback. A fail-closed record prevents ambiguous rollback scope and protects unrelated registered profiles.
 Consequences: promotion governance is not complete without recorded prior/current sets, retained artifacts and regression validation. This Ducati record is readiness-only; no rollback is automatic or executed by the contract.
 Status: ACTIVE. Related design: Phase 6 Production Promotion Rollback / Governance Closeout.
+
+
+## ADR-028 — Research-to-runtime identity mapping contract
+
+Date: 2026-09-07
+Decision: Research grouping identities, runtime catalogue identities and
+applicability constraints are separate fields in a deterministic,
+non-production mapping contract. One grouping may map to one or more runtime
+identities, but runtime resolution requires explicit applicable constraints;
+unknown or partial discriminators never widen to all mapped variants. The
+generic bodyStyles dimension distinguishes body-style variants while
+preserving existing applicability dimensions and legacy targets.
+Consequences: FZ1 research may use a generation grouping without collapsing
+yamaha.fz1.gen2.n and yamaha.fz1.gen2.s, while
+yamaha.fz1.gen1 remains isolated to yamaha.fz-fazer.fzs1000. The mapping is
+research infrastructure only: it adds no evidence, technical values,
+production profiles or Rider Service Core projection. Existing single-runtime
+targets remain compatible without a mapping.
+Status: ACTIVE. Related implementation: research/factory/identity-mapping.js.

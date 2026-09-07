@@ -51,7 +51,8 @@ function validateApplicabilityScope(scope) {
   const transmissions = normalizeKnowledgeSet(scope.transmissions, "scope.transmissions", value => TRANSMISSIONS.includes(value));
   const abs = normalizeKnowledgeSet(scope.abs, "scope.abs", value => value === true || value === false);
   const equipment = normalizeKnowledgeSet(scope.equipment, "scope.equipment");
-  return Object.freeze({ schemaVersion: FACTORY_CONTRACT_VERSION, model, generation, years: Object.freeze({ kind: scope.years.kind, from: scope.years.from, to: scope.years.to }), markets, transmissions, abs, equipment });
+  const bodyStyles = scope.bodyStyles === undefined ? undefined : normalizeKnowledgeSet(scope.bodyStyles, "scope.bodyStyles");
+  return Object.freeze({ schemaVersion: FACTORY_CONTRACT_VERSION, model, generation, years: Object.freeze({ kind: scope.years.kind, from: scope.years.from, to: scope.years.to }), markets, transmissions, abs, equipment, ...(bodyStyles ? { bodyStyles } : {}) });
 }
 
 function validateResearchTarget(record) {
@@ -66,7 +67,9 @@ function validateResearchTarget(record) {
   assert(record.serviceCoreBaseline.total === 44 && record.serviceCoreBaseline.verified >= 0 && record.serviceCoreBaseline.verified <= 44, "ResearchTarget Service Core baseline must be within 0..44");
   ["knownSourceRefs", "knownProspectRefs", "researchHistoryRefs", "riskFlags"].forEach(field => assertStringArray(record[field], `ResearchTarget.${field}`, true));
   assertEnum(record.state, TARGET_STATES, "ResearchTarget.state");
-  return Object.freeze({ ...plainClone(record), schemaVersion: FACTORY_CONTRACT_VERSION, scope, knownSourceRefs: Object.freeze(stableUnique(record.knownSourceRefs)), knownProspectRefs: Object.freeze(stableUnique(record.knownProspectRefs)), researchHistoryRefs: Object.freeze(stableUnique(record.researchHistoryRefs)), riskFlags: Object.freeze(stableUnique(record.riskFlags)), serviceCoreBaseline: Object.freeze(plainClone(record.serviceCoreBaseline)), gapPlanRef: record.gapPlanRef || null });
+  const identityMapping = record.identityMapping === undefined ? undefined : require("./identity-mapping.js").validateIdentityMapping(record.identityMapping);
+  if (identityMapping) assert(identityMapping.researchIdentity.key === record.catalogVariantKey, "ResearchTarget.identityMapping must use the target research identity");
+  return Object.freeze({ ...plainClone(record), schemaVersion: FACTORY_CONTRACT_VERSION, scope, knownSourceRefs: Object.freeze(stableUnique(record.knownSourceRefs)), knownProspectRefs: Object.freeze(stableUnique(record.knownProspectRefs)), researchHistoryRefs: Object.freeze(stableUnique(record.researchHistoryRefs)), riskFlags: Object.freeze(stableUnique(record.riskFlags)), serviceCoreBaseline: Object.freeze(plainClone(record.serviceCoreBaseline)), gapPlanRef: record.gapPlanRef || null, ...(identityMapping ? { identityMapping } : {}) });
 }
 
 function validatePublicationIdentifiers(publication) {

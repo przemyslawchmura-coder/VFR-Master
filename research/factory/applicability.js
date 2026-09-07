@@ -30,12 +30,16 @@ function evaluateApplicability(targetInput, sourceInput) {
     market: setResult(target.markets, source.markets),
     transmission: setResult(target.transmissions, source.transmissions),
     abs: setResult(target.abs, source.abs),
-    equipment: setResult(target.equipment, source.equipment)
+    equipment: setResult(target.equipment, source.equipment),
+    bodyStyle: setResult(target.bodyStyles || { state: "UNKNOWN", values: [] }, source.bodyStyles || { state: "UNKNOWN", values: [] })
   });
-  const values = Object.values(dimensions);
+  const evaluatedDimensions = (!target.bodyStyles || target.bodyStyles.state === "UNKNOWN") && (!source.bodyStyles || source.bodyStyles.state === "UNKNOWN")
+    ? Object.fromEntries(Object.entries(dimensions).filter(([key]) => key !== "bodyStyle"))
+    : dimensions;
+  const values = Object.values(evaluatedDimensions);
   const overall = values.includes("MISMATCH") ? "MISMATCH" : values.includes("UNKNOWN") ? "UNKNOWN" : values.includes("PARTIAL") ? "PARTIAL" : "MATCH";
-  const blockingDimensions = Object.freeze(Object.entries(dimensions).filter(([, value]) => value !== "MATCH").map(([key]) => key));
-  return Object.freeze({ overall, dimensions, blockingDimensions, reasons: Object.freeze(blockingDimensions.map(dimension => `${dimension}:${dimensions[dimension]}`)) });
+  const blockingDimensions = Object.freeze(Object.entries(evaluatedDimensions).filter(([, value]) => value !== "MATCH").map(([key]) => key));
+  return Object.freeze({ overall, dimensions: Object.freeze(evaluatedDimensions), blockingDimensions, reasons: Object.freeze(blockingDimensions.map(dimension => `${dimension}:${evaluatedDimensions[dimension]}`)) });
 }
 
 module.exports = Object.freeze({ evaluateApplicability });
