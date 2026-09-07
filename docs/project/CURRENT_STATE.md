@@ -2,7 +2,7 @@
 
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
-Snapshot date: 2026-09-03
+Snapshot date: 2026-09-07
 Snapshot basis: post-Triumph Street Triple 765 prospect-registration working tree, anchored semantically by `research/data/triumph-streettriple765-prospect-registration.js` to the first-parent base of its containing commit.
 
 - Phase 6 promotion foundation: generic `PromotionPacket/v1` and fail-closed `PROMOTION-READY`/`BLOCKED` gate are implemented and exported from `research/factory/index.js`. The foundation preserves raw values/units/provenance, rejects unresolved/non-accepted processing states and insufficient scope, and performs no production conversion, evidence write, registry insertion or automatic promotion.
@@ -17,7 +17,8 @@ Snapshot basis: post-Triumph Street Triple 765 prospect-registration working tre
 - Phase 6 completion audit: the stated exit criteria all pass — one deliberate Ducati profile addition, production discovery/resolver/runtime regressions, and a deterministic rollback target. Phase 6 is COMPLETE; pending Ducati/BMW work and cooling remain future bounded expansions.
 - Phase 7 transition: Cloud/deployment hardening is ACTIVE. The live ownership/RLS migration was applied and post-migration verification passed; deployment and operational recovery remain incomplete.
 - Phase 7 live-safe cloud/deployment audit: repository evidence shows client-side auth and cloud persistence paths, while deployment reproducibility and operational recovery remain unproven. Live ownership/RLS parity is now operator-verified after the authorized migration apply; no auth setting was changed.
-- Phase 7 Supabase reproducibility baseline: migration `20260903_ownership_rls_baseline.sql` defines the live-parity hardening for the existing `motorcycles`/`service_records` tables. It preserves unrelated schema, removes random `user_id` defaults, adds the composite ownership constraint and replaces the recorded `users_can_*` policies with canonical authenticated RLS policies. It is applied and verified; leaked-password protection remains disabled and separate.
+- Phase 7 Supabase reproducibility baseline: migration `20260903_ownership_rls_baseline.sql` defines the live-parity hardening for the existing `motorcycles`/`service_records` tables. It preserves unrelated schema, removes random `user_id` defaults, adds the composite ownership constraint and replaces the recorded `users_can_*` policies with canonical authenticated RLS policies. It is applied and verified.
+- Phase 7 leaked-password protection: live verification for Supabase project `vfr-master` confirms Auth > Attack Protection > Prevent use of leaked passwords is disabled; Supabase reports the setting is available only on Pro plan and above. Protection is externally blocked by the current Free plan, not an unresolved repository defect; no application runtime, password policy or Supabase configuration was changed.
 - Phase 7 password recovery: repository-side recovery request, callback/session guard and new-password flow are implemented using Supabase Auth v2. The operator-supplied production recovery path, including redirect, email, callback and password update, is verified; the Dashboard allow-list remains an external configuration boundary and was not changed.
 - Operator-supplied production recovery verification: recovery redirect, recovery email, recovery callback, password update, and preservation of the existing account/cloud data were verified end-to-end. The Dashboard allow-list remains an external configuration dependency and was not changed by this task.
 - Technical Profile presentation localization: a centralized render-time Polish mapping now covers production categories, common field labels, statuses and authenticated source titles/sections. Canonical identifiers, values, resolver output and profile semantics remain unchanged; Ducati remains at exactly 45 promoted verified entries.
@@ -116,7 +117,7 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Address leaked-password protection and deployment/recovery hardening in separately bounded tasks.
+**NEXT** — Address deployment/recovery hardening in a separately bounded task. Leaked-password protection remains externally blocked until the Supabase project is upgraded to Pro or above.
 
 Deferred independent streams remain future bounded Ducati/BMW profile expansion, cooling-scope resolution and the global catalogue gap audit; none is an active NEXT task.
 

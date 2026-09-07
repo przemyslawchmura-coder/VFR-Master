@@ -2,6 +2,16 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-07 — Leaked-password protection plan blocker
+
+Recorded the verified live Supabase finding for project `vfr-master`: Auth >
+Attack Protection > Prevent use of leaked passwords is disabled, and Supabase
+states that the setting is available only on Pro plan and above. The protection
+is therefore externally blocked by the current Free plan, not an unresolved
+repository defect. No application runtime, password policy, Supabase
+configuration or deployment/recovery behavior changed. NEXT: deployment/recovery
+hardening as the next separately bounded task.
+
 ## 2026-09-04 — Correct Rider Core applicability projection
 
 Corrected field-level Rider Service Core projection so unresolved ABS and
