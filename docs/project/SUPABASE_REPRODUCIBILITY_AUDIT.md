@@ -1,11 +1,12 @@
 # Supabase reproducibility audit
 
-Status: clean-baseline foundation added; clean-project reconstruction is not yet
-proven against a disposable Supabase/Postgres environment.
+Status: local clean-project reconstruction verified on PostgreSQL 17; production
+migration-history reconciliation remains unproven and unauthorized.
 
-Audit basis: repository migrations/runtime code plus independently supplied live
-schema facts for project `vfr-master`. No live Supabase project was changed and
-no production data was inspected by this repository wave.
+Audit basis: repository migrations/runtime code, verified local replay evidence,
+and independently supplied live schema/history facts for project `vfr-master`.
+No live Supabase project was changed and no production data was inspected by
+this repository wave.
 
 ## Current migration inventory
 
@@ -16,8 +17,29 @@ no production data was inspected by this repository wave.
 | `20260903170109_ownership_rls_live_parity_hardening.sql` | Adjusts defaults, adds a composite uniqueness constraint and composite-owner foreign key, enables RLS, and creates owner-scoped motorcycle/service policies. | Exact normalized repository identifier for the semantically equivalent live migration version/name. |
 
 The repository now contains the required ordered table foundation, but it does
-not by itself prove the migration chain against an empty disposable database or
-encode complete Auth/project configuration.
+not by itself encode complete Auth/project configuration or reconcile the
+production migration-history table.
+
+## Verified local clean replay
+
+The normalized chain was replayed twice from a fresh local Supabase setup on
+PostgreSQL 17. Both replays applied all three migrations in order:
+
+1. `20260828000000_create_runtime_tables.sql`
+2. `20260829000000_add_technical_clarification.sql`
+3. `20260903170109_ownership_rls_live_parity_hardening.sql`
+
+`supabase migration list --local` showed all three versions, and
+`supabase db lint --local` returned `No schema errors found`. Read-only local
+inspection matched the previously supplied production runtime schema for
+columns, defaults/nullability, primary keys, unique and foreign-key
+constraints, RLS state, and all eight ownership policies including their
+semantic ownership checks. No `supabase/seed.sql` exists; seed coverage was not
+part of this proof and is not required by the current project scope.
+
+This proves repository migration replay and local schema parity. It does not
+prove production migration-history alignment, byte-for-byte SQL identity, full
+grants, or complete external Auth/project configuration.
 
 ## Verified live schema facts
 
@@ -107,29 +129,31 @@ the referenced tables exist.
 
 | Requirement | Repository status |
 | --- | --- |
-| Empty-project creation of `motorcycles` | Represented by `20260828000000_create_runtime_tables.sql`; clean replay not yet executed. |
-| Empty-project creation of `service_records` | Represented by `20260828000000_create_runtime_tables.sql`; clean replay not yet executed. |
-| Complete runtime foundation columns/types/defaults/primary keys | Represented in the repository foundation and independently verified against the supplied live schema; clean replay and full grants remain unproven. |
-| Motorcycle/service indexes beyond represented uniqueness | Missing or unknown. |
-| Ownership foreign keys and policy preconditions | Base prerequisites are represented by the ordered repository chain; clean replay and live history reconciliation remain unproven. |
+| Empty-project creation of `motorcycles` | Verified by two local PostgreSQL 17 replays; not represented in production migration history. |
+| Empty-project creation of `service_records` | Verified by two local PostgreSQL 17 replays; not represented in production migration history. |
+| Complete runtime foundation columns/types/defaults/primary keys | Verified by local replay and parity inspection against the supplied live schema; full grants remain unproven. |
+| Motorcycle/service indexes beyond represented uniqueness | Verified for the supplied runtime schema; broader deployment/index requirements remain unproven. |
+| Ownership foreign keys and policy preconditions | Base prerequisites and hardening are verified by local replay and supplied live parity facts; production history reconciliation remains unproven. |
+| Production migration-history alignment | Unresolved; live history contains only `20260903170109`, while the two earlier repository migrations are absent. |
 | Supabase Auth provider, URL, redirect, email and password-security configuration | Dashboard/manual configuration dependent. |
 | Full grants/extensions/project settings | Unknown from repository migrations. |
 
-Therefore a completely empty Supabase project is **not currently
-reproducible solely from repository-controlled migrations**.
+Therefore the two-table runtime schema is **reproducible locally from
+repository-controlled migrations**, but production migration-history alignment
+and complete project reproducibility are not yet proven.
 
 ## Exact path to reproducibility
 
-The remaining bounded validation wave should:
+The remaining bounded reconciliation wave should:
 
-1. apply the ordered repository migrations to an empty disposable
-   Supabase/Postgres environment and verify the final schema/policies;
-2. compare the reconstructed result with the supplied live schema, including
-   grants and any settings not represented in the migrations;
+1. obtain a read-only production migration-history status and compare it with
+   the normalized local versions;
+2. compare any remaining live details with the local replay, including grants
+   and settings not represented in the migrations;
 3. identify which auth/project settings are dashboard-managed and record their
    non-secret required values;
-4. validate the resulting migrations against the disposable project and run
-   targeted repository database/auth regressions;
+4. prepare an explicitly authorized history-only reconciliation plan for the
+   two earlier migrations, without executing their SQL on production;
 5. document any intentionally external configuration that cannot be encoded in
    SQL.
 

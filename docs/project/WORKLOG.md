@@ -2,6 +2,19 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-07 — Verified Supabase local clean replay
+
+Recorded two successful clean local replays of the normalized three-migration
+chain on PostgreSQL 17 from fresh local state. All migrations applied in order;
+`supabase migration list --local` showed all three versions and
+`supabase db lint --local` returned `No schema errors found`. Read-only local
+inspection matched the supplied production runtime schema for columns,
+defaults/nullability, primary keys, unique and foreign-key constraints, RLS and
+all eight ownership policies, including semantic ownership checks. No
+`supabase/seed.sql` exists or was required. Production migration history was
+not changed and remains unreconciled; no production migration command was
+executed. NEXT: prepare a read-only production history-reconciliation plan.
+
 ## 2026-09-07 — Supabase migration identifier normalization
 
 Normalized the repository migration chain to unique 14-digit Supabase timestamp
