@@ -9,19 +9,30 @@ const root = path.join(__dirname, "..");
 const migrationDir = path.join(root, "supabase", "migrations");
 const readMigration = name => fs.readFileSync(path.join(migrationDir, name), "utf8");
 
-const baselineName = "20260828_create_runtime_tables.sql";
-const clarificationName = "20260829_add_technical_clarification.sql";
-const ownershipName = "20260903_ownership_rls_baseline.sql";
+const baselineName = "20260828000000_create_runtime_tables.sql";
+const clarificationName = "20260829000000_add_technical_clarification.sql";
+const ownershipName = "20260903170109_ownership_rls_live_parity_hardening.sql";
 const baseline = readMigration(baselineName);
 const clarification = readMigration(clarificationName);
 const ownership = readMigration(ownershipName);
 const baselineSql = baseline.replace(/--.*$/gm, "");
 
 test("runtime table migrations have deterministic historical ordering", () => {
+  for (const name of [baselineName, clarificationName, ownershipName]) {
+    assert.match(name, /^\d{14}_[a-z0-9_]+\.sql$/);
+  }
+  const versions = [baselineName, clarificationName, ownershipName].map(name => name.slice(0, 14));
+  assert.equal(new Set(versions).size, versions.length);
   assert.deepEqual(
     [baselineName, clarificationName, ownershipName].sort(),
     [baselineName, clarificationName, ownershipName]
   );
+});
+
+test("migration timestamps establish the intended dependency order", () => {
+  assert.ok(baselineName < clarificationName);
+  assert.ok(clarificationName < ownershipName);
+  assert.equal(ownershipName.slice(0, 14), "20260903170109");
 });
 
 test("base tables exist before later ALTER migrations and own no later column", () => {

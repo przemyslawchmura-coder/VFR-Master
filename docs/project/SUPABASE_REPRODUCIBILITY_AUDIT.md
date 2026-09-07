@@ -11,9 +11,9 @@ no production data was inspected by this repository wave.
 
 | Migration | Repository-controlled content | Boundary |
 | --- | --- | --- |
-| `20260828_create_runtime_tables.sql` | Creates the verified `motorcycles` and `service_records` table foundations, base columns, primary keys and direct foreign keys. | Earliest foundation; intentionally does not create `technical_clarification`, composite ownership hardening, RLS or policies. |
-| `20260829_add_technical_clarification.sql` | Adds nullable `technical_clarification jsonb` to `public.motorcycles` when absent. | Incremental column addition; assumes `public.motorcycles` already exists. |
-| `20260903_ownership_rls_baseline.sql` | Adjusts defaults, adds a composite uniqueness constraint and composite-owner foreign key, enables RLS, and creates owner-scoped motorcycle/service policies. | Incremental ownership/RLS hardening; assumes both tables, their columns, and the authenticated role context already exist. |
+| `20260828000000_create_runtime_tables.sql` | Creates the verified `motorcycles` and `service_records` table foundations, base columns, primary keys and direct foreign keys. | Earliest repository ordering identifier; intentionally does not create `technical_clarification`, composite ownership hardening, RLS or policies. It is not evidence of a historical production execution. |
+| `20260829000000_add_technical_clarification.sql` | Adds nullable `technical_clarification jsonb` to `public.motorcycles` when absent. | Incremental column addition; repository ordering identifier only; assumes `public.motorcycles` already exists and is not evidence of historical production execution. |
+| `20260903170109_ownership_rls_live_parity_hardening.sql` | Adjusts defaults, adds a composite uniqueness constraint and composite-owner foreign key, enables RLS, and creates owner-scoped motorcycle/service policies. | Exact normalized repository identifier for the semantically equivalent live migration version/name. |
 
 The repository now contains the required ordered table foundation, but it does
 not by itself prove the migration chain against an empty disposable database or
@@ -107,11 +107,11 @@ the referenced tables exist.
 
 | Requirement | Repository status |
 | --- | --- |
-| Empty-project creation of `motorcycles` | Missing; only incremental alterations are present. |
-| Empty-project creation of `service_records` | Missing; only incremental alterations are present. |
-| Complete column types/defaults/primary keys | Missing or unknown. Runtime names are known, SQL definitions are not. |
+| Empty-project creation of `motorcycles` | Represented by `20260828000000_create_runtime_tables.sql`; clean replay not yet executed. |
+| Empty-project creation of `service_records` | Represented by `20260828000000_create_runtime_tables.sql`; clean replay not yet executed. |
+| Complete runtime foundation columns/types/defaults/primary keys | Represented in the repository foundation and independently verified against the supplied live schema; clean replay and full grants remain unproven. |
 | Motorcycle/service indexes beyond represented uniqueness | Missing or unknown. |
-| Ownership foreign keys and policy preconditions | Partially represented by the 20260903 migration; base prerequisites are unknown. |
+| Ownership foreign keys and policy preconditions | Base prerequisites are represented by the ordered repository chain; clean replay and live history reconciliation remain unproven. |
 | Supabase Auth provider, URL, redirect, email and password-security configuration | Dashboard/manual configuration dependent. |
 | Full grants/extensions/project settings | Unknown from repository migrations. |
 

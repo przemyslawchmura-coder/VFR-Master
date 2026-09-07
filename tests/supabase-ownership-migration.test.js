@@ -5,7 +5,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const test = require("node:test");
 
-const sql = fs.readFileSync(path.join(__dirname, "../supabase/migrations/20260903_ownership_rls_baseline.sql"), "utf8");
+const sql = fs.readFileSync(path.join(__dirname, "../supabase/migrations/20260903170109_ownership_rls_live_parity_hardening.sql"), "utf8");
 const database = fs.readFileSync(path.join(__dirname, "../js/database.js"), "utf8");
 const service = fs.readFileSync(path.join(__dirname, "../js/service.js"), "utf8");
 

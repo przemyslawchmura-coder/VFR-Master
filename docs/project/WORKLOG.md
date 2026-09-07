@@ -2,6 +2,20 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-07 — Supabase migration identifier normalization
+
+Normalized the repository migration chain to unique 14-digit Supabase timestamp
+identifiers without changing SQL: `20260828000000_create_runtime_tables.sql`,
+`20260829000000_add_technical_clarification.sql` and
+`20260903170109_ownership_rls_live_parity_hardening.sql`. The first two
+identifiers extend the repository’s established chronology as ordering values
+only and do not claim historical production execution. The ownership migration
+uses the exact authoritative live version/name after semantic equivalence was
+verified. Focused deterministic tests cover format, uniqueness, ordering and
+preserved ownership between layers. No live history, database, runtime or
+production data changed. NEXT: validate clean replay before considering any
+history-only production reconciliation.
+
 ## 2026-09-07 — Supabase clean-baseline foundation
 
 Added the earliest ordered repository migration for the verified `motorcycles`
