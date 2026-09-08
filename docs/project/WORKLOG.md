@@ -546,3 +546,15 @@ precise page/section/table/applicability provenance, preserves conditional
 rows, excludes FZ1-S, non-2010 years and `2D1-28197-E0`, and caps future raw
 output at 24 candidates. Extraction was not executed: zero values,
 candidates, review entries, evidence, Service Core or production changes.
+
+## 2026-09-08 — Technical Research Factory Generic Extraction Playbook
+
+Completed exactly one architecture-only wave. Added a manufacturer-neutral,
+non-production extraction playbook that reuses the existing Extraction Agent
+contracts for artifact/hash binding, bounded regions and field targets, precise
+page/section/table provenance, fail-closed applicability, conditional-row
+preservation, semantic duplicate handling, model-specific budgets, stop
+conditions and raw-candidate-only transition. Existing VFR fingerprint and FZ1
+`2D1X` planning records describe the same generic process without entering the
+generic layer or supplying technical values. No extraction was executed and no
+raw candidate, review, evidence, Service Core or production record was created.
