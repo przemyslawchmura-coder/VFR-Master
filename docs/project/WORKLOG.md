@@ -558,3 +558,19 @@ conditions and raw-candidate-only transition. Existing VFR fingerprint and FZ1
 `2D1X` planning records describe the same generic process without entering the
 generic layer or supplying technical values. No extraction was executed and no
 raw candidate, review, evidence, Service Core or production record was created.
+
+## 2026-09-08 — PDF Extraction Trust Boundary / Raw-Extraction Readiness
+
+Completed exactly one bounded architecture-only wave after the FZ1 pilot was
+blocked by two generic incompatibilities. Added a stage-specific raw-extraction
+readiness gate that does not alter strict downstream applicability/evidence or
+promotion readiness; unresolved dimensions are allowed only when explicitly
+carried by the bounded plan. Added a deterministic derived-content bridge in
+which UTF-8 extraction input is parent-bound to the exact acquired binary
+artifact, digest, media type, byte length, transformer identity/version and
+approved page-region, with existing Factory artifact identity and provenance
+contracts retained. A synthetic local adapter proves the Extraction Agent
+entry point without reading the FZ1 PDF. Zero FZ1 technical values, raw
+candidates, review decisions, evidence, Service Core or production changes
+occurred; `2D1-28197-E0` remained untouched. The next bounded wave is the
+FZ1 `2D1X` pilot through these new boundaries.

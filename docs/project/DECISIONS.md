@@ -271,3 +271,23 @@ Decision: Production password-reset requests require an explicit operator-suppli
 Rationale: browser-derived production redirects and arbitrary recovery URL markers can target unintended destinations or expose reset UI without trusted recovery evidence.
 Consequences: deployments must inject `window.REVLOG_CONFIG.recoveryRedirectUrl` before `js/supabase.js`; the Dashboard allow-list remains external and must match exactly. Missing or malformed production configuration fails closed. This does not change Supabase plan capabilities or imitate leaked-password protection.
 Status: ACTIVE. Related implementation: `js/supabase.js`, `docs/project/DEPLOYMENT_RECOVERY.md`.
+
+## ADR-030 — Raw extraction readiness is distinct from derived-content trust
+
+Date: 2026-09-08
+Decision: Technical Research Factory raw extraction uses a stage-specific
+readiness gate. A precisely bounded authenticated/acquired source may be
+eligible for raw extraction while unresolved applicability remains explicit;
+this never implies evidence, promotion or production readiness. Extraction
+content derived from a binary acquisition must use a deterministic envelope
+bound to the exact parent artifact ID, digest, media type and byte length,
+plus transformer identity/version and approved page-region. Detached text and
+changed parent or derived content fail closed.
+Rationale: the existing full-readiness gate correctly protects downstream
+applicability, but it cannot safely express bounded raw inspection; the
+existing UTF-8 envelope also could not establish custody of a PDF binary.
+Consequences: future bounded PDF extraction may enter only through the
+stage-specific gate and parent-bound bridge, with raw-candidate output still
+separate from review, evidence and production. Existing UTF-8/local fixtures
+and downstream gates remain compatible.
+Status: ACTIVE. Related implementation: `research/factory/extraction-playbook.js`, `research/factory/derived-content-contracts.js`, `research/factory/extraction-agent.js`.

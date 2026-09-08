@@ -9,7 +9,7 @@ const PLAYBOOK_SCHEMA_VERSION = "revlog-extraction-playbook/v1";
 const DEFAULT_RULES = Object.freeze({
   sourceBinding: Object.freeze({ requireArtifactId: true, requireContentDigest: true, requireMediaType: true, requireByteLength: true }),
   provenance: Object.freeze({ required: Object.freeze(["sourceLocation.page", "sourceLocation.section", "sourceLocation.locator", "applicability", "context"]), requireTableOrSubsection: true, requireUnitsContext: true }),
-  applicability: Object.freeze({ failClosed: true, preserveConditionalRows: true, rejectFlattenedConditions: true, requireModelYearScope: true }),
+  applicability: Object.freeze({ failClosed: true, preserveConditionalRows: true, rejectFlattenedConditions: true, requireModelYearScope: true, allowUnresolvedForRawExtraction: true }),
   output: Object.freeze({ rawOnly: true, evidence: false, production: false, reviewQueue: false }),
   duplicates: Object.freeze({ semanticIds: "factory.extractionResultId and factory.candidateId", exactRepeat: "IDEMPOTENT", conflictingPayload: "REJECT" })
 });
@@ -20,6 +20,7 @@ const digest = value => crypto.createHash("sha256").update(json.canonicalSeriali
 function validateRules(rules) {
   assert(rules && rules.sourceBinding?.requireArtifactId && rules.sourceBinding?.requireContentDigest, "playbook source binding is incomplete");
   assert(rules.applicability?.failClosed === true && rules.applicability.preserveConditionalRows === true && rules.applicability.rejectFlattenedConditions === true, "playbook applicability must fail closed");
+  assert(rules.applicability?.allowUnresolvedForRawExtraction === true, "playbook must explicitly preserve unresolved applicability for raw extraction");
   assert(rules.provenance?.requireTableOrSubsection === true && rules.provenance?.requireUnitsContext === true, "playbook provenance is incomplete");
   assert(rules.output?.rawOnly === true && rules.output.evidence === false && rules.output.production === false && rules.output.reviewQueue === false, "playbook output boundary is invalid");
 }
@@ -99,4 +100,34 @@ function validateFutureSourceLocation(location) {
   return true;
 }
 
-module.exports = Object.freeze({ PLAYBOOK_SCHEMA_VERSION, DEFAULT_RULES, DEFAULT_STOP_CONDITIONS, createPlaybook, validateArtifactBinding, validateRegion, createModelPlan, validatePlanArtifact, assertArtifactEqual, validateFutureSourceLocation });
+function evaluateRawExtractionReadiness({ playbook, modelPlan, sourceProspect, acquiredArtifact }) {
+  assert(playbook?.schemaVersion === PLAYBOOK_SCHEMA_VERSION, "generic extraction playbook is required");
+  assert(modelPlan?.schemaVersion === "revlog-model-extraction-plan/v1", "model extraction plan is required");
+  const prospect = require("./contracts.js").validateSourceProspect(sourceProspect);
+  const checks = {
+    authenticatedSource: prospect.authenticationState === "AUTHENTICATED",
+    knownPublication: prospect.documentIdentity.state === "KNOWN" && prospect.publication.identifiers.length > 0,
+    officialAccessibleContent: ["ACCESSIBLE-OFFICIAL", "ACCESSIBLE-OFFICIAL-REDIRECT"].includes(prospect.accessibility.fullContent),
+    exactArtifact: false,
+    playbookPlanMatch: modelPlan.playbookPolicyId === playbook.policyId,
+    boundedRegions: modelPlan.regions.length > 0 && modelPlan.regions.length <= modelPlan.budget.maxRegions,
+    boundedOutput: modelPlan.execution === false && modelPlan.rawCandidatesCreated === 0 && modelPlan.evidenceCreated === false && modelPlan.productionChanged === false && playbook.rules.output.rawOnly === true,
+    boundedApplicabilityScope: modelPlan.applicability.required && typeof modelPlan.applicability.required === "object" && Object.keys(modelPlan.applicability.required).length > 0 && (!playbook.rules.applicability.requireModelYearScope || Object.keys(modelPlan.applicability.required).some(key => /year/i.test(key))),
+    unresolvedApplicabilityRepresented: Array.isArray(modelPlan.applicability.unresolved) && modelPlan.applicability.unresolved.every(item => typeof item === "string" && item.length > 0) && playbook.rules.applicability.allowUnresolvedForRawExtraction === true,
+    preciseProvenanceRequired: playbook.rules.provenance.required.includes("sourceLocation.page") && playbook.rules.provenance.required.includes("sourceLocation.section") && playbook.rules.provenance.required.includes("sourceLocation.locator"),
+    conditionalRowsPreserved: playbook.rules.applicability.preserveConditionalRows === true && playbook.rules.applicability.rejectFlattenedConditions === true
+  };
+  try { validatePlanArtifact(modelPlan, acquiredArtifact); checks.exactArtifact = true; } catch { checks.exactArtifact = false; }
+  const blockers = Object.entries(checks).filter(([, value]) => !value).map(([name]) => name).sort();
+  return Object.freeze({
+    stage: "RAW-EXTRACTION",
+    passed: blockers.length === 0,
+    classification: blockers.length === 0 ? "RAW-EXTRACTION-READY" : "RAW-EXTRACTION-BLOCKED",
+    checks: Object.freeze(checks),
+    unresolvedApplicability: json.immutableClone(modelPlan.applicability.unresolved),
+    downstream: Object.freeze({ evidenceReady: false, promotionReady: false, productionReady: false }),
+    blockers: Object.freeze(blockers)
+  });
+}
+
+module.exports = Object.freeze({ PLAYBOOK_SCHEMA_VERSION, DEFAULT_RULES, DEFAULT_STOP_CONDITIONS, createPlaybook, validateArtifactBinding, validateRegion, createModelPlan, validatePlanArtifact, assertArtifactEqual, validateFutureSourceLocation, evaluateRawExtractionReadiness });

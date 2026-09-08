@@ -6,6 +6,8 @@ const orchestration = require("./orchestrator-contracts.js");
 const reducer = require("./reducer.js");
 const execution = require("./execution-contracts.js");
 const contracts = require("./extraction-contracts.js");
+const playbook = require("./extraction-playbook.js");
+const derivedContent = require("./derived-content-contracts.js");
 const json = require("./json.js");
 
 const fail = message => { throw new Error(`extraction rejected: ${message}`); };
@@ -60,4 +62,40 @@ function extractRawCandidates({ executionResult, events, researchTarget, content
   return result;
 }
 
-module.exports = Object.freeze({ extractRawCandidates });
+// Stage-specific entry point for an already-acquired artifact. It deliberately
+// has no acquisition/readiness mutation and can only consume parent-bound
+// derived content.
+function extractRawCandidatesFromAcquiredSource({ context, researchTarget, sourceProspect, modelPlan, acquisitionArtifact, derivedContentEnvelope, adapter, playbook: selectedPlaybook }) {
+  const target = foundation.validateResearchTarget(researchTarget);
+  const prospect = foundation.validateSourceProspect(sourceProspect);
+  const extractionPolicy = selectedPlaybook || playbook.createPlaybook();
+  const readiness = playbook.evaluateRawExtractionReadiness({ playbook: extractionPolicy, modelPlan, sourceProspect: prospect, acquiredArtifact: acquisitionArtifact });
+  if (!readiness.passed) fail(`raw extraction readiness is blocked: ${readiness.blockers.join(",")}`);
+  const parent = execution.validateArtifact(acquisitionArtifact);
+  derivedContent.assertBoundToParent(derivedContentEnvelope, parent);
+  const derived = derivedContent.validateDerivedContent(derivedContentEnvelope);
+  const envelope = derivedContent.toExtractionEnvelope(derived);
+  const declaration = contracts.validateExtractorAdapterDeclaration(adapter && { schemaVersion: adapter.schemaVersion, adapterId: adapter.adapterId, adapterVersion: adapter.adapterVersion, supportedMediaTypes: adapter.supportedMediaTypes, supportedOperations: adapter.supportedOperations, deterministic: adapter.deterministic, localOnly: adapter.localOnly });
+  if (typeof adapter.execute !== "function") fail("extractor execute function is required");
+  ["batchId", "targetWorkId", "sourceWorkItemId", "attemptId"].forEach(field => { if (typeof context?.[field] !== "string" || context[field].length === 0) fail(`raw extraction context ${field} is required`); });
+  if (context.targetId !== target.id || context.prospectId !== prospect.id || parent.prospectId !== prospect.id || parent.attemptId !== context.attemptId) fail("raw extraction context identity mismatch");
+  if (envelope.artifactId !== derived.id || envelope.mediaType !== derived.mediaType) fail("derived content envelope identity mismatch");
+  if (!declaration.supportedMediaTypes.includes(envelope.mediaType)) return contracts.validateExtractionResult({ schemaVersion: contracts.EXTRACTION_SCHEMA_VERSION, id: contracts.extractionResultId({ ...context, artifactId: derived.id, adapterId: declaration.adapterId, adapterVersion: declaration.adapterVersion, operation: contracts.EXTRACTION_OPERATION }), ...context, artifactId: derived.id, adapterId: declaration.adapterId, adapterVersion: declaration.adapterVersion, disposition: "UNSUPPORTED-MEDIA", candidates: [], observations: [{ type: "UNSUPPORTED-MEDIA", detailCode: "EXTRACTOR_MEDIA_TYPE_UNSUPPORTED", metadata: { mediaType: envelope.mediaType } }] });
+  const resultId = contracts.extractionResultId({ ...context, artifactId: derived.id, adapterId: declaration.adapterId, adapterVersion: declaration.adapterVersion, operation: contracts.EXTRACTION_OPERATION });
+  const raw = adapter.execute(json.immutableClone({ schemaVersion: contracts.EXTRACTION_SCHEMA_VERSION, operation: contracts.EXTRACTION_OPERATION, artifact: { id: derived.id, mediaType: derived.mediaType, byteLength: derived.byteLength, contentDigest: derived.contentDigest, parentArtifactId: parent.id }, content: envelope.content }));
+  json.assertJsonSafe(raw);
+  if (!raw || !adapterDispositions.has(raw.disposition) || !Array.isArray(raw.candidates) || !Array.isArray(raw.observations)) fail("extractor output is malformed");
+  if (raw.candidates.length > modelPlan.budget.maxRawCandidates) fail("extraction output exceeds model budget");
+  raw.observations.forEach(contracts.validateExtractionObservation);
+  const candidates = raw.candidates.map(candidate => {
+    forbidden.forEach(field => { if (Object.prototype.hasOwnProperty.call(candidate, field)) fail(`extractor candidate cannot supply canonical field: ${field}`); });
+    if (!contracts.SERVICE_CORE_FIELDS.includes(candidate.fieldId)) fail("extractor produced an unmapped field");
+    playbook.validateFutureSourceLocation({ page: candidate.sourceLocation?.page, section: candidate.sourceLocation?.section, locator: candidate.sourceLocation?.locator, tableOrSubsection: candidate.sourceLocation?.tableOrSubsection });
+    if (!candidate.context || candidate.context.derivedContentId !== derived.id) fail("candidate provenance is not bound to derived content");
+    const identity = { extractionResultId: resultId, artifactId: derived.id, targetId: target.id, fieldId: candidate.fieldId, sourceLocation: candidate.sourceLocation, ordinal: candidate.ordinal, adapterId: declaration.adapterId, adapterVersion: declaration.adapterVersion };
+    return contracts.validateExtractionCandidate({ schemaVersion: contracts.EXTRACTION_SCHEMA_VERSION, id: contracts.candidateId(identity), ...context, artifactId: derived.id, adapterId: declaration.adapterId, adapterVersion: declaration.adapterVersion, extractionResultId: resultId, fieldId: candidate.fieldId, rawValue: candidate.rawValue, rawUnit: candidate.rawUnit === undefined ? null : candidate.rawUnit, sourceLocation: candidate.sourceLocation, extractionMethod: candidate.extractionMethod, applicability: candidate.applicability === undefined ? null : candidate.applicability, context: candidate.context, ordinal: candidate.ordinal });
+  }).sort((a, b) => a.id.localeCompare(b.id));
+  return contracts.validateExtractionResult({ schemaVersion: contracts.EXTRACTION_SCHEMA_VERSION, id: resultId, ...context, artifactId: derived.id, adapterId: declaration.adapterId, adapterVersion: declaration.adapterVersion, disposition: raw.disposition, candidates, observations: raw.observations });
+}
+
+module.exports = Object.freeze({ extractRawCandidates, extractRawCandidatesFromAcquiredSource });
