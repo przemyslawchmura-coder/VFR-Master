@@ -592,3 +592,17 @@ excluded. No review decisions, evidence, verified Service Core, production,
 catalogue, Supabase or deployment state changed, and `2D1-28197-E0` remained
 untouched. The next bounded task is to evaluate genericity for scaling, not to
 promote or broaden this data.
+
+## 2026-09-08 — Declarative Field Policy / Source Authority Contract Foundation
+
+Added the smallest executable ADR-031 contract as a manufacturer-neutral
+Factory module. Closed source classes and specialist domains, group defaults
+with canonical Service Core field overrides, authority minimums, corroboration
+modes, applicability/provenance requirements, fast/deep path decisions and
+bounded search budgets are validated immutably and evaluated deterministically.
+Discovery-only sources, insufficient authority, unresolved required
+applicability, incomplete provenance, conflicts and invalid policy combinations
+fail closed. Synthetic tests cover the contract; no live research, FZ1 pilot,
+PDF, candidates, review decisions, evidence, Service Core or production data
+changed. The next bounded wave is an existing-fleet field-oriented coverage
+reassessment using this policy.

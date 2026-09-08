@@ -24,6 +24,7 @@ const extractionContracts = require("./extraction-contracts.js");
 const extractionAdapters = require("./extraction-adapters.js");
 const extractionAgent = require("./extraction-agent.js");
 const extractionPlaybook = require("./extraction-playbook.js");
+const fieldResearchPolicy = require("./field-research-policy.js");
 const derivedContentContracts = require("./derived-content-contracts.js");
 const reviewQueueContracts = require("./review-queue-contracts.js");
 const reviewQueue = require("./review-queue.js");
@@ -43,4 +44,4 @@ const productionPromotionAuthorization = require("./production-promotion-authori
 const rollbackGovernanceContracts = require("./rollback-governance-contracts.js");
 const rollbackGovernance = require("./rollback-governance.js");
 
-module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...executionContracts, ...extractionContracts, ...derivedContentContracts, ...reviewQueueContracts, ...reviewDecisionContracts, ...evidenceProcessingContracts, ...promotionContracts, ...promotionReviewContracts, ...promotionReviewDecisionContracts, ...schemaConversionContracts, ...productionPromotionAuthorizationContracts, ...rollbackGovernanceContracts, ...applicability, ...identityMapping, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, ...executionAgent, ...extractionAgent, ...extractionPlaybook, ...reviewQueue, ...reviewDecisions, ...evidenceProcessing, ...promotionReadiness, ...promotionReview, ...schemaConversion, ...productionPromotionAuthorization, ...rollbackGovernance, adapters, acquisitionAdapters, extractionAdapters, ids, events, orchestrationJson, plannerPriority: priority });
+module.exports = Object.freeze({ ...contracts, ...orchestratorContracts, ...plannerContracts, ...executionContracts, ...extractionContracts, ...derivedContentContracts, ...reviewQueueContracts, ...reviewDecisionContracts, ...evidenceProcessingContracts, ...promotionContracts, ...promotionReviewContracts, ...promotionReviewDecisionContracts, ...schemaConversionContracts, ...productionPromotionAuthorizationContracts, ...rollbackGovernanceContracts, ...applicability, ...identityMapping, ...readiness, ...gapPlan, ...reducer, ...checkpoint, ...orchestrator, ...planner, ...executionAgent, ...extractionAgent, ...extractionPlaybook, ...fieldResearchPolicy, ...reviewQueue, ...reviewDecisions, ...evidenceProcessing, ...promotionReadiness, ...promotionReview, ...schemaConversion, ...productionPromotionAuthorization, ...rollbackGovernance, adapters, acquisitionAdapters, extractionAdapters, ids, events, orchestrationJson, plannerPriority: priority });

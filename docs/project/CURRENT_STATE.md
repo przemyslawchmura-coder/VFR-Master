@@ -127,7 +127,7 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Implement the smallest declarative field-policy/source-authority contract with synthetic-only validation; do not execute live motorcycle research, promote the 14 FZ1 raw candidates, resolve applicability or touch `2D1-28197-E0`. Supabase production migration-history reconciliation remains separately unresolved and unauthorized; leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
+**NEXT** — Execute one bounded Existing-Fleet Field-Oriented Coverage Reassessment / Research Planning wave using the new declarative field-policy/source-authority contract. Prioritize already-supported motorcycles and missing Service Core fields; identify fast-path OEM web, support, fiche and specialist opportunities without live research or promotion unless separately authorized. Supabase production migration-history reconciliation remains separately unresolved and unauthorized; leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
 
 Deferred independent streams remain future bounded Ducati/BMW profile expansion, cooling-scope resolution and the global catalogue gap audit; none is an active NEXT task.
 
@@ -169,3 +169,11 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   diagnostic and unresolved cases remain deep path. The existing FZ1 pilot is
   only a benchmark: no PDF, pilot or extractor was executed, and no
   candidates, evidence, Service Core or production data changed.
+- Declarative field-policy/source-authority contract foundation: added a small
+  manufacturer-neutral immutable policy schema and pure evaluator with closed
+  source classes, specialist domains, corroboration modes, applicability and
+  bounded search budgets. Group defaults and canonical Service Core field
+  overrides are deterministic; discovery-only sources, invalid combinations,
+  missing required applicability/provenance and insufficient authority fail
+  closed. No research, FZ1 execution, candidates, evidence, Service Core or
+  production data changed.
