@@ -691,3 +691,26 @@ or Supabase state changed. The deterministic package report and reproduction
 test are retained. Next: establish one independently authenticated,
 exactly-applicable permitted source route before a bounded rerun; do not
 weaken ADR-031 or add source-specific parsing.
+
+## 2026-09-08 — CBR500R PC70 permitted source-route authentication
+
+Authenticated source routes only for the four planned CBR500R PC70 fields
+using eight bounded public discovery/authentication attempts. The official
+Honda 2024 owner-manual route is permitted Tier A for oil specification and
+loaded-pressure follow-up, with loaded-condition proof still required. The
+Honda parts route is applicability-partial, the RK manufacturer route lacks
+exact CBR500R/year fitment, and bike-parts-honda.com remains discovery-only
+because authorization was not proven. No technical values, candidates,
+review decisions, evidence, Service Core, production, catalogue or Supabase
+state changed. Next: execute one bounded CBR500R source wave only through the
+authenticated Honda owner-manual route, preserving the loaded-condition gate.
+
+## 2026-09-08 — CBR500R source-route authentication final gate recovery
+
+Revalidated the already completed source-route wave without new research,
+discovery attempts or live URL access. The independent compliance audit is
+`ACCEPT`; unresolved loaded-condition, Honda-parts applicability and RK
+fitment/access items remain explicit research risks rather than audit defects.
+The recovery full suite passed after approved local-fixture access was used;
+all other required gates passed. The existing commit was amended in place; no
+production, catalogue, Supabase or infrastructure state changed.

@@ -233,3 +233,11 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   production, catalogue or Supabase state changed. The next bounded step is
   to establish one independently authenticated, exactly applicable source
   route before rerunning a field package.
+- CBR500R PC70 source-route authentication is complete for four scoped fields.
+  Eight bounded attempts established one permitted Tier A Honda 2024 owner
+  manual route for oil specification and loaded-pressure follow-up. The Honda
+  parts route remains applicability-partial, RK fitment remains applicability-
+  partial, and bike-parts-honda.com remains discovery-only. No technical
+  values, candidates, evidence, review, Service Core, production, catalogue
+  or Supabase state changed. NEXT is one bounded CBR500R execution through the
+  authenticated Honda manual route only.
