@@ -645,3 +645,17 @@ derivation and Extraction Agent tests pass 26/26. No live source, motorcycle
 research, semantic field extraction, raw candidates, review decisions,
 evidence, Service Core or production data changed. Next: rerun the bounded
 three-Honda fast-path package through HTTP acquisition and HTML derivation.
+
+## 2026-09-08 — Declarative Derived-Text Raw-Extraction Foundation
+
+Added a manufacturer-, model-, website- and field-value-neutral declarative
+text executor with closed `TEXT_PATTERN` and bounded `LABEL_VALUE` rules.
+Rules and matches are JSON-safe and deterministic; derived digests are
+recomputed, exact matched/captured text and bounded line/character locators
+are preserved, ambiguity fails closed, and caller-supplied applicability and
+authority are not upgraded. A thin adapter reuses the existing Extraction
+Agent/raw-candidate contracts. Focused declarative, HTML and Extraction Agent
+tests pass 36/36. No live research, motorcycle candidates, review decisions,
+evidence, Service Core, production, catalogue or Supabase changes occurred.
+Next: rerun the bounded three-Honda fast-path package through the complete
+generic web acquisition, HTML derivation and declarative extraction path.

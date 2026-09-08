@@ -93,7 +93,9 @@ function assertArtifactEqual(expected, actual) {
 }
 
 function validateFutureSourceLocation(location) {
-  assert(location && Number.isInteger(location.page) && location.page > 0, "future provenance requires page");
+  const pdfLocation = Number.isInteger(location?.page) && location.page > 0;
+  const textLocation = location?.page === null && typeof location.locator === "string" && location.locator.startsWith("lines:");
+  assert(pdfLocation || textLocation, "future provenance requires page or bounded text locator");
   assert(typeof location.section === "string" && location.section.length > 0, "future provenance requires section");
   assert(typeof location.locator === "string" && location.locator.length > 0, "future provenance requires locator");
   assert(typeof location.tableOrSubsection === "string" && location.tableOrSubsection.length > 0, "future provenance requires tableOrSubsection");

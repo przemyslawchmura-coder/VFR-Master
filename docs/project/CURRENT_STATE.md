@@ -202,3 +202,12 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   motorcycle research, candidates, evidence, review or production state
   changed. The next bounded wave may rerun the three-Honda fast-path package
   through HTTP acquisition and HTML derivation.
+- Generic declarative derived-text extraction is now available through schema
+  version 1. It supports only bounded JSON-safe `TEXT_PATTERN` and
+  `LABEL_VALUE` rules, recomputes derived-content digests, preserves exact
+  captured text and line/character locators, rejects ambiguity and emits raw
+  candidates only through the existing Extraction Agent adapter boundary.
+  Applicability and source authority are caller-supplied and never inferred.
+  No live motorcycle research or motorcycle technical data changed. The next
+  bounded wave may rerun the three-Honda fast-path package through HTTP,
+  parent-bound HTML derivation and declarative extraction.

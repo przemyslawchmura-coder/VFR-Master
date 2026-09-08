@@ -6,11 +6,11 @@
   "baseCommit": "b1c8575105c981d4eb39370bd32cff4c6dba4280",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 494,
-    "javascriptFiles": 322,
-    "testFiles": 110,
-    "documentationFiles": 89,
-    "researchAndToolingFiles": 236
+    "files": 497,
+    "javascriptFiles": 324,
+    "testFiles": 111,
+    "documentationFiles": 90,
+    "researchAndToolingFiles": 237
   },
   "catalogue": {
     "manufacturers": 13,
