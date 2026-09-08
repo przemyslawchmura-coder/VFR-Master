@@ -225,3 +225,11 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   and deterministic identity remain enforced. No live motorcycle research or
   research output changed. The next bounded step remains the three-Honda
   fast-path package through the complete trusted web-to-raw path.
+- Existing-Fleet Fast-Path Package 1 was rerun for exactly NC750X RH09-1,
+  CBR600RR RH10 and CBR500R PC70 with four bounded explicit HTML acquisitions.
+  The fiche provider remained unauthenticated and the official CBR500R route
+  did not prove exact field applicability, so all six slots stopped fail-closed
+  and zero raw candidates were retained. No review, evidence, Service Core,
+  production, catalogue or Supabase state changed. The next bounded step is
+  to establish one independently authenticated, exactly applicable source
+  route before rerunning a field package.

@@ -1,6 +1,11 @@
 # Master roadmap
 
-Only one major phase is active at a time. Partial research is normal and must not block unrelated catalogue work.
+The first trusted web-to-raw three-Honda package was executed within budget
+after the custody fixes. It retained zero candidates because fiche authority
+and exact official-route applicability were not proven; future work must first
+establish an authenticated, exactly applicable source route. Only one major
+phase is active at a time. Partial research is normal and must not block
+unrelated catalogue work.
 
 ## Phase 1 — Foundation and identity (COMPLETE)
 

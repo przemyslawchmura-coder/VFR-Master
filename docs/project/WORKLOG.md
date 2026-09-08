@@ -677,3 +677,17 @@ paths are exempt from secret-shaped textual heuristics; control, provenance,
 URL, locator and transformer metadata remain scanned. Derived digest, byte
 length, deterministic identity and parent binding remain fail-closed. No live
 motorcycle research or technical/production data changed.
+
+## 2026-09-08 — Existing-Fleet Fast-Path Package 1 trusted web-to-raw rerun
+
+Executed the exact bounded three-target package for Honda NC750X RH09-1,
+Honda CBR600RR RH10 and Honda CBR500R PC70. Four explicit public HTML
+acquisitions used the generic bounded HTTP adapter and HTML derivation path;
+the fiche provider remained without independently proven authority and the
+official CBR500R route did not establish exact field applicability. All six
+planned slots therefore stopped fail-closed and zero raw candidates were
+retained. No review decisions, evidence, Service Core, production, catalogue
+or Supabase state changed. The deterministic package report and reproduction
+test are retained. Next: establish one independently authenticated,
+exactly-applicable permitted source route before a bounded rerun; do not
+weaken ADR-031 or add source-specific parsing.

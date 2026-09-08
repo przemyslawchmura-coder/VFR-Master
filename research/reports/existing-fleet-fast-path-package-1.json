@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "revlog-existing-fleet-fast-path-package/v1",
+  "startingHead": "7ffd4e4",
+  "scope": {
+    "targets": ["honda.nc750x.rh09-1", "honda.cbr600rr.rh10", "honda.cbr500r.pc70"],
+    "fields": [
+      "honda.nc750x.rh09-1:lubrication.oil-filter",
+      "honda.cbr600rr.rh10:lubrication.oil-filter",
+      "honda.cbr500r.pc70:lubrication.oil-specification",
+      "honda.cbr500r.pc70:lubrication.oil-filter",
+      "honda.cbr500r.pc70:final_drive.chain-size",
+      "honda.cbr500r.pc70:tires_wheels.loaded-pressures"
+    ]
+  },
+  "policy": { "adr": "ADR-031", "schemaVersion": 1, "ambiguityPolicy": "REJECT" },
+  "budget": {
+    "perTarget": { "maxDiscoveryAttempts": 4, "maxAuthenticatedSources": 2, "maxSourceClasses": 3, "maxRawCandidates": 8 },
+    "packageMaxRawCandidates": 24,
+    "usage": {
+      "honda.nc750x.rh09-1": { "discoveryAttempts": 1, "authenticatedSources": 0, "sourceClasses": 1, "rawCandidates": 0 },
+      "honda.cbr600rr.rh10": { "discoveryAttempts": 1, "authenticatedSources": 0, "sourceClasses": 1, "rawCandidates": 0 },
+      "honda.cbr500r.pc70": { "discoveryAttempts": 2, "authenticatedSources": 0, "sourceClasses": 1, "rawCandidates": 0 }
+    },
+    "packageUsage": { "discoveryAttempts": 4, "authenticatedSources": 0, "sourceClasses": 1, "rawCandidates": 0 }
+  },
+  "sourceAttempts": [
+    { "targetId": "honda.nc750x.rh09-1", "route": "FAST_PATH_OEM_FICHE", "requestedUrl": "https://www.bike-parts-honda.com/honda-motorcycle/750-MOTO/NC/2021/NC750XAM/Engine/OIL-PAN-OIL-PUMP/103802/E_14/1/42365", "sourceClass": "UNRESOLVED_AUTHORITY", "acquisition": "SUCCESS_NOT_RETAINED", "derivation": "SUCCESS_NOT_RETAINED", "stopReason": "source authority is not independently proven" },
+    { "targetId": "honda.cbr600rr.rh10", "route": "FAST_PATH_OEM_FICHE", "requestedUrl": "https://www.bike-parts-honda.com/honda-motorcycle/600-MOTO/CBR/2024/CBR600RRR/Engine/OIL-FILTER--OIL-PAN--OIL-PUMP/108549/E14/1/49464", "sourceClass": "UNRESOLVED_AUTHORITY", "acquisition": "SUCCESS_NOT_RETAINED", "derivation": "SUCCESS_NOT_RETAINED", "stopReason": "source authority is not independently proven" },
+    { "targetId": "honda.cbr500r.pc70", "route": "FAST_PATH_OEM_FICHE", "requestedUrl": "https://www.bike-parts-honda.com/honda-motorcycle/500-MOTO/CBR/2024/CBR500RAR/Engine/OIL-FILTER--OIL-PAN--OIL-PUMP/107854/E14/1/49150", "sourceClass": "UNRESOLVED_AUTHORITY", "acquisition": "SUCCESS_NOT_RETAINED", "derivation": "SUCCESS_NOT_RETAINED", "stopReason": "source authority is not independently proven" },
+    { "targetId": "honda.cbr500r.pc70", "route": "FAST_PATH_OEM_WEB", "requestedUrl": "https://powersports.honda.com/motorcycle/sport/cbr500r?year=2024", "sourceClass": "TIER_A_OEM", "acquisition": "SUCCESS_NOT_RETAINED", "derivation": "SUCCESS_NOT_RETAINED", "applicability": "UNRESOLVED", "stopReason": "exact model-year source applicability and field text were not safely established" }
+  ],
+  "slots": [
+    { "targetId": "honda.nc750x.rh09-1", "fieldId": "lubrication.oil-filter", "status": "STOPPED", "stopReason": "UNRESOLVED_SOURCE_AUTHORITY; transmission scope not independently proven", "candidateIds": [] },
+    { "targetId": "honda.cbr600rr.rh10", "fieldId": "lubrication.oil-filter", "status": "STOPPED", "stopReason": "UNRESOLVED_SOURCE_AUTHORITY", "candidateIds": [] },
+    { "targetId": "honda.cbr500r.pc70", "fieldId": "lubrication.oil-specification", "status": "STOPPED", "stopReason": "APPLICABILITY_OR_FIELD_TEXT_UNRESOLVED", "candidateIds": [] },
+    { "targetId": "honda.cbr500r.pc70", "fieldId": "lubrication.oil-filter", "status": "STOPPED", "stopReason": "UNRESOLVED_SOURCE_AUTHORITY", "candidateIds": [] },
+    { "targetId": "honda.cbr500r.pc70", "fieldId": "final_drive.chain-size", "status": "STOPPED", "stopReason": "NO_PERMITTED_SPECIALIST_SOURCE_ACQUIRED_WITHIN_PACKAGE", "candidateIds": [] },
+    { "targetId": "honda.cbr500r.pc70", "fieldId": "tires_wheels.loaded-pressures", "status": "STOPPED", "stopReason": "NO_EXACT_LOADED_CONDITION_SOURCE_ACQUIRED", "candidateIds": [] }
+  ],
+  "retained": { "authenticatedSources": [], "artifacts": [], "derivatives": [], "rules": [], "rawCandidates": [], "conflicts": [], "duplicateStops": [] },
+  "assertions": { "allLiveHtmlUsedHttpPublicBounded": true, "allLiveHtmlUsedHtmlNormalizedText": true, "manualCandidatePath": false, "reviewDecisionsCreated": false, "evidenceCreated": false, "verifiedServiceCoreChanged": false, "productionChanged": false, "catalogueChanged": false, "supabaseChanged": false }
+}
