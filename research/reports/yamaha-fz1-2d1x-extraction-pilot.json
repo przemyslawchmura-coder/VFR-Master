@@ -1,0 +1,813 @@
+{
+  "schemaVersion": "revlog-yamaha-fz1-2d1x-extraction-pilot/v1",
+  "targetResearchIdentity": "yamaha.fz1.gen2",
+  "publicationCode": "2D1X",
+  "artifactId": "artifact.ffc6f33c89cf65726482e10e",
+  "artifactSha256": "bbaa777d8d0184f231573fdf6116d73b7770930d4bdf19b1f0d7386d6b7e2a93",
+  "artifactByteLength": 5098486,
+  "artifactMediaType": "application/pdf",
+  "transformer": {
+    "id": "factory.local.pdf-page-text.pypdf",
+    "version": "1"
+  },
+  "readiness": {
+    "stage": "RAW-EXTRACTION",
+    "passed": true,
+    "classification": "RAW-EXTRACTION-READY",
+    "checks": {
+      "authenticatedSource": true,
+      "knownPublication": true,
+      "officialAccessibleContent": true,
+      "exactArtifact": true,
+      "playbookPlanMatch": true,
+      "boundedRegions": true,
+      "boundedOutput": true,
+      "boundedApplicabilityScope": true,
+      "unresolvedApplicabilityRepresented": true,
+      "preciseProvenanceRequired": true,
+      "conditionalRowsPreserved": true
+    },
+    "unresolvedApplicability": [
+      "market",
+      "abs",
+      "transmission",
+      "equipment",
+      "emissions"
+    ],
+    "downstream": {
+      "evidenceReady": false,
+      "promotionReady": false,
+      "productionReady": false
+    },
+    "blockers": []
+  },
+  "approvedRegions": [
+    {
+      "id": "toc-and-applicability",
+      "pages": [
+        4
+      ],
+      "derivedContentId": "artifact.db3b15f33290cb8ca1d00fc3",
+      "extractionResultId": "extraction-result.cb612efff63b3e306e06ca91",
+      "disposition": "NO-CANDIDATES",
+      "candidates": 0
+    },
+    {
+      "id": "daily-inspection",
+      "pages": [
+        36
+      ],
+      "derivedContentId": "artifact.91e721efb5ead28e4a04bd08",
+      "extractionResultId": "extraction-result.7c3ad39962b47d716cb5b628",
+      "disposition": "NO-CANDIDATES",
+      "candidates": 0
+    },
+    {
+      "id": "maintenance-oil-cooling",
+      "pages": [
+        39,
+        41,
+        43
+      ],
+      "derivedContentId": "artifact.9d181c6ef9767ea70c6ecba7",
+      "extractionResultId": "extraction-result.aae431289e21e4c37c6925e9",
+      "disposition": "CANDIDATES-PRODUCED",
+      "candidates": 3
+    },
+    {
+      "id": "maintenance-tires-clutch-brakes",
+      "pages": [
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "derivedContentId": "artifact.4b7131284929637923109566",
+      "extractionResultId": "extraction-result.a6866bc9c619fdd3bf96d238",
+      "disposition": "CANDIDATES-PRODUCED",
+      "candidates": 5
+    },
+    {
+      "id": "maintenance-chain-electrical",
+      "pages": [
+        51,
+        52,
+        53,
+        54,
+        56
+      ],
+      "derivedContentId": "artifact.8d144650fa65c41ebada00cf",
+      "extractionResultId": "extraction-result.12f67cd0dffea8becd54f407",
+      "disposition": "CANDIDATES-PRODUCED",
+      "candidates": 3
+    },
+    {
+      "id": "specification-index",
+      "pages": [
+        61,
+        62,
+        63
+      ],
+      "derivedContentId": "artifact.7df6778734afa93a73185370",
+      "extractionResultId": "extraction-result.5a76c08114347a8e8ee2a8fe",
+      "disposition": "CANDIDATES-PRODUCED",
+      "candidates": 3
+    }
+  ],
+  "candidates": [
+    {
+      "adapterId": "yamaha.fz1.2d1x.owner-manual-structural-extractor",
+      "adapterVersion": "1",
+      "applicability": {
+        "abs": "UNKNOWN",
+        "bodyStyle": "naked",
+        "emissions": "UNKNOWN",
+        "equipment": "UNKNOWN",
+        "generation": "II",
+        "market": "UNKNOWN",
+        "model": [
+          "FZ1-N",
+          "FZ1-NA"
+        ],
+        "modelYear": 2010,
+        "publicationCode": "2D1X",
+        "transmission": "UNKNOWN"
+      },
+      "artifactId": "artifact.9d181c6ef9767ea70c6ecba7",
+      "attemptId": "attempt.000000000000000000000000",
+      "batchId": "batch.74fe42d5017de6b9d125aaf3",
+      "context": {
+        "derivedContentId": "artifact.9d181c6ef9767ea70c6ecba7",
+        "sourceEncoding": "utf8",
+        "unitsContext": "viscosity and JASO designation preserved"
+      },
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.aae431289e21e4c37c6925e9",
+      "fieldId": "lubrication.oil-specification",
+      "id": "extraction-candidate.10608b6e52ca18baba7b0346",
+      "ordinal": 1,
+      "prospectId": "prospect.yamaha.fz1.owner.2d1x-2010",
+      "rawUnit": null,
+      "rawValue": "ヤマルーブ プレミアム 10W–40 MA; ヤマルーブ スポーツ 10W–40 MA; ヤマルーブ ベーシック 20W–40 または 10W–30 MA",
+      "schemaVersion": 1,
+      "sourceLocation": {
+        "applicabilityStatement": "2010 FZ1-N / FZ1-NA owner manual scope; unresolved dimensions retained",
+        "locator": "JAU30372 / 推奨エンジンオイル",
+        "page": 41,
+        "section": "点検整備 / エンジンオイル / 冷却水",
+        "tableOrSubsection": "recommended oil table",
+        "unitsContext": "viscosity and JASO designation preserved"
+      },
+      "sourceWorkItemId": "source-work.75710b75b68bf6483b6d1d46",
+      "targetId": "target.yamaha.fz1.gen2.2006-2015.unknown",
+      "targetWorkId": "target-work.fa590540d1e4eede78d5692a"
+    },
+    {
+      "adapterId": "yamaha.fz1.2d1x.owner-manual-structural-extractor",
+      "adapterVersion": "1",
+      "applicability": {
+        "abs": "UNKNOWN",
+        "bodyStyle": "naked",
+        "emissions": "UNKNOWN",
+        "equipment": "UNKNOWN",
+        "generation": "II",
+        "market": "UNKNOWN",
+        "model": [
+          "FZ1-N",
+          "FZ1-NA"
+        ],
+        "modelYear": 2010,
+        "publicationCode": "2D1X",
+        "transmission": "UNKNOWN"
+      },
+      "artifactId": "artifact.9d181c6ef9767ea70c6ecba7",
+      "attemptId": "attempt.000000000000000000000000",
+      "batchId": "batch.74fe42d5017de6b9d125aaf3",
+      "context": {
+        "derivedContentId": "artifact.9d181c6ef9767ea70c6ecba7",
+        "sourceEncoding": "utf8",
+        "unitsContext": "ratio preserved"
+      },
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.aae431289e21e4c37c6925e9",
+      "fieldId": "cooling.coolant-specification",
+      "id": "extraction-candidate.5fd6b8a79b3b64f14579e5a7",
+      "ordinal": 2,
+      "prospectId": "prospect.yamaha.fz1.owner.2d1x-2010",
+      "rawUnit": null,
+      "rawValue": "ヤマハ純正ロングライフクーラントと水道水を1対1で混合",
+      "schemaVersion": 1,
+      "sourceLocation": {
+        "applicabilityStatement": "2010 FZ1-N / FZ1-NA owner manual scope; unresolved dimensions retained",
+        "locator": "JAU30801 / 冷却水のつくりかた",
+        "page": 43,
+        "section": "点検整備 / エンジンオイル / 冷却水",
+        "tableOrSubsection": "coolant preparation subsection",
+        "unitsContext": "ratio preserved"
+      },
+      "sourceWorkItemId": "source-work.75710b75b68bf6483b6d1d46",
+      "targetId": "target.yamaha.fz1.gen2.2006-2015.unknown",
+      "targetWorkId": "target-work.fa590540d1e4eede78d5692a"
+    },
+    {
+      "adapterId": "yamaha.fz1.2d1x.owner-manual-structural-extractor",
+      "adapterVersion": "1",
+      "applicability": {
+        "abs": "UNKNOWN",
+        "bodyStyle": "naked",
+        "emissions": "UNKNOWN",
+        "equipment": "UNKNOWN",
+        "generation": "II",
+        "market": "UNKNOWN",
+        "model": [
+          "FZ1-N",
+          "FZ1-NA"
+        ],
+        "modelYear": 2010,
+        "publicationCode": "2D1X",
+        "transmission": "UNKNOWN"
+      },
+      "artifactId": "artifact.9d181c6ef9767ea70c6ecba7",
+      "attemptId": "attempt.000000000000000000000000",
+      "batchId": "batch.74fe42d5017de6b9d125aaf3",
+      "context": {
+        "derivedContentId": "artifact.9d181c6ef9767ea70c6ecba7",
+        "sourceEncoding": "utf8",
+        "unitsContext": "L; FULL-level reserve and total capacity kept separate"
+      },
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.aae431289e21e4c37c6925e9",
+      "fieldId": "cooling.capacity",
+      "id": "extraction-candidate.d12ae57c48bbc915d452890d",
+      "ordinal": 3,
+      "prospectId": "prospect.yamaha.fz1.owner.2d1x-2010",
+      "rawUnit": "L",
+      "rawValue": "リザーブタンク FULL 0.25 L; 冷却水総容量 2.25 L",
+      "schemaVersion": 1,
+      "sourceLocation": {
+        "applicabilityStatement": "2010 FZ1-N / FZ1-NA owner manual scope; unresolved dimensions retained",
+        "locator": "製品仕様 / クーリングシステム",
+        "page": 62,
+        "section": "点検整備 / エンジンオイル / 冷却水",
+        "tableOrSubsection": "cooling system specification",
+        "unitsContext": "L; FULL-level reserve and total capacity kept separate"
+      },
+      "sourceWorkItemId": "source-work.75710b75b68bf6483b6d1d46",
+      "targetId": "target.yamaha.fz1.gen2.2006-2015.unknown",
+      "targetWorkId": "target-work.fa590540d1e4eede78d5692a"
+    },
+    {
+      "adapterId": "yamaha.fz1.2d1x.owner-manual-structural-extractor",
+      "adapterVersion": "1",
+      "applicability": {
+        "abs": "UNKNOWN",
+        "bodyStyle": "naked",
+        "condition": "1名乗車; cold tires",
+        "emissions": "UNKNOWN",
+        "equipment": "UNKNOWN",
+        "generation": "II",
+        "market": "UNKNOWN",
+        "model": [
+          "FZ1-N",
+          "FZ1-NA"
+        ],
+        "modelYear": 2010,
+        "publicationCode": "2D1X",
+        "transmission": "UNKNOWN"
+      },
+      "artifactId": "artifact.4b7131284929637923109566",
+      "attemptId": "attempt.000000000000000000000000",
+      "batchId": "batch.74fe42d5017de6b9d125aaf3",
+      "context": {
+        "condition": "1名乗車; cold tires",
+        "derivedContentId": "artifact.4b7131284929637923109566",
+        "sourceEncoding": "utf8"
+      },
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.a6866bc9c619fdd3bf96d238",
+      "fieldId": "tires_wheels.solo-pressures",
+      "id": "extraction-candidate.1bed306d8b02c56ee8718bfd",
+      "ordinal": 3,
+      "prospectId": "prospect.yamaha.fz1.owner.2d1x-2010",
+      "rawUnit": "kPa",
+      "rawValue": "前輪 250 kPa (2.50 kgf/cm²); 後輪 290 kPa (2.90 kgf/cm²)",
+      "schemaVersion": 1,
+      "sourceLocation": {
+        "applicabilityStatement": "2010 FZ1-N / FZ1-NA owner manual scope; unresolved dimensions retained",
+        "locator": "タイヤ / タイヤ空気圧（冷間時） / 1名乗車",
+        "page": 46,
+        "section": "タイヤ / クラッチ / ブレーキ",
+        "tableOrSubsection": "solo cold tire pressures",
+        "unitsContext": "preserve source units"
+      },
+      "sourceWorkItemId": "source-work.75710b75b68bf6483b6d1d46",
+      "targetId": "target.yamaha.fz1.gen2.2006-2015.unknown",
+      "targetWorkId": "target-work.fa590540d1e4eede78d5692a"
+    },
+    {
+      "adapterId": "yamaha.fz1.2d1x.owner-manual-structural-extractor",
+      "adapterVersion": "1",
+      "applicability": {
+        "abs": "UNKNOWN",
+        "bodyStyle": "naked",
+        "emissions": "UNKNOWN",
+        "equipment": "UNKNOWN",
+        "generation": "II",
+        "market": "UNKNOWN",
+        "model": [
+          "FZ1-N",
+          "FZ1-NA"
+        ],
+        "modelYear": 2010,
+        "publicationCode": "2D1X",
+        "transmission": "UNKNOWN"
+      },
+      "artifactId": "artifact.4b7131284929637923109566",
+      "attemptId": "attempt.000000000000000000000000",
+      "batchId": "batch.74fe42d5017de6b9d125aaf3",
+      "context": {
+        "derivedContentId": "artifact.4b7131284929637923109566",
+        "sourceEncoding": "utf8"
+      },
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.a6866bc9c619fdd3bf96d238",
+      "fieldId": "tires_wheels.rear-size",
+      "id": "extraction-candidate.35a50b5f6e8bf54a353d2d5b",
+      "ordinal": 2,
+      "prospectId": "prospect.yamaha.fz1.owner.2d1x-2010",
+      "rawUnit": null,
+      "rawValue": "190/50 ZR17M/C (73W)",
+      "schemaVersion": 1,
+      "sourceLocation": {
+        "applicabilityStatement": "2010 FZ1-N / FZ1-NA owner manual scope; unresolved dimensions retained",
+        "locator": "タイヤ / タイヤサイズ / 後輪",
+        "page": 47,
+        "section": "タイヤ / クラッチ / ブレーキ",
+        "tableOrSubsection": "rear tire size",
+        "unitsContext": "preserve source units"
+      },
+      "sourceWorkItemId": "source-work.75710b75b68bf6483b6d1d46",
+      "targetId": "target.yamaha.fz1.gen2.2006-2015.unknown",
+      "targetWorkId": "target-work.fa590540d1e4eede78d5692a"
+    },
+    {
+      "adapterId": "yamaha.fz1.2d1x.owner-manual-structural-extractor",
+      "adapterVersion": "1",
+      "applicability": {
+        "abs": "UNKNOWN",
+        "bodyStyle": "naked",
+        "condition": "2名乗車; cold tires",
+        "emissions": "UNKNOWN",
+        "equipment": "UNKNOWN",
+        "generation": "II",
+        "market": "UNKNOWN",
+        "model": [
+          "FZ1-N",
+          "FZ1-NA"
+        ],
+        "modelYear": 2010,
+        "publicationCode": "2D1X",
+        "transmission": "UNKNOWN"
+      },
+      "artifactId": "artifact.4b7131284929637923109566",
+      "attemptId": "attempt.000000000000000000000000",
+      "batchId": "batch.74fe42d5017de6b9d125aaf3",
+      "context": {
+        "condition": "2名乗車; cold tires",
+        "derivedContentId": "artifact.4b7131284929637923109566",
+        "sourceEncoding": "utf8"
+      },
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.a6866bc9c619fdd3bf96d238",
+      "fieldId": "tires_wheels.loaded-pressures",
+      "id": "extraction-candidate.3b525460e3fcae756c6bcabd",
+      "ordinal": 4,
+      "prospectId": "prospect.yamaha.fz1.owner.2d1x-2010",
+      "rawUnit": "kPa",
+      "rawValue": "前輪 250 kPa (2.50 kgf/cm²); 後輪 290 kPa (2.90 kgf/cm²)",
+      "schemaVersion": 1,
+      "sourceLocation": {
+        "applicabilityStatement": "2010 FZ1-N / FZ1-NA owner manual scope; unresolved dimensions retained",
+        "locator": "タイヤ / タイヤ空気圧（冷間時） / 2名乗車",
+        "page": 46,
+        "section": "タイヤ / クラッチ / ブレーキ",
+        "tableOrSubsection": "loaded cold tire pressures",
+        "unitsContext": "preserve source units"
+      },
+      "sourceWorkItemId": "source-work.75710b75b68bf6483b6d1d46",
+      "targetId": "target.yamaha.fz1.gen2.2006-2015.unknown",
+      "targetWorkId": "target-work.fa590540d1e4eede78d5692a"
+    },
+    {
+      "adapterId": "yamaha.fz1.2d1x.owner-manual-structural-extractor",
+      "adapterVersion": "1",
+      "applicability": {
+        "abs": "UNKNOWN",
+        "bodyStyle": "naked",
+        "emissions": "UNKNOWN",
+        "equipment": "UNKNOWN",
+        "generation": "II",
+        "market": "UNKNOWN",
+        "model": [
+          "FZ1-N",
+          "FZ1-NA"
+        ],
+        "modelYear": 2010,
+        "publicationCode": "2D1X",
+        "transmission": "UNKNOWN"
+      },
+      "artifactId": "artifact.4b7131284929637923109566",
+      "attemptId": "attempt.000000000000000000000000",
+      "batchId": "batch.74fe42d5017de6b9d125aaf3",
+      "context": {
+        "derivedContentId": "artifact.4b7131284929637923109566",
+        "sourceEncoding": "utf8"
+      },
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.a6866bc9c619fdd3bf96d238",
+      "fieldId": "tires_wheels.front-size",
+      "id": "extraction-candidate.4133b8430ce5a8a9a566ea15",
+      "ordinal": 1,
+      "prospectId": "prospect.yamaha.fz1.owner.2d1x-2010",
+      "rawUnit": null,
+      "rawValue": "120/70 ZR17M/C (58W)",
+      "schemaVersion": 1,
+      "sourceLocation": {
+        "applicabilityStatement": "2010 FZ1-N / FZ1-NA owner manual scope; unresolved dimensions retained",
+        "locator": "タイヤ / タイヤサイズ / 前輪",
+        "page": 47,
+        "section": "タイヤ / クラッチ / ブレーキ",
+        "tableOrSubsection": "front tire size",
+        "unitsContext": "preserve source units"
+      },
+      "sourceWorkItemId": "source-work.75710b75b68bf6483b6d1d46",
+      "targetId": "target.yamaha.fz1.gen2.2006-2015.unknown",
+      "targetWorkId": "target-work.fa590540d1e4eede78d5692a"
+    },
+    {
+      "adapterId": "yamaha.fz1.2d1x.owner-manual-structural-extractor",
+      "adapterVersion": "1",
+      "applicability": {
+        "abs": "UNKNOWN",
+        "bodyStyle": "naked",
+        "emissions": "UNKNOWN",
+        "equipment": "UNKNOWN",
+        "generation": "II",
+        "market": "UNKNOWN",
+        "model": [
+          "FZ1-N",
+          "FZ1-NA"
+        ],
+        "modelYear": 2010,
+        "publicationCode": "2D1X",
+        "transmission": "UNKNOWN"
+      },
+      "artifactId": "artifact.4b7131284929637923109566",
+      "attemptId": "attempt.000000000000000000000000",
+      "batchId": "batch.74fe42d5017de6b9d125aaf3",
+      "context": {
+        "derivedContentId": "artifact.4b7131284929637923109566",
+        "sourceEncoding": "utf8"
+      },
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.a6866bc9c619fdd3bf96d238",
+      "fieldId": "brakes.brake-fluid",
+      "id": "extraction-candidate.b65ef0c401272a7c47efe47f",
+      "ordinal": 5,
+      "prospectId": "prospect.yamaha.fz1.owner.2d1x-2010",
+      "rawUnit": null,
+      "rawValue": "BF-4 (DOT-4)",
+      "schemaVersion": 1,
+      "sourceLocation": {
+        "applicabilityStatement": "2010 FZ1-N / FZ1-NA owner manual scope; unresolved dimensions retained",
+        "locator": "JAU31262 / 指定ブレーキ液",
+        "page": 50,
+        "section": "タイヤ / クラッチ / ブレーキ",
+        "tableOrSubsection": "brake fluid specification",
+        "unitsContext": "preserve source units"
+      },
+      "sourceWorkItemId": "source-work.75710b75b68bf6483b6d1d46",
+      "targetId": "target.yamaha.fz1.gen2.2006-2015.unknown",
+      "targetWorkId": "target-work.fa590540d1e4eede78d5692a"
+    },
+    {
+      "adapterId": "yamaha.fz1.2d1x.owner-manual-structural-extractor",
+      "adapterVersion": "1",
+      "applicability": {
+        "abs": "UNKNOWN",
+        "bodyStyle": "naked",
+        "emissions": "UNKNOWN",
+        "equipment": "UNKNOWN",
+        "generation": "II",
+        "market": "UNKNOWN",
+        "model": [
+          "FZ1-N",
+          "FZ1-NA"
+        ],
+        "modelYear": 2010,
+        "publicationCode": "2D1X",
+        "transmission": "UNKNOWN"
+      },
+      "artifactId": "artifact.8d144650fa65c41ebada00cf",
+      "attemptId": "attempt.000000000000000000000000",
+      "batchId": "batch.74fe42d5017de6b9d125aaf3",
+      "context": {
+        "derivedContentId": "artifact.8d144650fa65c41ebada00cf",
+        "sourceEncoding": "utf8"
+      },
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.12f67cd0dffea8becd54f407",
+      "fieldId": "lighting.replaceability",
+      "id": "extraction-candidate.5f666e7ec2278682406a70fe",
+      "ordinal": 3,
+      "prospectId": "prospect.yamaha.fz1.owner.2d1x-2010",
+      "rawUnit": null,
+      "rawValue": "指定されているワット数・規格の電球を使用",
+      "schemaVersion": 1,
+      "sourceLocation": {
+        "applicabilityStatement": "2010 FZ1-N / FZ1-NA owner manual scope; unresolved dimensions retained",
+        "locator": "JAU29442 / 灯火装置および方向指示灯の点検",
+        "page": 56,
+        "section": "ドライブチェーン / バッテリー / ヒューズ交換 / 灯火装置および方向指示灯",
+        "tableOrSubsection": "bulb replacement instruction",
+        "unitsContext": "preserve source units"
+      },
+      "sourceWorkItemId": "source-work.75710b75b68bf6483b6d1d46",
+      "targetId": "target.yamaha.fz1.gen2.2006-2015.unknown",
+      "targetWorkId": "target-work.fa590540d1e4eede78d5692a"
+    },
+    {
+      "adapterId": "yamaha.fz1.2d1x.owner-manual-structural-extractor",
+      "adapterVersion": "1",
+      "applicability": {
+        "abs": "UNKNOWN",
+        "bodyStyle": "naked",
+        "condition": "rear wheel slowly rotated for inspection",
+        "emissions": "UNKNOWN",
+        "equipment": "UNKNOWN",
+        "generation": "II",
+        "market": "UNKNOWN",
+        "model": [
+          "FZ1-N",
+          "FZ1-NA"
+        ],
+        "modelYear": 2010,
+        "publicationCode": "2D1X",
+        "transmission": "UNKNOWN"
+      },
+      "artifactId": "artifact.8d144650fa65c41ebada00cf",
+      "attemptId": "attempt.000000000000000000000000",
+      "batchId": "batch.74fe42d5017de6b9d125aaf3",
+      "context": {
+        "condition": "rear wheel slowly rotated for inspection",
+        "derivedContentId": "artifact.8d144650fa65c41ebada00cf",
+        "sourceEncoding": "utf8"
+      },
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.12f67cd0dffea8becd54f407",
+      "fieldId": "final_drive.chain-inspection",
+      "id": "extraction-candidate.b4d0a06939446fc71401939e",
+      "ordinal": 2,
+      "prospectId": "prospect.yamaha.fz1.owner.2d1x-2010",
+      "rawUnit": null,
+      "rawValue": "チェーン中央部の上下たわみ、滑らかな回転、給油状態を点検",
+      "schemaVersion": 1,
+      "sourceLocation": {
+        "applicabilityStatement": "2010 FZ1-N / FZ1-NA owner manual scope; unresolved dimensions retained",
+        "locator": "JAU22773 / ドライブチェーンの点検",
+        "page": 51,
+        "section": "ドライブチェーン / バッテリー / ヒューズ交換 / 灯火装置および方向指示灯",
+        "tableOrSubsection": "chain inspection procedure",
+        "unitsContext": "preserve source units"
+      },
+      "sourceWorkItemId": "source-work.75710b75b68bf6483b6d1d46",
+      "targetId": "target.yamaha.fz1.gen2.2006-2015.unknown",
+      "targetWorkId": "target-work.fa590540d1e4eede78d5692a"
+    },
+    {
+      "adapterId": "yamaha.fz1.2d1x.owner-manual-structural-extractor",
+      "adapterVersion": "1",
+      "applicability": {
+        "abs": "UNKNOWN",
+        "bodyStyle": "naked",
+        "condition": "rear suspension fully extended; no seat load",
+        "emissions": "UNKNOWN",
+        "equipment": "UNKNOWN",
+        "generation": "II",
+        "market": "UNKNOWN",
+        "model": [
+          "FZ1-N",
+          "FZ1-NA"
+        ],
+        "modelYear": 2010,
+        "publicationCode": "2D1X",
+        "transmission": "UNKNOWN"
+      },
+      "artifactId": "artifact.8d144650fa65c41ebada00cf",
+      "attemptId": "attempt.000000000000000000000000",
+      "batchId": "batch.74fe42d5017de6b9d125aaf3",
+      "context": {
+        "condition": "rear suspension fully extended; no seat load",
+        "derivedContentId": "artifact.8d144650fa65c41ebada00cf",
+        "sourceEncoding": "utf8"
+      },
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.12f67cd0dffea8becd54f407",
+      "fieldId": "final_drive.chain-slack",
+      "id": "extraction-candidate.dc3e3323c58aa86dba200e24",
+      "ordinal": 1,
+      "prospectId": "prospect.yamaha.fz1.owner.2d1x-2010",
+      "rawUnit": "mm",
+      "rawValue": "20.0–30.0 mm",
+      "schemaVersion": 1,
+      "sourceLocation": {
+        "applicabilityStatement": "2010 FZ1-N / FZ1-NA owner manual scope; unresolved dimensions retained",
+        "locator": "JAU22773 / ドライブチェーンの点検",
+        "page": 51,
+        "section": "ドライブチェーン / バッテリー / ヒューズ交換 / 灯火装置および方向指示灯",
+        "tableOrSubsection": "chain slack specification",
+        "unitsContext": "preserve source units"
+      },
+      "sourceWorkItemId": "source-work.75710b75b68bf6483b6d1d46",
+      "targetId": "target.yamaha.fz1.gen2.2006-2015.unknown",
+      "targetWorkId": "target-work.fa590540d1e4eede78d5692a"
+    },
+    {
+      "adapterId": "yamaha.fz1.2d1x.owner-manual-structural-extractor",
+      "adapterVersion": "1",
+      "applicability": {
+        "abs": "UNKNOWN",
+        "bodyStyle": "naked",
+        "emissions": "UNKNOWN",
+        "equipment": "UNKNOWN",
+        "generation": "II",
+        "market": "UNKNOWN",
+        "model": [
+          "FZ1-N",
+          "FZ1-NA"
+        ],
+        "modelYear": 2010,
+        "publicationCode": "2D1X",
+        "transmission": "UNKNOWN"
+      },
+      "artifactId": "artifact.7df6778734afa93a73185370",
+      "attemptId": "attempt.000000000000000000000000",
+      "batchId": "batch.74fe42d5017de6b9d125aaf3",
+      "context": {
+        "derivedContentId": "artifact.7df6778734afa93a73185370",
+        "sourceEncoding": "utf8"
+      },
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.5a76c08114347a8e8ee2a8fe",
+      "fieldId": "transmission_clutch.transmission-type",
+      "id": "extraction-candidate.3428f97114d5bd9efc96c117",
+      "ordinal": 1,
+      "prospectId": "prospect.yamaha.fz1.owner.2d1x-2010",
+      "rawUnit": null,
+      "rawValue": "常時かみ合式6速",
+      "schemaVersion": 1,
+      "sourceLocation": {
+        "applicabilityStatement": "2010 FZ1-N / FZ1-NA owner manual scope; unresolved dimensions retained",
+        "locator": "製品仕様 / ミッション・チェンジ方式",
+        "page": 61,
+        "section": "製品仕様",
+        "tableOrSubsection": "transmission specification",
+        "unitsContext": "preserve source units"
+      },
+      "sourceWorkItemId": "source-work.75710b75b68bf6483b6d1d46",
+      "targetId": "target.yamaha.fz1.gen2.2006-2015.unknown",
+      "targetWorkId": "target-work.fa590540d1e4eede78d5692a"
+    },
+    {
+      "adapterId": "yamaha.fz1.2d1x.owner-manual-structural-extractor",
+      "adapterVersion": "1",
+      "applicability": {
+        "abs": "UNKNOWN",
+        "bodyStyle": "naked",
+        "emissions": "UNKNOWN",
+        "equipment": "UNKNOWN",
+        "generation": "II",
+        "market": "UNKNOWN",
+        "model": [
+          "FZ1-N",
+          "FZ1-NA"
+        ],
+        "modelYear": 2010,
+        "publicationCode": "2D1X",
+        "transmission": "UNKNOWN"
+      },
+      "artifactId": "artifact.7df6778734afa93a73185370",
+      "attemptId": "attempt.000000000000000000000000",
+      "batchId": "batch.74fe42d5017de6b9d125aaf3",
+      "context": {
+        "derivedContentId": "artifact.7df6778734afa93a73185370",
+        "sourceEncoding": "utf8"
+      },
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.5a76c08114347a8e8ee2a8fe",
+      "fieldId": "transmission_clutch.clutch-type",
+      "id": "extraction-candidate.6723997231d777e166e296eb",
+      "ordinal": 2,
+      "prospectId": "prospect.yamaha.fz1.owner.2d1x-2010",
+      "rawUnit": null,
+      "rawValue": "湿式多板",
+      "schemaVersion": 1,
+      "sourceLocation": {
+        "applicabilityStatement": "2010 FZ1-N / FZ1-NA owner manual scope; unresolved dimensions retained",
+        "locator": "製品仕様 / クラッチ形式",
+        "page": 61,
+        "section": "製品仕様",
+        "tableOrSubsection": "clutch specification",
+        "unitsContext": "preserve source units"
+      },
+      "sourceWorkItemId": "source-work.75710b75b68bf6483b6d1d46",
+      "targetId": "target.yamaha.fz1.gen2.2006-2015.unknown",
+      "targetWorkId": "target-work.fa590540d1e4eede78d5692a"
+    },
+    {
+      "adapterId": "yamaha.fz1.2d1x.owner-manual-structural-extractor",
+      "adapterVersion": "1",
+      "applicability": {
+        "abs": "UNKNOWN",
+        "bodyStyle": "naked",
+        "emissions": "UNKNOWN",
+        "equipment": "UNKNOWN",
+        "generation": "II",
+        "market": "UNKNOWN",
+        "model": [
+          "FZ1-N",
+          "FZ1-NA"
+        ],
+        "modelYear": 2010,
+        "publicationCode": "2D1X",
+        "transmission": "UNKNOWN"
+      },
+      "artifactId": "artifact.7df6778734afa93a73185370",
+      "attemptId": "attempt.000000000000000000000000",
+      "batchId": "batch.74fe42d5017de6b9d125aaf3",
+      "context": {
+        "derivedContentId": "artifact.7df6778734afa93a73185370",
+        "sourceEncoding": "utf8"
+      },
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.5a76c08114347a8e8ee2a8fe",
+      "fieldId": "tires_wheels.oem-tire-models",
+      "id": "extraction-candidate.bef4f07076ed183a2c1d3986",
+      "ordinal": 3,
+      "prospectId": "prospect.yamaha.fz1.owner.2d1x-2010",
+      "rawUnit": null,
+      "rawValue": "DUNLOP/D221FA 前輪; DUNLOP/D221G 後輪",
+      "schemaVersion": 1,
+      "sourceLocation": {
+        "applicabilityStatement": "2010 FZ1-N / FZ1-NA owner manual scope; unresolved dimensions retained",
+        "locator": "製品仕様 / メーカー・銘柄",
+        "page": 62,
+        "section": "製品仕様",
+        "tableOrSubsection": "OEM tire model table",
+        "unitsContext": "preserve source units"
+      },
+      "sourceWorkItemId": "source-work.75710b75b68bf6483b6d1d46",
+      "targetId": "target.yamaha.fz1.gen2.2006-2015.unknown",
+      "targetWorkId": "target-work.fa590540d1e4eede78d5692a"
+    }
+  ],
+  "rawCandidatesCreated": 14,
+  "reviewDecisionsCreated": 0,
+  "evidenceRowsCreated": 0,
+  "serviceCoreCoverageChanged": false,
+  "productionChanged": false,
+  "serviceManualLeadTouched": false,
+  "applicability": {
+    "required": {
+      "bodyStyle": [
+        "naked"
+      ],
+      "generation": [
+        "II"
+      ],
+      "model": [
+        "FZ1-N",
+        "FZ1-NA"
+      ],
+      "modelYear": 2010,
+      "publicationCode": "2D1X"
+    },
+    "unresolved": [
+      "market",
+      "abs",
+      "transmission",
+      "equipment",
+      "emissions"
+    ]
+  },
+  "budget": {
+    "maxRegions": 6,
+    "regionsInspected": 6,
+    "maxRawCandidates": 24,
+    "consumedRawCandidates": 14,
+    "publications": 1
+  },
+  "sourcePathPersisted": false,
+  "next": "Evaluate whether this raw-only pilot demonstrates sufficient genericity before any multi-model scaling."
+}

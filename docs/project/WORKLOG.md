@@ -574,3 +574,21 @@ entry point without reading the FZ1 PDF. Zero FZ1 technical values, raw
 candidates, review decisions, evidence, Service Core or production changes
 occurred; `2D1-28197-E0` remained untouched. The next bounded wave is the
 FZ1 `2D1X` pilot through these new boundaries.
+
+## 2026-09-08 — Yamaha FZ1 2D1X Generic Playbook Raw Extraction Pilot
+
+Completed exactly one bounded raw-extraction pilot using the exact acquired
+official Yamaha `2D1X` PDF artifact. Parent SHA-256, byte length and media type
+were verified before transformation. A deterministic local pypdf transformer
+read only the six approved plan regions and passed each region through the
+ADR-030 parent-bound derived-content bridge into the generic Extraction Agent.
+Fourteen raw candidates were created across owner-level lubrication, cooling,
+tires, brakes, chain, lighting and basic specification fields; the 24-candidate
+ceiling was not approached by speculation. Candidate provenance retains the
+derived-content ID, artifact identity, PDF page, section, locator, table or
+subsection, applicability and units context. Market, ABS, transmission,
+equipment and emissions remain unresolved; FZ1-S and non-2010 scope were
+excluded. No review decisions, evidence, verified Service Core, production,
+catalogue, Supabase or deployment state changed, and `2D1-28197-E0` remained
+untouched. The next bounded task is to evaluate genericity for scaling, not to
+promote or broaden this data.
