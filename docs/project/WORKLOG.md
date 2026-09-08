@@ -508,3 +508,16 @@ submissions, clear recovery state only after success and remain recoverable on
 failure. Added deterministic offline tests and the deployment/recovery
 runbook. No live Supabase or deployment change occurred, and the current Free
 plan leaked-password protection limitation remains an external blocker.
+
+## 2026-09-08 — Yamaha FZ1 Source Authentication / Research Planning
+
+Completed exactly one bounded non-production Technical Research Factory wave.
+Selected the repository-supported `yamaha.fz1.gen2` grouping for 2006–2015,
+bound it to the existing deterministic mapping, and preserved separate FZ1-N
+and FZ1-S runtime identities. Authenticated the official Yamaha 2010 FZ1-N
+owner-manual index route `2D1X` only within its narrow year/body-style/index
+scope. Recorded `2D1-28197-E0` as a partial-authentication service-manual lead
+through the Yamaha RMI route without treating it as fully proven. Market, ABS,
+equipment, emissions and broader year applicability remain unknown. No source
+was acquired, no technical value/evidence/review record was created, and no
+production or Rider Service Core data changed.
