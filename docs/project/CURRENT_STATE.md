@@ -241,3 +241,10 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   values, candidates, evidence, review, Service Core, production, catalogue
   or Supabase state changed. NEXT is one bounded CBR500R execution through the
   authenticated Honda manual route only.
+- CBR500R PC70 owner-manual execution completed for exactly two fields through
+  the existing Honda Tier A PDF path. One raw oil-specification candidate was
+  produced with custody/provenance; loaded pressures stopped because the PDF
+  has no explicit loaded/passenger pressure condition and existing coverage
+  was not duplicated. No review, evidence, promotion, Service Core,
+  production, catalogue, Supabase or infrastructure state changed. NEXT is
+  bounded human review of the single oil-specification candidate only.

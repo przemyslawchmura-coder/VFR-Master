@@ -705,6 +705,18 @@ review decisions, evidence, Service Core, production, catalogue or Supabase
 state changed. Next: execute one bounded CBR500R source wave only through the
 authenticated Honda owner-manual route, preserving the loaded-condition gate.
 
+## 2026-09-08 — CBR500R PC70 owner-manual execution
+
+Executed the already authenticated Honda 2024 PDF route for exactly
+`lubrication.oil-specification` and `tires_wheels.loaded-pressures`. Existing
+generic custody, `pypdf` derivation and Extraction Agent contracts produced one
+raw oil-specification candidate with deterministic provenance. Loaded pressure
+stopped with `NO_EXPLICIT_LOADED_CONDITION`; standard pressure and passenger
+capacity were not conflated, and existing verified coverage was not duplicated.
+No new discovery, other source, review decision, evidence, promotion,
+Service Core, production, catalogue, Supabase or infrastructure change
+occurred. Next: bounded human review of the single oil candidate only.
+
 ## 2026-09-08 — CBR500R source-route authentication final gate recovery
 
 Revalidated the already completed source-route wave without new research,

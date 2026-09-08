@@ -6,8 +6,9 @@ and exact official-route applicability were not proven; future work must first
 establish an authenticated, exactly applicable source route. CBR500R source-
 route authentication now establishes one permitted Honda owner-manual route
 for oil specification and conditional loaded pressures; parts and chain routes
-remain partial. The next bounded step is execution through that manual route
-only. Only one major phase is active at a time. Partial research is normal and
+remain partial. The bounded manual execution produced one raw oil candidate
+and stopped loaded pressure without an explicit condition. The next bounded
+step is human review of that candidate only. Only one major phase is active at a time. Partial research is normal and
 must not block unrelated catalogue work.
 
 ## Phase 1 — Foundation and identity (COMPLETE)

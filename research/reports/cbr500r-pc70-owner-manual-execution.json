@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "revlog-cbr500r-pc70-owner-manual-execution/v1",
+  "researchDate": "2026-09-08",
+  "target": {
+    "catalogVariantKey": "honda.cbr500r.pc70",
+    "model": "CBR500R",
+    "generation": "PC70",
+    "modelYear": 2024,
+    "markets": ["USA", "Canada"],
+    "transmission": "manual",
+    "equipment": "standard road model"
+  },
+  "source": {
+    "id": "honda.official.owner-manual.31MLRB000.2024",
+    "sourceClass": "TIER_A_OEM",
+    "title": "2024 CB500F / CBR500R / NX500 Owner's Manual",
+    "publicationId": "31MLRB00 / 00X31-MLR-B000",
+    "url": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+    "authenticationReused": true
+  },
+  "execution": {
+    "sourceRoutesUsed": 1,
+    "fieldsAttempted": ["lubrication.oil-specification", "tires_wheels.loaded-pressures"],
+    "noNewDiscoveryAttempts": true,
+    "noOtherSourceUsed": true
+  },
+  "acquisition": {
+    "result": "ACQUIRED",
+    "artifactId": "artifact.cd12ab997c4f77c0b2351143",
+    "artifactSha256": "b04247cde951c92abc079c08d581d1b0553b9925156701d8d6087eff080405c9",
+    "artifactByteLength": 6911749,
+    "mediaType": "application/pdf",
+    "locator": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf"
+  },
+  "derivation": {
+    "derivedContentId": "artifact.0498845c683f226a302b0a90",
+    "derivedDigest": "9b472fbde1701c5d3bbcdffdebb29e0e643e4b5a05cd263b5d45a857ab40926d",
+    "transformerId": "factory.local.pdf-page-text.pypdf",
+    "transformerVersion": "1",
+    "pdfPages": [180]
+  },
+  "extraction": {
+    "ambiguityPolicy": "REJECT",
+    "playbookId": "cbr500r-pc70-owner-manual-execution-v1",
+    "oil": {"ruleId": "extraction-rule.3e4834575149951902fc23da", "ruleKind": "TEXT_PATTERN", "resultId": "extraction-result.32ff931c2f1fe866679758b6", "disposition": "CANDIDATES-PRODUCED", "candidateIds": ["extraction-candidate.87fcea8600978eff75d9f8d6"]},
+    "loaded": {"ruleId": "extraction-rule.2f781635dc5ee598c6783c9e", "ruleKind": "TEXT_PATTERN", "resultId": "extraction-result.32ff931c2f1fe866679758b6", "disposition": "NO-CANDIDATES", "candidateIds": []}
+  },
+  "fields": {
+    "lubrication.oil-specification": {
+      "status": "RAW-CANDIDATE",
+      "candidateIds": ["extraction-candidate.87fcea8600978eff75d9f8d6"],
+      "rawWording": "API Service Classification SJ or higher; except oils labeled as energy conserving or resource conserving on the circular API service label; SAE 10W-30; JASO T 903 standard MA; Pro Honda GN4 4-stroke oil (USA & Canada) or Honda 4-stroke oil, or an equivalent motorcycle oil",
+      "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+      "exactLocator": "PDF page 180 / printed page 176 / Specifications / Service Data / derived lines 55-64",
+      "applicability": {"model": "CBR500R", "modelCode": "PC70", "generation": "PC70", "modelYear": 2024, "market": ["USA", "Canada"], "transmission": "manual", "equipment": "standard road model", "abs": null},
+      "conflictState": "NONE"
+      ,"rawCandidates": [{"id": "extraction-candidate.87fcea8600978eff75d9f8d6", "targetId": "target.honda.cbr500r.pc70.2024.usa-canada", "fieldId": "lubrication.oil-specification", "sourceIdentity": "honda.official.owner-manual.31MLRB000.2024", "sourceClass": "TIER_A_OEM", "sourceUrl": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf", "acquisitionArtifactId": "artifact.cd12ab997c4f77c0b2351143", "artifactSha256": "b04247cde951c92abc079c08d581d1b0553b9925156701d8d6087eff080405c9", "derivedContentId": "artifact.0498845c683f226a302b0a90", "derivedDigest": "9b472fbde1701c5d3bbcdffdebb29e0e643e4b5a05cd263b5d45a857ab40926d", "extractionRuleId": "extraction-rule.3e4834575149951902fc23da", "extractionPlaybookId": "cbr500r-pc70-owner-manual-execution-v1", "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil", "exactLocator": "PDF page 180 / printed page 176 / derived lines 55-64; chars 731-1026", "applicability": {"model": "CBR500R", "modelCode": "PC70", "generation": "PC70", "modelYear": 2024, "market": ["USA", "Canada"], "transmission": "manual", "equipment": "standard road model", "abs": null}, "conflictState": "NONE"}]
+    },
+    "tires_wheels.loaded-pressures": {
+      "status": "STOPPED",
+      "candidateIds": [],
+      "exactLocator": "PDF page 180 / printed page 176 / Specifications / Service Data / Tire air pressure",
+      "standardPressureObserved": true,
+      "loadedConditionProven": false,
+      "duplicateCoverageObserved": true,
+      "stopReason": "NO_EXPLICIT_LOADED_CONDITION",
+      "conflictState": "NONE"
+    }
+  },
+  "totals": {"rawCandidates": 1, "maxRawCandidates": 4, "conflicts": 0, "reviewDecisionsCreated": 0, "evidenceCreated": 0, "serviceCoreChanged": false, "productionChanged": false, "catalogueChanged": false, "supabaseChanged": false, "infrastructureChanged": false},
+  "independentAudit": {"classification": "ACCEPT", "checks": {"onlyTargetAndTwoFields": true, "onlyAuthenticatedHondaRoute": true, "noNewDiscovery": true, "existingGenericCustodyAndDerivation": true, "existingExtractionAgent": true, "noManualTranscription": true, "noSourceSpecificParser": true, "noModelSpecificParser": true, "ambiguityPolicyReject": true, "oilCapacitySeparated": true, "standardPressureSeparatedFromLoaded": true, "loadedConditionExplicitIfRetained": true, "applicabilityPreserved": true, "conflictsPreserved": true, "duplicatesAvoided": true, "noReviewDecisions": true, "noEvidence": true, "serviceCoreChanged": false, "productionChanged": false, "catalogueChanged": false, "supabaseChanged": false, "infrastructureChanged": false}, "researchRisks": ["loaded/passenger pressure remains unproven because the manual labels only standard pressure", "existing loaded-pressure coverage was not reinterpreted or duplicated in this raw-only wave"]},
+  "budget": {"sourceRoutes": 1, "maxSourceRoutes": 1, "fieldSlots": 2, "maxFieldSlots": 2, "rawCandidates": 1, "maxRawCandidates": 4, "newDiscoveryAttempts": 0},
+  "next": "Separate bounded human review of the single queued oil-specification raw candidate only; do not create evidence or promote it. The loaded-pressure slot remains stopped until an exact applicable manual explicitly labels a loaded/passenger pressure condition."
+}

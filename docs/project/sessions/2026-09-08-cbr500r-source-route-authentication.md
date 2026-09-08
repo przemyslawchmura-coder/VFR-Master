@@ -20,3 +20,13 @@
   blocked/inexact RK fitment.
 - Next: bounded CBR500R execution through the authenticated Honda manual
   route only, with explicit loaded/passenger applicability.
+
+## CBR500R PC70 owner-manual execution
+
+The existing authenticated Honda PDF route was executed for only the two
+approved fields. The generic custody, `pypdf` derivation and Extraction Agent
+path produced one raw `lubrication.oil-specification` candidate. The
+`tires_wheels.loaded-pressures` rule produced no candidate because the manual
+does not explicitly label pressure for a loaded/passenger condition; the
+existing verified slot was not duplicated. No review, evidence, promotion,
+Service Core or production state changed.
