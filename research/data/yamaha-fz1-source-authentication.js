@@ -1,5 +1,5 @@
 // NON-PRODUCTION Yamaha FZ1 source authentication and planning metadata.
-// No source document was acquired and no technical value is introduced here.
+// Source acquisition is recorded separately; no technical value is introduced here.
 "use strict";
 
 const factory = require("../factory/index.js");
@@ -109,9 +109,9 @@ const ownerProspect = factory.validateSourceProspect({
     "official index proves a 2010 FZ1-N/2D1X route, not applicability to the full 2006-2015 target range",
     "JP index region does not prove EU, UK or North-American applicability",
     "FZ1-NA ABS relationship is named but the target ABS state is intentionally unresolved",
-    "owner-manual content was not acquired or inspected"
+    "owner-manual bytes are acquired in a separate record; content remains uninspected"
   ],
-  nextAction: "Later: acquire only as an optional 2010 naked/JP-scoped source; do not generalize it to FZ1-S or other markets."
+  nextAction: "Later: plan extraction boundaries for the acquired 2010 naked/JP-scoped source; do not generalize it to FZ1-S or other markets."
 });
 
 const prospects = Object.freeze([serviceProspect, ownerProspect]);
@@ -154,10 +154,10 @@ function buildReport() {
         "FZ1 gen1/FZS1000 remains outside the selected gen2 mapping.",
         "FZ1-N and FZ1-S remain separate runtime identities; no body-style merge is performed.",
         "The 2010 JP owner route is not generalized to EU/UK/USA or to FZ1-S.",
-        "No source document was downloaded, opened or parsed, and no service value was created."
+        "The 2D1X PDF was acquired from the official route but was not opened or parsed, and no service value was created."
       ])
     }),
-    exactNextTask: "Execute one bounded FZ1 source-acquisition wave for the authenticated 2010 FZ1-N/2D1X owner-manual route only; keep 2D1-28197-E0 as an authentication lead until its exact Yamaha publication metadata is re-established, and create no evidence automatically."
+    exactNextTask: "Execute one bounded FZ1 2D1X extraction-planning wave; define extraction boundaries before reading technical values, keep 2D1-28197-E0 as an authentication lead, and create no evidence automatically."
   });
 }
 

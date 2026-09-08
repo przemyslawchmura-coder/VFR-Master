@@ -521,3 +521,16 @@ through the Yamaha RMI route without treating it as fully proven. Market, ABS,
 equipment, emissions and broader year applicability remain unknown. No source
 was acquired, no technical value/evidence/review record was created, and no
 production or Rider Service Core data changed.
+
+## 2026-09-08 — Yamaha FZ1 2D1X Owner Manual Source Acquisition
+
+Completed exactly one bounded non-production acquisition wave for the official
+Yamaha route `https://www2.yamaha-motor.co.jp/Manual/pdf/mc/20102D1X.pdf`.
+The response was `200 application/pdf`, 5,098,486 bytes, with deterministic
+SHA-256 identity `bbaa777d8d0184f231573fdf6116d73b7770930d4bdf19b1f0d7386d6b7e2a93`.
+The acquisition record preserves official Yamaha provenance and the existing
+2010 FZ1-N / 2D1X applicability boundary; it does not store or inspect manual
+content. `2D1-28197-E0` remained an untouched partial-authentication lead. No
+extraction, raw candidate, review, evidence, Service Core or production record
+was created. The next bounded task is extraction planning before any value is
+read.

@@ -55,7 +55,7 @@ test("planning wave creates no technical values or production changes", () => {
   assert.equal(report.productionChanged, false);
   assert.equal(report.serviceCoreCoverageChanged, false);
   assert.equal(report.catalogueChanged, false);
-  assert.match(report.exactNextTask, /2D1X owner-manual route only/);
+  assert.match(report.exactNextTask, /2D1X extraction-planning wave/);
 });
 
 test("future source budget is bounded and report is reproducible", () => {
