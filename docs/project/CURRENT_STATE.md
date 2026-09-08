@@ -185,3 +185,12 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   missing required applicability/provenance and insufficient authority fail
   closed. No research, FZ1 execution, candidates, evidence, Service Core or
   production data changed.
+- Generic bounded web acquisition adapter: added a manufacturer-neutral,
+  target-neutral HTTP(S) adapter for explicitly supplied public URLs. It
+  preserves requested/final URL, response metadata, exact body bytes, digest,
+  length and deterministic artifact identity with bounded redirects, timeout,
+  size and zero automatic retries. No live motorcycle research, extraction,
+  candidates, evidence, review, Service Core or production data changed.
+- The next bounded research step is to rerun Existing-Fleet Fast-Path
+  Research Package 1 for NC750X RH09-1, CBR600RR RH10 and CBR500R PC70 using
+  this adapter; semantic HTML extraction remains a separate future boundary.

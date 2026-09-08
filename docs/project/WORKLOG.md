@@ -619,3 +619,16 @@ first package is Honda NC750X RH09-1, Honda CBR600RR RH10 and Honda CBR500R
 PC70, limited to fitment/routine bundles and 24 raw candidates maximum. No
 research, acquisition, extraction, candidate, evidence, Service Core,
 production, catalogue or Supabase state changed.
+## 2026-09-08 — Generic HTML / Structured Web Acquisition Adapter Foundation
+
+Implemented one bounded, manufacturer-neutral HTTP(S) acquisition adapter for
+explicitly supplied public URLs. It reuses the canonical acquisition artifact
+and outcome contracts, preserves requested/final URL, status, media type,
+length, exact body bytes, SHA-256 and deterministic artifact identity, and
+fails closed on unsafe URLs, unsupported media, size, timeout, redirect and
+HTTP failure limits. Automatic retries remain at zero. Offline ephemeral HTTP
+fixtures cover success, custody, determinism, redirects, failures, limits and
+local-resource rejection. No live motorcycle research, extraction, raw
+candidates, review decisions, evidence, Service Core or production changes
+occurred. Next: rerun the previously rejected three-Honda fast-path package
+through this generic adapter, without adding semantic HTML extraction here.
