@@ -291,3 +291,13 @@ stage-specific gate and parent-bound bridge, with raw-candidate output still
 separate from review, evidence and production. Existing UTF-8/local fixtures
 and downstream gates remain compatible.
 Status: ACTIVE. Related implementation: `research/factory/extraction-playbook.js`, `research/factory/derived-content-contracts.js`, `research/factory/extraction-agent.js`.
+
+## ADR-031 — Field-oriented multi-source research policy
+
+Date: 2026-09-08
+
+Decision: Research planning is field/field-group-first rather than document-first. Source authority is field-dependent: source class, specialist domain, exact applicability, provenance, conflict state and corroboration determine whether a source may support a field. OEM web/support/fiche and bounded domain-specialist sources may use a fast path for permitted low-risk fields; safety, workshop, diagnostic, conflicting or unresolved cases use the existing deep path, including PDF/manual extraction. Discovery-only sources remain leads and do not become authority.
+
+Consequences: future policy configuration can select allowed/preferred source classes, applicability requirements, corroboration and bounded search budgets without weakening the existing acquisition, extraction, review, evidence or production gates. Static FZ1 pilot results remain raw benchmark data; this decision creates no technical data and does not require live web, HTML or batch implementation. A later declarative extraction/policy prototype must remain closed-vocabulary, deterministic, provenance-bound and fail-closed.
+
+Status: ACTIVE. Related design: `docs/project/FIELD_ORIENTED_MULTI_SOURCE_RESEARCH_POLICY.md`.

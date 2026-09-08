@@ -127,7 +127,7 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Evaluate whether the 14-candidate FZ1 `2D1X` raw-only pilot demonstrates sufficient genericity for a bounded multi-model/batch scaling design; do not promote candidates, resolve applicability or touch `2D1-28197-E0`. Supabase production migration-history reconciliation remains separately unresolved and unauthorized; leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
+**NEXT** — Implement the smallest declarative field-policy/source-authority contract with synthetic-only validation; do not execute live motorcycle research, promote the 14 FZ1 raw candidates, resolve applicability or touch `2D1-28197-E0`. Supabase production migration-history reconciliation remains separately unresolved and unauthorized; leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
 
 Deferred independent streams remain future bounded Ducati/BMW profile expansion, cooling-scope resolution and the global catalogue gap audit; none is an active NEXT task.
 
@@ -161,3 +161,11 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   that the two existing migrations are incremental and do not yet reconstruct
   an empty project. No live Supabase mutation or application behavior change
   occurred. Phase 7 remains ACTIVE.
+- Field-oriented multi-source research policy: static design analysis moved
+  future planning from document-first to field/field-group-first while
+  preserving source authority, applicability, provenance, conflict and
+  raw/review/evidence/production boundaries. OEM web/support/fiche and
+  domain-specialist sources may use a bounded fast path; safety, workshop,
+  diagnostic and unresolved cases remain deep path. The existing FZ1 pilot is
+  only a benchmark: no PDF, pilot or extractor was executed, and no
+  candidates, evidence, Service Core or production data changed.
