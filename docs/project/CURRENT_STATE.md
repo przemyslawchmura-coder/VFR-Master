@@ -211,3 +211,10 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   No live motorcycle research or motorcycle technical data changed. The next
   bounded wave may rerun the three-Honda fast-path package through HTTP,
   parent-bound HTML derivation and declarative extraction.
+- AcquisitionArtifact now treats only the exact `metadata.contentBase64`
+  field as opaque acquired response bytes for secret-shaped scanning. Control
+  and provenance metadata, URLs, arbitrary nested payload fields and request
+  metadata remain scanned; Base64, byte-length, SHA-256 and deterministic
+  identity checks remain fail-closed. No live motorcycle research or research
+  output changed. The next bounded research step remains the three-Honda
+  package through the complete trusted web-to-raw path.

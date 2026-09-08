@@ -301,3 +301,27 @@ Decision: Research planning is field/field-group-first rather than document-firs
 Consequences: future policy configuration can select allowed/preferred source classes, applicability requirements, corroboration and bounded search budgets without weakening the existing acquisition, extraction, review, evidence or production gates. Static FZ1 pilot results remain raw benchmark data; this decision creates no technical data and does not require live web, HTML or batch implementation. A later declarative extraction/policy prototype must remain closed-vocabulary, deterministic, provenance-bound and fail-closed.
 
 Status: ACTIVE. Related design: `docs/project/FIELD_ORIENTED_MULTI_SOURCE_RESEARCH_POLICY.md`.
+
+## ADR-032 — Opaque acquired payloads are outside secret-shaped heuristics
+
+Date: 2026-09-08
+
+Decision: The exact `metadata.contentBase64` field on an acquired artifact is
+treated as opaque source payload for secret-shaped textual scanning. The same
+payload remains subject to Base64, byte-length, SHA-256 and deterministic
+artifact identity validation. All control/provenance metadata, URLs and
+arbitrary sibling payload fields remain secret-scanned; acquisition does not
+retain request credentials.
+
+Rationale: Public source bodies may legitimately contain words such as
+`password`, `token` or `api_key`. Scanning their encoded custody payload made
+valid HTTP artifacts fail before parent-bound derivation. A path-specific
+exception preserves the control-data security boundary without disabling the
+scanner globally.
+
+Consequences: Generic public HTML acquisition can pass the artifact contract
+when its exact retained body is valid and hash-bound. The exemption is not a
+source-authority or applicability decision and does not change HTML
+derivation, declarative extraction, review, evidence or production behavior.
+
+Status: ACTIVE. Related implementation: `research/factory/execution-contracts.js`.

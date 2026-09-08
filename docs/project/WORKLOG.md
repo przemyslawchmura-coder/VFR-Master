@@ -659,3 +659,12 @@ tests pass 36/36. No live research, motorcycle candidates, review decisions,
 evidence, Service Core, production, catalogue or Supabase changes occurred.
 Next: rerun the bounded three-Honda fast-path package through the complete
 generic web acquisition, HTML derivation and declarative extraction path.
+## 2026-09-08 — AcquisitionArtifact opaque payload secret-scan boundary
+
+Added a narrow path-aware secret-scan boundary for the exact acquired
+`metadata.contentBase64` payload. Opaque public response bytes are excluded
+from secret-shaped textual heuristics, while control/provenance metadata,
+URLs, arbitrary sibling payload fields and request metadata remain scanned.
+Base64 syntax, byte length, SHA-256 custody and deterministic artifact identity
+remain enforced. No live motorcycle research, extraction, candidates, review,
+evidence, Service Core or production data changed.

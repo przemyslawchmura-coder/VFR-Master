@@ -10,6 +10,16 @@ const OUTCOMES = Object.freeze(["ACQUIRED", "NO-EVIDENCE", "ACCESS-BLOCKED", "AU
 const RETRY_CLASSES = Object.freeze(["RETRYABLE", "NON-RETRYABLE", "BLOCKED"]);
 const OBSERVATION_TYPES = Object.freeze(["DOCUMENT-ACQUIRED", "METADATA-ACQUIRED", "CONTENT-UNAVAILABLE", "LOGIN-WALL", "SOURCE-IDENTITY-MISMATCH", "DOCUMENT-APPLICABILITY-UNRESOLVED", "CANDIDATE-CONTENT-PRESENT"]);
 const assert = (condition, message) => { if (!condition) throw new TypeError(message); };
+const SECRET_PATTERN = /(password|token|cookie|secret|authorization|api(?:[-_]?key))/i;
+const OPAQUE_PAYLOAD_PATH = Object.freeze(["metadata", "contentBase64"]);
+const hasSecretShapeExcept = (value, path = [], exemptPath = null) => {
+  if (typeof value === "string") return !(exemptPath && path.length === exemptPath.length && path.every((part, index) => part === exemptPath[index])) && SECRET_PATTERN.test(value);
+  if (Array.isArray(value)) return value.some((item, index) => hasSecretShapeExcept(item, [...path, String(index)], exemptPath));
+  if (value && typeof value === "object") return Object.entries(value).some(([key, item]) => SECRET_PATTERN.test(key) || hasSecretShapeExcept(item, [...path, key], exemptPath));
+  return false;
+};
+const assertNoSecretsExceptOpaquePayload = (value, rootPath = []) => assert(!hasSecretShapeExcept(value, rootPath, [...rootPath, ...OPAQUE_PAYLOAD_PATH]), "AcquisitionArtifact contains prohibited secret-shaped data");
+const isBase64 = value => typeof value === "string" && value.length > 0 && value.length % 4 === 0 && /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(value);
 const digest = value => crypto.createHash("sha256").update(json.canonicalSerialize(value)).digest("hex").slice(0, 24);
 
 function validateAcquisitionRequest(input) {
@@ -35,7 +45,12 @@ function validateArtifact(input) {
   if (input.contentDigest !== null) assert(typeof input.contentDigest === "string" && /^[a-f0-9]{64}$/.test(input.contentDigest), "AcquisitionArtifact.contentDigest is invalid");
   assert(typeof input.originClassification === "string" && typeof input.acquisitionMethod === "string", "AcquisitionArtifact provenance is required");
   json.assertJsonSafe(input.metadata || {});
-  assert(!/(password|token|cookie|secret|api[-_]?key)/i.test(json.canonicalSerialize(input)), "AcquisitionArtifact contains prohibited secret-shaped data");
+  if (input.metadata && Object.prototype.hasOwnProperty.call(input.metadata, "contentBase64")) {
+    assert(isBase64(input.metadata.contentBase64), "AcquisitionArtifact.contentBase64 is missing or invalid");
+    const bytes = Buffer.from(input.metadata.contentBase64, "base64");
+    assert(input.byteLength === bytes.length && input.contentDigest === crypto.createHash("sha256").update(bytes).digest("hex"), "AcquisitionArtifact.contentBase64 does not match artifact identity");
+  }
+  assertNoSecretsExceptOpaquePayload(input);
   return json.immutableClone(input);
 }
 function validateObservation(input) {
@@ -53,7 +68,7 @@ function validateOutcome(input) {
   assert(Array.isArray(input.observations), "AcquisitionOutcome.observations are required");
   input.observations.forEach(validateObservation);
   if (input.artifact !== null && input.artifact !== undefined) validateArtifact(input.artifact);
-  assert(!/(password|token|cookie|secret|api[-_]?key)/i.test(json.canonicalSerialize(input)), "AcquisitionOutcome contains prohibited secret-shaped data");
+  assertNoSecretsExceptOpaquePayload(input, ["artifact"]);
   return json.immutableClone(input);
 }
 function validateExecutionResult(input) {
