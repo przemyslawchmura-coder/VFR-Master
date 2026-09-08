@@ -1,0 +1,268 @@
+{
+  "schemaVersion": "revlog-existing-fleet-field-research-reassessment/v1",
+  "basis": {
+    "repositoryHead": "9e8198a",
+    "policySchemaVersion": 1,
+    "analysisMode": "STATIC-REPOSITORY-ONLY",
+    "externalAvailabilityClaimed": false
+  },
+  "scope": {
+    "eligibleExistingTargetCount": 10,
+    "eligibleTargets": [
+      "honda.vfr800.rc46.vtec.gen1",
+      "honda.cbr500r.pc70",
+      "honda.nc750x.rh09-1",
+      "honda.africa-twin.crf1100l-1",
+      "honda.cbr600rr.rh10",
+      "yamaha.mt-09.gen3",
+      "yamaha.tenere-700.gen1",
+      "ducati.monster.937",
+      "bmw.f-roadster-xr.f900r-1",
+      "yamaha.fz1.gen2"
+    ],
+    "catalogueOnlyExcludedCount": null,
+    "catalogueOnlyExclusionReason": "The repository does not expose a one-to-one catalogue-to-research-target count; catalogue-only variants were not promoted into this eligible set."
+  },
+  "classificationVocabulary": [
+    "FAST_PATH_OEM_WEB",
+    "FAST_PATH_OEM_SUPPORT",
+    "FAST_PATH_OEM_FICHE",
+    "FAST_PATH_AUTHORIZED",
+    "FAST_PATH_SPECIALIST",
+    "CORROBORATION_REQUIRED",
+    "DEEP_PATH_OWNER_MANUAL",
+    "DEEP_PATH_SERVICE_MANUAL",
+    "DEEP_PATH_RMI_OR_BULLETIN",
+    "APPLICABILITY_BLOCKED",
+    "CONFLICT_REVIEW",
+    "NO_CURRENT_SAFE_ROUTE"
+  ],
+  "targets": [
+    {
+      "target": "honda.nc750x.rh09-1",
+      "status": "RESEARCH-SUPPORTED",
+      "coverage": { "serviceCore": { "verified": 28, "total": 44, "missing": 3, "blocked": 0 } },
+      "gaps": [
+        { "fieldId": "lubrication.oil-filter", "classification": "FAST_PATH_OEM_FICHE" },
+        { "fieldId": "valve_train.inspection-interval", "classification": "DEEP_PATH_OWNER_MANUAL" },
+        { "fieldId": "torques.front-axle", "classification": "DEEP_PATH_SERVICE_MANUAL" }
+      ],
+      "existingSourceReuse": ["existing Honda Tier A evidence/source graph"],
+      "priorityScore": 94,
+      "recommendedPackage": "FAST_FITMENT_PARTS"
+    },
+    {
+      "target": "honda.cbr600rr.rh10",
+      "status": "RESEARCH-SUPPORTED",
+      "coverage": { "serviceCore": { "verified": 29, "total": 44, "missing": 4, "blocked": 0 } },
+      "gaps": [
+        { "fieldId": "lubrication.oil-filter", "classification": "FAST_PATH_OEM_FICHE" },
+        { "fieldId": "valve_train.intake-clearance", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "valve_train.exhaust-clearance", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "torques.front-axle", "classification": "DEEP_PATH_SERVICE_MANUAL" }
+      ],
+      "existingSourceReuse": ["existing Honda Tier A evidence/source graph"],
+      "priorityScore": 91,
+      "recommendedPackage": "FAST_FITMENT_PARTS"
+    },
+    {
+      "target": "honda.cbr500r.pc70",
+      "status": "RESEARCH-SUPPORTED",
+      "coverage": { "serviceCore": { "verified": 26, "total": 44, "missing": 18, "blocked": 0 } },
+      "gaps": [
+        { "fieldId": "lubrication.oil-specification", "classification": "FAST_PATH_OEM_WEB" },
+        { "fieldId": "lubrication.oil-filter", "classification": "FAST_PATH_OEM_FICHE" },
+        { "fieldId": "cooling.replacement-interval", "classification": "DEEP_PATH_OWNER_MANUAL" },
+        { "fieldId": "valve_train.intake-clearance", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "valve_train.exhaust-clearance", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "valve_train.inspection-interval", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "final_drive.chain-size", "classification": "FAST_PATH_SPECIALIST" },
+        { "fieldId": "brakes.fluid-interval", "classification": "DEEP_PATH_OWNER_MANUAL" },
+        { "fieldId": "tires_wheels.loaded-pressures", "classification": "FAST_PATH_OEM_SUPPORT" },
+        { "fieldId": "maintenance.schedule-mileage-intervals", "classification": "DEEP_PATH_OWNER_MANUAL" },
+        { "fieldId": "torques.front-axle", "classification": "DEEP_PATH_SERVICE_MANUAL" }
+      ],
+      "existingSourceReuse": ["authenticated CBR500R owner manual; exhausted for new practical slots"],
+      "priorityScore": 88,
+      "recommendedPackage": "FAST_ROUTINE_AND_FITMENT"
+    },
+    {
+      "target": "yamaha.mt-09.gen3",
+      "status": "RESEARCH-SUPPORTED",
+      "coverage": { "serviceCore": { "verified": 29, "total": 44, "missing": 15, "blocked": 0 } },
+      "gaps": [
+        { "fieldId": "lubrication.oil-filter", "classification": "FAST_PATH_OEM_FICHE" },
+        { "fieldId": "cooling.replacement-interval", "classification": "DEEP_PATH_OWNER_MANUAL" },
+        { "fieldId": "ignition.spark-plug-alternative", "classification": "FAST_PATH_SPECIALIST" },
+        { "fieldId": "ignition.replacement-interval", "classification": "DEEP_PATH_OWNER_MANUAL" },
+        { "fieldId": "valve_train.intake-clearance", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "valve_train.exhaust-clearance", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "valve_train.measurement-conditions", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "final_drive.chain-size", "classification": "FAST_PATH_SPECIALIST" },
+        { "fieldId": "brakes.oem-pad-numbers", "classification": "FAST_PATH_OEM_FICHE" },
+        { "fieldId": "torques.front-axle", "classification": "DEEP_PATH_SERVICE_MANUAL" }
+      ],
+      "existingSourceReuse": ["authenticated MY2021 EU owner manual; later catalogue-generation years excluded"],
+      "priorityScore": 82,
+      "recommendedPackage": "FAST_FITMENT_PARTS"
+    },
+    {
+      "target": "yamaha.tenere-700.gen1",
+      "status": "RESEARCH-SUPPORTED",
+      "coverage": { "serviceCore": { "verified": 29, "total": 44, "missing": 15, "blocked": 0 } },
+      "gaps": [
+        { "fieldId": "lubrication.oil-filter", "classification": "FAST_PATH_OEM_FICHE" },
+        { "fieldId": "cooling.replacement-interval", "classification": "DEEP_PATH_OWNER_MANUAL" },
+        { "fieldId": "ignition.spark-plug-alternative", "classification": "FAST_PATH_SPECIALIST" },
+        { "fieldId": "ignition.replacement-interval", "classification": "DEEP_PATH_OWNER_MANUAL" },
+        { "fieldId": "valve_train.intake-clearance", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "valve_train.exhaust-clearance", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "valve_train.measurement-conditions", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "final_drive.chain-size", "classification": "FAST_PATH_SPECIALIST" },
+        { "fieldId": "brakes.oem-pad-numbers", "classification": "FAST_PATH_OEM_FICHE" },
+        { "fieldId": "torques.front-axle", "classification": "DEEP_PATH_SERVICE_MANUAL" }
+      ],
+      "existingSourceReuse": ["authenticated MY2019 EU owner manual; later/named-equipment variants excluded"],
+      "priorityScore": 81,
+      "recommendedPackage": "FAST_FITMENT_PARTS"
+    },
+    {
+      "target": "honda.vfr800.rc46.vtec.gen1",
+      "status": "PRODUCTION-PROFILE-SUPPORTED",
+      "coverage": { "riderCore": { "verified": 32, "missing": 60, "blocked": 3, "total": 95 } },
+      "gaps": [
+        { "fieldId": "lubrication.api-jaso", "classification": "FAST_PATH_OEM_SUPPORT" },
+        { "fieldId": "lubrication.capacity-drain", "classification": "FAST_PATH_OEM_SUPPORT" },
+        { "fieldId": "lubrication.oil-filter", "classification": "FAST_PATH_OEM_FICHE" },
+        { "fieldId": "cooling.coolant-specification", "classification": "FAST_PATH_OEM_SUPPORT" },
+        { "fieldId": "cooling.capacity", "classification": "DEEP_PATH_OWNER_MANUAL" },
+        { "fieldId": "valve_train.intake-clearance", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "valve_train.exhaust-clearance", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "final_drive.chain-size", "classification": "FAST_PATH_SPECIALIST" },
+        { "fieldId": "final_drive.chain-slack", "classification": "FAST_PATH_OEM_SUPPORT" },
+        { "fieldId": "tires_wheels.loaded-pressures", "classification": "FAST_PATH_OEM_SUPPORT" },
+        { "fieldId": "torques.oil-drain-bolt", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "torques.front-axle", "classification": "DEEP_PATH_SERVICE_MANUAL" }
+      ],
+      "existingSourceReuse": ["13 direct Service Core fields from Honda service-data card", "Honda-authorized fiche metadata"],
+      "priorityScore": 75,
+      "recommendedPackage": "DEFER_UNTIL_APPLICABILITY_AND_SOURCE_IDENTITY"
+    },
+    {
+      "target": "ducati.monster.937",
+      "status": "PRODUCTION-PROFILE-SUPPORTED",
+      "coverage": { "riderCore": { "verified": 21, "missing": 74, "blocked": 0, "total": 95 } },
+      "gaps": [
+        { "fieldId": "power", "classification": "FAST_PATH_OEM_WEB" },
+        { "fieldId": "oil-filter-oem", "classification": "FAST_PATH_OEM_FICHE" },
+        { "fieldId": "drain-plug-torque", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "filter-torque", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "coolant-complete-circuit-quantity", "classification": "APPLICABILITY_BLOCKED" },
+        { "fieldId": "spark-plug-gap", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "spark-plug-torque", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "intake-clearance", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "exhaust-clearance", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "valve-measurement-conditions", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "front/rear-axle-torque", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "chain-adjuster-torque", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "brake-caliper-torque", "classification": "DEEP_PATH_SERVICE_MANUAL" },
+        { "fieldId": "front/rear-pad-reference", "classification": "FAST_PATH_OEM_FICHE" },
+        { "fieldId": "charging-specification", "classification": "FAST_PATH_OEM_SUPPORT" },
+        { "fieldId": "owner-replaceable-bulb/socket", "classification": "FAST_PATH_OEM_SUPPORT" },
+        { "fieldId": "OEM-consumable-part-numbers", "classification": "FAST_PATH_OEM_FICHE" }
+      ],
+      "existingSourceReuse": ["authenticated MY2021 EU base Monster 937 owner manual", "27 existing raw candidates and 20 pending promotion packets"],
+      "priorityScore": 63,
+      "recommendedPackage": "DEFER_UNTIL_EXISTING_REVIEW_AND_COOLING_SCOPE_CLOSE"
+    },
+    {
+      "target": "bmw.f-roadster-xr.f900r-1",
+      "status": "RESEARCH-SUPPORTED-PRE-EVIDENCE",
+      "coverage": { "serviceCore": { "verified": 0, "total": 44, "missing": 44, "blocked": 2 } },
+      "gaps": [],
+      "existingSourceReuse": ["authenticated MY2020 EU F 900 R 0K11 rider manual", "13 raw candidates", "11 accepted-for-processing records and 2 conflict records"],
+      "blockedPrerequisites": ["resolve existing solo tire-pressure conflict through review/evidence governance before new discovery", "do not duplicate the acquired manual"],
+      "priorityScore": 42,
+      "recommendedPackage": "REUSE_EXISTING_RESEARCH_FIRST"
+    },
+    {
+      "target": "honda.africa-twin.crf1100l-1",
+      "status": "RESEARCH-SUPPORTED-APPLICABILITY-PARTIAL",
+      "coverage": { "serviceCore": { "verified": 5, "total": 44, "missing": 39, "blocked": 9 } },
+      "gaps": [
+        { "fieldId": "lubrication.oil-specification", "classification": "APPLICABILITY_BLOCKED" },
+        { "fieldId": "lubrication.capacity-filter", "classification": "APPLICABILITY_BLOCKED" },
+        { "fieldId": "cooling.coolant-specification", "classification": "APPLICABILITY_BLOCKED" },
+        { "fieldId": "ignition.spark-plug-oem", "classification": "APPLICABILITY_BLOCKED" },
+        { "fieldId": "valve_train.inspection-interval", "classification": "APPLICABILITY_BLOCKED" },
+        { "fieldId": "brakes.brake-fluid", "classification": "APPLICABILITY_BLOCKED" },
+        { "fieldId": "tires_wheels.solo-pressures", "classification": "APPLICABILITY_BLOCKED" },
+        { "fieldId": "maintenance.periodic-schedule", "classification": "APPLICABILITY_BLOCKED" },
+        { "fieldId": "torques.front-axle", "classification": "APPLICABILITY_BLOCKED" }
+      ],
+      "existingSourceReuse": ["authenticated USA owner-manual route rejected for EU/UK and standard/Adventure Sports scope"],
+      "blockedPrerequisites": ["resolve market and equipment applicability with an exact permitted source"],
+      "priorityScore": 18,
+      "recommendedPackage": "APPLICABILITY_RESOLUTION_ONLY"
+    },
+    {
+      "target": "yamaha.fz1.gen2",
+      "status": "RAW-EXTRACTION-ONLY",
+      "coverage": { "riderCore": { "verified": null, "missing": null, "blocked": null, "projection": "not established" } },
+      "gaps": [],
+      "existingSourceReuse": ["exact acquired 2D1X artifact", "14 raw candidates", "six-region extraction plan"],
+      "blockedPrerequisites": ["market, ABS, transmission, equipment and emissions remain unresolved", "2D1-28197-E0 remains outside scope"],
+      "priorityScore": 12,
+      "recommendedPackage": "DO_NOT_RESEARCH_OR_PROMOTE_IN_THIS_REASSESSMENT"
+    }
+  ],
+  "fieldBundles": [
+    { "id": "FAST_FITMENT_PARTS", "fields": ["lubrication.oil-filter", "oem.oil-filter", "brakes.oem-pad-numbers", "final_drive.chain-size"], "sourceClasses": ["TIER_A_OEM", "TIER_B_AUTHORIZED", "TIER_C_SPECIALIST"], "policy": "exact applicability; Tier C limited to its domain; Tier D requires corroboration" },
+    { "id": "FAST_ROUTINE_AND_FITMENT", "fields": ["lubrication.oil-specification", "lubrication.oil-filter", "tires_wheels.loaded-pressures", "final_drive.chain-size"], "sourceClasses": ["TIER_A_OEM", "TIER_B_AUTHORIZED", "TIER_C_SPECIALIST"], "policy": "routine owner data or legitimate specialist fitment only; conditions and units preserved" },
+    { "id": "DEEP_OWNER_SERVICE", "fields": ["cooling.replacement-interval", "brakes.fluid-interval", "maintenance.schedule-mileage-intervals", "valve_train.inspection-interval"], "sourceClasses": ["TIER_A_OEM", "TIER_B_AUTHORIZED"], "policy": "manual/support authority; no generic secondary fast path" },
+    { "id": "DEEP_WORKSHOP_SAFETY", "fields": ["valve_train.intake-clearance", "valve_train.exhaust-clearance", "torques.front-axle", "brake-caliper-torque"], "sourceClasses": ["TIER_A_OEM", "TIER_B_AUTHORIZED"], "policy": "Tier-A/deep-only" }
+  ],
+  "aggregate": {
+    "enumeratedHighValueGapCount": 76,
+    "additionalBMWServiceCoreGapSlots": 44,
+    "totalEnumeratedOrCountedGapSlots": 120,
+    "potentialFastPathGapCount": 27,
+    "deepPathGapCount": 39,
+    "applicabilityBlockedGapCount": 10,
+    "conflictReviewGapCount": 2,
+    "noCurrentSafeRouteGapCount": 0,
+    "countsArePlanningClassificationsNotResearchResults": true
+  },
+  "ranking": [
+    { "rank": 1, "target": "honda.nc750x.rh09-1", "score": 94 },
+    { "rank": 2, "target": "honda.cbr600rr.rh10", "score": 91 },
+    { "rank": 3, "target": "honda.cbr500r.pc70", "score": 88 },
+    { "rank": 4, "target": "yamaha.mt-09.gen3", "score": 82 },
+    { "rank": 5, "target": "yamaha.tenere-700.gen1", "score": 81 },
+    { "rank": 6, "target": "honda.vfr800.rc46.vtec.gen1", "score": 75 },
+    { "rank": 7, "target": "ducati.monster.937", "score": 63 },
+    { "rank": 8, "target": "bmw.f-roadster-xr.f900r-1", "score": 42 },
+    { "rank": 9, "target": "honda.africa-twin.crf1100l-1", "score": 18 },
+    { "rank": 10, "target": "yamaha.fz1.gen2", "score": 12 }
+  ],
+  "scoring": {
+    "formula": "score = 4*riderUsefulness + 3*sourcePathReadiness + 2*expectedBundleYield + 2*identityApplicabilityReadiness + 1*existingSourceReuse - 4*conflictOrBlocker - 2*deepOnlyCost",
+    "inputs": "repository-known statuses only; no external availability input",
+    "scale": "each component is bounded 0..5; score is integer; ties sort by target identity"
+  },
+  "firstExecutionPackage": {
+    "id": "existing-fleet-fast-fitment-parts-v1",
+    "targets": ["honda.nc750x.rh09-1", "honda.cbr600rr.rh10", "honda.cbr500r.pc70"],
+    "bundles": ["FAST_FITMENT_PARTS", "FAST_ROUTINE_AND_FITMENT"],
+    "permittedSourceClasses": ["TIER_A_OEM", "TIER_B_AUTHORIZED", "TIER_C_SPECIALIST"],
+    "tierD": "corroboration-only; not a default authority",
+    "discoveryBudgetPerTarget": { "maxDiscoveryAttempts": 4, "maxAuthenticatedSources": 2, "maxSourceClasses": 3, "maxRawCandidates": 8 },
+    "maximumRawCandidateBudget": 24,
+    "applicabilityPrerequisites": ["exact existing target/year/market/variant scope must be carried into every source work item", "specialist sources must prove exact fitment", "no source may widen model, year, market, ABS, equipment or transmission"],
+    "stopConditions": ["source authority insufficient", "applicability unresolved", "conflict detected", "provenance incomplete", "budget exhausted", "existing source already covers the field"],
+    "expectedMaximumTargetFieldSlots": 6,
+    "expectedPracticalGain": "up to 6 practical field slots as a planning ceiling; no gain is claimed before research and existing review/evidence gates"
+  },
+  "futureWholeFleetAutomationBlockers": ["field-to-group policy coverage is representative, not complete", "no provider registry for authenticated specialist domains", "HTML/structured-web acquisition and extraction adapters are not implemented", "source-family-specific extraction rules remain", "identity/applicability prerequisites and existing conflicts require human-governed handling"],
+  "isolation": { "researchExecuted": false, "sourcesFetched": false, "candidatesCreated": 0, "reviewDecisionsCreated": 0, "evidenceCreated": 0, "serviceCoreChanged": false, "productionChanged": false, "catalogueChanged": false, "supabaseAccessed": false }
+}

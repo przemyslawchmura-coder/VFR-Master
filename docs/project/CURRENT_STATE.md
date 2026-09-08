@@ -127,7 +127,7 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Execute one bounded Existing-Fleet Field-Oriented Coverage Reassessment / Research Planning wave using the new declarative field-policy/source-authority contract. Prioritize already-supported motorcycles and missing Service Core fields; identify fast-path OEM web, support, fiche and specialist opportunities without live research or promotion unless separately authorized. Supabase production migration-history reconciliation remains separately unresolved and unauthorized; leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
+**NEXT** — Execute one bounded existing-fleet fast-path research package for Honda NC750X RH09-1, Honda CBR600RR RH10 and Honda CBR500R PC70, limited to the approved fitment/routine field bundles, explicit applicability, ADR-031 source authority and a 24-raw-candidate ceiling. Do not execute it in this wave's planning record; Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
 
 Deferred independent streams remain future bounded Ducati/BMW profile expansion, cooling-scope resolution and the global catalogue gap audit; none is an active NEXT task.
 
@@ -169,6 +169,14 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   diagnostic and unresolved cases remain deep path. The existing FZ1 pilot is
   only a benchmark: no PDF, pilot or extractor was executed, and no
   candidates, evidence, Service Core or production data changed.
+- Existing-fleet field-oriented coverage reassessment: static analysis of ten
+  existing research/profile targets produced a deterministic ranked plan using
+  ADR-031. The proposed first package is NC750X RH09-1, CBR600RR RH10 and
+  CBR500R PC70 with bounded OEM web/support/fiche and domain-specialist
+  fitment opportunities; no external availability was claimed. Verified fields
+  remain untouched, blocked applicability/conflicts remain separate, and no
+  research, acquisition, candidates, evidence, Service Core, production,
+  catalogue or Supabase state changed.
 - Declarative field-policy/source-authority contract foundation: added a small
   manufacturer-neutral immutable policy schema and pure evaluator with closed
   source classes, specialist domains, corroboration modes, applicability and

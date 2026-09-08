@@ -606,3 +606,16 @@ fail closed. Synthetic tests cover the contract; no live research, FZ1 pilot,
 PDF, candidates, review decisions, evidence, Service Core or production data
 changed. The next bounded wave is an existing-fleet field-oriented coverage
 reassessment using this policy.
+
+## 2026-09-08 — Existing-Fleet Field-Oriented Coverage Reassessment
+
+Performed one static reassessment across ten existing research/profile targets.
+Catalogue-only variants were excluded without inventing a count. Repository
+known gaps were classified by the field policy into bounded OEM web/support/
+fiche, specialist, corroboration, deep-path, applicability-blocked and
+conflict-review routes. Existing authenticated sources and held raw/review
+state were marked for reuse; no external availability was claimed. The ranked
+first package is Honda NC750X RH09-1, Honda CBR600RR RH10 and Honda CBR500R
+PC70, limited to fitment/routine bundles and 24 raw candidates maximum. No
+research, acquisition, extraction, candidate, evidence, Service Core,
+production, catalogue or Supabase state changed.
