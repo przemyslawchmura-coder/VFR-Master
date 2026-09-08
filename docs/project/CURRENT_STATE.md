@@ -218,3 +218,10 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   identity checks remain fail-closed. No live motorcycle research or research
   output changed. The next bounded research step remains the three-Honda
   package through the complete trusted web-to-raw path.
+- The opaque-content boundary now also covers only canonical derived source
+  text (`metadata.content` / derived `content`) and the extraction envelope's
+  `content`. Control/provenance metadata, URLs, locators and transformer
+  identity remain secret-scanned; derived digest, byte length, parent binding
+  and deterministic identity remain enforced. No live motorcycle research or
+  research output changed. The next bounded step remains the three-Honda
+  fast-path package through the complete trusted web-to-raw path.

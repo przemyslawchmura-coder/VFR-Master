@@ -3,6 +3,7 @@
 
 const crypto = require("node:crypto");
 const json = require("./json.js");
+const execution = require("./execution-contracts.js");
 const pipeline = require("../lib/batch-research-pipeline.js");
 const riderServiceCore = require("../schema/rider-service-core-v1.js");
 
@@ -28,7 +29,7 @@ function validateArtifactContentEnvelope(input) {
   assert(typeof input.contentDigest === "string" && /^[a-f0-9]{64}$/.test(input.contentDigest), "ArtifactContentEnvelope.contentDigest is invalid");
   assert(input.contentEncoding === "utf8", "ArtifactContentEnvelope supports only utf8 local content");
   assert(typeof input.content === "string", "ArtifactContentEnvelope.content must be a string");
-  assert(!hasSecrets(input), "ArtifactContentEnvelope contains prohibited secret-shaped data");
+  execution.assertNoSecretsExceptPaths(input, [["content"]], "ArtifactContentEnvelope contains prohibited secret-shaped data");
   return json.immutableClone(input);
 }
 

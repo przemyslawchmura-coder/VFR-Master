@@ -171,9 +171,9 @@ test("unmapped candidate malformed and forged adapter output is rejected", () =>
   assert.throws(() => factory.extractRawCandidates({ executionResult: value.acquired.result, events: value.acquired.events, researchTarget: value.target, contentEnvelope: value.envelope, adapter: extra }), /unsupported/);
 });
 
-test("JSON safety and secret-shaped content or adapter output fail closed", () => {
+test("JSON safety and secret-shaped control output fail closed", () => {
   const value = fixture();
-  assert.throws(() => factory.validateArtifactContentEnvelope({ ...value.envelope, content: "api_key=unsafe" }), /secret-shaped/);
+  assert.doesNotThrow(() => factory.validateArtifactContentEnvelope({ ...value.envelope, content: "api_key=opaque-source-text" }));
   const unsafe = { ...factory.extractionAdapters.syntheticExtractorAdapters.candidates, execute: () => ({ disposition: "NO-CANDIDATES", candidates: [], observations: [{ type: "NO-CANDIDATES", detailCode: "x", metadata: { token: "unsafe" } }] }) };
   assert.throws(() => factory.extractRawCandidates({ executionResult: value.acquired.result, events: value.acquired.events, researchTarget: value.target, contentEnvelope: value.envelope, adapter: unsafe }), /secret-shaped/);
   assert.throws(() => factory.validateArtifactContentEnvelope({ ...value.envelope, extra: undefined }), /undefined/);

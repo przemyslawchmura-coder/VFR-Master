@@ -12,13 +12,15 @@ const OBSERVATION_TYPES = Object.freeze(["DOCUMENT-ACQUIRED", "METADATA-ACQUIRED
 const assert = (condition, message) => { if (!condition) throw new TypeError(message); };
 const SECRET_PATTERN = /(password|token|cookie|secret|authorization|api(?:[-_]?key))/i;
 const OPAQUE_PAYLOAD_PATH = Object.freeze(["metadata", "contentBase64"]);
-const hasSecretShapeExcept = (value, path = [], exemptPath = null) => {
-  if (typeof value === "string") return !(exemptPath && path.length === exemptPath.length && path.every((part, index) => part === exemptPath[index])) && SECRET_PATTERN.test(value);
-  if (Array.isArray(value)) return value.some((item, index) => hasSecretShapeExcept(item, [...path, String(index)], exemptPath));
-  if (value && typeof value === "object") return Object.entries(value).some(([key, item]) => SECRET_PATTERN.test(key) || hasSecretShapeExcept(item, [...path, key], exemptPath));
+const samePath = (left, right) => left.length === right.length && left.every((part, index) => part === right[index]);
+const hasSecretShapeExcept = (value, path = [], exemptPaths = []) => {
+  if (typeof value === "string") return !exemptPaths.some(exemptPath => samePath(path, exemptPath)) && SECRET_PATTERN.test(value);
+  if (Array.isArray(value)) return value.some((item, index) => hasSecretShapeExcept(item, [...path, String(index)], exemptPaths));
+  if (value && typeof value === "object") return Object.entries(value).some(([key, item]) => SECRET_PATTERN.test(key) || hasSecretShapeExcept(item, [...path, key], exemptPaths));
   return false;
 };
-const assertNoSecretsExceptOpaquePayload = (value, rootPath = []) => assert(!hasSecretShapeExcept(value, rootPath, [...rootPath, ...OPAQUE_PAYLOAD_PATH]), "AcquisitionArtifact contains prohibited secret-shaped data");
+const assertNoSecretsExceptPaths = (value, exemptPaths, message) => assert(!hasSecretShapeExcept(value, [], exemptPaths), message);
+const derivedPayloadPaths = input => input && input.originClassification === "DERIVED-FROM-ACQUIRED-ARTIFACT" && input.acquisitionMethod === "LOCAL-DETERMINISTIC-TRANSFORM" ? [["metadata", "contentBase64"], ["metadata", "content"], ["content"]] : [OPAQUE_PAYLOAD_PATH];
 const isBase64 = value => typeof value === "string" && value.length > 0 && value.length % 4 === 0 && /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(value);
 const digest = value => crypto.createHash("sha256").update(json.canonicalSerialize(value)).digest("hex").slice(0, 24);
 
@@ -50,7 +52,7 @@ function validateArtifact(input) {
     const bytes = Buffer.from(input.metadata.contentBase64, "base64");
     assert(input.byteLength === bytes.length && input.contentDigest === crypto.createHash("sha256").update(bytes).digest("hex"), "AcquisitionArtifact.contentBase64 does not match artifact identity");
   }
-  assertNoSecretsExceptOpaquePayload(input);
+  assertNoSecretsExceptPaths(input, derivedPayloadPaths(input), "AcquisitionArtifact contains prohibited secret-shaped data");
   return json.immutableClone(input);
 }
 function validateObservation(input) {
@@ -68,7 +70,7 @@ function validateOutcome(input) {
   assert(Array.isArray(input.observations), "AcquisitionOutcome.observations are required");
   input.observations.forEach(validateObservation);
   if (input.artifact !== null && input.artifact !== undefined) validateArtifact(input.artifact);
-  assertNoSecretsExceptOpaquePayload(input, ["artifact"]);
+  assertNoSecretsExceptPaths(input, [["artifact", "metadata", "contentBase64"], ["artifact", "metadata", "content"], ["artifact", "content"]], "AcquisitionOutcome contains prohibited secret-shaped data");
   return json.immutableClone(input);
 }
 function validateExecutionResult(input) {
@@ -79,4 +81,4 @@ function validateExecutionResult(input) {
   return json.immutableClone(input);
 }
 
-module.exports = Object.freeze({ EXECUTION_SCHEMA_VERSION, OUTCOMES, RETRY_CLASSES, OBSERVATION_TYPES, artifactId, validateAcquisitionRequest, validateArtifact, validateObservation, validateOutcome, validateExecutionResult });
+module.exports = Object.freeze({ EXECUTION_SCHEMA_VERSION, OUTCOMES, RETRY_CLASSES, OBSERVATION_TYPES, artifactId, assertNoSecretsExceptPaths, validateAcquisitionRequest, validateArtifact, validateObservation, validateOutcome, validateExecutionResult });

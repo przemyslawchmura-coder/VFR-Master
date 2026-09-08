@@ -54,3 +54,14 @@ test("HTML derivation enforces input/output boundaries without network or field 
   assert.doesNotMatch(source, /fetch|https?:\/\//i);
   assert.doesNotMatch(source, /css|xpath|oil|tire|chain|honda|yamaha/i);
 });
+
+test("derived source text is opaque while derived custody metadata remains protected", () => {
+  const source = "<main><p>Documentation example</p><p>api_key=EXAMPLE_PUBLIC_VALUE</p><p>Authorization: Bearer EXAMPLE</p><p>password field</p><p>token text</p></main>";
+  const derived = factory.createHtmlDerivedContent({ parentArtifact: parentFor(source) });
+  assert.match(derived.content, /api_key=EXAMPLE_PUBLIC_VALUE/);
+  assert.match(derived.content, /Authorization: Bearer EXAMPLE/);
+  assert.doesNotThrow(() => factory.validateDerivedContent(derived));
+  assert.doesNotThrow(() => factory.toExtractionEnvelope(derived));
+  const metadataSecret = { ...derived, metadata: { ...derived.metadata, transformerId: "secret-transformer" } };
+  assert.throws(() => factory.validateDerivedContent(metadataSecret), /secret-shaped/);
+});

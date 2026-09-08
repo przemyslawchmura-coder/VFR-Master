@@ -320,8 +320,11 @@ exception preserves the control-data security boundary without disabling the
 scanner globally.
 
 Consequences: Generic public HTML acquisition can pass the artifact contract
-when its exact retained body is valid and hash-bound. The exemption is not a
-source-authority or applicability decision and does not change HTML
-derivation, declarative extraction, review, evidence or production behavior.
+when its exact retained body is valid and hash-bound. The same opaque-content
+boundary applies to the canonical derived-text payload (`metadata.content` and
+the derived artifact `content` field) and its extraction envelope `content`;
+their integrity and parent custody remain mandatory. The exemption is not a
+source-authority or applicability decision and does not change declarative
+extraction, review, evidence or production behavior.
 
 Status: ACTIVE. Related implementation: `research/factory/execution-contracts.js`.

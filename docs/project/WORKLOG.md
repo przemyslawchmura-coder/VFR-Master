@@ -668,3 +668,12 @@ URLs, arbitrary sibling payload fields and request metadata remain scanned.
 Base64 syntax, byte length, SHA-256 custody and deterministic artifact identity
 remain enforced. No live motorcycle research, extraction, candidates, review,
 evidence, Service Core or production data changed.
+
+## 2026-09-08 — DerivedContent opaque text secret-scan boundary
+
+Extended the same narrow opaque-content principle to canonical derived source
+text and the derived text extraction envelope. Only the exact derived payload
+paths are exempt from secret-shaped textual heuristics; control, provenance,
+URL, locator and transformer metadata remain scanned. Derived digest, byte
+length, deterministic identity and parent binding remain fail-closed. No live
+motorcycle research or technical/production data changed.
