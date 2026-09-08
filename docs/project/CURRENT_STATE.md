@@ -194,3 +194,11 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
 - The next bounded research step is to rerun Existing-Fleet Fast-Path
   Research Package 1 for NC750X RH09-1, CBR600RR RH10 and CBR500R PC70 using
   this adapter; semantic HTML extraction remains a separate future boundary.
+- Generic parent-bound HTML derivation is now available through
+  `html.normalized-text` v1. It accepts only retained `text/html` or
+  `application/xhtml+xml` artifact bytes, rechecks parent digest/length,
+  removes non-semantic markup content, normalizes deterministic UTF-8 text and
+  emits a bounded whole-document derivative through the existing bridge. No
+  motorcycle research, candidates, evidence, review or production state
+  changed. The next bounded wave may rerun the three-Honda fast-path package
+  through HTTP acquisition and HTML derivation.

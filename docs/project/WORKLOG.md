@@ -632,3 +632,16 @@ local-resource rejection. No live motorcycle research, extraction, raw
 candidates, review decisions, evidence, Service Core or production changes
 occurred. Next: rerun the previously rejected three-Honda fast-path package
 through this generic adapter, without adding semantic HTML extraction here.
+
+## 2026-09-08 — Generic Parent-Bound HTML Text Derivation Foundation
+
+Added the smallest generic HTML/XHTML transformation layer above acquired
+artifacts. `html.normalized-text` v1 consumes only retained parent artifact
+bytes, re-verifies SHA-256 and byte length, safely excludes scripts, styles
+and comments, normalizes UTF-8 text deterministically, enforces a finite
+output bound and emits a whole-document derivative through the existing
+parent-bound contract. The PDF region path remains compatible. Focused
+derivation and Extraction Agent tests pass 26/26. No live source, motorcycle
+research, semantic field extraction, raw candidates, review decisions,
+evidence, Service Core or production data changed. Next: rerun the bounded
+three-Honda fast-path package through HTTP acquisition and HTML derivation.

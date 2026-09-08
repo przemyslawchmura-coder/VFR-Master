@@ -27,7 +27,10 @@ function derivedId(input) {
 
 function validateRegion(region) {
   assert(region && typeof region.id === "string" && region.id.length > 0, "derived content region id is required");
-  assert(Array.isArray(region.pdfPages) && region.pdfPages.length > 0 && region.pdfPages.every(page => Number.isInteger(page) && page > 0), "derived content region pages are invalid");
+  const pdfRegion = Array.isArray(region.pdfPages) && region.pdfPages.length > 0 && region.pdfPages.every(page => Number.isInteger(page) && page > 0);
+  const htmlDocumentRegion = region.documentLocator === "document:full";
+  assert(pdfRegion || htmlDocumentRegion, "derived content region locator is invalid");
+  if (htmlDocumentRegion) assert(region.mediaType === "text/html" || region.mediaType === "application/xhtml+xml", "derived content HTML region media type is invalid");
   return json.immutableClone(region);
 }
 
