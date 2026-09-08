@@ -1317,7 +1317,10 @@ async function handlePasswordRecoveryRequest() {
   }
 }
 
+let passwordRecoveryUpdateInFlight = false;
+
 async function handlePasswordRecoveryUpdate() {
+  if (passwordRecoveryUpdateInFlight) return;
   const password = document.getElementById("recoveryPassword").value;
   const confirmation = document.getElementById("recoveryPasswordConfirmation").value;
   const validationMessage = validateRecoveryPassword(password, confirmation);
@@ -1325,6 +1328,9 @@ async function handlePasswordRecoveryUpdate() {
     setAuthMessage(validationMessage);
     return;
   }
+  passwordRecoveryUpdateInFlight = true;
+  const submitButton = document.querySelector("#passwordRecoveryForm button.primary");
+  if (submitButton) submitButton.disabled = true;
   setAuthMessage("Zmiana hasła...");
   try {
     await window.updateRecoveryPassword(password);
@@ -1334,6 +1340,9 @@ async function handlePasswordRecoveryUpdate() {
     await VFRApp.init();
   } catch (_) {
     showPasswordRecovery("Nie udało się zmienić hasła. Link mógł wygasnąć lub sesja nie jest już aktywna.");
+  } finally {
+    passwordRecoveryUpdateInFlight = false;
+    if (submitButton) submitButton.disabled = false;
   }
 }
 

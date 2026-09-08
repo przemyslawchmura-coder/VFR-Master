@@ -495,3 +495,16 @@ source/applicability verification, exception-driven review, document reuse and
 measured pilot evaluation without weakening zero-inference or provenance. The
 concept remains deferred until the current Technical Research Factory scope is
 formally closed; no research, production or schema implementation occurred.
+
+## 2026-09-08 — Deployment / Recovery Hardening
+
+Completed one bounded Phase 7 hardening wave. Production password-reset
+requests now require an explicit operator-provided HTTPS callback URL; only
+localhost development can derive its current path. Recovery UI activation is
+bound to Supabase `PASSWORD_RECOVERY` plus the session user ID, so arbitrary
+URL markers, ordinary sessions, malformed callbacks and identity mismatches
+fail closed. Password updates remain locally validated, prevent duplicate
+submissions, clear recovery state only after success and remain recoverable on
+failure. Added deterministic offline tests and the deployment/recovery
+runbook. No live Supabase or deployment change occurred, and the current Free
+plan leaked-password protection limitation remains an external blocker.

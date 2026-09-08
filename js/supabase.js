@@ -20,8 +20,26 @@ if (window.supabase && window.supabase.createClient) {
 
 const PASSWORD_RECOVERY_STORAGE_KEY = "revlog.password-recovery-pending";
 
-function getRecoveryRedirectUrl(locationLike = window.location) {
-  if (!locationLike || !locationLike.origin || !locationLike.pathname) return null;
+function getDeploymentConfig() {
+  return window.REVLOG_CONFIG && typeof window.REVLOG_CONFIG === "object" ? window.REVLOG_CONFIG : {};
+}
+
+function isLocalLocation(locationLike) {
+  return Boolean(locationLike && ["localhost", "127.0.0.1", "::1"].includes(locationLike.hostname));
+}
+
+function getRecoveryRedirectUrl(locationLike = window.location, config = getDeploymentConfig()) {
+  const configured = config && config.recoveryRedirectUrl;
+  if (configured) {
+    try {
+      const url = new URL(configured);
+      if (!["https:", "http:"].includes(url.protocol)) return null;
+      if (url.protocol === "http:" && !isLocalLocation(url)) return null;
+      if (!url.pathname || url.search || url.hash) return null;
+      return url.href;
+    } catch (_) { return null; }
+  }
+  if (!isLocalLocation(locationLike) || !locationLike.origin || !locationLike.pathname) return null;
   return `${locationLike.origin}${locationLike.pathname}`;
 }
 
@@ -35,18 +53,21 @@ function getRecoveryCallbackStatus(locationLike = window.location) {
 
 function setPasswordRecoveryPending(pending) {
   try {
-    if (pending) sessionStorage.setItem(PASSWORD_RECOVERY_STORAGE_KEY, "true");
+    if (pending && typeof pending === "object" && pending.userId) sessionStorage.setItem(PASSWORD_RECOVERY_STORAGE_KEY, JSON.stringify({ userId: pending.userId }));
     else sessionStorage.removeItem(PASSWORD_RECOVERY_STORAGE_KEY);
   } catch (_) {}
 }
 
-function isPasswordRecoveryPending() {
-  try { return sessionStorage.getItem(PASSWORD_RECOVERY_STORAGE_KEY) === "true"; } catch (_) { return false; }
+function getPasswordRecoveryPending() {
+  try {
+    const value = JSON.parse(sessionStorage.getItem(PASSWORD_RECOVERY_STORAGE_KEY) || "null");
+    return value && typeof value.userId === "string" && value.userId ? value : null;
+  } catch (_) { return null; }
 }
 
 function getPasswordRecoveryState() {
   const callback = getRecoveryCallbackStatus();
-  return Object.freeze({ active: callback.isRecovery || isPasswordRecoveryPending(), error: callback.error });
+  return Object.freeze({ active: Boolean(getPasswordRecoveryPending()), error: callback.error });
 }
 
 function getSupabaseClient() {
@@ -84,15 +105,22 @@ async function signUp(email, password) {
 }
 
 async function requestPasswordReset(email) {
+  const redirectTo = getRecoveryRedirectUrl();
+  if (!redirectTo) throw new Error("Brak bezpiecznie skonfigurowanego adresu odzyskiwania hasła.");
   const { error } = await getSupabaseClient().auth.resetPasswordForEmail(email, {
-    redirectTo: getRecoveryRedirectUrl()
+    redirectTo
   });
   if (error) throw error;
 }
 
 async function updateRecoveryPassword(password) {
-  if (!isPasswordRecoveryPending() && !getRecoveryCallbackStatus().isRecovery) {
+  const pending = getPasswordRecoveryPending();
+  if (!pending) {
     throw new Error("Brak aktywnej sesji odzyskiwania hasła.");
+  }
+  const session = await getCurrentSession();
+  if (!session || !session.user || session.user.id !== pending.userId) {
+    throw new Error("Sesja odzyskiwania hasła jest nieprawidłowa lub wygasła.");
   }
   const { data, error } = await getSupabaseClient().auth.updateUser({ password });
   if (error) throw error;
@@ -127,7 +155,9 @@ window.getPasswordRecoveryState = getPasswordRecoveryState;
 window.setPasswordRecoveryPending = setPasswordRecoveryPending;
 
 if (window.supabaseClient && window.supabaseClient.auth && window.supabaseClient.auth.onAuthStateChange) {
-  window.supabaseClient.auth.onAuthStateChange((event) => {
-    if (event === "PASSWORD_RECOVERY") setPasswordRecoveryPending(true);
+  window.supabaseClient.auth.onAuthStateChange((event, session) => {
+    if (event === "PASSWORD_RECOVERY" && session && session.user && session.user.id) {
+      setPasswordRecoveryPending({ userId: session.user.id });
+    }
   });
 }

@@ -263,3 +263,11 @@ research infrastructure only: it adds no evidence, technical values,
 production profiles or Rider Service Core projection. Existing single-runtime
 targets remain compatible without a mapping.
 Status: ACTIVE. Related implementation: research/factory/identity-mapping.js.
+
+## ADR-029 — Recovery requires explicit destination and authenticated recovery state
+
+Date: 2026-09-08
+Decision: Production password-reset requests require an explicit operator-supplied HTTPS callback URL. Only localhost development may derive the current origin/path. The reset UI is enabled only by a Supabase `PASSWORD_RECOVERY` event carrying a session user ID; URL markers alone are never sufficient, and password updates require the current session to match that ID.
+Rationale: browser-derived production redirects and arbitrary recovery URL markers can target unintended destinations or expose reset UI without trusted recovery evidence.
+Consequences: deployments must inject `window.REVLOG_CONFIG.recoveryRedirectUrl` before `js/supabase.js`; the Dashboard allow-list remains external and must match exactly. Missing or malformed production configuration fails closed. This does not change Supabase plan capabilities or imitate leaked-password protection.
+Status: ACTIVE. Related implementation: `js/supabase.js`, `docs/project/DEPLOYMENT_RECOVERY.md`.
