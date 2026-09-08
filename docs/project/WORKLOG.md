@@ -534,3 +534,15 @@ content. `2D1-28197-E0` remained an untouched partial-authentication lead. No
 extraction, raw candidate, review, evidence, Service Core or production record
 was created. The next bounded task is extraction planning before any value is
 read.
+
+## 2026-09-08 — Yamaha FZ1 2D1X Extraction Planning
+
+Completed exactly one planning-only wave for the acquired official `2D1X`
+owner manual. Structural inspection was limited to PDF metadata, the 68-page
+document structure and bookmarks/TOC; no page text or technical value was
+recorded. The deterministic plan binds to the acquired artifact and exact
+SHA-256, permits six bounded owner-service/specification regions, requires
+precise page/section/table/applicability provenance, preserves conditional
+rows, excludes FZ1-S, non-2010 years and `2D1-28197-E0`, and caps future raw
+output at 24 candidates. Extraction was not executed: zero values,
+candidates, review entries, evidence, Service Core or production changes.
