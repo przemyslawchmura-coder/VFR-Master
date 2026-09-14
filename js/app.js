@@ -1420,14 +1420,15 @@ async function handleSignOut() {
 
 async function initializeAuth() {
   try {
+    if (window.supabaseAuthReady) await window.supabaseAuthReady;
     const recoveryState = window.getPasswordRecoveryState();
+    if (recoveryState.error) {
+      window.setPasswordRecoveryPending(false);
+      showLoginMode("Link do zmiany hasła jest nieprawidłowy lub wygasł.");
+      return;
+    }
     if (recoveryState.active) {
-      if (recoveryState.error) {
-        window.setPasswordRecoveryPending(false);
-        showLoginMode("Link do zmiany hasła jest nieprawidłowy lub wygasł.");
-      } else {
-        showPasswordRecovery();
-      }
+      showPasswordRecovery();
       return;
     }
     const session = await window.getCurrentSession();

@@ -4,6 +4,12 @@ const SUPABASE_URL =
 const SUPABASE_PUBLISHABLE_KEY =
   "sb_publishable_f2_tgYA-n86jxqlHldXpmg_ivcqkr94";
 
+let resolveSupabaseAuthReady;
+const supabaseAuthReady = new Promise(resolve => {
+  resolveSupabaseAuthReady = resolve;
+});
+window.supabaseAuthReady = supabaseAuthReady;
+
 if (window.supabase && window.supabase.createClient) {
   window.supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
@@ -49,6 +55,15 @@ function getRecoveryCallbackStatus(locationLike = window.location) {
   const isRecovery = hash.get("type") === "recovery" || query.get("type") === "recovery";
   const error = hash.get("error_description") || query.get("error_description") || hash.get("error") || query.get("error");
   return Object.freeze({ isRecovery, error: isRecovery && error ? error : null });
+}
+
+const startupRecoveryState = getRecoveryCallbackStatus(window.location);
+
+function resolveSupabaseAuthReadyOnce(event, session) {
+  if (!resolveSupabaseAuthReady) return;
+  const resolveReady = resolveSupabaseAuthReady;
+  resolveSupabaseAuthReady = null;
+  resolveReady(Object.freeze({ event, session: session || null }));
 }
 
 function setPasswordRecoveryPending(pending) {
@@ -158,6 +173,14 @@ if (window.supabaseClient && window.supabaseClient.auth && window.supabaseClient
   window.supabaseClient.auth.onAuthStateChange((event, session) => {
     if (event === "PASSWORD_RECOVERY" && session && session.user && session.user.id) {
       setPasswordRecoveryPending({ userId: session.user.id });
+      resolveSupabaseAuthReadyOnce(event, session);
+      return;
+    }
+
+    if (event === "INITIAL_SESSION" && (!startupRecoveryState.isRecovery || startupRecoveryState.error || !session)) {
+      resolveSupabaseAuthReadyOnce(event, session);
     }
   });
+} else {
+  resolveSupabaseAuthReadyOnce("NO_CLIENT", null);
 }

@@ -168,6 +168,15 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   Supabase client. The exact path is host/path-gated; localhost-only fallback
   and fail-closed unsafe-origin handling remain unchanged. Supabase Auth
   redirect allow-list configuration remains an external operator boundary.
+- Password-recovery startup race repair: `js/supabase.js` now exposes an
+  explicit auth-readiness promise, and `initializeAuth()` waits for the
+  lifecycle boundary before choosing ordinary-session or recovery rendering.
+  Recovery-marked authenticated startup remains blocked until a valid
+  `PASSWORD_RECOVERY` event persists the matching pending identity; ordinary
+  sessions, malformed/expired callbacks and mismatches remain fail-closed.
+  The operator-observed production defect is covered by deterministic async
+  regression tests; production redirect, localhost fallback and Supabase
+  state remain unchanged. Phase 7 remains ACTIVE.
 - CI validation and Supabase reproducibility audit foundation completed. The
   repository now has a secret-free pull-request/main validation workflow using
   Node.js 22, while `docs/project/SUPABASE_REPRODUCIBILITY_AUDIT.md` records

@@ -11,6 +11,7 @@ const index = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const app = fs.readFileSync(path.join(root, "js/app.js"), "utf8");
 const deploymentConfigSource = fs.readFileSync(path.join(root, "js/deployment-config.js"), "utf8");
 const supabaseSource = fs.readFileSync(path.join(root, "js/supabase.js"), "utf8");
+const initializeAuthSource = app.slice(app.indexOf("async function initializeAuth()"), app.indexOf("\ndocument.addEventListener", app.indexOf("async function initializeAuth()")));
 
 function loadDeploymentConfig(location) {
   const context = { window: { location } };
@@ -36,6 +37,24 @@ function loadSupabase(location = { origin: "https://revlog.example", hostname: "
   };
   vm.runInNewContext(supabaseSource, context);
   return { window: context.window, auth, calls };
+}
+
+function loadInitializeAuth({ recoveryState, session, authReady = Promise.resolve(), updatePending = () => {}, onApplication = () => {}, onRecovery = () => {}, onLogin = () => {} }) {
+  let sessionCalls = 0;
+  const context = {
+    window: {
+      supabaseAuthReady: authReady,
+      getPasswordRecoveryState: () => recoveryState,
+      setPasswordRecoveryPending: updatePending,
+      getCurrentSession: async () => { sessionCalls += 1; return session; }
+    },
+    showPasswordRecovery: onRecovery,
+    showApplication: onApplication,
+    showLoginMode: onLogin,
+    VFRApp: { async init() {} }
+  };
+  vm.runInNewContext(`${initializeAuthSource}; this.initializeAuth = initializeAuth;`, context);
+  return { context, getSessionCalls: () => sessionCalls };
 }
 
 test("recovery request uses the explicit production redirect and supports local fallback", async () => {
@@ -79,6 +98,91 @@ test("production deployment config fixes the GitHub Pages recovery path and pres
   assert.equal(wrongPathConfig, null);
   const wrongPath = loadSupabase({ origin: "https://przemyslawchmura-coder.github.io/other/", hostname: "przemyslawchmura-coder.github.io", pathname: "/other/" }, wrongPathConfig || {});
   assert.equal(wrongPath.window.getRecoveryRedirectUrl(), null);
+});
+
+test("startup waits for PASSWORD_RECOVERY before treating an authenticated recovery session as ordinary", async () => {
+  let resolveReady;
+  const authReady = new Promise(resolve => { resolveReady = resolve; });
+  const recoveryState = { active: false, error: null };
+  let recoveryShown = 0;
+  let applicationShown = 0;
+  const loaded = loadInitializeAuth({
+    authReady,
+    recoveryState,
+    session: { user: { id: "same-user" } },
+    onRecovery: () => { recoveryShown += 1; },
+    onApplication: () => { applicationShown += 1; }
+  });
+
+  const initialization = loaded.context.initializeAuth();
+  await Promise.resolve();
+  assert.equal(loaded.getSessionCalls(), 0);
+  recoveryState.active = true;
+  resolveReady({ event: "PASSWORD_RECOVERY", session: { user: { id: "same-user" } } });
+  await initialization;
+  assert.equal(recoveryShown, 1);
+  assert.equal(applicationShown, 0);
+});
+
+test("Supabase auth readiness stays pending until the recovery lifecycle event persists state", async () => {
+  const loaded = loadSupabase({ origin: "https://revlog.example/app/", hostname: "revlog.example", pathname: "/app/", search: "", hash: "#type=recovery" });
+  let ready = false;
+  loaded.window.supabaseAuthReady.then(() => { ready = true; });
+  loaded.auth.callback("INITIAL_SESSION", { user: { id: "same-user" } });
+  await Promise.resolve();
+  assert.equal(ready, false);
+  assert.equal(loaded.window.getPasswordRecoveryState().active, false);
+  loaded.auth.callback("PASSWORD_RECOVERY", { user: { id: "same-user" } });
+  await loaded.window.supabaseAuthReady;
+  assert.equal(loaded.window.getPasswordRecoveryState().active, true);
+});
+
+test("ordinary startup events still restore normal authenticated sessions", async () => {
+  let applicationShown = 0;
+  const loaded = loadInitializeAuth({
+    authReady: Promise.resolve({ event: "INITIAL_SESSION", session: { user: { id: "same-user" } } }),
+    recoveryState: { active: false, error: null },
+    session: { user: { id: "same-user" } },
+    onApplication: () => { applicationShown += 1; }
+  });
+  await loaded.context.initializeAuth();
+  assert.equal(loaded.getSessionCalls(), 1);
+  assert.equal(applicationShown, 1);
+});
+
+test("startup recovery errors remain fail-closed instead of opening the application", async () => {
+  let loginMessage = null;
+  let applicationShown = 0;
+  const loaded = loadInitializeAuth({
+    authReady: Promise.resolve({ event: "INITIAL_SESSION", session: { user: { id: "same-user" } } }),
+    recoveryState: { active: false, error: "access_denied" },
+    session: { user: { id: "same-user" } },
+    onApplication: () => { applicationShown += 1; },
+    onLogin: message => { loginMessage = message; }
+  });
+  await loaded.context.initializeAuth();
+  assert.equal(applicationShown, 0);
+  assert.equal(loginMessage, "Link do zmiany hasła jest nieprawidłowy lub wygasł.");
+});
+
+test("valid pending recovery survives reload until the pending state is cleared", async () => {
+  const recoveryState = { active: true, error: null };
+  let recoveryShown = 0;
+  let applicationShown = 0;
+  const firstLoad = loadInitializeAuth({ recoveryState, session: { user: { id: "same-user" } }, onRecovery: () => { recoveryShown += 1; }, onApplication: () => { applicationShown += 1; } });
+  await firstLoad.context.initializeAuth();
+  const reloaded = loadInitializeAuth({ recoveryState, session: { user: { id: "same-user" } }, onRecovery: () => { recoveryShown += 1; }, onApplication: () => { applicationShown += 1; } });
+  await reloaded.context.initializeAuth();
+  assert.equal(recoveryShown, 2);
+  assert.equal(applicationShown, 0);
+  recoveryState.active = false;
+  const afterUpdate = loadInitializeAuth({ recoveryState, session: { user: { id: "same-user" } }, onApplication: () => { applicationShown += 1; } });
+  await afterUpdate.context.initializeAuth();
+  assert.equal(applicationShown, 1);
+});
+
+test("successful password update clears pending state before opening the application", () => {
+  assert.match(app, /await window\.updateRecoveryPassword\(password\);[\s\S]*window\.setPasswordRecoveryPending\(false\);[\s\S]*showApplication\(\);/);
 });
 
 test("recovery callback is distinct from an ordinary session and enters reset state", () => {

@@ -768,3 +768,21 @@ no existing user data was intentionally modified by this closure task. The
 live E2E verification boundary is CLOSED. Next: follow the current roadmap's
 smallest remaining bounded task, authorized production migration-history
 reconciliation planning only.
+
+## 2026-09-14 — Password-recovery startup race repair
+
+Reproduced the operator-observed startup race in which `initializeAuth()`
+could read an authenticated recovery session before the asynchronous
+`PASSWORD_RECOVERY` listener persisted pending state, opening the ordinary
+application instead of the reset form. Added a minimal auth-readiness promise
+resolved by the Supabase lifecycle boundary; recovery-marked authenticated
+startup now waits for `PASSWORD_RECOVERY`, while ordinary `INITIAL_SESSION`
+startup proceeds normally and malformed/expired recovery remains fail-closed.
+Added deterministic async regression coverage for the race, lifecycle
+authority, ordinary sessions, mismatch/errors, reload persistence and the
+successful update transition. No redirect, dependency, database/Supabase
+state, RLS, secrets, technical data or unrelated behavior changed. Validation:
+targeted auth tests 15/15, full suite 836/836 with three intentional skips,
+repository syntax checks, `git diff --check` and project-state audit passed.
+Next: deploy the repair, then repeat only the production password-recovery
+smoke test before closing Production Readiness P1.
