@@ -726,3 +726,16 @@ fitment/access items remain explicit research risks rather than audit defects.
 The recovery full suite passed after approved local-fixture access was used;
 all other required gates passed. The existing commit was amended in place; no
 production, catalogue, Supabase or infrastructure state changed.
+
+## 2026-09-14 — Supabase browser dependency pinning
+
+Pinned the production browser-loaded `@supabase/supabase-js` dependency from
+the floating major URL to exact version `2.116.0`, which was the version
+resolved by the existing jsDelivr URL at implementation time. Added a narrow
+HTML contract test that rejects floating/range forms and accepts only the
+intended exact version. Existing Supabase auth, recovery and database API
+usage remains unchanged; no Supabase state, secrets, production technical
+data or release metadata changed. Validation: targeted dependency/auth tests,
+full suite, repository JavaScript syntax checks, `git diff --check` and
+project-state audit passed. Next: bounded Production Readiness P1 end-to-end
+release smoke-test planning/execution wave.

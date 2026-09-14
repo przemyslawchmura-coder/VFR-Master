@@ -155,6 +155,12 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   the completed runtime hardening and Rider Core production projection work;
   it adds no technical data and does not change application behavior. Phase 7
   remains ACTIVE.
+- Production browser dependency hardening: `index.html` now pins the existing
+  jsDelivr Supabase JS client to exact version `2.116.0`, the version resolved
+  by the prior floating `@2` URL at this wave. Current authentication,
+  recovery, database and RLS behavior are unchanged; no release bump is
+  required because no user-visible runtime behavior changed. Phase 7 remains
+  ACTIVE.
 - CI validation and Supabase reproducibility audit foundation completed. The
   repository now has a secret-free pull-request/main validation workflow using
   Node.js 22, while `docs/project/SUPABASE_REPRODUCIBILITY_AUDIT.md` records
