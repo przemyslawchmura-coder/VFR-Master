@@ -161,6 +161,12 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   recovery, database and RLS behavior are unchanged; no release bump is
   required because no user-visible runtime behavior changed. Phase 7 remains
   ACTIVE.
+- Production recovery configuration: the authoritative GitHub Pages URL is
+  now explicitly configured by `js/deployment-config.js` as
+  `https://przemyslawchmura-coder.github.io/VFR-Master/`, loaded before the
+  Supabase client. The exact path is host/path-gated; localhost-only fallback
+  and fail-closed unsafe-origin handling remain unchanged. Supabase Auth
+  redirect allow-list configuration remains an external operator boundary.
 - CI validation and Supabase reproducibility audit foundation completed. The
   repository now has a secret-free pull-request/main validation workflow using
   Node.js 22, while `docs/project/SUPABASE_REPRODUCIBILITY_AUDIT.md` records

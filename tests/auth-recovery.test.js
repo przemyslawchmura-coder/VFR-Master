@@ -9,7 +9,14 @@ const test = require("node:test");
 const root = path.join(__dirname, "..");
 const index = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const app = fs.readFileSync(path.join(root, "js/app.js"), "utf8");
+const deploymentConfigSource = fs.readFileSync(path.join(root, "js/deployment-config.js"), "utf8");
 const supabaseSource = fs.readFileSync(path.join(root, "js/supabase.js"), "utf8");
+
+function loadDeploymentConfig(location) {
+  const context = { window: { location } };
+  vm.runInNewContext(deploymentConfigSource, context);
+  return context.window.REVLOG_CONFIG || null;
+}
 
 function loadSupabase(location = { origin: "https://revlog.example", hostname: "revlog.example", pathname: "/app/", search: "", hash: "" }, config = {}, options = {}) {
   const storage = new Map();
@@ -41,8 +48,37 @@ test("recovery request uses the explicit production redirect and supports local 
   });
   assert.equal(loaded.window.getRecoveryRedirectUrl({ origin: "http://localhost:3000", hostname: "localhost", pathname: "/" }, {}), "http://localhost:3000/");
   assert.equal(loaded.window.getRecoveryRedirectUrl({ origin: "https://revlog.example", hostname: "revlog.example", pathname: "/app/" }, {}), null);
+  assert.equal(loaded.window.getRecoveryRedirectUrl(undefined, { recoveryRedirectUrl: "http://revlog.example/app/" }), null);
   assert.equal(loaded.window.getRecoveryRedirectUrl(undefined, { recoveryRedirectUrl: "javascript:alert(1)" }), null);
   await assert.rejects(() => loadSupabase().window.requestPasswordReset("rider@example.com"), /bezpiecznie skonfigurowanego/);
+});
+
+test("production deployment config fixes the GitHub Pages recovery path and preserves local fallback", () => {
+  const productionLocation = {
+    origin: "https://przemyslawchmura-coder.github.io/VFR-Master/",
+    hostname: "przemyslawchmura-coder.github.io",
+    pathname: "/VFR-Master/",
+    search: "",
+    hash: ""
+  };
+  const productionConfig = loadDeploymentConfig(productionLocation);
+  assert.deepEqual(JSON.parse(JSON.stringify(productionConfig)), {
+    environment: "production",
+    recoveryRedirectUrl: "https://przemyslawchmura-coder.github.io/VFR-Master/"
+  });
+  const production = loadSupabase({ ...productionLocation, origin: "https://unexpected.example/" }, productionConfig);
+  assert.equal(production.window.getRecoveryRedirectUrl(), "https://przemyslawchmura-coder.github.io/VFR-Master/");
+  assert.match(index, /<script src="js\/deployment-config\.js"><\/script>\s*<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/@supabase\/supabase-js@2\.116\.0"><\/script>/);
+
+  const localConfig = loadDeploymentConfig({ hostname: "localhost", pathname: "/" });
+  assert.equal(localConfig, null);
+  const local = loadSupabase({ origin: "http://localhost:3000", hostname: "localhost", pathname: "/" }, localConfig || {});
+  assert.equal(local.window.getRecoveryRedirectUrl(), "http://localhost:3000/");
+
+  const wrongPathConfig = loadDeploymentConfig({ hostname: "przemyslawchmura-coder.github.io", pathname: "/other/" });
+  assert.equal(wrongPathConfig, null);
+  const wrongPath = loadSupabase({ origin: "https://przemyslawchmura-coder.github.io/other/", hostname: "przemyslawchmura-coder.github.io", pathname: "/other/" }, wrongPathConfig || {});
+  assert.equal(wrongPath.window.getRecoveryRedirectUrl(), null);
 });
 
 test("recovery callback is distinct from an ordinary session and enters reset state", () => {

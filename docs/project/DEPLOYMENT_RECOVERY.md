@@ -3,23 +3,24 @@
 RevLog uses the browser-safe Supabase URL and publishable key in
 `js/supabase.js`. These are public client values; a service-role key or other
 private credential must never be placed in the repository or browser bundle.
+The GitHub Pages production deployment loads `js/deployment-config.js` before
+the Supabase client and supplies the exact recovery destination for the
+`/VFR-Master/` path.
 
 ## Production configuration
 
-Before loading `js/supabase.js`, the deployment must provide an explicit
-`window.REVLOG_CONFIG` object:
+Before loading `js/supabase.js`, the production deployment provides this
+explicit `window.REVLOG_CONFIG` object:
 
 ```html
 <script>
   window.REVLOG_CONFIG = {
     environment: "production",
-    recoveryRedirectUrl: "https://THE-OPERATOR-CONFIRMED-HOST/PATH/"
+    recoveryRedirectUrl: "https://przemyslawchmura-coder.github.io/VFR-Master/"
   };
 </script>
 ```
 
-The value is intentionally not filled in here: this repository does not
-contain sufficient authoritative evidence for a production hostname/path.
 The URL must be absolute, use HTTPS, contain no query or fragment, and be the
 same callback path registered in the Supabase Auth redirect allow-list. A
 missing, malformed or non-HTTPS production value makes a reset request fail
@@ -46,7 +47,8 @@ success.
 
 ## Operator checklist
 
-1. Supply the verified public callback URL before `js/supabase.js` loads.
+1. Keep the verified public callback URL in `js/deployment-config.js` before
+   `js/supabase.js` loads.
 2. Register that exact URL in Supabase Auth redirect allow-list.
 3. Confirm the browser bundle contains only the public Supabase client values.
 4. Test request, callback, update, failure and ordinary login locally with

@@ -739,3 +739,16 @@ data or release metadata changed. Validation: targeted dependency/auth tests,
 full suite, repository JavaScript syntax checks, `git diff --check` and
 project-state audit passed. Next: bounded Production Readiness P1 end-to-end
 release smoke-test planning/execution wave.
+
+## 2026-09-14 — GitHub Pages production recovery configuration
+
+Configured the operator-confirmed production URL
+`https://przemyslawchmura-coder.github.io/VFR-Master/` in the explicit,
+host/path-gated `js/deployment-config.js`, loaded before the Supabase client.
+The production callback remains HTTPS and exact-path bound; localhost keeps
+its local-only fallback, while other hosts and unsafe/malformed configured
+URLs fail closed. Added regression coverage for the production path, current-
+origin non-substitution, localhost fallback and deployment script order. No
+Supabase dashboard/database state, secrets, authentication lifecycle or
+production technical data changed. Next: operator-assisted production
+end-to-end smoke test against the confirmed GitHub Pages URL.
