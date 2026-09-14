@@ -752,3 +752,19 @@ origin non-substitution, localhost fallback and deployment script order. No
 Supabase dashboard/database state, secrets, authentication lifecycle or
 production technical data changed. Next: operator-assisted production
 end-to-end smoke test against the confirmed GitHub Pages URL.
+
+## 2026-09-14 — Production Readiness P1 live smoke-test closure
+
+Operator-confirmed successful live verification was completed against
+`https://przemyslawchmura-coder.github.io/VFR-Master/`. The operator verified
+application load, authentication/login, Garage loading, motorcycle creation,
+reload persistence, active-state restoration, mileage persistence, service
+creation/editing/deletion, logout, subsequent cloud-backed login restore and
+password-recovery return to the `/VFR-Master/` production path. This is
+operator-assisted live evidence, not Codex browser automation; it is distinct
+from the automated repository tests and audits. Production Readiness P1 live
+E2E verification verdict: `ACCEPT`; no production defect was discovered, and
+no existing user data was intentionally modified by this closure task. The
+live E2E verification boundary is CLOSED. Next: follow the current roadmap's
+smallest remaining bounded task, authorized production migration-history
+reconciliation planning only.
