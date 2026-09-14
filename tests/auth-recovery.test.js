@@ -125,7 +125,7 @@ test("startup waits for PASSWORD_RECOVERY before treating an authenticated recov
 });
 
 test("Supabase auth readiness stays pending until the recovery lifecycle event persists state", async () => {
-  const loaded = loadSupabase({ origin: "https://revlog.example/app/", hostname: "revlog.example", pathname: "/app/", search: "", hash: "#type=recovery" });
+  const loaded = loadSupabase({ origin: "https://revlog.example/app/", hostname: "revlog.example", pathname: "/app/", search: "", hash: "#type=recovery&access_token=callback-token" });
   let ready = false;
   loaded.window.supabaseAuthReady.then(() => { ready = true; });
   loaded.auth.callback("INITIAL_SESSION", { user: { id: "same-user" } });
@@ -135,6 +135,16 @@ test("Supabase auth readiness stays pending until the recovery lifecycle event p
   loaded.auth.callback("PASSWORD_RECOVERY", { user: { id: "same-user" } });
   await loaded.window.supabaseAuthReady;
   assert.equal(loaded.window.getPasswordRecoveryState().active, true);
+});
+
+test("a recovery marker without callback material cannot deadlock ordinary startup", async () => {
+  const loaded = loadSupabase({ origin: "https://revlog.example/app/", hostname: "revlog.example", pathname: "/app/", search: "", hash: "#type=recovery" });
+  let settled = false;
+  loaded.window.supabaseAuthReady.then(() => { settled = true; });
+  loaded.auth.callback("INITIAL_SESSION", { user: { id: "same-user" } });
+  await Promise.resolve();
+  assert.equal(settled, true);
+  assert.equal(loaded.window.getPasswordRecoveryState().active, false);
 });
 
 test("ordinary startup events still restore normal authenticated sessions", async () => {

@@ -786,3 +786,19 @@ targeted auth tests 15/15, full suite 836/836 with three intentional skips,
 repository syntax checks, `git diff --check` and project-state audit passed.
 Next: deploy the repair, then repeat only the production password-recovery
 smoke test before closing Production Readiness P1.
+
+## 2026-09-14 — Recovery-readiness edge-case verification
+
+The suspected startup deadlock was reproduced deterministically: a
+`type=recovery` marker without callback material, followed by an ordinary
+authenticated `INITIAL_SESSION` and no `PASSWORD_RECOVERY`, left the prior
+auth-readiness promise unresolved. The bounded repair now waits for recovery
+lifecycle evidence only when callback material is present; a marker alone
+remains non-authorizing and ordinary startup terminates normally. Added a
+regression test for this ordering while preserving `PASSWORD_RECOVERY`
+authority, identity matching and fail-closed callback handling. Current
+Production Readiness P1 remains OPEN pending operator-assisted live
+verification after auth-email delivery is available again. No Supabase,
+database, production data, redirect, dependency, technical data or secrets
+changed. Validation: targeted auth/recovery tests, full suite, syntax checks,
+`git diff --check` and project-state audit passed.

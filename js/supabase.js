@@ -57,7 +57,19 @@ function getRecoveryCallbackStatus(locationLike = window.location) {
   return Object.freeze({ isRecovery, error: isRecovery && error ? error : null });
 }
 
-const startupRecoveryState = getRecoveryCallbackStatus(window.location);
+function hasRecoveryCallbackMaterial(locationLike = window.location) {
+  const hash = new URLSearchParams(String(locationLike && locationLike.hash || "").replace(/^#/, ""));
+  const query = new URLSearchParams(String(locationLike && locationLike.search || "").replace(/^\?/, ""));
+  return Boolean(
+    hash.get("access_token") || hash.get("refresh_token") || hash.get("code") ||
+    query.get("access_token") || query.get("refresh_token") || query.get("code")
+  );
+}
+
+const startupRecoveryState = Object.freeze({
+  ...getRecoveryCallbackStatus(window.location),
+  hasCallbackMaterial: hasRecoveryCallbackMaterial(window.location)
+});
 
 function resolveSupabaseAuthReadyOnce(event, session) {
   if (!resolveSupabaseAuthReady) return;
@@ -177,7 +189,7 @@ if (window.supabaseClient && window.supabaseClient.auth && window.supabaseClient
       return;
     }
 
-    if (event === "INITIAL_SESSION" && (!startupRecoveryState.isRecovery || startupRecoveryState.error || !session)) {
+    if (event === "INITIAL_SESSION" && (!startupRecoveryState.isRecovery || startupRecoveryState.error || !session || !startupRecoveryState.hasCallbackMaterial)) {
       resolveSupabaseAuthReadyOnce(event, session);
     }
   });
