@@ -947,3 +947,18 @@ preserved, and no normalization, materialization, promotion, production or
 Rider Service Core change occurred.
 NEXT: create the existing generic schema-conversion authorization projection
 for exactly this result; do not materialize or promote production data.
+
+## 2026-09-19 — CBR500R oil schema-conversion authorization projection
+
+Created exactly one generic read-only production-promotion authorization for
+`schema-conversion.0408c67195304a42913cbbb4`. Result
+`production-authorization.42dfc09d17938fb18e6dc92d` is
+`AUTHORIZATION-READY` with no blockers; it preserves the unchanged compound
+raw oil value, Tier A provenance, complete lineage and bounded MY2024
+USA/Canada/manual/standard/ABS-known applicability. The generic contract
+records document, citation, Technical Profile and registry materialization as
+separate future requirements; no production artifact, upstream research state
+or Rider Service Core state changed.
+NEXT: separately authorize the bounded production document, citation,
+Technical Profile entry and registry materialization requirements; do not
+materialize or promote production data.
