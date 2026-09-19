@@ -21,8 +21,12 @@ tested, preserving typed citation/document/location/provenance references and
 CREATE/REUSE/conflict semantics; no real CBR500R citation was materialized in
 that foundation wave. The exact CBR500R production citation was then created
 through the generic executor with a deterministic repeat returning REUSED;
-Technical Profile and registry boundaries remain separate. The next bounded
-step is only the CBR500R Technical Profile entry materialization.
+Technical Profile and registry boundaries remain separate. The generic
+Technical Profile entry materializer foundation is now implemented and
+synthetic-tested with existing-profile-container, CREATE/REUSE and
+conflict-safe semantics; no real CBR500R entry was materialized in that
+foundation wave. The next bounded step is only the CBR500R Technical Profile
+entry materialization through that executor.
 Only one major phase is active at a time. Partial research is normal and
 must not block unrelated catalogue work.
 

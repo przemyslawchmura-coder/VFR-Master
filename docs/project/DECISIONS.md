@@ -407,6 +407,31 @@ next bounded wave must rerun only that exact citation requirement.
 
 Status: ACTIVE. Related implementation: `research/factory/production-citation-materializer.js`, `research/factory/production-citation-materializer-contracts.js`.
 
+## ADR-042 — Generic production Technical Profile entry materializer
+
+Date: 2026-09-19
+
+Decision: `TECHNICAL-PROFILE-ENTRY-MATERIALIZATION` uses a generic
+`ProductionTechnicalProfileEntryMaterialization/v1` executor bound to one
+validated `ProductionMaterializationAuthorization/v1`. It accepts typed
+intended-profile, entry-definition and citation references, requires an
+already-existing production profile container, validates the materialized
+document/citation binding and authorized value/applicability, and writes only
+one verified entry through an explicit profile store. It returns deterministic
+`CREATED` or `REUSED` results and rejects conflicting entries.
+
+Rationale: The prior CBR500R entry wave found no generic controlled executor.
+Creating a profile container would cross the separate registry/identity
+boundary, so the foundation fails closed when that container is absent. The
+executor is motorcycle-agnostic and synthetic-tested only.
+
+Consequences: Technical Profile entry mutation remains explicit, idempotent
+and separate from registry insertion. No CBR500R entry or registry membership
+was created in this foundation wave; the next bounded wave must rerun only
+that exact entry requirement.
+
+Status: ACTIVE. Related implementation: `research/factory/production-technical-profile-entry-materializer.js`, `research/factory/production-technical-profile-entry-materializer-contracts.js`.
+
 ## ADR-040 — Explicit generic production document materializer
 
 Date: 2026-09-19
