@@ -920,3 +920,17 @@ scope. No approval decision, normalization, evidence creation, promotion,
 production or Rider Service Core change occurred.
 NEXT: create exactly one explicit human Promotion Review Decision for this
 pending packet; do not approve implicitly or promote it.
+
+## 2026-09-19 — CBR500R human promotion-review decision
+
+Created exactly one explicit generic Promotion Review Decision for
+`promotion-review-packet.04a970ff8421a1871a92120b`. Decision
+`promotion-review-decision.5e99ea7b38d63897de9037e8` is
+`APPROVED-FOR-CONVERSION`, with reviewer
+`human-promotion-review.cbr500r.pc70.oil-specification` and a rationale limited
+to the separate schema-conversion boundary. The packet remains non-production;
+complete lineage, bounded applicability including ABS-known=true, Tier A
+provenance and the unchanged raw oil value were preserved. No conversion,
+production evidence, profile change or promotion occurred.
+NEXT: create the existing generic schema-conversion projection for exactly this
+approved decision; do not materialize or promote production data.

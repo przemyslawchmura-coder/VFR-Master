@@ -4,6 +4,8 @@ const assert = require("node:assert/strict");
 const factory = require("../research/factory/index.js");
 const cbr500r = require("../research/data/cbr500r-pc70-promotion-review.js");
 const cbr500rReport = require("../research/reports/cbr500r-pc70-promotion-review.json");
+const cbr500rDecision = require("../research/data/cbr500r-pc70-promotion-review-decision.js");
+const cbr500rDecisionReport = require("../research/reports/cbr500r-pc70-promotion-review-decision.json");
 
 function synthetic(overrides = {}) {
   const packet = { schemaVersion: 1, id: "placeholder", targetIdentity: { state: "KNOWN", id: "target.synthetic", catalogVariantKey: "fixture.variant", model: "Fixture", year: 2020, market: "EU", equipment: "standard" }, sourceIdentity: { sourceId: "source.synthetic", prospectId: "prospect.synthetic", documentId: "document.synthetic", authority: "Fixture Authority", tier: "A", officialPath: "https://official.example/fixture" }, reviewQueueEntryId: "review-queue-entry.111111111111111111111111", humanReviewDecisionId: "review-decision.222222222222222222222222", evidenceProcessingRecordId: "evidence-processing.333333333333333333333333", canonicalFieldId: "lubrication.oil-specification", rawValue: "SAE 10W-40", rawUnit: null, provenance: { candidateId: "extraction-candidate.444444444444444444444444", extractionResultId: "extraction-result.555555555555555555555555", artifactId: "artifact.synthetic", sourceLocation: { page: 4, section: "Lubrication", locator: "line:1" }, extractionMethod: "SYNTHETIC-EXACT" }, applicability: { modelYear: "KNOWN", market: "KNOWN", equipment: "SUFFICIENT", abs: "KNOWN", transmission: "KNOWN", context: "SUFFICIENT" }, processingState: "ACCEPTED-FOR-PROCESSING", humanReviewDecision: "ACCEPT", unresolvedConflict: false, ...overrides };
@@ -64,6 +66,26 @@ test("CBR500R promotion-review report is deterministic and remains pre-approval"
   assert.equal(first.packet.reviewState, "PENDING-PROMOTION-REVIEW");
   assert.equal(first.packet.applicability.abs, "KNOWN");
   assert.equal(first.assertions.noReviewerDecision, true);
+  assert.equal(first.assertions.noPromotion, true);
+  assert.equal(first.assertions.productionChanged, false);
+});
+
+test("CBR500R creates exactly one explicit APPROVED-FOR-CONVERSION decision", () => {
+  const first = cbr500rDecision.buildDecision();
+  const second = cbr500rDecision.buildDecision();
+  assert.equal(first.promotionReviewPacketId, "promotion-review-packet.04a970ff8421a1871a92120b");
+  assert.equal(first.decision, "APPROVED-FOR-CONVERSION");
+  assert.equal(first.reviewerId, cbr500rDecision.reviewerId);
+  assert.equal(first.rationale.length > 0, true);
+  assert.equal(first.id, factory.promotionReviewDecisionId({ promotionReviewPacketId: first.promotionReviewPacketId, decision: first.decision, reviewerId: first.reviewerId }));
+  assert.deepEqual(second, first);
+});
+
+test("CBR500R promotion decision report is deterministic and pre-conversion", () => {
+  const first = cbr500rDecision.buildReport();
+  assert.deepEqual(cbr500rDecision.buildReport(), first);
+  assert.deepEqual(first, cbr500rDecisionReport);
+  assert.equal(first.decision.decision, "APPROVED-FOR-CONVERSION");
   assert.equal(first.assertions.noPromotion, true);
   assert.equal(first.assertions.productionChanged, false);
 });

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "revlog-cbr500r-pc70-promotion-review-decision/v1",
+  "promotionReviewDecisionSchemaVersion": 1,
+  "packetId": "promotion-review-packet.04a970ff8421a1871a92120b",
+  "promotionCandidateId": "promotion-candidate.0c12373f56277561b2b692a2",
+  "applicabilityVerificationId": "applicability-verification.08059a67abc9eb226cb3fc82",
+  "readiness": {"state":"PROMOTION-READY","reasons":[]},
+  "decision": {
+    "canonicalFieldId": "lubrication.oil-specification",
+    "decision": "APPROVED-FOR-CONVERSION",
+    "evidenceProcessingRecordId": "evidence-processing.87cd135fb44ebc569aebacb9",
+    "id": "promotion-review-decision.5e99ea7b38d63897de9037e8",
+    "promotionPacketId": "promotion-candidate.0c12373f56277561b2b692a2",
+    "promotionReviewPacketId": "promotion-review-packet.04a970ff8421a1871a92120b",
+    "rationale": "The exact pending packet is PROMOTION-READY with no readiness reasons; authenticated Tier A provenance, bounded 2024 USA/Canada/manual/standard CBR500R PC70 applicability, ABS-known=true verification, preserved raw value and complete lineage support approval for the separate schema-conversion boundary only. No conversion or production promotion is authorized by this decision.",
+    "reviewerId": "human-promotion-review.cbr500r.pc70.oil-specification",
+    "schemaVersion": 1,
+    "targetIdentity": {"catalogVariantKey":"honda.cbr500r.pc70","equipment":"standard road model","id":"target.honda.cbr500r.pc70.2024.usa-canada","market":"USA/Canada","model":"CBR500R","state":"KNOWN","year":2024}
+  },
+  "assertions": {"exactlyOnePacketConsumed":true,"explicitDecision":true,"pendingPacketConsumed":true,"lineagePreserved":true,"applicabilityPreserved":true,"absKnownTrue":true,"rawValuePreserved":true,"noNormalization":true,"conflictUnchanged":true,"noPromotion":true,"productionChanged":false},
+  "next": "Create the existing generic schema-conversion projection for exactly this APPROVED-FOR-CONVERSION decision; do not materialize or promote production data."
+}
