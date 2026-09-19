@@ -876,3 +876,18 @@ ABS remains unresolved. Validation passed, including targeted Factory tests,
 syntax, project-state audit and diff check.
 NEXT: bounded read-only promotion-readiness evaluation for exactly this one
 processing record; do not promote automatically.
+
+## 2026-09-19 — CBR500R oil promotion-readiness evaluation
+
+Evaluated exactly one Evidence Processing record
+`evidence-processing.87cd135fb44ebc569aebacb9` through the generic
+`PromotionPacket/v1` and read-only promotion-readiness gate. The deterministic
+packet `promotion-candidate.0c12373f56277561b2b692a2` is `BLOCKED` only for
+`absSufficient`: the source applicability remains ABS `null`, represented as
+contract-level `UNKNOWN`. Model year, USA/Canada market, equipment,
+transmission, source identity, provenance, raw context and Human Review ACCEPT
+all pass; no normalization or conflict resolution was performed. No promotion,
+production or Rider Service Core change occurred.
+NEXT: resolve the existing ABS applicability blocker for exactly this packet in
+a separate bounded applicability-verification wave; do not weaken the gate or
+promote automatically.

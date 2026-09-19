@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "revlog-cbr500r-pc70-promotion-readiness/v1",
+  "promotionSchemaVersion": 1,
+  "evidenceProcessingRecordId": "evidence-processing.87cd135fb44ebc569aebacb9",
+  "humanReviewDecisionId": "review-decision.3d8c7cebfd3c3c4f34b1f163",
+  "queueEntryId": "review-queue-entry.7b8d56af51c808e15dd558ac",
+  "candidateId": "extraction-candidate.87fcea8600978eff75d9f8d6",
+  "target": {
+    "catalogVariantKey": "honda.cbr500r.pc70",
+    "model": "CBR500R",
+    "generation": "PC70",
+    "modelYear": 2024,
+    "markets": [
+      "USA",
+      "Canada"
+    ],
+    "transmission": "manual",
+    "equipment": "standard road model"
+  },
+  "fieldId": "lubrication.oil-specification",
+  "source": {
+    "id": "honda.official.owner-manual.31MLRB000.2024",
+    "sourceClass": "TIER_A_OEM",
+    "title": "2024 CB500F / CBR500R / NX500 Owner's Manual",
+    "publicationId": "31MLRB00 / 00X31-MLR-B000",
+    "url": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+    "authenticationReused": true
+  },
+  "originalApplicability": {
+    "model": "CBR500R",
+    "modelCode": "PC70",
+    "generation": "PC70",
+    "modelYear": 2024,
+    "market": [
+      "USA",
+      "Canada"
+    ],
+    "transmission": "manual",
+    "equipment": "standard road model",
+    "abs": null
+  },
+  "packetApplicability": {
+    "abs": "UNKNOWN",
+    "context": "SUFFICIENT",
+    "equipment": "SUFFICIENT",
+    "market": "KNOWN",
+    "modelYear": "KNOWN",
+    "transmission": "KNOWN"
+  },
+  "packet": {
+    "applicability": {
+      "abs": "UNKNOWN",
+      "context": "SUFFICIENT",
+      "equipment": "SUFFICIENT",
+      "market": "KNOWN",
+      "modelYear": "KNOWN",
+      "transmission": "KNOWN"
+    },
+    "canonicalFieldId": "lubrication.oil-specification",
+    "evidenceProcessingRecordId": "evidence-processing.87cd135fb44ebc569aebacb9",
+    "humanReviewDecision": "ACCEPT",
+    "humanReviewDecisionId": "review-decision.3d8c7cebfd3c3c4f34b1f163",
+    "id": "promotion-candidate.0c12373f56277561b2b692a2",
+    "processingState": "ACCEPTED-FOR-PROCESSING",
+    "provenance": {
+      "artifactId": "artifact.0498845c683f226a302b0a90",
+      "candidateId": "extraction-candidate.87fcea8600978eff75d9f8d6",
+      "extractionMethod": "declarative-text-extractor/1",
+      "extractionResultId": "extraction-result.32ff931c2f1fe866679758b6",
+      "sourceLocation": {
+        "locator": "lines:55-64;chars:731-1026",
+        "page": null,
+        "section": "derived text",
+        "tableOrSubsection": "document:full"
+      }
+    },
+    "rawUnit": null,
+    "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+    "reviewQueueEntryId": "review-queue-entry.7b8d56af51c808e15dd558ac",
+    "schemaVersion": 1,
+    "sourceIdentity": {
+      "authority": "American Honda Motor Co., Inc.",
+      "documentId": "31MLRB00 / 00X31-MLR-B000",
+      "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+      "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+      "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+      "tier": "A"
+    },
+    "targetIdentity": {
+      "catalogVariantKey": "honda.cbr500r.pc70",
+      "equipment": "standard road model",
+      "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+      "market": "USA/Canada",
+      "model": "CBR500R",
+      "state": "KNOWN",
+      "year": 2024
+    },
+    "unresolvedConflict": false
+  },
+  "readiness": {
+    "state": "BLOCKED",
+    "passed": false,
+    "checks": {
+      "processingAccepted": true,
+      "noUnresolvedConflict": true,
+      "exactTargetIdentity": true,
+      "modelYearKnown": true,
+      "marketKnown": true,
+      "equipmentSufficient": true,
+      "absSufficient": false,
+      "transmissionSufficient": true,
+      "sourceIdentityComplete": true,
+      "provenanceComplete": true,
+      "rawContextSufficient": true,
+      "humanReviewAccepted": true
+    },
+    "reasons": [
+      "absSufficient"
+    ]
+  },
+  "assertions": {
+    "exactlyOneRecordEvaluated": true,
+    "upstreamUnchanged": true,
+    "rawValuePreserved": true,
+    "provenancePreserved": true,
+    "absRemainsUnresolved": true,
+    "normalizationPerformed": false,
+    "conflictResolved": false,
+    "promotionOccurred": false,
+    "productionChanged": false
+  },
+  "next": "Resolve the existing ABS applicability blocker for exactly this CBR500R readiness packet without broadening scope or weakening the gate."
+}
