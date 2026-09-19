@@ -13,7 +13,9 @@ bounded Factory step is the existing generic schema-conversion authorization
 projection for the CBR500R oil packet; the resulting authorization is
 read-only. The next bounded Factory step is to evaluate its four declared
 materialization requirements through the generic fail-closed requirements
-authorization gate; no materialization or promotion follows automatically.
+authorization gate; the resulting four requirements are pending missing
+inputs, so the next bounded step is to resolve only the production-document
+inputs; no materialization or promotion follows automatically.
 Only one major phase is active at a time. Partial research is normal and
 must not block unrelated catalogue work.
 

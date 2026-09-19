@@ -977,3 +977,18 @@ malformed and blocked upstream inputs fail closed. No CBR500R persisted
 requirement artifact, Ducati semantic change or production state changed.
 NEXT: evaluate exactly `production-authorization.42dfc09d17938fb18e6dc92d`
 through this generic boundary; do not materialize or promote production data.
+
+## 2026-09-19 — CBR500R materialization requirements evaluation
+
+Evaluated exactly `production-authorization.42dfc09d17938fb18e6dc92d` through
+the generic `MaterializationRequirementsAuthorization/v1` gate. Persisted
+result `materialization-authorization.75f4749897a97f42f0cfe4a9` is
+`REQUIREMENTS-PENDING`: all four declared requirements are recognized, but no
+CBR500R-specific production document, citation, profile-entry or registry
+input reference exists in repository state. Required inputs and missing-input
+reasons remain explicit; no input was fabricated. Lineage, Tier A provenance,
+raw compound oil value, bounded applicability and ABS-known=true remain
+unchanged. Human authorization remains required, materialization is false,
+and no production or Rider Service Core state changed.
+NEXT: resolve only the earliest missing `PRODUCTION-DOCUMENT-MATERIALIZATION`
+inputs; do not materialize or promote production data.
