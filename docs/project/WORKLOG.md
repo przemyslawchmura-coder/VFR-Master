@@ -907,3 +907,16 @@ conflict, production data or promotion changed. Readiness re-evaluated to
 `PROMOTION-READY` with no remaining reasons.
 NEXT: create the existing generic pending Promotion Review Packet for exactly
 this ready packet; do not approve or promote it.
+
+## 2026-09-19 — CBR500R pending promotion-review packet
+
+Created exactly one generic `PromotionReviewPacket/v1` for the
+`PROMOTION-READY` CBR500R oil packet. The deterministic packet is
+`promotion-review-packet.04a970ff8421a1871a92120b` with state
+`PENDING-PROMOTION-REVIEW`; it preserves the candidate, queue, Human Review,
+Evidence Processing and ABS applicability-verification lineage, raw compound
+oil value, Tier A provenance and bounded 2024 USA/Canada/manual/standard/ABS
+scope. No approval decision, normalization, evidence creation, promotion,
+production or Rider Service Core change occurred.
+NEXT: create exactly one explicit human Promotion Review Decision for this
+pending packet; do not approve implicitly or promote it.
