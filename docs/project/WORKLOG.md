@@ -1168,3 +1168,16 @@ CREATE/REUSE results, conflict safety and an invariant that registry
 membership remains `NOT-REGISTERED`. Synthetic tests only; no CBR500R profile,
 entry, registry membership, document or citation changed. NEXT: resolve the
 exact CBR500R profile-container prerequisite, then rerun the entry boundary.
+
+## 2026-09-19 — CBR500R Technical Profile container materialization
+
+Executed the authorized CBR500R container boundary through the generic
+ADR-043 executor. Created exactly one empty production container with the
+repository-derived identity `honda.cbr500r.pc70.2024` at
+`data/technical/honda/cbr500r/pc70/profile-2024.js`; the repeat path returned
+`REUSED` with the same deterministic result. No oil entry, registry membership,
+document/citation mutation or unrelated profile change occurred. The inherited
+Honda source document retains its historical `Canada` region token despite the
+profile validator flagging it; this wave did not normalize or rewrite it.
+NEXT: materialize only `lubrication.engine-oil.specification` through the
+separate Technical Profile entry boundary.

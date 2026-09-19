@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "revlog-cbr500r-pc70-production-profile-container-materialization/v1",
+  "resultId": "production-technical-profile-container-materialization.ce91999dda066e4e16b415d2",
+  "productionMaterializationAuthorizationId": "production-materialization-authorization.4cfd2472d8f6e8aac04d9afc",
+  "productionAuthorizationId": "production-authorization.42dfc09d17938fb18e6dc92d",
+  "humanDecisionId": "production-materialization-decision.df9e1702b9f73b4016be66d9",
+  "profileId": "honda.cbr500r.pc70.2024",
+  "profilePath": "data/technical/honda/cbr500r/pc70/profile-2024.js",
+  "profileSchema": "revlog-technical-profile/v1",
+  "profileIdentity": {
+    "abs": true,
+    "catalogVariantKey": "honda.cbr500r.pc70",
+    "equipment": "standard road model",
+    "generation": "PC70",
+    "manufacturer": "Honda",
+    "market": "USA/Canada",
+    "model": "CBR500R",
+    "modelYear": 2024,
+    "targetId": "target.honda.cbr500r.pc70.2024.usa-canada",
+    "transmission": "manual"
+  },
+  "action": "CREATED",
+  "repeatAction": "REUSED",
+  "productionCreated": true,
+  "registryMembership": "NOT-REGISTERED",
+  "entriesBefore": [],
+  "entriesAfter": [],
+  "containerCountBefore": 0,
+  "containerCountAfter": 1,
+  "containerCountAfterRepeat": 1,
+  "sourceDocumentId": "doc.97c1a14816208eaedcccd588",
+  "citationIds": ["cite.44cd7d15b9c97a991b87056f"],
+  "validatorResult": {
+    "valid": false,
+    "errors": [{
+      "code": "INVALID_REGIONS",
+      "path": "documents.doc.97c1a14816208eaedcccd588.regions",
+      "message": "regions must be a non-empty array of canonical uppercase region IDs."
+    }],
+    "warnings": []
+  },
+  "targetApplicability": {
+    "abs": "KNOWN",
+    "context": "SUFFICIENT",
+    "equipment": "SUFFICIENT",
+    "market": "KNOWN",
+    "modelYear": "KNOWN",
+    "transmission": "KNOWN"
+  },
+  "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+  "proposedProduction": {
+    "categoryId": "lubrication",
+    "entryId": "lubrication.engine-oil.specification",
+    "type": "fluid",
+    "value": {
+      "text": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+      "type": "text"
+    }
+  },
+  "historicalAbsPreserved": true,
+  "verifiedAbsPreserved": true,
+  "assertions": {
+    "exactAuthorizationBound": true,
+    "emptyTechnicalProfileContainer": true,
+    "noOilEntry": true,
+    "noRegistryInsertion": true,
+    "noDocumentMutation": true,
+    "noCitationMutation": true,
+    "noVfrMutation": true,
+    "noDucatiMutation": true,
+    "noProductionCascade": true,
+    "noNormalization": true,
+    "noPromotion": true
+  }
+}
