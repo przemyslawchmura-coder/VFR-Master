@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "revlog-cbr500r-pc70-review-queue/v1",
+  "reviewQueueSchemaVersion": 1,
+  "candidateId": "extraction-candidate.87fcea8600978eff75d9f8d6",
+  "target": {
+    "catalogVariantKey": "honda.cbr500r.pc70",
+    "model": "CBR500R",
+    "generation": "PC70",
+    "modelYear": 2024,
+    "markets": [
+      "USA",
+      "Canada"
+    ],
+    "transmission": "manual",
+    "equipment": "standard road model"
+  },
+  "fieldId": "lubrication.oil-specification",
+  "source": {
+    "id": "honda.official.owner-manual.31MLRB000.2024",
+    "sourceClass": "TIER_A_OEM",
+    "title": "2024 CB500F / CBR500R / NX500 Owner's Manual",
+    "publicationId": "31MLRB00 / 00X31-MLR-B000",
+    "url": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+    "authenticationReused": true
+  },
+  "applicability": {
+    "model": "CBR500R",
+    "modelCode": "PC70",
+    "generation": "PC70",
+    "modelYear": 2024,
+    "market": [
+      "USA",
+      "Canada"
+    ],
+    "transmission": "manual",
+    "equipment": "standard road model",
+    "abs": null
+  },
+  "queue": {
+    "entries": [
+      {
+        "adapterId": "declarative-text-extractor",
+        "adapterVersion": "1",
+        "artifactId": "artifact.0498845c683f226a302b0a90",
+        "attemptId": "attempt.72cdc493436a83c0a0c1a632",
+        "batchId": "batch.969c3a60e5b169413182ed4e",
+        "candidate": {
+          "adapterId": "declarative-text-extractor",
+          "adapterVersion": "1",
+          "applicability": {
+            "abs": null,
+            "equipment": "standard road model",
+            "generation": "PC70",
+            "market": [
+              "USA",
+              "Canada"
+            ],
+            "model": "CBR500R",
+            "modelCode": "PC70",
+            "modelYear": 2024,
+            "transmission": "manual"
+          },
+          "artifactId": "artifact.0498845c683f226a302b0a90",
+          "attemptId": "attempt.72cdc493436a83c0a0c1a632",
+          "batchId": "batch.969c3a60e5b169413182ed4e",
+          "context": {
+            "derivedContentDigest": "9b472fbde1701c5d3bbcdffdebb29e0e643e4b5a05cd263b5d45a857ab40926d",
+            "derivedContentId": "artifact.0498845c683f226a302b0a90",
+            "parentArtifactId": "artifact.cd12ab997c4f77c0b2351143",
+            "ruleId": "extraction-rule.3e4834575149951902fc23da",
+            "sourceAuthority": {
+              "sourceClass": "TIER_A_OEM",
+              "sourceIdentity": "honda.official.owner-manual.31MLRB000.2024",
+              "sourceUrl": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf"
+            },
+            "sourceLocator": {
+              "endLine": 64,
+              "endOffset": 1026,
+              "startLine": 55,
+              "startOffset": 731
+            }
+          },
+          "extractionMethod": "declarative-text-extractor/1",
+          "extractionResultId": "extraction-result.32ff931c2f1fe866679758b6",
+          "fieldId": "lubrication.oil-specification",
+          "id": "extraction-candidate.87fcea8600978eff75d9f8d6",
+          "ordinal": 1,
+          "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+          "rawUnit": null,
+          "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+          "schemaVersion": 1,
+          "sourceLocation": {
+            "locator": "lines:55-64;chars:731-1026",
+            "page": null,
+            "section": "derived text",
+            "tableOrSubsection": "document:full"
+          },
+          "sourceWorkItemId": "source-work.249883248afbcf986797c3f1",
+          "targetId": "target.honda.cbr500r.pc70.2024.usa-canada",
+          "targetWorkId": "target-work.a4043cbb41538e4e14f5d726"
+        },
+        "candidateId": "extraction-candidate.87fcea8600978eff75d9f8d6",
+        "extractionResultId": "extraction-result.32ff931c2f1fe866679758b6",
+        "id": "review-queue-entry.7b8d56af51c808e15dd558ac",
+        "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+        "schemaVersion": 1,
+        "sourceWorkItemId": "source-work.249883248afbcf986797c3f1",
+        "state": "QUEUED",
+        "targetId": "target.honda.cbr500r.pc70.2024.usa-canada",
+        "targetWorkId": "target-work.a4043cbb41538e4e14f5d726"
+      }
+    ],
+    "ineligible": [],
+    "schemaVersion": 1
+  },
+  "assertions": {
+    "exactlyOneEntry": true,
+    "duplicateInputsCollapsed": true,
+    "rawValuePreserved": true,
+    "candidateIdentityPreserved": true,
+    "absUnresolved": true,
+    "humanReviewDecisionCreated": false,
+    "evidenceProcessingOccurred": false,
+    "productionPromotionOccurred": false,
+    "productionChanged": false
+  },
+  "next": "Bounded Human Review of exactly this one CBR500R oil-specification Review Queue entry."
+}

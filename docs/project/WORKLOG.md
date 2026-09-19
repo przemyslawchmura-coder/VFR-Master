@@ -837,3 +837,15 @@ or promotion exists, and the candidate is not present in the persisted Review
 Queue report. Recovered canonical NEXT: construct exactly one Review Queue
 entry for that candidate, then defer any Human Review Decision to a separate
 bounded wave.
+
+## 2026-09-19 — Queued CBR500R oil candidate for review
+
+Constructed exactly one deterministic Review Queue entry from the existing
+raw candidate `extraction-candidate.87fcea8600978eff75d9f8d6` using the
+generic queue contract. Entry `review-queue-entry.7b8d56af51c808e15dd558ac`
+is `QUEUED`; raw value, target/source provenance and 2024 PC70 USA/Canada
+manual applicability were preserved, including unresolved ABS. Duplicate
+construction collapsed to one entry. No Human Review Decision, Evidence
+Processing, promotion or production change occurred. Validation passed.
+NEXT: bounded Human Review of exactly this one CBR500R oil-specification queue
+entry.
