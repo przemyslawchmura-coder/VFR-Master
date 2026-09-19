@@ -127,7 +127,7 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Perform bounded human materialization authorization for exactly the CBR500R fully-ready requirement set through the new generic boundary; no explicit decision exists yet, no production profile or registry membership exists, and `materializationAllowed` remains false. Do not materialize or promote production data. Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
+**NEXT** — Design and execute the first bounded controlled production materializer for exactly this authorized CBR500R lineage; `materializationAllowed` is true for the future-only boundary, but `productionCreated` remains false and no production profile or registry membership exists. Do not broaden scope. Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
 
 The generated `research/reports/project-state-audit.json` remains intentionally scoped to the completed Triumph implementation wave. Its 2026-09-03 snapshot date, historical base commit and 681/681 validation record are deterministic historical evidence, not claims that this memory wave reran that suite.
 

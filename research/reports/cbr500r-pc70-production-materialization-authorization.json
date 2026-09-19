@@ -2,14 +2,19 @@
   "schemaVersion": "revlog-cbr500r-pc70-production-materialization-authorization/v1",
   "materializationRequirementsId": "materialization-authorization.bf37694c61c2dad9c3b77c45",
   "productionAuthorizationId": "production-authorization.42dfc09d17938fb18e6dc92d",
-  "authorizationId": "production-materialization-authorization.d3de02775b90915de4d74560",
-  "authorizationState": "PENDING-MATERIALIZATION-AUTHORIZATION",
-  "reasons": [
-    "HUMAN-AUTHORIZATION-PENDING"
-  ],
-  "materializationAllowed": false,
+  "authorizationId": "production-materialization-authorization.4cfd2472d8f6e8aac04d9afc",
+  "authorizationState": "AUTHORIZED-FOR-MATERIALIZATION",
+  "reasons": [],
+  "materializationAllowed": true,
   "productionCreated": false,
-  "humanDecision": null,
+  "humanDecision": {
+    "decision": "APPROVE-FOR-MATERIALIZATION",
+    "id": "production-materialization-decision.df9e1702b9f73b4016be66d9",
+    "materializationRequirementsAuthorizationId": "materialization-authorization.bf37694c61c2dad9c3b77c45",
+    "rationale": "The exact CBR500R PC70 MY2024 USA/Canada oil-specification lineage has completed the bounded research, review, evidence-processing, applicability, schema-conversion, production-authorization and materialization-requirements gates. All four declared materialization requirements are READY. Approve this exact immutable lineage for future controlled production materialization.",
+    "reviewerId": "reviewer.revlog.operator",
+    "schemaVersion": 1
+  },
   "declaredRequirements": [
     "PRODUCTION-CITATION-MATERIALIZATION",
     "PRODUCTION-DOCUMENT-MATERIALIZATION",
@@ -111,8 +116,8 @@
     "applicabilityPreserved": true,
     "exactlyOneRequirementsAuthorizationConsumed": true,
     "historicalAbsUnchanged": true,
-    "humanDecisionAbsent": true,
-    "materializationUnauthorized": true,
+    "humanDecisionPreserved": true,
+    "materializationAuthorizedForFutureOnly": true,
     "noNormalization": true,
     "noProductionMutation": true,
     "noPromotion": true,
@@ -120,5 +125,5 @@
     "rawValuePreserved": true,
     "requirementsReadyConsumed": true
   },
-  "next": "Perform bounded human materialization authorization for this exact CBR500R requirement set; do not materialize production data."
+  "next": "Design and execute the first bounded controlled production materializer for this exact authorized CBR500R lineage; do not broaden scope."
 }

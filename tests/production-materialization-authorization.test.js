@@ -80,13 +80,17 @@ test("authorization identity is deterministic and input remains unchanged", () =
   assert.deepEqual(first.declaredRequirements, [...first.declaredRequirements].sort());
 });
 
-test("CBR500R ready requirements remain pending at the new boundary", () => {
+test("CBR500R explicit human authorization enables only the future materialization boundary", () => {
   const result = cbr.buildResult();
-  assert.equal(result.authorization.authorizationState, "PENDING-MATERIALIZATION-AUTHORIZATION");
-  assert.equal(result.authorization.humanDecision, null);
-  assert.equal(result.authorization.materializationAllowed, false);
+  assert.equal(result.authorization.authorizationState, "AUTHORIZED-FOR-MATERIALIZATION");
+  assert.equal(result.authorization.humanDecision.decision, "APPROVE-FOR-MATERIALIZATION");
+  assert.equal(result.authorization.humanDecision.reviewerId, "reviewer.revlog.operator");
+  assert.match(result.authorization.humanDecision.rationale, /^The exact CBR500R PC70 MY2024 USA\/Canada/);
+  assert.equal(result.authorization.materializationAllowed, true);
   assert.equal(result.authorization.productionCreated, false);
   assert.equal(result.authorization.targetIdentity.id, "target.honda.cbr500r.pc70.2024.usa-canada");
   assert.equal(result.authorization.proposedProduction.entryId, "lubrication.engine-oil.specification");
+  assert.equal(result.assertions.humanDecisionPreserved, true);
+  assert.equal(result.assertions.materializationAuthorizedForFutureOnly, true);
   assert.equal(result.assertions.noProductionMutation, true);
 });

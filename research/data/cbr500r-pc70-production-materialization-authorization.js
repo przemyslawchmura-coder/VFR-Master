@@ -1,4 +1,4 @@
-// NON-PRODUCTION projection of the CBR500R ready requirement set at the human gate.
+// NON-PRODUCTION explicit human authorization of the CBR500R requirement set.
 "use strict";
 
 const factory = require("../factory/index.js");
@@ -6,12 +6,19 @@ const registryResult = require("./cbr500r-pc70-registry-requirement-reevaluation
 
 const materializationRequirementsId = "materialization-authorization.bf37694c61c2dad9c3b77c45";
 const productionAuthorizationId = "production-authorization.42dfc09d17938fb18e6dc92d";
+const reviewerId = "reviewer.revlog.operator";
+const rationale = "The exact CBR500R PC70 MY2024 USA/Canada oil-specification lineage has completed the bounded research, review, evidence-processing, applicability, schema-conversion, production-authorization and materialization-requirements gates. All four declared materialization requirements are READY. Approve this exact immutable lineage for future controlled production materialization.";
 
 function buildResult() {
   const source = registryResult.buildResult();
   if (source.materializationAuthorization.id !== materializationRequirementsId) throw new Error("CBR500R materialization authorization input is out of scope");
-  const result = factory.authorizeProductionMaterialization(source.materializationAuthorization);
-  if (result.authorizationState !== "PENDING-MATERIALIZATION-AUTHORIZATION" || result.materializationAllowed !== false || result.productionCreated !== false) throw new Error("CBR500R must remain pending at the human materialization authorization boundary");
+  const decision = factory.createProductionMaterializationDecision(materializationRequirementsId, {
+    decision: "APPROVE-FOR-MATERIALIZATION",
+    reviewerId,
+    rationale
+  });
+  const result = factory.authorizeProductionMaterialization(source.materializationAuthorization, decision);
+  if (result.authorizationState !== "AUTHORIZED-FOR-MATERIALIZATION" || result.materializationAllowed !== true || result.productionCreated !== false) throw new Error("CBR500R human materialization authorization did not produce the expected future-only authorization");
   return Object.freeze({
     schemaVersion: "revlog-cbr500r-pc70-production-materialization-authorization/v1",
     materializationRequirementsId,
@@ -21,8 +28,8 @@ function buildResult() {
       exactlyOneRequirementsAuthorizationConsumed: true,
       requirementsReadyConsumed: result.requirementsAuthorizationState === "REQUIREMENTS-READY" && result.requirementsAuthorizationReasons.length === 0,
       allFourRequirementsReady: result.requirements.every(item => item.state === "READY"),
-      humanDecisionAbsent: result.humanDecision === null,
-      materializationUnauthorized: result.authorizationState === "PENDING-MATERIALIZATION-AUTHORIZATION" && result.materializationAllowed === false,
+      humanDecisionPreserved: result.humanDecision && result.humanDecision.decision === "APPROVE-FOR-MATERIALIZATION" && result.humanDecision.reviewerId === reviewerId && result.humanDecision.rationale === rationale,
+      materializationAuthorizedForFutureOnly: result.authorizationState === "AUTHORIZED-FOR-MATERIALIZATION" && result.materializationAllowed === true && result.productionCreated === false,
       productionCreatedFalse: result.productionCreated === false,
       rawValuePreserved: result.rawSource.rawValue === source.materializationAuthorization.rawSource.rawValue,
       applicabilityPreserved: result.targetApplicability.abs === "KNOWN" && result.targetApplicability.market === "KNOWN",
@@ -31,7 +38,7 @@ function buildResult() {
       noProductionMutation: true,
       noPromotion: true
     },
-    next: "Perform bounded human materialization authorization for this exact CBR500R requirement set; do not materialize production data."
+    next: "Design and execute the first bounded controlled production materializer for this exact authorized CBR500R lineage; do not broaden scope."
   });
 }
 

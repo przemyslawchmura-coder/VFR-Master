@@ -1084,3 +1084,16 @@ pending projection; no human approval, document, citation, Technical Profile,
 registry insertion, production mutation or promotion occurred. NEXT: perform
 bounded human materialization authorization for this exact CBR500R requirement
 set, then stop before materialization.
+
+## 2026-09-19 — CBR500R human production-materialization authorization
+
+Recorded exactly one explicit generic
+`APPROVE-FOR-MATERIALIZATION` decision for the fully ready CBR500R PC70
+MY2024 USA/Canada oil-specification lineage. Reviewer
+`reviewer.revlog.operator` and the bounded rationale are preserved in the
+deterministic authorization; the result is
+`AUTHORIZED-FOR-MATERIALIZATION` with `materializationAllowed: true` and
+`productionCreated: false`. No production document, citation, Technical
+Profile, entry, registry membership, catalogue state or production technical
+data changed. NEXT: design and execute the first bounded controlled
+production materializer for this exact authorized lineage only.
