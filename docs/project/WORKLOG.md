@@ -1030,3 +1030,15 @@ The CBR500R document and citation requirements are `READY`; Technical Profile
 and registry requirements remain `PENDING`, aggregate state remains
 `REQUIREMENTS-PENDING`, and no production artifact or promotion occurred.
 NEXT: resolve the earliest remaining Technical Profile materialization inputs.
+
+## 2026-09-19 — CBR500R Technical Profile identity foundation
+
+Added generic non-production `TechnicalProfileDefinitionReference/v1` and
+constructed `technical-profile-definition-ref.591043e27bf2c2519dbf4529` from
+the repository-proven CBR500R target/catalog identity and bounded ABS
+verification. The reference is deterministic, immutable and explicitly
+`NOT-REGISTERED`; it carries no production profile ID or profile contents.
+The CBR500R production profile and registry entry remain absent, and no
+production data changed. NEXT: construct the bounded profile-entry definition
+reference and reevaluate only the Technical Profile materialization
+requirement.

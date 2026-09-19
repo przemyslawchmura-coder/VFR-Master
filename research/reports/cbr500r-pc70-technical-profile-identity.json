@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "revlog-cbr500r-pc70-technical-profile-identity/v1",
+  "reference": {
+    "catalogueIdentityProof": {"catalogVariantKey": "honda.cbr500r.pc70", "source": "repository-catalogue-and-research-target", "targetId": "target.honda.cbr500r.pc70.2024.usa-canada"},
+    "id": "technical-profile-definition-ref.591043e27bf2c2519dbf4529",
+    "nonProduction": true,
+    "productionProfileId": null,
+    "profileIdentity": {"abs": true, "catalogVariantKey": "honda.cbr500r.pc70", "equipment": "standard road model", "generation": "PC70", "manufacturer": "Honda", "market": "USA/Canada", "model": "CBR500R", "modelYear": 2024, "targetId": "target.honda.cbr500r.pc70.2024.usa-canada", "transmission": "manual"},
+    "registryMembership": "NOT-REGISTERED",
+    "schemaVersion": 1,
+    "type": "TECHNICAL-PROFILE-DEFINITION-REF"
+  },
+  "targetId": "target.honda.cbr500r.pc70.2024.usa-canada",
+  "catalogVariantKey": "honda.cbr500r.pc70",
+  "sourceApplicabilityVerificationId": "applicability-verification.08059a67abc9eb226cb3fc82",
+  "productionProfileExists": false,
+  "registryMembership": "NOT-REGISTERED",
+  "productionCreated": false,
+  "assertions": {"repositoryProvenance": true, "exactTargetBound": true, "nonProduction": true, "noProfileContents": true, "noRegistryInsertion": true, "productionChanged": false}
+}

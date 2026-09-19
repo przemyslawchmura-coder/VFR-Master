@@ -382,6 +382,30 @@ production artifact.
 
 Status: ACTIVE. Related implementation: `research/factory/materialization-input-reference-contracts.js`, `research/factory/materialization-requirements.js`.
 
+## ADR-036 — Non-production Technical Profile identity references
+
+Date: 2026-09-19
+
+Decision: Future Technical Profile materialization may use a typed,
+deterministic `TechnicalProfileDefinitionReference/v1` that binds a target
+ID, catalog variant, manufacturer/model/generation, year, market,
+transmission, equipment and known ABS state. The reference explicitly has no
+production profile ID and no registry membership; it is not a profile or a
+registry record.
+
+Rationale: CBR500R has a repository-proven catalog/target identity but no
+production Technical Profile or registry entry. Existing VFR and Ducati
+profile IDs are historical implementation identities, not a generic rule for
+inventing a new production ID. A typed intended-profile reference preserves
+the exact bounded identity while keeping identity, profile contents and
+registry insertion separate.
+
+Consequences: malformed, incomplete, mismatched or unproven catalogue
+identity fails closed. The CBR500R reference is non-production only;
+production profile data and registry membership remain absent.
+
+Status: ACTIVE. Related implementation: `research/factory/technical-profile-identity-reference-contracts.js`.
+
 ## ADR-035 — Typed non-production citation and source-location references
 
 Date: 2026-09-19
