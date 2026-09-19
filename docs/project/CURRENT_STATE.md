@@ -308,3 +308,9 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   installs it through the existing validation workflow before tests. This
   repairs clean-run reproducibility for the BMW raw-extraction path without
   changing its 24-candidate output or any research/production state.
+- BMW C 600 Sport MY2012 human review now accounts for exactly the 24 existing
+  raw candidates. All received explicit pre-evidence ACCEPT decisions; nine
+  conditional rows retain their single-rider, loaded or optional-LED scope.
+  No evidence, conflict resolution, promotion, production, catalogue,
+  registry or cloud state changed. NEXT is separate Evidence Processing for
+  only these 24 decisions.

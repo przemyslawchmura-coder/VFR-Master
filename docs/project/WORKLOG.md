@@ -1363,3 +1363,15 @@ GitHub Actions workflow with Python 3.12. The BMW extraction implementation,
 24-candidate report, artifact digest and provenance remain unchanged; no review,
 evidence, promotion or production state changed. Full validation passed with
 953/956 tests and 3 skips.
+
+## 2026-09-19 — BMW C 600 Sport human review
+
+Reviewed exactly the 24 existing BMW C 600 Sport MY2012 USA raw extraction
+candidates through the existing Review Queue and Human Review Decision
+contracts. All 24 received deterministic pre-evidence `ACCEPT` decisions
+because their authenticated manual locations, raw values, provenance and
+bounded applicability were directly present. Nine conditional candidates keep
+their single-rider, loaded/passenger or optional-LED distinctions in the raw
+payload and review comments. No normalization, conflict resolution, evidence,
+promotion, production, catalogue, registry or cloud state changed. NEXT is
+separate Evidence Processing for only these 24 decisions.
