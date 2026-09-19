@@ -43,6 +43,19 @@ function authorizeMaterializationRequirements(productionAuthorization, providedI
       const reasons = upstreamBlocked ? ["UPSTREAM-AUTHORIZATION-BLOCKED"] : [];
       return { type, state, requiredInputs: [...requiredInputs], missingInputs, reasons };
     }
+    if (type === "TECHNICAL-PROFILE-ENTRY-MATERIALIZATION" && supplied.length > 0) {
+      if (supplied.length !== 3) throw new TypeError("MaterializationRequirementsAuthorization Technical Profile inputs are incomplete");
+      const citationRef = supplied.find(item => item && item.type === inputReferences.CITATION_DEFINITION_REF_TYPE);
+      const profileEntryRef = supplied.find(item => item && item.type === "TECHNICAL-PROFILE-ENTRY-DEFINITION-REF");
+      const profileDefinitionRef = supplied.find(item => item && item.type === "TECHNICAL-PROFILE-DEFINITION-REF");
+      if (!citationRef || !profileEntryRef || !profileDefinitionRef) throw new TypeError("MaterializationRequirementsAuthorization Technical Profile inputs have unknown reference types");
+      const profileContracts = require("./technical-profile-entry-reference-contracts.js");
+      profileContracts.assertCompatibleTechnicalProfileEntry(profileDefinitionRef, profileEntryRef, citationRef, upstream.id);
+      const missingInputs = [];
+      const state = upstreamBlocked ? "BLOCKED" : "READY";
+      const reasons = upstreamBlocked ? ["UPSTREAM-AUTHORIZATION-BLOCKED"] : [];
+      return { type, state, requiredInputs: [...requiredInputs], missingInputs, reasons };
+    }
     if (supplied.some(item => typeof item !== "string" || item.length === 0)) throw new TypeError(`MaterializationRequirementsAuthorization inputs for ${type} are invalid`);
     const missingInputs = requiredInputs.filter(item => !supplied.includes(item));
     const state = upstreamBlocked ? "BLOCKED" : missingInputs.length > 0 ? "PENDING" : "READY";

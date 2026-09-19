@@ -382,6 +382,31 @@ production artifact.
 
 Status: ACTIVE. Related implementation: `research/factory/materialization-input-reference-contracts.js`, `research/factory/materialization-requirements.js`.
 
+## ADR-037 — Typed non-production Technical Profile entry references
+
+Date: 2026-09-19
+
+Decision: The generic Technical Profile entry materialization requirement
+accepts a typed `TECHNICAL-PROFILE-ENTRY-DEFINITION-REF` only when it binds a
+validated intended Technical Profile reference, exact production mapping,
+unchanged typed value, compatible citation reference and upstream production
+authorization. The reference is immutable, deterministic, explicitly
+non-production and carries no production profile or registry mutation.
+
+Rationale: The CBR500R identity foundation established the intended profile
+identity but not its future entry definition. A typed generic entry reference
+keeps profile identity, entry contents, citation compatibility and registry
+insertion separate while preventing arbitrary strings from making the
+Technical Profile requirement READY.
+
+Consequences: malformed, mismatched or incomplete profile-entry references
+fail closed; document and citation readiness are unchanged; registry remains
+a separate pending boundary; no production profile, registry membership or
+technical data is created. The bounded CBR500R reevaluation is the first
+instance and does not add target-specific logic to the Factory.
+
+Status: ACTIVE. Related implementation: `research/factory/technical-profile-entry-reference-contracts.js`, `research/factory/materialization-requirements.js`.
+
 ## ADR-036 — Non-production Technical Profile identity references
 
 Date: 2026-09-19

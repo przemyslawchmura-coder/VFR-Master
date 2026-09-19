@@ -5,7 +5,7 @@ const factory = require("../research/factory/index.js");
 
 function synthetic(overrides = {}) {
   const base = {
-    schemaVersion: 1, id: "production-authorization.synthetic000000000001", schemaConversionProjectionId: "schema-conversion.synthetic00000000001", promotionReviewDecisionId: "promotion-review-decision.synthetic000001", promotionReviewPacketId: "promotion-review-packet.synthetic00001", promotionPacketId: "promotion-candidate.synthetic0000001", evidenceProcessingRecordId: "evidence-processing.synthetic000001", researchCanonicalFieldId: "lubrication.oil-specification", targetIdentity: { id: "target.synthetic" }, sourceIdentity: { sourceId: "source.synthetic", prospectId: "prospect.synthetic", documentId: "document.synthetic", authority: "OEM", tier: "A" }, proposedProduction: { entryId: "lubrication.engine-oil.specification", categoryId: "lubrication", type: "fluid", value: { type: "text", text: "raw" } }, rawSource: { rawValue: "raw", rawUnit: null, provenance: { packet: { candidateId: "extraction-candidate.synthetic00001", sourceLocation: { locator: "page:1" } }, sourceLocation: { locator: "page:1" } } }, targetApplicability: { modelYear: "KNOWN", market: "KNOWN", equipment: "SUFFICIENT", context: "SUFFICIENT", abs: "KNOWN", transmission: "KNOWN" }, authorizationState: "AUTHORIZATION-READY", reasons: [], futureMaterializationRequirements: [...factory.FUTURE_MATERIALIZATION_REQUIREMENTS], productionCreated: false
+    schemaVersion: 1, id: "production-authorization.synthetic000000000001", schemaConversionProjectionId: "schema-conversion.synthetic00000000001", promotionReviewDecisionId: "promotion-review-decision.synthetic000001", promotionReviewPacketId: "promotion-review-packet.synthetic00001", promotionPacketId: "promotion-candidate.synthetic0000001", evidenceProcessingRecordId: "evidence-processing.synthetic000001", researchCanonicalFieldId: "lubrication.oil-specification", targetIdentity: { id: "target.synthetic.model", catalogVariantKey: "synthetic.model" }, sourceIdentity: { sourceId: "source.synthetic", prospectId: "prospect.synthetic", documentId: "document.synthetic", authority: "OEM", tier: "A" }, proposedProduction: { entryId: "lubrication.engine-oil.specification", categoryId: "lubrication", type: "fluid", value: { type: "text", text: "raw" } }, rawSource: { rawValue: "raw", rawUnit: null, provenance: { packet: { candidateId: "extraction-candidate.synthetic00001", sourceLocation: { locator: "page:1" } }, sourceLocation: { locator: "page:1" } } }, targetApplicability: { modelYear: "KNOWN", market: "KNOWN", equipment: "SUFFICIENT", context: "SUFFICIENT", abs: "KNOWN", transmission: "KNOWN" }, authorizationState: "AUTHORIZATION-READY", reasons: [], futureMaterializationRequirements: [...factory.FUTURE_MATERIALIZATION_REQUIREMENTS], productionCreated: false
   };
   const result = Object.assign(base, overrides);
   result.id = factory.authorizationId(result);
@@ -17,9 +17,12 @@ const genericDocumentRef = factory.createDocumentDefinitionRef({ documentIdentit
 const genericProvenanceRef = factory.createSourceProvenanceRef({ sourceIdentity: genericSourceIdentity, lineage: { candidateId: "extraction-candidate.synthetic00001" }, sourceLocation: { locator: "page:1" } });
 const genericCitationRef = factory.createCitationDefinitionRef({ citationIdentity: { canonicalFieldId: "lubrication.oil-specification", documentId: "document.synthetic" }, sourceIdentity: genericSourceIdentity });
 const genericLocationRef = factory.createSourceLocationRef({ sourceIdentity: genericSourceIdentity, documentId: "document.synthetic", sourceProvenanceRefId: genericProvenanceRef.id, sourceLocation: { locator: "page:1", page: null, section: "Synthetic", tableOrSubsection: "document:full" } });
+const genericProfileRef = factory.createTechnicalProfileDefinitionRef({ profileIdentity: { targetId: "target.synthetic.model", catalogVariantKey: "synthetic.model", manufacturer: "Synthetic", model: "Model", generation: "I", modelYear: 2024, market: "EU", transmission: "manual", equipment: "standard", abs: true }, catalogueIdentityProof: { source: "repository-catalogue-and-research-target", targetId: "target.synthetic.model", catalogVariantKey: "synthetic.model" } });
+const genericEntryRef = factory.createTechnicalProfileEntryDefinitionRef({ profileDefinitionRefId: genericProfileRef.id, targetIdentity: { targetId: "target.synthetic.model", catalogVariantKey: "synthetic.model" }, productionAuthorizationId: factory.authorizationId(synthetic()), categoryId: "lubrication", entryId: "lubrication.engine-oil.specification", entryType: "fluid", value: { type: "text", text: "raw" }, citationDefinitionRefId: genericCitationRef.id, applicability: synthetic().targetApplicability });
 const allInputs = Object.fromEntries(factory.REQUIREMENT_TYPES.map(type => [type, [...factory.REQUIRED_INPUTS[type]]]));
 allInputs["PRODUCTION-DOCUMENT-MATERIALIZATION"] = [genericDocumentRef, genericProvenanceRef];
 allInputs["PRODUCTION-CITATION-MATERIALIZATION"] = [genericCitationRef, genericDocumentRef, genericLocationRef];
+allInputs["TECHNICAL-PROFILE-ENTRY-MATERIALIZATION"] = [genericCitationRef, genericEntryRef, genericProfileRef];
 
 test("four declared requirements produce a pending generic readiness projection", () => {
   const result = factory.authorizeMaterializationRequirements(synthetic());
@@ -49,7 +52,7 @@ test("requirements are order-independent, deterministic and immutable", () => {
 });
 
 test("non-ready or production-created upstream authorization fails closed", () => {
-  const blocked = factory.authorizeMaterializationRequirements(synthetic({ authorizationState: "AUTHORIZATION-BLOCKED", reasons: ["X"] }), allInputs);
+  const blocked = factory.authorizeMaterializationRequirements(synthetic({ authorizationState: "AUTHORIZATION-BLOCKED", reasons: ["X"] }));
   assert.equal(blocked.productionAuthorizationState, "AUTHORIZATION-BLOCKED");
   assert.equal(blocked.aggregateState, "REQUIREMENTS-BLOCKED");
   assert.ok(blocked.requirements.every(item => item.state === "BLOCKED" && item.reasons.includes("UPSTREAM-AUTHORIZATION-BLOCKED")));

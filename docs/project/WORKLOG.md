@@ -1042,3 +1042,17 @@ The CBR500R production profile and registry entry remain absent, and no
 production data changed. NEXT: construct the bounded profile-entry definition
 reference and reevaluate only the Technical Profile materialization
 requirement.
+
+## 2026-09-19 — CBR500R Technical Profile entry requirement reevaluation
+
+Constructed exactly one deterministic non-production
+`TECHNICAL-PROFILE-ENTRY-DEFINITION-REF` for the existing CBR500R
+authorization, reusing `technical-profile-definition-ref.591043e27bf2c2519dbf4529`
+and `citation-definition-ref.2a37207884a04eae3ec5f684`. The entry binds the
+repository-proven target/catalog identity, `lubrication.engine-oil.specification`,
+the unchanged compound text value, bounded applicability and the existing
+authorization lineage. The document and citation requirements remain READY;
+the Technical Profile entry requirement is READY; registry insertion remains
+PENDING; aggregate materialization remains disabled. No production profile,
+registry membership, materialization, promotion or Rider Service Core change
+occurred. NEXT: resolve only the bounded `REGISTRY-INSERTION` inputs.
