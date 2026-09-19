@@ -15,8 +15,11 @@ function synthetic(overrides = {}) {
 const genericSourceIdentity = { sourceId: "source.synthetic", prospectId: "prospect.synthetic", documentId: "document.synthetic", authority: "OEM", tier: "A" };
 const genericDocumentRef = factory.createDocumentDefinitionRef({ documentIdentity: { documentId: "document.synthetic", publicationId: "PUBLICATION-SYNTHETIC-001", authority: "OEM", documentClass: "owner-manual", officialPath: "https://example.test/document.pdf" }, sourceIdentity: genericSourceIdentity });
 const genericProvenanceRef = factory.createSourceProvenanceRef({ sourceIdentity: genericSourceIdentity, lineage: { candidateId: "extraction-candidate.synthetic00001" }, sourceLocation: { locator: "page:1" } });
+const genericCitationRef = factory.createCitationDefinitionRef({ citationIdentity: { canonicalFieldId: "lubrication.oil-specification", documentId: "document.synthetic" }, sourceIdentity: genericSourceIdentity });
+const genericLocationRef = factory.createSourceLocationRef({ sourceIdentity: genericSourceIdentity, documentId: "document.synthetic", sourceProvenanceRefId: genericProvenanceRef.id, sourceLocation: { locator: "page:1", page: null, section: "Synthetic", tableOrSubsection: "document:full" } });
 const allInputs = Object.fromEntries(factory.REQUIREMENT_TYPES.map(type => [type, [...factory.REQUIRED_INPUTS[type]]]));
 allInputs["PRODUCTION-DOCUMENT-MATERIALIZATION"] = [genericDocumentRef, genericProvenanceRef];
+allInputs["PRODUCTION-CITATION-MATERIALIZATION"] = [genericCitationRef, genericDocumentRef, genericLocationRef];
 
 test("four declared requirements produce a pending generic readiness projection", () => {
   const result = factory.authorizeMaterializationRequirements(synthetic());

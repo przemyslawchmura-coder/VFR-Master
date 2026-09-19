@@ -7,6 +7,8 @@ const json = require("./json.js");
 const MATERIALIZATION_INPUT_REFERENCE_SCHEMA_VERSION = 1;
 const DOCUMENT_DEFINITION_REF_TYPE = "DOCUMENT-DEFINITION-REF";
 const SOURCE_PROVENANCE_REF_TYPE = "SOURCE-PROVENANCE-REF";
+const CITATION_DEFINITION_REF_TYPE = "CITATION-DEFINITION-REF";
+const SOURCE_LOCATION_REF_TYPE = "SOURCE-LOCATION-REF";
 const assert = (condition, message) => { if (!condition) throw new TypeError(message); };
 const isNonEmptyString = value => typeof value === "string" && value.length > 0;
 
@@ -22,6 +24,14 @@ function documentDefinitionRefId(input) {
 
 function sourceProvenanceRefId(input) {
   return `source-provenance-ref.${crypto.createHash("sha256").update(json.canonicalSerialize({ type: input.type, sourceIdentity: input.sourceIdentity, lineage: input.lineage, sourceLocation: input.sourceLocation, nonProduction: input.nonProduction })).digest("hex").slice(0, 24)}`;
+}
+
+function citationDefinitionRefId(input) {
+  return `citation-definition-ref.${crypto.createHash("sha256").update(json.canonicalSerialize({ type: input.type, citationIdentity: input.citationIdentity, sourceIdentity: input.sourceIdentity, nonProduction: input.nonProduction })).digest("hex").slice(0, 24)}`;
+}
+
+function sourceLocationRefId(input) {
+  return `source-location-ref.${crypto.createHash("sha256").update(json.canonicalSerialize({ type: input.type, sourceIdentity: input.sourceIdentity, documentId: input.documentId, sourceProvenanceRefId: input.sourceProvenanceRefId, sourceLocation: input.sourceLocation, nonProduction: input.nonProduction })).digest("hex").slice(0, 24)}`;
 }
 
 function validateDocumentDefinitionRef(input) {
@@ -65,6 +75,49 @@ function createSourceProvenanceRef(input) {
   return validateSourceProvenanceRef(result);
 }
 
+function validateCitationDefinitionRef(input) {
+  json.assertJsonSafe(input);
+  assert(input && input.schemaVersion === MATERIALIZATION_INPUT_REFERENCE_SCHEMA_VERSION, "CitationDefinitionReference schemaVersion is incompatible");
+  assert(input.type === CITATION_DEFINITION_REF_TYPE, "CitationDefinitionReference.type is invalid");
+  assert(input.nonProduction === true, "CitationDefinitionReference must remain non-production");
+  assert(input.citationIdentity && typeof input.citationIdentity === "object", "CitationDefinitionReference.citationIdentity is incomplete");
+  ["canonicalFieldId", "documentId"].forEach(field => assert(isNonEmptyString(input.citationIdentity[field]), `CitationDefinitionReference.citationIdentity.${field} is required`));
+  sourceIdentityValid(input.sourceIdentity, "CitationDefinitionReference.sourceIdentity");
+  assert(input.citationIdentity.documentId === input.sourceIdentity.documentId, "CitationDefinitionReference document identity does not match source identity");
+  assert(typeof input.id === "string" && /^citation-definition-ref\.[a-f0-9]{24}$/.test(input.id), "CitationDefinitionReference.id is invalid");
+  assert(input.id === citationDefinitionRefId(input), "CitationDefinitionReference.id is unstable");
+  return json.immutableClone(input);
+}
+
+function createCitationDefinitionRef(input) {
+  const result = { schemaVersion: MATERIALIZATION_INPUT_REFERENCE_SCHEMA_VERSION, type: CITATION_DEFINITION_REF_TYPE, id: "placeholder", citationIdentity: input.citationIdentity, sourceIdentity: input.sourceIdentity, nonProduction: true };
+  result.id = citationDefinitionRefId(result);
+  return validateCitationDefinitionRef(result);
+}
+
+function validateSourceLocationRef(input) {
+  json.assertJsonSafe(input);
+  assert(input && input.schemaVersion === MATERIALIZATION_INPUT_REFERENCE_SCHEMA_VERSION, "SourceLocationReference schemaVersion is incompatible");
+  assert(input.type === SOURCE_LOCATION_REF_TYPE, "SourceLocationReference.type is invalid");
+  assert(input.nonProduction === true, "SourceLocationReference must remain non-production");
+  sourceIdentityValid(input.sourceIdentity, "SourceLocationReference.sourceIdentity");
+  assert(isNonEmptyString(input.documentId) && input.documentId === input.sourceIdentity.documentId, "SourceLocationReference.documentId is invalid");
+  assert(isNonEmptyString(input.sourceProvenanceRefId) && /^source-provenance-ref\.[a-f0-9]{24}$/.test(input.sourceProvenanceRefId), "SourceLocationReference.sourceProvenanceRefId is invalid");
+  assert(input.sourceLocation && typeof input.sourceLocation === "object", "SourceLocationReference.sourceLocation is incomplete");
+  assert(isNonEmptyString(input.sourceLocation.locator), "SourceLocationReference.sourceLocation.locator is required");
+  assert(input.sourceLocation.page === null || Number.isInteger(input.sourceLocation.page) && input.sourceLocation.page > 0, "SourceLocationReference.sourceLocation.page is invalid");
+  ["section", "tableOrSubsection"].forEach(field => assert(isNonEmptyString(input.sourceLocation[field]), `SourceLocationReference.sourceLocation.${field} is required`));
+  assert(typeof input.id === "string" && /^source-location-ref\.[a-f0-9]{24}$/.test(input.id), "SourceLocationReference.id is invalid");
+  assert(input.id === sourceLocationRefId(input), "SourceLocationReference.id is unstable");
+  return json.immutableClone(input);
+}
+
+function createSourceLocationRef(input) {
+  const result = { schemaVersion: MATERIALIZATION_INPUT_REFERENCE_SCHEMA_VERSION, type: SOURCE_LOCATION_REF_TYPE, id: "placeholder", sourceIdentity: input.sourceIdentity, documentId: input.documentId, sourceProvenanceRefId: input.sourceProvenanceRefId, sourceLocation: input.sourceLocation, nonProduction: true };
+  result.id = sourceLocationRefId(result);
+  return validateSourceLocationRef(result);
+}
+
 function assertCompatibleDocumentAndProvenance(documentRef, provenanceRef) {
   const document = validateDocumentDefinitionRef(documentRef);
   const provenance = validateSourceProvenanceRef(provenanceRef);
@@ -72,4 +125,16 @@ function assertCompatibleDocumentAndProvenance(documentRef, provenanceRef) {
   return Object.freeze({ document, provenance });
 }
 
-module.exports = Object.freeze({ MATERIALIZATION_INPUT_REFERENCE_SCHEMA_VERSION, DOCUMENT_DEFINITION_REF_TYPE, SOURCE_PROVENANCE_REF_TYPE, documentDefinitionRefId, sourceProvenanceRefId, createDocumentDefinitionRef, createSourceProvenanceRef, validateDocumentDefinitionRef, validateSourceProvenanceRef, assertCompatibleDocumentAndProvenance });
+function assertCompatibleCitationInputs(citationRef, documentRef, locationRef) {
+  const citation = validateCitationDefinitionRef(citationRef);
+  const document = validateDocumentDefinitionRef(documentRef);
+  const location = validateSourceLocationRef(locationRef);
+  ["sourceId", "prospectId", "documentId", "authority", "tier"].forEach(field => {
+    assert(citation.sourceIdentity[field] === document.sourceIdentity[field], `CitationDefinitionReference and DocumentDefinitionReference ${field} mismatch`);
+    assert(location.sourceIdentity[field] === document.sourceIdentity[field], `SourceLocationReference and DocumentDefinitionReference ${field} mismatch`);
+  });
+  assert(citation.citationIdentity.documentId === location.documentId, "CitationDefinitionReference and SourceLocationReference documentId mismatch");
+  return Object.freeze({ citation, document, location });
+}
+
+module.exports = Object.freeze({ MATERIALIZATION_INPUT_REFERENCE_SCHEMA_VERSION, DOCUMENT_DEFINITION_REF_TYPE, SOURCE_PROVENANCE_REF_TYPE, CITATION_DEFINITION_REF_TYPE, SOURCE_LOCATION_REF_TYPE, documentDefinitionRefId, sourceProvenanceRefId, citationDefinitionRefId, sourceLocationRefId, createDocumentDefinitionRef, createSourceProvenanceRef, createCitationDefinitionRef, createSourceLocationRef, validateDocumentDefinitionRef, validateSourceProvenanceRef, validateCitationDefinitionRef, validateSourceLocationRef, assertCompatibleDocumentAndProvenance, assertCompatibleCitationInputs });

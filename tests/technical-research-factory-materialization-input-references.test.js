@@ -40,6 +40,16 @@ test("document and provenance identity mismatches fail closed", () => {
   assert.throws(() => factory.assertCompatibleDocumentAndProvenance(document, provenance), /documentId mismatch/);
 });
 
+test("generic citation and source-location refs preserve identity and page-null locations", () => {
+  const document = factory.createDocumentDefinitionRef(documentInput);
+  const provenance = factory.createSourceProvenanceRef(provenanceInput);
+  const citation = factory.createCitationDefinitionRef({ citationIdentity: { canonicalFieldId: "synthetic.field", documentId: "document.synthetic" }, sourceIdentity });
+  const location = factory.createSourceLocationRef({ sourceIdentity, documentId: "document.synthetic", sourceProvenanceRefId: provenance.id, sourceLocation: { locator: "lines:1-2", page: null, section: "Synthetic", tableOrSubsection: "document:full" } });
+  assert.equal(citation.id, factory.citationDefinitionRefId(citation));
+  assert.equal(location.id, factory.sourceLocationRefId(location));
+  assert.deepEqual(factory.assertCompatibleCitationInputs(citation, document, location), { citation, document, location });
+});
+
 test("only the document requirement can become ready from compatible typed refs", () => {
   const document = factory.createDocumentDefinitionRef(documentInput);
   const provenance = factory.createSourceProvenanceRef(provenanceInput);
@@ -52,6 +62,16 @@ test("only the document requirement can become ready from compatible typed refs"
   assert.equal(result.materializationAllowed, false);
   assert.equal(result.productionCreated, false);
   assert.ok(result.requirements.filter(item => item !== documentRequirement).every(item => item.state === "PENDING"));
+});
+
+test("only compatible typed citation inputs can make citation ready", () => {
+  const document = factory.createDocumentDefinitionRef(documentInput);
+  const provenance = factory.createSourceProvenanceRef(provenanceInput);
+  const citation = factory.createCitationDefinitionRef({ citationIdentity: { canonicalFieldId: "synthetic.field", documentId: "document.synthetic" }, sourceIdentity });
+  const location = factory.createSourceLocationRef({ sourceIdentity, documentId: "document.synthetic", sourceProvenanceRefId: provenance.id, sourceLocation: { locator: "page:1", page: null, section: "Synthetic", tableOrSubsection: "document:full" } });
+  const result = factory.authorizeMaterializationRequirements(syntheticAuthorization(), { "PRODUCTION-DOCUMENT-MATERIALIZATION": [document, provenance], "PRODUCTION-CITATION-MATERIALIZATION": [citation, document, location] });
+  assert.equal(result.requirements.find(item => item.type === "PRODUCTION-CITATION-MATERIALIZATION").state, "READY");
+  assert.throws(() => factory.authorizeMaterializationRequirements(syntheticAuthorization(), { "PRODUCTION-CITATION-MATERIALIZATION": ["foo", document, location] }), /unknown reference types/);
 });
 
 test("arbitrary strings cannot satisfy document inputs and blocked upstream stays blocked", () => {

@@ -31,6 +31,18 @@ function authorizeMaterializationRequirements(productionAuthorization, providedI
       const reasons = upstreamBlocked ? ["UPSTREAM-AUTHORIZATION-BLOCKED"] : [];
       return { type, state, requiredInputs: [...requiredInputs], missingInputs, reasons };
     }
+    if (type === "PRODUCTION-CITATION-MATERIALIZATION" && supplied.length > 0) {
+      if (supplied.length !== 3) throw new TypeError("MaterializationRequirementsAuthorization citation inputs are incomplete");
+      const citationRef = supplied.find(item => item && item.type === inputReferences.CITATION_DEFINITION_REF_TYPE);
+      const documentRef = supplied.find(item => item && item.type === inputReferences.DOCUMENT_DEFINITION_REF_TYPE);
+      const locationRef = supplied.find(item => item && item.type === inputReferences.SOURCE_LOCATION_REF_TYPE);
+      if (!citationRef || !documentRef || !locationRef) throw new TypeError("MaterializationRequirementsAuthorization citation inputs have unknown reference types");
+      inputReferences.assertCompatibleCitationInputs(citationRef, documentRef, locationRef);
+      const missingInputs = [];
+      const state = upstreamBlocked ? "BLOCKED" : "READY";
+      const reasons = upstreamBlocked ? ["UPSTREAM-AUTHORIZATION-BLOCKED"] : [];
+      return { type, state, requiredInputs: [...requiredInputs], missingInputs, reasons };
+    }
     if (supplied.some(item => typeof item !== "string" || item.length === 0)) throw new TypeError(`MaterializationRequirementsAuthorization inputs for ${type} are invalid`);
     const missingInputs = requiredInputs.filter(item => !supplied.includes(item));
     const state = upstreamBlocked ? "BLOCKED" : missingInputs.length > 0 ? "PENDING" : "READY";

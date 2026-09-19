@@ -381,3 +381,27 @@ remains false. This foundation does not reevaluate CBR500R or create any
 production artifact.
 
 Status: ACTIVE. Related implementation: `research/factory/materialization-input-reference-contracts.js`, `research/factory/materialization-requirements.js`.
+
+## ADR-035 — Typed non-production citation and source-location references
+
+Date: 2026-09-19
+
+Decision: The generic citation materialization requirement uses separate
+immutable `CitationDefinitionReference/v1` and `SourceLocationReference/v1`
+objects together with a reused `DocumentDefinitionReference/v1`. Citation
+identity is bound to the canonical research field and document identity;
+location identity is bound to the source identity, document, existing
+provenance reference and exact source locator. All refs remain explicitly
+non-production.
+
+Rationale: Citation readiness must not be satisfied by arbitrary presence
+tokens or by inventing production citation records. The existing authenticated
+source locator, including `page: null`, can be represented losslessly as a
+typed generic reference and checked against the existing document identity.
+
+Consequences: Compatible typed citation inputs can make only the citation
+requirement READY; Technical Profile and registry requirements remain separate
+pending boundaries. No citation, document, profile or registry materialization
+is performed, and `materializationAllowed` remains false.
+
+Status: ACTIVE. Related implementation: `research/factory/materialization-input-reference-contracts.js`, `research/factory/materialization-requirements.js`.
