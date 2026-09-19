@@ -50,8 +50,18 @@ const ducatiRollbackGovernance = require("../research/data/ducati-monster937-pro
 
 const root = path.join(__dirname, "..");
 const git = (...args) => cp.execFileSync("git", args, { cwd: root, encoding: "utf8" }).trim();
-const files = (dir = ".") => fs.readdirSync(path.join(root, dir), { withFileTypes: true }).flatMap(entry => entry.isDirectory() && ![".git", "node_modules"].includes(entry.name) ? files(path.join(dir, entry.name)) : [path.join(dir, entry.name)]);
-const allFiles = files();
+const trackedFiles = (() => {
+  let output;
+  try {
+    output = cp.execFileSync("git", ["ls-files", "-z", "--"], { cwd: root, encoding: "buffer", maxBuffer: 16 * 1024 * 1024 });
+  } catch (error) {
+    throw new Error("Project-state audit requires a readable Git worktree", { cause: error });
+  }
+  const files = output.toString("utf8").split("\0").filter(Boolean);
+  if (!files.length) throw new Error("Project-state audit found no Git-tracked files");
+  return Object.freeze(files);
+})();
+const allFiles = trackedFiles;
 const countBy = predicate => allFiles.filter(predicate).length;
 // A commit cannot embed its own SHA. Anchor the snapshot to the wave's implementation
 // path and persist only its stable first-parent base. Before the new path is committed,

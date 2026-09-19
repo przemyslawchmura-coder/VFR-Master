@@ -297,6 +297,12 @@ test("project-state report regenerates byte-for-byte from its semantic snapshot 
   assert.deepEqual(generated, fs.readFileSync(path.join(__dirname, "../research/reports/project-state-audit.json")));
 });
 
+test("repository file inventory counts Git-tracked files only", () => {
+  const tracked = cp.execFileSync("git", ["ls-files", "-z", "--"], { cwd: path.join(__dirname, ".."), encoding: "buffer" }).toString("utf8").split("\0").filter(Boolean);
+  assert.equal(snapshot.repository.files, tracked.length);
+  assert.equal(tracked.some(file => file.startsWith("supabase/.branches/") || file.startsWith("supabase/.temp/")), false);
+});
+
 test("project memory has one active roadmap phase and unique ADRs", () => {
   const roadmap = read("docs/project/ROADMAP.md");
   assert.equal((roadmap.match(/\(ACTIVE\)/g) || []).length, 1);
