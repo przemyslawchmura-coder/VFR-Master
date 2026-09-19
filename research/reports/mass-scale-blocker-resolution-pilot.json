@@ -1,0 +1,935 @@
+{
+  "schemaVersion": "revlog-mass-scale-blocker-resolution-pilot/v1",
+  "date": "2026-09-19",
+  "planningOnly": true,
+  "inputReport": "mass-scale-source-discovery-pilot/v1",
+  "targetsConsidered": 10,
+  "targets": [
+    {
+      "targetId": "suzuki.sv650.gen3.2019",
+      "catalogVariantKey": "suzuki.sv650.gen3",
+      "year": 2019,
+      "before": "BLOCKED",
+      "after": "BLOCKED",
+      "candidate": {
+        "schemaVersion": "revlog-source-discovery-prospect/v1",
+        "targetId": "suzuki.sv650.gen3.2019",
+        "catalogVariantKey": "suzuki.sv650.gen3",
+        "year": 2019,
+        "identity": {
+          "manufacturer": "Suzuki",
+          "model": "SV650",
+          "generation": "III generacja"
+        },
+        "sourceRoute": {
+          "state": "PARTIAL",
+          "officialUrl": null,
+          "host": null,
+          "path": null
+        },
+        "authority": {
+          "state": "KNOWN",
+          "value": "Suzuki Motor Corporation"
+        },
+        "publication": {
+          "state": "KNOWN",
+          "value": "SV650/A/XA (L7-M4)"
+        },
+        "documentClass": "official publication",
+        "authenticationState": "AUTHENTICATED",
+        "accessState": "ACCESS-BLOCKED",
+        "exhaustionState": "ACTIVE",
+        "applicability": {
+          "model": {
+            "state": "KNOWN",
+            "value": "SV650/SV650A/SV650XA"
+          },
+          "year": {
+            "state": "PARTIAL",
+            "value": null
+          },
+          "market": {
+            "state": "PARTIAL",
+            "value": null
+          },
+          "abs": {
+            "state": "PARTIAL",
+            "value": null
+          },
+          "transmission": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "equipment": {
+            "state": "PARTIAL",
+            "value": null
+          },
+          "unresolvedDimensions": [
+            "abs",
+            "equipment",
+            "market",
+            "transmission",
+            "year"
+          ]
+        },
+        "provenance": [
+          "existing-source-prospect:unknown.suzuki.sv650",
+          "mass-scale-planning-pilot"
+        ],
+        "blockers": [
+          "AUTHENTICATED-PORTAL-ACCESS-REQUIRED",
+          "EXACT-MY2019-DOCUMENT-BINDING-PARTIAL",
+          "SV650-VS-SV650X-SCOPE-UNRESOLVED"
+        ],
+        "id": "source-discovery-prospect.ef8388f5f7d04d63e6dcfccd",
+        "state": "BLOCKED"
+      },
+      "evidenceUrls": [],
+      "sourceProspectCreated": false,
+      "readyProspectProjectionId": null,
+      "acquisitionAllowed": false,
+      "blockers": [
+        "AUTHENTICATED-PORTAL-ACCESS-REQUIRED",
+        "EXACT-MY2019-DOCUMENT-BINDING-PARTIAL",
+        "SV650-VS-SV650X-SCOPE-UNRESOLVED"
+      ]
+    },
+    {
+      "targetId": "yamaha.mt-09.gen3.2021",
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "year": 2021,
+      "before": "EXHAUSTED",
+      "after": "EXHAUSTED",
+      "candidate": {
+        "schemaVersion": "revlog-source-discovery-prospect/v1",
+        "targetId": "yamaha.mt-09.gen3.2021",
+        "catalogVariantKey": "yamaha.mt-09.gen3",
+        "year": 2021,
+        "identity": {
+          "manufacturer": "Yamaha",
+          "model": "MT-09",
+          "generation": "III generacja"
+        },
+        "sourceRoute": {
+          "state": "PARTIAL",
+          "officialUrl": null,
+          "host": null,
+          "path": null
+        },
+        "authority": {
+          "state": "KNOWN",
+          "value": "Yamaha Motor Co., Ltd."
+        },
+        "publication": {
+          "state": "KNOWN",
+          "value": "B7N-28197-E0 / LIT-11616-34-61"
+        },
+        "documentClass": "official publication",
+        "authenticationState": "PARTIAL",
+        "accessState": "ACCESS-BLOCKED",
+        "exhaustionState": "EXHAUSTED",
+        "applicability": {
+          "model": {
+            "state": "PARTIAL",
+            "value": null
+          },
+          "year": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "market": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "abs": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "transmission": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "equipment": {
+            "state": "PARTIAL",
+            "value": null
+          },
+          "unresolvedDimensions": [
+            "abs",
+            "equipment",
+            "market",
+            "model",
+            "transmission",
+            "year"
+          ]
+        },
+        "provenance": [
+          "existing-source-prospect:yamaha.mt09.service.b7n-28197-e0",
+          "mass-scale-planning-pilot"
+        ],
+        "blockers": [
+          "B7N-LIT-RELATIONSHIP-UNRESOLVED",
+          "MY2021-EU-APPLICABILITY-UNKNOWN",
+          "OFFICIAL-COMPLETE-CONTENT-ACCESS-GATED"
+        ],
+        "id": "source-discovery-prospect.fd1409ab47dfbba0330fe7b7",
+        "state": "EXHAUSTED"
+      },
+      "evidenceUrls": [],
+      "sourceProspectCreated": false,
+      "readyProspectProjectionId": null,
+      "acquisitionAllowed": false,
+      "blockers": [
+        "B7N-LIT-RELATIONSHIP-UNRESOLVED",
+        "MY2021-EU-APPLICABILITY-UNKNOWN",
+        "OFFICIAL-COMPLETE-CONTENT-ACCESS-GATED"
+      ]
+    },
+    {
+      "targetId": "aprilia.caponord.1200.2013",
+      "catalogVariantKey": "aprilia.caponord.1200",
+      "year": 2013,
+      "before": "DISCOVERED",
+      "after": "DISCOVERED",
+      "candidate": {
+        "schemaVersion": "revlog-source-discovery-prospect/v1",
+        "targetId": "aprilia.caponord.1200.2013",
+        "catalogVariantKey": "aprilia.caponord.1200",
+        "year": 2013,
+        "identity": {
+          "manufacturer": "Aprilia",
+          "model": "Caponord",
+          "generation": "1200"
+        },
+        "sourceRoute": {
+          "state": "KNOWN",
+          "officialUrl": "https://www.aprilia.com/es_ES/customer-care/",
+          "host": "www.aprilia.com",
+          "path": "/es_ES/customer-care/"
+        },
+        "authority": {
+          "state": "KNOWN",
+          "value": "Aprilia / Piaggio Group"
+        },
+        "publication": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "documentClass": "UNKNOWN",
+        "authenticationState": "UNKNOWN",
+        "accessState": "UNKNOWN",
+        "exhaustionState": "ACTIVE",
+        "applicability": {
+          "model": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "year": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "market": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "abs": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "transmission": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "equipment": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "unresolvedDimensions": [
+            "abs",
+            "equipment",
+            "market",
+            "model",
+            "transmission",
+            "year"
+          ]
+        },
+        "provenance": [
+          "mass-scale-planning-pilot",
+          "official-aprilia-customer-care-route"
+        ],
+        "blockers": [
+          "APPLICABILITY-UNRESOLVED",
+          "EXACT-PUBLICATION-NOT-IDENTIFIED",
+          "VIN-BASED-MANUAL-REQUEST-ROUTE"
+        ],
+        "id": "source-discovery-prospect.c0fa090f6f396913b89304b0",
+        "state": "DISCOVERED"
+      },
+      "evidenceUrls": [
+        "https://www.aprilia.com/es_ES/customer-care/"
+      ],
+      "sourceProspectCreated": false,
+      "readyProspectProjectionId": null,
+      "acquisitionAllowed": false,
+      "blockers": [
+        "APPLICABILITY-UNRESOLVED",
+        "EXACT-PUBLICATION-NOT-IDENTIFIED",
+        "VIN-BASED-MANUAL-REQUEST-ROUTE"
+      ]
+    },
+    {
+      "targetId": "bmw.c-scooter.c600-sport.2012",
+      "catalogVariantKey": "bmw.c-scooter.c600-sport",
+      "year": 2012,
+      "before": "APPLICABILITY-PARTIAL",
+      "after": "EXECUTION-READY",
+      "candidate": {
+        "schemaVersion": "revlog-source-discovery-prospect/v1",
+        "targetId": "bmw.c-scooter.c600-sport.2012",
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "year": 2012,
+        "identity": {
+          "manufacturer": "BMW",
+          "model": "C 600 / C 650",
+          "generation": "C 600 Sport"
+        },
+        "sourceRoute": {
+          "state": "KNOWN",
+          "officialUrl": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "host": "manuals.bmw-motorrad.com",
+          "path": "/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf"
+        },
+        "authority": {
+          "state": "KNOWN",
+          "value": "BMW Motorrad"
+        },
+        "publication": {
+          "state": "KNOWN",
+          "value": "C 600 Sport Rider's Manual 07/2012"
+        },
+        "documentClass": "official rider manual",
+        "authenticationState": "AUTHENTICATED",
+        "accessState": "ACCESSIBLE-OFFICIAL",
+        "exhaustionState": "ACTIVE",
+        "applicability": {
+          "model": {
+            "state": "KNOWN",
+            "value": "C 600 Sport"
+          },
+          "year": {
+            "state": "KNOWN",
+            "value": 2012
+          },
+          "market": {
+            "state": "KNOWN",
+            "value": "USA"
+          },
+          "abs": {
+            "state": "KNOWN",
+            "value": true
+          },
+          "transmission": {
+            "state": "KNOWN",
+            "value": "cvt"
+          },
+          "equipment": {
+            "state": "KNOWN",
+            "value": "standard C 600 Sport"
+          },
+          "unresolvedDimensions": []
+        },
+        "provenance": [
+          "mass-scale-planning-pilot",
+          "official-bmw-manual-route"
+        ],
+        "blockers": [],
+        "id": "source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "state": "EXECUTION-READY"
+      },
+      "evidenceUrls": [
+        "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf"
+      ],
+      "sourceProspectCreated": false,
+      "readyProspectProjectionId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+      "acquisitionAllowed": false,
+      "blockers": []
+    },
+    {
+      "targetId": "ducati.desertx.gen1.2022",
+      "catalogVariantKey": "ducati.desertx.gen1",
+      "year": 2022,
+      "before": "DISCOVERED",
+      "after": "DISCOVERED",
+      "candidate": {
+        "schemaVersion": "revlog-source-discovery-prospect/v1",
+        "targetId": "ducati.desertx.gen1.2022",
+        "catalogVariantKey": "ducati.desertx.gen1",
+        "year": 2022,
+        "identity": {
+          "manufacturer": "Ducati",
+          "model": "DesertX",
+          "generation": "I generacja"
+        },
+        "sourceRoute": {
+          "state": "KNOWN",
+          "officialUrl": "https://mediahouse.ducati.com/section/product/product-desertx/?country=uk&lang=eng",
+          "host": "mediahouse.ducati.com",
+          "path": "/section/product/product-desertx/"
+        },
+        "authority": {
+          "state": "KNOWN",
+          "value": "Ducati Motor Holding S.p.A."
+        },
+        "publication": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "documentClass": "UNKNOWN",
+        "authenticationState": "UNKNOWN",
+        "accessState": "UNKNOWN",
+        "exhaustionState": "ACTIVE",
+        "applicability": {
+          "model": {
+            "state": "KNOWN",
+            "value": "DesertX"
+          },
+          "year": {
+            "state": "PARTIAL",
+            "value": 2022
+          },
+          "market": {
+            "state": "PARTIAL",
+            "value": "UK"
+          },
+          "abs": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "transmission": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "equipment": {
+            "state": "PARTIAL",
+            "value": null
+          },
+          "unresolvedDimensions": [
+            "abs",
+            "equipment",
+            "market",
+            "transmission",
+            "year"
+          ]
+        },
+        "provenance": [
+          "mass-scale-planning-pilot",
+          "official-ducati-product-route"
+        ],
+        "blockers": [
+          "ABS-TRANSMISSION-EQUIPMENT-UNRESOLVED",
+          "OFFICIAL-PRODUCT-ROUTE-IS-NOT-OWNER-MANUAL-IDENTITY",
+          "PUBLICATION-NOT-IDENTIFIED"
+        ],
+        "id": "source-discovery-prospect.9d0861468cb6ed673401f174",
+        "state": "DISCOVERED"
+      },
+      "evidenceUrls": [
+        "https://mediahouse.ducati.com/section/product/product-desertx/?country=uk&lang=eng"
+      ],
+      "sourceProspectCreated": false,
+      "readyProspectProjectionId": null,
+      "acquisitionAllowed": false,
+      "blockers": [
+        "ABS-TRANSMISSION-EQUIPMENT-UNRESOLVED",
+        "OFFICIAL-PRODUCT-ROUTE-IS-NOT-OWNER-MANUAL-IDENTITY",
+        "PUBLICATION-NOT-IDENTIFIED"
+      ]
+    },
+    {
+      "targetId": "harley-davidson.revolution-max.nightster.2022",
+      "catalogVariantKey": "harley-davidson.revolution-max.nightster",
+      "year": 2022,
+      "before": "APPLICABILITY-PARTIAL",
+      "after": "APPLICABILITY-PARTIAL",
+      "candidate": {
+        "schemaVersion": "revlog-source-discovery-prospect/v1",
+        "targetId": "harley-davidson.revolution-max.nightster.2022",
+        "catalogVariantKey": "harley-davidson.revolution-max.nightster",
+        "year": 2022,
+        "identity": {
+          "manufacturer": "Harley-Davidson",
+          "model": "Revolution Max",
+          "generation": "Nightster"
+        },
+        "sourceRoute": {
+          "state": "KNOWN",
+          "officialUrl": "https://serviceinfo.harley-davidson.com/sip/service/document-pdf-print/2160056080678702763/374096/94000998_1632271_en_US.xml",
+          "host": "serviceinfo.harley-davidson.com",
+          "path": "/sip/service/document-pdf-print/2160056080678702763/374096/94000998_1632271_en_US.xml"
+        },
+        "authority": {
+          "state": "KNOWN",
+          "value": "Harley-Davidson Motor Company"
+        },
+        "publication": {
+          "state": "KNOWN",
+          "value": "94000998 / 2022 Harley-Davidson Owner's Manual: Sportster RH Models"
+        },
+        "documentClass": "official publication",
+        "authenticationState": "AUTHENTICATED",
+        "accessState": "ACCESSIBLE-OFFICIAL",
+        "exhaustionState": "ACTIVE",
+        "applicability": {
+          "model": {
+            "state": "KNOWN",
+            "value": "Nightster RH975"
+          },
+          "year": {
+            "state": "KNOWN",
+            "value": 2022
+          },
+          "market": {
+            "state": "KNOWN",
+            "value": "USA"
+          },
+          "abs": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "transmission": {
+            "state": "KNOWN",
+            "value": "manual"
+          },
+          "equipment": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "unresolvedDimensions": [
+            "abs",
+            "equipment"
+          ]
+        },
+        "provenance": [
+          "mass-scale-planning-pilot",
+          "official-harley-serviceinfo-route"
+        ],
+        "blockers": [
+          "ABS-AND-EQUIPMENT-SCOPE-UNRESOLVED"
+        ],
+        "id": "source-discovery-prospect.da7c6dce4e933abbf289092d",
+        "state": "APPLICABILITY-PARTIAL"
+      },
+      "evidenceUrls": [
+        "https://serviceinfo.harley-davidson.com/sip/service/document-pdf-print/2160056080678702763/374096/94000998_1632271_en_US.xml"
+      ],
+      "sourceProspectCreated": false,
+      "readyProspectProjectionId": null,
+      "acquisitionAllowed": false,
+      "blockers": [
+        "ABS-AND-EQUIPMENT-SCOPE-UNRESOLVED"
+      ]
+    },
+    {
+      "targetId": "honda.africa-twin.crf1000l.2016",
+      "catalogVariantKey": "honda.africa-twin.crf1000l",
+      "year": 2016,
+      "before": "UNRESOLVED",
+      "after": "UNRESOLVED",
+      "candidate": {
+        "schemaVersion": "revlog-source-discovery-prospect/v1",
+        "targetId": "honda.africa-twin.crf1000l.2016",
+        "catalogVariantKey": "honda.africa-twin.crf1000l",
+        "year": 2016,
+        "identity": {
+          "manufacturer": "Honda",
+          "model": "Africa Twin",
+          "generation": "CRF1000L"
+        },
+        "sourceRoute": {
+          "state": "UNKNOWN",
+          "officialUrl": null,
+          "host": null,
+          "path": null
+        },
+        "authority": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "publication": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "documentClass": "UNKNOWN",
+        "authenticationState": "UNKNOWN",
+        "accessState": "UNKNOWN",
+        "exhaustionState": "ACTIVE",
+        "applicability": {
+          "model": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "year": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "market": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "abs": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "transmission": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "equipment": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "unresolvedDimensions": [
+            "abs",
+            "equipment",
+            "market",
+            "model",
+            "transmission",
+            "year"
+          ]
+        },
+        "provenance": [
+          "mass-scale-planning-pilot"
+        ],
+        "blockers": [
+          "APPLICABILITY-UNKNOWN",
+          "EXACT-OFFICIAL-ROUTE-NOT-FOUND-IN-BOUNDED-DISCOVERY",
+          "PUBLICATION-IDENTITY-UNKNOWN"
+        ],
+        "id": "source-discovery-prospect.f618b132bf3cb4aa248f8fea",
+        "state": "UNRESOLVED"
+      },
+      "evidenceUrls": [],
+      "sourceProspectCreated": false,
+      "readyProspectProjectionId": null,
+      "acquisitionAllowed": false,
+      "blockers": [
+        "APPLICABILITY-UNKNOWN",
+        "EXACT-OFFICIAL-ROUTE-NOT-FOUND-IN-BOUNDED-DISCOVERY",
+        "PUBLICATION-IDENTITY-UNKNOWN"
+      ]
+    },
+    {
+      "targetId": "indian.chief.gen2.2022",
+      "catalogVariantKey": "indian.chief.gen2",
+      "year": 2022,
+      "before": "UNRESOLVED",
+      "after": "UNRESOLVED",
+      "candidate": {
+        "schemaVersion": "revlog-source-discovery-prospect/v1",
+        "targetId": "indian.chief.gen2.2022",
+        "catalogVariantKey": "indian.chief.gen2",
+        "year": 2022,
+        "identity": {
+          "manufacturer": "Indian",
+          "model": "Chief",
+          "generation": "II generacja"
+        },
+        "sourceRoute": {
+          "state": "UNKNOWN",
+          "officialUrl": null,
+          "host": null,
+          "path": null
+        },
+        "authority": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "publication": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "documentClass": "UNKNOWN",
+        "authenticationState": "UNKNOWN",
+        "accessState": "UNKNOWN",
+        "exhaustionState": "ACTIVE",
+        "applicability": {
+          "model": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "year": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "market": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "abs": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "transmission": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "equipment": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "unresolvedDimensions": [
+            "abs",
+            "equipment",
+            "market",
+            "model",
+            "transmission",
+            "year"
+          ]
+        },
+        "provenance": [
+          "mass-scale-planning-pilot"
+        ],
+        "blockers": [
+          "APPLICABILITY-UNKNOWN",
+          "EXACT-OFFICIAL-ROUTE-NOT-FOUND-IN-BOUNDED-DISCOVERY",
+          "PUBLICATION-IDENTITY-UNKNOWN"
+        ],
+        "id": "source-discovery-prospect.04c3b095b49243d41ca0152b",
+        "state": "UNRESOLVED"
+      },
+      "evidenceUrls": [],
+      "sourceProspectCreated": false,
+      "readyProspectProjectionId": null,
+      "acquisitionAllowed": false,
+      "blockers": [
+        "APPLICABILITY-UNKNOWN",
+        "EXACT-OFFICIAL-ROUTE-NOT-FOUND-IN-BOUNDED-DISCOVERY",
+        "PUBLICATION-IDENTITY-UNKNOWN"
+      ]
+    },
+    {
+      "targetId": "kawasaki.electric.ninja-e1.2024",
+      "catalogVariantKey": "kawasaki.electric.ninja-e1",
+      "year": 2024,
+      "before": "DISCOVERED",
+      "after": "DISCOVERED",
+      "candidate": {
+        "schemaVersion": "revlog-source-discovery-prospect/v1",
+        "targetId": "kawasaki.electric.ninja-e1.2024",
+        "catalogVariantKey": "kawasaki.electric.ninja-e1",
+        "year": 2024,
+        "identity": {
+          "manufacturer": "Kawasaki",
+          "model": "Ninja e-1 / Z e-1",
+          "generation": "Ninja e-1"
+        },
+        "sourceRoute": {
+          "state": "KNOWN",
+          "officialUrl": "https://www.kawasaki.com/en-us/products/ProductSpecSheetPDF/2024-ninja-e-1-abs",
+          "host": "www.kawasaki.com",
+          "path": "/en-us/products/ProductSpecSheetPDF/2024-ninja-e-1-abs"
+        },
+        "authority": {
+          "state": "KNOWN",
+          "value": "Kawasaki Motors Corp., U.S.A."
+        },
+        "publication": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "documentClass": "UNKNOWN",
+        "authenticationState": "UNKNOWN",
+        "accessState": "ACCESSIBLE-OFFICIAL",
+        "exhaustionState": "ACTIVE",
+        "applicability": {
+          "model": {
+            "state": "KNOWN",
+            "value": "Ninja e-1 ABS"
+          },
+          "year": {
+            "state": "KNOWN",
+            "value": 2024
+          },
+          "market": {
+            "state": "KNOWN",
+            "value": "USA"
+          },
+          "abs": {
+            "state": "KNOWN",
+            "value": true
+          },
+          "transmission": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "equipment": {
+            "state": "PARTIAL",
+            "value": null
+          },
+          "unresolvedDimensions": [
+            "equipment",
+            "transmission"
+          ]
+        },
+        "provenance": [
+          "mass-scale-planning-pilot",
+          "official-kawasaki-product-route"
+        ],
+        "blockers": [
+          "EQUIPMENT-SCOPE-UNRESOLVED",
+          "OFFICIAL-SPEC-ROUTE-IS-NOT-OWNER-MANUAL-IDENTITY",
+          "PUBLICATION-NOT-IDENTIFIED",
+          "TRANSMISSION-IDENTITY-NOT-MAPPED"
+        ],
+        "id": "source-discovery-prospect.ce948dcff07d58ccbc69a21f",
+        "state": "DISCOVERED"
+      },
+      "evidenceUrls": [
+        "https://www.kawasaki.com/en-us/products/ProductSpecSheetPDF/2024-ninja-e-1-abs"
+      ],
+      "sourceProspectCreated": false,
+      "readyProspectProjectionId": null,
+      "acquisitionAllowed": false,
+      "blockers": [
+        "EQUIPMENT-SCOPE-UNRESOLVED",
+        "OFFICIAL-SPEC-ROUTE-IS-NOT-OWNER-MANUAL-IDENTITY",
+        "PUBLICATION-NOT-IDENTIFIED",
+        "TRANSMISSION-IDENTITY-NOT-MAPPED"
+      ]
+    },
+    {
+      "targetId": "ktm.390-duke.gen1.2013",
+      "catalogVariantKey": "ktm.390-duke.gen1",
+      "year": 2013,
+      "before": "APPLICABILITY-PARTIAL",
+      "after": "APPLICABILITY-PARTIAL",
+      "candidate": {
+        "schemaVersion": "revlog-source-discovery-prospect/v1",
+        "targetId": "ktm.390-duke.gen1.2013",
+        "catalogVariantKey": "ktm.390-duke.gen1",
+        "year": 2013,
+        "identity": {
+          "manufacturer": "KTM",
+          "model": "390 Duke",
+          "generation": "I generacja"
+        },
+        "sourceRoute": {
+          "state": "KNOWN",
+          "officialUrl": "https://sparepartsfinder.ktm.com/ComponentGroupTemplate/PrintComponentGroupTemplate/14012?culture=en&modelidentifier=1000264893&tenantId=1",
+          "host": "sparepartsfinder.ktm.com",
+          "path": "/ComponentGroupTemplate/PrintComponentGroupTemplate/14012"
+        },
+        "authority": {
+          "state": "KNOWN",
+          "value": "KTM AG"
+        },
+        "publication": {
+          "state": "KNOWN",
+          "value": "3211964EN / Owner's Manual 390 Duke 2013"
+        },
+        "documentClass": "official publication",
+        "authenticationState": "AUTHENTICATED",
+        "accessState": "ACCESSIBLE-OFFICIAL",
+        "exhaustionState": "ACTIVE",
+        "applicability": {
+          "model": {
+            "state": "KNOWN",
+            "value": "390 Duke"
+          },
+          "year": {
+            "state": "KNOWN",
+            "value": 2013
+          },
+          "market": {
+            "state": "KNOWN",
+            "value": "EU"
+          },
+          "abs": {
+            "state": "KNOWN",
+            "value": true
+          },
+          "transmission": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "equipment": {
+            "state": "UNKNOWN",
+            "value": null
+          },
+          "unresolvedDimensions": [
+            "equipment",
+            "transmission"
+          ]
+        },
+        "provenance": [
+          "mass-scale-planning-pilot",
+          "official-ktm-parts-route"
+        ],
+        "blockers": [
+          "EQUIPMENT-UNKNOWN",
+          "PARTS-ROUTE-IDENTIFIES-MANUAL-BUT-DOES-NOT-SUPPLY-CONTENT",
+          "TRANSMISSION-UNKNOWN"
+        ],
+        "id": "source-discovery-prospect.9d581c79bdb39de49055f51a",
+        "state": "APPLICABILITY-PARTIAL"
+      },
+      "evidenceUrls": [
+        "https://sparepartsfinder.ktm.com/ComponentGroupTemplate/PrintComponentGroupTemplate/14012?culture=en&modelidentifier=1000264893&tenantId=1"
+      ],
+      "sourceProspectCreated": false,
+      "readyProspectProjectionId": null,
+      "acquisitionAllowed": false,
+      "blockers": [
+        "EQUIPMENT-UNKNOWN",
+        "PARTS-ROUTE-IDENTIFIES-MANUAL-BUT-DOES-NOT-SUPPLY-CONTENT",
+        "TRANSMISSION-UNKNOWN"
+      ]
+    }
+  ],
+  "beforeStates": {
+    "suzuki.sv650.gen3.2019": "BLOCKED",
+    "yamaha.mt-09.gen3.2021": "EXHAUSTED",
+    "aprilia.caponord.1200.2013": "DISCOVERED",
+    "bmw.c-scooter.c600-sport.2012": "APPLICABILITY-PARTIAL",
+    "ducati.desertx.gen1.2022": "DISCOVERED",
+    "harley-davidson.revolution-max.nightster.2022": "APPLICABILITY-PARTIAL",
+    "honda.africa-twin.crf1000l.2016": "UNRESOLVED",
+    "indian.chief.gen2.2022": "UNRESOLVED",
+    "kawasaki.electric.ninja-e1.2024": "DISCOVERED",
+    "ktm.390-duke.gen1.2013": "APPLICABILITY-PARTIAL"
+  },
+  "afterStates": {
+    "EXECUTION-READY": 1,
+    "APPLICABILITY-PARTIAL": 2,
+    "BLOCKED": 1,
+    "EXHAUSTED": 1,
+    "DISCOVERED": 3,
+    "UNRESOLVED": 2
+  },
+  "newlyExecutionReady": [
+    {
+      "targetId": "bmw.c-scooter.c600-sport.2012",
+      "catalogVariantKey": "bmw.c-scooter.c600-sport",
+      "prospectProjectionId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b"
+    }
+  ],
+  "metrics": {
+    "officialEvidenceRoutes": 6,
+    "executionReady": 1,
+    "acquisitionAllowed": 0,
+    "sourceContentAcquired": 0,
+    "extractionPerformed": 0
+  },
+  "sourceProspectsCreated": [],
+  "acquisitionPerformed": false,
+  "extractionPerformed": false,
+  "evidenceCreated": false,
+  "reviewCreated": false,
+  "promotionPerformed": false,
+  "productionChanged": false,
+  "catalogueChanged": false,
+  "runtimeChanged": false,
+  "cloudChanged": false,
+  "safeForAcquisition": false,
+  "safeForAcquisitionReason": "The wave resolves metadata blockers only; even the one EXECUTION-READY projection is not an acquisition command and requires a separate bounded authorization.",
+  "next": "Execute acquisition only for the separately authorized BMW C 600 Sport 2012 prospect projection, preserving the remaining nine targets as blocked or unresolved."
+}

@@ -1308,3 +1308,17 @@ unknowns were preserved explicitly. No source content was acquired or
 extracted, and no evidence, review, promotion, production, catalogue, runtime
 or cloud state changed. Deterministic artifact:
 `research/reports/mass-scale-source-discovery-pilot.json`.
+
+## 2026-09-19 — Mass-scale blocker-resolution pilot
+
+Resolved official metadata blockers for exactly the ten targets in the
+approved discovery pilot. BMW C 600 Sport MY2012 reached one deterministic
+`EXECUTION-READY` projection from the official US rider manual metadata;
+KTM 390 Duke MY2013 resolved official EU and ABS identity but remains
+`APPLICABILITY-PARTIAL` because transmission and equipment remain unknown.
+The remaining eight targets stayed blocked, exhausted, discovered or
+unresolved with no guessed applicability. The BMW SourceProspect was projected
+but not registered; no content was acquired or extracted and no evidence,
+review, promotion, production, catalogue, runtime or cloud state changed.
+Deterministic artifact:
+`research/reports/mass-scale-blocker-resolution-pilot.json`.
