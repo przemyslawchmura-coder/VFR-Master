@@ -802,3 +802,23 @@ verification after auth-email delivery is available again. No Supabase,
 database, production data, redirect, dependency, technical data or secrets
 changed. Validation: targeted auth/recovery tests, full suite, syntax checks,
 `git diff --check` and project-state audit passed.
+
+## 2026-09-19 — Post-repair production password-recovery verification
+
+An operator-assisted live smoke test passed against
+`https://przemyslawchmura-coder.github.io/VFR-Master/` after commit
+`6d72a97ca8bcc761d73b9654aefc0aaf9b91a2f5`. The reset request displayed the
+neutral confirmation, the real Supabase recovery email arrived, and the
+legitimate callback returned to the intended GitHub Pages production path.
+The recovery UI became available through the authenticated recovery flow, the
+new password update succeeded, recovery returned to ordinary authentication,
+the new password logged in successfully, and the old password was rejected.
+A manually opened marker-only `?type=recovery` URL remained fail-closed and
+showed ordinary login. No browser-console inspection was performed, and this
+does not claim unrelated Supabase Dashboard configuration was verified. No
+application code, tests, technical data, production data, Supabase state or
+Research Factory state changed. Production Readiness P1 recovery verification
+is CLOSED with operator verdict `ACCEPT`.
+NEXT: execute the approved bounded existing-fleet fast-path research package
+for Honda NC750X RH09-1, Honda CBR600RR RH10 and Honda CBR500R PC70 under its
+existing applicability, source-authority and 24-raw-candidate limits.
