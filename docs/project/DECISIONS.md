@@ -432,6 +432,30 @@ that exact entry requirement.
 
 Status: ACTIVE. Related implementation: `research/factory/production-technical-profile-entry-materializer.js`, `research/factory/production-technical-profile-entry-materializer-contracts.js`.
 
+## ADR-043 — Generic production Technical Profile container boundary
+
+Date: 2026-09-19
+
+Decision: Production Technical Profile container creation is a separate
+generic `ProductionTechnicalProfileContainerMaterialization/v1` boundary. It
+consumes a validated intended-profile reference and explicit approved
+materialization authorization, writes only through an explicit profile store,
+supports deterministic `CREATED`/`REUSED` results and rejects conflicting
+containers. It cannot claim registry membership; registry insertion remains
+a separate lifecycle boundary.
+
+Rationale: The CBR500R entry executor requires an existing production profile
+container, but repository inspection found no CBR500R container and no shared
+container-creation lifecycle. Creating the container implicitly during entry
+materialization would cross the registry/identity boundary and weaken the
+fail-closed design.
+
+Consequences: The foundation is motorcycle-agnostic and synthetic-tested
+only. No CBR500R profile or entry is created in this wave. The next bounded
+step is the exact CBR500R profile-container prerequisite.
+
+Status: ACTIVE. Related implementation: `research/factory/production-technical-profile-container-materializer.js`, `research/factory/production-technical-profile-container-materializer-contracts.js`.
+
 ## ADR-040 — Explicit generic production document materializer
 
 Date: 2026-09-19

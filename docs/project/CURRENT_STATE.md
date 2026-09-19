@@ -127,7 +127,7 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Rerun only `TECHNICAL-PROFILE-ENTRY-MATERIALIZATION` for this exact CBR500R lineage through the new generic entry materializer; this foundation wave created no real Technical Profile entry. Registry insertion remains unexecuted. Do not broaden scope. Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
+**NEXT** — Resolve the missing CBR500R production Technical Profile container prerequisite through the new generic container boundary, then rerun only `TECHNICAL-PROFILE-ENTRY-MATERIALIZATION`. This wave created no real CBR500R profile or entry; registry insertion remains unexecuted. Do not broaden scope. Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
 
 The generated `research/reports/project-state-audit.json` remains intentionally scoped to the completed Triumph implementation wave. Its 2026-09-03 snapshot date, historical base commit and 681/681 validation record are deterministic historical evidence, not claims that this memory wave reran that suite.
 

@@ -26,7 +26,12 @@ Technical Profile entry materializer foundation is now implemented and
 synthetic-tested with existing-profile-container, CREATE/REUSE and
 conflict-safe semantics; no real CBR500R entry was materialized in that
 foundation wave. The next bounded step is only the CBR500R Technical Profile
-entry materialization through that executor.
+entry materialization through that executor. Repository inspection then found
+no CBR500R production profile container and no generic container lifecycle, so
+the current bounded foundation adds only a synthetic-tested,
+non-registry-cascading container boundary; no CBR500R profile or entry was
+created. The next bounded step is the exact CBR500R profile-container
+prerequisite, followed later by entry materialization.
 Only one major phase is active at a time. Partial research is normal and
 must not block unrelated catalogue work.
 

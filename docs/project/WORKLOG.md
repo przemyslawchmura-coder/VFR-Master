@@ -1157,3 +1157,14 @@ CREATE/REUSE, deterministic results, conflicts and missing containers fail
 closed. Synthetic tests only; no CBR500R entry, registry membership or other
 production profile changed. NEXT: rerun only the bounded CBR500R Technical
 Profile entry materialization through this executor.
+
+## 2026-09-19 — Generic Technical Profile container materializer foundation
+
+The real CBR500R entry wave found no compatible production Technical Profile
+container and no generic lifecycle owning its creation. Added the generic
+`ProductionTechnicalProfileContainerMaterialization/v1` boundary with typed
+intended-profile validation, explicit profile-store creation, deterministic
+CREATE/REUSE results, conflict safety and an invariant that registry
+membership remains `NOT-REGISTERED`. Synthetic tests only; no CBR500R profile,
+entry, registry membership, document or citation changed. NEXT: resolve the
+exact CBR500R profile-container prerequisite, then rerun the entry boundary.
