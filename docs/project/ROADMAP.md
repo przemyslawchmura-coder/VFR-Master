@@ -58,9 +58,9 @@ Objective: serve validated production technical data safely. Entry: stable catal
 
 Objective: broaden production catalogue identities. Entry: identity foundation. Tasks: Honda, Yamaha, Suzuki, Kawasaki, BMW, Ducati and Triumph waves. Exit: deterministic counts and immutability regressions. Status: COMPLETE for audited scopes; not a worldwide-completeness claim.
 
-## Phase 3A — Global catalogue gap / coverage audit (FOUNDATION COMPLETE; SOURCE PILOT NOT STARTED)
+## Phase 3A — Global catalogue gap / coverage audit (FOUNDATION COMPLETE; DISCOVERY PILOT COMPLETE)
 
-Objective: establish an evidence-backed inventory of missing catalogue content before further expansion. Entry: current catalogue inventory and identity rules. The 2026-09-19 audit confirmed structural counts and existing gap/report machinery. The read-only deterministic Catalogue → applicability-aware Coverage Inventory → Research Queue projection is implemented, the generic `SourceDiscoveryProspect/v1` boundary preserves unresolved source identity/applicability, and the first approximately-10-target planning artifact is complete. It selects ten production-absent targets across ten manufacturers: one BLOCKED official-prospect target, one EXHAUSTED target and eight UNRESOLVED targets; no target is execution-ready. Status: planning complete; the next bounded step is separately authorizing the selected discovery/research batch. No global completeness percentage is claimed.
+Objective: establish an evidence-backed inventory of missing catalogue content before further expansion. Entry: current catalogue inventory and identity rules. The 2026-09-19 audit confirmed structural counts and existing gap/report machinery. The read-only deterministic Catalogue → applicability-aware Coverage Inventory → Research Queue projection is implemented, the generic `SourceDiscoveryProspect/v1` boundary preserves unresolved source identity/applicability, and the exact ten-target source-discovery pilot is complete. Six official routes were found, four publications were authenticated at metadata level and no candidate reached `EXECUTION-READY`; no source was acquired. Status: discovery pilot complete; the next bounded step is resolving the earliest blockers before any acquisition wave. No global completeness percentage is claimed.
 
 ## Phase 4 — Research evidence foundations (COMPLETE)
 

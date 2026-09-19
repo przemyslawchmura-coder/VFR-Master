@@ -1295,3 +1295,16 @@ executed, and no evidence, review, promotion or production state changed. The
 plan is not execution-ready because the selected set contains zero READY
 sources. NEXT is a separately authorized bounded execution/discovery wave for
 this plan; it was not executed.
+
+## 2026-09-19 — Mass-scale source-discovery pilot
+
+Ran official-route discovery for exactly the ten targets in the approved
+mass-scale planning artifact. Six official routes were found and four
+publication identities were authenticated at metadata level; three candidates
+remain `APPLICABILITY-PARTIAL`, one `BLOCKED`, one `EXHAUSTED` and two
+`UNRESOLVED`. None reached `EXECUTION-READY`, so no existing SourceProspect was
+created and no acquisition was safe. Market, ABS, transmission and equipment
+unknowns were preserved explicitly. No source content was acquired or
+extracted, and no evidence, review, promotion, production, catalogue, runtime
+or cloud state changed. Deterministic artifact:
+`research/reports/mass-scale-source-discovery-pilot.json`.
