@@ -1070,3 +1070,17 @@ catalog identity remain `target.honda.cbr500r.pc70.2024.usa-canada` and
 No CBR500R profile, registry membership, production artifact, promotion or
 Rider Service Core change occurred. NEXT: design the bounded controlled
 production-materialization authorization boundary; do not execute it.
+
+## 2026-09-19 — Generic production materialization authorization boundary
+
+Added the generic non-production `ProductionMaterializationAuthorization/v1`
+boundary. It binds exactly one validated `MaterializationRequirementsAuthorization`
+with all four requirements READY to an explicit typed human decision;
+technical readiness alone remains pending and unauthorized. Missing, stale,
+rejected or malformed decisions fail closed, while an explicit approval only
+authorizes a future materializer and always leaves `productionCreated` false.
+The CBR500R fully-ready requirement set is represented by one deterministic
+pending projection; no human approval, document, citation, Technical Profile,
+registry insertion, production mutation or promotion occurred. NEXT: perform
+bounded human materialization authorization for this exact CBR500R requirement
+set, then stop before materialization.

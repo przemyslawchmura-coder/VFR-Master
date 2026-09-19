@@ -8,18 +8,12 @@ route authentication now establishes one permitted Honda owner-manual route
 for oil specification and conditional loaded pressures; parts and chain routes
 remain partial. The bounded manual execution produced one raw oil candidate
 and stopped loaded pressure without an explicit condition. The three-Honda
-package and authenticated CBR500R continuation are complete; the next
-bounded Factory step is the existing generic schema-conversion authorization
-projection for the CBR500R oil packet; the resulting authorization is
-read-only. The next bounded Factory step is to evaluate its four declared
-materialization requirements through the generic fail-closed requirements
-authorization gate; the resulting four requirements are pending missing
-inputs, so the next bounded step is to resolve only the production-document
-inputs; the generic document/provenance reference foundation is now in place,
-and the next bounded step is the CBR500R registry-input reevaluation; all four
-requirements are now READY through non-production typed references, while the
-controlled production-materialization authorization boundary remains separate
-and no materialization or promotion follows automatically.
+package and authenticated CBR500R continuation are complete; the generic
+schema-conversion, promotion-review, applicability, production-authorization
+and four-requirement materialization gates are complete for this bounded
+lineage. The new generic production-materialization authorization boundary
+keeps the fully ready CBR500R requirement set pending until an explicit human
+decision; no materialization or promotion follows automatically.
 Only one major phase is active at a time. Partial research is normal and
 must not block unrelated catalogue work.
 

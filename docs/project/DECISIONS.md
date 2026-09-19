@@ -382,6 +382,35 @@ production artifact.
 
 Status: ACTIVE. Related implementation: `research/factory/materialization-input-reference-contracts.js`, `research/factory/materialization-requirements.js`.
 
+## ADR-039 — Explicit production materialization authorization boundary
+
+Date: 2026-09-19
+
+Decision: Introduce a generic `ProductionMaterializationAuthorization/v1`
+boundary between a `REQUIREMENTS-READY`
+`MaterializationRequirementsAuthorization` and any future production
+materializer. The boundary binds exactly one validated four-requirement result
+and requires an explicit typed human decision for this materialization
+boundary. No decision produces a pending unauthorized result; approval may
+authorize a future materializer; rejection remains unauthorized. The
+authorization object itself never materializes production state and always
+records `productionCreated: false` in this wave.
+
+Rationale: Technical readiness is not human authorization. Reusing earlier
+review, promotion or conversion decisions would allow a stale or unrelated
+decision to cross the production boundary. A separate deterministic,
+fail-closed and immutable authorization makes the final human-controlled gate
+explicit while retaining production mutation as a later architecture.
+
+Consequences: malformed, stale, incomplete, unknown or mismatched decisions
+remain blocked or pending. The CBR500R ready requirement set has one
+non-production pending projection and no human materialization authorization;
+no production document, citation, Technical Profile, registry membership or
+technical data changed.
+
+Status: ACTIVE. Related implementation:
+`research/factory/production-materialization-authorization.js`.
+
 ## ADR-037 — Typed non-production Technical Profile entry references
 
 Date: 2026-09-19
