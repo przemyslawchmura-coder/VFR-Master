@@ -992,3 +992,19 @@ unchanged. Human authorization remains required, materialization is false,
 and no production or Rider Service Core state changed.
 NEXT: resolve only the earliest missing `PRODUCTION-DOCUMENT-MATERIALIZATION`
 inputs; do not materialize or promote production data.
+
+## 2026-09-19 — Generic document and source-provenance reference foundation
+
+Added generic non-production `DocumentDefinitionReference/v1` and
+`SourceProvenanceReference/v1` contracts. They validate authenticated source
+identity, document identity, HTTPS official paths, candidate/source-location
+lineage, deterministic IDs and explicit non-production status; compatible
+document/provenance pairs are required. The materialization requirements gate
+now rejects arbitrary strings for document inputs and accepts only validated
+typed refs; citation, Technical Profile and registry requirements retain their
+existing pending behavior. No CBR500R reference artifact was created, no
+materialization or promotion occurred, and no production/Ducati/Rider Service
+Core state changed.
+NEXT: reevaluate exactly `materialization-authorization.75f4749897a97f42f0cfe4a9`
+for only the document requirement using refs derived from its existing Honda
+lineage; do not materialize or promote production data.

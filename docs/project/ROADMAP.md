@@ -15,7 +15,9 @@ read-only. The next bounded Factory step is to evaluate its four declared
 materialization requirements through the generic fail-closed requirements
 authorization gate; the resulting four requirements are pending missing
 inputs, so the next bounded step is to resolve only the production-document
-inputs; no materialization or promotion follows automatically.
+inputs; the generic document/provenance reference foundation is now in place,
+and the next bounded step is the CBR500R document-only reevaluation; no
+materialization or promotion follows automatically.
 Only one major phase is active at a time. Partial research is normal and
 must not block unrelated catalogue work.
 

@@ -127,7 +127,7 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Resolve only the earliest missing `PRODUCTION-DOCUMENT-MATERIALIZATION` inputs for the pending CBR500R requirements result `materialization-authorization.75f4749897a97f42f0cfe4a9`; do not materialize or promote production data. The four requirements remain `REQUIREMENTS-PENDING`, with no production permission. Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
+**NEXT** — Reevaluate exactly `materialization-authorization.75f4749897a97f42f0cfe4a9` for only `PRODUCTION-DOCUMENT-MATERIALIZATION`, using contract-valid `DocumentDefinitionReference/v1` and `SourceProvenanceReference/v1` objects derived from its existing authenticated Honda lineage; do not materialize or promote production data. CBR500R has not yet been reevaluated after this generic foundation. Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
 
 The generated `research/reports/project-state-audit.json` remains intentionally scoped to the completed Triumph implementation wave. Its 2026-09-03 snapshot date, historical base commit and 681/681 validation record are deterministic historical evidence, not claims that this memory wave reran that suite.
 

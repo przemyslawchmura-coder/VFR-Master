@@ -355,3 +355,29 @@ source-authority or applicability decision and does not change declarative
 extraction, review, evidence or production behavior.
 
 Status: ACTIVE. Related implementation: `research/factory/execution-contracts.js`.
+
+## ADR-034 — Typed non-production materialization input references
+
+Date: 2026-09-19
+
+Decision: Materialization document inputs use separate immutable
+`DocumentDefinitionReference/v1` and `SourceProvenanceReference/v1` objects.
+The document reference carries validated document/source identity and an
+authenticated HTTPS official path; the provenance reference carries the same
+source identity plus candidate and source-location lineage. A document and
+provenance reference are compatible only when their source, prospect,
+document, authority and tier identities match. The generic materialization
+gate accepts these typed refs only for the document requirement; citation,
+Technical Profile and registry refs remain separate future boundaries.
+
+Rationale: The previous document-input wave correctly rejected arbitrary
+strings and the absence of standalone generic contracts. Typed immutable refs
+prevent presence tokens from authorizing production readiness while preserving
+the existing research provenance chain.
+
+Consequences: IDs are deterministic, malformed/incomplete/mismatched refs
+fail closed, refs are explicitly non-production, and `materializationAllowed`
+remains false. This foundation does not reevaluate CBR500R or create any
+production artifact.
+
+Status: ACTIVE. Related implementation: `research/factory/materialization-input-reference-contracts.js`, `research/factory/materialization-requirements.js`.

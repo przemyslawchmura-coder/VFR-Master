@@ -3,6 +3,7 @@
 
 const authorizationContracts = require("./production-promotion-authorization-contracts.js");
 const contracts = require("./materialization-requirements-contracts.js");
+const inputReferences = require("./materialization-input-reference-contracts.js");
 const json = require("./json.js");
 
 function authorizeMaterializationRequirements(productionAuthorization, providedInputs = {}) {
@@ -18,7 +19,19 @@ function authorizeMaterializationRequirements(productionAuthorization, providedI
   const requirements = declaredRequirements.map(type => {
     const requiredInputs = contracts.REQUIRED_INPUTS[type];
     const supplied = providedInputs[type] === undefined ? [] : providedInputs[type];
-    if (!Array.isArray(supplied) || supplied.some(item => typeof item !== "string" || item.length === 0)) throw new TypeError(`MaterializationRequirementsAuthorization inputs for ${type} are invalid`);
+    if (!Array.isArray(supplied)) throw new TypeError(`MaterializationRequirementsAuthorization inputs for ${type} are invalid`);
+    if (type === "PRODUCTION-DOCUMENT-MATERIALIZATION" && supplied.length > 0) {
+      if (supplied.length !== 2) throw new TypeError("MaterializationRequirementsAuthorization document inputs are incomplete");
+      const documentRef = supplied.find(item => item && item.type === inputReferences.DOCUMENT_DEFINITION_REF_TYPE);
+      const provenanceRef = supplied.find(item => item && item.type === inputReferences.SOURCE_PROVENANCE_REF_TYPE);
+      if (!documentRef || !provenanceRef) throw new TypeError("MaterializationRequirementsAuthorization document inputs have unknown reference types");
+      inputReferences.assertCompatibleDocumentAndProvenance(documentRef, provenanceRef);
+      const missingInputs = [];
+      const state = upstreamBlocked ? "BLOCKED" : "READY";
+      const reasons = upstreamBlocked ? ["UPSTREAM-AUTHORIZATION-BLOCKED"] : [];
+      return { type, state, requiredInputs: [...requiredInputs], missingInputs, reasons };
+    }
+    if (supplied.some(item => typeof item !== "string" || item.length === 0)) throw new TypeError(`MaterializationRequirementsAuthorization inputs for ${type} are invalid`);
     const missingInputs = requiredInputs.filter(item => !supplied.includes(item));
     const state = upstreamBlocked ? "BLOCKED" : missingInputs.length > 0 ? "PENDING" : "READY";
     const reasons = upstreamBlocked ? ["UPSTREAM-AUTHORIZATION-BLOCKED"] : missingInputs.length > 0 ? ["REQUIRED-MATERIALIZATION-INPUTS-MISSING"] : [];

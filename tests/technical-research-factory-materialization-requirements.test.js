@@ -12,7 +12,11 @@ function synthetic(overrides = {}) {
   return result;
 }
 
+const genericSourceIdentity = { sourceId: "source.synthetic", prospectId: "prospect.synthetic", documentId: "document.synthetic", authority: "OEM", tier: "A" };
+const genericDocumentRef = factory.createDocumentDefinitionRef({ documentIdentity: { documentId: "document.synthetic", publicationId: "PUBLICATION-SYNTHETIC-001", authority: "OEM", documentClass: "owner-manual", officialPath: "https://example.test/document.pdf" }, sourceIdentity: genericSourceIdentity });
+const genericProvenanceRef = factory.createSourceProvenanceRef({ sourceIdentity: genericSourceIdentity, lineage: { candidateId: "extraction-candidate.synthetic00001" }, sourceLocation: { locator: "page:1" } });
 const allInputs = Object.fromEntries(factory.REQUIREMENT_TYPES.map(type => [type, [...factory.REQUIRED_INPUTS[type]]]));
+allInputs["PRODUCTION-DOCUMENT-MATERIALIZATION"] = [genericDocumentRef, genericProvenanceRef];
 
 test("four declared requirements produce a pending generic readiness projection", () => {
   const result = factory.authorizeMaterializationRequirements(synthetic());
