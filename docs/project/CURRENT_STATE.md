@@ -53,6 +53,7 @@ Research is quarantined under `research/` and is not imported by the production 
 - Honda Service Data Wave 1 population: 8 targets and 51/352 aggregate Service Core slots (the denominator is specifically 8 × 44).
 - VFR800: 13/44, 24 source-identity-uncertain rows, `RESEARCH-MORE`.
 - CBR500R: 26/44, `SERVICE-CORE-PARTIAL`.
+- Mass-scale readiness audit: the catalogue is structurally deterministic at 13 manufacturers, 318 families, 1,095 variants and 5,317 variant-years, but a complete Catalogue → applicability-aware coverage inventory → Research Queue bridge is not implemented. Individual bounded Factory stages and ADR-040–044 materializers exist; automatic source discovery and multi-motorcycle production orchestration do not. The next safe scale step is a read-only coverage/queue projection, not another motorcycle or production wave.
 - CBR500R production state: the authorized document, citation, profile
   container and oil entry exist; the profile is registered exactly once
   through ADR-044 with deterministic `CREATED`/`REUSED` semantics. The
