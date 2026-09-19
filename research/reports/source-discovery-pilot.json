@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "revlog-source-discovery-pilot/v1",
+  "syntheticOnly": false,
+  "acquisitionPerformed": false,
+  "technicalValuesInspected": false,
+  "selection": {
+    "method": "first non-production target with a non-ready official-host prospect, plus first non-production target with no registered prospect",
+    "targetsConsidered": 5314,
+    "selected": [
+      {
+        "targetId": "suzuki.sv650.gen3.2019",
+        "reason": "existing official-host prospect tests discovered-but-not-ready handling"
+      },
+      {
+        "targetId": "aprilia.caponord.1200.2013",
+        "reason": "no registered prospect tests unresolved identity handling"
+      }
+    ]
+  },
+  "metrics": {
+    "targetsConsidered": 5314,
+    "targetsSelected": 2,
+    "officialRoutesFound": 0,
+    "officialRouteLeads": 1,
+    "authenticatedPublications": 1,
+    "applicabilityResolved": 0,
+    "applicabilityUnresolved": 2,
+    "outcomes": {
+      "UNRESOLVED": 1,
+      "APPLICABILITY-PARTIAL": 0,
+      "EXECUTION-READY": 0,
+      "BLOCKED": 1
+    }
+  },
+  "existingProspectsReusedAsEvidence": [
+    "unknown.suzuki.sv650"
+  ],
+  "sourceProspectsCreated": [],
+  "candidates": [
+    {
+      "schemaVersion": "revlog-source-discovery-prospect/v1",
+      "targetId": "aprilia.caponord.1200.2013",
+      "catalogVariantKey": "aprilia.caponord.1200",
+      "year": 2013,
+      "identity": {
+        "manufacturer": "Aprilia",
+        "model": "Caponord",
+        "generation": "1200"
+      },
+      "sourceRoute": {
+        "state": "UNKNOWN",
+        "officialUrl": null,
+        "host": null,
+        "path": null
+      },
+      "authority": {
+        "state": "UNKNOWN",
+        "value": null
+      },
+      "publication": {
+        "state": "UNKNOWN",
+        "value": null
+      },
+      "documentClass": "UNKNOWN",
+      "authenticationState": "UNKNOWN",
+      "accessState": "UNKNOWN",
+      "exhaustionState": "ACTIVE",
+      "applicability": {
+        "model": {
+          "state": "KNOWN",
+          "value": "Caponord"
+        },
+        "year": {
+          "state": "KNOWN",
+          "value": 2013
+        },
+        "market": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "abs": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "transmission": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "equipment": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "unresolvedDimensions": [
+          "abs",
+          "equipment",
+          "market",
+          "transmission"
+        ]
+      },
+      "provenance": [
+        "catalogue-coverage-queue"
+      ],
+      "blockers": [
+        "SOURCE-IDENTITY-NOT-REGISTERED"
+      ],
+      "id": "source-discovery-prospect.a714494f90bdd20c272e808e",
+      "state": "UNRESOLVED"
+    },
+    {
+      "schemaVersion": "revlog-source-discovery-prospect/v1",
+      "targetId": "suzuki.sv650.gen3.2019",
+      "catalogVariantKey": "suzuki.sv650.gen3",
+      "year": 2019,
+      "identity": {
+        "manufacturer": "Suzuki",
+        "model": "SV650",
+        "generation": "III generacja"
+      },
+      "sourceRoute": {
+        "state": "PARTIAL",
+        "officialUrl": null,
+        "host": null,
+        "path": null
+      },
+      "authority": {
+        "state": "KNOWN",
+        "value": "Suzuki Motor Corporation"
+      },
+      "publication": {
+        "state": "KNOWN",
+        "value": "SV650/A/XA (L7-M4)"
+      },
+      "documentClass": "service manual",
+      "authenticationState": "AUTHENTICATED",
+      "accessState": "ACCESS-BLOCKED",
+      "exhaustionState": "ACTIVE",
+      "applicability": {
+        "model": {
+          "state": "PARTIAL",
+          "value": null
+        },
+        "year": {
+          "state": "PARTIAL",
+          "value": null
+        },
+        "market": {
+          "state": "PARTIAL",
+          "value": null
+        },
+        "abs": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "transmission": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "equipment": {
+          "state": "PARTIAL",
+          "value": null
+        },
+        "unresolvedDimensions": [
+          "abs",
+          "equipment",
+          "market",
+          "model",
+          "transmission",
+          "year"
+        ]
+      },
+      "provenance": [
+        "catalogue-coverage-queue",
+        "source-prospect-authentication-quality-reassessment"
+      ],
+      "blockers": [
+        "ABS scope is not separable across SV650/A/XA family",
+        "APPLICABILITY-DIMENSIONS-UNRESOLVED",
+        "EU document binding is partial",
+        "EXACT-OFFICIAL-HTTPS-ROUTE-INCOMPLETE",
+        "complete content requires authenticated portal access",
+        "exact MY2019 applicability is partial",
+        "manual-transmission applicability is not explicit",
+        "standard versus SV650X scope unresolved"
+      ],
+      "id": "source-discovery-prospect.1025cc14c7b95ffa89bc9db9",
+      "state": "BLOCKED"
+    }
+  ],
+  "routeEvidence": [
+    {
+      "officialHost": "motorcycle.serviceportal.suzuki.eu",
+      "exactOfficialUrl": null,
+      "routeState": "PARTIAL"
+    }
+  ],
+  "productionChanged": false,
+  "catalogueChanged": false,
+  "evidenceCreated": false,
+  "reviewCreated": false,
+  "promotionPerformed": false,
+  "bottlenecks": [
+    "exact official HTTPS route not recorded for the known lead",
+    "source access/authentication gate remains blocked",
+    "market/year/ABS/transmission/equipment applicability remains unresolved",
+    "no exact source identity exists for the unresolved target"
+  ]
+}

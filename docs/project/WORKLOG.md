@@ -1267,3 +1267,17 @@ discovered, acquired or registered; no research, evidence, review, promotion,
 production, catalogue or runtime state changed. ADR-045 records the boundary.
 NEXT is a bounded real source-discovery pilot on a very small set; it was not
 executed.
+
+## 2026-09-19 — Real source-discovery micro-pilot
+
+Executed the smallest deterministic two-target sample from the coverage
+projection: Suzuki SV650 III MY2019, selected because it has an existing
+official-host prospect that is not execution-ready, and Aprilia Caponord 1200
+MY2013, selected because it has no registered prospect. Suzuki remains
+BLOCKED: publication metadata is authenticated but route/access and
+market/year/ABS/transmission/equipment applicability are incomplete. Aprilia
+remains UNRESOLVED with all four contextual dimensions unknown. No URL was
+acquired, no content was inspected, no SourceProspect was created, and no
+downstream research or production state changed. Deterministic report:
+`research/reports/source-discovery-pilot.json`. NEXT is the bounded
+approximately-10-motorcycle planning pilot; it was not executed.
