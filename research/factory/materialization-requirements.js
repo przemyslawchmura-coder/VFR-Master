@@ -56,6 +56,19 @@ function authorizeMaterializationRequirements(productionAuthorization, providedI
       const reasons = upstreamBlocked ? ["UPSTREAM-AUTHORIZATION-BLOCKED"] : [];
       return { type, state, requiredInputs: [...requiredInputs], missingInputs, reasons };
     }
+    if (type === "REGISTRY-INSERTION" && supplied.length > 0) {
+      if (supplied.length !== 3) throw new TypeError("MaterializationRequirementsAuthorization registry inputs are incomplete");
+      const applicabilityRef = supplied.find(item => item && item.type === "APPLICABILITY-REF");
+      const catalogueIdentityRef = supplied.find(item => item && item.type === "CATALOGUE-IDENTITY-REF");
+      const profileDefinitionRef = supplied.find(item => item && item.type === "TECHNICAL-PROFILE-DEFINITION-REF");
+      if (!applicabilityRef || !catalogueIdentityRef || !profileDefinitionRef) throw new TypeError("MaterializationRequirementsAuthorization registry inputs have unknown reference types");
+      const registryContracts = require("./registry-input-reference-contracts.js");
+      registryContracts.assertCompatibleRegistryInputs(applicabilityRef, catalogueIdentityRef, profileDefinitionRef, upstream.id);
+      const missingInputs = [];
+      const state = upstreamBlocked ? "BLOCKED" : "READY";
+      const reasons = upstreamBlocked ? ["UPSTREAM-AUTHORIZATION-BLOCKED"] : [];
+      return { type, state, requiredInputs: [...requiredInputs], missingInputs, reasons };
+    }
     if (supplied.some(item => typeof item !== "string" || item.length === 0)) throw new TypeError(`MaterializationRequirementsAuthorization inputs for ${type} are invalid`);
     const missingInputs = requiredInputs.filter(item => !supplied.includes(item));
     const state = upstreamBlocked ? "BLOCKED" : missingInputs.length > 0 ? "PENDING" : "READY";

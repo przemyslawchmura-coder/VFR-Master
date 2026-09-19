@@ -16,10 +16,10 @@ materialization requirements through the generic fail-closed requirements
 authorization gate; the resulting four requirements are pending missing
 inputs, so the next bounded step is to resolve only the production-document
 inputs; the generic document/provenance reference foundation is now in place,
-and the next bounded step is the CBR500R Technical Profile entry
-reevaluation; that requirement is now READY through a non-production typed
-entry reference, while registry insertion remains separate and no
-materialization or promotion follows automatically.
+and the next bounded step is the CBR500R registry-input reevaluation; all four
+requirements are now READY through non-production typed references, while the
+controlled production-materialization authorization boundary remains separate
+and no materialization or promotion follows automatically.
 Only one major phase is active at a time. Partial research is normal and
 must not block unrelated catalogue work.
 

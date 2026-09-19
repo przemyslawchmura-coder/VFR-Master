@@ -1056,3 +1056,17 @@ the Technical Profile entry requirement is READY; registry insertion remains
 PENDING; aggregate materialization remains disabled. No production profile,
 registry membership, materialization, promotion or Rider Service Core change
 occurred. NEXT: resolve only the bounded `REGISTRY-INSERTION` inputs.
+
+## 2026-09-19 — CBR500R registry requirement reevaluation
+
+Added generic non-production `ApplicabilityReference/v1` and
+`CatalogueIdentityReference/v1` contracts and supplied exactly those refs,
+plus the existing `technical-profile-definition-ref.591043e27bf2c2519dbf4529`,
+to the CBR500R `REGISTRY-INSERTION` requirement. The bounded applicability is
+derived from `applicability-verification.08059a67abc9eb226cb3fc82`; target and
+catalog identity remain `target.honda.cbr500r.pc70.2024.usa-canada` and
+`honda.cbr500r.pc70`. All four requirements are now `READY`, but
+`materializationAllowed` remains false and `productionCreated` remains false.
+No CBR500R profile, registry membership, production artifact, promotion or
+Rider Service Core change occurred. NEXT: design the bounded controlled
+production-materialization authorization boundary; do not execute it.

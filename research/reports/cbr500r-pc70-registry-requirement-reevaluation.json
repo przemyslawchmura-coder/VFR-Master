@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "revlog-cbr500r-pc70-registry-requirement-reevaluation/v1",
+  "priorResultId": "materialization-authorization.1ecd058954cf8f9084d5b6ec",
+  "resultId": "materialization-authorization.bf37694c61c2dad9c3b77c45",
+  "productionAuthorizationId": "production-authorization.42dfc09d17938fb18e6dc92d",
+  "documentRequirement": {
+    "missingInputs": [],
+    "reasons": [],
+    "requiredInputs": [
+      "document-definition-ref",
+      "source-provenance-ref"
+    ],
+    "state": "READY",
+    "type": "PRODUCTION-DOCUMENT-MATERIALIZATION"
+  },
+  "citationRequirement": {
+    "missingInputs": [],
+    "reasons": [],
+    "requiredInputs": [
+      "citation-definition-ref",
+      "document-definition-ref",
+      "source-location-ref"
+    ],
+    "state": "READY",
+    "type": "PRODUCTION-CITATION-MATERIALIZATION"
+  },
+  "profileRequirement": {
+    "missingInputs": [],
+    "reasons": [],
+    "requiredInputs": [
+      "citation-definition-ref",
+      "profile-entry-definition-ref",
+      "profile-definition-ref"
+    ],
+    "state": "READY",
+    "type": "TECHNICAL-PROFILE-ENTRY-MATERIALIZATION"
+  },
+  "registryRequirement": {
+    "missingInputs": [],
+    "reasons": [],
+    "requiredInputs": [
+      "applicability-ref",
+      "catalogue-identity-ref",
+      "profile-definition-ref"
+    ],
+    "state": "READY",
+    "type": "REGISTRY-INSERTION"
+  },
+  "aggregateState": "REQUIREMENTS-READY",
+  "aggregateReasons": [],
+  "humanAuthorizationRequired": true,
+  "materializationAllowed": false,
+  "productionCreated": false,
+  "lineage": {
+    "evidenceProcessingRecordId": "evidence-processing.87cd135fb44ebc569aebacb9",
+    "productionAuthorizationId": "production-authorization.42dfc09d17938fb18e6dc92d",
+    "promotionPacketId": "promotion-candidate.0c12373f56277561b2b692a2",
+    "promotionReviewDecisionId": "promotion-review-decision.5e99ea7b38d63897de9037e8",
+    "promotionReviewPacketId": "promotion-review-packet.04a970ff8421a1871a92120b",
+    "researchCanonicalFieldId": "lubrication.oil-specification",
+    "schemaConversionProjectionId": "schema-conversion.0408c67195304a42913cbbb4"
+  },
+  "sourceIdentity": {
+    "authority": "American Honda Motor Co., Inc.",
+    "documentId": "31MLRB00 / 00X31-MLR-B000",
+    "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+    "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+    "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+    "tier": "A"
+  },
+  "targetIdentity": {
+    "catalogVariantKey": "honda.cbr500r.pc70",
+    "equipment": "standard road model",
+    "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+    "market": "USA/Canada",
+    "model": "CBR500R",
+    "state": "KNOWN",
+    "year": 2024
+  },
+  "targetApplicability": {
+    "abs": "KNOWN",
+    "context": "SUFFICIENT",
+    "equipment": "SUFFICIENT",
+    "market": "KNOWN",
+    "modelYear": "KNOWN",
+    "transmission": "KNOWN"
+  },
+  "proposedProduction": {
+    "categoryId": "lubrication",
+    "entryId": "lubrication.engine-oil.specification",
+    "type": "fluid",
+    "value": {
+      "text": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+      "type": "text"
+    }
+  },
+  "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+  "applicabilityRef": {
+    "applicability": {
+      "abs": true,
+      "equipment": "standard road model",
+      "generation": "PC70",
+      "market": [
+        "USA",
+        "Canada"
+      ],
+      "model": "CBR500R",
+      "modelYear": 2024,
+      "transmission": "manual"
+    },
+    "id": "applicability-ref.9e0a4e330fafd980f75b93ea",
+    "nonProduction": true,
+    "productionAuthorizationId": "production-authorization.42dfc09d17938fb18e6dc92d",
+    "schemaVersion": 1,
+    "targetIdentity": {
+      "catalogVariantKey": "honda.cbr500r.pc70",
+      "targetId": "target.honda.cbr500r.pc70.2024.usa-canada"
+    },
+    "type": "APPLICABILITY-REF",
+    "verificationId": "applicability-verification.08059a67abc9eb226cb3fc82"
+  },
+  "catalogueIdentityRef": {
+    "id": "catalogue-identity-ref.706be3eccbd2db998f0264ac",
+    "identityProof": {
+      "catalogVariantKey": "honda.cbr500r.pc70",
+      "source": "repository-catalogue-and-research-target",
+      "targetId": "target.honda.cbr500r.pc70.2024.usa-canada"
+    },
+    "nonProduction": true,
+    "productionAuthorizationId": "production-authorization.42dfc09d17938fb18e6dc92d",
+    "productionProfileId": null,
+    "registryMembership": "NOT-REGISTERED",
+    "schemaVersion": 1,
+    "targetIdentity": {
+      "catalogVariantKey": "honda.cbr500r.pc70",
+      "targetId": "target.honda.cbr500r.pc70.2024.usa-canada"
+    },
+    "type": "CATALOGUE-IDENTITY-REF"
+  },
+  "profileDefinitionRef": {
+    "catalogueIdentityProof": {
+      "catalogVariantKey": "honda.cbr500r.pc70",
+      "source": "repository-catalogue-and-research-target",
+      "targetId": "target.honda.cbr500r.pc70.2024.usa-canada"
+    },
+    "id": "technical-profile-definition-ref.591043e27bf2c2519dbf4529",
+    "nonProduction": true,
+    "productionProfileId": null,
+    "profileIdentity": {
+      "abs": true,
+      "catalogVariantKey": "honda.cbr500r.pc70",
+      "equipment": "standard road model",
+      "generation": "PC70",
+      "manufacturer": "Honda",
+      "market": "USA/Canada",
+      "model": "CBR500R",
+      "modelYear": 2024,
+      "targetId": "target.honda.cbr500r.pc70.2024.usa-canada",
+      "transmission": "manual"
+    },
+    "registryMembership": "NOT-REGISTERED",
+    "schemaVersion": 1,
+    "type": "TECHNICAL-PROFILE-DEFINITION-REF"
+  },
+  "assertions": {
+    "exactlyOneAuthorizationConsumed": true,
+    "registryOnlyNewInputsSupplied": true,
+    "allRequirementsReady": true,
+    "boundedTargetPreserved": true,
+    "applicabilityVerified": true,
+    "nonProduction": true,
+    "noProductionProfile": true,
+    "notRegistered": true,
+    "rawValuePreserved": true,
+    "proposedProductionPreserved": true,
+    "historicalAbsUnchanged": true,
+    "noNormalization": true,
+    "noMaterialization": true,
+    "noPromotion": true,
+    "productionChanged": false
+  },
+  "next": "Design the bounded controlled production-materialization authorization boundary; do not materialize or promote production data."
+}

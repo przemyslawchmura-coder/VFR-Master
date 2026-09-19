@@ -407,6 +407,30 @@ instance and does not add target-specific logic to the Factory.
 
 Status: ACTIVE. Related implementation: `research/factory/technical-profile-entry-reference-contracts.js`, `research/factory/materialization-requirements.js`.
 
+## ADR-038 — Typed non-production registry insertion references
+
+Date: 2026-09-19
+
+Decision: The generic `REGISTRY-INSERTION` requirement accepts separate typed
+`ApplicabilityReference/v1` and `CatalogueIdentityReference/v1` objects plus
+the existing intended Technical Profile reference. All three must agree on
+target/catalog identity and production-authorization lineage. The references
+are immutable, deterministic and explicitly non-production; they cannot claim
+an existing production profile or registry membership.
+
+Rationale: Registry readiness needs proven bounded applicability and catalogue
+identity, but those facts must not be represented as registry membership or a
+production profile. Typed references provide the missing fail-closed boundary
+without inventing IDs or writing production state.
+
+Consequences: malformed, mismatched, arbitrary or production-claiming refs
+fail closed. All four CBR500R requirements can be READY while
+`materializationAllowed` remains false and `productionCreated` remains false;
+the controlled production-materialization authorization boundary remains a
+separate later step.
+
+Status: ACTIVE. Related implementation: `research/factory/registry-input-reference-contracts.js`, `research/factory/materialization-requirements.js`.
+
 ## ADR-036 — Non-production Technical Profile identity references
 
 Date: 2026-09-19
