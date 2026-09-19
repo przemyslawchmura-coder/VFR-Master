@@ -822,3 +822,18 @@ is CLOSED with operator verdict `ACCEPT`.
 NEXT: execute the approved bounded existing-fleet fast-path research package
 for Honda NC750X RH09-1, Honda CBR600RR RH10 and Honda CBR500R PC70 under its
 existing applicability, source-authority and 24-raw-candidate limits.
+
+## 2026-09-19 — Recovered current Factory next action
+
+Read-only reconciliation found that the active three-Honda NEXT pointer was
+stale. The package had already completed at `6ac98d0` with four bounded
+acquisitions and zero retained candidates; the authenticated CBR500R
+continuation completed at `e33fb31` and retained one raw
+`lubrication.oil-specification` candidate. The candidate is bound to the
+authenticated Honda 2024 owner manual and exact 2024 PC70 USA/Canada manual
+applicability, with loaded-pressure extraction stopped at the explicit
+loaded-condition gate. No Human Review Decision, Evidence Processing record
+or promotion exists, and the candidate is not present in the persisted Review
+Queue report. Recovered canonical NEXT: construct exactly one Review Queue
+entry for that candidate, then defer any Human Review Decision to a separate
+bounded wave.

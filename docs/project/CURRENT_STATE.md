@@ -127,11 +127,19 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Execute one bounded existing-fleet fast-path research package for Honda NC750X RH09-1, Honda CBR600RR RH10 and Honda CBR500R PC70, limited to the approved fitment/routine field bundles, explicit applicability, ADR-031 source authority and a 24-raw-candidate ceiling. Do not execute it in this wave; Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
+**NEXT** — Construct exactly one Review Queue entry from the existing CBR500R PC70 `lubrication.oil-specification` raw candidate `extraction-candidate.87fcea8600978eff75d9f8d6`; do not make a Human Review Decision, create evidence or promote it in that step. The three-Honda package and authenticated CBR500R continuation are already complete. Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
 
 The generated `research/reports/project-state-audit.json` remains intentionally scoped to the completed Triumph implementation wave. Its 2026-09-03 snapshot date, historical base commit and 681/681 validation record are deterministic historical evidence, not claims that this memory wave reran that suite.
 
 Deferred independent streams remain future bounded Ducati/BMW profile expansion, cooling-scope resolution and the global catalogue gap audit; none is an active NEXT task.
+
+The three-Honda fast-path package is complete at `6ac98d0` with zero retained
+raw candidates. The authenticated CBR500R continuation is complete at
+`e33fb31` and retains one pre-review raw oil-specification candidate with
+Honda Tier A provenance, exact 2024 PC70 USA/Canada manual applicability and
+no Human Review Decision, Evidence Processing record or promotion. The
+candidate is not present in the persisted Review Queue report, so queue
+construction precedes any bounded Human Review wave.
 
 The future **GLOBAL CATALOGUE GAP / COVERAGE AUDIT** is a separate bounded checkpoint: inventory what exists, identify missing manufacturers/families/generations/years and regional/ABS/transmission gaps, then prioritize additions. It is not executed yet.
 
