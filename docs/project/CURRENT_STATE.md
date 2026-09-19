@@ -304,3 +304,7 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   was not duplicated. No review, evidence, promotion, Service Core,
   production, catalogue, Supabase or infrastructure state changed. NEXT is
   bounded human review of the single oil-specification candidate only.
+- CI PDF tooling now pins `pypdf==6.16.2` in repository requirements and
+  installs it through the existing validation workflow before tests. This
+  repairs clean-run reproducibility for the BMW raw-extraction path without
+  changing its 24-candidate output or any research/production state.

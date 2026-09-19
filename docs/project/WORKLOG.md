@@ -1352,3 +1352,14 @@ catalogue, registry or cloud state changed. Cooling, periodic-service and
 chain-size fields remain explicitly blocked where this bounded inspection did
 not establish sufficient direct support. NEXT is bounded human review of only
 these raw candidates; it was not executed.
+
+## 2026-09-19 — CI PDF dependency reproducibility repair
+
+Confirmed the BMW raw-extraction CI failure was caused by the validation
+workflow invoking `python3` without installing its exact `from pypdf import
+PdfReader` dependency. Added the repository-controlled, pinned
+`requirements.txt` entry `pypdf==6.16.2` and installed it via the existing
+GitHub Actions workflow with Python 3.12. The BMW extraction implementation,
+24-candidate report, artifact digest and provenance remain unchanged; no review,
+evidence, promotion or production state changed. Full validation passed with
+953/956 tests and 3 skips.
