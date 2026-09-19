@@ -1005,6 +1005,16 @@ typed refs; citation, Technical Profile and registry requirements retain their
 existing pending behavior. No CBR500R reference artifact was created, no
 materialization or promotion occurred, and no production/Ducati/Rider Service
 Core state changed.
-NEXT: reevaluate exactly `materialization-authorization.75f4749897a97f42f0cfe4a9`
-for only the document requirement using refs derived from its existing Honda
-lineage; do not materialize or promote production data.
+NEXT: reevaluate exactly `materialization-authorization.75f4749897a97f42f0cfe4a9` for only the document requirement using refs derived from its existing Honda lineage; do not materialize or promote production data.
+
+## 2026-09-19 — CBR500R document requirement reevaluation
+
+Constructed contract-valid non-production `DocumentDefinitionReference/v1`
+`document-definition-ref.14e426a4de8c87bea90b0236` and
+`SourceProvenanceReference/v1` `source-provenance-ref.2d572d0d8cc403d5c386ed8e`
+from the existing authenticated Honda Tier A lineage. Re-evaluated only
+`PRODUCTION-DOCUMENT-MATERIALIZATION`: it is `READY` with no missing inputs;
+the aggregate remains `REQUIREMENTS-PENDING` because citation, Technical
+Profile and registry requirements remain pending. No normalization, production
+artifact, promotion or production change occurred. NEXT: resolve the earliest
+remaining citation-materialization inputs; do not materialize or promote.

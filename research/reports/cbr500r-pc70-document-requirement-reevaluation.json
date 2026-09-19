@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "revlog-cbr500r-pc70-document-requirement-reevaluation/v1",
+  "priorResultId": "materialization-authorization.75f4749897a97f42f0cfe4a9",
+  "resultId": "materialization-authorization.5020e2d7cd615e55733be824",
+  "productionAuthorizationId": "production-authorization.42dfc09d17938fb18e6dc92d",
+  "documentRequirement": {
+    "missingInputs": [],
+    "reasons": [],
+    "requiredInputs": ["document-definition-ref", "source-provenance-ref"],
+    "state": "READY",
+    "type": "PRODUCTION-DOCUMENT-MATERIALIZATION"
+  },
+  "otherRequirements": [
+    {"missingInputs": ["citation-definition-ref", "document-definition-ref", "source-location-ref"], "reasons": ["REQUIRED-MATERIALIZATION-INPUTS-MISSING"], "requiredInputs": ["citation-definition-ref", "document-definition-ref", "source-location-ref"], "state": "PENDING", "type": "PRODUCTION-CITATION-MATERIALIZATION"},
+    {"missingInputs": ["applicability-ref", "catalogue-identity-ref", "profile-definition-ref"], "reasons": ["REQUIRED-MATERIALIZATION-INPUTS-MISSING"], "requiredInputs": ["applicability-ref", "catalogue-identity-ref", "profile-definition-ref"], "state": "PENDING", "type": "REGISTRY-INSERTION"},
+    {"missingInputs": ["citation-definition-ref", "profile-entry-definition-ref", "profile-definition-ref"], "reasons": ["REQUIRED-MATERIALIZATION-INPUTS-MISSING"], "requiredInputs": ["citation-definition-ref", "profile-entry-definition-ref", "profile-definition-ref"], "state": "PENDING", "type": "TECHNICAL-PROFILE-ENTRY-MATERIALIZATION"}
+  ],
+  "aggregateState": "REQUIREMENTS-PENDING",
+  "aggregateReasons": ["MATERIALIZATION-INPUTS-PENDING"],
+  "materializationAllowed": false,
+  "productionCreated": false,
+  "lineage": {
+    "evidenceProcessingRecordId": "evidence-processing.87cd135fb44ebc569aebacb9",
+    "productionAuthorizationId": "production-authorization.42dfc09d17938fb18e6dc92d",
+    "promotionPacketId": "promotion-candidate.0c12373f56277561b2b692a2",
+    "promotionReviewDecisionId": "promotion-review-decision.5e99ea7b38d63897de9037e8",
+    "promotionReviewPacketId": "promotion-review-packet.04a970ff8421a1871a92120b",
+    "researchCanonicalFieldId": "lubrication.oil-specification",
+    "schemaConversionProjectionId": "schema-conversion.0408c67195304a42913cbbb4"
+  },
+  "sourceIdentity": {
+    "authority": "American Honda Motor Co., Inc.",
+    "documentId": "31MLRB00 / 00X31-MLR-B000",
+    "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+    "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+    "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+    "tier": "A"
+  },
+  "targetIdentity": {"catalogVariantKey": "honda.cbr500r.pc70", "equipment": "standard road model", "id": "target.honda.cbr500r.pc70.2024.usa-canada", "market": "USA/Canada", "model": "CBR500R", "state": "KNOWN", "year": 2024},
+  "targetApplicability": {"abs": "KNOWN", "context": "SUFFICIENT", "equipment": "SUFFICIENT", "market": "KNOWN", "modelYear": "KNOWN", "transmission": "KNOWN"},
+  "proposedProduction": {"categoryId": "lubrication", "entryId": "lubrication.engine-oil.specification", "type": "fluid", "value": {"text": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil", "type": "text"}},
+  "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+  "documentDefinitionRef": {
+    "documentIdentity": {"authority": "American Honda Motor Co., Inc.", "documentClass": "owner-manual", "documentId": "31MLRB00 / 00X31-MLR-B000", "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf", "publicationId": "31MLRB00 / 00X31-MLR-B000"},
+    "id": "document-definition-ref.14e426a4de8c87bea90b0236",
+    "nonProduction": true,
+    "schemaVersion": 1,
+    "sourceIdentity": {"authority": "American Honda Motor Co., Inc.", "documentId": "31MLRB00 / 00X31-MLR-B000", "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf", "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024", "sourceId": "honda.official.owner-manual.31MLRB000.2024", "tier": "A"},
+    "type": "DOCUMENT-DEFINITION-REF"
+  },
+  "sourceProvenanceRef": {
+    "id": "source-provenance-ref.2d572d0d8cc403d5c386ed8e",
+    "lineage": {"artifactId": "artifact.0498845c683f226a302b0a90", "candidateId": "extraction-candidate.87fcea8600978eff75d9f8d6", "extractionResultId": "extraction-result.32ff931c2f1fe866679758b6"},
+    "nonProduction": true,
+    "schemaVersion": 1,
+    "sourceIdentity": {"authority": "American Honda Motor Co., Inc.", "documentId": "31MLRB00 / 00X31-MLR-B000", "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf", "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024", "sourceId": "honda.official.owner-manual.31MLRB000.2024", "tier": "A"},
+    "sourceLocation": {"locator": "lines:55-64;chars:731-1026", "page": null, "section": "derived text", "tableOrSubsection": "document:full"},
+    "type": "SOURCE-PROVENANCE-REF"
+  },
+  "assertions": {"exactlyOneAuthorizationConsumed": true, "documentOnlyInputsSupplied": true, "documentRequirementReady": true, "otherRequirementsUnchanged": true, "aggregatePending": true, "nonProduction": true, "rawValuePreserved": true, "proposedProductionPreserved": true, "boundedApplicabilityPreserved": true, "historicalAbsUnchanged": true, "noNormalization": true, "noMaterialization": true, "noPromotion": true, "productionChanged": false},
+  "next": "Resolve the earliest remaining PRODUCTION-CITATION-MATERIALIZATION inputs; do not materialize or promote production data."
+}
