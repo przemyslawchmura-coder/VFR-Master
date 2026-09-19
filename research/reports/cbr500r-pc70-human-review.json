@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "revlog-cbr500r-pc70-human-review/v1",
+  "reviewDecisionSchemaVersion": 1,
+  "queueEntryId": "review-queue-entry.7b8d56af51c808e15dd558ac",
+  "candidateId": "extraction-candidate.87fcea8600978eff75d9f8d6",
+  "target": {
+    "catalogVariantKey": "honda.cbr500r.pc70",
+    "model": "CBR500R",
+    "generation": "PC70",
+    "modelYear": 2024,
+    "markets": ["USA", "Canada"],
+    "transmission": "manual",
+    "equipment": "standard road model"
+  },
+  "fieldId": "lubrication.oil-specification",
+  "source": {
+    "id": "honda.official.owner-manual.31MLRB000.2024",
+    "sourceClass": "TIER_A_OEM",
+    "title": "2024 CB500F / CBR500R / NX500 Owner's Manual",
+    "publicationId": "31MLRB00 / 00X31-MLR-B000",
+    "url": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+    "authenticationReused": true
+  },
+  "applicability": {
+    "model": "CBR500R",
+    "modelCode": "PC70",
+    "generation": "PC70",
+    "modelYear": 2024,
+    "market": ["USA", "Canada"],
+    "transmission": "manual",
+    "equipment": "standard road model",
+    "abs": null
+  },
+  "decision": {
+    "schemaVersion": 1,
+    "id": "review-decision.3d8c7cebfd3c3c4f34b1f163",
+    "queueEntryId": "review-queue-entry.7b8d56af51c808e15dd558ac",
+    "extractionResultId": "extraction-result.32ff931c2f1fe866679758b6",
+    "candidateId": "extraction-candidate.87fcea8600978eff75d9f8d6",
+    "batchId": "batch.969c3a60e5b169413182ed4e",
+    "targetId": "target.honda.cbr500r.pc70.2024.usa-canada",
+    "targetWorkId": "target-work.a4043cbb41538e4e14f5d726",
+    "sourceWorkItemId": "source-work.249883248afbcf986797c3f1",
+    "attemptId": "attempt.72cdc493436a83c0a0c1a632",
+    "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+    "artifactId": "artifact.0498845c683f226a302b0a90",
+    "adapterId": "declarative-text-extractor",
+    "adapterVersion": "1",
+    "decision": "ACCEPT",
+    "reviewerId": "reviewer.revlog.operator",
+    "comment": "Tier A Honda owner manual 31MLRB000 directly states the oil recommendation for the preserved 2024 CBR500R PC70 USA/Canada manual scope; ACCEPT is pre-evidence only. ABS remains unresolved."
+  },
+  "assertions": {
+    "exactlyOneDecision": true,
+    "queueEntryPreserved": true,
+    "candidatePreserved": true,
+    "rawValuePreserved": true,
+    "provenancePreserved": true,
+    "applicabilityPreserved": true,
+    "evidenceProcessingOccurred": false,
+    "productionPromotionOccurred": false,
+    "productionChanged": false
+  },
+  "next": "Bounded Evidence Processing for exactly this CBR500R oil-specification Human Review Decision."
+}

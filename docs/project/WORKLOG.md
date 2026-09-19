@@ -849,3 +849,16 @@ construction collapsed to one entry. No Human Review Decision, Evidence
 Processing, promotion or production change occurred. Validation passed.
 NEXT: bounded Human Review of exactly this one CBR500R oil-specification queue
 entry.
+
+## 2026-09-19 — Human Review of the queued CBR500R oil candidate
+
+Reviewed exactly one queued candidate `extraction-candidate.87fcea8600978eff75d9f8d6`
+from `review-queue-entry.7b8d56af51c808e15dd558ac` against the preserved Tier A
+Honda 2024 owner manual `31MLRB000` and its exact 2024 PC70 USA/Canada manual
+scope. Created deterministic decision
+`review-decision.3d8c7cebfd3c3c4f34b1f163` with outcome `ACCEPT`; this remains
+pre-evidence only. Raw value, provenance and applicability were preserved,
+including unresolved ABS. No Evidence Processing, promotion, production or
+Rider Service Core change occurred. Validation passed, including targeted
+Human Review/queue tests, syntax, project-state audit and diff check.
+NEXT: bounded Evidence Processing for exactly this one accepted decision.
