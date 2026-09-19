@@ -127,7 +127,7 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Perform bounded Evidence Processing for exactly the one accepted CBR500R PC70 `lubrication.oil-specification` Human Review Decision `review-decision.3d8c7cebfd3c3c4f34b1f163`; do not promote it in that step. The three-Honda package, authenticated CBR500R continuation, Review Queue construction and Human Review are complete. Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
+**NEXT** — Perform bounded promotion-readiness evaluation for exactly the one CBR500R PC70 `lubrication.oil-specification` Evidence Processing record `evidence-processing.87cd135fb44ebc569aebacb9`; do not promote it in that step. The three-Honda package, authenticated CBR500R continuation, Review Queue construction, Human Review and Evidence Processing are complete. Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
 
 The generated `research/reports/project-state-audit.json` remains intentionally scoped to the completed Triumph implementation wave. Its 2026-09-03 snapshot date, historical base commit and 681/681 validation record are deterministic historical evidence, not claims that this memory wave reran that suite.
 

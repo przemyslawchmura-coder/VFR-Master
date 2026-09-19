@@ -862,3 +862,17 @@ including unresolved ABS. No Evidence Processing, promotion, production or
 Rider Service Core change occurred. Validation passed, including targeted
 Human Review/queue tests, syntax, project-state audit and diff check.
 NEXT: bounded Evidence Processing for exactly this one accepted decision.
+
+## 2026-09-19 — Evidence Processing of the accepted CBR500R oil decision
+
+Processed exactly one accepted Human Review Decision
+`review-decision.3d8c7cebfd3c3c4f34b1f163` through the generic Evidence
+Processing contract. The resulting deterministic record is
+`evidence-processing.87cd135fb44ebc569aebacb9` with state
+`ACCEPTED-FOR-PROCESSING`; candidate, queue, decision, source provenance and
+raw compound oil value remain linked and unchanged. No normalization, conflict
+resolution, evidence-row creation, promotion or production change occurred;
+ABS remains unresolved. Validation passed, including targeted Factory tests,
+syntax, project-state audit and diff check.
+NEXT: bounded read-only promotion-readiness evaluation for exactly this one
+processing record; do not promote automatically.
