@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "revlog-cbr500r-pc70-production-document-materialization/v1",
+  "authorizationId": "production-materialization-authorization.4cfd2472d8f6e8aac04d9afc",
+  "humanDecisionId": "production-materialization-decision.df9e1702b9f73b4016be66d9",
+  "materializationRequirementsId": "materialization-authorization.bf37694c61c2dad9c3b77c45",
+  "productionAuthorizationId": "production-authorization.42dfc09d17938fb18e6dc92d",
+  "requirementType": "PRODUCTION-DOCUMENT-MATERIALIZATION",
+  "productionDocumentId": "doc.97c1a14816208eaedcccd588",
+  "productionDocumentPath": "data/technical/documents/honda/cbr500r-pc70-2024-documents.js",
+  "sourceIdentity": {
+    "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+    "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+    "documentId": "31MLRB00 / 00X31-MLR-B000",
+    "authority": "American Honda Motor Co., Inc.",
+    "tier": "A"
+  },
+  "sourceProvenanceReferenceId": "source-provenance-ref.2d572d0d8cc403d5c386ed8e",
+  "targetIdentity": {
+    "catalogVariantKey": "honda.cbr500r.pc70",
+    "equipment": "standard road model",
+    "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+    "market": "USA/Canada",
+    "model": "CBR500R",
+    "state": "KNOWN",
+    "year": 2024
+  },
+  "targetApplicability": {
+    "abs": "KNOWN",
+    "context": "SUFFICIENT",
+    "equipment": "SUFFICIENT",
+    "market": "KNOWN",
+    "modelYear": "KNOWN",
+    "transmission": "KNOWN"
+  },
+  "action": "CREATED",
+  "firstExecutionResultId": "production-document-materialization.c54208ef66118d56c9b86d2a",
+  "secondExecutionResultId": "production-document-materialization.c54208ef66118d56c9b86d2a",
+  "firstExecutionProductionCreated": true,
+  "secondExecutionAction": "REUSED",
+  "secondExecutionProductionCreated": false,
+  "documentCountBefore": 0,
+  "documentCountAfterFirst": 1,
+  "documentCountAfterRepeat": 1,
+  "citationMaterialized": false,
+  "technicalProfileMaterialized": false,
+  "registryInserted": false,
+  "productionCreated": false,
+  "rawValueChanged": false,
+  "applicabilityBroadened": false,
+  "historicalAbsPreserved": true,
+  "next": "Execute only PRODUCTION-CITATION-MATERIALIZATION for this exact CBR500R lineage."
+}

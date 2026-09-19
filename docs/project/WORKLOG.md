@@ -1110,3 +1110,14 @@ the executor never cascades to citation, Technical Profile or registry
 requirements. All execution tests use synthetic documents only. No CBR500R or
 other real production document changed. NEXT: rerun only the CBR500R document
 materialization through this generic executor.
+
+## 2026-09-19 — CBR500R production document materialization
+
+Executed exactly one real `PRODUCTION-DOCUMENT-MATERIALIZATION` for the
+authorized CBR500R PC70 MY2024 USA/Canada lineage. The authenticated Honda
+Tier A owner manual `31MLRB00 / 00X31-MLR-B000` was created as production
+document `doc.97c1a14816208eaedcccd588`; the generic executor's repeated run
+returned REUSED with no duplicate. No citation, Technical Profile entry or
+registry insertion occurred, and no raw value, applicability, Rider Service
+Core or unrelated production data changed. NEXT: materialize only the
+production citation for this same lineage.

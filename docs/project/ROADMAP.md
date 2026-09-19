@@ -14,9 +14,10 @@ and four-requirement materialization gates are complete for this bounded
 lineage. The new generic production-materialization authorization boundary
 keeps the fully ready CBR500R requirement set pending until an explicit human
 decision. The generic production-document materializer foundation is now
-implemented and synthetic-tested; no materialization or promotion has occurred
-and the next bounded step is to rerun only the CBR500R document requirement
-through that executor.
+implemented and synthetic-tested. The exact CBR500R Honda owner-manual
+document was then materialized as the first production artifact, with
+citation, Technical Profile and registry boundaries still separate; the next
+bounded step is only the CBR500R citation materialization.
 Only one major phase is active at a time. Partial research is normal and
 must not block unrelated catalogue work.
 
