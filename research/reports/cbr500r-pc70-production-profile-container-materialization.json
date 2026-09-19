@@ -1,6 +1,6 @@
 {
   "schemaVersion": "revlog-cbr500r-pc70-production-profile-container-materialization/v1",
-  "resultId": "production-technical-profile-container-materialization.ce91999dda066e4e16b415d2",
+  "resultId": "production-technical-profile-container-materialization.70f666e4035be48e03d928d3",
   "productionMaterializationAuthorizationId": "production-materialization-authorization.4cfd2472d8f6e8aac04d9afc",
   "productionAuthorizationId": "production-authorization.42dfc09d17938fb18e6dc92d",
   "humanDecisionId": "production-materialization-decision.df9e1702b9f73b4016be66d9",
@@ -29,14 +29,12 @@
   "containerCountAfter": 1,
   "containerCountAfterRepeat": 1,
   "sourceDocumentId": "doc.97c1a14816208eaedcccd588",
-  "citationIds": ["cite.44cd7d15b9c97a991b87056f"],
+  "citationIds": [
+    "cite.44cd7d15b9c97a991b87056f"
+  ],
   "validatorResult": {
-    "valid": false,
-    "errors": [{
-      "code": "INVALID_REGIONS",
-      "path": "documents.doc.97c1a14816208eaedcccd588.regions",
-      "message": "regions must be a non-empty array of canonical uppercase region IDs."
-    }],
+    "valid": true,
+    "errors": [],
     "warnings": []
   },
   "targetApplicability": {

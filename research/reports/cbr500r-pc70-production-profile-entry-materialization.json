@@ -10,16 +10,20 @@
   "productionEntryId": "lubrication.engine-oil.specification",
   "productionEntry": {
     "applicability": {
-      "abs": "KNOWN",
+      "abs": true,
       "context": "SUFFICIENT",
-      "equipment": "SUFFICIENT",
+      "equipment": [
+        "standard road model"
+      ],
       "market": "KNOWN",
       "modelYear": "KNOWN",
       "transmission": "KNOWN"
     },
     "categoryId": "lubrication",
     "id": "lubrication.engine-oil.specification",
-    "sourceIds": ["cite.44cd7d15b9c97a991b87056f"],
+    "sourceIds": [
+      "cite.44cd7d15b9c97a991b87056f"
+    ],
     "status": "verified",
     "type": "fluid",
     "value": {
@@ -56,8 +60,8 @@
   },
   "firstAction": "CREATED",
   "repeatAction": "REUSED",
-  "firstExecutionResultId": "production-technical-profile-entry-materialization.0b6d9ea6dd5e5b23aa150a26",
-  "repeatExecutionResultId": "production-technical-profile-entry-materialization.0b6d9ea6dd5e5b23aa150a26",
+  "firstExecutionResultId": "production-technical-profile-entry-materialization.dac015fab733810cb0426db3",
+  "repeatExecutionResultId": "production-technical-profile-entry-materialization.dac015fab733810cb0426db3",
   "entryCountBefore": 0,
   "entryCountAfterFirst": 1,
   "entryCountAfterRepeat": 1,

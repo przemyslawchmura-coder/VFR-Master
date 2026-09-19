@@ -1219,3 +1219,21 @@ oil entry, Honda document/citation, VFR, Ducati and Rider Service Core remained
 unchanged. The known Canada validator issue was not repaired. No Supabase,
 deployment or unrelated production change occurred. No further wave was
 executed.
+
+## 2026-09-19 — CBR500R runtime and validator compatibility repair
+
+The CBR500R browser/runtime module was added to the existing application and
+integrity-harness load order used by VFR and Ducati: authenticated Honda
+documents load before the self-registering profile module. The exact
+validator errors were repaired in CBR production metadata only: source
+regions use canonical `USA`/`CA`, and the oil entry uses boolean `abs: true`
+and an equipment string array. No validator rule or CBR-specific exception
+was added. A minimal generic entry-materializer compatibility check preserves
+fail-closed semantic applicability validation between readiness states and
+canonical production fields; the CBR production input is derived from the
+corrected typed profile entry. Deterministic CBR reports were regenerated.
+Targeted tests passed 77/77; the full suite passed 916/923 with 3 skipped in
+the sandbox and the one permitted host rerun passed 920/923 with 0 failures.
+No VFR, Ducati, Rider Service Core, Supabase, deployment or unrelated data
+changed. NEXT remains only the already-defined CBR500R `REGISTRY-INSERTION`
+follow-up; it was not executed.

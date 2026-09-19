@@ -18,7 +18,7 @@ const documents = {
     edition: null,
     revision: null,
     language: "en",
-    regions: ["USA", "Canada"],
+    regions: ["USA", "CA"],
     years: { from: 2024, to: 2024 },
     url: "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
     notes: "Authenticated Tier A Honda owner manual for the preserved USA/Canada MY2024 source scope."

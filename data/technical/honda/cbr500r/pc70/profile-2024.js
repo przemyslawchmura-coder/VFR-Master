@@ -66,8 +66,8 @@ return Object.freeze({
         modelYear: "KNOWN",
         market: "KNOWN",
         transmission: "KNOWN",
-        equipment: "SUFFICIENT",
-        abs: "KNOWN",
+        equipment: ["standard road model"],
+        abs: true,
         context: "SUFFICIENT"
       },
       status: "verified",

@@ -5,8 +5,11 @@ contains the one authorized verified `lubrication.engine-oil.specification`
 entry and is registered exactly once under
 `honda.cbr500r.pc70.2024`. The registry insertion used ADR-044 with
 `CREATED → REUSED` idempotence; document, citation, profile contents, VFR,
-Ducati and Rider Service Core data were preserved. No further wave is being
-executed here.
+Ducati and Rider Service Core data were preserved. The browser/runtime loads
+the CBR500R document and profile through the existing VFR/Ducati registration
+mechanism. Canonical `CA` region and typed entry applicability metadata pass
+the existing validator/loader; no validator exception was added. No further
+wave is being executed here.
 
 The first trusted web-to-raw three-Honda package was executed within budget
 after the custody fixes. It retained zero candidates because fiche authority

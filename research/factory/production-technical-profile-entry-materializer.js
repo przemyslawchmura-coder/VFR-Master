@@ -32,7 +32,7 @@ function materializeProductionTechnicalProfileEntry(authorization, inputs, store
   assert(json.canonicalSerialize(compatible.entry.value) === json.canonicalSerialize(validatedAuthorization.proposedProduction.value), "Technical Profile entry value does not match authorized production value");
   assert(compatible.entry.categoryId === validatedAuthorization.proposedProduction.categoryId && compatible.entry.entryId === validatedAuthorization.proposedProduction.entryId && compatible.entry.entryType === validatedAuthorization.proposedProduction.type, "Technical Profile entry mapping does not match authorized production mapping");
   assert(!validatedAuthorization.lineage.researchCanonicalFieldId || compatible.citation.citationIdentity.canonicalFieldId === validatedAuthorization.lineage.researchCanonicalFieldId, "Technical Profile entry citation field does not match authorization lineage");
-  assert(json.canonicalSerialize(compatible.entry.applicability) === json.canonicalSerialize(validatedAuthorization.targetApplicability), "Technical Profile entry applicability does not match authorization");
+  assert(applicabilityIsCompatible(compatible.entry.applicability, validatedAuthorization.targetApplicability), "Technical Profile entry applicability does not match authorization");
   assert(store && typeof store.findProfileByDefinition === "function" && typeof store.findCitationById === "function" && typeof store.findDocumentById === "function" && typeof store.findEntry === "function" && typeof store.createEntry === "function", "Technical Profile entry materializer requires an explicit profile/document/citation store");
   const profile = store.findProfileByDefinition(compatible.profile);
   assert(profile && typeof profile.profileId === "string" && typeof profile.path === "string", "Existing production Technical Profile container is required");
@@ -53,6 +53,24 @@ function materializeProductionTechnicalProfileEntry(authorization, inputs, store
   const validatedResult = contracts.validateProductionTechnicalProfileEntryMaterializationResult(result);
   assert(json.canonicalSerialize(validatedAuthorization) === before, "Technical Profile entry materializer mutated authorization");
   return validatedResult;
+}
+
+function applicabilityIsCompatible(entryApplicability, authorizedApplicability) {
+  if (!entryApplicability || !authorizedApplicability) return false;
+  for (const field of ["modelYear", "market", "transmission", "context"]) {
+    if (entryApplicability[field] !== authorizedApplicability[field]) return false;
+  }
+  if (authorizedApplicability.equipment === "SUFFICIENT") {
+    if (entryApplicability.equipment !== "SUFFICIENT" && !(Array.isArray(entryApplicability.equipment) && entryApplicability.equipment.length > 0)) return false;
+  } else if (entryApplicability.equipment !== authorizedApplicability.equipment) {
+    return false;
+  }
+  if (authorizedApplicability.abs === "KNOWN") {
+    if (entryApplicability.abs !== "KNOWN" && typeof entryApplicability.abs !== "boolean") return false;
+  } else if (entryApplicability.abs !== authorizedApplicability.abs) {
+    return false;
+  }
+  return true;
 }
 
 module.exports = Object.freeze({ materializeProductionTechnicalProfileEntry });

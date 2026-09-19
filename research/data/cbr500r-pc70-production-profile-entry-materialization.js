@@ -19,13 +19,27 @@ const CITATION_ID = "cite.44cd7d15b9c97a991b87056f";
 
 function productionInputs(authorization) {
   const reevaluation = referenceData.buildResult();
+  const canonicalEntry = productionProfile.entries.find(entry => entry.id === "lubrication.engine-oil.specification");
+  assert(canonicalEntry, "Canonical CBR500R production oil entry is missing");
+  const sourceEntryRef = reevaluation.profileEntryDefinitionRef;
+  const profileEntryDefinitionRef = factory.createTechnicalProfileEntryDefinitionRef({
+    profileDefinitionRefId: sourceEntryRef.profileDefinitionRefId,
+    targetIdentity: sourceEntryRef.targetIdentity,
+    productionAuthorizationId: sourceEntryRef.productionAuthorizationId,
+    categoryId: sourceEntryRef.categoryId,
+    entryId: sourceEntryRef.entryId,
+    entryType: sourceEntryRef.entryType,
+    value: sourceEntryRef.value,
+    citationDefinitionRefId: sourceEntryRef.citationDefinitionRefId,
+    applicability: canonicalEntry.applicability
+  });
   return {
     authorizationId: authorization.id,
     materializationRequirementsAuthorizationId: REQUIREMENTS_ID,
     productionAuthorizationId: PRODUCTION_AUTHORIZATION_ID,
     requirementType: REQUIREMENT,
     profileDefinitionRef: reevaluation.profileDefinitionRef,
-    profileEntryDefinitionRef: reevaluation.profileEntryDefinitionRef,
+    profileEntryDefinitionRef,
     citationDefinitionRef: reevaluation.citationDefinitionRef,
     productionDocumentId: DOCUMENT_ID,
     productionCitationId: CITATION_ID

@@ -22,6 +22,8 @@ const BROWSER_SCRIPTS = [
   "js/technical/technical-profile-quality-report.js",
   "data/technical/documents/honda/vfr800-2002-documents.js",
   "data/technical/honda/vfr800/rc46-vtec-gen1/profile-2002.js",
+  "data/technical/documents/honda/cbr500r-pc70-2024-documents.js",
+  "data/technical/honda/cbr500r/pc70/profile-2024.js",
   "data/technical/documents/ducati/monster937-2021-documents.js",
   "data/technical/ducati/monster937/rider-service-core-entries-2021.js",
   "data/technical/ducati/monster937/profile-2021.js",
