@@ -1,0 +1,284 @@
+{
+  "schemaVersion": "revlog-source-discovery-prospect-foundation/v1",
+  "syntheticOnly": true,
+  "candidates": [
+    {
+      "schemaVersion": "revlog-source-discovery-prospect/v1",
+      "targetId": "target.fixture.2024",
+      "catalogVariantKey": "fixture.model",
+      "year": 2024,
+      "identity": {
+        "manufacturer": "Fixture Motor",
+        "model": "Fixture",
+        "generation": "I"
+      },
+      "sourceRoute": {
+        "state": "UNKNOWN",
+        "officialUrl": null,
+        "host": null,
+        "path": null
+      },
+      "authority": {
+        "state": "UNKNOWN",
+        "value": null
+      },
+      "publication": {
+        "state": "UNKNOWN",
+        "value": null
+      },
+      "documentClass": "owner manual",
+      "authenticationState": "UNKNOWN",
+      "accessState": "UNKNOWN",
+      "exhaustionState": "ACTIVE",
+      "applicability": {
+        "model": {
+          "state": "KNOWN",
+          "value": "Fixture"
+        },
+        "year": {
+          "state": "KNOWN",
+          "value": 2024
+        },
+        "market": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "abs": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "transmission": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "equipment": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "unresolvedDimensions": [
+          "abs",
+          "equipment",
+          "market",
+          "transmission"
+        ]
+      },
+      "provenance": [
+        "synthetic-fixture"
+      ],
+      "blockers": [
+        "SOURCE-IDENTITY-NOT-REGISTERED"
+      ],
+      "id": "source-discovery-prospect.7155bfae7caf76c4fe7eedd8",
+      "state": "UNRESOLVED"
+    },
+    {
+      "schemaVersion": "revlog-source-discovery-prospect/v1",
+      "targetId": "target.fixture.2024",
+      "catalogVariantKey": "fixture.model",
+      "year": 2024,
+      "identity": {
+        "manufacturer": "Fixture Motor",
+        "model": "Fixture",
+        "generation": "I"
+      },
+      "sourceRoute": {
+        "state": "KNOWN",
+        "officialUrl": "https://manuals.fixture.example/2024.pdf",
+        "host": "manuals.fixture.example",
+        "path": "/2024.pdf"
+      },
+      "authority": {
+        "state": "UNKNOWN",
+        "value": null
+      },
+      "publication": {
+        "state": "UNKNOWN",
+        "value": null
+      },
+      "documentClass": "owner manual",
+      "authenticationState": "UNKNOWN",
+      "accessState": "UNKNOWN",
+      "exhaustionState": "ACTIVE",
+      "applicability": {
+        "model": {
+          "state": "KNOWN",
+          "value": "Fixture"
+        },
+        "year": {
+          "state": "KNOWN",
+          "value": 2024
+        },
+        "market": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "abs": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "transmission": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "equipment": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "unresolvedDimensions": [
+          "abs",
+          "equipment",
+          "market",
+          "transmission"
+        ]
+      },
+      "provenance": [
+        "operator-supplied-route",
+        "synthetic-fixture"
+      ],
+      "blockers": [
+        "SOURCE-NOT-AUTHENTICATED"
+      ],
+      "id": "source-discovery-prospect.bf8a1f4a08ac8b666e5ca44e",
+      "state": "DISCOVERED"
+    },
+    {
+      "schemaVersion": "revlog-source-discovery-prospect/v1",
+      "targetId": "target.fixture.2024",
+      "catalogVariantKey": "fixture.model",
+      "year": 2024,
+      "identity": {
+        "manufacturer": "Fixture Motor",
+        "model": "Fixture",
+        "generation": "I"
+      },
+      "sourceRoute": {
+        "state": "KNOWN",
+        "officialUrl": "https://manuals.fixture.example/2024.pdf",
+        "host": "manuals.fixture.example",
+        "path": "/2024.pdf"
+      },
+      "authority": {
+        "state": "KNOWN",
+        "value": "Fixture Motor"
+      },
+      "publication": {
+        "state": "KNOWN",
+        "value": "FIXTURE-2024-MANUAL"
+      },
+      "documentClass": "owner manual",
+      "authenticationState": "AUTHENTICATED",
+      "accessState": "UNKNOWN",
+      "exhaustionState": "ACTIVE",
+      "applicability": {
+        "model": {
+          "state": "KNOWN",
+          "value": "Fixture"
+        },
+        "year": {
+          "state": "KNOWN",
+          "value": 2024
+        },
+        "market": {
+          "state": "KNOWN",
+          "value": "EU"
+        },
+        "abs": {
+          "state": "UNKNOWN",
+          "value": null
+        },
+        "transmission": {
+          "state": "KNOWN",
+          "value": "manual"
+        },
+        "equipment": {
+          "state": "PARTIAL",
+          "value": "standard"
+        },
+        "unresolvedDimensions": [
+          "abs",
+          "equipment"
+        ]
+      },
+      "provenance": [
+        "authenticated-metadata",
+        "synthetic-fixture"
+      ],
+      "blockers": [
+        "EQUIPMENT-SCOPE-PARTIAL"
+      ],
+      "id": "source-discovery-prospect.c20b2ecd0e6636e474079866",
+      "state": "APPLICABILITY-PARTIAL"
+    },
+    {
+      "schemaVersion": "revlog-source-discovery-prospect/v1",
+      "targetId": "target.fixture.2024",
+      "catalogVariantKey": "fixture.model",
+      "year": 2024,
+      "identity": {
+        "manufacturer": "Fixture Motor",
+        "model": "Fixture",
+        "generation": "I"
+      },
+      "sourceRoute": {
+        "state": "KNOWN",
+        "officialUrl": "https://manuals.fixture.example/2024.pdf",
+        "host": "manuals.fixture.example",
+        "path": "/2024.pdf"
+      },
+      "authority": {
+        "state": "KNOWN",
+        "value": "Fixture Motor"
+      },
+      "publication": {
+        "state": "KNOWN",
+        "value": "FIXTURE-2024-MANUAL"
+      },
+      "documentClass": "owner manual",
+      "authenticationState": "AUTHENTICATED",
+      "accessState": "ACCESSIBLE-OFFICIAL",
+      "exhaustionState": "ACTIVE",
+      "applicability": {
+        "model": {
+          "state": "KNOWN",
+          "value": "Fixture"
+        },
+        "year": {
+          "state": "KNOWN",
+          "value": 2024
+        },
+        "market": {
+          "state": "KNOWN",
+          "value": "EU"
+        },
+        "abs": {
+          "state": "KNOWN",
+          "value": true
+        },
+        "transmission": {
+          "state": "KNOWN",
+          "value": "manual"
+        },
+        "equipment": {
+          "state": "KNOWN",
+          "value": "standard"
+        },
+        "unresolvedDimensions": []
+      },
+      "provenance": [
+        "authenticated-metadata",
+        "synthetic-fixture"
+      ],
+      "blockers": [],
+      "id": "source-discovery-prospect.3a6e6f7f9fb32056bf68f8b3",
+      "state": "EXECUTION-READY"
+    }
+  ],
+  "transition": {
+    "state": "EXECUTION-READY",
+    "existingProspectId": "prospect.source-discovery-prospect.3a6e6f7f9fb32056bf68f8b3",
+    "readinessClassification": "EXECUTION-READY"
+  },
+  "productionChanged": false,
+  "acquisitionPerformed": false,
+  "evidenceCreated": false
+}

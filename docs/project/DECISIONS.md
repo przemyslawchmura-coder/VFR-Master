@@ -382,6 +382,32 @@ production artifact.
 
 Status: ACTIVE. Related implementation: `research/factory/materialization-input-reference-contracts.js`, `research/factory/materialization-requirements.js`.
 
+## ADR-045 — Source discovery and prospect registration boundary
+
+Date: 2026-09-19
+
+Decision: Catalogue queue targets may enter a generic, non-production
+`SourceDiscoveryProspect/v1` lifecycle before becoming existing
+`SourceProspect/v1` records. The lifecycle preserves explicit UNKNOWN and
+PARTIAL identity/applicability dimensions and separates route discovery,
+authentication, applicability proof, accessibility, exhaustion and
+acquisition readiness. Only a complete `EXECUTION-READY` candidate may be
+adapted to the existing SourceProspect contract.
+
+Rationale: the catalogue-to-queue projection can identify unresolved targets,
+but the existing SourceProspect contract represents a registered prospect and
+does not safely model an unregistered candidate route. A typed intermediate
+boundary prevents URL discovery from being mistaken for authentication,
+applicability proof or acquisition.
+
+Consequences: deterministic duplicate candidates are reused, conflicting
+identity/publication candidates fail closed, and the foundation performs no
+source discovery, acquisition, evidence, review, promotion or production
+mutation. A future bounded pilot may register real candidates through this
+boundary.
+
+Status: ACTIVE. Related implementation: `research/factory/source-discovery-prospect-contracts.js`.
+
 ## ADR-044 — Generic controlled registry-insertion boundary
 
 Date: 2026-09-19

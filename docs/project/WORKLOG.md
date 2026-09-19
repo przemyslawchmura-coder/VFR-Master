@@ -1254,3 +1254,16 @@ profile, 10 blocked sources, 21 exhausted sources, 5,286 unresolved sources
 and zero planning candidates. No source was acquired, no research was run and
 no production/runtime/registry state changed. NEXT: bounded read-only
 approximately-10-motorcycle planning pilot; it was not executed.
+
+## 2026-09-19 — Source discovery / prospect registration foundation
+
+Added the generic non-production `SourceDiscoveryProspect/v1` boundary and
+synthetic deterministic report. A queue target can now remain explicitly
+UNRESOLVED, move through DISCOVERED and AUTHENTICATED-BUT-APPLICABILITY-PARTIAL
+states, and adapt to the existing `SourceProspect/v1` only at
+EXECUTION-READY. Duplicate candidates are reused and conflicting route or
+identity/publication candidates fail closed. No real motorcycle source was
+discovered, acquired or registered; no research, evidence, review, promotion,
+production, catalogue or runtime state changed. ADR-045 records the boundary.
+NEXT is a bounded real source-discovery pilot on a very small set; it was not
+executed.
