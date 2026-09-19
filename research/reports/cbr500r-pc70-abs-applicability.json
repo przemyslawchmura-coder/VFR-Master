@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "revlog-cbr500r-pc70-abs-applicability/v1",
+  "id": "applicability-verification.08059a67abc9eb226cb3fc82",
+  "target": {"catalogVariantKey":"honda.cbr500r.pc70","model":"CBR500R","generation":"PC70","modelYear":2024,"markets":["USA","Canada"],"transmission":"manual","equipment":"standard road model"},
+  "fieldId": "lubrication.oil-specification",
+  "source": {"id":"honda.official.owner-manual.31MLRB000.2024","publicationId":"31MLRB00 / 00X31-MLR-B000","title":"2024 CB500F / CBR500R / NX500 Owner's Manual","publisher":"American Honda Motor Co., Inc.","tier":"A","url":"https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf","custody":"existing authenticated repository acquisition; no duplicate acquisition","observations":[{"locator":"PDF p. 1 / printed p. 0","finding":"The official 2024 owner manual title covers CB500F / CBR500R / NX500."},{"locator":"PDF p. 19 / printed p. 15, Anti-lock Brake System (ABS)","finding":"The manual states: This model is equipped with an Anti-lock Brake System (ABS)."},{"locator":"PDF p. 180 / printed p. 179, Specifications / Service Data","finding":"The CBR500R is distinguished from NX500 in the same service-data table, and the recommended engine oil entry has no ABS qualifier."},{"locator":"PDF p. 180 / printed p. 179, Recommended engine oil","finding":"The preserved API/SAE/JASO/Honda-equivalent oil specification is presented in the common CB500F / CBR500R / NX500 Service Data section, with USA & Canada wording."}]},
+  "lineage": {"candidateId":"extraction-candidate.87fcea8600978eff75d9f8d6","queueEntryId":"review-queue-entry.7b8d56af51c808e15dd558ac","decisionId":"review-decision.3d8c7cebfd3c3c4f34b1f163","processingId":"evidence-processing.87cd135fb44ebc569aebacb9","promotionCandidateId":"promotion-candidate.0c12373f56277561b2b692a2"},
+  "sourceApplicabilityBefore": {"abs":null},
+  "verifiedApplicability": {"modelYear":2024,"model":"CBR500R","generation":"PC70","market":["USA","Canada"],"transmission":"manual","equipment":"standard road model","abs":true},
+  "conclusion":"Within the exact 2024 CBR500R PC70 USA/Canada manual scope, Honda documents the model as ABS-equipped; the oil specification is not restricted by an ABS qualifier. The bounded target is therefore ABS-known=true. This does not universalize the oil value to an undocumented non-ABS variant.",
+  "assertions": {"upstreamArtifactsMutated":false,"otherApplicabilityUnchanged":true,"noNormalization":true,"noConflictChange":true,"promotionOccurred":false,"productionChanged":false}
+}

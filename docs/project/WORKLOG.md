@@ -891,3 +891,19 @@ production or Rider Service Core change occurred.
 NEXT: resolve the existing ABS applicability blocker for exactly this packet in
 a separate bounded applicability-verification wave; do not weaken the gate or
 promote automatically.
+
+## 2026-09-19 — CBR500R oil ABS applicability verification
+
+Resolved only the ABS applicability blocker for
+`promotion-candidate.0c12373f56277561b2b692a2` using the existing authenticated
+Tier A Honda 31MLRB000 owner manual. Its 2024 CB500F / CBR500R / NX500 scope,
+explicit ABS-equipped model statement, and common USA/Canada Service Data oil
+entry establish ABS-known=true for the exact CBR500R PC70 target; no broader
+non-ABS variant was inferred. The deterministic derived artifact
+`applicability-verification.08059a67abc9eb226cb3fc82` preserves the complete
+candidate → queue → decision → processing → promotion-readiness lineage. No
+upstream artifact, raw value, other applicability dimension, normalization,
+conflict, production data or promotion changed. Readiness re-evaluated to
+`PROMOTION-READY` with no remaining reasons.
+NEXT: create the existing generic pending Promotion Review Packet for exactly
+this ready packet; do not approve or promote it.

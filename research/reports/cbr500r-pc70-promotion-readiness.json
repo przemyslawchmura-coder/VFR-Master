@@ -40,7 +40,7 @@
     "abs": null
   },
   "packetApplicability": {
-    "abs": "UNKNOWN",
+    "abs": "KNOWN",
     "context": "SUFFICIENT",
     "equipment": "SUFFICIENT",
     "market": "KNOWN",
@@ -49,7 +49,7 @@
   },
   "packet": {
     "applicability": {
-      "abs": "UNKNOWN",
+      "abs": "KNOWN",
       "context": "SUFFICIENT",
       "equipment": "SUFFICIENT",
       "market": "KNOWN",
@@ -98,8 +98,8 @@
     "unresolvedConflict": false
   },
   "readiness": {
-    "state": "BLOCKED",
-    "passed": false,
+    "state": "PROMOTION-READY",
+    "passed": true,
     "checks": {
       "processingAccepted": true,
       "noUnresolvedConflict": true,
@@ -107,27 +107,39 @@
       "modelYearKnown": true,
       "marketKnown": true,
       "equipmentSufficient": true,
-      "absSufficient": false,
+      "absSufficient": true,
       "transmissionSufficient": true,
       "sourceIdentityComplete": true,
       "provenanceComplete": true,
       "rawContextSufficient": true,
       "humanReviewAccepted": true
     },
-    "reasons": [
-      "absSufficient"
-    ]
+    "reasons": []
+  },
+  "applicabilityVerificationId": "applicability-verification.08059a67abc9eb226cb3fc82",
+  "verifiedApplicability": {
+    "modelYear": 2024,
+    "model": "CBR500R",
+    "generation": "PC70",
+    "market": [
+      "USA",
+      "Canada"
+    ],
+    "transmission": "manual",
+    "equipment": "standard road model",
+    "abs": true
   },
   "assertions": {
     "exactlyOneRecordEvaluated": true,
     "upstreamUnchanged": true,
     "rawValuePreserved": true,
     "provenancePreserved": true,
-    "absRemainsUnresolved": true,
+    "absResolvedByBoundedVerification": true,
+    "otherApplicabilityUnchanged": true,
     "normalizationPerformed": false,
     "conflictResolved": false,
     "promotionOccurred": false,
     "productionChanged": false
   },
-  "next": "Resolve the existing ABS applicability blocker for exactly this CBR500R readiness packet without broadening scope or weakening the gate."
+  "next": "Create the existing generic pending Promotion Review Packet for exactly this CBR500R PROMOTION-READY packet; do not approve or promote it."
 }

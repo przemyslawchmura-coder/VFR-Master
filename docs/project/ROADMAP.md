@@ -9,8 +9,9 @@ for oil specification and conditional loaded pressures; parts and chain routes
 remain partial. The bounded manual execution produced one raw oil candidate
 and stopped loaded pressure without an explicit condition. The three-Honda
 package and authenticated CBR500R continuation are complete; the next
-bounded Factory step is Human Review of exactly the one queued CBR500R oil
-candidate; no evidence or promotion follows automatically. Only one major phase is active at a time. Partial research is normal and
+bounded Factory step is creation of the existing generic pending Promotion
+Review Packet for exactly the one ready CBR500R oil candidate; no approval or
+promotion follows automatically. Only one major phase is active at a time. Partial research is normal and
 must not block unrelated catalogue work.
 
 ## Phase 1 — Foundation and identity (COMPLETE)
