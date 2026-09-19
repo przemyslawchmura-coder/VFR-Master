@@ -127,7 +127,7 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Separately authorize the bounded production document, citation, Technical Profile entry and registry materialization requirements represented by `production-authorization.42dfc09d17938fb18e6dc92d`; do not materialize or promote production data. The CBR500R schema-conversion authorization is `AUTHORIZATION-READY`, read-only and production-isolated. Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
+**NEXT** — Evaluate exactly `production-authorization.42dfc09d17938fb18e6dc92d` through the new generic `MaterializationRequirementsAuthorization/v1` boundary; do not materialize or promote production data. The generic gate is non-production, fail-closed and keeps materialization permission separate. Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
 
 The generated `research/reports/project-state-audit.json` remains intentionally scoped to the completed Triumph implementation wave. Its 2026-09-03 snapshot date, historical base commit and 681/681 validation record are deterministic historical evidence, not claims that this memory wave reran that suite.
 

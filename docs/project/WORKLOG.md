@@ -962,3 +962,18 @@ or Rider Service Core state changed.
 NEXT: separately authorize the bounded production document, citation,
 Technical Profile entry and registry materialization requirements; do not
 materialize or promote production data.
+
+## 2026-09-19 — Generic materialization requirements authorization foundation
+
+The prior CBR500R wave correctly failed closed because the repository had no
+shared contract after `ProductionPromotionAuthorization/v1`. Added the
+generic `MaterializationRequirementsAuthorization/v1` gate and Factory
+exports. It recognizes the four existing requirement types, records generic
+required input references, derives per-requirement `READY`, `PENDING` or
+`BLOCKED` states and an aggregate readiness state, preserves upstream
+lineage/provenance/applicability, canonicalizes deterministic output and
+never permits or performs production mutation. Unknown, missing, duplicate,
+malformed and blocked upstream inputs fail closed. No CBR500R persisted
+requirement artifact, Ducati semantic change or production state changed.
+NEXT: evaluate exactly `production-authorization.42dfc09d17938fb18e6dc92d`
+through this generic boundary; do not materialize or promote production data.

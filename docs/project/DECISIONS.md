@@ -302,6 +302,33 @@ Consequences: future policy configuration can select allowed/preferred source cl
 
 Status: ACTIVE. Related design: `docs/project/FIELD_ORIENTED_MULTI_SOURCE_RESEARCH_POLICY.md`.
 
+## ADR-033 — Materialization requirements remain a generic non-production gate
+
+Date: 2026-09-19
+
+Decision: The four future requirements emitted by an
+`AUTHORIZATION-READY` `ProductionPromotionAuthorization` are represented by
+a generic immutable `MaterializationRequirementsAuthorization/v1` gate before
+any production materializer. The gate recognizes document, citation,
+Technical Profile entry and registry-insertion requirements; it records
+generic required input references, derives per-requirement and aggregate
+`READY`/`PENDING`/`BLOCKED` states, and always keeps human authorization and
+production materialization separate.
+
+Rationale: The previous CBR500R wave correctly rejected the absence of this
+shared boundary rather than inventing a target-specific mechanism. Ducati
+downstream materialization reports are compatibility evidence, not a generic
+Factory contract and do not define CBR500R production semantics.
+
+Consequences: Unknown, missing, duplicate, malformed or upstream-blocked
+requirements fail closed. The new gate preserves upstream lineage,
+provenance, target applicability and raw source meaning, creates no
+production documents/citations/profile entries/registry records, and does not
+execute promotion. A later bounded wave may evaluate the exact CBR500R
+authorization through this gate.
+
+Status: ACTIVE. Related implementation: `research/factory/materialization-requirements.js`, `research/factory/materialization-requirements-contracts.js`.
+
 ## ADR-032 — Opaque acquired payloads are outside secret-shaped heuristics
 
 Date: 2026-09-08
