@@ -1241,3 +1241,16 @@ follow-up; it was not executed.
 ## 2026-09-19 — Mass-scale readiness audit
 
 Completed a read-only repository audit against HEAD `46376913e3351edaf5c2719f2a71549ee3e52a6e`. Confirmed the executable catalogue inventory at 13 manufacturers, 318 families, 1,095 variants and 5,317 variant-years (MY1990–2025), three valid runtime-discoverable production profiles, and the frozen Rider Service Core at 95 fields / 14 domains. Existing bounded Factory stages, checkpoints, source prospects, pilot reports, typed materialization executors and their boundaries were inventoried. The audit found no complete Catalogue → applicability-aware Coverage Inventory → Research Queue bridge, no automatic untouched-motorcycle source discovery, and no multi-motorcycle production coordinator. No production, runtime, catalogue or research data changed. Durable report: `docs/project/MASS_SCALE_READINESS_AUDIT.md`. NEXT is a read-only deterministic coverage/queue projection only; no motorcycle was selected or started.
+## 2026-09-19 — Catalogue coverage and queue projection foundation
+
+Added the generic read-only `revlog-catalogue-coverage-queue/v1` projection and
+its deterministic report over all 5,317 catalogue variant-years. The projection
+reuses stable catalogue keys, the 95-field/14-domain Rider Service Core,
+existing research evidence/gap outcomes and source-prospect classifications.
+Market, ABS, transmission and equipment remain explicit UNKNOWN dimensions;
+ambiguous duplicate source identity is unresolved rather than upgraded to
+ready. Current output contains 3 production-profile targets, 5,314 without a
+profile, 10 blocked sources, 21 exhausted sources, 5,286 unresolved sources
+and zero planning candidates. No source was acquired, no research was run and
+no production/runtime/registry state changed. NEXT: bounded read-only
+approximately-10-motorcycle planning pilot; it was not executed.
