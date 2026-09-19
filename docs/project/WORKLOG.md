@@ -1097,3 +1097,16 @@ deterministic authorization; the result is
 Profile, entry, registry membership, catalogue state or production technical
 data changed. NEXT: design and execute the first bounded controlled
 production materializer for this exact authorized lineage only.
+
+## 2026-09-19 — Generic production document materializer foundation
+
+Added the generic deterministic production-document materializer bound to
+`ProductionMaterializationAuthorization/v1`. It validates the explicit
+authorization, exact document requirement, typed document/provenance refs,
+source identity, target lineage and production document definition before
+writing through an explicit store interface. Identical existing documents are
+reused; conflicting duplicates fail closed; result IDs are deterministic and
+the executor never cascades to citation, Technical Profile or registry
+requirements. All execution tests use synthetic documents only. No CBR500R or
+other real production document changed. NEXT: rerun only the CBR500R document
+materialization through this generic executor.

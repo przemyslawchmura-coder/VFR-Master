@@ -13,10 +13,10 @@ schema-conversion, promotion-review, applicability, production-authorization
 and four-requirement materialization gates are complete for this bounded
 lineage. The new generic production-materialization authorization boundary
 keeps the fully ready CBR500R requirement set pending until an explicit human
-decision. The exact CBR500R lineage is now explicitly authorized for a future
-controlled materializer, but no materialization or promotion has occurred and
-the next bounded step is to design/execute that materializer for this lineage
-only.
+decision. The generic production-document materializer foundation is now
+implemented and synthetic-tested; no materialization or promotion has occurred
+and the next bounded step is to rerun only the CBR500R document requirement
+through that executor.
 Only one major phase is active at a time. Partial research is normal and
 must not block unrelated catalogue work.
 

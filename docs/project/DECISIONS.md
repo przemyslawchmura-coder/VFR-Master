@@ -382,6 +382,32 @@ production artifact.
 
 Status: ACTIVE. Related implementation: `research/factory/materialization-input-reference-contracts.js`, `research/factory/materialization-requirements.js`.
 
+## ADR-040 — Explicit generic production document materializer
+
+Date: 2026-09-19
+
+Decision: Add a generic `ProductionDocumentMaterializer/v1` executor that
+accepts exactly one validated `ProductionMaterializationAuthorization/v1`,
+the matching typed document/provenance references, an explicit production
+document definition and an explicit document store. It executes only
+`PRODUCTION-DOCUMENT-MATERIALIZATION`; citation, Technical Profile and
+registry requirements are never cascaded automatically.
+
+The executor derives a deterministic document identity and result identity,
+creates through the supplied store when absent, reuses byte-equivalent
+existing content, and fails closed on conflicting duplicates or any lineage,
+authorization, identity or source mismatch. No timestamp or hidden external
+state is required.
+
+Consequences: the executor is reusable across manufacturers and document
+types while production writes remain explicit and testable. Synthetic fixtures
+prove creation, reuse, conflict rejection, authorization rejection and
+idempotence. The CBR500R document remains unmaterialized until a separate
+bounded execution wave.
+
+Status: ACTIVE. Related implementation:
+`research/factory/production-document-materializer.js`.
+
 ## ADR-039 — Explicit production materialization authorization boundary
 
 Date: 2026-09-19
