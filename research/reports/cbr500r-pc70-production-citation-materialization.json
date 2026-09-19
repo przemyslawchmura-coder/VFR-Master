@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "revlog-cbr500r-pc70-production-citation-materialization/v1",
+  "authorizationId": "production-materialization-authorization.4cfd2472d8f6e8aac04d9afc",
+  "humanDecisionId": "production-materialization-decision.df9e1702b9f73b4016be66d9",
+  "materializationRequirementsId": "materialization-authorization.bf37694c61c2dad9c3b77c45",
+  "productionAuthorizationId": "production-authorization.42dfc09d17938fb18e6dc92d",
+  "requirementType": "PRODUCTION-CITATION-MATERIALIZATION",
+  "productionDocumentId": "doc.97c1a14816208eaedcccd588",
+  "productionDocumentPath": "data/technical/documents/honda/cbr500r-pc70-2024-documents.js",
+  "productionCitationId": "cite.44cd7d15b9c97a991b87056f",
+  "sourceIdentity": {
+    "authority": "American Honda Motor Co., Inc.",
+    "documentId": "31MLRB00 / 00X31-MLR-B000",
+    "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+    "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+    "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+    "tier": "A"
+  },
+  "sourceProvenanceReferenceId": "source-provenance-ref.2d572d0d8cc403d5c386ed8e",
+  "citationLocator": {
+    "locator": "lines:55-64;chars:731-1026",
+    "page": null,
+    "section": "derived text",
+    "tableOrSubsection": "document:full"
+  },
+  "targetIdentity": {
+    "catalogVariantKey": "honda.cbr500r.pc70",
+    "equipment": "standard road model",
+    "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+    "market": "USA/Canada",
+    "model": "CBR500R",
+    "state": "KNOWN",
+    "year": 2024
+  },
+  "targetApplicability": {
+    "abs": "KNOWN",
+    "context": "SUFFICIENT",
+    "equipment": "SUFFICIENT",
+    "market": "KNOWN",
+    "modelYear": "KNOWN",
+    "transmission": "KNOWN"
+  },
+  "firstAction": "CREATED",
+  "secondAction": "REUSED",
+  "firstExecutionResultId": "production-citation-materialization.cc813eb49b3e54d8f3d45ff7",
+  "secondExecutionResultId": "production-citation-materialization.cc813eb49b3e54d8f3d45ff7",
+  "citationCountBefore": 0,
+  "citationCountAfterFirst": 1,
+  "citationCountAfterRepeat": 1,
+  "documentChanged": false,
+  "technicalProfileChanged": false,
+  "registryChanged": false,
+  "historicalAbsPreserved": true,
+  "rawValueChanged": false,
+  "applicabilityBroadened": false,
+  "next": "Execute only TECHNICAL-PROFILE-ENTRY-MATERIALIZATION for this exact CBR500R lineage."
+}

@@ -19,8 +19,10 @@ document was then materialized as the first production artifact. A generic
 production-citation materializer foundation is now implemented and synthetic-
 tested, preserving typed citation/document/location/provenance references and
 CREATE/REUSE/conflict semantics; no real CBR500R citation was materialized in
-that foundation wave. The next bounded step is only the CBR500R citation
-materialization through that executor.
+that foundation wave. The exact CBR500R production citation was then created
+through the generic executor with a deterministic repeat returning REUSED;
+Technical Profile and registry boundaries remain separate. The next bounded
+step is only the CBR500R Technical Profile entry materialization.
 Only one major phase is active at a time. Partial research is normal and
 must not block unrelated catalogue work.
 

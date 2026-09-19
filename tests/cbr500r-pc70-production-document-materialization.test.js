@@ -21,10 +21,10 @@ test("CBR500R production document materialization is exact and idempotent", () =
   assert.equal(report.sourceProvenanceReferenceId, "source-provenance-ref.2d572d0d8cc403d5c386ed8e");
 });
 
-test("CBR500R production document is persisted in the production document representation only", () => {
+test("CBR500R production document and later citation are persisted in the document representation", () => {
   const registry = require("../data/technical/documents/honda/cbr500r-pc70-2024-documents.js");
   assert.deepEqual(Object.keys(registry.documents), ["doc.97c1a14816208eaedcccd588"]);
-  assert.deepEqual(Object.keys(registry.citations), []);
+  assert.deepEqual(Object.keys(registry.citations), ["cite.44cd7d15b9c97a991b87056f"]);
   assert.equal(registry.documents[registry.documentId].manufacturer, "American Honda Motor Co., Inc.");
   assert.equal(registry.documents[registry.documentId].publicationId, "31MLRB00 / 00X31-MLR-B000");
   assert.deepEqual(JSON.parse(fs.readFileSync("research/reports/cbr500r-pc70-production-document-materialization.json", "utf8")).productionDocumentId, registry.documentId);

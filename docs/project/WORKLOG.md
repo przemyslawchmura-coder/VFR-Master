@@ -1132,3 +1132,15 @@ deterministic IDs, CREATE/REUSE idempotence and conflicting-duplicate
 rejection. Synthetic fixtures cover authorized and negative paths only; no
 CBR500R or other production citation changed. NEXT: rerun only the bounded
 CBR500R production-citation materialization through this executor.
+
+## 2026-09-19 — CBR500R production citation materialization
+
+Executed exactly one `PRODUCTION-CITATION-MATERIALIZATION` for the authorized
+Honda CBR500R PC70 MY2024 USA/Canada lineage. Created production citation
+`cite.44cd7d15b9c97a991b87056f` bound to document
+`doc.97c1a14816208eaedcccd588`, preserving the authenticated Tier A source,
+typed provenance and exact locator `lines:55-64;chars:731-1026` with
+`page: null`. The repeated execution returned REUSED with no duplicate. No
+Technical Profile entry, registry membership, normalization, raw-value or
+unrelated production change occurred. NEXT: materialize only the CBR500R
+Technical Profile entry.

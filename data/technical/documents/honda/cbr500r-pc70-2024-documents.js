@@ -25,5 +25,23 @@ const documents = {
   }
 };
 
-return Object.freeze({ documentId, documents: Object.freeze(documents), citations: Object.freeze({}) });
+const citations = {
+  "cite.44cd7d15b9c97a991b87056f": {
+    id: "cite.44cd7d15b9c97a991b87056f",
+    documentId,
+    canonicalFieldId: "lubrication.oil-specification",
+    section: "derived text",
+    subsection: "document:full",
+    pages: [],
+    locator: "lines:55-64;chars:731-1026",
+    sourceLocation: {
+      locator: "lines:55-64;chars:731-1026",
+      page: null,
+      section: "derived text",
+      tableOrSubsection: "document:full"
+    }
+  }
+};
+
+return Object.freeze({ documentId, documents: Object.freeze(documents), citations: Object.freeze(citations) });
 });
