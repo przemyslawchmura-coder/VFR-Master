@@ -22,7 +22,7 @@ test("CBR500R production Technical Profile container is empty, deterministic and
   assert.deepEqual(result.entriesAfter, []);
   assert.equal(result.registryMembership, "NOT-REGISTERED");
   assert.equal(result.productionCreated, true);
-  assert.equal(profile.entries.length, 0);
+  assert.equal(profile.entries.length, 1);
   assert.equal(result.assertions.noOilEntry, true);
 });
 

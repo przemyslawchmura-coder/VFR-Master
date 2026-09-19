@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "revlog-cbr500r-pc70-production-profile-entry-materialization/v1",
+  "authorizationId": "production-materialization-authorization.4cfd2472d8f6e8aac04d9afc",
+  "humanDecisionId": "production-materialization-decision.df9e1702b9f73b4016be66d9",
+  "materializationRequirementsId": "materialization-authorization.bf37694c61c2dad9c3b77c45",
+  "productionAuthorizationId": "production-authorization.42dfc09d17938fb18e6dc92d",
+  "requirementType": "TECHNICAL-PROFILE-ENTRY-MATERIALIZATION",
+  "productionProfileId": "honda.cbr500r.pc70.2024",
+  "productionProfilePath": "data/technical/honda/cbr500r/pc70/profile-2024.js",
+  "productionEntryId": "lubrication.engine-oil.specification",
+  "productionEntry": {
+    "applicability": {
+      "abs": "KNOWN",
+      "context": "SUFFICIENT",
+      "equipment": "SUFFICIENT",
+      "market": "KNOWN",
+      "modelYear": "KNOWN",
+      "transmission": "KNOWN"
+    },
+    "categoryId": "lubrication",
+    "id": "lubrication.engine-oil.specification",
+    "sourceIds": ["cite.44cd7d15b9c97a991b87056f"],
+    "status": "verified",
+    "type": "fluid",
+    "value": {
+      "text": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+      "type": "text"
+    }
+  },
+  "productionDocumentId": "doc.97c1a14816208eaedcccd588",
+  "productionCitationId": "cite.44cd7d15b9c97a991b87056f",
+  "sourceIdentity": {
+    "authority": "American Honda Motor Co., Inc.",
+    "documentId": "31MLRB00 / 00X31-MLR-B000",
+    "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+    "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+    "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+    "tier": "A"
+  },
+  "targetIdentity": {
+    "catalogVariantKey": "honda.cbr500r.pc70",
+    "equipment": "standard road model",
+    "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+    "market": "USA/Canada",
+    "model": "CBR500R",
+    "state": "KNOWN",
+    "year": 2024
+  },
+  "targetApplicability": {
+    "abs": "KNOWN",
+    "context": "SUFFICIENT",
+    "equipment": "SUFFICIENT",
+    "market": "KNOWN",
+    "modelYear": "KNOWN",
+    "transmission": "KNOWN"
+  },
+  "firstAction": "CREATED",
+  "repeatAction": "REUSED",
+  "firstExecutionResultId": "production-technical-profile-entry-materialization.0b6d9ea6dd5e5b23aa150a26",
+  "repeatExecutionResultId": "production-technical-profile-entry-materialization.0b6d9ea6dd5e5b23aa150a26",
+  "entryCountBefore": 0,
+  "entryCountAfterFirst": 1,
+  "entryCountAfterRepeat": 1,
+  "registryMembership": "NOT-REGISTERED",
+  "productionDocumentChanged": false,
+  "productionCitationChanged": false,
+  "registryChanged": false,
+  "rawValueChanged": false,
+  "proposedProductionChanged": false,
+  "normalizationPerformed": false,
+  "applicabilityBroadened": false,
+  "historicalAbsPreserved": true,
+  "verifiedAbsPreserved": true,
+  "riderServiceCore": {
+    "fields": 95,
+    "categories": 14,
+    "changed": false
+  },
+  "next": "Execute only REGISTRY-INSERTION for this exact CBR500R lineage."
+}

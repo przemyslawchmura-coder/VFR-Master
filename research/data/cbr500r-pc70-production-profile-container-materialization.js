@@ -26,7 +26,7 @@ function storeWith(existing) {
   };
 }
 
-function buildInputs(authorization) {
+function buildInputs(authorization, productionProfile = profile) {
   const profileDefinitionRef = identityData.buildReference();
   assert.equal(profileDefinitionRef.profileIdentity.targetId, "target.honda.cbr500r.pc70.2024.usa-canada");
   assert.equal(profileDefinitionRef.profileIdentity.catalogVariantKey, "honda.cbr500r.pc70");
@@ -37,7 +37,7 @@ function buildInputs(authorization) {
     profileDefinitionRef,
     productionProfileId: profileId,
     productionProfilePath: profilePath,
-    productionProfile: profile
+    productionProfile
   };
 }
 
@@ -45,9 +45,10 @@ function buildResult() {
   const authorization = authorizationData.buildResult().authorization;
   assert.equal(authorization.id, "production-materialization-authorization.4cfd2472d8f6e8aac04d9afc");
   assert.equal(authorization.productionAuthorizationId, productionAuthorizationId);
-  const inputs = buildInputs(authorization);
-  const validation = profileValidator.validate(profile);
-  assert.deepEqual(profile.entries, []);
+  const emptyProfile = { ...profile, entries: [] };
+  const inputs = buildInputs(authorization, emptyProfile);
+  const validation = profileValidator.validate(emptyProfile);
+  assert.deepEqual(emptyProfile.entries, []);
   assert.equal(productionRegistry.some(item => item.profileId === profileId), false);
 
   const before = storeWith(null);
@@ -59,10 +60,10 @@ function buildResult() {
   assert.equal(first.id, repeat.id);
   assert.deepEqual(after.profile.entries, []);
 
-  const conflict = storeWith({ id: profileId, path: profilePath, profile: { ...profile, entries: [{ id: "unexpected.entry" }] } });
+  const conflict = storeWith({ id: profileId, path: profilePath, profile: { ...emptyProfile, entries: [{ id: "unexpected.entry" }] } });
   assert.throws(() => factory.materializeProductionTechnicalProfileContainer(authorization, inputs, conflict), /conflicts/i);
   assert.throws(() => factory.materializeProductionTechnicalProfileContainer(authorization, { ...inputs, productionProfileId: "wrong.profile.2024" }, storeWith(null)), /incomplete|conflicts|identity/i);
-  assert.throws(() => factory.materializeProductionTechnicalProfileContainer(authorization, { ...inputs, productionProfile: { ...profile, registryMembership: "REGISTERED" } }, storeWith(null)), /registry membership/i);
+  assert.throws(() => factory.materializeProductionTechnicalProfileContainer(authorization, { ...inputs, productionProfile: { ...emptyProfile, registryMembership: "REGISTERED" } }, storeWith(null)), /registry membership/i);
   assert.throws(() => factory.materializeProductionTechnicalProfileContainer(authorization, { ...inputs, profileDefinitionRef: "forged" }, storeWith(null)), /schemaVersion|reference/i);
   const unauthorized = { ...authorization, authorizationState: "PENDING-MATERIALIZATION-AUTHORIZATION", materializationAllowed: false, humanDecision: null, reasons: ["HUMAN-AUTHORIZATION-PENDING"] };
   unauthorized.id = factory.productionMaterializationAuthorizationId(unauthorized);

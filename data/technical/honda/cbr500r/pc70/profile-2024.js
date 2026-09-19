@@ -53,6 +53,26 @@ return Object.freeze({
   ],
   documents: sourceRegistry.documents,
   citations: sourceRegistry.citations,
-  entries: []
+  entries: [
+    {
+      id: "lubrication.engine-oil.specification",
+      type: "fluid",
+      categoryId: "lubrication",
+      value: {
+        type: "text",
+        text: "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil"
+      },
+      applicability: {
+        modelYear: "KNOWN",
+        market: "KNOWN",
+        transmission: "KNOWN",
+        equipment: "SUFFICIENT",
+        abs: "KNOWN",
+        context: "SUFFICIENT"
+      },
+      status: "verified",
+      sourceIds: ["cite.44cd7d15b9c97a991b87056f"]
+    }
+  ]
 });
 });

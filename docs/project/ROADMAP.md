@@ -1,9 +1,9 @@
 # Master roadmap
 
-Current bounded production state: the CBR500R Technical Profile container is
-materialized as one empty, non-registered container through ADR-043. The next
-step is only the authorized `lubrication.engine-oil.specification` entry;
-registry insertion remains a later separate boundary.
+Current bounded production state: the CBR500R Technical Profile container now
+contains the one authorized verified `lubrication.engine-oil.specification`
+entry through ADR-042 and remains non-registered. The next step is only
+REGISTRY-INSERTION; no registry mutation has occurred.
 
 The first trusted web-to-raw three-Honda package was executed within budget
 after the custody fixes. It retained zero candidates because fiche authority

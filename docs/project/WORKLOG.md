@@ -1181,3 +1181,16 @@ Honda source document retains its historical `Canada` region token despite the
 profile validator flagging it; this wave did not normalize or rewrite it.
 NEXT: materialize only `lubrication.engine-oil.specification` through the
 separate Technical Profile entry boundary.
+
+## 2026-09-19 — CBR500R oil Technical Profile entry materialization
+
+Materialized exactly one authorized production entry,
+`lubrication.engine-oil.specification`, in
+`honda.cbr500r.pc70.2024`. ADR-042 returned `CREATED` on the bounded empty
+container and `REUSED` on the exact repeat; the deterministic result was
+`production-technical-profile-entry-materialization.0b6d9ea6dd5e5b23aa150a26`.
+The entry preserves the authorized Honda Tier A value, document
+`doc.97c1a14816208eaedcccd588`, citation `cite.44cd7d15b9c97a991b87056f`,
+target applicability and verified ABS semantics. The profile remains
+`NOT-REGISTERED`; registry insertion, document/citation changes and unrelated
+production changes did not occur. NEXT: REGISTRY-INSERTION only.
