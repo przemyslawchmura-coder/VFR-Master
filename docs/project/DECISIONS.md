@@ -382,6 +382,31 @@ production artifact.
 
 Status: ACTIVE. Related implementation: `research/factory/materialization-input-reference-contracts.js`, `research/factory/materialization-requirements.js`.
 
+## ADR-041 — Generic production citation materializer
+
+Date: 2026-09-19
+
+Decision: The exact `PRODUCTION-CITATION-MATERIALIZATION` requirement uses a
+generic `ProductionCitationMaterialization/v1` executor bound to one validated
+`ProductionMaterializationAuthorization/v1`. It accepts typed citation,
+document, source-location and provenance references, preserves exact locator
+semantics including `page: null`, writes only through an explicit citation
+store, and returns deterministic `CREATED` or `REUSED` results. Conflicting
+existing content fails closed; the executor never cascades to Technical
+Profile or registry requirements.
+
+Rationale: The prior real CBR500R citation attempt found no reusable generic
+executor. A separate foundation is required because citation identity and
+locator semantics differ from production-document materialization. The
+foundation is synthetic-tested only; it does not materialize the CBR500R
+citation.
+
+Consequences: Production citation mutation is explicit, authorized,
+idempotent and generic. No CBR500R citation was created in this wave; the
+next bounded wave must rerun only that exact citation requirement.
+
+Status: ACTIVE. Related implementation: `research/factory/production-citation-materializer.js`, `research/factory/production-citation-materializer-contracts.js`.
+
 ## ADR-040 — Explicit generic production document materializer
 
 Date: 2026-09-19

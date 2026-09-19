@@ -1121,3 +1121,14 @@ returned REUSED with no duplicate. No citation, Technical Profile entry or
 registry insertion occurred, and no raw value, applicability, Rider Service
 Core or unrelated production data changed. NEXT: materialize only the
 production citation for this same lineage.
+
+## 2026-09-19 — Generic production citation materializer foundation
+
+The real CBR500R citation wave stopped fail-closed because the repository had
+no generic controlled citation executor. Added the motorcycle-agnostic
+`ProductionCitationMaterialization/v1` contract and explicit store-bound
+executor with typed citation/document/location/provenance validation,
+deterministic IDs, CREATE/REUSE idempotence and conflicting-duplicate
+rejection. Synthetic fixtures cover authorized and negative paths only; no
+CBR500R or other production citation changed. NEXT: rerun only the bounded
+CBR500R production-citation materialization through this executor.
