@@ -1322,3 +1322,18 @@ but not registered; no content was acquired or extracted and no evidence,
 review, promotion, production, catalogue, runtime or cloud state changed.
 Deterministic artifact:
 `research/reports/mass-scale-blocker-resolution-pilot.json`.
+
+## 2026-09-19 — BMW C 600 Sport source acquisition
+
+Executed the separately bounded acquisition for exactly
+`bmw.c-scooter.c600-sport.2012` from the existing `EXECUTION-READY`
+`SourceDiscoveryProspect/v1` projection. The generic HTTP adapter now accepts
+the authenticated official PDF media type and the async execution boundary
+requires explicit network availability; the acquisition itself returned one
+official BMW Motorrad PDF with HTTP 200, no redirect, deterministic artifact
+identity and SHA-256 `555ef51345d6725c5c35ea150f3795aecdbdf56324b4b2c414c9d1569c8e5a36`.
+The exact repeat produced the same artifact and is recorded as `REUSED`.
+The PDF bytes are not persisted in the repository and no extraction, evidence,
+review, promotion or production/catalogue/runtime state changed. NEXT is a
+separate bounded raw extraction wave for this authenticated artifact; it was
+not executed.

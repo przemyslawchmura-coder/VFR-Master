@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "revlog-mass-scale-bmw-c600-source-acquisition/v1",
+  "planningOnly": false,
+  "acquisitionOnly": true,
+  "targetId": "bmw.c-scooter.c600-sport.2012",
+  "catalogVariantKey": "bmw.c-scooter.c600-sport",
+  "year": 2012,
+  "sourceProspectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+  "sourceRoute": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+  "source": {
+    "sourceAuthority": "BMW Motorrad",
+    "sourceTier": "A",
+    "publicationId": "C_0132_RM_0912_C600Sport_07.pdf",
+    "documentClass": "official rider manual",
+    "targetId": "bmw.c-scooter.c600-sport.2012",
+    "catalogVariantKey": "bmw.c-scooter.c600-sport",
+    "modelYear": 2012,
+    "market": "USA",
+    "abs": true,
+    "transmission": "cvt",
+    "equipment": "standard C 600 Sport"
+  },
+  "readiness": {
+    "applicability": {
+      "blockingDimensions": [],
+      "dimensions": {
+        "abs": "MATCH",
+        "equipment": "MATCH",
+        "generation": "MATCH",
+        "market": "MATCH",
+        "model": "MATCH",
+        "transmission": "MATCH",
+        "year": "MATCH"
+      },
+      "overall": "MATCH",
+      "reasons": []
+    },
+    "blockers": [],
+    "checks": {
+      "absEquipmentSufficient": true,
+      "accessibilityFeasible": true,
+      "authorityKnown": true,
+      "documentClassKnown": true,
+      "documentIdentityKnown": true,
+      "identifierRelationshipResolved": true,
+      "marketKnown": true,
+      "modelKnown": true,
+      "notExhausted": true,
+      "officialPathKnown": true,
+      "tierABIndependent": true,
+      "transmissionKnown": true,
+      "yearKnown": true
+    },
+    "classification": "EXECUTION-READY",
+    "passed": true,
+    "rankingEligible": true
+  },
+  "firstExecution": {
+    "outcome": "ACQUIRED",
+    "reasonCode": "REMOTE_ARTIFACT_ACQUIRED",
+    "action": "CREATED",
+    "artifact": {
+      "id": "artifact.7429b5139a7bd3155b3b0a7c",
+      "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+      "attemptId": "attempt.60a2e269583f4b02b1a4dedf",
+      "mediaType": "application/pdf",
+      "byteLength": 1693254,
+      "contentDigest": "555ef51345d6725c5c35ea150f3795aecdbdf56324b4b2c414c9d1569c8e5a36",
+      "originClassification": "REMOTE_HTTP_SOURCE",
+      "acquisitionMethod": "http.public-bounded",
+      "locator": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+      "metadata": {
+        "adapterId": "http.public-bounded",
+        "adapterVersion": "1",
+        "finalUrl": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "httpStatus": 200,
+        "redirectCount": 0,
+        "requestedUrl": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "sourceMetadata": {
+          "abs": true,
+          "catalogVariantKey": "bmw.c-scooter.c600-sport",
+          "documentClass": "official rider manual",
+          "equipment": "standard C 600 Sport",
+          "market": "USA",
+          "modelYear": 2012,
+          "publicationId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "sourceAuthority": "BMW Motorrad",
+          "sourceTier": "A",
+          "targetId": "bmw.c-scooter.c600-sport.2012",
+          "transmission": "cvt"
+        }
+      }
+    }
+  },
+  "repeatExecution": {
+    "outcome": "ACQUIRED",
+    "reasonCode": "REMOTE_ARTIFACT_ACQUIRED",
+    "action": "REUSED",
+    "artifact": {
+      "id": "artifact.7429b5139a7bd3155b3b0a7c",
+      "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+      "attemptId": "attempt.60a2e269583f4b02b1a4dedf",
+      "mediaType": "application/pdf",
+      "byteLength": 1693254,
+      "contentDigest": "555ef51345d6725c5c35ea150f3795aecdbdf56324b4b2c414c9d1569c8e5a36",
+      "originClassification": "REMOTE_HTTP_SOURCE",
+      "acquisitionMethod": "http.public-bounded",
+      "locator": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+      "metadata": {
+        "adapterId": "http.public-bounded",
+        "adapterVersion": "1",
+        "finalUrl": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "httpStatus": 200,
+        "redirectCount": 0,
+        "requestedUrl": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "sourceMetadata": {
+          "abs": true,
+          "catalogVariantKey": "bmw.c-scooter.c600-sport",
+          "documentClass": "official rider manual",
+          "equipment": "standard C 600 Sport",
+          "market": "USA",
+          "modelYear": 2012,
+          "publicationId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "sourceAuthority": "BMW Motorrad",
+          "sourceTier": "A",
+          "targetId": "bmw.c-scooter.c600-sport.2012",
+          "transmission": "cvt"
+        }
+      }
+    }
+  },
+  "idempotent": true,
+  "contentPersisted": false,
+  "extractionPerformed": false,
+  "evidenceCreated": false,
+  "reviewCreated": false,
+  "promotionPerformed": false,
+  "productionChanged": false,
+  "catalogueChanged": false,
+  "runtimeChanged": false,
+  "cloudChanged": false,
+  "next": "Extract only from the authenticated BMW C 600 Sport artifact under a separate bounded wave."
+}

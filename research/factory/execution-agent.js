@@ -30,7 +30,7 @@ function executeAttempt(history, workItem, adapter, context = {}) {
   if (current.state !== "READY") fail(`source work is not executable: ${current.state}`);
   if (!work.readiness.passed) fail("Foundation readiness does not permit execution");
   if (!adapter || typeof adapter.execute !== "function" || !Array.isArray(adapter.supportedOperations) || !adapter.supportedOperations.includes(work.operation)) fail("adapter does not support requested operation");
-  if (adapter.networkRequired || adapter.authenticationRequired && context.authenticationAvailable !== true) fail("required adapter capability is unavailable");
+  if (adapter.networkRequired && context.networkAvailable !== true || adapter.authenticationRequired && context.authenticationAvailable !== true) fail("required adapter capability is unavailable");
   const attempt = orchestrator.createResearchAttempt(work, current.attemptsUsed + 1);
   let next = events.appendEvent(history, { batchId: snapshot.batch.id, type: "attempt-started", payload: { attempt } });
   const request = execution.validateAcquisitionRequest({ schemaVersion: execution.EXECUTION_SCHEMA_VERSION, batchId: snapshot.batch.id, targetWorkId: work.targetWorkId, sourceWorkItemId: work.id, attemptId: attempt.id, prospectId: work.prospectId, operation: work.operation, adapterId: adapter.adapterId });
@@ -44,4 +44,31 @@ function executeAttempt(history, workItem, adapter, context = {}) {
   return Object.freeze({ result, events: next, snapshot: reducer.reduceEvents(next) });
 }
 
-module.exports = Object.freeze({ bootstrap, executeAttempt });
+async function executeAttemptAsync(history, workItem, adapter, context = {}) {
+  if (!Array.isArray(history) || !history.length) fail("event history is required");
+  const snapshot = reducer.reduceEvents(history);
+  const work = orchestratorContracts.validateSourceWorkItem(workItem);
+  const targetWork = snapshot.targets.find(item => item.id === work.targetWorkId);
+  if (!targetWork || targetWork.batchId !== snapshot.batch.id) fail("batch identity mismatch");
+  const current = snapshot.sourceWorkItems.find(item => item.id === work.id);
+  if (!current) fail("source work is not in the event history");
+  if (current.state !== "READY") fail(`source work is not executable: ${current.state}`);
+  if (!work.readiness.passed) fail("Foundation readiness does not permit execution");
+  if (!adapter || typeof adapter.execute !== "function" || !Array.isArray(adapter.supportedOperations) || !adapter.supportedOperations.includes(work.operation)) fail("adapter does not support requested operation");
+  if (adapter.networkRequired && context.networkAvailable !== true || adapter.authenticationRequired && context.authenticationAvailable !== true) fail("required adapter capability is unavailable");
+  const attempt = orchestrator.createResearchAttempt(work, current.attemptsUsed + 1);
+  let next = events.appendEvent(history, { batchId: snapshot.batch.id, type: "attempt-started", payload: { attempt } });
+  const requestOptions = context.request || {};
+  ["schemaVersion", "batchId", "targetWorkId", "sourceWorkItemId", "attemptId", "prospectId", "operation", "adapterId"].forEach(field => { if (Object.prototype.hasOwnProperty.call(requestOptions, field)) fail(`execution request context cannot override canonical identity: ${field}`); });
+  const request = execution.validateAcquisitionRequest({ ...requestOptions, schemaVersion: execution.EXECUTION_SCHEMA_VERSION, batchId: snapshot.batch.id, targetWorkId: work.targetWorkId, sourceWorkItemId: work.id, attemptId: attempt.id, prospectId: work.prospectId, operation: work.operation, adapterId: adapter.adapterId });
+  const raw = await adapter.execute(request);
+  ["batchId", "sourceWorkItemId", "attemptId", "maxAttempts", "readiness", "state"].forEach(field => { if (Object.prototype.hasOwnProperty.call(raw || {}, field)) fail(`adapter outcome cannot supply canonical identity or state: ${field}`); });
+  const outcome = execution.validateOutcome(raw);
+  const result = execution.validateExecutionResult({ schemaVersion: execution.EXECUTION_SCHEMA_VERSION, batchId: snapshot.batch.id, sourceWorkItemId: work.id, attemptId: attempt.id, adapterId: adapter.adapterId, outcome });
+  if (result.batchId !== snapshot.batch.id || result.sourceWorkItemId !== work.id || result.attemptId !== attempt.id) fail("adapter forged execution identity");
+  const terminalType = outcome.retryClass === "BLOCKED" ? "attempt-blocked" : outcome.outcome === "TRANSIENT-FAILURE" && current.remainingAttempts === 1 ? "attempt-exhausted" : outcome.outcome === "TRANSIENT-FAILURE" ? "attempt-failed" : outcome.outcome === "PERMANENT-FAILURE" ? "attempt-exhausted" : "attempt-completed";
+  next = events.appendEvent(next, { batchId: snapshot.batch.id, type: terminalType, payload: { attemptId: attempt.id, result } });
+  return Object.freeze({ result, events: next, snapshot: reducer.reduceEvents(next) });
+}
+
+module.exports = Object.freeze({ bootstrap, executeAttempt, executeAttemptAsync });

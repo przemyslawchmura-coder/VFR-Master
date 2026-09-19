@@ -31,7 +31,7 @@ function createSyntheticAdapter(fixtureName) {
 const syntheticAdapters = Object.freeze(Object.fromEntries(Object.keys(fixtures).map(name => [name, createSyntheticAdapter(name)])));
 
 const HTTP_ADAPTER_VERSION = "1";
-const HTTP_SUPPORTED_MEDIA_TYPES = Object.freeze(["text/html", "application/xhtml+xml", "application/json", "text/plain"]);
+const HTTP_SUPPORTED_MEDIA_TYPES = Object.freeze(["text/html", "application/xhtml+xml", "application/json", "text/plain", "application/pdf"]);
 const HTTP_REDIRECT_STATUSES = new Set([301, 302, 303, 307, 308]);
 const HTTP_RESULT = Object.freeze({ success: "ACQUIRED", transient: "TRANSIENT-FAILURE", blocked: "ACCESS-BLOCKED", auth: "AUTH-REQUIRED", notFound: "NOT-FOUND", permanent: "PERMANENT-FAILURE", empty: "NO-EVIDENCE" });
 const DEFAULT_HTTP_LIMITS = Object.freeze({ maxResponseBytes: 5 * 1024 * 1024, maxRedirects: 3, timeoutMs: 10000 });
