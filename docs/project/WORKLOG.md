@@ -1337,3 +1337,18 @@ The PDF bytes are not persisted in the repository and no extraction, evidence,
 review, promotion or production/catalogue/runtime state changed. NEXT is a
 separate bounded raw extraction wave for this authenticated artifact; it was
 not executed.
+
+## 2026-09-19 — BMW C 600 Sport raw extraction
+
+Reacquired and reverified the exact BMW artifact
+`artifact.7429b5139a7bd3155b3b0a7c` with SHA-256
+`555ef51345d6725c5c35ea150f3795aecdbdf56324b4b2c414c9d1569c8e5a36`, then
+used the existing parent-bound PDF trust boundary, deterministic `pypdf`
+derived-content transform and Extraction Agent. Four bounded manual regions
+produced 24 raw practical candidates with exact source pages/sections, raw
+wording/units and BMW C 600 Sport MY2012 USA/CVT/ABS=true applicability. No
+candidate was reviewed or promoted; no evidence, coverage, production,
+catalogue, registry or cloud state changed. Cooling, periodic-service and
+chain-size fields remain explicitly blocked where this bounded inspection did
+not establish sufficient direct support. NEXT is bounded human review of only
+these raw candidates; it was not executed.
