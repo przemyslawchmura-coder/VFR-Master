@@ -2,6 +2,8 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const factory = require("../research/factory/index.js");
+const cbr500r = require("../research/data/cbr500r-pc70-schema-conversion.js");
+const cbr500rReport = require("../research/reports/cbr500r-pc70-schema-conversion.json");
 
 function synthetic(overrides = {}) {
   const packet = { schemaVersion: 1, id: "promotion-review-packet.111111111111111111111111", promotionPacketId: "promotion-candidate.222222222222222222222222", targetIdentity: { id: "target.synthetic", catalogVariantKey: "fixture.variant" }, sourceIdentity: { prospectId: "prospect.synthetic", documentId: "document.synthetic" }, reviewQueueEntryId: "review-queue-entry.333333333333333333333333", humanReviewDecisionId: "promotion-review-decision.444444444444444444444444", evidenceProcessingRecordId: "evidence-processing.555555555555555555555555", canonicalFieldId: "lubrication.viscosity", rawValue: "SAE 15W-50", rawUnit: null, provenance: { candidateId: "extraction-candidate.666666666666666666666666", sourceLocation: { page: 1, section: "Oil" } }, applicability: { modelYear: "KNOWN", market: "KNOWN", equipment: "SUFFICIENT", abs: "KNOWN", transmission: "KNOWN" }, ...overrides };
@@ -43,4 +45,28 @@ test("conversion IDs and results are deterministic", () => {
   const input = synthetic();
   const args = { promotionReviewPacket: input.packet, promotionReviewDecision: input.decision, proposedProduction: { entryId: "lubrication.engine-oil.viscosity", categoryId: "lubrication", type: "fluid", value: { type: "text", text: "SAE 15W-50" } }, blockedReasons: [] };
   assert.deepEqual(factory.projectSchemaConversion(args), factory.projectSchemaConversion(args));
+});
+
+test("CBR500R creates exactly one lossless CONVERSION-READY projection", () => {
+  const first = cbr500r.buildProjection();
+  const second = cbr500r.buildProjection();
+  assert.equal(first.promotionReviewDecisionId, "promotion-review-decision.5e99ea7b38d63897de9037e8");
+  assert.equal(first.promotionReviewDecisionState, "APPROVED-FOR-CONVERSION");
+  assert.equal(first.conversionState, "CONVERSION-READY");
+  assert.equal(first.targetApplicability.abs, "KNOWN");
+  assert.equal(first.proposedProduction.entryId, "lubrication.engine-oil.specification");
+  assert.equal(first.proposedProduction.value.type, "text");
+  assert.equal(first.proposedProduction.value.text, first.sourceProvenance.packet.rawValue);
+  assert.equal(first.id, factory.schemaConversionId({ promotionReviewDecisionId: first.promotionReviewDecisionId, researchCanonicalFieldId: first.researchCanonicalFieldId, conversionState: first.conversionState }));
+  assert.deepEqual(second, first);
+});
+
+test("CBR500R schema-conversion report is deterministic and remains non-production", () => {
+  const first = cbr500r.buildReport();
+  assert.deepEqual(cbr500r.buildReport(), first);
+  assert.deepEqual(first, cbr500rReport);
+  assert.equal(first.projection.conversionState, "CONVERSION-READY");
+  assert.equal(first.assertions.noMaterialization, true);
+  assert.equal(first.assertions.noPromotion, true);
+  assert.equal(first.assertions.productionChanged, false);
 });

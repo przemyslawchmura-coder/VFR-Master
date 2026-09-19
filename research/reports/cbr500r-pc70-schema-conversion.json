@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "revlog-cbr500r-pc70-schema-conversion/v1",
+  "schemaConversionSchemaVersion": 1,
+  "decisionId": "promotion-review-decision.5e99ea7b38d63897de9037e8",
+  "packetId": "promotion-review-packet.04a970ff8421a1871a92120b",
+  "promotionCandidateId": "promotion-candidate.0c12373f56277561b2b692a2",
+  "applicabilityVerificationId": "applicability-verification.08059a67abc9eb226cb3fc82",
+  "projection": {
+    "blockedReasons": [],
+    "conversionState": "CONVERSION-READY",
+    "evidenceProcessingRecordId": "evidence-processing.87cd135fb44ebc569aebacb9",
+    "id": "schema-conversion.0408c67195304a42913cbbb4",
+    "promotionPacketId": "promotion-candidate.0c12373f56277561b2b692a2",
+    "promotionReviewDecisionId": "promotion-review-decision.5e99ea7b38d63897de9037e8",
+    "promotionReviewDecisionState": "APPROVED-FOR-CONVERSION",
+    "promotionReviewPacketId": "promotion-review-packet.04a970ff8421a1871a92120b",
+    "proposedProduction": {"categoryId":"lubrication","entryId":"lubrication.engine-oil.specification","type":"fluid","value":{"text":"API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil","type":"text"}},
+    "researchCanonicalFieldId": "lubrication.oil-specification",
+    "schemaVersion": 1,
+    "sourceIdentity": {"authority":"American Honda Motor Co., Inc.","documentId":"31MLRB00 / 00X31-MLR-B000","officialPath":"https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf","prospectId":"prospect.honda.official.owner-manual.31MLRB000.2024","sourceId":"honda.official.owner-manual.31MLRB000.2024","tier":"A"},
+    "sourceProvenance": {"packet":{"canonicalFieldId":"lubrication.oil-specification","evidenceProcessingRecordId":"evidence-processing.87cd135fb44ebc569aebacb9","promotionPacketId":"promotion-candidate.0c12373f56277561b2b692a2","promotionReviewPacketId":"promotion-review-packet.04a970ff8421a1871a92120b","provenance":{"artifactId":"artifact.0498845c683f226a302b0a90","candidateId":"extraction-candidate.87fcea8600978eff75d9f8d6","extractionMethod":"declarative-text-extractor/1","extractionResultId":"extraction-result.32ff931c2f1fe866679758b6","sourceLocation":{"locator":"lines:55-64;chars:731-1026","page":null,"section":"derived text","tableOrSubsection":"document:full"}},"rawUnit":null,"rawValue":"API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil"},"sourceLocation":{"locator":"lines:55-64;chars:731-1026","page":null,"section":"derived text","tableOrSubsection":"document:full"}},
+    "targetApplicability": {"abs":"KNOWN","context":"SUFFICIENT","equipment":"SUFFICIENT","market":"KNOWN","modelYear":"KNOWN","transmission":"KNOWN"},
+    "targetIdentity": {"catalogVariantKey":"honda.cbr500r.pc70","equipment":"standard road model","id":"target.honda.cbr500r.pc70.2024.usa-canada","market":"USA/Canada","model":"CBR500R","state":"KNOWN","year":2024}
+  },
+  "assertions": {"exactlyOneDecisionConsumed":true,"approvedDecisionConsumed":true,"completeLineage":true,"tierAProvenancePreserved":true,"boundedApplicabilityPreserved":true,"historicalAbsUnchanged":true,"rawInputPreserved":true,"losslessTextProjection":true,"noNormalization":true,"noConflictChange":true,"noMaterialization":true,"noPromotion":true,"productionChanged":false},
+  "next": "Create the existing generic schema-conversion authorization projection for exactly this CONVERSION-READY result; do not materialize or promote production data."
+}

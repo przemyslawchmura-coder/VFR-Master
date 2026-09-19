@@ -934,3 +934,16 @@ provenance and the unchanged raw oil value were preserved. No conversion,
 production evidence, profile change or promotion occurred.
 NEXT: create the existing generic schema-conversion projection for exactly this
 approved decision; do not materialize or promote production data.
+
+## 2026-09-19 — CBR500R oil schema-conversion projection
+
+Created exactly one generic `SchemaConversionProjection/v1` for approved
+decision `promotion-review-decision.5e99ea7b38d63897de9037e8`. Projection
+`schema-conversion.0408c67195304a42913cbbb4` is `CONVERSION-READY` and maps
+the unchanged compound raw oil string losslessly as text to the existing
+`lubrication.engine-oil.specification` schema entry. Raw input and Tier A
+provenance remain traceable, bounded applicability including ABS-known=true is
+preserved, and no normalization, materialization, promotion, production or
+Rider Service Core change occurred.
+NEXT: create the existing generic schema-conversion authorization projection
+for exactly this result; do not materialize or promote production data.

@@ -127,7 +127,7 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Create the existing generic schema-conversion projection for exactly decision `promotion-review-decision.5e99ea7b38d63897de9037e8`; do not materialize or promote production data. The CBR500R Promotion Review Decision is explicit `APPROVED-FOR-CONVERSION` only for that next boundary; no conversion or production promotion has occurred. Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
+**NEXT** — Create the existing generic schema-conversion authorization projection for exactly `schema-conversion.0408c67195304a42913cbbb4`; do not materialize or promote production data. The CBR500R projection is `CONVERSION-READY`, lossless and non-production; no materialization or promotion has occurred. Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
 
 The generated `research/reports/project-state-audit.json` remains intentionally scoped to the completed Triumph implementation wave. Its 2026-09-03 snapshot date, historical base commit and 681/681 validation record are deterministic historical evidence, not claims that this memory wave reran that suite.
 

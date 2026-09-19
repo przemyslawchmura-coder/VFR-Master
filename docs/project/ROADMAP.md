@@ -9,9 +9,9 @@ for oil specification and conditional loaded pressures; parts and chain routes
 remain partial. The bounded manual execution produced one raw oil candidate
 and stopped loaded pressure without an explicit condition. The three-Honda
 package and authenticated CBR500R continuation are complete; the next
-bounded Factory step is the existing generic schema-conversion projection for
-the explicitly approved CBR500R oil packet; no materialization or promotion
-follows automatically.
+bounded Factory step is the existing generic schema-conversion authorization
+projection for the CBR500R oil packet; no materialization or promotion follows
+automatically.
 Only one major phase is active at a time. Partial research is normal and
 must not block unrelated catalogue work.
 
