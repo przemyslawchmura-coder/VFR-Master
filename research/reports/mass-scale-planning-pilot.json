@@ -1,0 +1,589 @@
+{
+  "schemaVersion": "revlog-mass-scale-planning-pilot/v1",
+  "date": "2026-09-19",
+  "planningOnly": true,
+  "pipeline": [
+    "catalogue",
+    "catalogue-coverage-queue",
+    "source-discovery-prospect"
+  ],
+  "selection": {
+    "targetsConsidered": 5314,
+    "targetsSelected": 10,
+    "method": "one deterministic non-production official-prospect target per available prospect-bearing manufacturer, then first unresolved target per new manufacturer, catalogue/projection order preserved",
+    "avoidedProductionProfiles": true,
+    "diversityManufacturers": [
+      "Aprilia",
+      "BMW",
+      "Ducati",
+      "Harley-Davidson",
+      "Honda",
+      "Indian",
+      "KTM",
+      "Kawasaki",
+      "Suzuki",
+      "Yamaha"
+    ]
+  },
+  "readinessDistribution": {
+    "READY": 0,
+    "BLOCKED": 1,
+    "EXHAUSTED": 1,
+    "UNRESOLVED": 8
+  },
+  "targets": [
+    {
+      "targetId": "suzuki.sv650.gen3.2019",
+      "manufacturer": "Suzuki",
+      "family": "SV650",
+      "generation": "III generacja",
+      "year": 2019,
+      "catalogVariantKey": "suzuki.sv650.gen3",
+      "selectionReason": "non-production target with an existing official-source prospect; tests real blocked/readiness handling",
+      "production": {
+        "state": "ABSENT",
+        "profileId": null,
+        "coreFieldCount": 0,
+        "coreFieldTotal": 95
+      },
+      "research": {
+        "state": "NOT-RESEARCHED",
+        "evidenceFieldCount": 0,
+        "researchedNoEvidenceFieldCount": 0
+      },
+      "source": {
+        "state": "BLOCKED",
+        "prospect": {
+          "id": "unknown.suzuki.sv650",
+          "classification": "AUTHENTICATED-BUT-APPLICABILITY-PARTIAL",
+          "sourceTier": "A",
+          "documentClass": "service manual",
+          "officialHost": "motorcycle.serviceportal.suzuki.eu",
+          "publicationId": "SV650/A/XA (L7-M4)",
+          "authenticationState": "AUTHENTICATED-METADATA",
+          "expectedMarginalPracticalGapClass": "MEDIUM",
+          "blockers": [
+            "exact MY2019 applicability is partial",
+            "EU document binding is partial",
+            "standard versus SV650X scope unresolved",
+            "ABS scope is not separable across SV650/A/XA family",
+            "manual-transmission applicability is not explicit",
+            "complete content requires authenticated portal access"
+          ]
+        }
+      },
+      "targetApplicability": {
+        "state": "UNKNOWN",
+        "market": null,
+        "abs": null,
+        "transmission": null,
+        "equipment": null,
+        "unresolvedDimensions": [
+          "market",
+          "abs",
+          "transmission",
+          "equipment"
+        ]
+      },
+      "unresolvedApplicability": [
+        "market",
+        "abs",
+        "transmission",
+        "equipment"
+      ],
+      "expectedPracticalCoreValue": "MEDIUM",
+      "expectedNextDiscoveryResearchAction": "resolve the exact official route, access boundary and applicability before acquisition",
+      "blockers": [
+        "exact MY2019 applicability is partial",
+        "EU document binding is partial",
+        "standard versus SV650X scope unresolved",
+        "ABS scope is not separable across SV650/A/XA family",
+        "manual-transmission applicability is not explicit",
+        "complete content requires authenticated portal access"
+      ]
+    },
+    {
+      "targetId": "yamaha.mt-09.gen3.2021",
+      "manufacturer": "Yamaha",
+      "family": "MT-09",
+      "generation": "III generacja",
+      "year": 2021,
+      "catalogVariantKey": "yamaha.mt-09.gen3",
+      "selectionReason": "non-production target with an existing official-source prospect; tests real blocked/readiness handling",
+      "production": {
+        "state": "ABSENT",
+        "profileId": null,
+        "coreFieldCount": 0,
+        "coreFieldTotal": 95
+      },
+      "research": {
+        "state": "NOT-RESEARCHED",
+        "evidenceFieldCount": 0,
+        "researchedNoEvidenceFieldCount": 0
+      },
+      "source": {
+        "state": "EXHAUSTED",
+        "prospect": {
+          "id": "yamaha.mt09.service.b7n-28197-e0",
+          "classification": "ACCESS-BLOCKED",
+          "sourceTier": "A",
+          "documentClass": "service manual",
+          "officialHost": "www.yamahapubs.com for LIT only; Yamaha Dealer System requires authentication",
+          "publicationId": "B7N-28197-E0 / LIT-11616-34-61",
+          "authenticationState": "PARTIAL",
+          "expectedMarginalPracticalGapClass": "MEDIUM",
+          "blockers": [
+            "no authenticated Yamaha-controlled B7N EU delivery path",
+            "B7N/LIT relationship unresolved",
+            "MY2021 EU applicability unknown",
+            "official complete LIT content requires purchase/authenticated access",
+            "standard/SP, ABS and equipment safety scope unresolved"
+          ]
+        }
+      },
+      "targetApplicability": {
+        "state": "UNKNOWN",
+        "market": null,
+        "abs": null,
+        "transmission": null,
+        "equipment": null,
+        "unresolvedDimensions": [
+          "market",
+          "abs",
+          "transmission",
+          "equipment"
+        ]
+      },
+      "unresolvedApplicability": [
+        "market",
+        "abs",
+        "transmission",
+        "equipment"
+      ],
+      "expectedPracticalCoreValue": "MEDIUM",
+      "expectedNextDiscoveryResearchAction": "register an exact Tier A/B official source prospect with publication and applicability proof; do not acquire yet",
+      "blockers": [
+        "no authenticated Yamaha-controlled B7N EU delivery path",
+        "B7N/LIT relationship unresolved",
+        "MY2021 EU applicability unknown",
+        "official complete LIT content requires purchase/authenticated access",
+        "standard/SP, ABS and equipment safety scope unresolved"
+      ]
+    },
+    {
+      "targetId": "aprilia.caponord.1200.2013",
+      "manufacturer": "Aprilia",
+      "family": "Caponord",
+      "generation": "1200",
+      "year": 2013,
+      "catalogVariantKey": "aprilia.caponord.1200",
+      "selectionReason": "first unresolved non-production target for a manufacturer not otherwise represented in the sample; tests identity discovery gap",
+      "production": {
+        "state": "ABSENT",
+        "profileId": null,
+        "coreFieldCount": 0,
+        "coreFieldTotal": 95
+      },
+      "research": {
+        "state": "NOT-RESEARCHED",
+        "evidenceFieldCount": 0,
+        "researchedNoEvidenceFieldCount": 0
+      },
+      "source": {
+        "state": "UNRESOLVED",
+        "prospect": null
+      },
+      "targetApplicability": {
+        "state": "UNKNOWN",
+        "market": null,
+        "abs": null,
+        "transmission": null,
+        "equipment": null,
+        "unresolvedDimensions": [
+          "market",
+          "abs",
+          "transmission",
+          "equipment"
+        ]
+      },
+      "unresolvedApplicability": [
+        "market",
+        "abs",
+        "transmission",
+        "equipment"
+      ],
+      "expectedPracticalCoreValue": "UNKNOWN",
+      "expectedNextDiscoveryResearchAction": "register an exact Tier A/B official source prospect with publication and applicability proof; do not acquire yet",
+      "blockers": [
+        "SOURCE-IDENTITY-NOT-REGISTERED",
+        "MARKET-ABS-TRANSMISSION-EQUIPMENT-UNKNOWN"
+      ]
+    },
+    {
+      "targetId": "bmw.c-scooter.c600-sport.2012",
+      "manufacturer": "BMW",
+      "family": "C 600 / C 650",
+      "generation": "C 600 Sport",
+      "year": 2012,
+      "catalogVariantKey": "bmw.c-scooter.c600-sport",
+      "selectionReason": "first unresolved non-production target for a manufacturer not otherwise represented in the sample; tests identity discovery gap",
+      "production": {
+        "state": "ABSENT",
+        "profileId": null,
+        "coreFieldCount": 0,
+        "coreFieldTotal": 95
+      },
+      "research": {
+        "state": "NOT-RESEARCHED",
+        "evidenceFieldCount": 0,
+        "researchedNoEvidenceFieldCount": 0
+      },
+      "source": {
+        "state": "UNRESOLVED",
+        "prospect": null
+      },
+      "targetApplicability": {
+        "state": "UNKNOWN",
+        "market": null,
+        "abs": null,
+        "transmission": null,
+        "equipment": null,
+        "unresolvedDimensions": [
+          "market",
+          "abs",
+          "transmission",
+          "equipment"
+        ]
+      },
+      "unresolvedApplicability": [
+        "market",
+        "abs",
+        "transmission",
+        "equipment"
+      ],
+      "expectedPracticalCoreValue": "UNKNOWN",
+      "expectedNextDiscoveryResearchAction": "register an exact Tier A/B official source prospect with publication and applicability proof; do not acquire yet",
+      "blockers": [
+        "SOURCE-IDENTITY-NOT-REGISTERED",
+        "MARKET-ABS-TRANSMISSION-EQUIPMENT-UNKNOWN"
+      ]
+    },
+    {
+      "targetId": "ducati.desertx.gen1.2022",
+      "manufacturer": "Ducati",
+      "family": "DesertX",
+      "generation": "I generacja",
+      "year": 2022,
+      "catalogVariantKey": "ducati.desertx.gen1",
+      "selectionReason": "first unresolved non-production target for a manufacturer not otherwise represented in the sample; tests identity discovery gap",
+      "production": {
+        "state": "ABSENT",
+        "profileId": null,
+        "coreFieldCount": 0,
+        "coreFieldTotal": 95
+      },
+      "research": {
+        "state": "NOT-RESEARCHED",
+        "evidenceFieldCount": 0,
+        "researchedNoEvidenceFieldCount": 0
+      },
+      "source": {
+        "state": "UNRESOLVED",
+        "prospect": null
+      },
+      "targetApplicability": {
+        "state": "UNKNOWN",
+        "market": null,
+        "abs": null,
+        "transmission": null,
+        "equipment": null,
+        "unresolvedDimensions": [
+          "market",
+          "abs",
+          "transmission",
+          "equipment"
+        ]
+      },
+      "unresolvedApplicability": [
+        "market",
+        "abs",
+        "transmission",
+        "equipment"
+      ],
+      "expectedPracticalCoreValue": "UNKNOWN",
+      "expectedNextDiscoveryResearchAction": "register an exact Tier A/B official source prospect with publication and applicability proof; do not acquire yet",
+      "blockers": [
+        "SOURCE-IDENTITY-NOT-REGISTERED",
+        "MARKET-ABS-TRANSMISSION-EQUIPMENT-UNKNOWN"
+      ]
+    },
+    {
+      "targetId": "harley-davidson.revolution-max.nightster.2022",
+      "manufacturer": "Harley-Davidson",
+      "family": "Revolution Max",
+      "generation": "Nightster",
+      "year": 2022,
+      "catalogVariantKey": "harley-davidson.revolution-max.nightster",
+      "selectionReason": "first unresolved non-production target for a manufacturer not otherwise represented in the sample; tests identity discovery gap",
+      "production": {
+        "state": "ABSENT",
+        "profileId": null,
+        "coreFieldCount": 0,
+        "coreFieldTotal": 95
+      },
+      "research": {
+        "state": "NOT-RESEARCHED",
+        "evidenceFieldCount": 0,
+        "researchedNoEvidenceFieldCount": 0
+      },
+      "source": {
+        "state": "UNRESOLVED",
+        "prospect": null
+      },
+      "targetApplicability": {
+        "state": "UNKNOWN",
+        "market": null,
+        "abs": null,
+        "transmission": null,
+        "equipment": null,
+        "unresolvedDimensions": [
+          "market",
+          "abs",
+          "transmission",
+          "equipment"
+        ]
+      },
+      "unresolvedApplicability": [
+        "market",
+        "abs",
+        "transmission",
+        "equipment"
+      ],
+      "expectedPracticalCoreValue": "UNKNOWN",
+      "expectedNextDiscoveryResearchAction": "register an exact Tier A/B official source prospect with publication and applicability proof; do not acquire yet",
+      "blockers": [
+        "SOURCE-IDENTITY-NOT-REGISTERED",
+        "MARKET-ABS-TRANSMISSION-EQUIPMENT-UNKNOWN"
+      ]
+    },
+    {
+      "targetId": "honda.africa-twin.crf1000l.2016",
+      "manufacturer": "Honda",
+      "family": "Africa Twin",
+      "generation": "CRF1000L",
+      "year": 2016,
+      "catalogVariantKey": "honda.africa-twin.crf1000l",
+      "selectionReason": "first unresolved non-production target for a manufacturer not otherwise represented in the sample; tests identity discovery gap",
+      "production": {
+        "state": "ABSENT",
+        "profileId": null,
+        "coreFieldCount": 0,
+        "coreFieldTotal": 95
+      },
+      "research": {
+        "state": "NOT-RESEARCHED",
+        "evidenceFieldCount": 0,
+        "researchedNoEvidenceFieldCount": 0
+      },
+      "source": {
+        "state": "UNRESOLVED",
+        "prospect": null
+      },
+      "targetApplicability": {
+        "state": "UNKNOWN",
+        "market": null,
+        "abs": null,
+        "transmission": null,
+        "equipment": null,
+        "unresolvedDimensions": [
+          "market",
+          "abs",
+          "transmission",
+          "equipment"
+        ]
+      },
+      "unresolvedApplicability": [
+        "market",
+        "abs",
+        "transmission",
+        "equipment"
+      ],
+      "expectedPracticalCoreValue": "UNKNOWN",
+      "expectedNextDiscoveryResearchAction": "register an exact Tier A/B official source prospect with publication and applicability proof; do not acquire yet",
+      "blockers": [
+        "SOURCE-IDENTITY-NOT-REGISTERED",
+        "MARKET-ABS-TRANSMISSION-EQUIPMENT-UNKNOWN"
+      ]
+    },
+    {
+      "targetId": "indian.chief.gen2.2022",
+      "manufacturer": "Indian",
+      "family": "Chief",
+      "generation": "II generacja",
+      "year": 2022,
+      "catalogVariantKey": "indian.chief.gen2",
+      "selectionReason": "first unresolved non-production target for a manufacturer not otherwise represented in the sample; tests identity discovery gap",
+      "production": {
+        "state": "ABSENT",
+        "profileId": null,
+        "coreFieldCount": 0,
+        "coreFieldTotal": 95
+      },
+      "research": {
+        "state": "NOT-RESEARCHED",
+        "evidenceFieldCount": 0,
+        "researchedNoEvidenceFieldCount": 0
+      },
+      "source": {
+        "state": "UNRESOLVED",
+        "prospect": null
+      },
+      "targetApplicability": {
+        "state": "UNKNOWN",
+        "market": null,
+        "abs": null,
+        "transmission": null,
+        "equipment": null,
+        "unresolvedDimensions": [
+          "market",
+          "abs",
+          "transmission",
+          "equipment"
+        ]
+      },
+      "unresolvedApplicability": [
+        "market",
+        "abs",
+        "transmission",
+        "equipment"
+      ],
+      "expectedPracticalCoreValue": "UNKNOWN",
+      "expectedNextDiscoveryResearchAction": "register an exact Tier A/B official source prospect with publication and applicability proof; do not acquire yet",
+      "blockers": [
+        "SOURCE-IDENTITY-NOT-REGISTERED",
+        "MARKET-ABS-TRANSMISSION-EQUIPMENT-UNKNOWN"
+      ]
+    },
+    {
+      "targetId": "kawasaki.electric.ninja-e1.2024",
+      "manufacturer": "Kawasaki",
+      "family": "Ninja e-1 / Z e-1",
+      "generation": "Ninja e-1",
+      "year": 2024,
+      "catalogVariantKey": "kawasaki.electric.ninja-e1",
+      "selectionReason": "first unresolved non-production target for a manufacturer not otherwise represented in the sample; tests identity discovery gap",
+      "production": {
+        "state": "ABSENT",
+        "profileId": null,
+        "coreFieldCount": 0,
+        "coreFieldTotal": 95
+      },
+      "research": {
+        "state": "NOT-RESEARCHED",
+        "evidenceFieldCount": 0,
+        "researchedNoEvidenceFieldCount": 0
+      },
+      "source": {
+        "state": "UNRESOLVED",
+        "prospect": null
+      },
+      "targetApplicability": {
+        "state": "UNKNOWN",
+        "market": null,
+        "abs": null,
+        "transmission": null,
+        "equipment": null,
+        "unresolvedDimensions": [
+          "market",
+          "abs",
+          "transmission",
+          "equipment"
+        ]
+      },
+      "unresolvedApplicability": [
+        "market",
+        "abs",
+        "transmission",
+        "equipment"
+      ],
+      "expectedPracticalCoreValue": "UNKNOWN",
+      "expectedNextDiscoveryResearchAction": "register an exact Tier A/B official source prospect with publication and applicability proof; do not acquire yet",
+      "blockers": [
+        "SOURCE-IDENTITY-NOT-REGISTERED",
+        "MARKET-ABS-TRANSMISSION-EQUIPMENT-UNKNOWN"
+      ]
+    },
+    {
+      "targetId": "ktm.390-duke.gen1.2013",
+      "manufacturer": "KTM",
+      "family": "390 Duke",
+      "generation": "I generacja",
+      "year": 2013,
+      "catalogVariantKey": "ktm.390-duke.gen1",
+      "selectionReason": "first unresolved non-production target for a manufacturer not otherwise represented in the sample; tests identity discovery gap",
+      "production": {
+        "state": "ABSENT",
+        "profileId": null,
+        "coreFieldCount": 0,
+        "coreFieldTotal": 95
+      },
+      "research": {
+        "state": "NOT-RESEARCHED",
+        "evidenceFieldCount": 0,
+        "researchedNoEvidenceFieldCount": 0
+      },
+      "source": {
+        "state": "UNRESOLVED",
+        "prospect": null
+      },
+      "targetApplicability": {
+        "state": "UNKNOWN",
+        "market": null,
+        "abs": null,
+        "transmission": null,
+        "equipment": null,
+        "unresolvedDimensions": [
+          "market",
+          "abs",
+          "transmission",
+          "equipment"
+        ]
+      },
+      "unresolvedApplicability": [
+        "market",
+        "abs",
+        "transmission",
+        "equipment"
+      ],
+      "expectedPracticalCoreValue": "UNKNOWN",
+      "expectedNextDiscoveryResearchAction": "register an exact Tier A/B official source prospect with publication and applicability proof; do not acquire yet",
+      "blockers": [
+        "SOURCE-IDENTITY-NOT-REGISTERED",
+        "MARKET-ABS-TRANSMISSION-EQUIPMENT-UNKNOWN"
+      ]
+    }
+  ],
+  "metrics": {
+    "officialRouteLeads": 2,
+    "authenticatedPublications": 1,
+    "exactReadySources": 0,
+    "blockedSources": 1,
+    "exhaustedSources": 1,
+    "unresolvedSources": 8,
+    "productionEntriesCreated": 0,
+    "acquisitionAttempts": 0
+  },
+  "safeToExecute": false,
+  "safeToExecuteReason": "Planning is deterministic and read-only, but no selected source is EXECUTION-READY; discovery/applicability gates must be resolved in a later bounded wave.",
+  "externalResearchPerformed": false,
+  "acquisitionPerformed": false,
+  "extractionPerformed": false,
+  "evidenceCreated": false,
+  "reviewCreated": false,
+  "promotionPerformed": false,
+  "productionChanged": false,
+  "catalogueChanged": false,
+  "runtimeChanged": false,
+  "cloudChanged": false,
+  "next": "Execute only the bounded approximately-10-motorcycle source-discovery/research planning batch after explicit authorization; this artifact is not an execution command."
+}

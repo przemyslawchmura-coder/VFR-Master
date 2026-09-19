@@ -1281,3 +1281,17 @@ acquired, no content was inspected, no SourceProspect was created, and no
 downstream research or production state changed. Deterministic report:
 `research/reports/source-discovery-pilot.json`. NEXT is the bounded
 approximately-10-motorcycle planning pilot; it was not executed.
+
+## 2026-09-19 — Mass-scale approximately-10-target planning pilot
+
+Created the deterministic planning-only artifact
+`research/reports/mass-scale-planning-pilot.json` from the current catalogue,
+coverage/queue projection and SourceDiscoveryProspect records. It considers
+5,314 production-absent targets and selects 10 targets across 10 manufacturers:
+one BLOCKED official-prospect target, one EXHAUSTED target and eight
+unresolved identity/source targets. All market, ABS, transmission and
+equipment unknowns remain explicit; no source was acquired, no work item was
+executed, and no evidence, review, promotion or production state changed. The
+plan is not execution-ready because the selected set contains zero READY
+sources. NEXT is a separately authorized bounded execution/discovery wave for
+this plan; it was not executed.
