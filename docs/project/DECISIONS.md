@@ -382,6 +382,30 @@ production artifact.
 
 Status: ACTIVE. Related implementation: `research/factory/materialization-input-reference-contracts.js`, `research/factory/materialization-requirements.js`.
 
+## ADR-044 — Generic controlled registry-insertion boundary
+
+Date: 2026-09-19
+
+Decision: `REGISTRY-INSERTION` is executed only through a generic,
+authorization-bound `ProductionTechnicalProfileRegistryInsertionMaterialization/v1`
+boundary. The executor accepts only validated typed applicability,
+catalogue-identity and Technical Profile definition references; it requires an
+existing non-registered profile container and an explicit registry store, and
+supports deterministic `CREATED`/`REUSED` results with fail-closed conflict
+handling. It never creates profile contents or cascades into other
+materialization requirements.
+
+Rationale: the CBR500R registry wave found typed registry inputs and a runtime
+registry reader but no controlled production registry-insertion executor.
+Arbitrary presence or direct registry mutation would cross the production
+boundary without a reusable safety contract.
+
+Consequences: synthetic tests validate the new generic boundary, while the
+CBR500R profile remains non-registered until a later explicitly bounded wave.
+Existing VFR/Ducati registry descriptors and semantics remain unchanged.
+
+Status: ACTIVE. Related implementation: `research/factory/production-technical-profile-registry-insertion-materializer.js`.
+
 ## ADR-041 — Generic production citation materializer
 
 Date: 2026-09-19

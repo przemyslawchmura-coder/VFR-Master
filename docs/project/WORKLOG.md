@@ -1194,3 +1194,16 @@ The entry preserves the authorized Honda Tier A value, document
 target applicability and verified ABS semantics. The profile remains
 `NOT-REGISTERED`; registry insertion, document/citation changes and unrelated
 production changes did not occur. NEXT: REGISTRY-INSERTION only.
+
+## 2026-09-19 — Generic registry-insertion materializer foundation
+
+The bounded CBR500R registry wave inspected the existing typed registry-input
+references and production registry API and confirmed that no generic controlled
+`REGISTRY-INSERTION` executor existed. Real CBR500R registration was therefore
+stopped fail-closed. A motorcycle-agnostic registry-insertion result contract
+and executor were added with typed applicability/catalogue/profile validation,
+explicit existing-profile and registry stores, deterministic `CREATED`/`REUSED`
+semantics, conflict rejection and no cascade into profile contents. Synthetic
+tests cover authorization, identity, membership, conflict, idempotence and
+immutability; no CBR500R registry membership or production data changed.
+NEXT: rerun only CBR500R `REGISTRY-INSERTION` through the new generic executor.
