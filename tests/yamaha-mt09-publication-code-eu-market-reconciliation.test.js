@@ -50,5 +50,5 @@ test("reconciliation changes no evidence, coverage or production", () => {
   assert.equal(report.cloudBackendChanged, false);
   assert.equal(report.vfr800ProductionChanged, false);
   assert.equal(report.unrelatedProspectsResearched, false);
-  assert.deepEqual(registry.map(item => item.profileId), ["honda.vfr800.rc46-vtec-gen1.2002", "ducati.monster937.2021"]);
+  assert.deepEqual(registry.map(item => item.profileId), ["honda.vfr800.rc46-vtec-gen1.2002", "ducati.monster937.2021", "honda.cbr500r.pc70.2024"]);
 });

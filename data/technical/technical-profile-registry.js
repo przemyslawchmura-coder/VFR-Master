@@ -27,6 +27,14 @@
       moduleId: "data/technical/ducati/monster937/profile-2021.js",
       status: "review",
       schemaVersion: "revlog-technical-profile/v1"
+    }),
+    Object.freeze({
+      profileId: "honda.cbr500r.pc70.2024",
+      catalogVariantKeys: Object.freeze(["honda.cbr500r.pc70"]),
+      years: Object.freeze({ from: 2024, to: 2024 }),
+      moduleId: "data/technical/honda/cbr500r/pc70/profile-2024.js",
+      status: "review",
+      schemaVersion: "revlog-technical-profile/v1"
     })
   ]);
 });

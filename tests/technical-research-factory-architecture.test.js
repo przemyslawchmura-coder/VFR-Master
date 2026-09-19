@@ -65,5 +65,5 @@ test("architecture adds no evidence and preserves production isolation", () => {
   assert.equal(design.cloudBackendChanged, false);
   assert.equal(design.vfr800ProductionChanged, false);
   assert.equal(design.externalMotorcycleResearchPerformed, false);
-  assert.deepEqual(registry.map(item => item.profileId), ["honda.vfr800.rc46-vtec-gen1.2002", "ducati.monster937.2021"]);
+  assert.deepEqual(registry.map(item => item.profileId), ["honda.vfr800.rc46-vtec-gen1.2002", "ducati.monster937.2021", "honda.cbr500r.pc70.2024"]);
 });

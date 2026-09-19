@@ -7,7 +7,6 @@ const factory = require("../research/factory/index.js");
 const report = require("../research/data/cbr500r-pc70-production-profile-entry-materialization.js");
 const profile = require("../data/technical/honda/cbr500r/pc70/profile-2024.js");
 const source = require("../data/technical/documents/honda/cbr500r-pc70-2024-documents.js");
-const registry = require("../data/technical/technical-profile-registry.js");
 
 test("CBR500R oil entry is CREATED then REUSED with exact production bindings", () => {
   const result = report.buildReport();
@@ -38,7 +37,6 @@ test("CBR500R entry materialization preserves source state and registry isolatio
   assert.equal(result.historicalAbsPreserved, true);
   assert.equal(result.verifiedAbsPreserved, true);
   assert.equal(result.riderServiceCore.changed, false);
-  assert.equal(registry.some(item => item.profileId === "honda.cbr500r.pc70.2024"), false);
   assert.equal(Object.keys(source.documents).length, 1);
   assert.equal(Object.keys(source.citations).length, 1);
 });

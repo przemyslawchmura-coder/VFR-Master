@@ -15,8 +15,8 @@ test("production index and runtime JavaScript do not load research staging", () 
   productionFiles.forEach(file => assert.doesNotMatch(fs.readFileSync(path.join(root, file), "utf8"), /research\/(?:data|motorcycles|technical-data)|research-dataset/));
 });
 
-test("production registry contains exactly the VFR and bounded Ducati profiles", () => {
-  assert.deepEqual(registryData.map(item => item.profileId), ["honda.vfr800.rc46-vtec-gen1.2002", "ducati.monster937.2021"]);
+test("production registry contains the bounded VFR, Ducati and CBR500R profiles", () => {
+  assert.deepEqual(registryData.map(item => item.profileId), ["honda.vfr800.rc46-vtec-gen1.2002", "ducati.monster937.2021", "honda.cbr500r.pc70.2024"]);
 });
 
 test("research candidates do not alter production VFR search results", () => {

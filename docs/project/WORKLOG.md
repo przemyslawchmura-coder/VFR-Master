@@ -1207,3 +1207,15 @@ semantics, conflict rejection and no cascade into profile contents. Synthetic
 tests cover authorization, identity, membership, conflict, idempotence and
 immutability; no CBR500R registry membership or production data changed.
 NEXT: rerun only CBR500R `REGISTRY-INSERTION` through the new generic executor.
+
+## 2026-09-19 — CBR500R registry insertion
+
+Executed exactly `REGISTRY-INSERTION` for `honda.cbr500r.pc70.2024` through
+the ADR-044 generic executor. The production registry gained one descriptor
+with catalog key `honda.cbr500r.pc70`, MY2024 and module path
+`data/technical/honda/cbr500r/pc70/profile-2024.js`; the exact repeat returned
+`REUSED` with the same deterministic result ID and no duplicate. The existing
+oil entry, Honda document/citation, VFR, Ducati and Rider Service Core remained
+unchanged. The known Canada validator issue was not repaired. No Supabase,
+deployment or unrelated production change occurred. No further wave was
+executed.

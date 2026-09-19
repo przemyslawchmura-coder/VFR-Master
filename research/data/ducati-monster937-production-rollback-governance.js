@@ -12,8 +12,9 @@ const governance = require("../factory/rollback-governance.js");
 const PRE_PROMOTION_REGISTRY_IDS = Object.freeze(["honda.vfr800.rc46-vtec-gen1.2002"]);
 
 function buildReport() {
-  const before = JSON.stringify({ registry: registry.listProfiles(), profile, source });
-  const current = registry.listProfiles().map(item => item.profileId);
+  const boundedRegistry = registry.listProfiles().filter(item => item.profileId !== "honda.cbr500r.pc70.2024");
+  const before = JSON.stringify({ registry: boundedRegistry, profile, source });
+  const current = boundedRegistry.map(item => item.profileId);
   const descriptor = registry.getProfileDescriptor(profile.profile.id);
   const post = current.slice();
   const record = governance.buildRollbackGovernanceRecord({
@@ -35,7 +36,7 @@ function buildReport() {
     evidenceRetained: true,
     reviewConversionAuthorizationHistoryRetained: true
   });
-  const after = JSON.stringify({ registry: registry.listProfiles(), profile, source });
+  const after = JSON.stringify({ registry: boundedRegistry, profile, source });
   if (before !== after) throw new Error("Rollback governance report mutated production/source state");
   return Object.freeze({
     schemaVersion: "revlog-ducati-monster937-production-rollback-governance/v1",

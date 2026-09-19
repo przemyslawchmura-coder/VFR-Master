@@ -53,14 +53,12 @@ Research is quarantined under `research/` and is not imported by the production 
 - Honda Service Data Wave 1 population: 8 targets and 51/352 aggregate Service Core slots (the denominator is specifically 8 × 44).
 - VFR800: 13/44, 24 source-identity-uncertain rows, `RESEARCH-MORE`.
 - CBR500R: 26/44, `SERVICE-CORE-PARTIAL`.
-- CBR500R production state: the authorized document, citation, empty profile
-  container and oil entry exist; the profile remains `NOT-REGISTERED`. No
-  generic controlled registry-insertion executor existed before this wave, so
-  the new synthetic-tested boundary validates typed applicability, catalogue
-  identity and profile references with deterministic `CREATED`/`REUSED` and
-  conflict-safe semantics. No CBR500R registry membership was created; the
-  next bounded step is the exact CBR500R registry insertion through this
-  executor.
+- CBR500R production state: the authorized document, citation, profile
+  container and oil entry exist; the profile is now registered exactly once
+  through ADR-044 with deterministic `CREATED`/`REUSED` semantics. The
+  profile contents, document, citation, VFR, Ducati and Rider Service Core
+  data remain unchanged. The known Canada-region/profile-validator issue was
+  not changed and remains out of scope.
 - Honda Batch Wave 2 population: 12 selected catalogue targets, 528 target-field slots, 6 underlying documents, 6 new verified slots; all gains were generic engine specification fields and practical-service-field gain was 0.
 - High-value source-acquisition pilot: `ACCEPT-WITH-RISKS`; five targets, 51/220 → 101/220 verified target slots, +50 total, +48 practical and +2 generic slots; 5 Tier A documents, 2 yielding, 6 hosting locations, 1 duplicate location, 52 evidence rows, 0 conflicts. Coverage is edition-scoped: NC750X MY2021–2023 and CBR600RR MY2024 yielded evidence; CBR500R, VFR800 and Africa Twin yielded none.
 - Post-pilot scaling reassessment: `ACCEPT-WITH-RISKS`; ten repository-known candidates across seven manufacturers were evaluated. The next batch is two Yamaha targets with registered service-rich Tier A owner manuals: `yamaha.mt-09.gen3` MY2021 EU standard and `yamaha.tenere-700.gen1` MY2019 EU standard. Each starts at 0/44 verified Service Core; expected combined practical gain is 36–48, with success gated at +24 verified/+22 practical, zero unresolved safety-critical conflicts and at most two primary documents per target. No evidence was acquired.
@@ -136,7 +134,12 @@ A catalogue identity does not imply a Technical Profile. Mature profile tooling 
 
 ## Next actions
 
-**NEXT** — Resolve the missing CBR500R production Technical Profile container prerequisite through the new generic container boundary, then rerun only `TECHNICAL-PROFILE-ENTRY-MATERIALIZATION`. This wave created no real CBR500R profile or entry; registry insertion remains unexecuted. Do not broaden scope. Supabase production migration-history reconciliation remains separately unresolved and unauthorized, and leaked-password protection remains externally blocked until the project is upgraded to Pro or above.
+**NEXT** — No further wave is executed by this task. The CBR500R document,
+citation, Technical Profile entry and registry insertion boundaries are
+complete for this lineage; future work requires a separately authorized wave.
+Supabase production migration-history reconciliation remains separately
+unresolved and unauthorized, and leaked-password protection remains
+externally blocked until the project is upgraded to Pro or above.
 
 The generated `research/reports/project-state-audit.json` remains intentionally scoped to the completed Triumph implementation wave. Its 2026-09-03 snapshot date, historical base commit and 681/681 validation record are deterministic historical evidence, not claims that this memory wave reran that suite.
 

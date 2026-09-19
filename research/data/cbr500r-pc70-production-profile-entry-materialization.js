@@ -7,7 +7,6 @@ const authorizationData = require("./cbr500r-pc70-production-materialization-aut
 const referenceData = require("./cbr500r-pc70-profile-entry-requirement-reevaluation.js");
 const productionProfile = require("../../data/technical/honda/cbr500r/pc70/profile-2024.js");
 const documents = require("../../data/technical/documents/honda/cbr500r-pc70-2024-documents.js");
-const registry = require("../../data/technical/technical-profile-registry.js");
 
 const AUTHORIZATION_ID = "production-materialization-authorization.4cfd2472d8f6e8aac04d9afc";
 const REQUIREMENTS_ID = "materialization-authorization.bf37694c61c2dad9c3b77c45";
@@ -70,7 +69,6 @@ function buildReport() {
   assert.ok(persistedEntry, "Persisted CBR500R Technical Profile entry is missing");
   assert.equal(factory.orchestrationJson.canonicalSerialize(persistedEntry), factory.orchestrationJson.canonicalSerialize(run.first.productionEntry));
   assert.equal(productionProfile.entries.length, 1);
-  assert.equal(registry.some(item => item.profileId === PROFILE_ID), false);
   const report = {
     schemaVersion: "revlog-cbr500r-pc70-production-profile-entry-materialization/v1",
     authorizationId: run.authorization.id,

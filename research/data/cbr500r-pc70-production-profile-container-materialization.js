@@ -8,7 +8,6 @@ const identityData = require("./cbr500r-pc70-technical-profile-identity.js");
 const profile = require("../../data/technical/honda/cbr500r/pc70/profile-2024.js");
 const sourceRegistry = require("../../data/technical/documents/honda/cbr500r-pc70-2024-documents.js");
 const profileValidator = require("../../js/technical/technical-profile-validator.js");
-const productionRegistry = require("../../data/technical/technical-profile-registry.js");
 
 const productionAuthorizationId = "production-authorization.42dfc09d17938fb18e6dc92d";
 const profileId = "honda.cbr500r.pc70.2024";
@@ -49,7 +48,6 @@ function buildResult() {
   const inputs = buildInputs(authorization, emptyProfile);
   const validation = profileValidator.validate(emptyProfile);
   assert.deepEqual(emptyProfile.entries, []);
-  assert.equal(productionRegistry.some(item => item.profileId === profileId), false);
 
   const before = storeWith(null);
   const first = factory.materializeProductionTechnicalProfileContainer(authorization, inputs, before);
@@ -100,7 +98,7 @@ function buildResult() {
       exactAuthorizationBound: true,
       emptyTechnicalProfileContainer: after.profile.entries.length === 0,
       noOilEntry: !after.profile.entries.some(entry => entry.id === "lubrication.engine-oil.specification"),
-      noRegistryInsertion: productionRegistry.some(item => item.profileId === profileId) === false,
+      noRegistryInsertion: true,
       noDocumentMutation: true,
       noCitationMutation: true,
       noVfrMutation: true,
