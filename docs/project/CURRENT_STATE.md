@@ -314,3 +314,13 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   No evidence, conflict resolution, promotion, production, catalogue,
   registry or cloud state changed. NEXT is separate Evidence Processing for
   only these 24 decisions.
+- End-of-day checkpoint: BMW C 600 Sport MY2012 Evidence Processing consumed
+  exactly those 24 ACCEPT decisions. All 24 are `ACCEPTED-FOR-PROCESSING`, with
+  zero blocked/conflicting/rejected/ineligible records and zero evidence rows
+  created. Nine conditional records retain their exact condition; raw values,
+  units, artifact `artifact.7429b5139a7bd3155b3b0a7c`, digest
+  `555ef51345d6725c5c35ea150f3795aecdbdf56324b4b2c414c9d1569c8e5a36`, source
+  and BMW C 600 Sport MY2012 USA/CVT/ABS=true applicability are preserved.
+  No production, catalogue, registry, cloud or Service Core state changed.
+  NEXT is bounded promotion-readiness evaluation only for these 24 processing
+  records, not promotion or materialization.

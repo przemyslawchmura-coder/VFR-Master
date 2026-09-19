@@ -1375,3 +1375,22 @@ their single-rider, loaded/passenger or optional-LED distinctions in the raw
 payload and review comments. No normalization, conflict resolution, evidence,
 promotion, production, catalogue, registry or cloud state changed. NEXT is
 separate Evidence Processing for only these 24 decisions.
+
+## 2026-09-19 — BMW C 600 Sport Evidence Processing / end-of-day checkpoint
+
+Processed exactly the 24 BMW C 600 Sport MY2012 Human Review `ACCEPT`
+decisions through the existing generic Evidence Processing contract. Result:
+24 `ACCEPTED-FOR-PROCESSING`, 0 `CANNOT-ADVANCE`, 0 rejected, 0 deferred,
+0 ineligible and 0 evidence rows created. Nine conditional records preserve
+single-rider, loaded/passenger, optional-LED, compound-fuse, brake-reservoir,
+engine-oil and filter-change conditions without normalization or merging.
+Raw values, units, source locations, artifact
+`artifact.7429b5139a7bd3155b3b0a7c`, SHA-256
+`555ef51345d6725c5c35ea150f3795aecdbdf56324b4b2c414c9d1569c8e5a36`, BMW C
+600 Sport MY2012 USA/CVT/ABS=true applicability and complete upstream
+lineage remain unchanged. No new acquisition/extraction/review, evidence
+rows, promotion, production, catalogue, registry or cloud state was created.
+Targeted validation passed (18 tests); shared Factory contracts were not
+changed, so the full suite was not rerun. This is the end-of-day checkpoint.
+Exact NEXT: bounded promotion-readiness evaluation only for these 24 Evidence
+Processing records; do not promote or materialize automatically.
