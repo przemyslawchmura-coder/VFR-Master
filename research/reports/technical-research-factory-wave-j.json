@@ -1,0 +1,1087 @@
+{
+  "schemaVersion": "revlog-technical-research-factory-wave-j/v1",
+  "sourceCheckpoint": "244822c1a7eeda57ed9fb37b53924b8179964533",
+  "sourceWaveIReport": "research/reports/technical-research-factory-wave-i.json",
+  "verifiedInventory": {
+    "unsupportedCount": {
+      "value": 23,
+      "measurementState": "MEASURED",
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    },
+    "uniqueRecordCount": {
+      "value": 23,
+      "measurementState": "MEASURED",
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    },
+    "records": [
+      {
+        "recordId": "promotion-review-packet.04a970ff8421a1871a92120b",
+        "model": "CBR500R",
+        "canonicalFieldId": "lubrication.oil-specification",
+        "capabilityClass": "LUBRICATION-SPECIFICATION-TEXT",
+        "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "American Honda Motor Co., Inc.",
+          "documentId": "31MLRB00 / 00X31-MLR-B000",
+          "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+          "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+          "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "6e579535c053b035db407b77c6b2e3a5b477e4e405034980ea2a543dfa102760",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Source text contains recommendation, viscosity and/or API/JASO semantics that are not one shared scalar transformation.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.075d6b761f2aa57617182b92",
+        "model": "Monster 937",
+        "canonicalFieldId": "lubrication.viscosity",
+        "capabilityClass": "LUBRICATION-SPECIFICATION-TEXT",
+        "rawValue": "SAE 15W-50",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "cb8398c70285296a757f410762784b9eecf5dda30c579babd27b30f3aa4e1f39",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Source text contains recommendation, viscosity and/or API/JASO semantics that are not one shared scalar transformation.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.0f7198304fbd44a800b8334f",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "tires_wheels.rim-sizes",
+        "capabilityClass": "WHEEL-DIMENSION-COMPOUND",
+        "rawValue": "Front wheel 3.50\" x 15\"; Rear wheel 4.50\" x 15\"",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "bdff3de358b0ddfae86153dab1d5ee89b6776ff2cac8246a7b18b896fac81e3b",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Front/rear rim dimensions are a structured compound value without an existing lossless rule.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.1e83fddea642a8d0fa66f0f2",
+        "model": "Monster 937",
+        "canonicalFieldId": "ignition.spark-plug-oem",
+        "capabilityClass": "SPARK-PLUG-IDENTITY-TEXT",
+        "rawValue": "NGK MAR9A-J",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "72398560905707da10dc6c47b714a7d8b4f8c725fdae7b53afc6ab081aa7e240",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "OEM identity is source text and no generic validation rule can safely normalize it.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.22451b716ca3eec2261f8794",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "tires_wheels.front-size",
+        "capabilityClass": "TIRE-SIZE-STRUCTURED",
+        "rawValue": "120/70 R15",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "a43befbebd3ecc356151b1fd6a0e7f39aae5b6a8cbadf3e6adda2cae9daedd28",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Tire size notation is structured domain data, not a generic numeric scalar.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.2ad992f252eec3d1858b1c80",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "lighting.front-indicators",
+        "capabilityClass": "OPTIONAL-EQUIPMENT-LIGHTING-ALTERNATIVE",
+        "rawValue": "PY21W / 12 V / 21 W; with LED turn indicators OE LED / 12 V",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "5137a1f411baa6b0505215200a9ff54035f89394cbdde1b1b72acfe6c565b640",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Standard and optional LED alternatives must remain distinct; selecting or flattening an alternative would change applicability.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.301cf7502e55332999989e01",
+        "model": "Monster 937",
+        "canonicalFieldId": "lubrication.api-jaso",
+        "capabilityClass": "LUBRICATION-SPECIFICATION-TEXT",
+        "rawValue": "API: SN; JASO: MA2",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "efc402847b52d0a12ccdd66478acdb79c9c9d7910473866ade3152e23fceff70",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Source text contains recommendation, viscosity and/or API/JASO semantics that are not one shared scalar transformation.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.308fd2766797fc648e115f9a",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "lighting.license-plate",
+        "capabilityClass": "LIGHTING-COMPONENT-SPECIFICATION",
+        "rawValue": "W5W / 12 V / 5 W",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "2429c4c2fc248f082c76df924dab41d936dd749ba00553d9aa7312751a702ff8",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Component identity and electrical values are compound source specifications; no lossless generic decomposition contract exists.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.3287b2c64001d151b7b3f3ed",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "brakes.brake-fluid",
+        "capabilityClass": "BRAKE-FLUID-SPECIFICATION-TEXT",
+        "rawValue": "Brake fluid, DOT4",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "46dd6649540e45892321d99582f15dd08797cfdbc8effa01a2a2a47a6dcb974a",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "DOT4 text includes circuit/location semantics in at least one source and has no existing generic text rule.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.6fea8fa9e76cecd4f0a569d0",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "brakes.pad-thickness-limit",
+        "capabilityClass": "BRAKE-PAD-LIMIT-PAIR",
+        "rawValue": "min 0.04 in (min 1.0 mm)",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "ecfe426694cae5fc89cd44ad1e1dc73a41620a0e9d0324174ea25267b7fe1571",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "The limit includes tolerance/measurement semantics and the explicit friction-material condition must remain intact.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.72b737dd0737320926ef99c6",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "lighting.front-position",
+        "capabilityClass": "LIGHTING-COMPONENT-SPECIFICATION",
+        "rawValue": "W5W / 12 V / 5 W",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "66c66d70b0f35a6738639acba3b2ce33cfc4c10738c7f905503965f489f5df73",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Component identity and electrical values are compound source specifications; no lossless generic decomposition contract exists.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.76c0ed4a065e106c69a221ec",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "electrical.battery-specification",
+        "capabilityClass": "BATTERY-SPECIFICATION-TEXT",
+        "rawValue": "AGM (Absorptive Glass Mat) battery.",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "35b6bbf925d19292ce51a6f382e12be15fd57169f478902686e7c6c26ba3aaff",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Battery chemistry/type/model text is not interchangeable with capacity and has no deterministic normalization contract.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.77df0ca27619514de36a5c23",
+        "model": "Monster 937",
+        "canonicalFieldId": "electrical.battery-specification",
+        "capabilityClass": "BATTERY-SPECIFICATION-TEXT",
+        "rawValue": "YUASA YT 7B-BS DRY, 12 V",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "5b1f8734f02eaa5bc90b74d4f523e13a7d073cf0061181583cf8e7d75c592fb0",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Battery chemistry/type/model text is not interchangeable with capacity and has no deterministic normalization contract.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.8df714d6cca0eb63bba60c02",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "lighting.rear-indicators",
+        "capabilityClass": "OPTIONAL-EQUIPMENT-LIGHTING-ALTERNATIVE",
+        "rawValue": "RY10W / 12 V / 10 W; with LED turn indicators OE LED / 12 V",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "ed709121f12d800209a95b7c35d2066d8201339210c72d66bbe2bbfe5e5fa51a",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Standard and optional LED alternatives must remain distinct; selecting or flattening an alternative would change applicability.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.9ebecb078bbc466003478ca3",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "electrical.fuse-ratings",
+        "capabilityClass": "FUSE-TABLE-COMPOUND",
+        "rawValue": "Fuse carrier: 30 A, Fuse 9: control unit for instrument cluster/ignition switch; 30 A, Fuse 10: control unit for anti-lock brake system (ABS). Fuse box: 15 A, Fuse 1: DME main relay; 10 A, Fuse 2: control unit for Digital Motor Electronics (DME); 4 A, Fuse 3: control unit for anti-theft alarm (DWA)/Tire Pressure Control (TPC); 4 A, Fuse 4: brake-light switch for front brake/rear brake/connector of optional accessories; 7.5 A, Fuse 5: fan; 7.5 A, Fuse 6: onboard socket(s); 4 A, Fuse 7: license plate light; 4 A, Fuse 8: control unit for Digital Motor Electronics (DME)/anti-lock brake system (ABS)/instrument cluster",
+        "rawUnit": "A",
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "aac126139c35d47c248360018acf680b7de91dd98a61e6088142d0afb536523c",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Named circuits and multiple ratings must not be flattened or detached from their associations.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.9f49100ae773c9bb59ae7987",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "transmission_clutch.transmission-type",
+        "capabilityClass": "TRANSMISSION-SPECIFICATION-TEXT",
+        "rawValue": "CVT (Continously Variable Transmission)",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "52f8223403f47f2551757c6699632faf0434c2ca77a425acdfe88fd5ffb07936",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Transmission text is a canonical semantic value but not a numeric transformation covered by existing rules.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.a06115b1c776509565dc9042",
+        "model": "Monster 937",
+        "canonicalFieldId": "cooling.capacity",
+        "capabilityClass": "COOLING-CAPACITY-SCALAR",
+        "rawValue": "Cooling circuit: 2.25 litres",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "4f34921a914314de985ea124a6bad0b9bfa3679a510bc662037ece7c147c4754",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "A single cooling-capacity record is not a repeated proven class in this dataset and existing cooling applicability remains separately constrained.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.c788fee93ddd819b47431870",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "lighting.low-beam",
+        "capabilityClass": "LIGHTING-COMPONENT-SPECIFICATION",
+        "rawValue": "H7 / 12 V / 55 W",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "39c4b0a0f4c37aeaa210a5fd4d23c55a5f253b4d22b176f8796a6f199c783a57",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Component identity and electrical values are compound source specifications; no lossless generic decomposition contract exists.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.c7d501675a55cd731db569cf",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "lubrication.oil-specification",
+        "capabilityClass": "LUBRICATION-SPECIFICATION-TEXT",
+        "rawValue": "BMW Motorrad High Performance Oil SAE 15W-50, API SJ / JASO MA2",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "1aa747ed76d57d54a0c618d8c95cbe037067e50f9ecd1296c0eb555bd298875a",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Source text contains recommendation, viscosity and/or API/JASO semantics that are not one shared scalar transformation.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.c9c77db6bafcfa886e3d0c56",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "tires_wheels.rear-size",
+        "capabilityClass": "TIRE-SIZE-STRUCTURED",
+        "rawValue": "160/60 R 15",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "ead1b5daeca331e4c7917f0f64c5b1daadced8380e67f394d1653f3a646dd6b5",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Tire size notation is structured domain data, not a generic numeric scalar.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.dbbcabda70dacc11f860df94",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "lighting.rear-tail",
+        "capabilityClass": "LIGHTING-COMPONENT-SPECIFICATION",
+        "rawValue": "LED / 12 V",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "7a19ddb35b15fc0729402526709fcd1bba3d96c5e193142ce0bc34c6c558d2fc",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "Component identity and electrical values are compound source specifications; no lossless generic decomposition contract exists.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.de7593d846584df98d151201",
+        "model": "Monster 937",
+        "canonicalFieldId": "brakes.brake-fluid",
+        "capabilityClass": "BRAKE-FLUID-SPECIFICATION-TEXT",
+        "rawValue": "Front/rear brake circuit: DOT 4",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "Ducati Motor Holding S.p.A.",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf",
+          "prospectId": "unknown.ducati.monster937",
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "a7fa37850434dc42a7faeae3a3196d76b1c6265f4f59365048749a9bf13a5696",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "DOT4 text includes circuit/location semantics in at least one source and has no existing generic text rule.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      },
+      {
+        "recordId": "promotion-review-packet.f2b9c05b8f972574ed219a51",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "ignition.plug-gap",
+        "capabilityClass": "SPARK-PLUG-GAP-PAIR",
+        "rawValue": "0.03±0.01 in (0.8±0.1 mm)",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenanceAvailable": true,
+        "upstreamDigest": "ee025363c9b0a729319392e0db3b2098c27aa24ab26518d3d70583fc6378dc08",
+        "route": "RED",
+        "reasonCode": "UNSUPPORTED-RULE-CAPABILITY",
+        "rootCause": "The value is an imperial/metric tolerance pair requiring a distinct rule and precision semantics.",
+        "selectedForImplementation": false,
+        "futureDecision": "DEFERRED-UNSUPPORTED"
+      }
+    ],
+    "pressureYellowExcluded": true,
+    "pressureRecordIds": [
+      "promotion-review-packet.6da8ee105490e42d6211aaaa"
+    ]
+  },
+  "groupingMethod": "Wave I capability classes rechecked against exact canonical field, raw shape, source identity, provenance, applicability and condition; repeated classes were evaluated semantically, not by string similarity.",
+  "repeatedCandidateClasses": [
+    {
+      "capabilityClass": "LUBRICATION-SPECIFICATION-TEXT",
+      "count": 4,
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "The records mix manufacturer recommendation, viscosity and API/JASO text. A shared parser would need semantic interpretation and must not infer wet-clutch suitability or choose among recommendations."
+    },
+    {
+      "capabilityClass": "LIGHTING-COMPONENT-SPECIFICATION",
+      "count": 4,
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "Bulb identity, voltage and wattage are compound component semantics; the existing records do not establish one lossless generic representation across positions."
+    },
+    {
+      "capabilityClass": "OPTIONAL-EQUIPMENT-LIGHTING-ALTERNATIVE",
+      "count": 2,
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "Standard bulb and optional LED alternatives must remain separate; selecting or flattening them would broaden equipment applicability."
+    },
+    {
+      "capabilityClass": "TIRE-SIZE-STRUCTURED",
+      "count": 2,
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "Tire notation carries structured construction and position semantics; no existing generic lossless tire-size contract is present."
+    },
+    {
+      "capabilityClass": "BATTERY-SPECIFICATION-TEXT",
+      "count": 2,
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "Battery type/model/voltage text is distinct from the Wave I Ah scalar and cannot be consumed by that rule without inventing structured semantics."
+    },
+    {
+      "capabilityClass": "BRAKE-FLUID-SPECIFICATION-TEXT",
+      "count": 2,
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "The values include circuit/location wording in one record; a scalar DOT classification would discard source semantics."
+    }
+  ],
+  "singletonDispositions": [
+    {
+      "capabilityClass": "WHEEL-DIMENSION-COMPOUND",
+      "count": 1,
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "Front/rear dimensions are compound and position-bearing."
+    },
+    {
+      "capabilityClass": "SPARK-PLUG-IDENTITY-TEXT",
+      "count": 1,
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "OEM identity is source text without a generic normalization operation."
+    },
+    {
+      "capabilityClass": "BRAKE-PAD-LIMIT-PAIR",
+      "count": 1,
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "Imperial/metric limit and friction-material semantics require a separate precision-aware contract."
+    },
+    {
+      "capabilityClass": "FUSE-TABLE-COMPOUND",
+      "count": 1,
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "Named circuit-to-rating associations cannot be flattened."
+    },
+    {
+      "capabilityClass": "TRANSMISSION-SPECIFICATION-TEXT",
+      "count": 1,
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "Specification text is not a proven deterministic transformation."
+    },
+    {
+      "capabilityClass": "COOLING-CAPACITY-SCALAR",
+      "count": 1,
+      "decision": "DEFERRED-DATA-SCOPE",
+      "reason": "One record is insufficient to establish a repeated capability, and cooling applicability remains separately constrained."
+    },
+    {
+      "capabilityClass": "SPARK-PLUG-GAP-PAIR",
+      "count": 1,
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "Tolerance pair needs a distinct precision-preserving rule and is not repeated here."
+    }
+  ],
+  "selectedCapability": null,
+  "selectionDecision": "NONE",
+  "selectionReason": "No remaining class proves a generic lossless operation under the existing contracts. The exact 23-record set consists of descriptive text, alternatives, compound structures or singleton semantics requiring a new contract or interpretation.",
+  "before": {
+    "GREEN": 8,
+    "YELLOW": 1,
+    "RED": 23
+  },
+  "after": {
+    "GREEN": 8,
+    "YELLOW": 1,
+    "RED": 23
+  },
+  "affectedRecordIds": [],
+  "remainingUnsupportedRecordIds": [
+    "promotion-review-packet.04a970ff8421a1871a92120b",
+    "promotion-review-packet.075d6b761f2aa57617182b92",
+    "promotion-review-packet.0f7198304fbd44a800b8334f",
+    "promotion-review-packet.1e83fddea642a8d0fa66f0f2",
+    "promotion-review-packet.22451b716ca3eec2261f8794",
+    "promotion-review-packet.2ad992f252eec3d1858b1c80",
+    "promotion-review-packet.301cf7502e55332999989e01",
+    "promotion-review-packet.308fd2766797fc648e115f9a",
+    "promotion-review-packet.3287b2c64001d151b7b3f3ed",
+    "promotion-review-packet.6fea8fa9e76cecd4f0a569d0",
+    "promotion-review-packet.72b737dd0737320926ef99c6",
+    "promotion-review-packet.76c0ed4a065e106c69a221ec",
+    "promotion-review-packet.77df0ca27619514de36a5c23",
+    "promotion-review-packet.8df714d6cca0eb63bba60c02",
+    "promotion-review-packet.9ebecb078bbc466003478ca3",
+    "promotion-review-packet.9f49100ae773c9bb59ae7987",
+    "promotion-review-packet.a06115b1c776509565dc9042",
+    "promotion-review-packet.c788fee93ddd819b47431870",
+    "promotion-review-packet.c7d501675a55cd731db569cf",
+    "promotion-review-packet.c9c77db6bafcfa886e3d0c56",
+    "promotion-review-packet.dbbcabda70dacc11f860df94",
+    "promotion-review-packet.de7593d846584df98d151201",
+    "promotion-review-packet.f2b9c05b8f972574ed219a51"
+  ],
+  "ruleResults": {
+    "evaluated": {
+      "value": 9,
+      "measurementState": "MEASURED",
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    },
+    "applied": {
+      "value": 8,
+      "measurementState": "MEASURED",
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    },
+    "notApplicable": {
+      "value": 0,
+      "measurementState": "MEASURED",
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    },
+    "needsHumanReview": {
+      "value": 1,
+      "measurementState": "MEASURED",
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    },
+    "rejected": {
+      "value": 0,
+      "measurementState": "MEASURED",
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    }
+  },
+  "safeStage": {
+    "invocations": {
+      "value": 8,
+      "measurementState": "MEASURED",
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    },
+    "automaticStageAdvancements": {
+      "value": 24,
+      "measurementState": "MEASURED",
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    }
+  },
+  "authorization": {
+    "existingConsumed": {
+      "value": 8,
+      "measurementState": "MEASURED",
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    },
+    "missingRequired": {
+      "value": 0,
+      "measurementState": "MEASURED",
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    },
+    "newCreated": {
+      "value": 0,
+      "measurementState": "MEASURED",
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    }
+  },
+  "exceptions": {
+    "records": {
+      "value": 24,
+      "measurementState": "MEASURED",
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    },
+    "groups": {
+      "value": 24,
+      "measurementState": "MEASURED",
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    }
+  },
+  "metrics": {
+    "automaticSafeRate": {
+      "name": "automaticSafeRate",
+      "numerator": {
+        "value": 8,
+        "measurementState": "MEASURED",
+        "scope": "Wave J exact Wave H legitimate dataset",
+        "reason": "Directly observed deterministic execution"
+      },
+      "denominator": {
+        "value": 32,
+        "measurementState": "MEASURED",
+        "scope": "Wave J exact Wave H legitimate dataset",
+        "reason": "Directly observed deterministic execution"
+      },
+      "measurementState": "MEASURED",
+      "value": 0.25,
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "GREEN records / exact Wave H records",
+      "contractVersions": [
+        "InputHygiene/v1",
+        "DeterministicRule/v1",
+        "SafeStageRunner/v1",
+        "RoutingResult/v1",
+        "BatchSummary/v2"
+      ]
+    },
+    "humanTouchRate": {
+      "name": "humanTouchRate",
+      "numerator": {
+        "value": 1,
+        "measurementState": "MEASURED",
+        "scope": "Wave J exact Wave H legitimate dataset",
+        "reason": "Directly observed deterministic execution"
+      },
+      "denominator": {
+        "value": 32,
+        "measurementState": "MEASURED",
+        "scope": "Wave J exact Wave H legitimate dataset",
+        "reason": "Directly observed deterministic execution"
+      },
+      "measurementState": "MEASURED",
+      "value": 0.03125,
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "YELLOW records / exact Wave H records",
+      "contractVersions": [
+        "InputHygiene/v1",
+        "DeterministicRule/v1",
+        "SafeStageRunner/v1",
+        "RoutingResult/v1",
+        "BatchSummary/v2"
+      ]
+    },
+    "exceptionRate": {
+      "name": "exceptionRate",
+      "numerator": {
+        "value": 24,
+        "measurementState": "MEASURED",
+        "scope": "Wave J exact Wave H legitimate dataset",
+        "reason": "Directly observed deterministic execution"
+      },
+      "denominator": {
+        "value": 32,
+        "measurementState": "MEASURED",
+        "scope": "Wave J exact Wave H legitimate dataset",
+        "reason": "Directly observed deterministic execution"
+      },
+      "measurementState": "MEASURED",
+      "value": 0.75,
+      "scope": "Wave J exact Wave H legitimate dataset",
+      "reason": "Exception records / exact Wave H records",
+      "contractVersions": [
+        "InputHygiene/v1",
+        "DeterministicRule/v1",
+        "SafeStageRunner/v1",
+        "RoutingResult/v1",
+        "BatchSummary/v2"
+      ]
+    }
+  },
+  "assertions": {
+    "all23AccountedExactlyOnce": true,
+    "batteryRecordsRemainSupported": true,
+    "pressureBoundaryPreserved": true,
+    "permutationIndependent": true,
+    "noCapabilityImplemented": true,
+    "newHumanAuthorizationsCreated": 0,
+    "evidenceRowsCreated": 0,
+    "productionChanged": false,
+    "serviceCoreChanged": false,
+    "catalogueChanged": false,
+    "registryChanged": false,
+    "cloudChanged": false,
+    "uiChanged": false,
+    "externalSideEffects": false
+  },
+  "historicalCompatibility": {
+    "waveHRoutes": [
+      6,
+      1,
+      25
+    ],
+    "waveIRoutes": [
+      8,
+      1,
+      23
+    ],
+    "waveIReportUnchanged": true,
+    "waveDReportUnchanged": true
+  },
+  "assumptions": [
+    "The Wave I input builder is the exact 32-record Wave H legitimate dataset with the Wave I battery rule already attached.",
+    "Existing authorizations and projections are consumed only as supplied; no new decisions are created."
+  ],
+  "unknowns": [
+    "No safe generic contract exists for the remaining descriptive/compound classes.",
+    "No catalogue-wide throughput conclusion is inferred."
+  ],
+  "limitations": [
+    "This is a decision-only wave over the exact Wave H dataset; no deferred rule is implemented or benchmarked."
+  ],
+  "externalSideEffects": false,
+  "next": "Preserve the remaining human/unsupported boundaries; a future capability wave would require a newly authorized, class-specific contract proposal.",
+  "id": "wave-j-report.11d545c9dc858acab1c91f7f"
+}

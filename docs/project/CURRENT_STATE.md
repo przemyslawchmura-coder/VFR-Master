@@ -469,3 +469,16 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   production, Service Core, catalogue, registry, cloud or UI state changed.
   NEXT is a separately authorized analysis of another repeated capability
   class only after fresh safety evidence; it is not executed here.
+- Technical Research Factory Throughput v2 Wave J re-verified the exact 23
+  remaining unsupported RED records from the Wave I output, with no omissions
+  and the pressure YELLOW excluded. Six repeated classes and seven singleton
+  classes were analyzed; all require either semantic interpretation,
+  alternative/compound preservation, a new contract, or more repeated
+  evidence. No second deterministic capability met the safety bar, so this
+  was a decision-only wave. The exact rerun remains 8 GREEN, 1 YELLOW and
+  23 RED, with 8 existing authorizations consumed and 0 new authorizations.
+  Wave I battery behavior, historical fixtures, pressure boundary and hostile
+  regression remain unchanged; no evidence, production, Service Core,
+  catalogue, registry, cloud or UI state changed. NEXT is a separately
+  authorized class-specific contract proposal only if new evidence justifies
+  it; no capability implementation is selected by default.

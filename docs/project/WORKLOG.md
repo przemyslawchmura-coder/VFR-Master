@@ -1636,5 +1636,24 @@ raw values, provenance, applicability, conditions, hostile 3/2/4 regression,
 and all non-selected capability gaps remain fail-closed. Targeted Wave I,
 Wave D rule-library and Wave H tests pass; no evidence, production, Service
 Core, catalogue, registry, cloud or UI state changed. NEXT is a separately
-authorized fresh analysis of another repeated capability class only; it was
-not executed.
+  authorized fresh analysis of another repeated capability class only; it was
+  not executed.
+
+## 2026-09-20 — Technical Research Factory Throughput v2 Wave J
+
+Re-derived the remaining unsupported set from executable Wave I output:
+exactly 23 unique legitimate RED capability gaps, excluding the pressure
+YELLOW. Analyzed six repeated classes (lubrication specification text,
+lighting component specification, optional lighting alternatives, tire-size
+structure, battery specification text and brake-fluid text) and seven
+singletons. None has a generic lossless operation under the existing rule and
+applicability contracts: text classes require interpretation, alternatives and
+compound values must remain distinct, and singleton values do not establish a
+repeated capability. Wave J therefore adds no rule. The exact 32-record rerun
+remains 8 GREEN, 1 YELLOW and 23 RED; 9 evaluations produced 8 APPLIED and 1
+NEEDS-HUMAN-REVIEW, 8 existing authorizations were consumed and 0 new ones
+created. Wave I battery behavior, Wave D/H historical reports, the pressure
+boundary and Wave G hostile 3/2/4 regression remain unchanged. No evidence,
+production, Service Core, catalogue, registry, cloud or UI state changed.
+NEXT is a separately authorized class-specific contract proposal only when
+new evidence proves safety; it was not executed.
