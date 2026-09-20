@@ -381,3 +381,14 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   24/24 promotion-ready, 24 packets, 24 approved decisions, 24 conversion-
   ready projections and 9 conditional contexts, with no materialization.
   NEXT is Wave B: safe-stage runner over existing contracts.
+- Technical Research Factory Throughput v2 Wave B now provides a generic
+  deterministic safe-stage runner over the existing PromotionReviewPacket,
+  PromotionReviewDecision and SchemaConversionProjection contracts. The proof
+  path advances valid packet validation and schema conversion, stops without
+  authorization at `PROMOTION-REVIEW-REQUIRED`, and continues only when an
+  existing valid promotion decision is supplied. Stage envelopes and
+  BatchSummary/v2 runner metrics are deterministic; no human decision is
+  created, no evidence or production state is written, and Wave A historical
+  unknown metrics remain unchanged. NEXT is Wave C: deterministic
+  GREEN/YELLOW/RED routing and grouped exception projection; it is not
+  executed.

@@ -1492,3 +1492,23 @@ no current percentages were fabricated. Production, evidence, Rider Service
 Core, catalogue, registry, cloud and UI state remain unchanged. Exact NEXT is
 implementation wave A: deterministic throughput baseline and `BatchSummary/v2`
 fixture projection; no runtime automation or BMW materialization was executed.
+
+## 2026-09-20 — Technical Research Factory Throughput v2 Wave B
+
+Implemented only the generic deterministic safe-stage runner foundation over
+existing Research Factory contracts. The bounded proof path validates an
+existing `PromotionReviewPacket/v1`, stops with
+`PROMOTION-REVIEW-REQUIRED` when no promotion authorization is supplied, and
+continues through `SchemaConversionProjection/v1` only when an existing valid
+`APPROVED-FOR-CONVERSION` decision is supplied. Runner stage envelopes and
+read-only `BatchSummary/v2` metrics are deterministic and order-independent;
+direct schema-conversion output is semantically identical, raw values,
+provenance, applicability and lineage are preserved, and duplicate, missing,
+invalid, unsupported and rejected inputs fail closed. The fixture measured two
+eligible automatic transitions out of two, one human-boundary stop out of two
+scenarios, five stage invocations and zero external side effects; historical
+Wave A automation/source-reuse/duplication metrics remain explicitly
+NOT-MEASURED. No human decision was created, no evidence or production state
+changed, and BMW/Ducati/Honda upstream fixtures remain unchanged. Exact NEXT is
+Wave C: deterministic GREEN/YELLOW/RED routing and grouped exception
+projection; it was not executed.

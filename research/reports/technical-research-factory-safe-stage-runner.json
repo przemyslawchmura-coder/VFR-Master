@@ -1,0 +1,884 @@
+{
+  "schemaVersion": "revlog-technical-research-factory-safe-stage-runner/v1",
+  "runnerSchemaVersion": 1,
+  "proofPath": [
+    "PromotionReviewPacket/v1 validation",
+    "PromotionReviewDecision/v1 existing authorization",
+    "SchemaConversionProjection/v1"
+  ],
+  "pending": {
+    "externalSideEffects": false,
+    "humanAuthorizationConsumed": false,
+    "id": "safe-stage-runner.9c42f054e1dc37cd37b73b41",
+    "output": null,
+    "schemaVersion": 1,
+    "stageEnvelopes": [
+      {
+        "contractVersion": "PromotionReviewPacket/v1",
+        "executionState": "ADVANCED",
+        "externalSideEffects": false,
+        "humanAuthorizationConsumed": false,
+        "id": "safe-stage-envelope.f9a61829b099f8c93be84470",
+        "inputIdentity": {
+          "digest": "c49ad8147d478cb94edf0d7da548c7a8a46046114400db6c251310a8b1b88bdc",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        },
+        "lineage": {
+          "previousEnvelopeId": null
+        },
+        "outputIdentity": {
+          "digest": "c49ad8147d478cb94edf0d7da548c7a8a46046114400db6c251310a8b1b88bdc",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        },
+        "schemaVersion": 1,
+        "stage": "PROMOTION-REVIEW-PACKET",
+        "stopReason": null
+      },
+      {
+        "contractVersion": "PromotionReviewDecision/v1",
+        "executionState": "SAFE-STOP",
+        "externalSideEffects": false,
+        "humanAuthorizationConsumed": false,
+        "id": "safe-stage-envelope.6f9d10f2c9af40ff4d073559",
+        "inputIdentity": {
+          "digest": "c49ad8147d478cb94edf0d7da548c7a8a46046114400db6c251310a8b1b88bdc",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        },
+        "lineage": {
+          "previousEnvelopeId": "safe-stage-envelope.f9a61829b099f8c93be84470"
+        },
+        "outputIdentity": null,
+        "schemaVersion": 1,
+        "stage": "PROMOTION-REVIEW",
+        "stopReason": "PROMOTION-REVIEW-REQUIRED"
+      }
+    ],
+    "state": "SAFE-STOP",
+    "stopReason": "PROMOTION-REVIEW-REQUIRED"
+  },
+  "continuation": {
+    "externalSideEffects": false,
+    "humanAuthorizationConsumed": true,
+    "id": "safe-stage-runner.b8b17689af4cf4b99ad62dff",
+    "output": {
+      "blockedReasons": [],
+      "conversionState": "CONVERSION-READY",
+      "evidenceProcessingRecordId": "evidence-processing.87cd135fb44ebc569aebacb9",
+      "id": "schema-conversion.0408c67195304a42913cbbb4",
+      "promotionPacketId": "promotion-candidate.0c12373f56277561b2b692a2",
+      "promotionReviewDecisionId": "promotion-review-decision.5e99ea7b38d63897de9037e8",
+      "promotionReviewDecisionState": "APPROVED-FOR-CONVERSION",
+      "promotionReviewPacketId": "promotion-review-packet.04a970ff8421a1871a92120b",
+      "proposedProduction": {
+        "categoryId": "lubrication",
+        "entryId": "lubrication.engine-oil.specification",
+        "type": "fluid",
+        "value": {
+          "text": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+          "type": "text"
+        }
+      },
+      "researchCanonicalFieldId": "lubrication.oil-specification",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "American Honda Motor Co., Inc.",
+        "documentId": "31MLRB00 / 00X31-MLR-B000",
+        "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+        "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+        "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+        "tier": "A"
+      },
+      "sourceProvenance": {
+        "packet": {
+          "canonicalFieldId": "lubrication.oil-specification",
+          "evidenceProcessingRecordId": "evidence-processing.87cd135fb44ebc569aebacb9",
+          "promotionPacketId": "promotion-candidate.0c12373f56277561b2b692a2",
+          "promotionReviewPacketId": "promotion-review-packet.04a970ff8421a1871a92120b",
+          "provenance": {
+            "artifactId": "artifact.0498845c683f226a302b0a90",
+            "candidateId": "extraction-candidate.87fcea8600978eff75d9f8d6",
+            "extractionMethod": "declarative-text-extractor/1",
+            "extractionResultId": "extraction-result.32ff931c2f1fe866679758b6",
+            "sourceLocation": {
+              "locator": "lines:55-64;chars:731-1026",
+              "page": null,
+              "section": "derived text",
+              "tableOrSubsection": "document:full"
+            }
+          },
+          "rawUnit": null,
+          "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil"
+        },
+        "sourceLocation": {
+          "locator": "lines:55-64;chars:731-1026",
+          "page": null,
+          "section": "derived text",
+          "tableOrSubsection": "document:full"
+        }
+      },
+      "targetApplicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "honda.cbr500r.pc70",
+        "equipment": "standard road model",
+        "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+        "market": "USA/Canada",
+        "model": "CBR500R",
+        "state": "KNOWN",
+        "year": 2024
+      }
+    },
+    "schemaVersion": 1,
+    "stageEnvelopes": [
+      {
+        "contractVersion": "PromotionReviewPacket/v1",
+        "executionState": "ADVANCED",
+        "externalSideEffects": false,
+        "humanAuthorizationConsumed": false,
+        "id": "safe-stage-envelope.f9a61829b099f8c93be84470",
+        "inputIdentity": {
+          "digest": "c49ad8147d478cb94edf0d7da548c7a8a46046114400db6c251310a8b1b88bdc",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        },
+        "lineage": {
+          "previousEnvelopeId": null
+        },
+        "outputIdentity": {
+          "digest": "c49ad8147d478cb94edf0d7da548c7a8a46046114400db6c251310a8b1b88bdc",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        },
+        "schemaVersion": 1,
+        "stage": "PROMOTION-REVIEW-PACKET",
+        "stopReason": null
+      },
+      {
+        "contractVersion": "PromotionReviewDecision/v1",
+        "executionState": "ADVANCED",
+        "externalSideEffects": false,
+        "humanAuthorizationConsumed": true,
+        "id": "safe-stage-envelope.825532131c134f9b3f80877b",
+        "inputIdentity": {
+          "digest": "c49ad8147d478cb94edf0d7da548c7a8a46046114400db6c251310a8b1b88bdc",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        },
+        "lineage": {
+          "previousEnvelopeId": "safe-stage-envelope.f9a61829b099f8c93be84470"
+        },
+        "outputIdentity": {
+          "digest": "82cd9e6005a16cba9460064e42b19eda8bd0c202c181a879b073f710dacf3c9a",
+          "id": "promotion-review-decision.5e99ea7b38d63897de9037e8"
+        },
+        "schemaVersion": 1,
+        "stage": "PROMOTION-REVIEW",
+        "stopReason": null
+      },
+      {
+        "contractVersion": "SchemaConversionProjection/v1",
+        "executionState": "ADVANCED",
+        "externalSideEffects": false,
+        "humanAuthorizationConsumed": true,
+        "id": "safe-stage-envelope.8bb882e234e788f601ce9191",
+        "inputIdentity": {
+          "digest": "82cd9e6005a16cba9460064e42b19eda8bd0c202c181a879b073f710dacf3c9a",
+          "id": "promotion-review-decision.5e99ea7b38d63897de9037e8"
+        },
+        "lineage": {
+          "previousEnvelopeId": "safe-stage-envelope.825532131c134f9b3f80877b"
+        },
+        "outputIdentity": {
+          "digest": "39edffbc15af4cb82d76dfe5b43e1ed8a5b5e50b7d3422b81838cd26ca4ade6a",
+          "id": "schema-conversion.0408c67195304a42913cbbb4"
+        },
+        "schemaVersion": 1,
+        "stage": "SCHEMA-CONVERSION",
+        "stopReason": null
+      }
+    ],
+    "state": "ADVANCED",
+    "stopReason": null
+  },
+  "outcomes": [
+    {
+      "externalSideEffects": false,
+      "humanAuthorizationConsumed": true,
+      "id": "safe-stage-runner.b8b17689af4cf4b99ad62dff",
+      "output": {
+        "blockedReasons": [],
+        "conversionState": "CONVERSION-READY",
+        "evidenceProcessingRecordId": "evidence-processing.87cd135fb44ebc569aebacb9",
+        "id": "schema-conversion.0408c67195304a42913cbbb4",
+        "promotionPacketId": "promotion-candidate.0c12373f56277561b2b692a2",
+        "promotionReviewDecisionId": "promotion-review-decision.5e99ea7b38d63897de9037e8",
+        "promotionReviewDecisionState": "APPROVED-FOR-CONVERSION",
+        "promotionReviewPacketId": "promotion-review-packet.04a970ff8421a1871a92120b",
+        "proposedProduction": {
+          "categoryId": "lubrication",
+          "entryId": "lubrication.engine-oil.specification",
+          "type": "fluid",
+          "value": {
+            "text": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+            "type": "text"
+          }
+        },
+        "researchCanonicalFieldId": "lubrication.oil-specification",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "American Honda Motor Co., Inc.",
+          "documentId": "31MLRB00 / 00X31-MLR-B000",
+          "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+          "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+          "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+          "tier": "A"
+        },
+        "sourceProvenance": {
+          "packet": {
+            "canonicalFieldId": "lubrication.oil-specification",
+            "evidenceProcessingRecordId": "evidence-processing.87cd135fb44ebc569aebacb9",
+            "promotionPacketId": "promotion-candidate.0c12373f56277561b2b692a2",
+            "promotionReviewPacketId": "promotion-review-packet.04a970ff8421a1871a92120b",
+            "provenance": {
+              "artifactId": "artifact.0498845c683f226a302b0a90",
+              "candidateId": "extraction-candidate.87fcea8600978eff75d9f8d6",
+              "extractionMethod": "declarative-text-extractor/1",
+              "extractionResultId": "extraction-result.32ff931c2f1fe866679758b6",
+              "sourceLocation": {
+                "locator": "lines:55-64;chars:731-1026",
+                "page": null,
+                "section": "derived text",
+                "tableOrSubsection": "document:full"
+              }
+            },
+            "rawUnit": null,
+            "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil"
+          },
+          "sourceLocation": {
+            "locator": "lines:55-64;chars:731-1026",
+            "page": null,
+            "section": "derived text",
+            "tableOrSubsection": "document:full"
+          }
+        },
+        "targetApplicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "honda.cbr500r.pc70",
+          "equipment": "standard road model",
+          "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+          "market": "USA/Canada",
+          "model": "CBR500R",
+          "state": "KNOWN",
+          "year": 2024
+        }
+      },
+      "schemaVersion": 1,
+      "stageEnvelopes": [
+        {
+          "contractVersion": "PromotionReviewPacket/v1",
+          "executionState": "ADVANCED",
+          "externalSideEffects": false,
+          "humanAuthorizationConsumed": false,
+          "id": "safe-stage-envelope.f9a61829b099f8c93be84470",
+          "inputIdentity": {
+            "digest": "c49ad8147d478cb94edf0d7da548c7a8a46046114400db6c251310a8b1b88bdc",
+            "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+          },
+          "lineage": {
+            "previousEnvelopeId": null
+          },
+          "outputIdentity": {
+            "digest": "c49ad8147d478cb94edf0d7da548c7a8a46046114400db6c251310a8b1b88bdc",
+            "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+          },
+          "schemaVersion": 1,
+          "stage": "PROMOTION-REVIEW-PACKET",
+          "stopReason": null
+        },
+        {
+          "contractVersion": "PromotionReviewDecision/v1",
+          "executionState": "ADVANCED",
+          "externalSideEffects": false,
+          "humanAuthorizationConsumed": true,
+          "id": "safe-stage-envelope.825532131c134f9b3f80877b",
+          "inputIdentity": {
+            "digest": "c49ad8147d478cb94edf0d7da548c7a8a46046114400db6c251310a8b1b88bdc",
+            "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+          },
+          "lineage": {
+            "previousEnvelopeId": "safe-stage-envelope.f9a61829b099f8c93be84470"
+          },
+          "outputIdentity": {
+            "digest": "82cd9e6005a16cba9460064e42b19eda8bd0c202c181a879b073f710dacf3c9a",
+            "id": "promotion-review-decision.5e99ea7b38d63897de9037e8"
+          },
+          "schemaVersion": 1,
+          "stage": "PROMOTION-REVIEW",
+          "stopReason": null
+        },
+        {
+          "contractVersion": "SchemaConversionProjection/v1",
+          "executionState": "ADVANCED",
+          "externalSideEffects": false,
+          "humanAuthorizationConsumed": true,
+          "id": "safe-stage-envelope.8bb882e234e788f601ce9191",
+          "inputIdentity": {
+            "digest": "82cd9e6005a16cba9460064e42b19eda8bd0c202c181a879b073f710dacf3c9a",
+            "id": "promotion-review-decision.5e99ea7b38d63897de9037e8"
+          },
+          "lineage": {
+            "previousEnvelopeId": "safe-stage-envelope.825532131c134f9b3f80877b"
+          },
+          "outputIdentity": {
+            "digest": "39edffbc15af4cb82d76dfe5b43e1ed8a5b5e50b7d3422b81838cd26ca4ade6a",
+            "id": "schema-conversion.0408c67195304a42913cbbb4"
+          },
+          "schemaVersion": 1,
+          "stage": "SCHEMA-CONVERSION",
+          "stopReason": null
+        }
+      ],
+      "state": "ADVANCED",
+      "stopReason": null
+    },
+    {
+      "externalSideEffects": false,
+      "humanAuthorizationConsumed": false,
+      "id": "safe-stage-runner.9c42f054e1dc37cd37b73b41",
+      "output": null,
+      "schemaVersion": 1,
+      "stageEnvelopes": [
+        {
+          "contractVersion": "PromotionReviewPacket/v1",
+          "executionState": "ADVANCED",
+          "externalSideEffects": false,
+          "humanAuthorizationConsumed": false,
+          "id": "safe-stage-envelope.f9a61829b099f8c93be84470",
+          "inputIdentity": {
+            "digest": "c49ad8147d478cb94edf0d7da548c7a8a46046114400db6c251310a8b1b88bdc",
+            "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+          },
+          "lineage": {
+            "previousEnvelopeId": null
+          },
+          "outputIdentity": {
+            "digest": "c49ad8147d478cb94edf0d7da548c7a8a46046114400db6c251310a8b1b88bdc",
+            "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+          },
+          "schemaVersion": 1,
+          "stage": "PROMOTION-REVIEW-PACKET",
+          "stopReason": null
+        },
+        {
+          "contractVersion": "PromotionReviewDecision/v1",
+          "executionState": "SAFE-STOP",
+          "externalSideEffects": false,
+          "humanAuthorizationConsumed": false,
+          "id": "safe-stage-envelope.6f9d10f2c9af40ff4d073559",
+          "inputIdentity": {
+            "digest": "c49ad8147d478cb94edf0d7da548c7a8a46046114400db6c251310a8b1b88bdc",
+            "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+          },
+          "lineage": {
+            "previousEnvelopeId": "safe-stage-envelope.f9a61829b099f8c93be84470"
+          },
+          "outputIdentity": null,
+          "schemaVersion": 1,
+          "stage": "PROMOTION-REVIEW",
+          "stopReason": "PROMOTION-REVIEW-REQUIRED"
+        }
+      ],
+      "state": "SAFE-STOP",
+      "stopReason": "PROMOTION-REVIEW-REQUIRED"
+    }
+  ],
+  "batchSummary": {
+    "aggregate": {
+      "automaticAdvancements": {
+        "measurementState": "MEASURED",
+        "reason": "Count directly observed by the runner fixture",
+        "scope": "Wave B proof fixture",
+        "value": 2
+      },
+      "blockedTransitions": {
+        "measurementState": "MEASURED",
+        "reason": "Count directly observed by the runner fixture",
+        "scope": "Wave B proof fixture",
+        "value": 0
+      },
+      "conversionReady": {
+        "measurementState": "MEASURED",
+        "reason": "Count directly observed by the runner fixture",
+        "scope": "Wave B proof fixture",
+        "value": 1
+      },
+      "eligibleAutomaticTransitions": {
+        "measurementState": "MEASURED",
+        "reason": "Count directly observed by the runner fixture",
+        "scope": "Wave B proof fixture",
+        "value": 2
+      },
+      "evidenceRowsCreated": {
+        "measurementState": "MEASURED",
+        "reason": "Count directly observed by the runner fixture",
+        "scope": "Wave B proof fixture",
+        "value": 0
+      },
+      "failedTransitions": {
+        "measurementState": "MEASURED",
+        "reason": "Count directly observed by the runner fixture",
+        "scope": "Wave B proof fixture",
+        "value": 0
+      },
+      "humanBoundaryStops": {
+        "measurementState": "MEASURED",
+        "reason": "Count directly observed by the runner fixture",
+        "scope": "Wave B proof fixture",
+        "value": 1
+      },
+      "humanDecisionsConsumed": {
+        "measurementState": "MEASURED",
+        "reason": "Count directly observed by the runner fixture",
+        "scope": "Wave B proof fixture",
+        "value": 1
+      },
+      "humanDecisionsCreated": {
+        "measurementState": "MEASURED",
+        "reason": "Count directly observed by the runner fixture",
+        "scope": "Wave B proof fixture",
+        "value": 0
+      },
+      "productionWrites": {
+        "measurementState": "MEASURED",
+        "reason": "Count directly observed by the runner fixture",
+        "scope": "Wave B proof fixture",
+        "value": 0
+      },
+      "runnerScenarios": {
+        "measurementState": "MEASURED",
+        "reason": "Count directly observed by the runner fixture",
+        "scope": "Wave B proof fixture",
+        "value": 2
+      },
+      "stageInvocations": {
+        "measurementState": "MEASURED",
+        "reason": "Count directly observed by the runner fixture",
+        "scope": "Wave B proof fixture",
+        "value": 5
+      }
+    },
+    "boundary": {
+      "catalogueMutation": false,
+      "cloudMutation": false,
+      "evidenceMaterialization": false,
+      "productionMaterialization": false,
+      "registryMutation": false,
+      "serviceCoreMutation": false,
+      "uiMutation": false
+    },
+    "contractVersions": {
+      "batchSummary": "BatchSummary/v2",
+      "conversion": "SchemaConversionProjection/v1",
+      "decision": "PromotionReviewDecision/v1",
+      "packet": "PromotionReviewPacket/v1",
+      "runner": "SafeStageRunner/v1"
+    },
+    "fixtures": [
+      {
+        "comparability": "DIRECT-RUNNER-FIXTURE-ONLY",
+        "counts": {
+          "automaticAdvancements": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 2
+          },
+          "blockedTransitions": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 0
+          },
+          "conversionReady": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 1
+          },
+          "eligibleAutomaticTransitions": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 2
+          },
+          "evidenceRowsCreated": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 0
+          },
+          "failedTransitions": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 0
+          },
+          "humanBoundaryStops": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 1
+          },
+          "humanDecisionsConsumed": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 1
+          },
+          "humanDecisionsCreated": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 0
+          },
+          "productionWrites": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 0
+          },
+          "runnerScenarios": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 2
+          },
+          "stageInvocations": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 5
+          }
+        },
+        "fixtureId": "wave-b-safe-stage-runner-proof",
+        "humanActions": {
+          "existingPromotionDecisionConsumed": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 1
+          },
+          "newHumanDecisionsCreated": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 0
+          },
+          "promotionReviewRequired": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 1
+          }
+        },
+        "lifecycleGeneration": "throughput-v2-wave-b",
+        "metrics": {
+          "autoAdvanceRate": {
+            "contractVersions": [
+              "SafeStageRunner/v1",
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "MEASURED",
+              "reason": "Direct runner count",
+              "scope": "Wave B proof fixture",
+              "value": 2
+            },
+            "measurementState": "MEASURED",
+            "name": "autoAdvanceRate",
+            "numerator": {
+              "measurementState": "MEASURED",
+              "reason": "Direct runner count",
+              "scope": "Wave B proof fixture",
+              "value": 2
+            },
+            "reason": "Both eligible deterministic transitions advanced automatically",
+            "scope": "Wave B proof fixture",
+            "value": 1
+          },
+          "humanTouchRate": {
+            "contractVersions": [
+              "SafeStageRunner/v1",
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "MEASURED",
+              "reason": "Direct runner count",
+              "scope": "Wave B proof fixture",
+              "value": 2
+            },
+            "measurementState": "MEASURED",
+            "name": "humanTouchRate",
+            "numerator": {
+              "measurementState": "MEASURED",
+              "reason": "Direct runner count",
+              "scope": "Wave B proof fixture",
+              "value": 1
+            },
+            "reason": "One of two proof scenarios stopped at the human boundary",
+            "scope": "Wave B proof fixture",
+            "value": 0.5
+          },
+          "researchDuplicationRate": {
+            "contractVersions": [
+              "SafeStageRunner/v1",
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Denominator is unavailable",
+              "scope": "Wave B proof fixture",
+              "value": null
+            },
+            "measurementState": "NOT-MEASURED",
+            "name": "researchDuplicationRate",
+            "numerator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Numerator is unavailable",
+              "scope": "Wave B proof fixture",
+              "value": null
+            },
+            "reason": "Equivalent research-operation denominator is outside this proof path",
+            "scope": "Wave B proof fixture",
+            "value": null
+          },
+          "sourceReuseRate": {
+            "contractVersions": [
+              "SafeStageRunner/v1",
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Denominator is unavailable",
+              "scope": "Wave B proof fixture",
+              "value": null
+            },
+            "measurementState": "NOT-MEASURED",
+            "name": "sourceReuseRate",
+            "numerator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Numerator is unavailable",
+              "scope": "Wave B proof fixture",
+              "value": null
+            },
+            "reason": "Source acquisition is outside this read-only proof path",
+            "scope": "Wave B proof fixture",
+            "value": null
+          }
+        },
+        "notes": [
+          "The pending scenario stops without creating a human decision.",
+          "The continuation scenario consumes one existing valid decision.",
+          "This fixture does not measure historical Wave A automation or source reuse."
+        ],
+        "safeStop": "PRE-MATERIALIZATION",
+        "scope": {
+          "requestedFields": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 1
+          },
+          "scenarios": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 2
+          },
+          "targets": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 1
+          }
+        },
+        "sourceIdentity": {
+          "reusedAuthenticatedSources": null,
+          "sourceReuseRate": null
+        },
+        "stageStates": {
+          "advanced": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 1
+          },
+          "blocked": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 0
+          },
+          "failed": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 0
+          },
+          "safeStop": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 1
+          }
+        },
+        "workCounters": {
+          "automaticAdvancements": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 2
+          },
+          "humanBoundaryStops": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 1
+          },
+          "runnerStageInvocations": {
+            "measurementState": "MEASURED",
+            "reason": "Count directly observed by the runner fixture",
+            "scope": "Wave B proof fixture",
+            "value": 5
+          }
+        }
+      }
+    ],
+    "id": "batch-summary.c781b394a83ccacc02379b64",
+    "metrics": {
+      "autoAdvanceRate": {
+        "contractVersions": [
+          "SafeStageRunner/v1",
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "MEASURED",
+          "reason": "Direct runner count",
+          "scope": "Wave B proof fixture",
+          "value": 2
+        },
+        "measurementState": "MEASURED",
+        "name": "autoAdvanceRate",
+        "numerator": {
+          "measurementState": "MEASURED",
+          "reason": "Direct runner count",
+          "scope": "Wave B proof fixture",
+          "value": 2
+        },
+        "reason": "Both eligible deterministic transitions advanced automatically",
+        "scope": "Wave B proof fixture",
+        "value": 1
+      },
+      "humanTouchRate": {
+        "contractVersions": [
+          "SafeStageRunner/v1",
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "MEASURED",
+          "reason": "Direct runner count",
+          "scope": "Wave B proof fixture",
+          "value": 2
+        },
+        "measurementState": "MEASURED",
+        "name": "humanTouchRate",
+        "numerator": {
+          "measurementState": "MEASURED",
+          "reason": "Direct runner count",
+          "scope": "Wave B proof fixture",
+          "value": 1
+        },
+        "reason": "One of two proof scenarios stopped at the human boundary",
+        "scope": "Wave B proof fixture",
+        "value": 0.5
+      },
+      "researchDuplicationRate": {
+        "contractVersions": [
+          "SafeStageRunner/v1",
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Denominator is unavailable",
+          "scope": "Wave B proof fixture",
+          "value": null
+        },
+        "measurementState": "NOT-MEASURED",
+        "name": "researchDuplicationRate",
+        "numerator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Numerator is unavailable",
+          "scope": "Wave B proof fixture",
+          "value": null
+        },
+        "reason": "Equivalent research-operation denominator is outside this proof path",
+        "scope": "Wave B proof fixture",
+        "value": null
+      },
+      "sourceReuseRate": {
+        "contractVersions": [
+          "SafeStageRunner/v1",
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Denominator is unavailable",
+          "scope": "Wave B proof fixture",
+          "value": null
+        },
+        "measurementState": "NOT-MEASURED",
+        "name": "sourceReuseRate",
+        "numerator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Numerator is unavailable",
+          "scope": "Wave B proof fixture",
+          "value": null
+        },
+        "reason": "Source acquisition is outside this read-only proof path",
+        "scope": "Wave B proof fixture",
+        "value": null
+      }
+    },
+    "safeStop": "PRE-MATERIALIZATION",
+    "schemaVersion": 2,
+    "scope": {
+      "id": "technical-research-factory-wave-b",
+      "label": "Wave B safe-stage runner proof"
+    }
+  },
+  "assertions": {
+    "exactlyTwoScenarios": true,
+    "humanBoundaryStop": true,
+    "noHumanDecisionCreated": true,
+    "existingDecisionConsumed": true,
+    "directStageEquivalent": true,
+    "deterministic": true,
+    "upstreamInputsImmutable": true,
+    "externalSideEffects": false,
+    "evidenceRowsCreated": 0,
+    "productionChanged": false,
+    "serviceCoreChanged": false,
+    "cloudChanged": false
+  },
+  "next": "Execute Wave C: deterministic GREEN/YELLOW/RED routing and grouped exception projection; do not execute in Wave B."
+}
