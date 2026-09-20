@@ -382,6 +382,31 @@ production artifact.
 
 Status: ACTIVE. Related implementation: `research/factory/materialization-input-reference-contracts.js`, `research/factory/materialization-requirements.js`.
 
+## ADR-047 — Reusable demand identity is canonical and user-independent
+
+Date: 2026-09-20
+
+Decision: Non-production reusable research demand identity is derived from the
+canonical catalogue variant, explicit applicability/context, canonical field
+and operation, conditions, and the explicitly required applicability
+dimensions. Canonical JSON serialization and the existing fail-closed
+applicability validator are authoritative. User IDs, garage-row IDs, batch IDs,
+TargetWork IDs and SourceWorkItem IDs are never identity inputs. A reusable
+knowledge key is derived from the same canonical demand identity and retains
+status, raw value and provenance separately.
+
+Rationale: equivalent users must share reusable knowledge while semantically
+different contexts must not collide. Existing Factory execution identities are
+batch-scoped and cannot serve as cross-request knowledge identity. The local
+Wave 1 proof shows exact reuse, deterministic missing-field classification,
+partial safe projection and explicit in-progress/review/unsupported/blocked
+states without production promotion.
+
+Consequences: unknown required applicability fails closed; incompatible
+contexts require separate research; safe fields remain projectable when an
+unrelated field is blocked or awaiting review. Durable persistence and atomic
+deduplication remain a separate Wave 2 boundary.
+
 ## ADR-045 — Source discovery and prospect registration boundary
 
 Date: 2026-09-19

@@ -511,3 +511,18 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   was acquired, and no production, Service Core, routing, catalogue, registry,
   Supabase or UI state changed. Wave K remains valid at 8 GREEN / 1 YELLOW /
   23 RED.
+
+- Research on Demand Wave 1 is implemented as a pure, non-production local
+  contract proof. `research/factory/reusable-knowledge-contracts.js` reuses
+  the existing canonical JSON and applicability validators to derive stable
+  demand/knowledge keys from `catalogVariantKey`, explicit applicability,
+  canonical field/operation, conditions and required applicability dimensions.
+  User, garage-row and batch identities are excluded. The local synthetic
+  fixture and focused tests prove exact reusable lookup, incompatible and
+  unknown-context fail-closed behavior, deterministic partial projection,
+  provenance preservation, explicit reusable/in-progress/review/unsupported/
+  blocked states and missing-demand classification. No persistence, app
+  integration, external provider/acquisition, production materialization,
+  catalogue, Service Core or routing state changed. Wave K remains 8 GREEN /
+  1 YELLOW / 23 RED; Wave I battery semantics, pressure YELLOW ownership and
+  Wave G hostile 3/2/4 remain unchanged.

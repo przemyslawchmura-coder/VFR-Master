@@ -2,6 +2,21 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-20 — Research on Demand Wave 1 local contract proof
+
+Implemented the first non-production Research on Demand contract layer under
+the existing Factory. `reusable-knowledge-contracts.js` derives deterministic
+reusable-demand and knowledge identities from catalog variant, explicit
+applicability, field/operation, conditions and required applicability
+dimensions; user, garage and batch identities are excluded. The synthetic
+local fixture proves exact reuse, incompatible and unknown context rejection,
+partial safe projection, explicit in-progress/human-review/blocked states and
+missing-demand classification. Existing canonical JSON and applicability
+primitives are reused; no persistence, app integration, acquisition, external
+provider, production materialization, routing or Wave K/I/G behavior changed.
+NEXT: Research on Demand — Wave 2, durable research demand/status and
+reusable-knowledge persistence with atomic deduplication.
+
 ## 2026-09-20 — Research on Demand + Persistent Reuse architecture audit
 
 Audited the actual garage/catalogue/context flow, Technical Profile registry and
