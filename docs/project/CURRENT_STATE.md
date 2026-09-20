@@ -482,3 +482,15 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   catalogue, registry, cloud or UI state changed. NEXT is a separately
   authorized class-specific contract proposal only if new evidence justifies
   it; no capability implementation is selected by default.
+- Technical Research Factory Throughput v2 Wave K performed the bounded
+  contract-prioritization analysis over the exact 23 remaining unsupported
+  records. Six repeated classes and seven singleton classes were inspected
+  with raw values, provenance, applicability and conditions preserved. No
+  class had evidence sufficient to define a narrow lossless contract without
+  inventing semantics, so the selection is `NONE`; no rule, routing,
+  authorization, evidence, production, Service Core, catalogue, registry,
+  cloud or UI state changed. The exact routing remains 8 GREEN, 1 YELLOW and
+  23 RED, with Wave I battery semantics, the pressure boundary, hostile
+  Wave G 3/2/4 and historical reports preserved. The prerequisite for any
+  future contract-design wave is new repository evidence or an existing
+  formal lossless contract; no such wave is authorized here.

@@ -1657,3 +1657,20 @@ boundary and Wave G hostile 3/2/4 regression remain unchanged. No evidence,
 production, Service Core, catalogue, registry, cloud or UI state changed.
 NEXT is a separately authorized class-specific contract proposal only when
 new evidence proves safety; it was not executed.
+
+## 2026-09-20 — Technical Research Factory Throughput v2 Wave K
+
+Performed the bounded remaining-capability contract prioritization over the
+exact Wave H/I 32-record dataset. All 23 unsupported RED records were
+accounted for exactly once: six repeated classes and seven singleton classes.
+The repeated classes were inspected by canonical field, raw shape, full raw
+semantics, provenance, applicability and conditions. None supports a narrow
+lossless contract proposal under the existing contracts without semantic
+interpretation or information loss. Wave K therefore selects NONE, adds no
+rule, changes no routing or authorization, and preserves 8 GREEN, 1 YELLOW
+and 23 RED, the Wave I battery-capacity boundary, pressure YELLOW ownership,
+Wave G hostile 3/2/4 and historical Wave D/H/I/J report semantics. No
+evidence, production, Service Core, catalogue, registry, cloud or UI state
+changed. NEXT requires new repository evidence or an existing formal
+lossless contract prerequisite; no contract-design wave is authorized by
+this report.

@@ -1,0 +1,1321 @@
+{
+  "schemaVersion": "revlog-technical-research-factory-wave-k/v1",
+  "sourceCheckpoint": "2d2f3a1cf596a361485763fcff30248330c4985c",
+  "sourceWaveIReport": "research/reports/technical-research-factory-wave-i.json",
+  "sourceWaveJReport": "research/reports/technical-research-factory-wave-j.json",
+  "verifiedInventory": {
+    "exactGapCount": {
+      "value": 23,
+      "measurementState": "MEASURED",
+      "scope": "Wave K exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    },
+    "uniqueRecordCount": {
+      "value": 23,
+      "measurementState": "MEASURED",
+      "scope": "Wave K exact Wave H legitimate dataset",
+      "reason": "Directly observed deterministic execution"
+    },
+    "allRecordIds": [
+      "promotion-review-packet.04a970ff8421a1871a92120b",
+      "promotion-review-packet.075d6b761f2aa57617182b92",
+      "promotion-review-packet.0f7198304fbd44a800b8334f",
+      "promotion-review-packet.1e83fddea642a8d0fa66f0f2",
+      "promotion-review-packet.22451b716ca3eec2261f8794",
+      "promotion-review-packet.2ad992f252eec3d1858b1c80",
+      "promotion-review-packet.301cf7502e55332999989e01",
+      "promotion-review-packet.308fd2766797fc648e115f9a",
+      "promotion-review-packet.3287b2c64001d151b7b3f3ed",
+      "promotion-review-packet.6fea8fa9e76cecd4f0a569d0",
+      "promotion-review-packet.72b737dd0737320926ef99c6",
+      "promotion-review-packet.76c0ed4a065e106c69a221ec",
+      "promotion-review-packet.77df0ca27619514de36a5c23",
+      "promotion-review-packet.8df714d6cca0eb63bba60c02",
+      "promotion-review-packet.9ebecb078bbc466003478ca3",
+      "promotion-review-packet.9f49100ae773c9bb59ae7987",
+      "promotion-review-packet.a06115b1c776509565dc9042",
+      "promotion-review-packet.c788fee93ddd819b47431870",
+      "promotion-review-packet.c7d501675a55cd731db569cf",
+      "promotion-review-packet.c9c77db6bafcfa886e3d0c56",
+      "promotion-review-packet.dbbcabda70dacc11f860df94",
+      "promotion-review-packet.de7593d846584df98d151201",
+      "promotion-review-packet.f2b9c05b8f972574ed219a51"
+    ],
+    "pressureYellowExcluded": true,
+    "pressureRecordIds": [
+      "promotion-review-packet.6da8ee105490e42d6211aaaa"
+    ]
+  },
+  "repeatedClasses": [
+    {
+      "capabilityClass": "LUBRICATION-SPECIFICATION-TEXT",
+      "count": 4,
+      "decision": "DEFERRED-UNSAFE",
+      "records": [
+        {
+          "recordId": "promotion-review-packet.04a970ff8421a1871a92120b",
+          "model": "CBR500R",
+          "canonicalFieldId": "lubrication.oil-specification",
+          "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "sourceIdentity": {
+            "authority": "American Honda Motor Co., Inc.",
+            "documentId": "31MLRB00 / 00X31-MLR-B000",
+            "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+            "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+            "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+            "tier": "A"
+          },
+          "provenance": {
+            "artifactId": "artifact.0498845c683f226a302b0a90",
+            "candidateId": "extraction-candidate.87fcea8600978eff75d9f8d6",
+            "extractionMethod": "declarative-text-extractor/1",
+            "extractionResultId": "extraction-result.32ff931c2f1fe866679758b6",
+            "sourceLocation": {
+              "locator": "lines:55-64;chars:731-1026",
+              "page": null,
+              "section": "derived text",
+              "tableOrSubsection": "document:full"
+            }
+          },
+          "sourceProvenancePresent": true
+        },
+        {
+          "recordId": "promotion-review-packet.075d6b761f2aa57617182b92",
+          "model": "Monster 937",
+          "canonicalFieldId": "lubrication.viscosity",
+          "rawValue": "SAE 15W-50",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "modelYear": "KNOWN",
+            "market": "KNOWN",
+            "equipment": "SUFFICIENT",
+            "abs": "KNOWN",
+            "transmission": "KNOWN",
+            "context": "SUFFICIENT"
+          },
+          "sourceIdentity": {
+            "sourceId": "ducati.acquisition.monster937.owner.my21",
+            "prospectId": "unknown.ducati.monster937",
+            "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+            "authority": "Ducati Motor Holding S.p.A.",
+            "tier": "A",
+            "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf"
+          },
+          "provenance": {
+            "candidateId": "extraction-candidate.401ccb62a4054106d4b3cd21",
+            "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+            "artifactId": "artifact.ducati.monster937.owner.my21",
+            "sourceLocation": {
+              "locator": "printed-page:196, 211",
+              "page": null,
+              "section": "Recommendations concerning oil; Fuel, lubricants and other fluids"
+            },
+            "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+          },
+          "sourceProvenancePresent": true
+        },
+        {
+          "recordId": "promotion-review-packet.301cf7502e55332999989e01",
+          "model": "Monster 937",
+          "canonicalFieldId": "lubrication.api-jaso",
+          "rawValue": "API: SN; JASO: MA2",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "modelYear": "KNOWN",
+            "market": "KNOWN",
+            "equipment": "SUFFICIENT",
+            "abs": "KNOWN",
+            "transmission": "KNOWN",
+            "context": "SUFFICIENT"
+          },
+          "sourceIdentity": {
+            "sourceId": "ducati.acquisition.monster937.owner.my21",
+            "prospectId": "unknown.ducati.monster937",
+            "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+            "authority": "Ducati Motor Holding S.p.A.",
+            "tier": "A",
+            "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf"
+          },
+          "provenance": {
+            "candidateId": "extraction-candidate.4912a9df0e74c5972d5629be",
+            "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+            "artifactId": "artifact.ducati.monster937.owner.my21",
+            "sourceLocation": {
+              "locator": "printed-page:195–196, 211",
+              "page": null,
+              "section": "Check engine oil level; Fuel, lubricants and other fluids"
+            },
+            "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+          },
+          "sourceProvenancePresent": true
+        },
+        {
+          "recordId": "promotion-review-packet.c7d501675a55cd731db569cf",
+          "model": "bmw.c-scooter.c600-sport.2012",
+          "canonicalFieldId": "lubrication.oil-specification",
+          "rawValue": "BMW Motorrad High Performance Oil SAE 15W-50, API SJ / JASO MA2",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "provenance": {
+            "artifactId": "artifact.b66684090bab7aa012bcb2d1",
+            "candidateId": "extraction-candidate.277000dcbb7e644eee361793",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.aa7a7b74ddcedab42de718f5",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-115",
+              "page": 115,
+              "printedPage": 113,
+              "section": "Technical data / Engine oil",
+              "tableOrSubsection": "Products recommended by BMW Motorrad",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "sourceProvenancePresent": true
+        }
+      ],
+      "semanticAnalysis": {
+        "decision": "DEFERRED-UNSAFE",
+        "canonicalFields": [
+          "lubrication.oil-specification",
+          "lubrication.viscosity",
+          "lubrication.api-jaso"
+        ],
+        "rawValueShapes": [
+          "multi-line recommendation text",
+          "SAE viscosity scalar text",
+          "API/JASO pair text",
+          "product plus viscosity plus API/JASO text"
+        ],
+        "valueSemantics": "descriptive text containing recommendation, viscosity, API and/or JASO semantics",
+        "losslessInformation": [
+          "full recommendation wording",
+          "viscosity grade",
+          "API classification",
+          "JASO classification",
+          "exclusions and regional product wording",
+          "source condition/context"
+        ],
+        "futureContractGuarantees": [
+          "must be field-specific or use a formally defined tagged compound representation",
+          "must preserve every source clause and ordering/context",
+          "must not choose one recommendation",
+          "must not infer wet-clutch suitability",
+          "must retain source identity, location, applicability and condition"
+        ],
+        "blockers": [
+          "three canonical fields do not share one scalar contract",
+          "Honda wording contains exclusions and regional product alternatives",
+          "Ducati/BMW examples contain different subsets of oil semantics",
+          "parsing would interpret source meaning rather than perform a proven lossless transformation"
+        ],
+        "sufficientToProposeContract": false
+      }
+    },
+    {
+      "capabilityClass": "LIGHTING-COMPONENT-SPECIFICATION",
+      "count": 4,
+      "decision": "DEFERRED-UNSAFE",
+      "records": [
+        {
+          "recordId": "promotion-review-packet.308fd2766797fc648e115f9a",
+          "model": "bmw.c-scooter.c600-sport.2012",
+          "canonicalFieldId": "lighting.license-plate",
+          "rawValue": "W5W / 12 V / 5 W",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "provenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.8b0d0de6d7a7d6cbcb74ddc0",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+              "page": 119,
+              "printedPage": 117,
+              "section": "Technical data / Electrical system",
+              "tableOrSubsection": "Bulb for license-plate light",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "sourceProvenancePresent": true
+        },
+        {
+          "recordId": "promotion-review-packet.72b737dd0737320926ef99c6",
+          "model": "bmw.c-scooter.c600-sport.2012",
+          "canonicalFieldId": "lighting.front-position",
+          "rawValue": "W5W / 12 V / 5 W",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "provenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.85b8bd25b1f776354a12aef3",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+              "page": 119,
+              "printedPage": 117,
+              "section": "Technical data / Electrical system",
+              "tableOrSubsection": "Bulb for parking light",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "sourceProvenancePresent": true
+        },
+        {
+          "recordId": "promotion-review-packet.c788fee93ddd819b47431870",
+          "model": "bmw.c-scooter.c600-sport.2012",
+          "canonicalFieldId": "lighting.low-beam",
+          "rawValue": "H7 / 12 V / 55 W",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "provenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.7c4deeb30264c9e26e8d8d1a",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+              "page": 119,
+              "printedPage": 117,
+              "section": "Technical data / Electrical system",
+              "tableOrSubsection": "Bulbs for low-beam headlight",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "sourceProvenancePresent": true
+        },
+        {
+          "recordId": "promotion-review-packet.dbbcabda70dacc11f860df94",
+          "model": "bmw.c-scooter.c600-sport.2012",
+          "canonicalFieldId": "lighting.rear-tail",
+          "rawValue": "LED / 12 V",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "provenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.35f7066d25909674773fd58f",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+              "page": 119,
+              "printedPage": 117,
+              "section": "Technical data / Electrical system",
+              "tableOrSubsection": "Bulb for taillight/brake light",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "sourceProvenancePresent": true
+        }
+      ],
+      "semanticAnalysis": {
+        "decision": "DEFERRED-UNSAFE",
+        "canonicalFields": [
+          "lighting.license-plate",
+          "lighting.front-position",
+          "lighting.low-beam",
+          "lighting.rear-tail"
+        ],
+        "rawValueShapes": [
+          "bulb identity / voltage / wattage",
+          "LED / voltage",
+          "position-specific component specification"
+        ],
+        "valueSemantics": "position-specific lighting component specification, sometimes with bulb identity and electrical ratings",
+        "losslessInformation": [
+          "component identity",
+          "technology (bulb or LED)",
+          "voltage",
+          "wattage where present",
+          "lighting position",
+          "absence of wattage where source omits it"
+        ],
+        "futureContractGuarantees": [
+          "must retain canonical position identity",
+          "must represent optional/missing component attributes explicitly",
+          "must not coerce LED into a bulb identity",
+          "must preserve raw source text and units",
+          "must reject unsupported compound or position ambiguity"
+        ],
+        "blockers": [
+          "same-looking slash notation does not establish one universal component schema",
+          "rear-tail LED has no bulb/wattage analogue",
+          "position is encoded by canonical field and cannot be flattened",
+          "no existing component contract proves safe decomposition"
+        ],
+        "sufficientToProposeContract": false
+      }
+    },
+    {
+      "capabilityClass": "OPTIONAL-EQUIPMENT-LIGHTING-ALTERNATIVE",
+      "count": 2,
+      "decision": "DEFERRED-UNSAFE",
+      "records": [
+        {
+          "recordId": "promotion-review-packet.2ad992f252eec3d1858b1c80",
+          "model": "bmw.c-scooter.c600-sport.2012",
+          "canonicalFieldId": "lighting.front-indicators",
+          "rawValue": "PY21W / 12 V / 21 W; with LED turn indicators OE LED / 12 V",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "provenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.92a2414d9e0b2cdab2b43f0e",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+              "page": 119,
+              "printedPage": 117,
+              "section": "Technical data / Electrical system",
+              "tableOrSubsection": "Bulbs for flashing turn indicators, front",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "sourceProvenancePresent": true
+        },
+        {
+          "recordId": "promotion-review-packet.8df714d6cca0eb63bba60c02",
+          "model": "bmw.c-scooter.c600-sport.2012",
+          "canonicalFieldId": "lighting.rear-indicators",
+          "rawValue": "RY10W / 12 V / 10 W; with LED turn indicators OE LED / 12 V",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "provenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.aa9e7f8e88f5510bea3e6b6a",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+              "page": 119,
+              "printedPage": 117,
+              "section": "Technical data / Electrical system",
+              "tableOrSubsection": "Bulbs for flashing turn indicators, rear",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "sourceProvenancePresent": true
+        }
+      ],
+      "semanticAnalysis": {
+        "decision": "DEFERRED-UNSAFE",
+        "canonicalFields": [
+          "lighting.front-indicators",
+          "lighting.rear-indicators"
+        ],
+        "rawValueShapes": [
+          "standard bulb specification plus semicolon-separated optional LED alternative"
+        ],
+        "valueSemantics": "equipment-dependent alternatives for the same position",
+        "losslessInformation": [
+          "standard equipment component",
+          "optional LED equipment component",
+          "alternative relationship",
+          "front/rear position",
+          "voltage and wattage where stated",
+          "equipment applicability"
+        ],
+        "futureContractGuarantees": [
+          "must retain alternatives as separate tagged branches",
+          "must preserve equipment applicability",
+          "must never select a default branch",
+          "must not merge standard and LED values",
+          "must preserve position and provenance"
+        ],
+        "blockers": [
+          "the alternative relationship is semantic, not a scalar separator",
+          "equipment applicability cannot be broadened from the text",
+          "flattening would make one equipment configuration appear universal"
+        ],
+        "sufficientToProposeContract": false
+      }
+    },
+    {
+      "capabilityClass": "TIRE-SIZE-STRUCTURED",
+      "count": 2,
+      "decision": "DEFERRED-UNSAFE",
+      "records": [
+        {
+          "recordId": "promotion-review-packet.22451b716ca3eec2261f8794",
+          "model": "bmw.c-scooter.c600-sport.2012",
+          "canonicalFieldId": "tires_wheels.front-size",
+          "rawValue": "120/70 R15",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "provenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.d6f3fe81386ca44e9610bc65",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+              "page": 118,
+              "printedPage": 116,
+              "section": "Technical data / Wheels and tires",
+              "tableOrSubsection": "Front tire designation",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "sourceProvenancePresent": true
+        },
+        {
+          "recordId": "promotion-review-packet.c9c77db6bafcfa886e3d0c56",
+          "model": "bmw.c-scooter.c600-sport.2012",
+          "canonicalFieldId": "tires_wheels.rear-size",
+          "rawValue": "160/60 R 15",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "provenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.253826bee2222537472b6947",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+              "page": 118,
+              "printedPage": 116,
+              "section": "Technical data / Wheels and tires",
+              "tableOrSubsection": "Rear tire designation",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "sourceProvenancePresent": true
+        }
+      ],
+      "semanticAnalysis": {
+        "decision": "DEFERRED-UNSAFE",
+        "canonicalFields": [
+          "tires_wheels.front-size",
+          "tires_wheels.rear-size"
+        ],
+        "rawValueShapes": [
+          "width/aspect/construction/rim notation with spacing variants"
+        ],
+        "valueSemantics": "position-specific structured tire notation",
+        "losslessInformation": [
+          "front or rear position",
+          "nominal width",
+          "aspect ratio",
+          "construction marker",
+          "rim diameter",
+          "source spacing and notation where meaningful"
+        ],
+        "futureContractGuarantees": [
+          "must keep front/rear identity",
+          "must define notation grammar and accepted variants explicitly",
+          "must reject missing or ambiguous components",
+          "must preserve raw notation and applicability",
+          "must not infer load/speed/index or fitment"
+        ],
+        "blockers": [
+          "front and rear are distinct canonical fields",
+          "no generic tire-size contract exists in the rule library",
+          "normalization could discard notation or imply fitment semantics not present in source"
+        ],
+        "sufficientToProposeContract": false
+      }
+    },
+    {
+      "capabilityClass": "BATTERY-SPECIFICATION-TEXT",
+      "count": 2,
+      "decision": "DEFERRED-UNSAFE",
+      "records": [
+        {
+          "recordId": "promotion-review-packet.76c0ed4a065e106c69a221ec",
+          "model": "bmw.c-scooter.c600-sport.2012",
+          "canonicalFieldId": "electrical.battery-specification",
+          "rawValue": "AGM (Absorptive Glass Mat) battery.",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "provenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.46a0aa7524df8b3a8b2fa33f",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+              "page": 119,
+              "printedPage": 117,
+              "section": "Technical data / Electrical system",
+              "tableOrSubsection": "Battery design",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "sourceProvenancePresent": true
+        },
+        {
+          "recordId": "promotion-review-packet.77df0ca27619514de36a5c23",
+          "model": "Monster 937",
+          "canonicalFieldId": "electrical.battery-specification",
+          "rawValue": "YUASA YT 7B-BS DRY, 12 V",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "modelYear": "KNOWN",
+            "market": "KNOWN",
+            "equipment": "SUFFICIENT",
+            "abs": "KNOWN",
+            "transmission": "KNOWN",
+            "context": "SUFFICIENT"
+          },
+          "sourceIdentity": {
+            "sourceId": "ducati.acquisition.monster937.owner.my21",
+            "prospectId": "unknown.ducati.monster937",
+            "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+            "authority": "Ducati Motor Holding S.p.A.",
+            "tier": "A",
+            "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf"
+          },
+          "provenance": {
+            "candidateId": "extraction-candidate.6aed69b91904158d34350512",
+            "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+            "artifactId": "artifact.ducati.monster937.owner.my21",
+            "sourceLocation": {
+              "locator": "printed-page:220",
+              "page": null,
+              "section": "Electric system"
+            },
+            "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+          },
+          "sourceProvenancePresent": true
+        }
+      ],
+      "semanticAnalysis": {
+        "decision": "DEFERRED-UNSAFE",
+        "canonicalFields": [
+          "electrical.battery-specification"
+        ],
+        "rawValueShapes": [
+          "chemistry/construction description",
+          "manufacturer model plus dry designation plus voltage"
+        ],
+        "valueSemantics": "battery construction, model and/or voltage descriptive text; not capacity",
+        "losslessInformation": [
+          "AGM construction",
+          "manufacturer/model identity",
+          "DRY designation",
+          "voltage",
+          "full raw wording",
+          "source applicability"
+        ],
+        "futureContractGuarantees": [
+          "must remain distinct from electrical.battery-capacity",
+          "must not derive Ah from model/type/voltage",
+          "must preserve model and construction wording",
+          "must reject mixed or unknown subfields rather than infer them",
+          "must retain provenance/applicability"
+        ],
+        "blockers": [
+          "the two records have different semantic shapes",
+          "no capacity value is present in either record",
+          "Wave I battery-capacity rule is explicitly limited to one Ah scalar",
+          "a parser would risk silently manufacturing battery capacity"
+        ],
+        "sufficientToProposeContract": false
+      }
+    },
+    {
+      "capabilityClass": "BRAKE-FLUID-SPECIFICATION-TEXT",
+      "count": 2,
+      "decision": "DEFERRED-UNSAFE",
+      "records": [
+        {
+          "recordId": "promotion-review-packet.3287b2c64001d151b7b3f3ed",
+          "model": "bmw.c-scooter.c600-sport.2012",
+          "canonicalFieldId": "brakes.brake-fluid",
+          "rawValue": "Brake fluid, DOT4",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "provenance": {
+            "artifactId": "artifact.b66684090bab7aa012bcb2d1",
+            "candidateId": "extraction-candidate.7b606bddfa81d97b0702cba6",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.aa7a7b74ddcedab42de718f5",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-84",
+              "page": 84,
+              "printedPage": 82,
+              "section": "Maintenance / Brake system",
+              "tableOrSubsection": "Front brake fluid level",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "sourceProvenancePresent": true
+        },
+        {
+          "recordId": "promotion-review-packet.de7593d846584df98d151201",
+          "model": "Monster 937",
+          "canonicalFieldId": "brakes.brake-fluid",
+          "rawValue": "Front/rear brake circuit: DOT 4",
+          "rawUnit": null,
+          "condition": null,
+          "applicability": {
+            "modelYear": "KNOWN",
+            "market": "KNOWN",
+            "equipment": "SUFFICIENT",
+            "abs": "KNOWN",
+            "transmission": "KNOWN",
+            "context": "SUFFICIENT"
+          },
+          "sourceIdentity": {
+            "sourceId": "ducati.acquisition.monster937.owner.my21",
+            "prospectId": "unknown.ducati.monster937",
+            "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+            "authority": "Ducati Motor Holding S.p.A.",
+            "tier": "A",
+            "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf"
+          },
+          "provenance": {
+            "candidateId": "extraction-candidate.206d1d29f94c1d6d7fba20ba",
+            "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+            "artifactId": "artifact.ducati.monster937.owner.my21",
+            "sourceLocation": {
+              "locator": "printed-page:177, 212",
+              "page": null,
+              "section": "Check clutch and brake fluid level; Fuel, lubricants and other fluids"
+            },
+            "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+          },
+          "sourceProvenancePresent": true
+        }
+      ],
+      "semanticAnalysis": {
+        "decision": "DEFERRED-UNSAFE",
+        "canonicalFields": [
+          "brakes.brake-fluid"
+        ],
+        "rawValueShapes": [
+          "fluid type text",
+          "front/rear circuit qualifier plus DOT classification"
+        ],
+        "valueSemantics": "brake-fluid classification with optional circuit/location scope",
+        "losslessInformation": [
+          "DOT classification",
+          "front/rear circuit scope",
+          "full source wording",
+          "applicability and provenance"
+        ],
+        "futureContractGuarantees": [
+          "must retain circuit scope when present",
+          "must not reduce front/rear wording to one unscoped scalar",
+          "must preserve exact DOT spelling/source text",
+          "must reject unexplained qualifiers",
+          "must preserve provenance/applicability"
+        ],
+        "blockers": [
+          "one record is unscoped and one is explicitly front/rear scoped",
+          "a scalar DOT value would discard circuit semantics",
+          "no existing brake-fluid contract defines safe optional scope"
+        ],
+        "sufficientToProposeContract": false
+      }
+    }
+  ],
+  "singletonSummary": [
+    {
+      "capabilityClass": "BRAKE-PAD-LIMIT-PAIR",
+      "count": 1,
+      "record": {
+        "recordId": "promotion-review-packet.6fea8fa9e76cecd4f0a569d0",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "brakes.pad-thickness-limit",
+        "rawValue": "min 0.04 in (min 1.0 mm)",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenance": {
+          "artifactId": "artifact.b66684090bab7aa012bcb2d1",
+          "candidateId": "extraction-candidate.e5f20f116ef8953b6b3feec4",
+          "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+          "extractionResultId": "extraction-result.aa7a7b74ddcedab42de718f5",
+          "sourceLocation": {
+            "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+            "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-82",
+            "page": 82,
+            "printedPage": 80,
+            "section": "Maintenance / Brake system",
+            "tableOrSubsection": "Front brake-pad wear limit",
+            "unitsContext": "raw source wording and source units preserved"
+          }
+        },
+        "sourceProvenancePresent": true
+      },
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "Imperial/metric limit text retains precision and friction-material semantics; it is not repeated."
+    },
+    {
+      "capabilityClass": "COOLING-CAPACITY-SCALAR",
+      "count": 1,
+      "record": {
+        "recordId": "promotion-review-packet.a06115b1c776509565dc9042",
+        "model": "Monster 937",
+        "canonicalFieldId": "cooling.capacity",
+        "rawValue": "Cooling circuit: 2.25 litres",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "modelYear": "KNOWN",
+          "market": "KNOWN",
+          "equipment": "SUFFICIENT",
+          "abs": "KNOWN",
+          "transmission": "KNOWN",
+          "context": "SUFFICIENT"
+        },
+        "sourceIdentity": {
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "prospectId": "unknown.ducati.monster937",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "authority": "Ducati Motor Holding S.p.A.",
+          "tier": "A",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf"
+        },
+        "provenance": {
+          "candidateId": "extraction-candidate.07c0b1ed8c90b0f707c85234",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "sourceLocation": {
+            "locator": "printed-page:212",
+            "page": null,
+            "section": "Fuel, lubricants and other fluids"
+          },
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+        },
+        "sourceProvenancePresent": true
+      },
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "One cooling record does not establish a repeated class; it cannot override separate applicability constraints."
+    },
+    {
+      "capabilityClass": "FUSE-TABLE-COMPOUND",
+      "count": 1,
+      "record": {
+        "recordId": "promotion-review-packet.9ebecb078bbc466003478ca3",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "electrical.fuse-ratings",
+        "rawValue": "Fuse carrier: 30 A, Fuse 9: control unit for instrument cluster/ignition switch; 30 A, Fuse 10: control unit for anti-lock brake system (ABS). Fuse box: 15 A, Fuse 1: DME main relay; 10 A, Fuse 2: control unit for Digital Motor Electronics (DME); 4 A, Fuse 3: control unit for anti-theft alarm (DWA)/Tire Pressure Control (TPC); 4 A, Fuse 4: brake-light switch for front brake/rear brake/connector of optional accessories; 7.5 A, Fuse 5: fan; 7.5 A, Fuse 6: onboard socket(s); 4 A, Fuse 7: license plate light; 4 A, Fuse 8: control unit for Digital Motor Electronics (DME)/anti-lock brake system (ABS)/instrument cluster",
+        "rawUnit": "A",
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenance": {
+          "artifactId": "artifact.0648e55b8687641e6d58d51f",
+          "candidateId": "extraction-candidate.861f229fd7bcb83254c702a8",
+          "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+          "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+          "sourceLocation": {
+            "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+            "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-120",
+            "page": 120,
+            "printedPage": 118,
+            "section": "Technical data / Fuses",
+            "tableOrSubsection": "Fuse carrier / Fuse box",
+            "unitsContext": "raw source wording and source units preserved"
+          }
+        },
+        "sourceProvenancePresent": true
+      },
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "Named circuit-to-rating associations must remain linked and are not repeated."
+    },
+    {
+      "capabilityClass": "SPARK-PLUG-GAP-PAIR",
+      "count": 1,
+      "record": {
+        "recordId": "promotion-review-packet.f2b9c05b8f972574ed219a51",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "ignition.plug-gap",
+        "rawValue": "0.03±0.01 in (0.8±0.1 mm)",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenance": {
+          "artifactId": "artifact.0648e55b8687641e6d58d51f",
+          "candidateId": "extraction-candidate.230cd710a559c0d1e292b21b",
+          "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+          "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+          "sourceLocation": {
+            "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+            "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+            "page": 119,
+            "printedPage": 117,
+            "section": "Technical data / Electrical system",
+            "tableOrSubsection": "Spark plugs / Electrode gap of spark plug",
+            "unitsContext": "raw source wording and source units preserved"
+          }
+        },
+        "sourceProvenancePresent": true
+      },
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "Tolerance pair semantics require a distinct precision-preserving contract and are not repeated."
+    },
+    {
+      "capabilityClass": "SPARK-PLUG-IDENTITY-TEXT",
+      "count": 1,
+      "record": {
+        "recordId": "promotion-review-packet.1e83fddea642a8d0fa66f0f2",
+        "model": "Monster 937",
+        "canonicalFieldId": "ignition.spark-plug-oem",
+        "rawValue": "NGK MAR9A-J",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "modelYear": "KNOWN",
+          "market": "KNOWN",
+          "equipment": "SUFFICIENT",
+          "abs": "KNOWN",
+          "transmission": "KNOWN",
+          "context": "SUFFICIENT"
+        },
+        "sourceIdentity": {
+          "sourceId": "ducati.acquisition.monster937.owner.my21",
+          "prospectId": "unknown.ducati.monster937",
+          "documentId": "Ducati|OM-Monster-937-937-Plus-EN-MY21",
+          "authority": "Ducati Motor Holding S.p.A.",
+          "tier": "A",
+          "officialPath": "https://downloads.ctfassets.net/oifkva25gsx4/5QuxXJmK68Pe7ueYLU75eP/6f6770f7782edcbbd23ff8fcd68e4d8c/OM_-_Monster_937_-_937_Plus_-_EN_-_MY21.pdf"
+        },
+        "provenance": {
+          "candidateId": "extraction-candidate.db57f7df4e3a5cc87f515544",
+          "extractionResultId": "extraction-result.a77a38da721e75858b72eab3",
+          "artifactId": "artifact.ducati.monster937.owner.my21",
+          "sourceLocation": {
+            "locator": "printed-page:216",
+            "page": null,
+            "section": "Spark plugs"
+          },
+          "extractionMethod": "Ducati-controlled PDF text-layer inspection"
+        },
+        "sourceProvenancePresent": true
+      },
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "OEM identity text has no proven generic normalization operation and is not repeated."
+    },
+    {
+      "capabilityClass": "TRANSMISSION-SPECIFICATION-TEXT",
+      "count": 1,
+      "record": {
+        "recordId": "promotion-review-packet.9f49100ae773c9bb59ae7987",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "transmission_clutch.transmission-type",
+        "rawValue": "CVT (Continously Variable Transmission)",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenance": {
+          "artifactId": "artifact.0648e55b8687641e6d58d51f",
+          "candidateId": "extraction-candidate.330dd99878c984c2493f4e97",
+          "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+          "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+          "sourceLocation": {
+            "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+            "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-116",
+            "page": 116,
+            "printedPage": 114,
+            "section": "Technical data / Transmission",
+            "tableOrSubsection": "Transmission design",
+            "unitsContext": "raw source wording and source units preserved"
+          }
+        },
+        "sourceProvenancePresent": true
+      },
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "Transmission specification text is not a proven deterministic transformation and is not repeated."
+    },
+    {
+      "capabilityClass": "WHEEL-DIMENSION-COMPOUND",
+      "count": 1,
+      "record": {
+        "recordId": "promotion-review-packet.0f7198304fbd44a800b8334f",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "canonicalFieldId": "tires_wheels.rim-sizes",
+        "rawValue": "Front wheel 3.50\" x 15\"; Rear wheel 4.50\" x 15\"",
+        "rawUnit": null,
+        "condition": null,
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "sourceIdentity": {
+          "authority": "BMW Motorrad",
+          "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+          "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+          "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+          "tier": "A"
+        },
+        "provenance": {
+          "artifactId": "artifact.0648e55b8687641e6d58d51f",
+          "candidateId": "extraction-candidate.bb286b316e89893c3ab704e0",
+          "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+          "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+          "sourceLocation": {
+            "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+            "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+            "page": 118,
+            "printedPage": 116,
+            "section": "Technical data / Wheels and tires",
+            "tableOrSubsection": "Front wheel / Rear wheel",
+            "unitsContext": "raw source wording and source units preserved"
+          }
+        },
+        "sourceProvenancePresent": true
+      },
+      "decision": "DEFERRED-UNSAFE",
+      "reason": "Front/rear rim dimensions remain a position-bearing compound value; one observation cannot establish a safe generic contract."
+    }
+  ],
+  "selectedCapability": null,
+  "selectionDecision": "NONE",
+  "selectionRationale": "No repeated class has repository evidence sufficient to define a narrow deterministic lossless contract without inventing semantics. The evidence is sufficient to preserve and reject unsafe boundaries, but not to specify one new executable contract.",
+  "requiredInvariantsForAnyFutureContract": [
+    "canonical field identity remains explicit",
+    "raw source text is preserved byte-for-byte",
+    "source identity and source-location provenance are preserved",
+    "model-year, market, ABS, transmission, equipment and context applicability remain unchanged",
+    "conditions remain explicit and are never flattened",
+    "front/rear and position semantics remain distinct",
+    "alternatives remain tagged alternatives",
+    "compound values remain compound unless an existing contract proves decomposition",
+    "malformed or ambiguous input fails closed",
+    "deterministic IDs and ordering are permutation-independent",
+    "no human authorization is created by contract evaluation",
+    "Wave I battery-capacity remains limited to explicit Ah scalar and never consumes battery specification text",
+    "pressure remains YELLOW and human-owned"
+  ],
+  "implementationPerformed": false,
+  "routingBefore": {
+    "GREEN": 8,
+    "YELLOW": 1,
+    "RED": 23
+  },
+  "routingAfter": {
+    "GREEN": 8,
+    "YELLOW": 1,
+    "RED": 23
+  },
+  "affectedRecordIds": [],
+  "authorizationChanges": 0,
+  "productionBoundary": {
+    "evidenceRowsCreated": 0,
+    "productionChanged": false,
+    "serviceCoreChanged": false,
+    "catalogueChanged": false,
+    "registryChanged": false,
+    "cloudChanged": false,
+    "uiChanged": false,
+    "externalSideEffects": false
+  },
+  "regression": {
+    "waveGHostileRoutes": [
+      3,
+      2,
+      4
+    ],
+    "waveGHostileExpected": [
+      3,
+      2,
+      4
+    ],
+    "waveIReportUnchanged": true,
+    "waveJReportUnchanged": true,
+    "waveDReportUnchanged": true,
+    "batteryRecordsRemainSupported": true,
+    "pressureBoundaryPreserved": true,
+    "permutationIndependent": true
+  },
+  "assumptions": [
+    "Wave I inputs remain the exact Wave H 32-record legitimate dataset with only the Wave I battery rule attached.",
+    "Existing packet decisions and provenance are read as supplied; no new source or authorization is created.",
+    "Repeated classes are semantic groupings by canonical field/raw shape/applicability, not string similarity."
+  ],
+  "unknowns": [
+    "No repository contract establishes a lossless generic representation for any remaining repeated class.",
+    "No new evidence was acquired, so applicability beyond the existing records is unknown."
+  ],
+  "limitations": [
+    "This is a bounded planning analysis over 32 existing records, not a catalogue-wide contract proof.",
+    "No proposed contract was implemented or benchmarked."
+  ],
+  "independentAudit": {
+    "verdict": "ACCEPT",
+    "gapsAccounted": true,
+    "unsupportedRecordsOmitted": false,
+    "routingChanged": false,
+    "capabilityAdded": false,
+    "authorizationCreated": false,
+    "semanticsInvented": false,
+    "applicabilityPreserved": true,
+    "conditionsPreserved": true,
+    "pressureBoundaryPreserved": true,
+    "waveIBatteryPreserved": true,
+    "historicalReportsPreserved": true,
+    "productionBoundaryUntouched": true,
+    "reportMatchesExecutableArtifacts": true
+  },
+  "next": "Because NONE is selected, no contract-design wave is authorized by this report; the prerequisite is repository evidence or an existing formal lossless contract for one class that resolves its blockers without semantic inference.",
+  "id": "wave-k-report.951b203bc856b8f453b7ca0d"
+}
