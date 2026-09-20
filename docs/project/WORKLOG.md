@@ -1724,3 +1724,31 @@ browser policy. No live database mutation, app integration, external provider,
 acquisition, production promotion or routing change occurred. NEXT is Wave 3:
 bridge active motorcycle context to reusable lookup and missing-field demand
 through deterministic/local fixtures.
+
+## 2026-09-20 — Research on Demand Wave 3
+
+Implemented the thin Active Motorcycle → canonical context → Wave 1/2
+reusable lookup → missing-field demand → existing Technical Research Factory
+bridge. The adapter reuses catalogue/context semantics, preserves exact model,
+year, market, ABS, transmission and equipment applicability, and fails closed
+for unknown required context. Known fields are projected immediately; only
+genuinely missing researchable Core fields claim one canonical durable demand.
+Equivalent users and garage rows produce the same demand and reusable-knowledge
+identity, while incompatible context, blocked and awaiting-review states remain
+explicit and unrelated known fields remain available.
+
+The local proof transforms one demand through ResearchTarget, GapPlan,
+ExecutionPlanner, TargetWork/SourceWorkItem, orchestrator events/reducer and
+the deterministic synthetic acquisition adapter. An explicitly accepted
+pre-evidence synthetic result is persisted through the Wave 2 local boundary
+with raw value, provenance, applicability and Factory lineage, then projected
+again as reusable knowledge. No external acquisition, API, live database,
+browser write, production profile/registry mutation, Service Core change or
+routing change occurred. Wave K remains 8 GREEN / 1 YELLOW / 23 RED and
+pressure remains YELLOW/human-owned.
+
+Focused, shared, isolation and project-state validation passed. NEXT is
+Research on Demand — Wave 4 decision-only: use repository evidence to select
+the smallest safe production-adjacent prerequisite among provider-adapter
+authorization, trusted live persistence integration or UI integration; do not
+enable API Ninjas or execute the selected step automatically.

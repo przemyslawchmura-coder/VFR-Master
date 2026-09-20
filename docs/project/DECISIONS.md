@@ -636,8 +636,8 @@ instance and does not add target-specific logic to the Factory.
 
 Date: 2026-09-20
 
-Decision: Research on Demand + Persistent Reuse is PROPOSED/AUDITED only. The
-existing catalogue/context, applicability, Research Factory lifecycle,
+Decision: Research on Demand + Persistent Reuse remains a separate
+non-production boundary. The existing catalogue/context, applicability, Research Factory lifecycle,
 provenance, human-review and explicit production-authorization contracts remain
 the reusable foundation. Future on-demand work must add a separate durable
 non-production research-demand/status and reusable-knowledge boundary keyed by
@@ -651,12 +651,12 @@ The Factory is therefore not obsolete; only a thin demand/reuse adapter and
 durable boundary are missing. A local-fixture proof should precede any API
 provider or production-promotion work.
 
-Consequences: known safe fields may be projected progressively, while unknown
+Consequences: the Wave 3 bridge may project known safe fields progressively, while unknown
 applicability, RED, YELLOW, pre-evidence ACCEPT and source failures remain
 explicit and fail closed. API Ninjas, schema changes, UI changes and production
 profile mutation are separate future authorizations. Wave K remains unchanged.
 
-Status: ACTIVE. Related implementation: `research/factory/technical-profile-entry-reference-contracts.js`, `research/factory/materialization-requirements.js`.
+Status: ACTIVE. Related implementation: `research/factory/research-on-demand-bridge.js`, `research/factory/reusable-knowledge-persistence.js`.
 
 ## ADR-038 — Typed non-production registry insertion references
 

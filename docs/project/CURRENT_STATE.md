@@ -540,3 +540,23 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   performed, and Wave K remains 8 GREEN / 1 YELLOW / 23 RED. NEXT is Wave 3:
   bridge active motorcycle context to reusable lookup and missing-field demand
   through deterministic/local fixtures.
+
+- Research on Demand Wave 3 is implemented as a thin non-production bridge in
+  `research/factory/research-on-demand-bridge.js`. An active motorcycle is
+  converted through the existing technical-context and catalogue semantics to
+  one canonical applicability context; reusable lookup runs before demand
+  creation; only missing Core fields claim Wave 2 durable demand identity; and
+  equivalent users/garage rows deduplicate. New work is transformed through
+  the existing ResearchTarget, GapPlan, ExecutionPlanner, TargetWork,
+  SourceWorkItem, orchestrator/reducer and synthetic local acquisition
+  contracts. The local accepted-pre-evidence result preserves raw value,
+  provenance, applicability and Factory lineage, is stored through the Wave 2
+  boundary and is visible on projection recomputation. Known fields remain
+  visible beside missing, blocked, awaiting-review, incompatible and unknown-
+  context fields. No API, external acquisition, live database, browser write,
+  production profile/registry, catalogue, Service Core or routing state
+  changed. Wave K remains 8 GREEN / 1 YELLOW / 23 RED and pressure remains
+  YELLOW/human-owned. NEXT is Research on Demand — Wave 4 decision-only:
+  determine from repository evidence whether provider-adapter authorization,
+  trusted live persistence integration or UI integration is the smallest safe
+  production-adjacent prerequisite; do not execute it automatically.
