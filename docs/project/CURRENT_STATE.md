@@ -608,3 +608,23 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   NEXT is Wave 7: trusted asynchronous Factory execution with durable
   checkpoint/retry ownership, before any provider or UI integration. Wave K
   remains 8 GREEN / 1 YELLOW / 23 RED and pressure remains YELLOW/human-owned.
+
+- Research on Demand Wave 7 completed the trusted asynchronous Factory
+  execution substrate on 2026-09-20. The repository migration
+  `20260920115950_research_on_demand_wave7_execution.sql` was applied only to
+  non-production Supabase project `vfr-master` (`espwnhiwflsklkphxitb`) as
+  remote migration `20260920120514`. One durable execution row is enforced
+  per canonical demand; service-role-only RPCs own atomic claim, one active
+  lease, expiry/reclaim, durable checkpoint and bounded three-attempt retry
+  classification. Local and live synthetic proofs covered concurrent claim
+  exclusion, durable reread, checkpoint, expiry/reclaim, completion, blocked
+  state, reusable-knowledge write/read, identical reuse, conflict safety and
+  provenance/lineage preservation. Exact synthetic rows were deleted and all
+  research row counts are zero. No provider, network, UI, production/user
+  data, Garage, Technical Profile, registry, catalogue, auth, routing or
+  pressure state changed; RLS remains fail-closed and ordinary roles cannot
+  mutate execution state. Automatic post-request worker invocation was not
+  deployed; only trusted manual invocation was used for proof. NEXT is one
+  bounded trusted worker invocation/deployment wave before provider or UI
+  integration. Wave K remains 8 GREEN / 1 YELLOW / 23 RED and pressure
+  remains YELLOW/human-owned.

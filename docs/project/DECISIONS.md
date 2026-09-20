@@ -1,5 +1,41 @@
 # Architectural decisions
 
+## ADR-052 — Wave 7 adds durable execution substrate without claiming autonomous invocation
+
+Date: 2026-09-20
+
+Decision: Research on Demand asynchronous execution uses one durable
+`research_execution_jobs` row per canonical Wave 1 demand, backed by the
+repository migration `20260920115950_research_on_demand_wave7_execution.sql`
+and trusted service-role-only RPCs. Storage owns atomic READY/RETRYABLE to
+RUNNING claims, one active lease, bounded attempts (maximum three), durable
+Factory checkpoint JSON and explicit COMPLETED/TERMINAL/BLOCKED/UNSUPPORTED/
+AWAITING_HUMAN_REVIEW states. The trusted server adapter delegates attempts to
+the existing Technical Research Factory and may write reusable knowledge only
+through the Wave 5 boundary.
+
+Evidence: local focused tests prove equivalent execution reuse, racing-worker
+exclusion, lease expiry/reclaim, checkpoint persistence, bounded transient
+retry, terminal-state non-retry, synthetic Factory reuse and provenance/
+lineage preservation. The migration was applied only to non-production
+Supabase project `vfr-master` (`espwnhiwflsklkphxitb`) as remote history
+`20260920120514`. Live synthetic claims proved durable claim/lease/checkpoint/
+reclaim/completion and blocked handling; reusable knowledge proved read-back,
+identical `REUSED` and conflicting `CONFLICT`; exact verification rows were
+deleted and all research rows returned to zero. RLS remains fail-closed and
+anon/authenticated have no table mutation or privileged RPC access.
+
+Consequences: this wave establishes durable resumability, but it does not
+deploy or schedule a worker. A manually trusted invocation was used only for
+non-production proof; browser/request lifetime is no longer the durable state,
+but automatic post-request invocation remains absent. Provider, UI, production
+profiles, user data, catalogue, routing and pressure remain unchanged. NEXT is
+one bounded trusted worker invocation/deployment wave; do not start provider or
+UI integration before that mechanism is in place.
+
+Status: ACTIVE. Related implementation: `server/research-on-demand-execution.js`,
+`research/factory/async-execution-contracts.js` and the Wave 7 migration.
+
 ## ADR-051 — Wave 6 verifies the trusted persistence boundary without provider execution
 
 Date: 2026-09-20

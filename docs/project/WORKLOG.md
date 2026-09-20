@@ -2,6 +2,32 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-20 — Research on Demand Wave 7 durable asynchronous Factory execution substrate
+
+Implemented the smallest trusted post-request execution foundation. Canonical
+Wave 1 demands now derive one separate deterministic execution identity, while
+the trusted server adapter uses the existing Factory lifecycle and Wave 5
+reusable-knowledge boundary. The new repository migration creates one durable
+execution row per demand and service-role-only RPCs for atomic claim, lease,
+checkpoint, finish and status read; RLS remains enabled with no browser policy.
+Claims are storage-enforced, one unexpired worker owns a lease, expired work
+is reclaimable, checkpoints survive request loss, and transient attempts are
+bounded at three with explicit terminal, blocked, unsupported and awaiting-
+review outcomes. No second Factory, browser worker, provider, network
+acquisition, secret, UI or production mutation was added.
+
+Repository tests prove racing-worker exclusion, lease recovery, checkpoint
+resume, bounded retry, terminal-state non-retry, existing Factory handoff,
+synthetic reusable knowledge and provenance/lineage preservation. The Wave 7
+migration was applied only to non-production Supabase project `vfr-master`
+(`espwnhiwflsklkphxitb`) as remote history `20260920120514`. Live synthetic
+claim, concurrent exclusion, checkpoint, one-second expiry/reclaim, completion,
+blocked handling and reusable-knowledge reuse/conflict proofs passed. Exact
+synthetic demand, execution and knowledge rows were deleted; post-cleanup
+counts are zero. Automatic trusted worker invocation was not deployed or
+claimed. NEXT: one bounded trusted worker invocation/deployment wave before
+provider or UI integration.
+
 ## 2026-09-20 — Research on Demand Wave 1 local contract proof
 
 Implemented the first non-production Research on Demand contract layer under

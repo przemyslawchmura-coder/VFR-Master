@@ -210,4 +210,4 @@ function requestResearch({ motorcycle, catalogue, fields, repository, syntheticV
   return Object.freeze({ schemaVersion: BRIDGE_SCHEMA_VERSION, context, demands, before, work: Object.freeze(work), after, productionMaterialized: false, externalAcquisition: false });
 }
 
-module.exports = Object.freeze({ BRIDGE_SCHEMA_VERSION, buildResearchContext, demandFor, requestResearch });
+module.exports = Object.freeze({ BRIDGE_SCHEMA_VERSION, buildResearchContext, demandFor, executeFactoryBridge, requestResearch });
