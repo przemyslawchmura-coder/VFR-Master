@@ -1553,6 +1553,23 @@ Wave A historical unknown metrics and Wave B-D reports remain unchanged. Exact
 NEXT is a separately authorized continuation derived from the measured Wave E
 result; no later throughput wave was executed.
 
+## 2026-09-20 — Technical Research Factory Throughput v2 Wave F
+
+Analyzed exactly the six stored Wave E exception records using the exact
+stored report and fixture. One record is a legitimate compound/conditional
+solo-pressure human-semantic boundary with potential future deterministic
+representation, but no safe candidate is established without a new lossless
+pressure contract. Five records are fixture-only applicability, missing-value,
+unsupported-unit or duplicate negative/boundary cases; duplicate occurrences
+remain independently visible. The exact Wave E metrics remain 3 GREEN, 2
+YELLOW, 4 RED, 6 exceptions in 5 groups. The defensible inspected legitimate
+subset is 4 records: 3 automatic-safe and 1 genuine human boundary; the
+counterfactual is 3/4 because no new safe deterministic capability was proven.
+No rule, routing, pipeline, authorization, evidence, production, Service Core,
+catalogue, registry, cloud or UI state changed. Exact NEXT is a separately
+authorized upstream-input hygiene and duplicate-handling design/audit wave
+before any rule extension is considered; it was not executed.
+
 ## 2026-09-20 — Technical Research Factory Throughput v2 Wave C
 
 Implemented only deterministic GREEN/YELLOW/RED routing over

@@ -426,3 +426,13 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   or UI state changed; historical Wave A unknown metrics remain unchanged.
   NEXT is a separately authorized continuation derived from the measured Wave
   E result; no later throughput wave is executed here.
+- Technical Research Factory Throughput v2 Wave F analyzed exactly the six
+  stored Wave E exception records without changing rules, routing or pipeline
+  behavior. One exception is a legitimate compound/conditional pressure human
+  boundary; five are fixture-only applicability, missing-value, unsupported-
+  unit or duplicate negative cases. The inspected legitimate subset is 4
+  records: 3 automatic-safe and 1 human-boundary record; no safe deterministic
+  candidate is established, and the bounded counterfactual remains 3/4. No
+  evidence, production, Service Core, catalogue, registry, cloud or UI state
+  changed. NEXT is a separately authorized upstream-input hygiene and
+  duplicate-handling design/audit wave before any rule extension is considered.
