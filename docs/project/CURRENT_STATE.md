@@ -2,8 +2,8 @@
 
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
-Snapshot date: 2026-09-19
-Snapshot basis: operator-verified production password-recovery smoke test after the startup-race repair at `6d72a97ca8bcc761d73b9654aefc0aaf9b91a2f5`.
+Snapshot date: 2026-09-20
+Snapshot basis: BMW C 600 Sport MY2012 bounded promotion-readiness evaluation at `9be714b33cf46c4aee7183afc9175e4fcc437dd0`.
 
 - Phase 6 promotion foundation: generic `PromotionPacket/v1` and fail-closed `PROMOTION-READY`/`BLOCKED` gate are implemented and exported from `research/factory/index.js`. The foundation preserves raw values/units/provenance, rejects unresolved/non-accepted processing states and insufficient scope, and performs no production conversion, evidence write, registry insertion or automatic promotion.
 - Held promotion projection: the real 27 Ducati and 13 BMW pre-promotion records were read-only projected through `PromotionPacket/v1`; Ducati produced 27 `PROMOTION-READY`, BMW 11 `PROMOTION-READY` and 2 `BLOCKED` conflict records. Upstream research objects and all production state remained unchanged.
@@ -324,3 +324,12 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   No production, catalogue, registry, cloud or Service Core state changed.
   NEXT is bounded promotion-readiness evaluation only for these 24 processing
   records, not promotion or materialization.
+- BMW C 600 Sport MY2012 promotion-readiness evaluation consumed exactly those
+  24 Evidence Processing records through the existing `PromotionPacket/v1`
+  fail-closed gate. All 24 are `PROMOTION-READY`; none are blocked. The
+  projection preserves raw values, nine conditional contexts, provenance,
+  source identity and explicit BMW C 600 Sport MY2012 USA/CVT/ABS=true
+  applicability. It created no evidence, approval, conversion, production,
+  catalogue, registry, Service Core or cloud state. NEXT is the existing
+  pending Promotion Review Packet stage for these 24 packets only; no approval
+  or promotion is authorized by this result.

@@ -1394,3 +1394,18 @@ Targeted validation passed (18 tests); shared Factory contracts were not
 changed, so the full suite was not rerun. This is the end-of-day checkpoint.
 Exact NEXT: bounded promotion-readiness evaluation only for these 24 Evidence
 Processing records; do not promote or materialize automatically.
+
+## 2026-09-20 — BMW C 600 Sport promotion-readiness evaluation
+
+Evaluated exactly the 24 BMW C 600 Sport MY2012 Evidence Processing records
+through the existing generic `PromotionPacket/v1` fail-closed readiness gate.
+All 24 are `PROMOTION-READY`; 0 are blocked. The projection accounted for each
+record exactly once, preserved raw values/units, source identity, provenance,
+nine conditional contexts and explicit USA/CVT/ABS=true applicability, and
+remained deterministic and immutable. No evidence rows, promotion approvals,
+schema conversion, production technical data, catalogue, registry, Service
+Core or cloud state changed. Independent audit confirmed 24/24 inputs, no
+losses or duplicates, preserved lineage/applicability and no unsupported
+promotion. Targeted validation: 6 tests, JavaScript syntax check and diff
+check passed. Audit classification: `ACCEPT-WITH-RISKS`; the next stage is
+pending Promotion Review Packet creation only.
