@@ -1512,3 +1512,20 @@ NOT-MEASURED. No human decision was created, no evidence or production state
 changed, and BMW/Ducati/Honda upstream fixtures remain unchanged. Exact NEXT is
 Wave C: deterministic GREEN/YELLOW/RED routing and grouped exception
 projection; it was not executed.
+
+## 2026-09-20 — Technical Research Factory Throughput v2 Wave C
+
+Implemented only deterministic GREEN/YELLOW/RED routing over
+`SafeStageRunner/v1` results and the generic grouped read-only exception
+projection. The mixed fixture contains 8 inputs: 1 GREEN for an existing valid
+authorization and deterministic continuation, 1 YELLOW for the explicit
+`PROMOTION-REVIEW-REQUIRED` human boundary, and 6 RED for missing/invalid or
+unsupported structural inputs, decision mismatch and duplicate semantic input.
+Seven exception records remain independently visible in six stable groups;
+GREEN is represented only in the summary. Router output agrees with runner
+states, IDs and grouping are permutation-independent, reason codes preserve
+exact failed invariants, and raw/provenance/applicability lineage is retained
+where available. No authorization or rule was created/activated, no evidence
+or production state changed, and Wave A historical UNKNOWN/NOT-MEASURED
+metrics remain unchanged. Exact NEXT is Wave D: versioned deterministic rule
+library; it was not executed.

@@ -1,0 +1,1275 @@
+{
+  "schemaVersion": "revlog-technical-research-factory-routing/v1",
+  "routingSchemaVersion": 1,
+  "exceptionProjectionSchemaVersion": 1,
+  "inputCount": 8,
+  "routed": {
+    "duplicateSemanticInputCount": 2,
+    "routes": [
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "lubrication.oil-specification",
+        "condition": null,
+        "contractVersions": {
+          "conversion": "SchemaConversionProjection/v1",
+          "decision": "PromotionReviewDecision/v1",
+          "packet": "PromotionReviewPacket/v1",
+          "routing": "RoutingResult/v1",
+          "runner": "SafeStageRunner/v1"
+        },
+        "currentStage": "SCHEMA-CONVERSION",
+        "duplicateCount": 1,
+        "externalSideEffects": false,
+        "id": "routing-result.7900985e06011d315b8eae91",
+        "inputIdentity": {
+          "digest": "4353179eaa71760476f766ea3d6f26e407cf7213266d4bce955801d99ef63794",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        },
+        "invariants": {
+          "failed": [],
+          "satisfied": [
+            "runner result is ADVANCED",
+            "authoritative downstream contracts accepted",
+            "existing authorization was supplied where required",
+            "external side effects are false"
+          ]
+        },
+        "nextLegalAction": "STOP-BEFORE-PRODUCTION-MATERIALIZATION",
+        "rawUnit": null,
+        "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+        "reasonCodes": [
+          "SAFE-RUNNER-ADVANCED"
+        ],
+        "route": "GREEN",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "American Honda Motor Co., Inc.",
+          "documentId": "31MLRB00 / 00X31-MLR-B000",
+          "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+          "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+          "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+          "tier": "A"
+        },
+        "sourceProvenance": {
+          "artifactId": "artifact.0498845c683f226a302b0a90",
+          "candidateId": "extraction-candidate.87fcea8600978eff75d9f8d6",
+          "extractionMethod": "declarative-text-extractor/1",
+          "extractionResultId": "extraction-result.32ff931c2f1fe866679758b6",
+          "sourceLocation": {
+            "locator": "lines:55-64;chars:731-1026",
+            "page": null,
+            "section": "derived text",
+            "tableOrSubsection": "document:full"
+          }
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "honda.cbr500r.pc70",
+          "equipment": "standard road model",
+          "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+          "market": "USA/Canada",
+          "model": "CBR500R",
+          "state": "KNOWN",
+          "year": 2024
+        },
+        "upstreamDigest": "4353179eaa71760476f766ea3d6f26e407cf7213266d4bce955801d99ef63794",
+        "upstreamIdentity": {
+          "digest": "4353179eaa71760476f766ea3d6f26e407cf7213266d4bce955801d99ef63794",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        }
+      },
+      {
+        "applicability": null,
+        "canonicalFieldId": null,
+        "condition": null,
+        "contractVersions": {
+          "conversion": null,
+          "decision": null,
+          "packet": null,
+          "routing": "RoutingResult/v1",
+          "runner": "SafeStageRunner/v1"
+        },
+        "currentStage": "PROMOTION-REVIEW-PACKET",
+        "duplicateCount": 1,
+        "externalSideEffects": false,
+        "id": "routing-result.b14471bcc9fc0c12335b42c6",
+        "inputIdentity": {
+          "digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "id": null
+        },
+        "invariants": {
+          "failed": [
+            "MISSING-UPSTREAM-ARTIFACT"
+          ],
+          "satisfied": []
+        },
+        "nextLegalAction": "REPAIR-OR-RESEARCH-INVALID-INPUT",
+        "rawUnit": null,
+        "rawValue": null,
+        "reasonCodes": [
+          "MISSING-UPSTREAM-ARTIFACT"
+        ],
+        "route": "RED",
+        "schemaVersion": 1,
+        "sourceIdentity": null,
+        "sourceProvenance": null,
+        "targetIdentity": null,
+        "upstreamDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "upstreamIdentity": {
+          "digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "id": null
+        }
+      },
+      {
+        "applicability": null,
+        "canonicalFieldId": null,
+        "condition": null,
+        "contractVersions": {
+          "conversion": null,
+          "decision": null,
+          "packet": null,
+          "routing": "RoutingResult/v1",
+          "runner": "SafeStageRunner/v1"
+        },
+        "currentStage": "PROMOTION-REVIEW-PACKET",
+        "duplicateCount": 1,
+        "externalSideEffects": false,
+        "id": "routing-result.d7cdc685f8d233e4d62a0580",
+        "inputIdentity": {
+          "digest": "4c163b87872558c72b3d144be07bb697643be7d6eeb86594bfb3e1e8014e36b5",
+          "id": null
+        },
+        "invariants": {
+          "failed": [
+            "UNSUPPORTED-STAGE"
+          ],
+          "satisfied": []
+        },
+        "nextLegalAction": "REPAIR-OR-RESEARCH-INVALID-INPUT",
+        "rawUnit": null,
+        "rawValue": null,
+        "reasonCodes": [
+          "UNSUPPORTED-STAGE"
+        ],
+        "route": "RED",
+        "schemaVersion": 1,
+        "sourceIdentity": null,
+        "sourceProvenance": null,
+        "targetIdentity": null,
+        "upstreamDigest": "4c163b87872558c72b3d144be07bb697643be7d6eeb86594bfb3e1e8014e36b5",
+        "upstreamIdentity": {
+          "digest": "4c163b87872558c72b3d144be07bb697643be7d6eeb86594bfb3e1e8014e36b5",
+          "id": null
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "lubrication.oil-specification",
+        "condition": null,
+        "contractVersions": {
+          "conversion": null,
+          "decision": "PromotionReviewDecision/v1",
+          "packet": "PromotionReviewPacket/v1",
+          "routing": "RoutingResult/v1",
+          "runner": "SafeStageRunner/v1"
+        },
+        "currentStage": "PROMOTION-REVIEW",
+        "duplicateCount": 1,
+        "externalSideEffects": false,
+        "id": "routing-result.15f1aa43a6f56466a8396199",
+        "inputIdentity": {
+          "digest": "4f452c07d39294dad2cda75716f4e6899a411a60f06bf8da54f87be431977ec8",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        },
+        "invariants": {
+          "failed": [
+            "PROMOTION-DECISION-MISMATCH"
+          ],
+          "satisfied": []
+        },
+        "nextLegalAction": "REPAIR-OR-RESEARCH-INVALID-INPUT",
+        "rawUnit": null,
+        "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+        "reasonCodes": [
+          "PROMOTION-DECISION-MISMATCH"
+        ],
+        "route": "RED",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "American Honda Motor Co., Inc.",
+          "documentId": "31MLRB00 / 00X31-MLR-B000",
+          "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+          "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+          "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+          "tier": "A"
+        },
+        "sourceProvenance": {
+          "artifactId": "artifact.0498845c683f226a302b0a90",
+          "candidateId": "extraction-candidate.87fcea8600978eff75d9f8d6",
+          "extractionMethod": "declarative-text-extractor/1",
+          "extractionResultId": "extraction-result.32ff931c2f1fe866679758b6",
+          "sourceLocation": {
+            "locator": "lines:55-64;chars:731-1026",
+            "page": null,
+            "section": "derived text",
+            "tableOrSubsection": "document:full"
+          }
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "honda.cbr500r.pc70",
+          "equipment": "standard road model",
+          "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+          "market": "USA/Canada",
+          "model": "CBR500R",
+          "state": "KNOWN",
+          "year": 2024
+        },
+        "upstreamDigest": "4f452c07d39294dad2cda75716f4e6899a411a60f06bf8da54f87be431977ec8",
+        "upstreamIdentity": {
+          "digest": "4f452c07d39294dad2cda75716f4e6899a411a60f06bf8da54f87be431977ec8",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "lubrication.oil-specification",
+        "condition": null,
+        "contractVersions": {
+          "conversion": null,
+          "decision": null,
+          "packet": "PromotionReviewPacket/v1",
+          "routing": "RoutingResult/v1",
+          "runner": "SafeStageRunner/v1"
+        },
+        "currentStage": "PROMOTION-REVIEW",
+        "duplicateCount": 1,
+        "externalSideEffects": false,
+        "id": "routing-result.a608919fe1119a74cc55515c",
+        "inputIdentity": {
+          "digest": "5bb54453cfb62c8211ad698a34d0be6d7592ed9312c2fec6b26f215bf4ed00a2",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        },
+        "invariants": {
+          "failed": [
+            "PROMOTION-REVIEW-REQUIRED"
+          ],
+          "satisfied": [
+            "upstream artifact validated",
+            "runner stopped at an explicit human boundary"
+          ]
+        },
+        "nextLegalAction": "SUPPLY-EXISTING-PROMOTION-REVIEW-DECISION",
+        "rawUnit": null,
+        "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+        "reasonCodes": [
+          "PROMOTION-REVIEW-REQUIRED"
+        ],
+        "route": "YELLOW",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "American Honda Motor Co., Inc.",
+          "documentId": "31MLRB00 / 00X31-MLR-B000",
+          "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+          "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+          "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+          "tier": "A"
+        },
+        "sourceProvenance": {
+          "artifactId": "artifact.0498845c683f226a302b0a90",
+          "candidateId": "extraction-candidate.87fcea8600978eff75d9f8d6",
+          "extractionMethod": "declarative-text-extractor/1",
+          "extractionResultId": "extraction-result.32ff931c2f1fe866679758b6",
+          "sourceLocation": {
+            "locator": "lines:55-64;chars:731-1026",
+            "page": null,
+            "section": "derived text",
+            "tableOrSubsection": "document:full"
+          }
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "honda.cbr500r.pc70",
+          "equipment": "standard road model",
+          "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+          "market": "USA/Canada",
+          "model": "CBR500R",
+          "state": "KNOWN",
+          "year": 2024
+        },
+        "upstreamDigest": "5bb54453cfb62c8211ad698a34d0be6d7592ed9312c2fec6b26f215bf4ed00a2",
+        "upstreamIdentity": {
+          "digest": "5bb54453cfb62c8211ad698a34d0be6d7592ed9312c2fec6b26f215bf4ed00a2",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "lubrication.oil-specification",
+        "condition": null,
+        "contractVersions": {
+          "conversion": null,
+          "decision": null,
+          "packet": "PromotionReviewPacket/v1",
+          "routing": "RoutingResult/v1",
+          "runner": "SafeStageRunner/v1"
+        },
+        "currentStage": "PROMOTION-REVIEW-PACKET",
+        "duplicateCount": 1,
+        "externalSideEffects": false,
+        "id": "routing-result.07a69ab589c26a66cfab6fbb",
+        "inputIdentity": {
+          "digest": "7153787279bc799fa4172def018e60ed2da6a0c9ce806f03004b5856478e7391",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        },
+        "invariants": {
+          "failed": [
+            "DOWNSTREAM-CONTRACT-REJECTED"
+          ],
+          "satisfied": []
+        },
+        "nextLegalAction": "REPAIR-OR-RESEARCH-INVALID-INPUT",
+        "rawUnit": null,
+        "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+        "reasonCodes": [
+          "DOWNSTREAM-CONTRACT-REJECTED"
+        ],
+        "route": "RED",
+        "schemaVersion": 1,
+        "sourceIdentity": {
+          "authority": "American Honda Motor Co., Inc.",
+          "documentId": "31MLRB00 / 00X31-MLR-B000",
+          "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+          "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+          "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+          "tier": "A"
+        },
+        "sourceProvenance": {
+          "artifactId": "artifact.0498845c683f226a302b0a90",
+          "candidateId": "extraction-candidate.87fcea8600978eff75d9f8d6",
+          "extractionMethod": "declarative-text-extractor/1",
+          "extractionResultId": "extraction-result.32ff931c2f1fe866679758b6",
+          "sourceLocation": {
+            "locator": "lines:55-64;chars:731-1026",
+            "page": null,
+            "section": "derived text",
+            "tableOrSubsection": "document:full"
+          }
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "honda.cbr500r.pc70",
+          "equipment": "standard road model",
+          "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+          "market": "USA/Canada",
+          "model": "CBR500R",
+          "state": "KNOWN",
+          "year": 2024
+        },
+        "upstreamDigest": "7153787279bc799fa4172def018e60ed2da6a0c9ce806f03004b5856478e7391",
+        "upstreamIdentity": {
+          "digest": "7153787279bc799fa4172def018e60ed2da6a0c9ce806f03004b5856478e7391",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        }
+      },
+      {
+        "applicability": null,
+        "canonicalFieldId": null,
+        "condition": null,
+        "contractVersions": {
+          "conversion": null,
+          "decision": null,
+          "packet": null,
+          "routing": "RoutingResult/v1",
+          "runner": "SafeStageRunner/v1"
+        },
+        "currentStage": "PROMOTION-REVIEW-PACKET",
+        "duplicateCount": 2,
+        "externalSideEffects": false,
+        "id": "routing-result.e40b2ba0aa3376b5491b673b",
+        "inputIdentity": {
+          "digest": "a61538164ecf75bf0ec07d03453a242c79fd4a9667290ba8db3b13d95701a26f",
+          "id": null
+        },
+        "invariants": {
+          "failed": [
+            "semantic input uniqueness"
+          ],
+          "satisfied": []
+        },
+        "nextLegalAction": "REJECT-DUPLICATE-AND-RETAIN-EACH-FAILURE",
+        "rawUnit": null,
+        "rawValue": null,
+        "reasonCodes": [
+          "DUPLICATE-SEMANTIC-INPUT"
+        ],
+        "route": "RED",
+        "schemaVersion": 1,
+        "sourceIdentity": null,
+        "sourceProvenance": null,
+        "targetIdentity": null,
+        "upstreamDigest": "a61538164ecf75bf0ec07d03453a242c79fd4a9667290ba8db3b13d95701a26f",
+        "upstreamIdentity": {
+          "digest": "a61538164ecf75bf0ec07d03453a242c79fd4a9667290ba8db3b13d95701a26f",
+          "id": null
+        }
+      },
+      {
+        "applicability": null,
+        "canonicalFieldId": null,
+        "condition": null,
+        "contractVersions": {
+          "conversion": null,
+          "decision": null,
+          "packet": null,
+          "routing": "RoutingResult/v1",
+          "runner": "SafeStageRunner/v1"
+        },
+        "currentStage": "PROMOTION-REVIEW-PACKET",
+        "duplicateCount": 2,
+        "externalSideEffects": false,
+        "id": "routing-result.e40b2ba0aa3376b5491b673b",
+        "inputIdentity": {
+          "digest": "a61538164ecf75bf0ec07d03453a242c79fd4a9667290ba8db3b13d95701a26f",
+          "id": null
+        },
+        "invariants": {
+          "failed": [
+            "semantic input uniqueness"
+          ],
+          "satisfied": []
+        },
+        "nextLegalAction": "REJECT-DUPLICATE-AND-RETAIN-EACH-FAILURE",
+        "rawUnit": null,
+        "rawValue": null,
+        "reasonCodes": [
+          "DUPLICATE-SEMANTIC-INPUT"
+        ],
+        "route": "RED",
+        "schemaVersion": 1,
+        "sourceIdentity": null,
+        "sourceProvenance": null,
+        "targetIdentity": null,
+        "upstreamDigest": "a61538164ecf75bf0ec07d03453a242c79fd4a9667290ba8db3b13d95701a26f",
+        "upstreamIdentity": {
+          "digest": "a61538164ecf75bf0ec07d03453a242c79fd4a9667290ba8db3b13d95701a26f",
+          "id": null
+        }
+      }
+    ]
+  },
+  "exceptionProjection": {
+    "externalSideEffects": false,
+    "groups": [
+      {
+        "canonicalFieldId": "lubrication.oil-specification",
+        "groupId": "exception-group.3bdc20eb81687895ba46857a",
+        "reason": "PROMOTION-REVIEW-REQUIRED",
+        "recordIds": [
+          "routing-result.a608919fe1119a74cc55515c"
+        ],
+        "route": "YELLOW",
+        "targetIdentity": {
+          "catalogVariantKey": "honda.cbr500r.pc70",
+          "equipment": "standard road model",
+          "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+          "market": "USA/Canada",
+          "model": "CBR500R",
+          "state": "KNOWN",
+          "year": 2024
+        }
+      },
+      {
+        "canonicalFieldId": "lubrication.oil-specification",
+        "groupId": "exception-group.78a4632af2c28a482594b173",
+        "reason": "DOWNSTREAM-CONTRACT-REJECTED",
+        "recordIds": [
+          "routing-result.07a69ab589c26a66cfab6fbb"
+        ],
+        "route": "RED",
+        "targetIdentity": {
+          "catalogVariantKey": "honda.cbr500r.pc70",
+          "equipment": "standard road model",
+          "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+          "market": "USA/Canada",
+          "model": "CBR500R",
+          "state": "KNOWN",
+          "year": 2024
+        }
+      },
+      {
+        "canonicalFieldId": null,
+        "groupId": "exception-group.8ad30f34702e3b6f61178875",
+        "reason": "DUPLICATE-SEMANTIC-INPUT",
+        "recordIds": [
+          "routing-result.e40b2ba0aa3376b5491b673b",
+          "routing-result.e40b2ba0aa3376b5491b673b"
+        ],
+        "route": "RED",
+        "targetIdentity": null
+      },
+      {
+        "canonicalFieldId": null,
+        "groupId": "exception-group.935d64e64b8e52b92efa6959",
+        "reason": "MISSING-UPSTREAM-ARTIFACT",
+        "recordIds": [
+          "routing-result.b14471bcc9fc0c12335b42c6"
+        ],
+        "route": "RED",
+        "targetIdentity": null
+      },
+      {
+        "canonicalFieldId": "lubrication.oil-specification",
+        "groupId": "exception-group.a4becd8696a85aba6b21f97f",
+        "reason": "PROMOTION-DECISION-MISMATCH",
+        "recordIds": [
+          "routing-result.15f1aa43a6f56466a8396199"
+        ],
+        "route": "RED",
+        "targetIdentity": {
+          "catalogVariantKey": "honda.cbr500r.pc70",
+          "equipment": "standard road model",
+          "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+          "market": "USA/Canada",
+          "model": "CBR500R",
+          "state": "KNOWN",
+          "year": 2024
+        }
+      },
+      {
+        "canonicalFieldId": null,
+        "groupId": "exception-group.94b881fbdfefdecec230f679",
+        "reason": "UNSUPPORTED-STAGE",
+        "recordIds": [
+          "routing-result.d7cdc685f8d233e4d62a0580"
+        ],
+        "route": "RED",
+        "targetIdentity": null
+      }
+    ],
+    "id": "exception-projection.a2f2151da1b5b44a91e7f20c",
+    "records": [
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "lubrication.oil-specification",
+        "condition": null,
+        "failedInvariants": [
+          "PROMOTION-REVIEW-REQUIRED"
+        ],
+        "nextLegalAction": "SUPPLY-EXISTING-PROMOTION-REVIEW-DECISION",
+        "rawUnit": null,
+        "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+        "reason": "PROMOTION-REVIEW-REQUIRED",
+        "recordId": "routing-result.a608919fe1119a74cc55515c",
+        "route": "YELLOW",
+        "sourceIdentity": {
+          "authority": "American Honda Motor Co., Inc.",
+          "documentId": "31MLRB00 / 00X31-MLR-B000",
+          "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+          "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+          "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+          "tier": "A"
+        },
+        "sourceLocation": {
+          "locator": "lines:55-64;chars:731-1026",
+          "page": null,
+          "section": "derived text",
+          "tableOrSubsection": "document:full"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "honda.cbr500r.pc70",
+          "equipment": "standard road model",
+          "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+          "market": "USA/Canada",
+          "model": "CBR500R",
+          "state": "KNOWN",
+          "year": 2024
+        },
+        "upstreamDigest": "5bb54453cfb62c8211ad698a34d0be6d7592ed9312c2fec6b26f215bf4ed00a2",
+        "upstreamIdentity": {
+          "digest": "5bb54453cfb62c8211ad698a34d0be6d7592ed9312c2fec6b26f215bf4ed00a2",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "lubrication.oil-specification",
+        "condition": null,
+        "failedInvariants": [
+          "DOWNSTREAM-CONTRACT-REJECTED"
+        ],
+        "nextLegalAction": "REPAIR-OR-RESEARCH-INVALID-INPUT",
+        "rawUnit": null,
+        "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+        "reason": "DOWNSTREAM-CONTRACT-REJECTED",
+        "recordId": "routing-result.07a69ab589c26a66cfab6fbb",
+        "route": "RED",
+        "sourceIdentity": {
+          "authority": "American Honda Motor Co., Inc.",
+          "documentId": "31MLRB00 / 00X31-MLR-B000",
+          "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+          "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+          "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+          "tier": "A"
+        },
+        "sourceLocation": {
+          "locator": "lines:55-64;chars:731-1026",
+          "page": null,
+          "section": "derived text",
+          "tableOrSubsection": "document:full"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "honda.cbr500r.pc70",
+          "equipment": "standard road model",
+          "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+          "market": "USA/Canada",
+          "model": "CBR500R",
+          "state": "KNOWN",
+          "year": 2024
+        },
+        "upstreamDigest": "7153787279bc799fa4172def018e60ed2da6a0c9ce806f03004b5856478e7391",
+        "upstreamIdentity": {
+          "digest": "7153787279bc799fa4172def018e60ed2da6a0c9ce806f03004b5856478e7391",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        }
+      },
+      {
+        "applicability": null,
+        "canonicalFieldId": null,
+        "condition": null,
+        "failedInvariants": [
+          "semantic input uniqueness"
+        ],
+        "nextLegalAction": "REJECT-DUPLICATE-AND-RETAIN-EACH-FAILURE",
+        "rawUnit": null,
+        "rawValue": null,
+        "reason": "DUPLICATE-SEMANTIC-INPUT",
+        "recordId": "routing-result.e40b2ba0aa3376b5491b673b",
+        "route": "RED",
+        "sourceIdentity": null,
+        "sourceLocation": null,
+        "targetIdentity": null,
+        "upstreamDigest": "a61538164ecf75bf0ec07d03453a242c79fd4a9667290ba8db3b13d95701a26f",
+        "upstreamIdentity": {
+          "digest": "a61538164ecf75bf0ec07d03453a242c79fd4a9667290ba8db3b13d95701a26f",
+          "id": null
+        }
+      },
+      {
+        "applicability": null,
+        "canonicalFieldId": null,
+        "condition": null,
+        "failedInvariants": [
+          "semantic input uniqueness"
+        ],
+        "nextLegalAction": "REJECT-DUPLICATE-AND-RETAIN-EACH-FAILURE",
+        "rawUnit": null,
+        "rawValue": null,
+        "reason": "DUPLICATE-SEMANTIC-INPUT",
+        "recordId": "routing-result.e40b2ba0aa3376b5491b673b",
+        "route": "RED",
+        "sourceIdentity": null,
+        "sourceLocation": null,
+        "targetIdentity": null,
+        "upstreamDigest": "a61538164ecf75bf0ec07d03453a242c79fd4a9667290ba8db3b13d95701a26f",
+        "upstreamIdentity": {
+          "digest": "a61538164ecf75bf0ec07d03453a242c79fd4a9667290ba8db3b13d95701a26f",
+          "id": null
+        }
+      },
+      {
+        "applicability": null,
+        "canonicalFieldId": null,
+        "condition": null,
+        "failedInvariants": [
+          "MISSING-UPSTREAM-ARTIFACT"
+        ],
+        "nextLegalAction": "REPAIR-OR-RESEARCH-INVALID-INPUT",
+        "rawUnit": null,
+        "rawValue": null,
+        "reason": "MISSING-UPSTREAM-ARTIFACT",
+        "recordId": "routing-result.b14471bcc9fc0c12335b42c6",
+        "route": "RED",
+        "sourceIdentity": null,
+        "sourceLocation": null,
+        "targetIdentity": null,
+        "upstreamDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "upstreamIdentity": {
+          "digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "id": null
+        }
+      },
+      {
+        "applicability": {
+          "abs": "KNOWN",
+          "context": "SUFFICIENT",
+          "equipment": "SUFFICIENT",
+          "market": "KNOWN",
+          "modelYear": "KNOWN",
+          "transmission": "KNOWN"
+        },
+        "canonicalFieldId": "lubrication.oil-specification",
+        "condition": null,
+        "failedInvariants": [
+          "PROMOTION-DECISION-MISMATCH"
+        ],
+        "nextLegalAction": "REPAIR-OR-RESEARCH-INVALID-INPUT",
+        "rawUnit": null,
+        "rawValue": "API Service Classification SJ or higher\nexcept oils labeled as energy conserving or\nresource conserving on the circular API\nservice label, SAE 10W-30, JASO T 903\nstandard MA, Pro Honda GN4 4-stroke oil\n(USA & Canada) or Honda 4-stroke oil, or\nan equivalent motorcycle oil",
+        "reason": "PROMOTION-DECISION-MISMATCH",
+        "recordId": "routing-result.15f1aa43a6f56466a8396199",
+        "route": "RED",
+        "sourceIdentity": {
+          "authority": "American Honda Motor Co., Inc.",
+          "documentId": "31MLRB00 / 00X31-MLR-B000",
+          "officialPath": "https://cdn.powersports.honda.com/documentum/MWOM/ml.remawmom.amlr2424omen.pdf",
+          "prospectId": "prospect.honda.official.owner-manual.31MLRB000.2024",
+          "sourceId": "honda.official.owner-manual.31MLRB000.2024",
+          "tier": "A"
+        },
+        "sourceLocation": {
+          "locator": "lines:55-64;chars:731-1026",
+          "page": null,
+          "section": "derived text",
+          "tableOrSubsection": "document:full"
+        },
+        "targetIdentity": {
+          "catalogVariantKey": "honda.cbr500r.pc70",
+          "equipment": "standard road model",
+          "id": "target.honda.cbr500r.pc70.2024.usa-canada",
+          "market": "USA/Canada",
+          "model": "CBR500R",
+          "state": "KNOWN",
+          "year": 2024
+        },
+        "upstreamDigest": "4f452c07d39294dad2cda75716f4e6899a411a60f06bf8da54f87be431977ec8",
+        "upstreamIdentity": {
+          "digest": "4f452c07d39294dad2cda75716f4e6899a411a60f06bf8da54f87be431977ec8",
+          "id": "promotion-review-packet.04a970ff8421a1871a92120b"
+        }
+      },
+      {
+        "applicability": null,
+        "canonicalFieldId": null,
+        "condition": null,
+        "failedInvariants": [
+          "UNSUPPORTED-STAGE"
+        ],
+        "nextLegalAction": "REPAIR-OR-RESEARCH-INVALID-INPUT",
+        "rawUnit": null,
+        "rawValue": null,
+        "reason": "UNSUPPORTED-STAGE",
+        "recordId": "routing-result.d7cdc685f8d233e4d62a0580",
+        "route": "RED",
+        "sourceIdentity": null,
+        "sourceLocation": null,
+        "targetIdentity": null,
+        "upstreamDigest": "4c163b87872558c72b3d144be07bb697643be7d6eeb86594bfb3e1e8014e36b5",
+        "upstreamIdentity": {
+          "digest": "4c163b87872558c72b3d144be07bb697643be7d6eeb86594bfb3e1e8014e36b5",
+          "id": null
+        }
+      }
+    ],
+    "schemaVersion": 1
+  },
+  "batchSummary": {
+    "aggregate": {
+      "automaticSafeRecords": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed routing count",
+        "scope": "Wave C mixed routing fixture",
+        "value": 1
+      },
+      "blockedRecords": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed routing count",
+        "scope": "Wave C mixed routing fixture",
+        "value": 6
+      },
+      "duplicateSemanticInputs": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed routing count",
+        "scope": "Wave C mixed routing fixture",
+        "value": 2
+      },
+      "exceptionRecordCount": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed routing count",
+        "scope": "Wave C mixed routing fixture",
+        "value": 7
+      },
+      "externalSideEffects": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed routing count",
+        "scope": "Wave C mixed routing fixture",
+        "value": 0
+      },
+      "green": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed routing count",
+        "scope": "Wave C mixed routing fixture",
+        "value": 1
+      },
+      "groupedExceptionCount": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed routing count",
+        "scope": "Wave C mixed routing fixture",
+        "value": 6
+      },
+      "humanActionRequiredRecords": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed routing count",
+        "scope": "Wave C mixed routing fixture",
+        "value": 1
+      },
+      "red": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed routing count",
+        "scope": "Wave C mixed routing fixture",
+        "value": 6
+      },
+      "totalRoutedRecords": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed routing count",
+        "scope": "Wave C mixed routing fixture",
+        "value": 8
+      },
+      "yellow": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed routing count",
+        "scope": "Wave C mixed routing fixture",
+        "value": 1
+      }
+    },
+    "boundary": {
+      "catalogueMutation": false,
+      "cloudMutation": false,
+      "evidenceMaterialization": false,
+      "productionMaterialization": false,
+      "registryMutation": false,
+      "serviceCoreMutation": false,
+      "uiMutation": false
+    },
+    "contractVersions": {
+      "batchSummary": "BatchSummary/v2",
+      "exceptionProjection": "ExceptionProjection/v1",
+      "routing": "RoutingResult/v1",
+      "runner": "SafeStageRunner/v1"
+    },
+    "fixtures": [
+      {
+        "comparability": "DIRECT-ROUTER-FIXTURE-ONLY",
+        "counts": {
+          "automaticSafeRecords": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 1
+          },
+          "blockedRecords": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 6
+          },
+          "duplicateSemanticInputs": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 2
+          },
+          "exceptionRecordCount": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 7
+          },
+          "externalSideEffects": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 0
+          },
+          "green": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 1
+          },
+          "groupedExceptionCount": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 6
+          },
+          "humanActionRequiredRecords": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 1
+          },
+          "red": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 6
+          },
+          "totalRoutedRecords": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 8
+          },
+          "yellow": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 1
+          }
+        },
+        "fixtureId": "wave-c-routing-mixed-proof",
+        "humanActions": {
+          "promotionReviewRequired": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 1
+          },
+          "recordDecisionsCreated": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 0
+          },
+          "ruleProposalsActivated": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 0
+          }
+        },
+        "lifecycleGeneration": "throughput-v2-wave-c",
+        "metrics": {
+          "autoAdvanceRate": {
+            "contractVersions": [
+              "RoutingResult/v1",
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "MEASURED",
+              "reason": "Directly observed routing count",
+              "scope": "Wave C mixed routing fixture",
+              "value": 1
+            },
+            "measurementState": "MEASURED",
+            "name": "autoAdvanceRate",
+            "numerator": {
+              "measurementState": "MEASURED",
+              "reason": "Directly observed routing count",
+              "scope": "Wave C mixed routing fixture",
+              "value": 1
+            },
+            "reason": "One GREEN record had one rigorously eligible safe continuation",
+            "scope": "Wave C mixed routing fixture",
+            "value": 1
+          },
+          "humanTouchRate": {
+            "contractVersions": [
+              "RoutingResult/v1",
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "MEASURED",
+              "reason": "Directly observed routing count",
+              "scope": "Wave C mixed routing fixture",
+              "value": 8
+            },
+            "measurementState": "MEASURED",
+            "name": "humanTouchRate",
+            "numerator": {
+              "measurementState": "MEASURED",
+              "reason": "Directly observed routing count",
+              "scope": "Wave C mixed routing fixture",
+              "value": 1
+            },
+            "reason": "One record requires a bounded human promotion-review action",
+            "scope": "Wave C mixed routing fixture",
+            "value": 0.125
+          },
+          "researchDuplicationRate": {
+            "contractVersions": [
+              "RoutingResult/v1",
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Value unavailable for this fixture",
+              "scope": "Wave C mixed routing fixture",
+              "value": null
+            },
+            "measurementState": "NOT-MEASURED",
+            "name": "researchDuplicationRate",
+            "numerator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Value unavailable for this fixture",
+              "scope": "Wave C mixed routing fixture",
+              "value": null
+            },
+            "reason": "Historical equivalent-operation denominator is unavailable",
+            "scope": "Wave C mixed routing fixture",
+            "value": null
+          },
+          "sourceReuseRate": {
+            "contractVersions": [
+              "RoutingResult/v1",
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Value unavailable for this fixture",
+              "scope": "Wave C mixed routing fixture",
+              "value": null
+            },
+            "measurementState": "NOT-MEASURED",
+            "name": "sourceReuseRate",
+            "numerator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Value unavailable for this fixture",
+              "scope": "Wave C mixed routing fixture",
+              "value": null
+            },
+            "reason": "Source acquisition is outside Wave C",
+            "scope": "Wave C mixed routing fixture",
+            "value": null
+          }
+        },
+        "notes": [
+          "GREEN is represented in the routing summary and excluded from the exception projection.",
+          "YELLOW and RED records remain individually traceable.",
+          "Duplicate semantic inputs remain visible as two RED records with the duplicate reason."
+        ],
+        "safeStop": "PRE-MATERIALIZATION",
+        "scope": {
+          "requestedFields": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 1
+          },
+          "scenarios": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 8
+          },
+          "targets": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 1
+          }
+        },
+        "sourceIdentity": {
+          "reusedAuthenticatedSources": null,
+          "sourceReuseRate": null
+        },
+        "stageStates": {
+          "green": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 1
+          },
+          "red": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 6
+          },
+          "yellow": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 1
+          }
+        },
+        "workCounters": {
+          "exceptionGroups": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 6
+          },
+          "exceptionRecords": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 7
+          },
+          "routedRecords": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed routing count",
+            "scope": "Wave C mixed routing fixture",
+            "value": 8
+          }
+        }
+      }
+    ],
+    "id": "batch-summary.34cc1400392c5bdbf904dee2",
+    "metrics": {
+      "autoAdvanceRate": {
+        "contractVersions": [
+          "RoutingResult/v1",
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "MEASURED",
+          "reason": "Directly observed routing count",
+          "scope": "Wave C mixed routing fixture",
+          "value": 1
+        },
+        "measurementState": "MEASURED",
+        "name": "autoAdvanceRate",
+        "numerator": {
+          "measurementState": "MEASURED",
+          "reason": "Directly observed routing count",
+          "scope": "Wave C mixed routing fixture",
+          "value": 1
+        },
+        "reason": "One GREEN record had one rigorously eligible safe continuation",
+        "scope": "Wave C mixed routing fixture",
+        "value": 1
+      },
+      "humanTouchRate": {
+        "contractVersions": [
+          "RoutingResult/v1",
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "MEASURED",
+          "reason": "Directly observed routing count",
+          "scope": "Wave C mixed routing fixture",
+          "value": 8
+        },
+        "measurementState": "MEASURED",
+        "name": "humanTouchRate",
+        "numerator": {
+          "measurementState": "MEASURED",
+          "reason": "Directly observed routing count",
+          "scope": "Wave C mixed routing fixture",
+          "value": 1
+        },
+        "reason": "One record requires a bounded human promotion-review action",
+        "scope": "Wave C mixed routing fixture",
+        "value": 0.125
+      },
+      "researchDuplicationRate": {
+        "contractVersions": [
+          "RoutingResult/v1",
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Value unavailable for this fixture",
+          "scope": "Wave C mixed routing fixture",
+          "value": null
+        },
+        "measurementState": "NOT-MEASURED",
+        "name": "researchDuplicationRate",
+        "numerator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Value unavailable for this fixture",
+          "scope": "Wave C mixed routing fixture",
+          "value": null
+        },
+        "reason": "Historical equivalent-operation denominator is unavailable",
+        "scope": "Wave C mixed routing fixture",
+        "value": null
+      },
+      "sourceReuseRate": {
+        "contractVersions": [
+          "RoutingResult/v1",
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Value unavailable for this fixture",
+          "scope": "Wave C mixed routing fixture",
+          "value": null
+        },
+        "measurementState": "NOT-MEASURED",
+        "name": "sourceReuseRate",
+        "numerator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Value unavailable for this fixture",
+          "scope": "Wave C mixed routing fixture",
+          "value": null
+        },
+        "reason": "Source acquisition is outside Wave C",
+        "scope": "Wave C mixed routing fixture",
+        "value": null
+      }
+    },
+    "safeStop": "PRE-MATERIALIZATION",
+    "schemaVersion": 2,
+    "scope": {
+      "id": "technical-research-factory-wave-c",
+      "label": "Wave C deterministic routing"
+    }
+  },
+  "assertions": {
+    "greenCount": 1,
+    "yellowCount": 1,
+    "redCount": 6,
+    "greenExcludedFromExceptions": true,
+    "runnerAgreement": true,
+    "duplicateInputsVisible": true,
+    "noAuthorizationCreated": true,
+    "noRuleActivated": true,
+    "evidenceRowsCreated": 0,
+    "productionChanged": false,
+    "serviceCoreChanged": false,
+    "cloudChanged": false,
+    "externalSideEffects": false
+  },
+  "next": "Execute Wave D: versioned deterministic rule library; do not execute in Wave C."
+}

@@ -392,3 +392,14 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   unknown metrics remain unchanged. NEXT is Wave C: deterministic
   GREEN/YELLOW/RED routing and grouped exception projection; it is not
   executed.
+- Technical Research Factory Throughput v2 Wave C now provides deterministic
+  GREEN/YELLOW/RED routing over SafeStageRunner/v1 results and a grouped,
+  read-only exception projection. The mixed fixture classifies 8 inputs as
+  1 GREEN, 1 YELLOW and 6 RED; 7 exception records remain visible in 6 stable
+  groups, including both duplicate failures. GREEN requires an ADVANCED
+  runner result, YELLOW preserves the explicit promotion-review boundary, and
+  structural failures remain RED with exact reason codes. No rule was activated,
+  no authorization was created, historical Wave A unknown metrics remain
+  unchanged, and no evidence, production, Service Core, catalogue, registry,
+  cloud or UI state changed. NEXT is Wave D: versioned deterministic rule
+  library; it is not executed.
