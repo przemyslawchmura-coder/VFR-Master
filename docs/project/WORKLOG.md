@@ -1409,3 +1409,16 @@ losses or duplicates, preserved lineage/applicability and no unsupported
 promotion. Targeted validation: 6 tests, JavaScript syntax check and diff
 check passed. Audit classification: `ACCEPT-WITH-RISKS`; the next stage is
 pending Promotion Review Packet creation only.
+
+## 2026-09-20 — BMW C 600 Sport pending Promotion Review Packets
+
+Created exactly 24 deterministic generic `PromotionReviewPacket/v1` packets
+from the unchanged BMW C 600 Sport MY2012 promotion-readiness output. Every
+packet is `PENDING-PROMOTION-REVIEW`; 0 were approved, rejected or moved to
+needs-review. The packets preserve raw values, source identity, provenance,
+explicit applicability and all nine conditional contexts. Independent audit
+confirmed 24/24 inputs, no missing or duplicate packets, unchanged upstream
+readiness, and no evidence, production, catalogue, registry, Service Core or
+cloud change. Targeted validation passed (16 tests including generic lifecycle
+tests), syntax and diff checks passed. The next step remains a separate
+explicit human promotion-review decision; it was not executed.

@@ -1,0 +1,1471 @@
+{
+  "schemaVersion": "revlog-mass-scale-bmw-c600-promotion-review/v1",
+  "targetId": "bmw.c-scooter.c600-sport.2012",
+  "catalogVariantKey": "bmw.c-scooter.c600-sport",
+  "year": 2012,
+  "sourceProspectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+  "input": {
+    "promotionReadinessRecords": 24,
+    "promotionReady": 24,
+    "blocked": 0
+  },
+  "packets": [
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "tires_wheels.rim-sizes",
+      "evidenceProcessingRecordId": "evidence-processing.39357b9fc0664eadee3b0e4b",
+      "humanReviewDecisionId": "review-decision.8d758a276e570e31fff005b3",
+      "id": "promotion-review-packet.0f7198304fbd44a800b8334f",
+      "promotionPacketId": "promotion-candidate.b8d02cf97a7eb17088c6aec1",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.bb286b316e89893c3ab704e0",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+          "page": 118,
+          "printedPage": 116,
+          "section": "Technical data / Wheels and tires",
+          "tableOrSubsection": "Front wheel / Rear wheel",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "Front wheel 3.50\" x 15\"; Rear wheel 4.50\" x 15\"",
+      "reviewQueueEntryId": "review-queue-entry.3c1b86b9a6bb05e92ce395a0",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "tires_wheels.front-size",
+      "evidenceProcessingRecordId": "evidence-processing.62baef1ffdbbb9c4cc2bc68d",
+      "humanReviewDecisionId": "review-decision.075b3bdc95ae1a799c453cc3",
+      "id": "promotion-review-packet.22451b716ca3eec2261f8794",
+      "promotionPacketId": "promotion-candidate.c5bc5b0bd5f829c235769bd9",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.d6f3fe81386ca44e9610bc65",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+          "page": 118,
+          "printedPage": 116,
+          "section": "Technical data / Wheels and tires",
+          "tableOrSubsection": "Front tire designation",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "120/70 R15",
+      "reviewQueueEntryId": "review-queue-entry.3c8558d1b741ad5e517a9f7e",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "fuel_intake.tank-capacity",
+      "evidenceProcessingRecordId": "evidence-processing.11a1441db295bda36d496d74",
+      "humanReviewDecisionId": "review-decision.1403362ecd31352382ab5754",
+      "id": "promotion-review-packet.24c8f0cf593d3d2c1c4caa80",
+      "promotionPacketId": "promotion-candidate.31c6731e56419652f1d28dff",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.93adebce1c68891691ba57c8",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-115",
+          "page": 115,
+          "printedPage": 113,
+          "section": "Technical data / Fuel",
+          "tableOrSubsection": "Usable fuel quantity",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "Approx. 4.2 gal (Approx. 16 l)",
+      "reviewQueueEntryId": "review-queue-entry.b3a1172222e5bd7b548726d9",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "lighting.front-indicators",
+      "evidenceProcessingRecordId": "evidence-processing.b5864a522f81293e3aaa73f8",
+      "humanReviewDecisionId": "review-decision.c9b93cc9b25bcb69771a06cb",
+      "id": "promotion-review-packet.2ad992f252eec3d1858b1c80",
+      "promotionPacketId": "promotion-candidate.1232701182b4e8239a58a690",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.92a2414d9e0b2cdab2b43f0e",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+          "page": 119,
+          "printedPage": 117,
+          "section": "Technical data / Electrical system",
+          "tableOrSubsection": "Bulbs for flashing turn indicators, front",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "PY21W / 12 V / 21 W; with LED turn indicators OE LED / 12 V",
+      "reviewQueueEntryId": "review-queue-entry.5f280ad0951fb4bca670b49e",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "lighting.license-plate",
+      "evidenceProcessingRecordId": "evidence-processing.11a0e354e3baada18fad8f1c",
+      "humanReviewDecisionId": "review-decision.b0a4c1bcff528780148b0dc7",
+      "id": "promotion-review-packet.308fd2766797fc648e115f9a",
+      "promotionPacketId": "promotion-candidate.a28457a1143cd0e6c9d5727d",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.8b0d0de6d7a7d6cbcb74ddc0",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+          "page": 119,
+          "printedPage": 117,
+          "section": "Technical data / Electrical system",
+          "tableOrSubsection": "Bulb for license-plate light",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "W5W / 12 V / 5 W",
+      "reviewQueueEntryId": "review-queue-entry.bff37f495733d347d4e19039",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "tires_wheels.front-axle-torque",
+      "evidenceProcessingRecordId": "evidence-processing.ccfde6c746b84dbf15ea44c8",
+      "humanReviewDecisionId": "review-decision.0808335b5e67070c96b06704",
+      "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05",
+      "promotionPacketId": "promotion-candidate.a95fc2af37f301eca77c65b6",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+        "candidateId": "extraction-candidate.a1776a1a72a0e955c485c3e2",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+          "page": 90,
+          "printedPage": 88,
+          "section": "Maintenance / Front wheel",
+          "tableOrSubsection": "Quick-release axle in axle mount",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "22 lb/ft (30 Nm)",
+      "reviewQueueEntryId": "review-queue-entry.c9274d18c7620e59132b3b47",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "brakes.brake-fluid",
+      "evidenceProcessingRecordId": "evidence-processing.5e6419825fc812c4eb1b17e2",
+      "humanReviewDecisionId": "review-decision.377abd16eb1e1d5863b8bcbf",
+      "id": "promotion-review-packet.3287b2c64001d151b7b3f3ed",
+      "promotionPacketId": "promotion-candidate.7f13065631fc9c335c7e9dac",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.b66684090bab7aa012bcb2d1",
+        "candidateId": "extraction-candidate.7b606bddfa81d97b0702cba6",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.aa7a7b74ddcedab42de718f5",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-84",
+          "page": 84,
+          "printedPage": 82,
+          "section": "Maintenance / Brake system",
+          "tableOrSubsection": "Front brake fluid level",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "Brake fluid, DOT4",
+      "reviewQueueEntryId": "review-queue-entry.adb6cfb9adccca6948baf477",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "tires_wheels.rear-axle-torque",
+      "evidenceProcessingRecordId": "evidence-processing.ef26bf96da5d4fdd2611931e",
+      "humanReviewDecisionId": "review-decision.de6b587393aee5c0b3d6d29e",
+      "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf",
+      "promotionPacketId": "promotion-candidate.9440eca448ce20ebc18b61e0",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+        "candidateId": "extraction-candidate.35795700854a58780ebb2ef4",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-92",
+          "page": 92,
+          "printedPage": 90,
+          "section": "Maintenance / Rear wheel",
+          "tableOrSubsection": "Rear wheel on output shaft",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "44 lb/ft (60 Nm)",
+      "reviewQueueEntryId": "review-queue-entry.f81934dc2d9392ac2dea246f",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "tires_wheels.solo-pressures",
+      "evidenceProcessingRecordId": "evidence-processing.34fc75e4df192d5e23c6ed93",
+      "humanReviewDecisionId": "review-decision.3695d6e6e8bed162eb68d124",
+      "id": "promotion-review-packet.6da8ee105490e42d6211aaaa",
+      "promotionPacketId": "promotion-candidate.ac069ed188655b0c7e4c1d59",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.d136e199adab7d73b18536c7",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+          "page": 118,
+          "printedPage": 116,
+          "section": "Technical data / Wheels and tires",
+          "tableOrSubsection": "Tire pressure; single rider; cold tires",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "Tire pressure, front 34.8 psi (2.4 bar), With tire cold; Tire pressure, rear 36.3 psi (2.5 bar), Single rider, with cold tires",
+      "reviewQueueEntryId": "review-queue-entry.44a7827a9ddb8c94bcbb80d8",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "brakes.pad-thickness-limit",
+      "evidenceProcessingRecordId": "evidence-processing.3ad7ce62db4808e8d5a0d3e6",
+      "humanReviewDecisionId": "review-decision.77f0fd6b20d7cadeecf8893f",
+      "id": "promotion-review-packet.6fea8fa9e76cecd4f0a569d0",
+      "promotionPacketId": "promotion-candidate.b13989fed3a1a8150dd23db2",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.b66684090bab7aa012bcb2d1",
+        "candidateId": "extraction-candidate.e5f20f116ef8953b6b3feec4",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.aa7a7b74ddcedab42de718f5",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-82",
+          "page": 82,
+          "printedPage": 80,
+          "section": "Maintenance / Brake system",
+          "tableOrSubsection": "Front brake-pad wear limit",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "min 0.04 in (min 1.0 mm)",
+      "reviewQueueEntryId": "review-queue-entry.4859a7588c3e15878bd61cdc",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "lighting.front-position",
+      "evidenceProcessingRecordId": "evidence-processing.cda5126257223abdbcff6379",
+      "humanReviewDecisionId": "review-decision.e524e9459fbc2cf7ed253916",
+      "id": "promotion-review-packet.72b737dd0737320926ef99c6",
+      "promotionPacketId": "promotion-candidate.d8db354f765b700fe65d54f0",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.85b8bd25b1f776354a12aef3",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+          "page": 119,
+          "printedPage": 117,
+          "section": "Technical data / Electrical system",
+          "tableOrSubsection": "Bulb for parking light",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "W5W / 12 V / 5 W",
+      "reviewQueueEntryId": "review-queue-entry.a0dae8270f581c79be03d57e",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "electrical.battery-specification",
+      "evidenceProcessingRecordId": "evidence-processing.bb47ae3e12427f411f670f7e",
+      "humanReviewDecisionId": "review-decision.b2ae7ea7c8c28c0d65657566",
+      "id": "promotion-review-packet.76c0ed4a065e106c69a221ec",
+      "promotionPacketId": "promotion-candidate.6fd7d4199c37665f26dd02a0",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.46a0aa7524df8b3a8b2fa33f",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+          "page": 119,
+          "printedPage": 117,
+          "section": "Technical data / Electrical system",
+          "tableOrSubsection": "Battery design",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "AGM (Absorptive Glass Mat) battery.",
+      "reviewQueueEntryId": "review-queue-entry.ea66de29fb50845ac89d6ab6",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "tires_wheels.loaded-pressures",
+      "evidenceProcessingRecordId": "evidence-processing.6938103b20db2561b96d2b12",
+      "humanReviewDecisionId": "review-decision.076a55dd49d8b3357bf88ae9",
+      "id": "promotion-review-packet.884caa97481269f10d509649",
+      "promotionPacketId": "promotion-candidate.29e2a8111a5754b71e0bab0d",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.17dd0b5a88cac424df30331e",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+          "page": 118,
+          "printedPage": 116,
+          "section": "Technical data / Wheels and tires",
+          "tableOrSubsection": "Tire pressure; driver with passenger and/or load; cold tire",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "42.1 psi (2.9 bar), Driver with passenger and/or load, with cold tire",
+      "reviewQueueEntryId": "review-queue-entry.77b24ecfab984f3f7fec5697",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "torques.brake-calipers",
+      "evidenceProcessingRecordId": "evidence-processing.e6700ffc1d5a5211ae335b27",
+      "humanReviewDecisionId": "review-decision.c2c4970dd7e9eee2a8c6b493",
+      "id": "promotion-review-packet.8ac2083b39b84d378d847034",
+      "promotionPacketId": "promotion-candidate.4412b4be9f4d815d7e1bc38a",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+        "candidateId": "extraction-candidate.a4c9381ea82fc2823683ef3c",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+          "page": 90,
+          "printedPage": 88,
+          "section": "Technical data / Threaded fasteners",
+          "tableOrSubsection": "Brake caliper on fork leg",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "21 lb/ft (28 Nm)",
+      "reviewQueueEntryId": "review-queue-entry.860bc1e2ac814692d496d78d",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "lighting.rear-indicators",
+      "evidenceProcessingRecordId": "evidence-processing.44c433538293f8fd00c8c674",
+      "humanReviewDecisionId": "review-decision.d6a6df2b3e9bd3cea18248cc",
+      "id": "promotion-review-packet.8df714d6cca0eb63bba60c02",
+      "promotionPacketId": "promotion-candidate.b0d198c7c54d01dc5b93eb70",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.aa9e7f8e88f5510bea3e6b6a",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+          "page": 119,
+          "printedPage": 117,
+          "section": "Technical data / Electrical system",
+          "tableOrSubsection": "Bulbs for flashing turn indicators, rear",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "RY10W / 12 V / 10 W; with LED turn indicators OE LED / 12 V",
+      "reviewQueueEntryId": "review-queue-entry.20ed54a0b0c2d9731cf25ce5",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "electrical.fuse-ratings",
+      "evidenceProcessingRecordId": "evidence-processing.b683ad09ebebe217625fece7",
+      "humanReviewDecisionId": "review-decision.04f4a2a7b00a4bc37ae69dc2",
+      "id": "promotion-review-packet.9ebecb078bbc466003478ca3",
+      "promotionPacketId": "promotion-candidate.c485d0fa265f51189953ad46",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.861f229fd7bcb83254c702a8",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-120",
+          "page": 120,
+          "printedPage": 118,
+          "section": "Technical data / Fuses",
+          "tableOrSubsection": "Fuse carrier / Fuse box",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": "A",
+      "rawValue": "Fuse carrier: 30 A, Fuse 9: control unit for instrument cluster/ignition switch; 30 A, Fuse 10: control unit for anti-lock brake system (ABS). Fuse box: 15 A, Fuse 1: DME main relay; 10 A, Fuse 2: control unit for Digital Motor Electronics (DME); 4 A, Fuse 3: control unit for anti-theft alarm (DWA)/Tire Pressure Control (TPC); 4 A, Fuse 4: brake-light switch for front brake/rear brake/connector of optional accessories; 7.5 A, Fuse 5: fan; 7.5 A, Fuse 6: onboard socket(s); 4 A, Fuse 7: license plate light; 4 A, Fuse 8: control unit for Digital Motor Electronics (DME)/anti-lock brake system (ABS)/instrument cluster",
+      "reviewQueueEntryId": "review-queue-entry.4a8d4591a12f34b083256312",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "transmission_clutch.transmission-type",
+      "evidenceProcessingRecordId": "evidence-processing.24503220ccd9be944e9745d6",
+      "humanReviewDecisionId": "review-decision.aebdec34afdd90aa60319047",
+      "id": "promotion-review-packet.9f49100ae773c9bb59ae7987",
+      "promotionPacketId": "promotion-candidate.e2bae508d4b8fe838f280a32",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.330dd99878c984c2493f4e97",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-116",
+          "page": 116,
+          "printedPage": 114,
+          "section": "Technical data / Transmission",
+          "tableOrSubsection": "Transmission design",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "CVT (Continously Variable Transmission)",
+      "reviewQueueEntryId": "review-queue-entry.2f739674fb572951ddf3bd18",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "lubrication.capacity-filter",
+      "evidenceProcessingRecordId": "evidence-processing.f1741a54c219cb696775592f",
+      "humanReviewDecisionId": "review-decision.ddf6dcb5100e8072f674a266",
+      "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f",
+      "promotionPacketId": "promotion-candidate.78325525cc4c0a98c4ce06c6",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.10cbaffd2c1e7e0cf9eb43fa",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-115",
+          "page": 115,
+          "printedPage": 113,
+          "section": "Technical data / Engine oil",
+          "tableOrSubsection": "Engine oil capacity",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "Approx. 3.3 quarts (Approx. 3.1 l), with filter change",
+      "reviewQueueEntryId": "review-queue-entry.6e3b9c094b901705d2199203",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "electrical.battery-capacity",
+      "evidenceProcessingRecordId": "evidence-processing.997eac27177fb970d245790e",
+      "humanReviewDecisionId": "review-decision.accdc5ce0790d4b61f4d2d3c",
+      "id": "promotion-review-packet.ba58acc50a54791ddbd89312",
+      "promotionPacketId": "promotion-candidate.572a0b7ed02fe9e15fb47ae6",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.d7d56f97d22b3370ef934d24",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+          "page": 119,
+          "printedPage": 117,
+          "section": "Technical data / Electrical system",
+          "tableOrSubsection": "Battery capacity",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "Battery capacity 11.2 Ah",
+      "reviewQueueEntryId": "review-queue-entry.5837a9f8ffd2d331fe0e18f5",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "lighting.low-beam",
+      "evidenceProcessingRecordId": "evidence-processing.fae805d5dd666bd433036fa9",
+      "humanReviewDecisionId": "review-decision.d3043723a5a8b48797df6bec",
+      "id": "promotion-review-packet.c788fee93ddd819b47431870",
+      "promotionPacketId": "promotion-candidate.e9f6ecb5fc5409bf06f4b68f",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.7c4deeb30264c9e26e8d8d1a",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+          "page": 119,
+          "printedPage": 117,
+          "section": "Technical data / Electrical system",
+          "tableOrSubsection": "Bulbs for low-beam headlight",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "H7 / 12 V / 55 W",
+      "reviewQueueEntryId": "review-queue-entry.6a6b03ed16f17db855a6065e",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "lubrication.oil-specification",
+      "evidenceProcessingRecordId": "evidence-processing.d78384a78957fff41d3113ff",
+      "humanReviewDecisionId": "review-decision.fe27854563758facdfd08258",
+      "id": "promotion-review-packet.c7d501675a55cd731db569cf",
+      "promotionPacketId": "promotion-candidate.905dbf078945ebe7b30fa43c",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.b66684090bab7aa012bcb2d1",
+        "candidateId": "extraction-candidate.277000dcbb7e644eee361793",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.aa7a7b74ddcedab42de718f5",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-115",
+          "page": 115,
+          "printedPage": 113,
+          "section": "Technical data / Engine oil",
+          "tableOrSubsection": "Products recommended by BMW Motorrad",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "BMW Motorrad High Performance Oil SAE 15W-50, API SJ / JASO MA2",
+      "reviewQueueEntryId": "review-queue-entry.2c477b6addff2bf56c81cf8d",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "tires_wheels.rear-size",
+      "evidenceProcessingRecordId": "evidence-processing.0f6b4d69380baa3e4ef2dec6",
+      "humanReviewDecisionId": "review-decision.625be227b00d43ad8d5f3dd4",
+      "id": "promotion-review-packet.c9c77db6bafcfa886e3d0c56",
+      "promotionPacketId": "promotion-candidate.48dbd546ff6ce96c8b63a304",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.253826bee2222537472b6947",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+          "page": 118,
+          "printedPage": 116,
+          "section": "Technical data / Wheels and tires",
+          "tableOrSubsection": "Rear tire designation",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "160/60 R 15",
+      "reviewQueueEntryId": "review-queue-entry.257ceda763d2dab7c8896416",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "lighting.rear-tail",
+      "evidenceProcessingRecordId": "evidence-processing.4b3031cad8b9712e1c65fa66",
+      "humanReviewDecisionId": "review-decision.db24f939b0f3aba8c0bde4eb",
+      "id": "promotion-review-packet.dbbcabda70dacc11f860df94",
+      "promotionPacketId": "promotion-candidate.dc79b2337fbcfe696d47ff3a",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.35f7066d25909674773fd58f",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+          "page": 119,
+          "printedPage": 117,
+          "section": "Technical data / Electrical system",
+          "tableOrSubsection": "Bulb for taillight/brake light",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "LED / 12 V",
+      "reviewQueueEntryId": "review-queue-entry.6d391ee2b5f186af08a74cb6",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "ignition.plug-gap",
+      "evidenceProcessingRecordId": "evidence-processing.9c9d775eb78a2b0393e0f9d5",
+      "humanReviewDecisionId": "review-decision.5022e603d9d795b8ea2eda69",
+      "id": "promotion-review-packet.f2b9c05b8f972574ed219a51",
+      "promotionPacketId": "promotion-candidate.bceeac2cb73ad4b046fd44fd",
+      "promotionReadiness": {
+        "passed": true,
+        "reasons": [],
+        "state": "PROMOTION-READY"
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.230cd710a559c0d1e292b21b",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-119",
+          "page": 119,
+          "printedPage": 117,
+          "section": "Technical data / Electrical system",
+          "tableOrSubsection": "Spark plugs / Electrode gap of spark plug",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "0.03±0.01 in (0.8±0.1 mm)",
+      "reviewQueueEntryId": "review-queue-entry.5c0ebb53ba0d1ed7b3d34e2a",
+      "reviewState": "PENDING-PROMOTION-REVIEW",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    }
+  ],
+  "conditionalContexts": [
+    {
+      "evidenceProcessingRecordId": "evidence-processing.34fc75e4df192d5e23c6ed93",
+      "canonicalFieldId": "tires_wheels.solo-pressures",
+      "condition": "single rider; cold tires"
+    },
+    {
+      "evidenceProcessingRecordId": "evidence-processing.3ad7ce62db4808e8d5a0d3e6",
+      "canonicalFieldId": "brakes.pad-thickness-limit",
+      "condition": "friction material without carrier plate"
+    },
+    {
+      "evidenceProcessingRecordId": "evidence-processing.44c433538293f8fd00c8c674",
+      "canonicalFieldId": "lighting.rear-indicators",
+      "condition": "standard bulb and optional LED turn indicators kept distinct"
+    },
+    {
+      "evidenceProcessingRecordId": "evidence-processing.5e6419825fc812c4eb1b17e2",
+      "canonicalFieldId": "brakes.brake-fluid",
+      "condition": "front brake reservoir; rear section states the same DOT4 value"
+    },
+    {
+      "evidenceProcessingRecordId": "evidence-processing.6938103b20db2561b96d2b12",
+      "canonicalFieldId": "tires_wheels.loaded-pressures",
+      "condition": "driver with passenger and/or load; cold tire"
+    },
+    {
+      "evidenceProcessingRecordId": "evidence-processing.b5864a522f81293e3aaa73f8",
+      "canonicalFieldId": "lighting.front-indicators",
+      "condition": "standard bulb and optional LED turn indicators kept distinct"
+    },
+    {
+      "evidenceProcessingRecordId": "evidence-processing.b683ad09ebebe217625fece7",
+      "canonicalFieldId": "electrical.fuse-ratings",
+      "condition": "named fuse circuits; source line breaks retained as one raw compound value"
+    },
+    {
+      "evidenceProcessingRecordId": "evidence-processing.d78384a78957fff41d3113ff",
+      "canonicalFieldId": "lubrication.oil-specification",
+      "condition": "BMW recommendation; engine oil"
+    },
+    {
+      "evidenceProcessingRecordId": "evidence-processing.f1741a54c219cb696775592f",
+      "canonicalFieldId": "lubrication.capacity-filter",
+      "condition": "with filter change"
+    }
+  ],
+  "counts": {
+    "created": 24,
+    "pending": 24,
+    "approved": 0,
+    "rejected": 0,
+    "needsReview": 0,
+    "conditionalContexts": 9
+  },
+  "assertions": {
+    "exactly24Inputs": true,
+    "exactlyOnePacketPerInput": true,
+    "noMissingInputs": true,
+    "noDuplicatePackets": true,
+    "noDuplicateInputs": true,
+    "allPending": true,
+    "noApprovalOrPromotion": true,
+    "rawValuesPreserved": true,
+    "conditionsPreserved": true,
+    "provenancePreserved": true,
+    "sourceIdentityPreserved": true,
+    "applicabilityPreserved": true,
+    "upstreamReadinessUnchanged": true,
+    "evidenceRowsCreated": 0,
+    "productionChanged": false,
+    "catalogueChanged": false,
+    "registryChanged": false,
+    "serviceCoreCoverageChanged": false,
+    "cloudChanged": false,
+    "normalizationPerformed": false,
+    "conversionPerformed": false
+  },
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "conclusion": "Exactly the 24 existing BMW C 600 Sport MY2012 PROMOTION-READY packets were presented through the generic PromotionReviewPacket/v1 lifecycle as pending human-review packets. No approval, rejection, conversion, evidence creation or production mutation occurred.",
+    "blockedInputs": [],
+    "risks": [
+      "PENDING-PROMOTION-REVIEW is not promotion approval",
+      "research Human Review ACCEPT remains distinct from promotion approval",
+      "conditional raw contexts remain unchanged"
+    ]
+  },
+  "next": "Keep these 24 packets pending; obtain a separate explicit human promotion-review decision before any future schema conversion."
+}
