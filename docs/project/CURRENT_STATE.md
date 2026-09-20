@@ -456,3 +456,16 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   deterministic, and no production/evidence/Service Core/cloud state changed.
   NEXT is a separately authorized bounded capability-extension decision for
   the repeated legitimate unsupported field classes.
+- Technical Research Factory Throughput v2 Wave I inventoried all 25 legitimate
+  Wave H unsupported-rule records exactly once across 14 evidence-backed
+  semantic classes. Only the repeated `electrical.battery-capacity` class
+  (BMW 11.2 Ah and Ducati 6.5 Ah) met the safety bar for one generic extension:
+  `battery-capacity.explicit-ah-scalar` v1.0.0 strictly accepts one explicit
+  Ah scalar, preserves raw wording/source/provenance/applicability, and creates
+  no authorization. Re-running the exact 32-record dataset produced 8 GREEN,
+  1 YELLOW and 23 RED; 2 records were affected, 8 existing authorizations
+  were consumed and 0 were created. The compound/conditional pressure
+  boundary and all other 23 capability gaps remain fail-closed. No evidence,
+  production, Service Core, catalogue, registry, cloud or UI state changed.
+  NEXT is a separately authorized analysis of another repeated capability
+  class only after fresh safety evidence; it is not executed here.

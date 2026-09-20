@@ -1618,5 +1618,23 @@ records are explicit unsupported-rule capability gaps or fail-closed results.
 The batch completed without operator interruption, remained permutation
 independent, and caused no evidence, production, Service Core, catalogue,
 registry, cloud or UI change. Exact NEXT is a separately authorized bounded
-capability-extension decision for repeated legitimate unsupported field
-classes; it was not executed.
+  capability-extension decision for repeated legitimate unsupported field
+  classes; it was not executed.
+
+## 2026-09-20 — Technical Research Factory Throughput v2 Wave I
+
+Inventoried exactly the 25 legitimate Wave H unsupported-rule records using
+canonical field, raw shape, condition, applicability and provenance rather
+than string-only grouping. Fourteen semantic classes were found. Only the
+repeated `electrical.battery-capacity` class (two explicit scalar Ah records)
+passed the safety analysis, so the generic versioned
+`battery-capacity.explicit-ah-scalar` rule v1.0.0 was added. The exact 32-record
+Wave H dataset now measures 8 GREEN, 1 YELLOW and 23 RED; 2 records were
+affected, 8 deterministic evaluations applied, 8 existing authorizations were
+consumed and 0 new authorizations were created. The pressure human boundary,
+raw values, provenance, applicability, conditions, hostile 3/2/4 regression,
+and all non-selected capability gaps remain fail-closed. Targeted Wave I,
+Wave D rule-library and Wave H tests pass; no evidence, production, Service
+Core, catalogue, registry, cloud or UI state changed. NEXT is a separately
+authorized fresh analysis of another repeated capability class only; it was
+not executed.
