@@ -1586,3 +1586,20 @@ where available. No authorization or rule was created/activated, no evidence
 or production state changed, and Wave A historical UNKNOWN/NOT-MEASURED
 metrics remain unchanged. Exact NEXT is Wave D: versioned deterministic rule
 library; it was not executed.
+
+## 2026-09-20 — Technical Research Factory Throughput v2 Wave G
+
+Implemented the bounded autonomous batch layer over existing deterministic
+rules, SafeStageRunner/v1, RoutingResult/v1, grouped exceptions and
+BatchSummary/v2. Added deterministic `InputHygiene/v1` semantics for valid
+unique, exact duplicate, conflicting duplicate, distinct conditional,
+distinct applicability and malformed records. Exact duplicates remain
+auditable while duplicate downstream work is suppressed; conflicting and
+malformed records fail closed. The hostile Wave E regression remains 9 records
+at 3 GREEN, 2 YELLOW and 4 RED with 6 exceptions in 6 groups. The
+repository-backed legitimate BMW set contains 7 records: 6 GREEN, 1 YELLOW,
+0 RED, 6 existing authorizations consumed, 0 new authorizations, and one
+exception group. Both batches completed without operator interruption; no
+evidence, production, Service Core, catalogue, registry, cloud or UI state
+changed. Exact NEXT is a separately authorized larger existing-repository
+batch run; it was not executed.

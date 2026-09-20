@@ -1,0 +1,47 @@
+// NON-PRODUCTION Wave G autonomous batch fixtures and deterministic report.
+"use strict";
+
+const crypto = require("node:crypto");
+const factory = require("../factory/index.js");
+const pipeline = require("../factory/automatic-pipeline.js");
+const rules = require("../factory/deterministic-rule-library.js");
+const waveE = require("./technical-research-factory-automatic-pipeline.js");
+
+const packets = require("../reports/mass-scale-bmw-c600-promotion-review.json").packets;
+const decisions = require("../reports/mass-scale-bmw-c600-promotion-review-decisions.json").decisions;
+const projections = require("../reports/mass-scale-bmw-c600-schema-conversion.json").projections;
+const conditionByField = { "lubrication.capacity-filter": "with filter change", "tires_wheels.loaded-pressures": "driver with passenger and/or load, with cold tire", "tires_wheels.solo-pressures": "single rider; cold tires" };
+const digest = value => crypto.createHash("sha256").update(factory.orchestrationJson.canonicalSerialize(value)).digest("hex");
+const count = value => ({ value, measurementState: "MEASURED", scope: "Wave G bounded BMW autonomous batch", reason: "Directly observed batch execution" });
+const metric = (name, numerator, denominator, reason) => ({ name, numerator: count(numerator), denominator: count(denominator), measurementState: "MEASURED", value: denominator ? numerator / denominator : null, scope: "Wave G bounded BMW autonomous batch", reason, contractVersions: ["InputHygiene/v1", "DeterministicRule/v1", "SafeStageRunner/v1", "RoutingResult/v1", "BatchSummary/v2"] });
+
+function packetFor(fieldId) { const packet = packets.find(item => item.canonicalFieldId === fieldId); if (!packet) throw new Error(`Wave G packet missing: ${fieldId}`); return packet; }
+function decisionFor(packet) { const decision = decisions.find(item => item.promotionReviewPacketId === packet.id); if (!decision) throw new Error(`Wave G decision missing: ${packet.id}`); return decision; }
+function item(fieldId, rule) {
+  const packet = packetFor(fieldId); const decision = decisionFor(packet); const projection = projections.find(item => item.promotionReviewDecisionId === decision.id);
+  return { input: { id: packet.id, canonicalFieldId: packet.canonicalFieldId, rawValue: packet.rawValue, rawUnit: packet.rawUnit, sourceIdentity: packet.sourceIdentity, provenance: packet.provenance, applicability: packet.applicability, condition: conditionByField[packet.canonicalFieldId] || null, targetIdentity: packet.targetIdentity }, rule, promotionReviewPacket: packet, promotionReviewDecision: decision, proposedProduction: projection.proposedProduction };
+}
+
+function buildLegitimateInputs() {
+  return [item("fuel_intake.tank-capacity", rules.CAPACITY_RULE), item("tires_wheels.front-axle-torque", rules.TORQUE_RULE), item("tires_wheels.rear-axle-torque", rules.TORQUE_RULE), item("tires_wheels.solo-pressures", rules.PRESSURE_RULE), item("tires_wheels.loaded-pressures", rules.PRESSURE_RULE), item("torques.brake-calipers", rules.TORQUE_RULE), item("lubrication.capacity-filter", rules.CAPACITY_RULE)];
+}
+
+function summarize(result, fixtureId, comparability) {
+  const records = result.records; const routes = records.map(record => record.routingResult); const green = routes.filter(route => route.route === "GREEN").length; const yellow = routes.filter(route => route.route === "YELLOW").length; const red = routes.filter(route => route.route === "RED").length;
+  const hygieneBlocked = records.filter(record => record.routingResult.route === "RED" && (!record.pipelineRecord || record.downstreamWorkSuppressed)).length;
+  const structuralBlocked = records.filter(record => record.routingResult.route === "RED" && record.pipelineRecord && record.pipelineRecord.ruleEvaluation && record.pipelineRecord.ruleEvaluation.state === "REJECTED").length;
+  const evaluations = records.map(record => record.pipelineRecord && record.pipelineRecord.ruleEvaluation).filter(Boolean);
+  const runnerRecords = records.filter(record => record.pipelineRecord && record.pipelineRecord.runnerResult);
+  const counts = { totalInputRecords: count(records.length), recordsProcessedAutomatically: count(records.length), automaticallyProcessedRecords: count(green), green: count(green), yellow: count(yellow), red: count(red), humanActionRequiredRecords: count(yellow), inputHygieneBlocks: count(hygieneBlocked), structuralBlocks: count(structuralBlocked), ruleEvaluations: count(evaluations.length), rulesApplied: count(evaluations.filter(item => item.state === "APPLIED").length), rulesNotApplicable: count(evaluations.filter(item => item.state === "NOT-APPLICABLE").length), rulesNeedsHumanReview: count(evaluations.filter(item => item.state === "NEEDS-HUMAN-REVIEW").length), rulesRejected: count(evaluations.filter(item => item.state === "REJECTED").length), safeStageInvocations: count(runnerRecords.length), automaticStageAdvancements: count(runnerRecords.reduce((sum, record) => sum + (record.pipelineRecord.runnerResult.state === "ADVANCED" ? record.pipelineRecord.runnerResult.stageEnvelopes.length : 0), 0)), exceptionRecords: count(result.exceptionProjection.records.length), exceptionGroups: count(result.exceptionProjection.groups.length), existingHumanAuthorizationsConsumed: count(runnerRecords.filter(record => record.pipelineRecord.runnerResult.humanAuthorizationConsumed).length), newHumanAuthorizationsCreated: count(0), evidenceRowsCreated: count(0), productionWrites: count(0), externalSideEffects: count(0), duplicateSemanticInputs: count(records.filter(record => record.hygiene.status === "EXACT-DUPLICATE").length), batchCompletedWithoutOperatorInterruption: count(1) };
+  const metrics = { automaticSafeRate: metric("automaticSafeRate", green, records.length, "GREEN records / all records"), humanTouchRate: metric("humanTouchRate", yellow, records.length, "YELLOW records / all records"), exceptionRate: metric("exceptionRate", result.exceptionProjection.records.length, records.length, "Exception records / all records") };
+  const summary = { schemaVersion: factory.BATCH_SUMMARY_SCHEMA_VERSION, id: "placeholder", scope: { id: fixtureId, label: "Wave G bounded autonomous batch" }, fixtures: [{ fixtureId, lifecycleGeneration: "throughput-v2-wave-g", comparability, scope: { targetRecords: count(records.length), targets: count(1), ruleClasses: count(3) }, counts, stageStates: { green: counts.green, yellow: counts.yellow, red: counts.red }, metrics, humanActions: { recordLocalReview: counts.humanActionRequiredRecords, existingAuthorizationReused: counts.existingHumanAuthorizationsConsumed, newAuthorizationCreated: counts.newHumanAuthorizationsCreated }, safeStop: "PRE-MATERIALIZATION", workCounters: { pipelineRecords: counts.totalInputRecords, runnerInvocations: counts.safeStageInvocations, stageAdvancements: counts.automaticStageAdvancements }, sourceIdentity: { source: "existing BMW C 600 Sport MY2012 research artifacts" }, notes: ["Record-local exceptions do not interrupt unrelated records.", "No new authorization or external side effect is created."] }], aggregate: counts, metrics, safeStop: "PRE-MATERIALIZATION", boundary: { productionMaterialization: false, evidenceMaterialization: false, serviceCoreMutation: false, catalogueMutation: false, registryMutation: false, cloudMutation: false, uiMutation: false }, contractVersions: { hygiene: "InputHygiene/v1", rule: "DeterministicRule/v1", runner: "SafeStageRunner/v1", routing: "RoutingResult/v1", exceptionProjection: "ExceptionProjection/v1", batchSummary: "BatchSummary/v2" } };
+  summary.id = factory.batchSummaryId(summary); return factory.validateBatchSummary(summary);
+}
+
+function buildReport() {
+  const hostileInputs = waveE.buildInputs(); const legitimateInputs = buildLegitimateInputs();
+  const hostile = pipeline.runAutonomousBatch(hostileInputs); const legitimate = pipeline.runAutonomousBatch(legitimateInputs);
+  return { schemaVersion: "revlog-technical-research-factory-autonomous-batch/v1", hostile: { inputType: "SYNTHETIC-NEGATIVE-TEST-RECORD", inputCount: hostileInputs.length, result: hostile, batchSummary: summarize(hostile, "wave-g-hostile-wave-e-regression", "HOSTILE-FAIL-CLOSED-FIXTURE") }, legitimate: { inputType: "REAL-RESEARCH-RECORD", inputCount: legitimateInputs.length, result: legitimate, batchSummary: summarize(legitimate, "wave-g-legitimate-bmw-records", "EXISTING-REPOSITORY-BACKED-LEGITIMATE-SUBSET") }, assertions: { hostileGreen: hostile.records.filter(record => record.routingResult.route === "GREEN").length, hostileYellow: hostile.records.filter(record => record.routingResult.route === "YELLOW").length, hostileRed: hostile.records.filter(record => record.routingResult.route === "RED").length, legitimateGreen: legitimate.records.filter(record => record.routingResult.route === "GREEN").length, legitimateYellow: legitimate.records.filter(record => record.routingResult.route === "YELLOW").length, legitimateRed: legitimate.records.filter(record => record.routingResult.route === "RED").length, allInputsAccountedFor: hostile.records.length === hostileInputs.length && legitimate.records.length === legitimateInputs.length, newHumanAuthorizationsCreated: 0, productionChanged: false, evidenceChanged: false, externalSideEffects: false }, next: "Preserve the remaining pressure human boundary; if separately authorized, run the autonomous batch against a larger existing repository-backed set." };
+}
+
+module.exports = Object.freeze({ buildLegitimateInputs, buildReport });

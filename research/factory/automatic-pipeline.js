@@ -7,6 +7,7 @@ const rules = require("./deterministic-rule-library.js");
 const runner = require("./safe-stage-runner.js");
 const routing = require("./routing.js");
 const exceptions = require("./exception-projection.js");
+const hygiene = require("./input-hygiene.js");
 
 const AUTOMATIC_PIPELINE_SCHEMA_VERSION = 1;
 const digest = value => crypto.createHash("sha256").update(json.canonicalSerialize(value)).digest("hex");
@@ -49,4 +50,24 @@ function runBatch(items) {
   return json.immutableClone({ schemaVersion: AUTOMATIC_PIPELINE_SCHEMA_VERSION, id: pipelineId({ records: results.map(result => result.id), routes: routingResults.map(result => result.id) }), records: results, routed, exceptionProjection: exceptions.project(routed), externalSideEffects: false });
 }
 
-module.exports = Object.freeze({ AUTOMATIC_PIPELINE_SCHEMA_VERSION, runBatch, semanticKey });
+function runAutonomousBatch(items) {
+  const hygieneBatch = hygiene.analyzeBatch(items);
+  const sourceBySemantic = new Map(items.map(item => [hygiene.semanticKey(item), item]));
+  const processableStatuses = new Set(["VALID-UNIQUE-RECORD", "DISTINCT-CONDITIONAL-RECORD", "DISTINCT-APPLICABILITY-RECORD"]);
+  const processed = new Map();
+  hygieneBatch.records.filter(record => processableStatuses.has(record.status)).forEach(record => processed.set(record.semanticKey, runBatch([sourceBySemantic.get(record.semanticKey)]).records[0]));
+  hygieneBatch.records.filter(record => record.status === "EXACT-DUPLICATE" && record.occurrence === 1).forEach(record => {
+    const source = sourceBySemantic.get(record.semanticKey);
+    if (source && record.reason !== "raw value is missing") processed.set(record.semanticKey, runBatch([source]).records[0]);
+  });
+  const records = hygieneBatch.records.map(hygieneRecord => {
+    const source = sourceBySemantic.get(hygieneRecord.semanticKey);
+    const pipelineRecord = processed.get(hygieneRecord.semanticKey) && (hygieneRecord.status !== "EXACT-DUPLICATE" || hygieneRecord.occurrence === 1) ? processed.get(hygieneRecord.semanticKey) : null;
+    const routingResult = pipelineRecord ? pipelineRecord.routingResult : routing.classifyInputHygiene({ input: source, hygiene: hygieneRecord });
+    return { schemaVersion: 1, id: `autonomous-pipeline-record.${digest({ hygiene: hygieneRecord.id, pipeline: pipelineRecord && pipelineRecord.id, route: routingResult.id }).slice(0, 24)}`, inputIdentity: hygieneRecord.inputIdentity, hygiene: hygieneRecord, pipelineRecord, routingResult, downstreamWorkSuppressed: hygieneRecord.status === "EXACT-DUPLICATE" && hygieneRecord.occurrence > 1, externalSideEffects: false };
+  }).sort((a, b) => a.id.localeCompare(b.id));
+  const routed = { routes: records.map(record => record.routingResult), duplicateSemanticInputCount: records.filter(record => record.hygiene.status === "EXACT-DUPLICATE").length };
+  return json.immutableClone({ schemaVersion: 1, id: pipelineId({ hygiene: hygieneBatch.id, records: records.map(record => record.id) }), inputHygiene: hygieneBatch, records, routed, exceptionProjection: exceptions.project(routed), metrics: { batchCompletedWithoutOperatorInterruption: true, newHumanAuthorizationsCreated: 0, externalSideEffects: false }, externalSideEffects: false });
+}
+
+module.exports = Object.freeze({ AUTOMATIC_PIPELINE_SCHEMA_VERSION, runBatch, runAutonomousBatch, semanticKey });

@@ -19,7 +19,10 @@ const ROUTING_REASONS = Object.freeze([
   "INCOMPATIBLE-STATE",
   "EXTERNAL-WORK-NOT-AUTHORIZED",
   "RULE-NOT-APPLICABLE",
-  "RULE-EVALUATION-REJECTED"
+  "RULE-EVALUATION-REJECTED",
+  "EXACT-DUPLICATE",
+  "CONFLICTING-DUPLICATE",
+  "MALFORMED-INPUT"
 ]);
 const fields = new Set(["schemaVersion", "id", "inputIdentity", "route", "reasonCodes", "invariants", "currentStage", "nextLegalAction", "targetIdentity", "canonicalFieldId", "sourceIdentity", "sourceProvenance", "rawValue", "rawUnit", "applicability", "condition", "upstreamIdentity", "upstreamDigest", "contractVersions", "externalSideEffects", "duplicateCount"]);
 const assert = (condition, message) => { if (!condition) throw new TypeError(message); };
@@ -109,4 +112,14 @@ function classifyRuleEvaluation({ input, evaluation, duplicateCount = 1 }) {
   return validateRoutingResult(result);
 }
 
-module.exports = Object.freeze({ ROUTING_SCHEMA_VERSION, ROUTES, ROUTING_REASONS, validateRoutingResult, classify, classifyRuleEvaluation, routeBatch });
+function classifyInputHygiene({ input, hygiene }) {
+  assert(input && typeof input === "object", "Input-hygiene routing input is required");
+  assert(hygiene && ["EXACT-DUPLICATE", "CONFLICTING-DUPLICATE", "MALFORMED-INPUT"].includes(hygiene.status), "Input-hygiene status is not blocking");
+  const record = recordFromInput(input);
+  const reason = hygiene.status;
+  const result = { schemaVersion: ROUTING_SCHEMA_VERSION, id: "placeholder", inputIdentity: identity(record, input), route: "RED", reasonCodes: [reason], invariants: { satisfied: [], failed: [hygiene.reason] }, currentStage: "INPUT-HYGIENE", nextLegalAction: reason === "EXACT-DUPLICATE" ? "RETAIN-TRACE-AND-SUPPRESS-DUPLICATE-WORK" : reason === "CONFLICTING-DUPLICATE" ? "REVIEW-CONFLICTING-DUPLICATE" : "REPAIR-INPUT-HYGIENE", targetIdentity: record && record.targetIdentity ? record.targetIdentity : null, canonicalFieldId: record && typeof record.canonicalFieldId === "string" ? record.canonicalFieldId : null, sourceIdentity: record && record.sourceIdentity ? record.sourceIdentity : null, sourceProvenance: record && record.provenance ? record.provenance : null, rawValue: record && Object.prototype.hasOwnProperty.call(record, "rawValue") ? record.rawValue : null, rawUnit: record && Object.prototype.hasOwnProperty.call(record, "rawUnit") ? record.rawUnit : null, applicability: record && record.applicability ? record.applicability : null, condition: record && Object.prototype.hasOwnProperty.call(record, "condition") ? record.condition : null, upstreamIdentity: identity(record, input), upstreamDigest: hygiene.inputIdentity.digest, contractVersions: { routing: "RoutingResult/v1", hygiene: "InputHygiene/v1" }, externalSideEffects: false, duplicateCount: hygiene.duplicateCount };
+  result.id = routeId(result);
+  return validateRoutingResult(result);
+}
+
+module.exports = Object.freeze({ ROUTING_SCHEMA_VERSION, ROUTES, ROUTING_REASONS, validateRoutingResult, classify, classifyRuleEvaluation, classifyInputHygiene, routeBatch });

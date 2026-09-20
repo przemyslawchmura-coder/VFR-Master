@@ -436,3 +436,13 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   evidence, production, Service Core, catalogue, registry, cloud or UI state
   changed. NEXT is a separately authorized upstream-input hygiene and
   duplicate-handling design/audit wave before any rule extension is considered.
+- Technical Research Factory Throughput v2 Wave G adds `InputHygiene/v1` and
+  an autonomous read-only batch composition over existing rules, runner,
+  routing, exception projection and BatchSummary contracts. The hostile Wave
+  E regression remains 9 records at 3 GREEN, 2 YELLOW and 4 RED; the
+  repository-backed legitimate BMW set contains 7 records at 6 GREEN, 1
+  YELLOW and 0 RED. Both batches complete without operator interruption,
+  preserve lineage, create 0 new authorizations and produce no external side
+  effects. Exact duplicates are auditable and suppressed from duplicate work;
+  conflicts, malformed input and the pressure boundary remain fail-closed.
+  NEXT is a separately authorized larger existing-repository batch run.
