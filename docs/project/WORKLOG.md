@@ -1454,6 +1454,25 @@ state changed. Independent audit and targeted validation passed. NEXT is a
 separately authorized bounded evidence-materialization review for exactly
 these 24 projections; it was not executed.
 
+## 2026-09-20 — Technical Research Factory Throughput v2 Wave A
+
+Implemented only the deterministic throughput baseline and generic
+`BatchSummary/v2` contract. The read-only projection measures five existing
+fixture cases without forcing their lifecycle generations into one false
+aggregate: BMW C 600 Sport MY2012, Ducati Monster 937, CBR500R, Honda Wave 2
+and the Yamaha transfer batch. Known stage counts are preserved per fixture;
+historical automation, common source-cache reuse and equivalent-operation
+duplication denominators remain explicitly `UNKNOWN` or `NOT-MEASURED`.
+Aggregate AUTO-ADVANCE, HUMAN-TOUCH, SOURCE-REUSE and
+RESEARCH-DUPLICATION percentages are withheld. Zero counts remain measured
+zeros rather than unknowns. The BMW regression anchor remains 24/24
+PROMOTION-READY, 24 packets, 24 approved decisions, 24 conversion-ready
+projections and 9 conditional contexts. Independent audit confirmed direct
+artifact counts, no duplicate source identities, immutable inputs and a
+pre-materialization safe stop. No production, evidence, Rider Service Core,
+catalogue, registry, cloud or UI state changed. Exact NEXT is Wave B: safe-
+stage runner over existing contracts; it was not executed.
+
 ## 2026-09-20 — Technical Research Factory Maximum Automation / Throughput v2 Design
 
 Completed a repository-backed design and architecture audit without runtime

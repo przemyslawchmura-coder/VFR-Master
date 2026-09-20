@@ -1,0 +1,1577 @@
+{
+  "aggregate": {
+    "comparableEndToEndRecords": {
+      "measurementState": "UNKNOWN",
+      "reason": "Fixture lifecycle generations and denominators are not uniformly comparable",
+      "scope": "Wave A cross-case aggregate",
+      "value": null
+    },
+    "desiredFieldsAcrossFixtures": {
+      "measurementState": "UNKNOWN",
+      "reason": "Desired-field scopes differ across fixture generations",
+      "scope": "Wave A cross-case aggregate",
+      "value": null
+    },
+    "fixtureCases": {
+      "measurementState": "MEASURED",
+      "reason": "Reported by the bounded fixture artifact",
+      "scope": "fixture-scoped artifact count",
+      "value": 5
+    },
+    "sourceRequirementsAcrossFixtures": {
+      "measurementState": "UNKNOWN",
+      "reason": "Source requirements are not comparable across legacy and generic reports",
+      "scope": "Wave A cross-case aggregate",
+      "value": null
+    },
+    "targetsAcrossFixtures": {
+      "measurementState": "UNKNOWN",
+      "reason": "CBR500R appears in more than one historical fixture scope",
+      "scope": "Wave A cross-case aggregate",
+      "value": null
+    }
+  },
+  "boundary": {
+    "catalogueMutation": false,
+    "cloudMutation": false,
+    "evidenceMaterialization": false,
+    "productionMaterialization": false,
+    "registryMutation": false,
+    "serviceCoreMutation": false,
+    "uiMutation": false
+  },
+  "contractVersions": {
+    "batchSummary": "BatchSummary/v2",
+    "existingFactory": "FACTORY_CONTRACT_VERSION=1",
+    "promotion": "PromotionPacket/v1 where present",
+    "schemaConversion": "SchemaConversionProjection/v1 where present"
+  },
+  "fixtures": [
+    {
+      "comparability": "COMPLETE-CHAIN-BUT-HISTORICAL-AUTOMATION-NOT-RECORDED",
+      "counts": {
+        "acquisitionOutcomes": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "authenticatedSources": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "conditionalContexts": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 9
+        },
+        "conversionBlocked": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 0
+        },
+        "conversionReady": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 24
+        },
+        "evidenceProcessingRecords": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 24
+        },
+        "extractionCandidates": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 24
+        },
+        "extractionResults": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "failures": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 0
+        },
+        "humanReviewRecords": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 24
+        },
+        "promotionBlocked": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 0
+        },
+        "promotionReady": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 24
+        },
+        "queueRecords": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 24
+        },
+        "retries": {
+          "measurementState": "UNKNOWN",
+          "reason": "Retry counters are not represented in the bounded report",
+          "scope": "BMW C 600 chain",
+          "value": null
+        },
+        "reusedSources": {
+          "measurementState": "UNKNOWN",
+          "reason": "No common source-cache metric existed in this historical run",
+          "scope": "BMW C 600 chain",
+          "value": null
+        },
+        "sourceRequirements": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        }
+      },
+      "fixtureId": "bmw-c600-2012-complete-chain",
+      "humanActions": {
+        "humanReviewDecisions": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 24
+        },
+        "promotionReviewDecisions": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 24
+        }
+      },
+      "lifecycleGeneration": "mass-scale-BMW-v1-through-SchemaConversionProjection-v1",
+      "metrics": {
+        "autoAdvanceRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+            "scope": "BMW C 600 Sport MY2012 chain",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "AUTO-ADVANCE-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+            "scope": "BMW C 600 Sport MY2012 chain",
+            "value": null
+          },
+          "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+          "scope": "BMW C 600 Sport MY2012 chain",
+          "value": null
+        },
+        "humanTouchRate": {
+          "contractVersions": [
+            "ReviewDecision/v1",
+            "PromotionReviewDecision/v1"
+          ],
+          "denominator": {
+            "measurementState": "MEASURED",
+            "reason": "Reported by the bounded fixture artifact",
+            "scope": "BMW C 600 Sport MY2012 chain",
+            "value": 24
+          },
+          "measurementState": "MEASURED",
+          "name": "HUMAN-TOUCH-RATE",
+          "numerator": {
+            "measurementState": "MEASURED",
+            "reason": "Reported by the bounded fixture artifact",
+            "scope": "BMW C 600 Sport MY2012 chain",
+            "value": 24
+          },
+          "reason": "Measured from an explicit fixture denominator",
+          "scope": "BMW C 600 Sport MY2012 chain",
+          "value": 1
+        },
+        "researchDuplicationRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+            "scope": "BMW C 600 Sport MY2012 chain",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "RESEARCH-DUPLICATION-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+            "scope": "BMW C 600 Sport MY2012 chain",
+            "value": null
+          },
+          "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+          "scope": "BMW C 600 Sport MY2012 chain",
+          "value": null
+        },
+        "sourceReuseRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+            "scope": "BMW C 600 Sport MY2012 chain",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "SOURCE-REUSE-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+            "scope": "BMW C 600 Sport MY2012 chain",
+            "value": null
+          },
+          "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+          "scope": "BMW C 600 Sport MY2012 chain",
+          "value": null
+        }
+      },
+      "notes": [
+        "BMW readiness 24/24 PROMOTION-READY",
+        "24 pending packets and 24 approved promotion-review decisions are preserved",
+        "Schema conversion is read-only; no evidence materialization occurred"
+      ],
+      "safeStop": "PRE-MATERIALIZATION",
+      "scope": {
+        "alreadyCoveredFields": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 0
+        },
+        "desiredFields": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 24
+        },
+        "targets": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        }
+      },
+      "sourceIdentity": {
+        "documentIds": [
+          "C_0132_RM_0912_C600Sport_07.pdf"
+        ],
+        "mirrorCopiesIndependent": false,
+        "sourceIdentityCount": 1,
+        "sourceTier": "A"
+      },
+      "stageStates": {
+        "acquisitionACQUIRED": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "conversionReady": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 24
+        },
+        "evidenceAccepted": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 24
+        },
+        "extractionCANDIDATES_PRODUCED": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "promotionReady": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 24
+        },
+        "queueELIGIBLE": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 24
+        }
+      },
+      "workCounters": {
+        "reportsGenerated": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 7
+        },
+        "stageInvocations": {
+          "measurementState": "UNKNOWN",
+          "reason": "No end-to-end invocation counter exists",
+          "scope": "BMW C 600 chain",
+          "value": null
+        }
+      }
+    },
+    {
+      "comparability": "SINGLE-RECORD-CHAIN",
+      "counts": {
+        "acquisitionOutcomes": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "authenticatedSources": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "conversionBlocked": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 0
+        },
+        "conversionReady": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "evidenceProcessingRecords": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "extractionCandidates": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "extractionResults": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "failures": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 0
+        },
+        "humanReviewRecords": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "promotionBlocked": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 0
+        },
+        "promotionReady": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "queueRecords": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "retries": {
+          "measurementState": "UNKNOWN",
+          "reason": "Retry counters are not represented in the bounded report",
+          "scope": "CBR500R single-record chain",
+          "value": null
+        },
+        "reusedSources": {
+          "measurementState": "UNKNOWN",
+          "reason": "Authentication reuse is not equivalent to a source-cache reuse metric",
+          "scope": "CBR500R single-record chain",
+          "value": null
+        },
+        "sourceRequirements": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        }
+      },
+      "fixtureId": "cbr500r-pc70-2024-single-chain",
+      "humanActions": {
+        "humanReviewDecisions": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "promotionReviewDecisions": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        }
+      },
+      "lifecycleGeneration": "CBR500R-bounded-v1-single-record-chain",
+      "metrics": {
+        "autoAdvanceRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+            "scope": "CBR500R PC70 single-record chain",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "AUTO-ADVANCE-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+            "scope": "CBR500R PC70 single-record chain",
+            "value": null
+          },
+          "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+          "scope": "CBR500R PC70 single-record chain",
+          "value": null
+        },
+        "humanTouchRate": {
+          "contractVersions": [
+            "ReviewDecision/v1",
+            "PromotionReviewDecision/v1"
+          ],
+          "denominator": {
+            "measurementState": "MEASURED",
+            "reason": "Reported by the bounded fixture artifact",
+            "scope": "CBR500R PC70 single-record chain",
+            "value": 1
+          },
+          "measurementState": "MEASURED",
+          "name": "HUMAN-TOUCH-RATE",
+          "numerator": {
+            "measurementState": "MEASURED",
+            "reason": "Reported by the bounded fixture artifact",
+            "scope": "CBR500R PC70 single-record chain",
+            "value": 1
+          },
+          "reason": "Measured from an explicit fixture denominator",
+          "scope": "CBR500R PC70 single-record chain",
+          "value": 1
+        },
+        "researchDuplicationRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+            "scope": "CBR500R PC70 single-record chain",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "RESEARCH-DUPLICATION-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+            "scope": "CBR500R PC70 single-record chain",
+            "value": null
+          },
+          "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+          "scope": "CBR500R PC70 single-record chain",
+          "value": null
+        },
+        "sourceReuseRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+            "scope": "CBR500R PC70 single-record chain",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "SOURCE-REUSE-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+            "scope": "CBR500R PC70 single-record chain",
+            "value": null
+          },
+          "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+          "scope": "CBR500R PC70 single-record chain",
+          "value": null
+        }
+      },
+      "notes": [
+        "The loaded-pressure field stopped without an explicit loaded condition",
+        "The single record is not treated as a generic batch denominator"
+      ],
+      "safeStop": "PRE-MATERIALIZATION",
+      "scope": {
+        "alreadyCoveredFields": {
+          "measurementState": "UNKNOWN",
+          "reason": "The execution fixture does not expose a comparable pre-run coverage denominator",
+          "scope": "CBR500R single-record chain",
+          "value": null
+        },
+        "desiredFields": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "rawCandidates": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "targets": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        }
+      },
+      "sourceIdentity": {
+        "documentIds": [
+          "31MLRB00 / 00X31-MLR-B000"
+        ],
+        "mirrorCopiesIndependent": false,
+        "sourceIdentityCount": 1,
+        "sourceTier": "A"
+      },
+      "stageStates": {
+        "acquisitionACQUIRED": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "conversionReady": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "evidenceAccepted": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "extractionCANDIDATES_PRODUCED": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "promotionDecisionApproved": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "promotionReady": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "queueELIGIBLE": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        }
+      },
+      "workCounters": {
+        "reportsGenerated": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 5
+        },
+        "stageInvocations": {
+          "measurementState": "UNKNOWN",
+          "reason": "No end-to-end invocation counter exists",
+          "scope": "CBR500R single-record chain",
+          "value": null
+        }
+      }
+    },
+    {
+      "comparability": "PARTIAL-CHAIN-27-PROCESSED-RECORDS-7-PROMOTION-REVIEW-INPUTS",
+      "counts": {
+        "acquisitionOutcomes": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "authenticatedSources": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "conversionBlocked": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "conversionReady": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 6
+        },
+        "evidenceProcessingRecords": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 27
+        },
+        "extractionCandidates": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 27
+        },
+        "extractionResults": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "failures": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 0
+        },
+        "humanReviewRecords": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 27
+        },
+        "promotionBlocked": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 0
+        },
+        "promotionReady": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 7
+        },
+        "queueRecords": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 27
+        },
+        "retries": {
+          "measurementState": "UNKNOWN",
+          "reason": "Retry counters are not represented in the bounded report",
+          "scope": "Ducati conversion subset",
+          "value": null
+        },
+        "reusedSources": {
+          "measurementState": "UNKNOWN",
+          "reason": "No common source-cache metric existed in this historical run",
+          "scope": "Ducati conversion subset",
+          "value": null
+        },
+        "sourceRequirements": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        }
+      },
+      "fixtureId": "ducati-monster937-2021-promotion-subset",
+      "humanActions": {
+        "humanReviewDecisions": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 27
+        },
+        "promotionReviewDecisions": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 7
+        }
+      },
+      "lifecycleGeneration": "Ducati-bounded-v1-promotion-and-conversion-subset",
+      "metrics": {
+        "autoAdvanceRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+            "scope": "Ducati Monster 937 promotion subset",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "AUTO-ADVANCE-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+            "scope": "Ducati Monster 937 promotion subset",
+            "value": null
+          },
+          "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+          "scope": "Ducati Monster 937 promotion subset",
+          "value": null
+        },
+        "humanTouchRate": {
+          "contractVersions": [
+            "ReviewDecision/v1",
+            "PromotionReviewDecision/v1"
+          ],
+          "denominator": {
+            "measurementState": "MEASURED",
+            "reason": "Reported by the bounded fixture artifact",
+            "scope": "Ducati Monster 937 promotion subset",
+            "value": 27
+          },
+          "measurementState": "MEASURED",
+          "name": "HUMAN-TOUCH-RATE",
+          "numerator": {
+            "measurementState": "MEASURED",
+            "reason": "Reported by the bounded fixture artifact",
+            "scope": "Ducati Monster 937 promotion subset",
+            "value": 27
+          },
+          "reason": "Measured from an explicit fixture denominator",
+          "scope": "Ducati Monster 937 promotion subset",
+          "value": 1
+        },
+        "researchDuplicationRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+            "scope": "Ducati Monster 937 promotion subset",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "RESEARCH-DUPLICATION-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+            "scope": "Ducati Monster 937 promotion subset",
+            "value": null
+          },
+          "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+          "scope": "Ducati Monster 937 promotion subset",
+          "value": null
+        },
+        "sourceReuseRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+            "scope": "Ducati Monster 937 promotion subset",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "SOURCE-REUSE-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+            "scope": "Ducati Monster 937 promotion subset",
+            "value": null
+          },
+          "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+          "scope": "Ducati Monster 937 promotion subset",
+          "value": null
+        }
+      },
+      "notes": [
+        "Six projections are conversion-ready; cooling remains conversion-blocked",
+        "This subset is not comparable to the complete 27-candidate Ducati research chain"
+      ],
+      "safeStop": "PRE-MATERIALIZATION",
+      "scope": {
+        "alreadyCoveredFields": {
+          "measurementState": "UNKNOWN",
+          "reason": "This fixture scope is a promotion subset, not a coverage baseline",
+          "scope": "Ducati conversion subset",
+          "value": null
+        },
+        "desiredFields": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 7
+        },
+        "rawCandidates": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 27
+        },
+        "targets": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        }
+      },
+      "sourceIdentity": {
+        "documentIds": [
+          "Ducati|OM-Monster-937-937-Plus-EN-MY21"
+        ],
+        "mirrorCopiesIndependent": false,
+        "sourceIdentityCount": 1,
+        "sourceTier": "A"
+      },
+      "stageStates": {
+        "acquisitionACQUIRED": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "conversionBlocked": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "conversionReady": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 6
+        },
+        "evidenceAccepted": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 27
+        },
+        "promotionDecisionsApproved": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 7
+        }
+      },
+      "workCounters": {
+        "reportsGenerated": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 4
+        },
+        "stageInvocations": {
+          "measurementState": "UNKNOWN",
+          "reason": "No end-to-end invocation counter exists",
+          "scope": "Ducati conversion subset",
+          "value": null
+        }
+      }
+    },
+    {
+      "comparability": "LEGACY-BATCH-REPORT-NOT-END-TO-END-GENERIC-LIFECYCLE",
+      "counts": {
+        "acquisitionOutcomes": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 6
+        },
+        "authenticatedSources": {
+          "measurementState": "UNKNOWN",
+          "reason": "The batch report does not expose a common authenticated-source count",
+          "scope": "Honda Wave 2",
+          "value": null
+        },
+        "conversionBlocked": {
+          "measurementState": "UNKNOWN",
+          "reason": "No schema-conversion output for this batch",
+          "scope": "Honda Wave 2",
+          "value": null
+        },
+        "conversionReady": {
+          "measurementState": "UNKNOWN",
+          "reason": "No schema-conversion output for this batch",
+          "scope": "Honda Wave 2",
+          "value": null
+        },
+        "evidenceProcessingRecords": {
+          "measurementState": "UNKNOWN",
+          "reason": "Legacy batch report predates the generic Evidence Processing report shape",
+          "scope": "Honda Wave 2",
+          "value": null
+        },
+        "extractionCandidates": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 6
+        },
+        "extractionResults": {
+          "measurementState": "UNKNOWN",
+          "reason": "Legacy batch report does not expose extraction-result count",
+          "scope": "Honda Wave 2",
+          "value": null
+        },
+        "failures": {
+          "measurementState": "UNKNOWN",
+          "reason": "Legacy batch report does not expose a comparable failure count",
+          "scope": "Honda Wave 2",
+          "value": null
+        },
+        "humanReviewRecords": {
+          "measurementState": "UNKNOWN",
+          "reason": "Legacy batch report does not expose generic Human Review record count",
+          "scope": "Honda Wave 2",
+          "value": null
+        },
+        "promotionBlocked": {
+          "measurementState": "UNKNOWN",
+          "reason": "No generic promotion-readiness output for this batch",
+          "scope": "Honda Wave 2",
+          "value": null
+        },
+        "promotionReady": {
+          "measurementState": "UNKNOWN",
+          "reason": "No generic promotion-readiness output for this batch",
+          "scope": "Honda Wave 2",
+          "value": null
+        },
+        "queueRecords": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 0
+        },
+        "retries": {
+          "measurementState": "UNKNOWN",
+          "reason": "Legacy batch report does not expose retry count",
+          "scope": "Honda Wave 2",
+          "value": null
+        },
+        "reusedSources": {
+          "measurementState": "UNKNOWN",
+          "reason": "No common source-cache metric existed",
+          "scope": "Honda Wave 2",
+          "value": null
+        },
+        "sourceRequirements": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 6
+        }
+      },
+      "fixtureId": "honda-fast-path-wave2",
+      "humanActions": {
+        "humanReviewDecisions": {
+          "measurementState": "UNKNOWN",
+          "reason": "Legacy batch report does not expose generic decision records",
+          "scope": "Honda Wave 2",
+          "value": null
+        }
+      },
+      "lifecycleGeneration": "Honda-batch-wave2-report-v1",
+      "metrics": {
+        "autoAdvanceRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+            "scope": "Honda Wave 2 target-field slots",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "AUTO-ADVANCE-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+            "scope": "Honda Wave 2 target-field slots",
+            "value": null
+          },
+          "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+          "scope": "Honda Wave 2 target-field slots",
+          "value": null
+        },
+        "humanTouchRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Lifecycle generations expose different decision scopes; an aggregate denominator is not comparable",
+            "scope": "Honda Wave 2 target-field slots",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "HUMAN-TOUCH-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Lifecycle generations expose different decision scopes; an aggregate denominator is not comparable",
+            "scope": "Honda Wave 2 target-field slots",
+            "value": null
+          },
+          "reason": "Lifecycle generations expose different decision scopes; an aggregate denominator is not comparable",
+          "scope": "Honda Wave 2 target-field slots",
+          "value": null
+        },
+        "researchDuplicationRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+            "scope": "Honda Wave 2 target-field slots",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "RESEARCH-DUPLICATION-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+            "scope": "Honda Wave 2 target-field slots",
+            "value": null
+          },
+          "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+          "scope": "Honda Wave 2 target-field slots",
+          "value": null
+        },
+        "sourceReuseRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+            "scope": "Honda Wave 2 target-field slots",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "SOURCE-REUSE-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+            "scope": "Honda Wave 2 target-field slots",
+            "value": null
+          },
+          "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+          "scope": "Honda Wave 2 target-field slots",
+          "value": null
+        }
+      },
+      "notes": [
+        "51 verified target-field slots were the reported pre-wave baseline and 6 net-new slots were reported",
+        "This fixture is not merged into generic promotion-stage totals"
+      ],
+      "safeStop": "UNKNOWN",
+      "scope": {
+        "alreadyCoveredFields": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 51
+        },
+        "desiredFields": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 528
+        },
+        "targets": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 12
+        }
+      },
+      "sourceIdentity": {
+        "documentIds": [
+          "research.honda.service.2021-adventure-brochure",
+          "research.honda.service.2021-supersport-brochure",
+          "research.honda.service.cbr500r.2024-manual",
+          "research.honda.service.vfr800.2002-manual",
+          "research.honda.service.vfr800.2002-parts",
+          "research.honda.service.vfr800.2002-service-card"
+        ],
+        "mirrorCopiesIndependent": false,
+        "sourceIdentityCount": 6,
+        "sourceTier": "UNKNOWN"
+      },
+      "stageStates": {
+        "documentsAcquired": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 6
+        },
+        "evidenceRowsProduced": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 6
+        }
+      },
+      "workCounters": {
+        "reportsGenerated": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "stageInvocations": {
+          "measurementState": "UNKNOWN",
+          "reason": "Legacy batch report is not an end-to-end invocation ledger",
+          "scope": "Honda Wave 2",
+          "value": null
+        }
+      }
+    },
+    {
+      "comparability": "ACQUISITION-AND-EVIDENCE-BATCH-NOT-END-TO-END-GENERIC-LIFECYCLE",
+      "counts": {
+        "acquisitionOutcomes": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 2
+        },
+        "authenticatedSources": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 2
+        },
+        "conversionBlocked": {
+          "measurementState": "UNKNOWN",
+          "reason": "No schema-conversion output for this batch",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        },
+        "conversionReady": {
+          "measurementState": "UNKNOWN",
+          "reason": "No schema-conversion output for this batch",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        },
+        "evidenceProcessingRecords": {
+          "measurementState": "UNKNOWN",
+          "reason": "Legacy transfer report has no generic Evidence Processing count",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        },
+        "extractionCandidates": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 58
+        },
+        "extractionResults": {
+          "measurementState": "UNKNOWN",
+          "reason": "Legacy transfer report does not expose generic extraction-result count",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        },
+        "failures": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 0
+        },
+        "humanReviewRecords": {
+          "measurementState": "UNKNOWN",
+          "reason": "Legacy transfer report has no generic Human Review count",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        },
+        "promotionBlocked": {
+          "measurementState": "UNKNOWN",
+          "reason": "No generic promotion-readiness output for this batch",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        },
+        "promotionReady": {
+          "measurementState": "UNKNOWN",
+          "reason": "No generic promotion-readiness output for this batch",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        },
+        "queueRecords": {
+          "measurementState": "UNKNOWN",
+          "reason": "Legacy transfer report has no generic queue count",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        },
+        "retries": {
+          "measurementState": "UNKNOWN",
+          "reason": "Transfer report does not expose retry count",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        },
+        "reusedSources": {
+          "measurementState": "UNKNOWN",
+          "reason": "Mirror/location counts are not authenticated-source cache reuse",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        },
+        "sourceRequirements": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 2
+        }
+      },
+      "fixtureId": "yamaha-transfer-acquisition-batch",
+      "humanActions": {
+        "humanReviewDecisions": {
+          "measurementState": "UNKNOWN",
+          "reason": "Transfer report does not expose generic decision records",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        }
+      },
+      "lifecycleGeneration": "Yamaha-transfer-acquisition-report-v1",
+      "metrics": {
+        "autoAdvanceRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+            "scope": "Yamaha transfer batch",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "AUTO-ADVANCE-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+            "scope": "Yamaha transfer batch",
+            "value": null
+          },
+          "reason": "Historical artifacts do not record whether a downstream stage advanced automatically or by a separate manual wave",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        },
+        "humanTouchRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Lifecycle generations expose different decision scopes; an aggregate denominator is not comparable",
+            "scope": "Yamaha transfer batch",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "HUMAN-TOUCH-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Lifecycle generations expose different decision scopes; an aggregate denominator is not comparable",
+            "scope": "Yamaha transfer batch",
+            "value": null
+          },
+          "reason": "Lifecycle generations expose different decision scopes; an aggregate denominator is not comparable",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        },
+        "researchDuplicationRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+            "scope": "Yamaha transfer batch",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "RESEARCH-DUPLICATION-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+            "scope": "Yamaha transfer batch",
+            "value": null
+          },
+          "reason": "Historical artifacts do not expose a complete equivalent-operation denominator",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        },
+        "sourceReuseRate": {
+          "contractVersions": [
+            "historical-artifacts"
+          ],
+          "denominator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+            "scope": "Yamaha transfer batch",
+            "value": null
+          },
+          "measurementState": "NOT-MEASURED",
+          "name": "SOURCE-REUSE-RATE",
+          "numerator": {
+            "measurementState": "NOT-MEASURED",
+            "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+            "scope": "Yamaha transfer batch",
+            "value": null
+          },
+          "reason": "Existing reports record acquisition reuse or mirror counts inconsistently, not a common authenticated-source cache denominator",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        }
+      },
+      "notes": [
+        "Two official documents yielded 58 evidence rows and 54 practical-field gain",
+        "Unresolved applicability cases remain explicit; this legacy batch is not merged with generic promotion totals"
+      ],
+      "safeStop": "UNKNOWN",
+      "scope": {
+        "alreadyCoveredFields": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 0
+        },
+        "desiredFields": {
+          "measurementState": "UNKNOWN",
+          "reason": "Desired field set is not represented as a single comparable denominator",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        },
+        "targets": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 2
+        }
+      },
+      "sourceIdentity": {
+        "documentIds": [
+          "Yamaha|B7N-28199-E0",
+          "Yamaha|BW3-F8199-E0"
+        ],
+        "mirrorCopiesIndependent": false,
+        "sourceIdentityCount": 2,
+        "sourceTier": "A"
+      },
+      "stageStates": {
+        "conflictsDiscovered": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 0
+        },
+        "documentsInspected": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 2
+        },
+        "documentsYieldingEvidence": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 2
+        },
+        "evidenceRowsProduced": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 58
+        },
+        "unresolvedApplicabilityCases": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 2
+        }
+      },
+      "workCounters": {
+        "reportsGenerated": {
+          "measurementState": "MEASURED",
+          "reason": "Reported by the bounded fixture artifact",
+          "scope": "fixture-scoped artifact count",
+          "value": 1
+        },
+        "stageInvocations": {
+          "measurementState": "UNKNOWN",
+          "reason": "Transfer report is not an end-to-end invocation ledger",
+          "scope": "Yamaha transfer batch",
+          "value": null
+        }
+      }
+    }
+  ],
+  "id": "batch-summary.07148ee8182c7adb005030fb",
+  "metrics": {
+    "autoAdvanceRate": {
+      "contractVersions": [
+        "historical-artifacts"
+      ],
+      "denominator": {
+        "measurementState": "NOT-MEASURED",
+        "reason": "Historical artifacts do not encode whether stage advancement was automatic",
+        "scope": "Wave A cross-case baseline",
+        "value": null
+      },
+      "measurementState": "NOT-MEASURED",
+      "name": "AUTO-ADVANCE-RATE",
+      "numerator": {
+        "measurementState": "NOT-MEASURED",
+        "reason": "Historical artifacts do not encode whether stage advancement was automatic",
+        "scope": "Wave A cross-case baseline",
+        "value": null
+      },
+      "reason": "Historical artifacts do not encode whether stage advancement was automatic",
+      "scope": "Wave A cross-case baseline",
+      "value": null
+    },
+    "humanTouchRate": {
+      "contractVersions": [
+        "historical-artifacts"
+      ],
+      "denominator": {
+        "measurementState": "NOT-MEASURED",
+        "reason": "Human decision scopes and lifecycle generations are not comparable across fixtures",
+        "scope": "Wave A cross-case baseline",
+        "value": null
+      },
+      "measurementState": "NOT-MEASURED",
+      "name": "HUMAN-TOUCH-RATE",
+      "numerator": {
+        "measurementState": "NOT-MEASURED",
+        "reason": "Human decision scopes and lifecycle generations are not comparable across fixtures",
+        "scope": "Wave A cross-case baseline",
+        "value": null
+      },
+      "reason": "Human decision scopes and lifecycle generations are not comparable across fixtures",
+      "scope": "Wave A cross-case baseline",
+      "value": null
+    },
+    "researchDuplicationRate": {
+      "contractVersions": [
+        "historical-artifacts"
+      ],
+      "denominator": {
+        "measurementState": "NOT-MEASURED",
+        "reason": "No complete equivalent-operation denominator exists in historical artifacts",
+        "scope": "Wave A cross-case baseline",
+        "value": null
+      },
+      "measurementState": "NOT-MEASURED",
+      "name": "RESEARCH-DUPLICATION-RATE",
+      "numerator": {
+        "measurementState": "NOT-MEASURED",
+        "reason": "No complete equivalent-operation denominator exists in historical artifacts",
+        "scope": "Wave A cross-case baseline",
+        "value": null
+      },
+      "reason": "No complete equivalent-operation denominator exists in historical artifacts",
+      "scope": "Wave A cross-case baseline",
+      "value": null
+    },
+    "sourceReuseRate": {
+      "contractVersions": [
+        "historical-artifacts"
+      ],
+      "denominator": {
+        "measurementState": "NOT-MEASURED",
+        "reason": "No common authenticated-source cache denominator exists in historical artifacts",
+        "scope": "Wave A cross-case baseline",
+        "value": null
+      },
+      "measurementState": "NOT-MEASURED",
+      "name": "SOURCE-REUSE-RATE",
+      "numerator": {
+        "measurementState": "NOT-MEASURED",
+        "reason": "No common authenticated-source cache denominator exists in historical artifacts",
+        "scope": "Wave A cross-case baseline",
+        "value": null
+      },
+      "reason": "No common authenticated-source cache denominator exists in historical artifacts",
+      "scope": "Wave A cross-case baseline",
+      "value": null
+    }
+  },
+  "safeStop": "PRE-MATERIALIZATION",
+  "schemaVersion": 2,
+  "scope": {
+    "id": "throughput-baseline.wave-a.2026-09-20",
+    "label": "Existing repository fixtures; deterministic before-baseline; no new research"
+  },
+  "assertions": {
+    "deterministic": true,
+    "fixturesSorted": true,
+    "unavailableMetricsNotPercentages": true,
+    "zeroDistinctFromUnknown": true,
+    "bmwRegression": true,
+    "inputsReadOnly": true,
+    "productionChanged": false,
+    "evidenceChanged": false,
+    "serviceCoreChanged": false,
+    "cloudChanged": false
+  },
+  "next": "Wave B — safe-stage runner over existing contracts; do not execute in Wave A."
+}

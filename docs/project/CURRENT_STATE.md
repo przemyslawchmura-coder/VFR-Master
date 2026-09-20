@@ -3,7 +3,7 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-09-20
-Snapshot basis: Technical Research Factory Maximum Automation / Throughput v2 design at the current bounded-wave commit.
+Snapshot basis: Technical Research Factory Throughput v2 Wave A deterministic baseline at the current bounded-wave commit.
 
 - Phase 6 promotion foundation: generic `PromotionPacket/v1` and fail-closed `PROMOTION-READY`/`BLOCKED` gate are implemented and exported from `research/factory/index.js`. The foundation preserves raw values/units/provenance, rejects unresolved/non-accepted processing states and insufficient scope, and performs no production conversion, evidence write, registry insertion or automatic promotion.
 - Held promotion projection: the real 27 Ducati and 13 BMW pre-promotion records were read-only projected through `PromotionPacket/v1`; Ducati produced 27 `PROMOTION-READY`, BMW 11 `PROMOTION-READY` and 2 `BLOCKED` conflict records. Upstream research objects and all production state remained unchanged.
@@ -369,3 +369,15 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   evidence, Rider Service Core, catalogue, registry, cloud and UI boundaries
   remain unchanged. The next implementation wave is A: throughput baseline and
   `BatchSummary/v2` fixture projection; no runtime automation is implemented.
+- Technical Research Factory Throughput v2 Wave A now provides the generic
+  `BatchSummary/v2` contract and a deterministic read-only baseline over five
+  existing fixture cases: BMW C 600 Sport, Ducati Monster 937, CBR500R,
+  Honda Wave 2 and Yamaha transfer acquisition. The fixtures retain their
+  lifecycle-generation differences instead of being merged into misleading
+  totals. Aggregate AUTO-ADVANCE, HUMAN-TOUCH, SOURCE-REUSE and
+  RESEARCH-DUPLICATION percentages are explicitly `NOT-MEASURED` because the
+  historical artifacts lack comparable denominators; fixture-level known
+  counts and zero values remain distinct from unknown values. BMW remains
+  24/24 promotion-ready, 24 packets, 24 approved decisions, 24 conversion-
+  ready projections and 9 conditional contexts, with no materialization.
+  NEXT is Wave B: safe-stage runner over existing contracts.
