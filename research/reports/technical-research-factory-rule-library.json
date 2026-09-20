@@ -1,0 +1,1164 @@
+{
+  "schemaVersion": "revlog-technical-research-factory-rule-library/v1",
+  "ruleSchemaVersion": 1,
+  "evaluationSchemaVersion": 1,
+  "rules": [
+    {
+      "applicabilityRequirements": {
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT|KNOWN",
+        "market": "KNOWN|SUFFICIENT",
+        "modelYear": "KNOWN|SUFFICIENT"
+      },
+      "failureReasons": [
+        "RAW-VALUE-MISSING",
+        "REQUIRED-UNIT-MISSING",
+        "UNSUPPORTED-UNIT",
+        "MALFORMED-NUMERIC-VALUE",
+        "AMBIGUOUS-COMPOUND-VALUE",
+        "INCOMPATIBLE-CANONICAL-FIELD",
+        "PROVENANCE-MISSING",
+        "SOURCE-IDENTITY-MISSING",
+        "APPLICABILITY-INSUFFICIENT",
+        "DUPLICATE-SEMANTIC-INPUT"
+      ],
+      "family": "TORQUE",
+      "id": "deterministic-rule.ebc314ca5f65f25f33af3921",
+      "inputRepresentation": {
+        "rawUnit": "null; units must be explicit in rawValue",
+        "rawValue": "single explicit Nm value or one lb/ft plus Nm pair"
+      },
+      "outputSemantics": {
+        "normalizedUnit": "Nm",
+        "preservesRawWording": true
+      },
+      "preconditions": [
+        "one scalar torque value",
+        "metric Nm value is explicit when imperial pair is present",
+        "no compound value"
+      ],
+      "provenanceBehavior": {
+        "preserveRawValue": true,
+        "preserveSourceIdentity": true,
+        "preserveSourceLocation": true
+      },
+      "rawValuePreserved": true,
+      "ruleKey": "torque.explicit-metric-pair",
+      "ruleVersion": "1.0.0",
+      "schemaVersion": 1,
+      "supportedCanonicalFieldIds": [
+        "tires_wheels.front-axle-torque",
+        "tires_wheels.rear-axle-torque",
+        "torques.brake-calipers"
+      ]
+    },
+    {
+      "applicabilityRequirements": {
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT|KNOWN",
+        "market": "KNOWN|SUFFICIENT",
+        "modelYear": "KNOWN|SUFFICIENT"
+      },
+      "failureReasons": [
+        "RAW-VALUE-MISSING",
+        "REQUIRED-UNIT-MISSING",
+        "UNSUPPORTED-UNIT",
+        "MALFORMED-NUMERIC-VALUE",
+        "AMBIGUOUS-COMPOUND-VALUE",
+        "CONDITION-REQUIRED",
+        "CONDITION-LOSS",
+        "INCOMPATIBLE-CANONICAL-FIELD",
+        "PROVENANCE-MISSING",
+        "SOURCE-IDENTITY-MISSING",
+        "APPLICABILITY-INSUFFICIENT",
+        "DUPLICATE-SEMANTIC-INPUT"
+      ],
+      "family": "CAPACITY",
+      "id": "deterministic-rule.57896e4c18df00584593c808",
+      "inputRepresentation": {
+        "rawUnit": "null; units must be explicit in rawValue",
+        "rawValue": "one explicit imperial plus litre pair"
+      },
+      "outputSemantics": {
+        "normalizedUnit": "L",
+        "preservesRawWording": true
+      },
+      "preconditions": [
+        "one scalar capacity value",
+        "metric litre value is explicit",
+        "field condition is retained where required"
+      ],
+      "provenanceBehavior": {
+        "preserveRawValue": true,
+        "preserveSourceIdentity": true,
+        "preserveSourceLocation": true
+      },
+      "rawValuePreserved": true,
+      "ruleKey": "capacity.explicit-metric-pair",
+      "ruleVersion": "1.0.0",
+      "schemaVersion": 1,
+      "supportedCanonicalFieldIds": [
+        "fuel_intake.tank-capacity",
+        "lubrication.capacity-filter"
+      ]
+    },
+    {
+      "applicabilityRequirements": {
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT|KNOWN",
+        "market": "KNOWN|SUFFICIENT",
+        "modelYear": "KNOWN|SUFFICIENT"
+      },
+      "failureReasons": [
+        "RAW-VALUE-MISSING",
+        "REQUIRED-UNIT-MISSING",
+        "UNSUPPORTED-UNIT",
+        "MALFORMED-NUMERIC-VALUE",
+        "AMBIGUOUS-COMPOUND-VALUE",
+        "CONDITION-REQUIRED",
+        "CONDITION-LOSS",
+        "INCOMPATIBLE-CANONICAL-FIELD",
+        "PROVENANCE-MISSING",
+        "SOURCE-IDENTITY-MISSING",
+        "APPLICABILITY-INSUFFICIENT",
+        "DUPLICATE-SEMANTIC-INPUT"
+      ],
+      "family": "PRESSURE",
+      "id": "deterministic-rule.5b9ae3f0b2661fa3271a836d",
+      "inputRepresentation": {
+        "rawUnit": "null; units must be explicit in rawValue",
+        "rawValue": "one explicit psi plus bar pair and explicit condition"
+      },
+      "outputSemantics": {
+        "normalizedUnit": "bar",
+        "preservesRawWording": true
+      },
+      "preconditions": [
+        "one scalar pressure value",
+        "metric bar value is explicit",
+        "condition is preserved exactly",
+        "no front/rear compound value"
+      ],
+      "provenanceBehavior": {
+        "preserveRawValue": true,
+        "preserveSourceIdentity": true,
+        "preserveSourceLocation": true
+      },
+      "rawValuePreserved": true,
+      "ruleKey": "pressure.explicit-metric-pair",
+      "ruleVersion": "1.0.0",
+      "schemaVersion": 1,
+      "supportedCanonicalFieldIds": [
+        "tires_wheels.solo-pressures",
+        "tires_wheels.loaded-pressures"
+      ]
+    }
+  ],
+  "evaluations": [
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "tires_wheels.front-axle-torque",
+      "condition": null,
+      "duplicateCount": 1,
+      "externalSideEffects": false,
+      "id": "rule-evaluation.9cc2542b85201328e0373b5f",
+      "invariants": {
+        "failed": [],
+        "passed": [
+          "canonical field supported",
+          "source identity present",
+          "provenance present",
+          "applicability sufficient",
+          "single scalar value",
+          "explicit metric Nm value"
+        ]
+      },
+      "nextLegalAction": "CONTINUE-TO-EXISTING-SAFE-STAGE-RUNNER",
+      "output": {
+        "rawValuePreserved": true,
+        "sourceRepresentation": "EXPLICIT-IMPERIAL-METRIC-PAIR",
+        "unit": "Nm",
+        "value": 30
+      },
+      "provenance": {
+        "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+        "candidateId": "extraction-candidate.a1776a1a72a0e955c485c3e2",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+          "page": 90,
+          "printedPage": 88,
+          "section": "Maintenance / Front wheel",
+          "tableOrSubsection": "Quick-release axle in axle mount",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "22 lb/ft (30 Nm)",
+      "reasonCode": "RULE-APPLIED",
+      "ruleId": "deterministic-rule.ebc314ca5f65f25f33af3921",
+      "ruleKey": "torque.explicit-metric-pair",
+      "ruleVersion": "1.0.0",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "state": "APPLIED",
+      "upstreamDigest": "b98ac185e3a0dbb62bafff913c82c9d36097db1a6337bfe0a8ad0d43610d44dc",
+      "upstreamIdentity": {
+        "digest": "b98ac185e3a0dbb62bafff913c82c9d36097db1a6337bfe0a8ad0d43610d44dc",
+        "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "lubrication.capacity-filter",
+      "condition": "with filter change",
+      "duplicateCount": 1,
+      "externalSideEffects": false,
+      "id": "rule-evaluation.6c7198876200063331922df3",
+      "invariants": {
+        "failed": [],
+        "passed": [
+          "canonical field supported",
+          "source identity present",
+          "provenance present",
+          "applicability sufficient",
+          "single scalar value",
+          "explicit metric litre value",
+          "condition retained"
+        ]
+      },
+      "nextLegalAction": "CONTINUE-TO-EXISTING-SAFE-STAGE-RUNNER",
+      "output": {
+        "condition": "with filter change",
+        "rawValuePreserved": true,
+        "sourceRepresentation": "EXPLICIT-IMPERIAL-METRIC-PAIR",
+        "unit": "L",
+        "value": 3.1
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.10cbaffd2c1e7e0cf9eb43fa",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-115",
+          "page": 115,
+          "printedPage": 113,
+          "section": "Technical data / Engine oil",
+          "tableOrSubsection": "Engine oil capacity",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "Approx. 3.3 quarts (Approx. 3.1 l), with filter change",
+      "reasonCode": "RULE-APPLIED",
+      "ruleId": "deterministic-rule.57896e4c18df00584593c808",
+      "ruleKey": "capacity.explicit-metric-pair",
+      "ruleVersion": "1.0.0",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "state": "APPLIED",
+      "upstreamDigest": "64092860333618748165f9f3693922513bab83bafdcdbab2984bc0f233c4aedd",
+      "upstreamIdentity": {
+        "digest": "64092860333618748165f9f3693922513bab83bafdcdbab2984bc0f233c4aedd",
+        "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "tires_wheels.loaded-pressures",
+      "condition": "driver with passenger and/or load, with cold tire",
+      "duplicateCount": 1,
+      "externalSideEffects": false,
+      "id": "rule-evaluation.be65cd795c3ea71c6d51703d",
+      "invariants": {
+        "failed": [],
+        "passed": [
+          "canonical field supported",
+          "source identity present",
+          "provenance present",
+          "applicability sufficient",
+          "single scalar value",
+          "explicit metric bar value",
+          "condition retained"
+        ]
+      },
+      "nextLegalAction": "CONTINUE-TO-EXISTING-SAFE-STAGE-RUNNER",
+      "output": {
+        "condition": "driver with passenger and/or load, with cold tire",
+        "rawValuePreserved": true,
+        "sourceRepresentation": "EXPLICIT-IMPERIAL-METRIC-PAIR",
+        "unit": "bar",
+        "value": 2.9
+      },
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.17dd0b5a88cac424df30331e",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+          "page": 118,
+          "printedPage": 116,
+          "section": "Technical data / Wheels and tires",
+          "tableOrSubsection": "Tire pressure; driver with passenger and/or load; cold tire",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "42.1 psi (2.9 bar), Driver with passenger and/or load, with cold tire",
+      "reasonCode": "RULE-APPLIED",
+      "ruleId": "deterministic-rule.5b9ae3f0b2661fa3271a836d",
+      "ruleKey": "pressure.explicit-metric-pair",
+      "ruleVersion": "1.0.0",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "state": "APPLIED",
+      "upstreamDigest": "884e124c03c79e84877b61021ea54b95512fd4f3689268a024b29b6a295b6f93",
+      "upstreamIdentity": {
+        "digest": "884e124c03c79e84877b61021ea54b95512fd4f3689268a024b29b6a295b6f93",
+        "id": "promotion-review-packet.884caa97481269f10d509649"
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "tires_wheels.solo-pressures",
+      "condition": "single rider; cold tires",
+      "duplicateCount": 1,
+      "externalSideEffects": false,
+      "id": "rule-evaluation.17b9c8feac7de3c2bf1063ba",
+      "invariants": {
+        "failed": [
+          "front/rear or multiple pressure values are compound"
+        ],
+        "passed": [
+          "rule identity and source lineage are present"
+        ]
+      },
+      "nextLegalAction": "SUPPLY-RECORD-LOCAL-HUMAN-INTERPRETATION",
+      "output": null,
+      "provenance": {
+        "artifactId": "artifact.0648e55b8687641e6d58d51f",
+        "candidateId": "extraction-candidate.d136e199adab7d73b18536c7",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+          "page": 118,
+          "printedPage": 116,
+          "section": "Technical data / Wheels and tires",
+          "tableOrSubsection": "Tire pressure; single rider; cold tires",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "Tire pressure, front 34.8 psi (2.4 bar), With tire cold; Tire pressure, rear 36.3 psi (2.5 bar), Single rider, with cold tires",
+      "reasonCode": "AMBIGUOUS-COMPOUND-VALUE",
+      "ruleId": "deterministic-rule.5b9ae3f0b2661fa3271a836d",
+      "ruleKey": "pressure.explicit-metric-pair",
+      "ruleVersion": "1.0.0",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "state": "NEEDS-HUMAN-REVIEW",
+      "upstreamDigest": "4dba2eb6c03bcffdfe99e5af1174d15ebf9bf9fb9f50e48b201ddcfe84e11d85",
+      "upstreamIdentity": {
+        "digest": "4dba2eb6c03bcffdfe99e5af1174d15ebf9bf9fb9f50e48b201ddcfe84e11d85",
+        "id": "promotion-review-packet.6da8ee105490e42d6211aaaa"
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "tires_wheels.front-axle-torque",
+      "condition": null,
+      "duplicateCount": 1,
+      "externalSideEffects": false,
+      "id": "rule-evaluation.c58b9c4c56e49a5ecf4194fc",
+      "invariants": {
+        "failed": [
+          "raw value is missing"
+        ],
+        "passed": []
+      },
+      "nextLegalAction": "REPAIR-OR-RESEARCH-RULE-INPUT",
+      "output": null,
+      "provenance": {
+        "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+        "candidateId": "extraction-candidate.a1776a1a72a0e955c485c3e2",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+          "page": 90,
+          "printedPage": 88,
+          "section": "Maintenance / Front wheel",
+          "tableOrSubsection": "Quick-release axle in axle mount",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": null,
+      "reasonCode": "RAW-VALUE-MISSING",
+      "ruleId": "deterministic-rule.ebc314ca5f65f25f33af3921",
+      "ruleKey": "torque.explicit-metric-pair",
+      "ruleVersion": "1.0.0",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "state": "REJECTED",
+      "upstreamDigest": "763e89c870d472b6410b10582ee08dde4d26e465ed98153c3ffef85ab0415e99",
+      "upstreamIdentity": {
+        "digest": "763e89c870d472b6410b10582ee08dde4d26e465ed98153c3ffef85ab0415e99",
+        "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "tires_wheels.front-axle-torque",
+      "condition": null,
+      "duplicateCount": 1,
+      "externalSideEffects": false,
+      "id": "rule-evaluation.4974725d92eb629ce50d1a44",
+      "invariants": {
+        "failed": [
+          "this rule requires units to remain explicit in rawValue"
+        ],
+        "passed": []
+      },
+      "nextLegalAction": "REPAIR-OR-RESEARCH-RULE-INPUT",
+      "output": null,
+      "provenance": {
+        "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+        "candidateId": "extraction-candidate.a1776a1a72a0e955c485c3e2",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+          "page": 90,
+          "printedPage": 88,
+          "section": "Maintenance / Front wheel",
+          "tableOrSubsection": "Quick-release axle in axle mount",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": "kN-m",
+      "rawValue": "30 kN-m",
+      "reasonCode": "UNSUPPORTED-UNIT",
+      "ruleId": "deterministic-rule.ebc314ca5f65f25f33af3921",
+      "ruleKey": "torque.explicit-metric-pair",
+      "ruleVersion": "1.0.0",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "state": "REJECTED",
+      "upstreamDigest": "c5a31f8eb7d6bf0c24b0304c1c57b6683866bf15e8ef7e8187488ad6ef5b84ad",
+      "upstreamIdentity": {
+        "digest": "c5a31f8eb7d6bf0c24b0304c1c57b6683866bf15e8ef7e8187488ad6ef5b84ad",
+        "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "electrical.battery-capacity",
+      "condition": null,
+      "duplicateCount": 1,
+      "externalSideEffects": false,
+      "id": "rule-evaluation.6d32a7fee9d289dcbd0f2305",
+      "invariants": {
+        "failed": [
+          "canonical field is not supported by this rule"
+        ],
+        "passed": []
+      },
+      "nextLegalAction": "REPAIR-OR-RESEARCH-RULE-INPUT",
+      "output": null,
+      "provenance": {
+        "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+        "candidateId": "extraction-candidate.a1776a1a72a0e955c485c3e2",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+          "page": 90,
+          "printedPage": 88,
+          "section": "Maintenance / Front wheel",
+          "tableOrSubsection": "Quick-release axle in axle mount",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "22 lb/ft (30 Nm)",
+      "reasonCode": "INCOMPATIBLE-CANONICAL-FIELD",
+      "ruleId": "deterministic-rule.ebc314ca5f65f25f33af3921",
+      "ruleKey": "torque.explicit-metric-pair",
+      "ruleVersion": "1.0.0",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "state": "REJECTED",
+      "upstreamDigest": "d4523fcfefb2c3db099cf50b3da9968e5b6b5e7043d62122a04fe4a82237668f",
+      "upstreamIdentity": {
+        "digest": "d4523fcfefb2c3db099cf50b3da9968e5b6b5e7043d62122a04fe4a82237668f",
+        "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+      }
+    },
+    {
+      "applicability": {
+        "abs": "KNOWN",
+        "context": "SUFFICIENT",
+        "equipment": "SUFFICIENT",
+        "market": "KNOWN",
+        "modelYear": "KNOWN",
+        "ruleApplicable": false,
+        "transmission": "KNOWN"
+      },
+      "canonicalFieldId": "tires_wheels.front-axle-torque",
+      "condition": null,
+      "duplicateCount": 1,
+      "externalSideEffects": false,
+      "id": "rule-evaluation.ea1771f87be94c12e807d5de",
+      "invariants": {
+        "failed": [],
+        "passed": [
+          "rule applicability explicitly false"
+        ]
+      },
+      "nextLegalAction": "NO-RULE-ACTION",
+      "output": null,
+      "provenance": {
+        "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+        "candidateId": "extraction-candidate.a1776a1a72a0e955c485c3e2",
+        "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+        "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+        "sourceLocation": {
+          "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+          "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+          "page": 90,
+          "printedPage": 88,
+          "section": "Maintenance / Front wheel",
+          "tableOrSubsection": "Quick-release axle in axle mount",
+          "unitsContext": "raw source wording and source units preserved"
+        }
+      },
+      "rawUnit": null,
+      "rawValue": "22 lb/ft (30 Nm)",
+      "reasonCode": "RULE-NOT-APPLICABLE",
+      "ruleId": "deterministic-rule.ebc314ca5f65f25f33af3921",
+      "ruleKey": "torque.explicit-metric-pair",
+      "ruleVersion": "1.0.0",
+      "schemaVersion": 1,
+      "sourceIdentity": {
+        "authority": "BMW Motorrad",
+        "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+        "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+        "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+        "tier": "A"
+      },
+      "state": "NOT-APPLICABLE",
+      "upstreamDigest": "655e40c78d0fed16a1646d0e823a511d19b2e107a546c7401c04459d074c9a51",
+      "upstreamIdentity": {
+        "digest": "655e40c78d0fed16a1646d0e823a511d19b2e107a546c7401c04459d074c9a51",
+        "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+      }
+    }
+  ],
+  "oldTorque": {
+    "applicability": {
+      "abs": "KNOWN",
+      "context": "SUFFICIENT",
+      "equipment": "SUFFICIENT",
+      "market": "KNOWN",
+      "modelYear": "KNOWN",
+      "transmission": "KNOWN"
+    },
+    "canonicalFieldId": "tires_wheels.front-axle-torque",
+    "condition": null,
+    "duplicateCount": 1,
+    "externalSideEffects": false,
+    "id": "rule-evaluation.db9c56fd1b08272d14b9ebf2",
+    "invariants": {
+      "failed": [],
+      "passed": [
+        "canonical field supported",
+        "source identity present",
+        "provenance present",
+        "applicability sufficient",
+        "single scalar value",
+        "explicit metric Nm value"
+      ]
+    },
+    "nextLegalAction": "CONTINUE-TO-EXISTING-SAFE-STAGE-RUNNER",
+    "output": {
+      "rawValuePreserved": true,
+      "sourceRepresentation": "EXPLICIT-IMPERIAL-METRIC-PAIR",
+      "unit": "Nm",
+      "value": 30
+    },
+    "provenance": {
+      "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+      "candidateId": "extraction-candidate.a1776a1a72a0e955c485c3e2",
+      "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+      "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+      "sourceLocation": {
+        "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+        "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+        "page": 90,
+        "printedPage": 88,
+        "section": "Maintenance / Front wheel",
+        "tableOrSubsection": "Quick-release axle in axle mount",
+        "unitsContext": "raw source wording and source units preserved"
+      }
+    },
+    "rawUnit": null,
+    "rawValue": "22 lb/ft (30 Nm)",
+    "reasonCode": "RULE-APPLIED",
+    "ruleId": "deterministic-rule.2c86c8c05cae0e4e3640e87d",
+    "ruleKey": "torque.explicit-metric-pair",
+    "ruleVersion": "0.9.0",
+    "schemaVersion": 1,
+    "sourceIdentity": {
+      "authority": "BMW Motorrad",
+      "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+      "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+      "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+      "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+      "tier": "A"
+    },
+    "state": "APPLIED",
+    "upstreamDigest": "b98ac185e3a0dbb62bafff913c82c9d36097db1a6337bfe0a8ad0d43610d44dc",
+    "upstreamIdentity": {
+      "digest": "b98ac185e3a0dbb62bafff913c82c9d36097db1a6337bfe0a8ad0d43610d44dc",
+      "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+    }
+  },
+  "batchSummary": {
+    "aggregate": {
+      "applied": {
+        "measurementState": "MEASURED",
+        "reason": "Direct rule result count",
+        "scope": "Wave D mixed fixture",
+        "value": 3
+      },
+      "automaticSafeRuleEvaluations": {
+        "measurementState": "MEASURED",
+        "reason": "Applied rule results; no downstream stage was authorized",
+        "scope": "Wave D rule evaluation only",
+        "value": 3
+      },
+      "blockedRecords": {
+        "measurementState": "MEASURED",
+        "reason": "Rejected structural rule inputs",
+        "scope": "Wave D mixed fixture",
+        "value": 3
+      },
+      "externalSideEffects": {
+        "measurementState": "MEASURED",
+        "reason": "Rule library is pure and read-only",
+        "scope": "Wave D mixed fixture",
+        "value": 0
+      },
+      "humanActionRecords": {
+        "measurementState": "MEASURED",
+        "reason": "Compound pressure requires record-local human interpretation",
+        "scope": "Wave D mixed fixture",
+        "value": 1
+      },
+      "needsHumanReview": {
+        "measurementState": "MEASURED",
+        "reason": "Direct rule result count",
+        "scope": "Wave D mixed fixture",
+        "value": 1
+      },
+      "notApplicable": {
+        "measurementState": "MEASURED",
+        "reason": "Direct rule result count",
+        "scope": "Wave D mixed fixture",
+        "value": 1
+      },
+      "recordsEvaluated": {
+        "measurementState": "MEASURED",
+        "reason": "Direct fixture count",
+        "scope": "Wave D mixed fixture",
+        "value": 8
+      },
+      "rejected": {
+        "measurementState": "MEASURED",
+        "reason": "Direct rule result count",
+        "scope": "Wave D mixed fixture",
+        "value": 3
+      }
+    },
+    "boundary": {
+      "catalogueMutation": false,
+      "cloudMutation": false,
+      "evidenceMaterialization": false,
+      "productionMaterialization": false,
+      "registryMutation": false,
+      "serviceCoreMutation": false,
+      "uiMutation": false
+    },
+    "contractVersions": {
+      "batchSummary": "BatchSummary/v2",
+      "evaluation": "RuleEvaluationResult/v1",
+      "routing": "RoutingResult/v1",
+      "rule": "DeterministicRule/v1"
+    },
+    "fixtures": [
+      {
+        "comparability": "DIRECT-RULE-FIXTURE-ONLY",
+        "counts": {
+          "applied": {
+            "measurementState": "MEASURED",
+            "reason": "Direct rule result count",
+            "scope": "Wave D mixed fixture",
+            "value": 3
+          },
+          "automaticSafeRuleEvaluations": {
+            "measurementState": "MEASURED",
+            "reason": "Applied rule results; no downstream stage was authorized",
+            "scope": "Wave D rule evaluation only",
+            "value": 3
+          },
+          "blockedRecords": {
+            "measurementState": "MEASURED",
+            "reason": "Rejected structural rule inputs",
+            "scope": "Wave D mixed fixture",
+            "value": 3
+          },
+          "externalSideEffects": {
+            "measurementState": "MEASURED",
+            "reason": "Rule library is pure and read-only",
+            "scope": "Wave D mixed fixture",
+            "value": 0
+          },
+          "humanActionRecords": {
+            "measurementState": "MEASURED",
+            "reason": "Compound pressure requires record-local human interpretation",
+            "scope": "Wave D mixed fixture",
+            "value": 1
+          },
+          "needsHumanReview": {
+            "measurementState": "MEASURED",
+            "reason": "Direct rule result count",
+            "scope": "Wave D mixed fixture",
+            "value": 1
+          },
+          "notApplicable": {
+            "measurementState": "MEASURED",
+            "reason": "Direct rule result count",
+            "scope": "Wave D mixed fixture",
+            "value": 1
+          },
+          "recordsEvaluated": {
+            "measurementState": "MEASURED",
+            "reason": "Direct fixture count",
+            "scope": "Wave D mixed fixture",
+            "value": 8
+          },
+          "rejected": {
+            "measurementState": "MEASURED",
+            "reason": "Direct rule result count",
+            "scope": "Wave D mixed fixture",
+            "value": 3
+          }
+        },
+        "fixtureId": "wave-d-rule-library-proof",
+        "humanActions": {
+          "authorizationCreated": {
+            "measurementState": "MEASURED",
+            "reason": "Rules cannot create authorization",
+            "scope": "Wave D",
+            "value": 0
+          },
+          "recordLocalInterpretation": {
+            "measurementState": "MEASURED",
+            "reason": "Compound pressure requires record-local human interpretation",
+            "scope": "Wave D mixed fixture",
+            "value": 1
+          }
+        },
+        "lifecycleGeneration": "throughput-v2-wave-d",
+        "metrics": {
+          "automaticSafeRate": {
+            "contractVersions": [
+              "DeterministicRule/v1",
+              "RuleEvaluationResult/v1",
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "MEASURED",
+              "reason": "Direct fixture count",
+              "scope": "Wave D mixed fixture",
+              "value": 8
+            },
+            "measurementState": "MEASURED",
+            "name": "automaticSafeRate",
+            "numerator": {
+              "measurementState": "MEASURED",
+              "reason": "Applied rule results; no downstream stage was authorized",
+              "scope": "Wave D rule evaluation only",
+              "value": 3
+            },
+            "reason": "Applied rule evaluations only; not a pipeline throughput claim",
+            "scope": "Wave D mixed fixture",
+            "value": 0.375
+          },
+          "humanTouchRate": {
+            "contractVersions": [
+              "DeterministicRule/v1",
+              "RuleEvaluationResult/v1",
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "MEASURED",
+              "reason": "Direct fixture count",
+              "scope": "Wave D mixed fixture",
+              "value": 8
+            },
+            "measurementState": "MEASURED",
+            "name": "humanTouchRate",
+            "numerator": {
+              "measurementState": "MEASURED",
+              "reason": "Compound pressure requires record-local human interpretation",
+              "scope": "Wave D mixed fixture",
+              "value": 1
+            },
+            "reason": "One compound conditional record requires human interpretation",
+            "scope": "Wave D mixed fixture",
+            "value": 0.125
+          },
+          "researchDuplicationRate": {
+            "contractVersions": [
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Historical denominator unavailable",
+              "scope": "Wave D",
+              "value": null
+            },
+            "measurementState": "NOT-MEASURED",
+            "name": "researchDuplicationRate",
+            "numerator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Historical denominator unavailable",
+              "scope": "Wave D",
+              "value": null
+            },
+            "reason": "Historical denominator unavailable",
+            "scope": "Wave D",
+            "value": null
+          },
+          "sourceReuseRate": {
+            "contractVersions": [
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Source cache is a later wave",
+              "scope": "Wave D",
+              "value": null
+            },
+            "measurementState": "NOT-MEASURED",
+            "name": "sourceReuseRate",
+            "numerator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Source cache is a later wave",
+              "scope": "Wave D",
+              "value": null
+            },
+            "reason": "Source cache is a later wave",
+            "scope": "Wave D",
+            "value": null
+          }
+        },
+        "notes": [
+          "Raw source wording and source provenance remain on every result.",
+          "Compound solo pressure remains NEEDS-HUMAN-REVIEW.",
+          "Version 0.9.0 remains independently identifiable from 1.0.0."
+        ],
+        "safeStop": "PRE-MATERIALIZATION",
+        "scope": {
+          "records": {
+            "measurementState": "MEASURED",
+            "reason": "Direct fixture count",
+            "scope": "Wave D mixed fixture",
+            "value": 8
+          },
+          "ruleClasses": {
+            "measurementState": "MEASURED",
+            "reason": "Torque, capacity and pressure",
+            "scope": "Wave D mixed fixture",
+            "value": 3
+          }
+        },
+        "sourceIdentity": {
+          "authenticatedSourceReuse": null
+        },
+        "stageStates": {
+          "applied": {
+            "measurementState": "MEASURED",
+            "reason": "Direct rule result count",
+            "scope": "Wave D mixed fixture",
+            "value": 3
+          },
+          "needsHumanReview": {
+            "measurementState": "MEASURED",
+            "reason": "Direct rule result count",
+            "scope": "Wave D mixed fixture",
+            "value": 1
+          },
+          "notApplicable": {
+            "measurementState": "MEASURED",
+            "reason": "Direct rule result count",
+            "scope": "Wave D mixed fixture",
+            "value": 1
+          },
+          "rejected": {
+            "measurementState": "MEASURED",
+            "reason": "Direct rule result count",
+            "scope": "Wave D mixed fixture",
+            "value": 3
+          }
+        },
+        "workCounters": {
+          "evaluations": {
+            "measurementState": "MEASURED",
+            "reason": "Direct fixture count",
+            "scope": "Wave D mixed fixture",
+            "value": 8
+          },
+          "ruleClasses": {
+            "measurementState": "MEASURED",
+            "reason": "Torque, capacity and pressure",
+            "scope": "Wave D mixed fixture",
+            "value": 3
+          }
+        }
+      }
+    ],
+    "id": "batch-summary.919aeb2f4141b110eb49ebaf",
+    "metrics": {
+      "automaticSafeRate": {
+        "contractVersions": [
+          "DeterministicRule/v1",
+          "RuleEvaluationResult/v1",
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "MEASURED",
+          "reason": "Direct fixture count",
+          "scope": "Wave D mixed fixture",
+          "value": 8
+        },
+        "measurementState": "MEASURED",
+        "name": "automaticSafeRate",
+        "numerator": {
+          "measurementState": "MEASURED",
+          "reason": "Applied rule results; no downstream stage was authorized",
+          "scope": "Wave D rule evaluation only",
+          "value": 3
+        },
+        "reason": "Applied rule evaluations only; not a pipeline throughput claim",
+        "scope": "Wave D mixed fixture",
+        "value": 0.375
+      },
+      "humanTouchRate": {
+        "contractVersions": [
+          "DeterministicRule/v1",
+          "RuleEvaluationResult/v1",
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "MEASURED",
+          "reason": "Direct fixture count",
+          "scope": "Wave D mixed fixture",
+          "value": 8
+        },
+        "measurementState": "MEASURED",
+        "name": "humanTouchRate",
+        "numerator": {
+          "measurementState": "MEASURED",
+          "reason": "Compound pressure requires record-local human interpretation",
+          "scope": "Wave D mixed fixture",
+          "value": 1
+        },
+        "reason": "One compound conditional record requires human interpretation",
+        "scope": "Wave D mixed fixture",
+        "value": 0.125
+      },
+      "researchDuplicationRate": {
+        "contractVersions": [
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Historical denominator unavailable",
+          "scope": "Wave D",
+          "value": null
+        },
+        "measurementState": "NOT-MEASURED",
+        "name": "researchDuplicationRate",
+        "numerator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Historical denominator unavailable",
+          "scope": "Wave D",
+          "value": null
+        },
+        "reason": "Historical denominator unavailable",
+        "scope": "Wave D",
+        "value": null
+      },
+      "sourceReuseRate": {
+        "contractVersions": [
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Source cache is a later wave",
+          "scope": "Wave D",
+          "value": null
+        },
+        "measurementState": "NOT-MEASURED",
+        "name": "sourceReuseRate",
+        "numerator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Source cache is a later wave",
+          "scope": "Wave D",
+          "value": null
+        },
+        "reason": "Source cache is a later wave",
+        "scope": "Wave D",
+        "value": null
+      }
+    },
+    "safeStop": "PRE-MATERIALIZATION",
+    "schemaVersion": 2,
+    "scope": {
+      "id": "technical-research-factory-wave-d",
+      "label": "Wave D deterministic rule library"
+    }
+  },
+  "assertions": {
+    "appliedCount": 3,
+    "notApplicableCount": 1,
+    "needsHumanReviewCount": 1,
+    "rejectedCount": 3,
+    "rawValuePreserved": true,
+    "provenancePreserved": true,
+    "applicabilityPreserved": true,
+    "conditionPreserved": true,
+    "noAuthorizationCreated": true,
+    "noRuleActivated": true,
+    "evidenceRowsCreated": 0,
+    "productionChanged": false,
+    "serviceCoreChanged": false,
+    "cloudChanged": false,
+    "externalSideEffects": false,
+    "versionChangedIdentity": true
+  },
+  "next": "Execute Wave E: integrate the versioned rule library into a bounded multi-record automatic pipeline; do not execute in Wave D."
+}

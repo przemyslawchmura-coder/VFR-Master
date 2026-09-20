@@ -403,3 +403,14 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   unchanged, and no evidence, production, Service Core, catalogue, registry,
   cloud or UI state changed. NEXT is Wave D: versioned deterministic rule
   library; it is not executed.
+- Technical Research Factory Throughput v2 Wave D now provides a generic
+  versioned `DeterministicRule/v1` and `RuleEvaluationResult/v1` foundation
+  with three narrow proof rules: explicit torque pairs, explicit capacity
+  pairs and single explicit pressure pairs. The fixture evaluated 8 records:
+  3 APPLIED, 1 NOT-APPLICABLE, 1 NEEDS-HUMAN-REVIEW for compound conditional
+  pressure, and 3 REJECTED structural inputs. Raw values, source identity,
+  provenance, applicability and condition remain preserved; rule evaluation
+  creates no authorization, evidence or production state. Version 0.9.0 and
+  1.0.0 identities remain independent, and Wave A/B/C semantics are unchanged.
+  NEXT is Wave E: integrate the versioned rule library into a bounded
+  multi-record automatic pipeline; it is not executed.

@@ -1513,6 +1513,25 @@ changed, and BMW/Ducati/Honda upstream fixtures remain unchanged. Exact NEXT is
 Wave C: deterministic GREEN/YELLOW/RED routing and grouped exception
 projection; it was not executed.
 
+## 2026-09-20 — Technical Research Factory Throughput v2 Wave D
+
+Implemented only the versioned deterministic rule-library foundation. Added
+generic `DeterministicRule/v1` and `RuleEvaluationResult/v1` contracts with
+immutable semantic IDs, explicit evaluation states and fail-closed reason
+codes. The proof library contains only three classes justified by existing
+BMW C 600 Sport artifacts: explicit torque pairs with source-provided Nm,
+explicit capacity pairs with source-provided litres, and single explicit
+pressure pairs with source-provided bar. The fixture evaluated 8 records: 3
+`APPLIED`, 1 `NOT-APPLICABLE`, 1 `NEEDS-HUMAN-REVIEW` for compound conditional
+solo pressure, and 3 `REJECTED` structural inputs. Raw values, source identity,
+provenance, applicability and conditions were preserved; unsupported units,
+missing units, malformed values, missing provenance, incompatible fields and
+compound values failed closed. Rule version 0.9.0 remains independently
+identifiable from 1.0.0. No human authorization, rule activation, evidence,
+production, Service Core, catalogue, registry, cloud or UI state changed.
+Exact NEXT is Wave E: integrate the versioned rule library into a bounded
+multi-record automatic pipeline; it was not executed.
+
 ## 2026-09-20 — Technical Research Factory Throughput v2 Wave C
 
 Implemented only deterministic GREEN/YELLOW/RED routing over

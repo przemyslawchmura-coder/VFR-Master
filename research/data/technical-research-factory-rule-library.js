@@ -1,0 +1,44 @@
+// NON-PRODUCTION Wave D deterministic rule-library fixture. No writes or authorization.
+"use strict";
+
+const factory = require("../factory/index.js");
+const rules = require("../factory/deterministic-rule-library.js");
+const packets = require("../reports/mass-scale-bmw-c600-promotion-review.json").packets;
+
+function inputFor(fieldId, condition = null) {
+  const packet = packets.find(item => item.canonicalFieldId === fieldId);
+  if (!packet) throw new Error(`Wave D fixture packet missing: ${fieldId}`);
+  return { id: packet.id, canonicalFieldId: packet.canonicalFieldId, rawValue: packet.rawValue, rawUnit: packet.rawUnit, sourceIdentity: packet.sourceIdentity, provenance: packet.provenance, applicability: packet.applicability, condition, targetIdentity: packet.targetIdentity };
+}
+
+function buildInputs() {
+  const torque = inputFor("tires_wheels.front-axle-torque");
+  const capacity = inputFor("lubrication.capacity-filter", "with filter change");
+  const pressure = inputFor("tires_wheels.loaded-pressures", "driver with passenger and/or load, with cold tire");
+  return { torque, capacity, pressure, ambiguousPressure: inputFor("tires_wheels.solo-pressures", "single rider; cold tires"), missingRaw: { ...torque, rawValue: null }, unsupportedUnit: { ...torque, rawValue: "30 kN-m", rawUnit: "kN-m" }, incompatibleField: { ...torque, canonicalFieldId: "electrical.battery-capacity" }, notApplicable: { ...torque, applicability: { ...torque.applicability, ruleApplicable: false } } };
+}
+
+function buildReport() {
+  const input = buildInputs();
+  const torque = rules.evaluate(rules.TORQUE_RULE, input.torque);
+  const capacity = rules.evaluate(rules.CAPACITY_RULE, input.capacity);
+  const pressure = rules.evaluate(rules.PRESSURE_RULE, input.pressure);
+  const ambiguousPressure = rules.evaluate(rules.PRESSURE_RULE, input.ambiguousPressure);
+  const missingRaw = rules.evaluate(rules.TORQUE_RULE, input.missingRaw);
+  const unsupportedUnit = rules.evaluate(rules.TORQUE_RULE, input.unsupportedUnit);
+  const incompatibleField = rules.evaluate(rules.TORQUE_RULE, input.incompatibleField);
+  const notApplicable = rules.evaluate(rules.TORQUE_RULE, input.notApplicable);
+  const evaluations = [torque, capacity, pressure, ambiguousPressure, missingRaw, unsupportedUnit, incompatibleField, notApplicable];
+  const oldTorqueRule = rules.createRule({ ...rules.TORQUE_RULE, ruleVersion: "0.9.0" });
+  const oldTorque = rules.evaluate(oldTorqueRule, input.torque);
+  const counts = { recordsEvaluated: { value: evaluations.length, measurementState: "MEASURED", scope: "Wave D mixed fixture", reason: "Direct fixture count" }, applied: { value: evaluations.filter(item => item.state === "APPLIED").length, measurementState: "MEASURED", scope: "Wave D mixed fixture", reason: "Direct rule result count" }, notApplicable: { value: evaluations.filter(item => item.state === "NOT-APPLICABLE").length, measurementState: "MEASURED", scope: "Wave D mixed fixture", reason: "Direct rule result count" }, needsHumanReview: { value: evaluations.filter(item => item.state === "NEEDS-HUMAN-REVIEW").length, measurementState: "MEASURED", scope: "Wave D mixed fixture", reason: "Direct rule result count" }, rejected: { value: evaluations.filter(item => item.state === "REJECTED").length, measurementState: "MEASURED", scope: "Wave D mixed fixture", reason: "Direct rule result count" }, automaticSafeRuleEvaluations: { value: 3, measurementState: "MEASURED", scope: "Wave D rule evaluation only", reason: "Applied rule results; no downstream stage was authorized" }, humanActionRecords: { value: 1, measurementState: "MEASURED", scope: "Wave D mixed fixture", reason: "Compound pressure requires record-local human interpretation" }, blockedRecords: { value: 3, measurementState: "MEASURED", scope: "Wave D mixed fixture", reason: "Rejected structural rule inputs" }, externalSideEffects: { value: 0, measurementState: "MEASURED", scope: "Wave D mixed fixture", reason: "Rule library is pure and read-only" } };
+  const metric = (name, numerator, denominator, value, reason) => ({ name, numerator: counts[numerator], denominator: counts[denominator], measurementState: value === null ? "NOT-MEASURED" : "MEASURED", value, scope: "Wave D mixed fixture", reason, contractVersions: ["DeterministicRule/v1", "RuleEvaluationResult/v1", "BatchSummary/v2"] });
+  const fixture = { fixtureId: "wave-d-rule-library-proof", lifecycleGeneration: "throughput-v2-wave-d", comparability: "DIRECT-RULE-FIXTURE-ONLY", scope: { records: counts.recordsEvaluated, ruleClasses: { value: 3, measurementState: "MEASURED", scope: "Wave D mixed fixture", reason: "Torque, capacity and pressure" } }, counts, stageStates: { applied: counts.applied, notApplicable: counts.notApplicable, needsHumanReview: counts.needsHumanReview, rejected: counts.rejected }, metrics: { automaticSafeRate: metric("automaticSafeRate", "automaticSafeRuleEvaluations", "recordsEvaluated", 3 / 8, "Applied rule evaluations only; not a pipeline throughput claim"), humanTouchRate: metric("humanTouchRate", "humanActionRecords", "recordsEvaluated", 1 / 8, "One compound conditional record requires human interpretation"), sourceReuseRate: { name: "sourceReuseRate", numerator: { value: null, measurementState: "NOT-MEASURED", scope: "Wave D", reason: "Source cache is a later wave" }, denominator: { value: null, measurementState: "NOT-MEASURED", scope: "Wave D", reason: "Source cache is a later wave" }, measurementState: "NOT-MEASURED", value: null, scope: "Wave D", reason: "Source cache is a later wave", contractVersions: ["BatchSummary/v2"] }, researchDuplicationRate: { name: "researchDuplicationRate", numerator: { value: null, measurementState: "NOT-MEASURED", scope: "Wave D", reason: "Historical denominator unavailable" }, denominator: { value: null, measurementState: "NOT-MEASURED", scope: "Wave D", reason: "Historical denominator unavailable" }, measurementState: "NOT-MEASURED", value: null, scope: "Wave D", reason: "Historical denominator unavailable", contractVersions: ["BatchSummary/v2"] } }, humanActions: { recordLocalInterpretation: counts.humanActionRecords, authorizationCreated: { value: 0, measurementState: "MEASURED", scope: "Wave D", reason: "Rules cannot create authorization" } }, safeStop: "PRE-MATERIALIZATION", workCounters: { evaluations: counts.recordsEvaluated, ruleClasses: fixtureScopeRuleClasses() }, sourceIdentity: { authenticatedSourceReuse: null }, notes: ["Raw source wording and source provenance remain on every result.", "Compound solo pressure remains NEEDS-HUMAN-REVIEW.", "Version 0.9.0 remains independently identifiable from 1.0.0."] };
+  const summary = { schemaVersion: factory.BATCH_SUMMARY_SCHEMA_VERSION, id: "placeholder", scope: { id: "technical-research-factory-wave-d", label: "Wave D deterministic rule library" }, fixtures: [fixture], aggregate: counts, metrics: fixture.metrics, safeStop: "PRE-MATERIALIZATION", boundary: { productionMaterialization: false, evidenceMaterialization: false, serviceCoreMutation: false, catalogueMutation: false, registryMutation: false, cloudMutation: false, uiMutation: false }, contractVersions: { rule: "DeterministicRule/v1", evaluation: "RuleEvaluationResult/v1", batchSummary: "BatchSummary/v2", routing: "RoutingResult/v1" } };
+  summary.id = factory.batchSummaryId(summary);
+  return Object.freeze({ schemaVersion: "revlog-technical-research-factory-rule-library/v1", ruleSchemaVersion: factory.DETERMINISTIC_RULE_SCHEMA_VERSION, evaluationSchemaVersion: factory.RULE_EVALUATION_SCHEMA_VERSION, rules: Object.values(rules.RULES), evaluations, oldTorque, batchSummary: factory.validateBatchSummary(summary), assertions: { appliedCount: 3, notApplicableCount: 1, needsHumanReviewCount: 1, rejectedCount: 3, rawValuePreserved: evaluations.every(item => item.rawValue !== null || item.reasonCode === "RAW-VALUE-MISSING"), provenancePreserved: factory.orchestrationJson.canonicalSerialize(torque.provenance) === factory.orchestrationJson.canonicalSerialize(input.torque.provenance), applicabilityPreserved: factory.orchestrationJson.canonicalSerialize(pressure.applicability) === factory.orchestrationJson.canonicalSerialize(input.pressure.applicability), conditionPreserved: pressure.condition === input.pressure.condition, noAuthorizationCreated: true, noRuleActivated: true, evidenceRowsCreated: 0, productionChanged: false, serviceCoreChanged: false, cloudChanged: false, externalSideEffects: false, versionChangedIdentity: oldTorque.id !== torque.id && oldTorque.ruleVersion !== torque.ruleVersion }, next: "Execute Wave E: integrate the versioned rule library into a bounded multi-record automatic pipeline; do not execute in Wave D." });
+}
+
+function fixtureScopeRuleClasses() { return { value: 3, measurementState: "MEASURED", scope: "Wave D mixed fixture", reason: "Torque, capacity and pressure" }; }
+
+module.exports = Object.freeze({ buildInputs, buildReport });
