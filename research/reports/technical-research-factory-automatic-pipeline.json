@@ -1,0 +1,3672 @@
+{
+  "schemaVersion": "revlog-technical-research-factory-automatic-pipeline/v1",
+  "pipelineSchemaVersion": 1,
+  "inputCount": 9,
+  "result": {
+    "exceptionProjection": {
+      "externalSideEffects": false,
+      "groups": [
+        {
+          "canonicalFieldId": "tires_wheels.solo-pressures",
+          "groupId": "exception-group.f68509e3b5ad16dc5668a866",
+          "reason": "HUMAN-REVIEW-REQUIRED",
+          "recordIds": [
+            "routing-result.521c5647b649946fa78dbdd3"
+          ],
+          "route": "YELLOW",
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          }
+        },
+        {
+          "canonicalFieldId": "tires_wheels.front-axle-torque",
+          "groupId": "exception-group.7d0355bf63ab4c4a90d3ca9e",
+          "reason": "RULE-NOT-APPLICABLE",
+          "recordIds": [
+            "routing-result.671c368419c6b6eb71ded349"
+          ],
+          "route": "YELLOW",
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          }
+        },
+        {
+          "canonicalFieldId": "tires_wheels.rear-axle-torque",
+          "groupId": "exception-group.81a629599cc36d7938dc1e2c",
+          "reason": "DUPLICATE-SEMANTIC-INPUT",
+          "recordIds": [
+            "routing-result.7736d1e6d7d82c41a90614f3",
+            "routing-result.7736d1e6d7d82c41a90614f3"
+          ],
+          "route": "RED",
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          }
+        },
+        {
+          "canonicalFieldId": "tires_wheels.rear-axle-torque",
+          "groupId": "exception-group.3f88a21077c99e67712e2d03",
+          "reason": "RULE-EVALUATION-REJECTED",
+          "recordIds": [
+            "routing-result.64a1e776fdc1af79bef18614"
+          ],
+          "route": "RED",
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          }
+        },
+        {
+          "canonicalFieldId": "lubrication.capacity-filter",
+          "groupId": "exception-group.cd5694f321f78ce3f8ce94f3",
+          "reason": "RULE-EVALUATION-REJECTED",
+          "recordIds": [
+            "routing-result.6c97fdb94c6c463aa87e16ab"
+          ],
+          "route": "RED",
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          }
+        }
+      ],
+      "id": "exception-projection.d5339582117955037e333b09",
+      "records": [
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.solo-pressures",
+          "condition": "single rider; cold tires",
+          "failedInvariants": [
+            "front/rear or multiple pressure values are compound",
+            "AMBIGUOUS-COMPOUND-VALUE"
+          ],
+          "nextLegalAction": "SUPPLY-RECORD-LOCAL-HUMAN-INTERPRETATION",
+          "rawUnit": null,
+          "rawValue": "Tire pressure, front 34.8 psi (2.4 bar), With tire cold; Tire pressure, rear 36.3 psi (2.5 bar), Single rider, with cold tires",
+          "reason": "HUMAN-REVIEW-REQUIRED",
+          "recordId": "routing-result.521c5647b649946fa78dbdd3",
+          "route": "YELLOW",
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceLocation": {
+            "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+            "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+            "page": 118,
+            "printedPage": 116,
+            "section": "Technical data / Wheels and tires",
+            "tableOrSubsection": "Tire pressure; single rider; cold tires",
+            "unitsContext": "raw source wording and source units preserved"
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "4dba2eb6c03bcffdfe99e5af1174d15ebf9bf9fb9f50e48b201ddcfe84e11d85",
+          "upstreamIdentity": {
+            "digest": "4dba2eb6c03bcffdfe99e5af1174d15ebf9bf9fb9f50e48b201ddcfe84e11d85",
+            "id": "promotion-review-packet.6da8ee105490e42d6211aaaa"
+          }
+        },
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "ruleApplicable": false,
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.front-axle-torque",
+          "condition": null,
+          "failedInvariants": [
+            "RULE-NOT-APPLICABLE"
+          ],
+          "nextLegalAction": "SUPPLY-RECORD-LOCAL-HUMAN-INTERPRETATION",
+          "rawUnit": null,
+          "rawValue": "22 lb/ft (30 Nm)",
+          "reason": "RULE-NOT-APPLICABLE",
+          "recordId": "routing-result.671c368419c6b6eb71ded349",
+          "route": "YELLOW",
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceLocation": {
+            "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+            "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+            "page": 90,
+            "printedPage": 88,
+            "section": "Maintenance / Front wheel",
+            "tableOrSubsection": "Quick-release axle in axle mount",
+            "unitsContext": "raw source wording and source units preserved"
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "655e40c78d0fed16a1646d0e823a511d19b2e107a546c7401c04459d074c9a51",
+          "upstreamIdentity": {
+            "digest": "655e40c78d0fed16a1646d0e823a511d19b2e107a546c7401c04459d074c9a51",
+            "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+          }
+        },
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.rear-axle-torque",
+          "condition": null,
+          "failedInvariants": [
+            "semantic input occurs more than once",
+            "DUPLICATE-SEMANTIC-INPUT"
+          ],
+          "nextLegalAction": "REJECT-DUPLICATE-AND-RETAIN-EACH-FAILURE",
+          "rawUnit": "kN-m",
+          "rawValue": "60 kN-m",
+          "reason": "DUPLICATE-SEMANTIC-INPUT",
+          "recordId": "routing-result.7736d1e6d7d82c41a90614f3",
+          "route": "RED",
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceLocation": {
+            "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+            "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-92",
+            "page": 92,
+            "printedPage": 90,
+            "section": "Maintenance / Rear wheel",
+            "tableOrSubsection": "Rear wheel on output shaft",
+            "unitsContext": "raw source wording and source units preserved"
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+          "upstreamIdentity": {
+            "digest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          }
+        },
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.rear-axle-torque",
+          "condition": null,
+          "failedInvariants": [
+            "semantic input occurs more than once",
+            "DUPLICATE-SEMANTIC-INPUT"
+          ],
+          "nextLegalAction": "REJECT-DUPLICATE-AND-RETAIN-EACH-FAILURE",
+          "rawUnit": "kN-m",
+          "rawValue": "60 kN-m",
+          "reason": "DUPLICATE-SEMANTIC-INPUT",
+          "recordId": "routing-result.7736d1e6d7d82c41a90614f3",
+          "route": "RED",
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceLocation": {
+            "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+            "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-92",
+            "page": 92,
+            "printedPage": 90,
+            "section": "Maintenance / Rear wheel",
+            "tableOrSubsection": "Rear wheel on output shaft",
+            "unitsContext": "raw source wording and source units preserved"
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+          "upstreamIdentity": {
+            "digest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          }
+        },
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.rear-axle-torque",
+          "condition": null,
+          "failedInvariants": [
+            "this rule requires units to remain explicit in rawValue",
+            "UNSUPPORTED-UNIT"
+          ],
+          "nextLegalAction": "REPAIR-OR-RESEARCH-RULE-INPUT",
+          "rawUnit": "kN-m",
+          "rawValue": "61 kN-m",
+          "reason": "RULE-EVALUATION-REJECTED",
+          "recordId": "routing-result.64a1e776fdc1af79bef18614",
+          "route": "RED",
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceLocation": {
+            "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+            "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-92",
+            "page": 92,
+            "printedPage": 90,
+            "section": "Maintenance / Rear wheel",
+            "tableOrSubsection": "Rear wheel on output shaft",
+            "unitsContext": "raw source wording and source units preserved"
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "67374799bf3e43e5f2d47a25c422543b0cc58a6cbb876a0d050cc8e48bc2681a",
+          "upstreamIdentity": {
+            "digest": "67374799bf3e43e5f2d47a25c422543b0cc58a6cbb876a0d050cc8e48bc2681a",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          }
+        },
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "lubrication.capacity-filter",
+          "condition": "with filter change",
+          "failedInvariants": [
+            "raw value is missing",
+            "RAW-VALUE-MISSING"
+          ],
+          "nextLegalAction": "REPAIR-OR-RESEARCH-RULE-INPUT",
+          "rawUnit": null,
+          "rawValue": null,
+          "reason": "RULE-EVALUATION-REJECTED",
+          "recordId": "routing-result.6c97fdb94c6c463aa87e16ab",
+          "route": "RED",
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceLocation": {
+            "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+            "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-115",
+            "page": 115,
+            "printedPage": 113,
+            "section": "Technical data / Engine oil",
+            "tableOrSubsection": "Engine oil capacity",
+            "unitsContext": "raw source wording and source units preserved"
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "8a6887fcca6aa946bef4f4f4391223d1375342cbb24785461ff490b088340db0",
+          "upstreamIdentity": {
+            "digest": "8a6887fcca6aa946bef4f4f4391223d1375342cbb24785461ff490b088340db0",
+            "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+          }
+        }
+      ],
+      "schemaVersion": 1
+    },
+    "externalSideEffects": false,
+    "id": "automatic-pipeline.ea5e9da09e648f76567eed35",
+    "records": [
+      {
+        "duplicateCount": 1,
+        "externalSideEffects": false,
+        "id": "automatic-pipeline-record.5fbfa145b12d687cec68391d",
+        "inputIdentity": {
+          "digest": "4dba2eb6c03bcffdfe99e5af1174d15ebf9bf9fb9f50e48b201ddcfe84e11d85",
+          "id": "promotion-review-packet.6da8ee105490e42d6211aaaa"
+        },
+        "routingResult": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.solo-pressures",
+          "condition": "single rider; cold tires",
+          "contractVersions": {
+            "evaluation": "RuleEvaluationResult/v1",
+            "routing": "RoutingResult/v1",
+            "rule": "DeterministicRule/v1"
+          },
+          "currentStage": "DETERMINISTIC-RULE",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "routing-result.521c5647b649946fa78dbdd3",
+          "inputIdentity": {
+            "digest": "4dba2eb6c03bcffdfe99e5af1174d15ebf9bf9fb9f50e48b201ddcfe84e11d85",
+            "id": "promotion-review-packet.6da8ee105490e42d6211aaaa"
+          },
+          "invariants": {
+            "failed": [
+              "front/rear or multiple pressure values are compound",
+              "AMBIGUOUS-COMPOUND-VALUE"
+            ],
+            "satisfied": [
+              "rule identity and source lineage are present"
+            ]
+          },
+          "nextLegalAction": "SUPPLY-RECORD-LOCAL-HUMAN-INTERPRETATION",
+          "rawUnit": null,
+          "rawValue": "Tire pressure, front 34.8 psi (2.4 bar), With tire cold; Tire pressure, rear 36.3 psi (2.5 bar), Single rider, with cold tires",
+          "reasonCodes": [
+            "HUMAN-REVIEW-REQUIRED"
+          ],
+          "route": "YELLOW",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.d136e199adab7d73b18536c7",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+              "page": 118,
+              "printedPage": 116,
+              "section": "Technical data / Wheels and tires",
+              "tableOrSubsection": "Tire pressure; single rider; cold tires",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "4dba2eb6c03bcffdfe99e5af1174d15ebf9bf9fb9f50e48b201ddcfe84e11d85",
+          "upstreamIdentity": {
+            "digest": "4dba2eb6c03bcffdfe99e5af1174d15ebf9bf9fb9f50e48b201ddcfe84e11d85",
+            "id": "promotion-review-packet.6da8ee105490e42d6211aaaa"
+          }
+        },
+        "ruleEvaluation": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.solo-pressures",
+          "condition": "single rider; cold tires",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "rule-evaluation.17b9c8feac7de3c2bf1063ba",
+          "invariants": {
+            "failed": [
+              "front/rear or multiple pressure values are compound"
+            ],
+            "passed": [
+              "rule identity and source lineage are present"
+            ]
+          },
+          "nextLegalAction": "SUPPLY-RECORD-LOCAL-HUMAN-INTERPRETATION",
+          "output": null,
+          "provenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.d136e199adab7d73b18536c7",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+              "page": 118,
+              "printedPage": 116,
+              "section": "Technical data / Wheels and tires",
+              "tableOrSubsection": "Tire pressure; single rider; cold tires",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "rawUnit": null,
+          "rawValue": "Tire pressure, front 34.8 psi (2.4 bar), With tire cold; Tire pressure, rear 36.3 psi (2.5 bar), Single rider, with cold tires",
+          "reasonCode": "AMBIGUOUS-COMPOUND-VALUE",
+          "ruleId": "deterministic-rule.5b9ae3f0b2661fa3271a836d",
+          "ruleKey": "pressure.explicit-metric-pair",
+          "ruleVersion": "1.0.0",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "state": "NEEDS-HUMAN-REVIEW",
+          "upstreamDigest": "4dba2eb6c03bcffdfe99e5af1174d15ebf9bf9fb9f50e48b201ddcfe84e11d85",
+          "upstreamIdentity": {
+            "digest": "4dba2eb6c03bcffdfe99e5af1174d15ebf9bf9fb9f50e48b201ddcfe84e11d85",
+            "id": "promotion-review-packet.6da8ee105490e42d6211aaaa"
+          }
+        },
+        "runnerResult": null,
+        "schemaVersion": 1
+      },
+      {
+        "duplicateCount": 1,
+        "externalSideEffects": false,
+        "id": "automatic-pipeline-record.84fa8f91d84bc90c13dbfc8e",
+        "inputIdentity": {
+          "digest": "8a6887fcca6aa946bef4f4f4391223d1375342cbb24785461ff490b088340db0",
+          "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+        },
+        "routingResult": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "lubrication.capacity-filter",
+          "condition": "with filter change",
+          "contractVersions": {
+            "evaluation": "RuleEvaluationResult/v1",
+            "routing": "RoutingResult/v1",
+            "rule": "DeterministicRule/v1"
+          },
+          "currentStage": "DETERMINISTIC-RULE",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "routing-result.6c97fdb94c6c463aa87e16ab",
+          "inputIdentity": {
+            "digest": "8a6887fcca6aa946bef4f4f4391223d1375342cbb24785461ff490b088340db0",
+            "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+          },
+          "invariants": {
+            "failed": [
+              "raw value is missing",
+              "RAW-VALUE-MISSING"
+            ],
+            "satisfied": []
+          },
+          "nextLegalAction": "REPAIR-OR-RESEARCH-RULE-INPUT",
+          "rawUnit": null,
+          "rawValue": null,
+          "reasonCodes": [
+            "RULE-EVALUATION-REJECTED"
+          ],
+          "route": "RED",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.10cbaffd2c1e7e0cf9eb43fa",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-115",
+              "page": 115,
+              "printedPage": 113,
+              "section": "Technical data / Engine oil",
+              "tableOrSubsection": "Engine oil capacity",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "8a6887fcca6aa946bef4f4f4391223d1375342cbb24785461ff490b088340db0",
+          "upstreamIdentity": {
+            "digest": "8a6887fcca6aa946bef4f4f4391223d1375342cbb24785461ff490b088340db0",
+            "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+          }
+        },
+        "ruleEvaluation": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "lubrication.capacity-filter",
+          "condition": "with filter change",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "rule-evaluation.2ecf2ba9d85b44f53e16b494",
+          "invariants": {
+            "failed": [
+              "raw value is missing"
+            ],
+            "passed": []
+          },
+          "nextLegalAction": "REPAIR-OR-RESEARCH-RULE-INPUT",
+          "output": null,
+          "provenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.10cbaffd2c1e7e0cf9eb43fa",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-115",
+              "page": 115,
+              "printedPage": 113,
+              "section": "Technical data / Engine oil",
+              "tableOrSubsection": "Engine oil capacity",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "rawUnit": null,
+          "rawValue": null,
+          "reasonCode": "RAW-VALUE-MISSING",
+          "ruleId": "deterministic-rule.57896e4c18df00584593c808",
+          "ruleKey": "capacity.explicit-metric-pair",
+          "ruleVersion": "1.0.0",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "state": "REJECTED",
+          "upstreamDigest": "8a6887fcca6aa946bef4f4f4391223d1375342cbb24785461ff490b088340db0",
+          "upstreamIdentity": {
+            "digest": "8a6887fcca6aa946bef4f4f4391223d1375342cbb24785461ff490b088340db0",
+            "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+          }
+        },
+        "runnerResult": null,
+        "schemaVersion": 1
+      },
+      {
+        "duplicateCount": 2,
+        "externalSideEffects": false,
+        "id": "automatic-pipeline-record.c1a16267f12802d01bde6bae",
+        "inputIdentity": {
+          "digest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+          "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+        },
+        "routingResult": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.rear-axle-torque",
+          "condition": null,
+          "contractVersions": {
+            "evaluation": "RuleEvaluationResult/v1",
+            "routing": "RoutingResult/v1",
+            "rule": "DeterministicRule/v1"
+          },
+          "currentStage": "DETERMINISTIC-RULE",
+          "duplicateCount": 2,
+          "externalSideEffects": false,
+          "id": "routing-result.7736d1e6d7d82c41a90614f3",
+          "inputIdentity": {
+            "digest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          },
+          "invariants": {
+            "failed": [
+              "semantic input occurs more than once",
+              "DUPLICATE-SEMANTIC-INPUT"
+            ],
+            "satisfied": []
+          },
+          "nextLegalAction": "REJECT-DUPLICATE-AND-RETAIN-EACH-FAILURE",
+          "rawUnit": "kN-m",
+          "rawValue": "60 kN-m",
+          "reasonCodes": [
+            "DUPLICATE-SEMANTIC-INPUT"
+          ],
+          "route": "RED",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.35795700854a58780ebb2ef4",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-92",
+              "page": 92,
+              "printedPage": 90,
+              "section": "Maintenance / Rear wheel",
+              "tableOrSubsection": "Rear wheel on output shaft",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+          "upstreamIdentity": {
+            "digest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          }
+        },
+        "ruleEvaluation": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.rear-axle-torque",
+          "condition": null,
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "rule-evaluation.e8c206d3d2b91a61bff5d830",
+          "invariants": {
+            "failed": [
+              "semantic input occurs more than once"
+            ],
+            "passed": []
+          },
+          "nextLegalAction": "REPAIR-OR-RESEARCH-RULE-INPUT",
+          "output": null,
+          "provenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.35795700854a58780ebb2ef4",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-92",
+              "page": 92,
+              "printedPage": 90,
+              "section": "Maintenance / Rear wheel",
+              "tableOrSubsection": "Rear wheel on output shaft",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "rawUnit": "kN-m",
+          "rawValue": "60 kN-m",
+          "reasonCode": "DUPLICATE-SEMANTIC-INPUT",
+          "ruleId": "deterministic-rule.ebc314ca5f65f25f33af3921",
+          "ruleKey": "torque.explicit-metric-pair",
+          "ruleVersion": "1.0.0",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "state": "REJECTED",
+          "upstreamDigest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+          "upstreamIdentity": {
+            "digest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          }
+        },
+        "runnerResult": null,
+        "schemaVersion": 1
+      },
+      {
+        "duplicateCount": 2,
+        "externalSideEffects": false,
+        "id": "automatic-pipeline-record.c1a16267f12802d01bde6bae",
+        "inputIdentity": {
+          "digest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+          "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+        },
+        "routingResult": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.rear-axle-torque",
+          "condition": null,
+          "contractVersions": {
+            "evaluation": "RuleEvaluationResult/v1",
+            "routing": "RoutingResult/v1",
+            "rule": "DeterministicRule/v1"
+          },
+          "currentStage": "DETERMINISTIC-RULE",
+          "duplicateCount": 2,
+          "externalSideEffects": false,
+          "id": "routing-result.7736d1e6d7d82c41a90614f3",
+          "inputIdentity": {
+            "digest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          },
+          "invariants": {
+            "failed": [
+              "semantic input occurs more than once",
+              "DUPLICATE-SEMANTIC-INPUT"
+            ],
+            "satisfied": []
+          },
+          "nextLegalAction": "REJECT-DUPLICATE-AND-RETAIN-EACH-FAILURE",
+          "rawUnit": "kN-m",
+          "rawValue": "60 kN-m",
+          "reasonCodes": [
+            "DUPLICATE-SEMANTIC-INPUT"
+          ],
+          "route": "RED",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.35795700854a58780ebb2ef4",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-92",
+              "page": 92,
+              "printedPage": 90,
+              "section": "Maintenance / Rear wheel",
+              "tableOrSubsection": "Rear wheel on output shaft",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+          "upstreamIdentity": {
+            "digest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          }
+        },
+        "ruleEvaluation": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.rear-axle-torque",
+          "condition": null,
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "rule-evaluation.e8c206d3d2b91a61bff5d830",
+          "invariants": {
+            "failed": [
+              "semantic input occurs more than once"
+            ],
+            "passed": []
+          },
+          "nextLegalAction": "REPAIR-OR-RESEARCH-RULE-INPUT",
+          "output": null,
+          "provenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.35795700854a58780ebb2ef4",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-92",
+              "page": 92,
+              "printedPage": 90,
+              "section": "Maintenance / Rear wheel",
+              "tableOrSubsection": "Rear wheel on output shaft",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "rawUnit": "kN-m",
+          "rawValue": "60 kN-m",
+          "reasonCode": "DUPLICATE-SEMANTIC-INPUT",
+          "ruleId": "deterministic-rule.ebc314ca5f65f25f33af3921",
+          "ruleKey": "torque.explicit-metric-pair",
+          "ruleVersion": "1.0.0",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "state": "REJECTED",
+          "upstreamDigest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+          "upstreamIdentity": {
+            "digest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          }
+        },
+        "runnerResult": null,
+        "schemaVersion": 1
+      },
+      {
+        "duplicateCount": 1,
+        "externalSideEffects": false,
+        "id": "automatic-pipeline-record.78fcc01710fa5ffc1fa0e4a7",
+        "inputIdentity": {
+          "digest": "884e124c03c79e84877b61021ea54b95512fd4f3689268a024b29b6a295b6f93",
+          "id": "promotion-review-packet.884caa97481269f10d509649"
+        },
+        "routingResult": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.loaded-pressures",
+          "condition": null,
+          "contractVersions": {
+            "conversion": "SchemaConversionProjection/v1",
+            "decision": "PromotionReviewDecision/v1",
+            "packet": "PromotionReviewPacket/v1",
+            "routing": "RoutingResult/v1",
+            "runner": "SafeStageRunner/v1"
+          },
+          "currentStage": "SCHEMA-CONVERSION",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "routing-result.27fb9cb048cfb9f94d290232",
+          "inputIdentity": {
+            "digest": "19994e9ca68b09249754b63942b6f12471f424238e7ef54d88a3c4821ebbdfec",
+            "id": "promotion-review-packet.884caa97481269f10d509649"
+          },
+          "invariants": {
+            "failed": [],
+            "satisfied": [
+              "runner result is ADVANCED",
+              "authoritative downstream contracts accepted",
+              "existing authorization was supplied where required",
+              "external side effects are false"
+            ]
+          },
+          "nextLegalAction": "STOP-BEFORE-PRODUCTION-MATERIALIZATION",
+          "rawUnit": null,
+          "rawValue": "42.1 psi (2.9 bar), Driver with passenger and/or load, with cold tire",
+          "reasonCodes": [
+            "SAFE-RUNNER-ADVANCED"
+          ],
+          "route": "GREEN",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.17dd0b5a88cac424df30331e",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+              "page": 118,
+              "printedPage": 116,
+              "section": "Technical data / Wheels and tires",
+              "tableOrSubsection": "Tire pressure; driver with passenger and/or load; cold tire",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "19994e9ca68b09249754b63942b6f12471f424238e7ef54d88a3c4821ebbdfec",
+          "upstreamIdentity": {
+            "digest": "19994e9ca68b09249754b63942b6f12471f424238e7ef54d88a3c4821ebbdfec",
+            "id": "promotion-review-packet.884caa97481269f10d509649"
+          }
+        },
+        "ruleEvaluation": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.loaded-pressures",
+          "condition": "driver with passenger and/or load, with cold tire",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "rule-evaluation.be65cd795c3ea71c6d51703d",
+          "invariants": {
+            "failed": [],
+            "passed": [
+              "canonical field supported",
+              "source identity present",
+              "provenance present",
+              "applicability sufficient",
+              "single scalar value",
+              "explicit metric bar value",
+              "condition retained"
+            ]
+          },
+          "nextLegalAction": "CONTINUE-TO-EXISTING-SAFE-STAGE-RUNNER",
+          "output": {
+            "condition": "driver with passenger and/or load, with cold tire",
+            "rawValuePreserved": true,
+            "sourceRepresentation": "EXPLICIT-IMPERIAL-METRIC-PAIR",
+            "unit": "bar",
+            "value": 2.9
+          },
+          "provenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.17dd0b5a88cac424df30331e",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+              "page": 118,
+              "printedPage": 116,
+              "section": "Technical data / Wheels and tires",
+              "tableOrSubsection": "Tire pressure; driver with passenger and/or load; cold tire",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "rawUnit": null,
+          "rawValue": "42.1 psi (2.9 bar), Driver with passenger and/or load, with cold tire",
+          "reasonCode": "RULE-APPLIED",
+          "ruleId": "deterministic-rule.5b9ae3f0b2661fa3271a836d",
+          "ruleKey": "pressure.explicit-metric-pair",
+          "ruleVersion": "1.0.0",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "state": "APPLIED",
+          "upstreamDigest": "884e124c03c79e84877b61021ea54b95512fd4f3689268a024b29b6a295b6f93",
+          "upstreamIdentity": {
+            "digest": "884e124c03c79e84877b61021ea54b95512fd4f3689268a024b29b6a295b6f93",
+            "id": "promotion-review-packet.884caa97481269f10d509649"
+          }
+        },
+        "runnerResult": {
+          "externalSideEffects": false,
+          "humanAuthorizationConsumed": true,
+          "id": "safe-stage-runner.eb4d2b313c775224b099e948",
+          "output": {
+            "blockedReasons": [],
+            "conversionState": "CONVERSION-READY",
+            "evidenceProcessingRecordId": "evidence-processing.6938103b20db2561b96d2b12",
+            "id": "schema-conversion.d546d2ebe2a0eac5a173e999",
+            "promotionPacketId": "promotion-candidate.29e2a8111a5754b71e0bab0d",
+            "promotionReviewDecisionId": "promotion-review-decision.dfe988e1ec2250a9b6bb48fa",
+            "promotionReviewDecisionState": "APPROVED-FOR-CONVERSION",
+            "promotionReviewPacketId": "promotion-review-packet.884caa97481269f10d509649",
+            "proposedProduction": {
+              "categoryId": "tires_wheels",
+              "entryId": "tires_wheels.loaded-pressures",
+              "type": "raw-text",
+              "value": {
+                "text": "42.1 psi (2.9 bar), Driver with passenger and/or load, with cold tire",
+                "type": "text"
+              }
+            },
+            "researchCanonicalFieldId": "tires_wheels.loaded-pressures",
+            "schemaVersion": 1,
+            "sourceIdentity": {
+              "authority": "BMW Motorrad",
+              "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+              "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+              "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+              "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+              "tier": "A"
+            },
+            "sourceProvenance": {
+              "packet": {
+                "canonicalFieldId": "tires_wheels.loaded-pressures",
+                "evidenceProcessingRecordId": "evidence-processing.6938103b20db2561b96d2b12",
+                "promotionPacketId": "promotion-candidate.29e2a8111a5754b71e0bab0d",
+                "promotionReviewPacketId": "promotion-review-packet.884caa97481269f10d509649",
+                "provenance": {
+                  "artifactId": "artifact.0648e55b8687641e6d58d51f",
+                  "candidateId": "extraction-candidate.17dd0b5a88cac424df30331e",
+                  "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+                  "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+                  "sourceLocation": {
+                    "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+                    "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+                    "page": 118,
+                    "printedPage": 116,
+                    "section": "Technical data / Wheels and tires",
+                    "tableOrSubsection": "Tire pressure; driver with passenger and/or load; cold tire",
+                    "unitsContext": "raw source wording and source units preserved"
+                  }
+                },
+                "rawUnit": null,
+                "rawValue": "42.1 psi (2.9 bar), Driver with passenger and/or load, with cold tire"
+              },
+              "sourceLocation": {
+                "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+                "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+                "page": 118,
+                "printedPage": 116,
+                "section": "Technical data / Wheels and tires",
+                "tableOrSubsection": "Tire pressure; driver with passenger and/or load; cold tire",
+                "unitsContext": "raw source wording and source units preserved"
+              }
+            },
+            "targetApplicability": {
+              "abs": "KNOWN",
+              "context": "SUFFICIENT",
+              "equipment": "SUFFICIENT",
+              "market": "KNOWN",
+              "modelYear": "KNOWN",
+              "transmission": "KNOWN"
+            },
+            "targetIdentity": {
+              "catalogVariantKey": "bmw.c-scooter.c600-sport",
+              "equipment": "standard C 600 Sport",
+              "id": "bmw.c-scooter.c600-sport.2012",
+              "market": "USA",
+              "model": "bmw.c-scooter.c600-sport.2012",
+              "state": "KNOWN",
+              "year": 2012
+            }
+          },
+          "schemaVersion": 1,
+          "stageEnvelopes": [
+            {
+              "contractVersion": "PromotionReviewPacket/v1",
+              "executionState": "ADVANCED",
+              "externalSideEffects": false,
+              "humanAuthorizationConsumed": false,
+              "id": "safe-stage-envelope.95a775bc0a3e52aeb5e72551",
+              "inputIdentity": {
+                "digest": "9cfaba57a2c53b36412e63cc0c41742d5e02f2e9cd430e7d595a3972508f063b",
+                "id": "promotion-review-packet.884caa97481269f10d509649"
+              },
+              "lineage": {
+                "previousEnvelopeId": null
+              },
+              "outputIdentity": {
+                "digest": "9cfaba57a2c53b36412e63cc0c41742d5e02f2e9cd430e7d595a3972508f063b",
+                "id": "promotion-review-packet.884caa97481269f10d509649"
+              },
+              "schemaVersion": 1,
+              "stage": "PROMOTION-REVIEW-PACKET",
+              "stopReason": null
+            },
+            {
+              "contractVersion": "PromotionReviewDecision/v1",
+              "executionState": "ADVANCED",
+              "externalSideEffects": false,
+              "humanAuthorizationConsumed": true,
+              "id": "safe-stage-envelope.2f9f503258c884be66231041",
+              "inputIdentity": {
+                "digest": "9cfaba57a2c53b36412e63cc0c41742d5e02f2e9cd430e7d595a3972508f063b",
+                "id": "promotion-review-packet.884caa97481269f10d509649"
+              },
+              "lineage": {
+                "previousEnvelopeId": "safe-stage-envelope.95a775bc0a3e52aeb5e72551"
+              },
+              "outputIdentity": {
+                "digest": "ae247f208cbccd41669176d2e199645a1b5fc440243ddece3a398c37bffc071e",
+                "id": "promotion-review-decision.dfe988e1ec2250a9b6bb48fa"
+              },
+              "schemaVersion": 1,
+              "stage": "PROMOTION-REVIEW",
+              "stopReason": null
+            },
+            {
+              "contractVersion": "SchemaConversionProjection/v1",
+              "executionState": "ADVANCED",
+              "externalSideEffects": false,
+              "humanAuthorizationConsumed": true,
+              "id": "safe-stage-envelope.3f78a53c09a89a2bf9ed3575",
+              "inputIdentity": {
+                "digest": "ae247f208cbccd41669176d2e199645a1b5fc440243ddece3a398c37bffc071e",
+                "id": "promotion-review-decision.dfe988e1ec2250a9b6bb48fa"
+              },
+              "lineage": {
+                "previousEnvelopeId": "safe-stage-envelope.2f9f503258c884be66231041"
+              },
+              "outputIdentity": {
+                "digest": "ec656bda707c684224ae6d5c855411019e81f0a540fd7aec987a0816a18c0e45",
+                "id": "schema-conversion.d546d2ebe2a0eac5a173e999"
+              },
+              "schemaVersion": 1,
+              "stage": "SCHEMA-CONVERSION",
+              "stopReason": null
+            }
+          ],
+          "state": "ADVANCED",
+          "stopReason": null
+        },
+        "schemaVersion": 1
+      },
+      {
+        "duplicateCount": 1,
+        "externalSideEffects": false,
+        "id": "automatic-pipeline-record.72b022f07e29911abecd225c",
+        "inputIdentity": {
+          "digest": "655e40c78d0fed16a1646d0e823a511d19b2e107a546c7401c04459d074c9a51",
+          "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+        },
+        "routingResult": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "ruleApplicable": false,
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.front-axle-torque",
+          "condition": null,
+          "contractVersions": {
+            "evaluation": "RuleEvaluationResult/v1",
+            "routing": "RoutingResult/v1",
+            "rule": "DeterministicRule/v1"
+          },
+          "currentStage": "DETERMINISTIC-RULE",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "routing-result.671c368419c6b6eb71ded349",
+          "inputIdentity": {
+            "digest": "655e40c78d0fed16a1646d0e823a511d19b2e107a546c7401c04459d074c9a51",
+            "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+          },
+          "invariants": {
+            "failed": [
+              "RULE-NOT-APPLICABLE"
+            ],
+            "satisfied": [
+              "rule applicability explicitly false"
+            ]
+          },
+          "nextLegalAction": "SUPPLY-RECORD-LOCAL-HUMAN-INTERPRETATION",
+          "rawUnit": null,
+          "rawValue": "22 lb/ft (30 Nm)",
+          "reasonCodes": [
+            "RULE-NOT-APPLICABLE"
+          ],
+          "route": "YELLOW",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.a1776a1a72a0e955c485c3e2",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+              "page": 90,
+              "printedPage": 88,
+              "section": "Maintenance / Front wheel",
+              "tableOrSubsection": "Quick-release axle in axle mount",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "655e40c78d0fed16a1646d0e823a511d19b2e107a546c7401c04459d074c9a51",
+          "upstreamIdentity": {
+            "digest": "655e40c78d0fed16a1646d0e823a511d19b2e107a546c7401c04459d074c9a51",
+            "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+          }
+        },
+        "ruleEvaluation": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "ruleApplicable": false,
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.front-axle-torque",
+          "condition": null,
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "rule-evaluation.ea1771f87be94c12e807d5de",
+          "invariants": {
+            "failed": [],
+            "passed": [
+              "rule applicability explicitly false"
+            ]
+          },
+          "nextLegalAction": "NO-RULE-ACTION",
+          "output": null,
+          "provenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.a1776a1a72a0e955c485c3e2",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+              "page": 90,
+              "printedPage": 88,
+              "section": "Maintenance / Front wheel",
+              "tableOrSubsection": "Quick-release axle in axle mount",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "rawUnit": null,
+          "rawValue": "22 lb/ft (30 Nm)",
+          "reasonCode": "RULE-NOT-APPLICABLE",
+          "ruleId": "deterministic-rule.ebc314ca5f65f25f33af3921",
+          "ruleKey": "torque.explicit-metric-pair",
+          "ruleVersion": "1.0.0",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "state": "NOT-APPLICABLE",
+          "upstreamDigest": "655e40c78d0fed16a1646d0e823a511d19b2e107a546c7401c04459d074c9a51",
+          "upstreamIdentity": {
+            "digest": "655e40c78d0fed16a1646d0e823a511d19b2e107a546c7401c04459d074c9a51",
+            "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+          }
+        },
+        "runnerResult": null,
+        "schemaVersion": 1
+      },
+      {
+        "duplicateCount": 1,
+        "externalSideEffects": false,
+        "id": "automatic-pipeline-record.3e6656b929fd412b595ee194",
+        "inputIdentity": {
+          "digest": "b98ac185e3a0dbb62bafff913c82c9d36097db1a6337bfe0a8ad0d43610d44dc",
+          "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+        },
+        "routingResult": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.front-axle-torque",
+          "condition": null,
+          "contractVersions": {
+            "conversion": "SchemaConversionProjection/v1",
+            "decision": "PromotionReviewDecision/v1",
+            "packet": "PromotionReviewPacket/v1",
+            "routing": "RoutingResult/v1",
+            "runner": "SafeStageRunner/v1"
+          },
+          "currentStage": "SCHEMA-CONVERSION",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "routing-result.b8144ffa832668c0b6d7cba9",
+          "inputIdentity": {
+            "digest": "9c704367ed9e6fd83fc76ffa4994594c2e53f6447e3400e57e246c02ac538c6f",
+            "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+          },
+          "invariants": {
+            "failed": [],
+            "satisfied": [
+              "runner result is ADVANCED",
+              "authoritative downstream contracts accepted",
+              "existing authorization was supplied where required",
+              "external side effects are false"
+            ]
+          },
+          "nextLegalAction": "STOP-BEFORE-PRODUCTION-MATERIALIZATION",
+          "rawUnit": null,
+          "rawValue": "22 lb/ft (30 Nm)",
+          "reasonCodes": [
+            "SAFE-RUNNER-ADVANCED"
+          ],
+          "route": "GREEN",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.a1776a1a72a0e955c485c3e2",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+              "page": 90,
+              "printedPage": 88,
+              "section": "Maintenance / Front wheel",
+              "tableOrSubsection": "Quick-release axle in axle mount",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "9c704367ed9e6fd83fc76ffa4994594c2e53f6447e3400e57e246c02ac538c6f",
+          "upstreamIdentity": {
+            "digest": "9c704367ed9e6fd83fc76ffa4994594c2e53f6447e3400e57e246c02ac538c6f",
+            "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+          }
+        },
+        "ruleEvaluation": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.front-axle-torque",
+          "condition": null,
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "rule-evaluation.9cc2542b85201328e0373b5f",
+          "invariants": {
+            "failed": [],
+            "passed": [
+              "canonical field supported",
+              "source identity present",
+              "provenance present",
+              "applicability sufficient",
+              "single scalar value",
+              "explicit metric Nm value"
+            ]
+          },
+          "nextLegalAction": "CONTINUE-TO-EXISTING-SAFE-STAGE-RUNNER",
+          "output": {
+            "rawValuePreserved": true,
+            "sourceRepresentation": "EXPLICIT-IMPERIAL-METRIC-PAIR",
+            "unit": "Nm",
+            "value": 30
+          },
+          "provenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.a1776a1a72a0e955c485c3e2",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+              "page": 90,
+              "printedPage": 88,
+              "section": "Maintenance / Front wheel",
+              "tableOrSubsection": "Quick-release axle in axle mount",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "rawUnit": null,
+          "rawValue": "22 lb/ft (30 Nm)",
+          "reasonCode": "RULE-APPLIED",
+          "ruleId": "deterministic-rule.ebc314ca5f65f25f33af3921",
+          "ruleKey": "torque.explicit-metric-pair",
+          "ruleVersion": "1.0.0",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "state": "APPLIED",
+          "upstreamDigest": "b98ac185e3a0dbb62bafff913c82c9d36097db1a6337bfe0a8ad0d43610d44dc",
+          "upstreamIdentity": {
+            "digest": "b98ac185e3a0dbb62bafff913c82c9d36097db1a6337bfe0a8ad0d43610d44dc",
+            "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+          }
+        },
+        "runnerResult": {
+          "externalSideEffects": false,
+          "humanAuthorizationConsumed": true,
+          "id": "safe-stage-runner.fc6c558895ce1628b49aa92d",
+          "output": {
+            "blockedReasons": [],
+            "conversionState": "CONVERSION-READY",
+            "evidenceProcessingRecordId": "evidence-processing.ccfde6c746b84dbf15ea44c8",
+            "id": "schema-conversion.4798e39a05bf6bb0006fa678",
+            "promotionPacketId": "promotion-candidate.a95fc2af37f301eca77c65b6",
+            "promotionReviewDecisionId": "promotion-review-decision.7b2a89079785cee6715a9991",
+            "promotionReviewDecisionState": "APPROVED-FOR-CONVERSION",
+            "promotionReviewPacketId": "promotion-review-packet.31d6a95253fbb04ab0b61b05",
+            "proposedProduction": {
+              "categoryId": "tires_wheels",
+              "entryId": "tires_wheels.front-axle-torque",
+              "type": "raw-text",
+              "value": {
+                "text": "22 lb/ft (30 Nm)",
+                "type": "text"
+              }
+            },
+            "researchCanonicalFieldId": "tires_wheels.front-axle-torque",
+            "schemaVersion": 1,
+            "sourceIdentity": {
+              "authority": "BMW Motorrad",
+              "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+              "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+              "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+              "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+              "tier": "A"
+            },
+            "sourceProvenance": {
+              "packet": {
+                "canonicalFieldId": "tires_wheels.front-axle-torque",
+                "evidenceProcessingRecordId": "evidence-processing.ccfde6c746b84dbf15ea44c8",
+                "promotionPacketId": "promotion-candidate.a95fc2af37f301eca77c65b6",
+                "promotionReviewPacketId": "promotion-review-packet.31d6a95253fbb04ab0b61b05",
+                "provenance": {
+                  "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+                  "candidateId": "extraction-candidate.a1776a1a72a0e955c485c3e2",
+                  "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+                  "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+                  "sourceLocation": {
+                    "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+                    "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+                    "page": 90,
+                    "printedPage": 88,
+                    "section": "Maintenance / Front wheel",
+                    "tableOrSubsection": "Quick-release axle in axle mount",
+                    "unitsContext": "raw source wording and source units preserved"
+                  }
+                },
+                "rawUnit": null,
+                "rawValue": "22 lb/ft (30 Nm)"
+              },
+              "sourceLocation": {
+                "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+                "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+                "page": 90,
+                "printedPage": 88,
+                "section": "Maintenance / Front wheel",
+                "tableOrSubsection": "Quick-release axle in axle mount",
+                "unitsContext": "raw source wording and source units preserved"
+              }
+            },
+            "targetApplicability": {
+              "abs": "KNOWN",
+              "context": "SUFFICIENT",
+              "equipment": "SUFFICIENT",
+              "market": "KNOWN",
+              "modelYear": "KNOWN",
+              "transmission": "KNOWN"
+            },
+            "targetIdentity": {
+              "catalogVariantKey": "bmw.c-scooter.c600-sport",
+              "equipment": "standard C 600 Sport",
+              "id": "bmw.c-scooter.c600-sport.2012",
+              "market": "USA",
+              "model": "bmw.c-scooter.c600-sport.2012",
+              "state": "KNOWN",
+              "year": 2012
+            }
+          },
+          "schemaVersion": 1,
+          "stageEnvelopes": [
+            {
+              "contractVersion": "PromotionReviewPacket/v1",
+              "executionState": "ADVANCED",
+              "externalSideEffects": false,
+              "humanAuthorizationConsumed": false,
+              "id": "safe-stage-envelope.781b9e060270710bd0f3b8ee",
+              "inputIdentity": {
+                "digest": "290ce7de98865d7363843d6acd1717e19ecb913349cfcaf003564f27f67bf2e5",
+                "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+              },
+              "lineage": {
+                "previousEnvelopeId": null
+              },
+              "outputIdentity": {
+                "digest": "290ce7de98865d7363843d6acd1717e19ecb913349cfcaf003564f27f67bf2e5",
+                "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+              },
+              "schemaVersion": 1,
+              "stage": "PROMOTION-REVIEW-PACKET",
+              "stopReason": null
+            },
+            {
+              "contractVersion": "PromotionReviewDecision/v1",
+              "executionState": "ADVANCED",
+              "externalSideEffects": false,
+              "humanAuthorizationConsumed": true,
+              "id": "safe-stage-envelope.6d5687d73f94a6dbb8b6c401",
+              "inputIdentity": {
+                "digest": "290ce7de98865d7363843d6acd1717e19ecb913349cfcaf003564f27f67bf2e5",
+                "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+              },
+              "lineage": {
+                "previousEnvelopeId": "safe-stage-envelope.781b9e060270710bd0f3b8ee"
+              },
+              "outputIdentity": {
+                "digest": "af2a7401fecbb26dfa20c3b9b4958f53188737f63d82b0b0d7da62a649e5e3b9",
+                "id": "promotion-review-decision.7b2a89079785cee6715a9991"
+              },
+              "schemaVersion": 1,
+              "stage": "PROMOTION-REVIEW",
+              "stopReason": null
+            },
+            {
+              "contractVersion": "SchemaConversionProjection/v1",
+              "executionState": "ADVANCED",
+              "externalSideEffects": false,
+              "humanAuthorizationConsumed": true,
+              "id": "safe-stage-envelope.0d0679df7679ff7e2c460aa0",
+              "inputIdentity": {
+                "digest": "af2a7401fecbb26dfa20c3b9b4958f53188737f63d82b0b0d7da62a649e5e3b9",
+                "id": "promotion-review-decision.7b2a89079785cee6715a9991"
+              },
+              "lineage": {
+                "previousEnvelopeId": "safe-stage-envelope.6d5687d73f94a6dbb8b6c401"
+              },
+              "outputIdentity": {
+                "digest": "bced884c723e0cc48c74a65cc7ee3d7279d272adbe19877f7a8ee3abe5bd4b6a",
+                "id": "schema-conversion.4798e39a05bf6bb0006fa678"
+              },
+              "schemaVersion": 1,
+              "stage": "SCHEMA-CONVERSION",
+              "stopReason": null
+            }
+          ],
+          "state": "ADVANCED",
+          "stopReason": null
+        },
+        "schemaVersion": 1
+      },
+      {
+        "duplicateCount": 1,
+        "externalSideEffects": false,
+        "id": "automatic-pipeline-record.af24ced134bdb9472214f4a1",
+        "inputIdentity": {
+          "digest": "67374799bf3e43e5f2d47a25c422543b0cc58a6cbb876a0d050cc8e48bc2681a",
+          "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+        },
+        "routingResult": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.rear-axle-torque",
+          "condition": null,
+          "contractVersions": {
+            "evaluation": "RuleEvaluationResult/v1",
+            "routing": "RoutingResult/v1",
+            "rule": "DeterministicRule/v1"
+          },
+          "currentStage": "DETERMINISTIC-RULE",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "routing-result.64a1e776fdc1af79bef18614",
+          "inputIdentity": {
+            "digest": "67374799bf3e43e5f2d47a25c422543b0cc58a6cbb876a0d050cc8e48bc2681a",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          },
+          "invariants": {
+            "failed": [
+              "this rule requires units to remain explicit in rawValue",
+              "UNSUPPORTED-UNIT"
+            ],
+            "satisfied": []
+          },
+          "nextLegalAction": "REPAIR-OR-RESEARCH-RULE-INPUT",
+          "rawUnit": "kN-m",
+          "rawValue": "61 kN-m",
+          "reasonCodes": [
+            "RULE-EVALUATION-REJECTED"
+          ],
+          "route": "RED",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.35795700854a58780ebb2ef4",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-92",
+              "page": 92,
+              "printedPage": 90,
+              "section": "Maintenance / Rear wheel",
+              "tableOrSubsection": "Rear wheel on output shaft",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "67374799bf3e43e5f2d47a25c422543b0cc58a6cbb876a0d050cc8e48bc2681a",
+          "upstreamIdentity": {
+            "digest": "67374799bf3e43e5f2d47a25c422543b0cc58a6cbb876a0d050cc8e48bc2681a",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          }
+        },
+        "ruleEvaluation": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.rear-axle-torque",
+          "condition": null,
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "rule-evaluation.2c0f7fbfd1fa93ecdf4f2e05",
+          "invariants": {
+            "failed": [
+              "this rule requires units to remain explicit in rawValue"
+            ],
+            "passed": []
+          },
+          "nextLegalAction": "REPAIR-OR-RESEARCH-RULE-INPUT",
+          "output": null,
+          "provenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.35795700854a58780ebb2ef4",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-92",
+              "page": 92,
+              "printedPage": 90,
+              "section": "Maintenance / Rear wheel",
+              "tableOrSubsection": "Rear wheel on output shaft",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "rawUnit": "kN-m",
+          "rawValue": "61 kN-m",
+          "reasonCode": "UNSUPPORTED-UNIT",
+          "ruleId": "deterministic-rule.ebc314ca5f65f25f33af3921",
+          "ruleKey": "torque.explicit-metric-pair",
+          "ruleVersion": "1.0.0",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "state": "REJECTED",
+          "upstreamDigest": "67374799bf3e43e5f2d47a25c422543b0cc58a6cbb876a0d050cc8e48bc2681a",
+          "upstreamIdentity": {
+            "digest": "67374799bf3e43e5f2d47a25c422543b0cc58a6cbb876a0d050cc8e48bc2681a",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          }
+        },
+        "runnerResult": null,
+        "schemaVersion": 1
+      },
+      {
+        "duplicateCount": 1,
+        "externalSideEffects": false,
+        "id": "automatic-pipeline-record.e03bda351f506a0d58f534b0",
+        "inputIdentity": {
+          "digest": "64092860333618748165f9f3693922513bab83bafdcdbab2984bc0f233c4aedd",
+          "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+        },
+        "routingResult": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "lubrication.capacity-filter",
+          "condition": null,
+          "contractVersions": {
+            "conversion": "SchemaConversionProjection/v1",
+            "decision": "PromotionReviewDecision/v1",
+            "packet": "PromotionReviewPacket/v1",
+            "routing": "RoutingResult/v1",
+            "runner": "SafeStageRunner/v1"
+          },
+          "currentStage": "SCHEMA-CONVERSION",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "routing-result.7b37f9f626a87c72f687c120",
+          "inputIdentity": {
+            "digest": "b019caadd221d384972328bea0417851dd6edbfff585695079f2c8ce8753b35f",
+            "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+          },
+          "invariants": {
+            "failed": [],
+            "satisfied": [
+              "runner result is ADVANCED",
+              "authoritative downstream contracts accepted",
+              "existing authorization was supplied where required",
+              "external side effects are false"
+            ]
+          },
+          "nextLegalAction": "STOP-BEFORE-PRODUCTION-MATERIALIZATION",
+          "rawUnit": null,
+          "rawValue": "Approx. 3.3 quarts (Approx. 3.1 l), with filter change",
+          "reasonCodes": [
+            "SAFE-RUNNER-ADVANCED"
+          ],
+          "route": "GREEN",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.10cbaffd2c1e7e0cf9eb43fa",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-115",
+              "page": 115,
+              "printedPage": 113,
+              "section": "Technical data / Engine oil",
+              "tableOrSubsection": "Engine oil capacity",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "b019caadd221d384972328bea0417851dd6edbfff585695079f2c8ce8753b35f",
+          "upstreamIdentity": {
+            "digest": "b019caadd221d384972328bea0417851dd6edbfff585695079f2c8ce8753b35f",
+            "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+          }
+        },
+        "ruleEvaluation": {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "lubrication.capacity-filter",
+          "condition": "with filter change",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "rule-evaluation.6c7198876200063331922df3",
+          "invariants": {
+            "failed": [],
+            "passed": [
+              "canonical field supported",
+              "source identity present",
+              "provenance present",
+              "applicability sufficient",
+              "single scalar value",
+              "explicit metric litre value",
+              "condition retained"
+            ]
+          },
+          "nextLegalAction": "CONTINUE-TO-EXISTING-SAFE-STAGE-RUNNER",
+          "output": {
+            "condition": "with filter change",
+            "rawValuePreserved": true,
+            "sourceRepresentation": "EXPLICIT-IMPERIAL-METRIC-PAIR",
+            "unit": "L",
+            "value": 3.1
+          },
+          "provenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.10cbaffd2c1e7e0cf9eb43fa",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-115",
+              "page": 115,
+              "printedPage": 113,
+              "section": "Technical data / Engine oil",
+              "tableOrSubsection": "Engine oil capacity",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "rawUnit": null,
+          "rawValue": "Approx. 3.3 quarts (Approx. 3.1 l), with filter change",
+          "reasonCode": "RULE-APPLIED",
+          "ruleId": "deterministic-rule.57896e4c18df00584593c808",
+          "ruleKey": "capacity.explicit-metric-pair",
+          "ruleVersion": "1.0.0",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "state": "APPLIED",
+          "upstreamDigest": "64092860333618748165f9f3693922513bab83bafdcdbab2984bc0f233c4aedd",
+          "upstreamIdentity": {
+            "digest": "64092860333618748165f9f3693922513bab83bafdcdbab2984bc0f233c4aedd",
+            "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+          }
+        },
+        "runnerResult": {
+          "externalSideEffects": false,
+          "humanAuthorizationConsumed": true,
+          "id": "safe-stage-runner.6bb8ac62521d7b042e3fa173",
+          "output": {
+            "blockedReasons": [],
+            "conversionState": "CONVERSION-READY",
+            "evidenceProcessingRecordId": "evidence-processing.f1741a54c219cb696775592f",
+            "id": "schema-conversion.e2401b3a2681f7048fd35291",
+            "promotionPacketId": "promotion-candidate.78325525cc4c0a98c4ce06c6",
+            "promotionReviewDecisionId": "promotion-review-decision.0300f37e6519ae8ea678f903",
+            "promotionReviewDecisionState": "APPROVED-FOR-CONVERSION",
+            "promotionReviewPacketId": "promotion-review-packet.b35918cc6e3a05b351e4dd9f",
+            "proposedProduction": {
+              "categoryId": "lubrication",
+              "entryId": "lubrication.capacity-filter",
+              "type": "raw-text",
+              "value": {
+                "text": "Approx. 3.3 quarts (Approx. 3.1 l), with filter change",
+                "type": "text"
+              }
+            },
+            "researchCanonicalFieldId": "lubrication.capacity-filter",
+            "schemaVersion": 1,
+            "sourceIdentity": {
+              "authority": "BMW Motorrad",
+              "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+              "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+              "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+              "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+              "tier": "A"
+            },
+            "sourceProvenance": {
+              "packet": {
+                "canonicalFieldId": "lubrication.capacity-filter",
+                "evidenceProcessingRecordId": "evidence-processing.f1741a54c219cb696775592f",
+                "promotionPacketId": "promotion-candidate.78325525cc4c0a98c4ce06c6",
+                "promotionReviewPacketId": "promotion-review-packet.b35918cc6e3a05b351e4dd9f",
+                "provenance": {
+                  "artifactId": "artifact.0648e55b8687641e6d58d51f",
+                  "candidateId": "extraction-candidate.10cbaffd2c1e7e0cf9eb43fa",
+                  "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+                  "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+                  "sourceLocation": {
+                    "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+                    "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-115",
+                    "page": 115,
+                    "printedPage": 113,
+                    "section": "Technical data / Engine oil",
+                    "tableOrSubsection": "Engine oil capacity",
+                    "unitsContext": "raw source wording and source units preserved"
+                  }
+                },
+                "rawUnit": null,
+                "rawValue": "Approx. 3.3 quarts (Approx. 3.1 l), with filter change"
+              },
+              "sourceLocation": {
+                "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+                "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-115",
+                "page": 115,
+                "printedPage": 113,
+                "section": "Technical data / Engine oil",
+                "tableOrSubsection": "Engine oil capacity",
+                "unitsContext": "raw source wording and source units preserved"
+              }
+            },
+            "targetApplicability": {
+              "abs": "KNOWN",
+              "context": "SUFFICIENT",
+              "equipment": "SUFFICIENT",
+              "market": "KNOWN",
+              "modelYear": "KNOWN",
+              "transmission": "KNOWN"
+            },
+            "targetIdentity": {
+              "catalogVariantKey": "bmw.c-scooter.c600-sport",
+              "equipment": "standard C 600 Sport",
+              "id": "bmw.c-scooter.c600-sport.2012",
+              "market": "USA",
+              "model": "bmw.c-scooter.c600-sport.2012",
+              "state": "KNOWN",
+              "year": 2012
+            }
+          },
+          "schemaVersion": 1,
+          "stageEnvelopes": [
+            {
+              "contractVersion": "PromotionReviewPacket/v1",
+              "executionState": "ADVANCED",
+              "externalSideEffects": false,
+              "humanAuthorizationConsumed": false,
+              "id": "safe-stage-envelope.ab67ca0947244f684edfe130",
+              "inputIdentity": {
+                "digest": "737d54de711f324ca77ae0511d671939880cea2867133940f86dc311d3baa5c6",
+                "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+              },
+              "lineage": {
+                "previousEnvelopeId": null
+              },
+              "outputIdentity": {
+                "digest": "737d54de711f324ca77ae0511d671939880cea2867133940f86dc311d3baa5c6",
+                "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+              },
+              "schemaVersion": 1,
+              "stage": "PROMOTION-REVIEW-PACKET",
+              "stopReason": null
+            },
+            {
+              "contractVersion": "PromotionReviewDecision/v1",
+              "executionState": "ADVANCED",
+              "externalSideEffects": false,
+              "humanAuthorizationConsumed": true,
+              "id": "safe-stage-envelope.0e09699fed8e9abf05ee9465",
+              "inputIdentity": {
+                "digest": "737d54de711f324ca77ae0511d671939880cea2867133940f86dc311d3baa5c6",
+                "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+              },
+              "lineage": {
+                "previousEnvelopeId": "safe-stage-envelope.ab67ca0947244f684edfe130"
+              },
+              "outputIdentity": {
+                "digest": "491984fcc9aa027325e4d41fa762565572091ef5a0173d874a604a5d463339a7",
+                "id": "promotion-review-decision.0300f37e6519ae8ea678f903"
+              },
+              "schemaVersion": 1,
+              "stage": "PROMOTION-REVIEW",
+              "stopReason": null
+            },
+            {
+              "contractVersion": "SchemaConversionProjection/v1",
+              "executionState": "ADVANCED",
+              "externalSideEffects": false,
+              "humanAuthorizationConsumed": true,
+              "id": "safe-stage-envelope.d343eb2f44522bec39e76bee",
+              "inputIdentity": {
+                "digest": "491984fcc9aa027325e4d41fa762565572091ef5a0173d874a604a5d463339a7",
+                "id": "promotion-review-decision.0300f37e6519ae8ea678f903"
+              },
+              "lineage": {
+                "previousEnvelopeId": "safe-stage-envelope.0e09699fed8e9abf05ee9465"
+              },
+              "outputIdentity": {
+                "digest": "5c3a604eccc0c1b414e4465de1099dfeb02be8338f4cb407ceadd5d4f8228fe5",
+                "id": "schema-conversion.e2401b3a2681f7048fd35291"
+              },
+              "schemaVersion": 1,
+              "stage": "SCHEMA-CONVERSION",
+              "stopReason": null
+            }
+          ],
+          "state": "ADVANCED",
+          "stopReason": null
+        },
+        "schemaVersion": 1
+      }
+    ],
+    "routed": {
+      "duplicateSemanticInputCount": 2,
+      "routes": [
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.solo-pressures",
+          "condition": "single rider; cold tires",
+          "contractVersions": {
+            "evaluation": "RuleEvaluationResult/v1",
+            "routing": "RoutingResult/v1",
+            "rule": "DeterministicRule/v1"
+          },
+          "currentStage": "DETERMINISTIC-RULE",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "routing-result.521c5647b649946fa78dbdd3",
+          "inputIdentity": {
+            "digest": "4dba2eb6c03bcffdfe99e5af1174d15ebf9bf9fb9f50e48b201ddcfe84e11d85",
+            "id": "promotion-review-packet.6da8ee105490e42d6211aaaa"
+          },
+          "invariants": {
+            "failed": [
+              "front/rear or multiple pressure values are compound",
+              "AMBIGUOUS-COMPOUND-VALUE"
+            ],
+            "satisfied": [
+              "rule identity and source lineage are present"
+            ]
+          },
+          "nextLegalAction": "SUPPLY-RECORD-LOCAL-HUMAN-INTERPRETATION",
+          "rawUnit": null,
+          "rawValue": "Tire pressure, front 34.8 psi (2.4 bar), With tire cold; Tire pressure, rear 36.3 psi (2.5 bar), Single rider, with cold tires",
+          "reasonCodes": [
+            "HUMAN-REVIEW-REQUIRED"
+          ],
+          "route": "YELLOW",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.d136e199adab7d73b18536c7",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+              "page": 118,
+              "printedPage": 116,
+              "section": "Technical data / Wheels and tires",
+              "tableOrSubsection": "Tire pressure; single rider; cold tires",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "4dba2eb6c03bcffdfe99e5af1174d15ebf9bf9fb9f50e48b201ddcfe84e11d85",
+          "upstreamIdentity": {
+            "digest": "4dba2eb6c03bcffdfe99e5af1174d15ebf9bf9fb9f50e48b201ddcfe84e11d85",
+            "id": "promotion-review-packet.6da8ee105490e42d6211aaaa"
+          }
+        },
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "lubrication.capacity-filter",
+          "condition": "with filter change",
+          "contractVersions": {
+            "evaluation": "RuleEvaluationResult/v1",
+            "routing": "RoutingResult/v1",
+            "rule": "DeterministicRule/v1"
+          },
+          "currentStage": "DETERMINISTIC-RULE",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "routing-result.6c97fdb94c6c463aa87e16ab",
+          "inputIdentity": {
+            "digest": "8a6887fcca6aa946bef4f4f4391223d1375342cbb24785461ff490b088340db0",
+            "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+          },
+          "invariants": {
+            "failed": [
+              "raw value is missing",
+              "RAW-VALUE-MISSING"
+            ],
+            "satisfied": []
+          },
+          "nextLegalAction": "REPAIR-OR-RESEARCH-RULE-INPUT",
+          "rawUnit": null,
+          "rawValue": null,
+          "reasonCodes": [
+            "RULE-EVALUATION-REJECTED"
+          ],
+          "route": "RED",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.10cbaffd2c1e7e0cf9eb43fa",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-115",
+              "page": 115,
+              "printedPage": 113,
+              "section": "Technical data / Engine oil",
+              "tableOrSubsection": "Engine oil capacity",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "8a6887fcca6aa946bef4f4f4391223d1375342cbb24785461ff490b088340db0",
+          "upstreamIdentity": {
+            "digest": "8a6887fcca6aa946bef4f4f4391223d1375342cbb24785461ff490b088340db0",
+            "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+          }
+        },
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.rear-axle-torque",
+          "condition": null,
+          "contractVersions": {
+            "evaluation": "RuleEvaluationResult/v1",
+            "routing": "RoutingResult/v1",
+            "rule": "DeterministicRule/v1"
+          },
+          "currentStage": "DETERMINISTIC-RULE",
+          "duplicateCount": 2,
+          "externalSideEffects": false,
+          "id": "routing-result.7736d1e6d7d82c41a90614f3",
+          "inputIdentity": {
+            "digest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          },
+          "invariants": {
+            "failed": [
+              "semantic input occurs more than once",
+              "DUPLICATE-SEMANTIC-INPUT"
+            ],
+            "satisfied": []
+          },
+          "nextLegalAction": "REJECT-DUPLICATE-AND-RETAIN-EACH-FAILURE",
+          "rawUnit": "kN-m",
+          "rawValue": "60 kN-m",
+          "reasonCodes": [
+            "DUPLICATE-SEMANTIC-INPUT"
+          ],
+          "route": "RED",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.35795700854a58780ebb2ef4",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-92",
+              "page": 92,
+              "printedPage": 90,
+              "section": "Maintenance / Rear wheel",
+              "tableOrSubsection": "Rear wheel on output shaft",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+          "upstreamIdentity": {
+            "digest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          }
+        },
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.rear-axle-torque",
+          "condition": null,
+          "contractVersions": {
+            "evaluation": "RuleEvaluationResult/v1",
+            "routing": "RoutingResult/v1",
+            "rule": "DeterministicRule/v1"
+          },
+          "currentStage": "DETERMINISTIC-RULE",
+          "duplicateCount": 2,
+          "externalSideEffects": false,
+          "id": "routing-result.7736d1e6d7d82c41a90614f3",
+          "inputIdentity": {
+            "digest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          },
+          "invariants": {
+            "failed": [
+              "semantic input occurs more than once",
+              "DUPLICATE-SEMANTIC-INPUT"
+            ],
+            "satisfied": []
+          },
+          "nextLegalAction": "REJECT-DUPLICATE-AND-RETAIN-EACH-FAILURE",
+          "rawUnit": "kN-m",
+          "rawValue": "60 kN-m",
+          "reasonCodes": [
+            "DUPLICATE-SEMANTIC-INPUT"
+          ],
+          "route": "RED",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.35795700854a58780ebb2ef4",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-92",
+              "page": 92,
+              "printedPage": 90,
+              "section": "Maintenance / Rear wheel",
+              "tableOrSubsection": "Rear wheel on output shaft",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+          "upstreamIdentity": {
+            "digest": "0930d34c1e604cd127530fba5718a7291d32f45b5e8771b1fb37ffdac877d2e3",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          }
+        },
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.loaded-pressures",
+          "condition": null,
+          "contractVersions": {
+            "conversion": "SchemaConversionProjection/v1",
+            "decision": "PromotionReviewDecision/v1",
+            "packet": "PromotionReviewPacket/v1",
+            "routing": "RoutingResult/v1",
+            "runner": "SafeStageRunner/v1"
+          },
+          "currentStage": "SCHEMA-CONVERSION",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "routing-result.27fb9cb048cfb9f94d290232",
+          "inputIdentity": {
+            "digest": "19994e9ca68b09249754b63942b6f12471f424238e7ef54d88a3c4821ebbdfec",
+            "id": "promotion-review-packet.884caa97481269f10d509649"
+          },
+          "invariants": {
+            "failed": [],
+            "satisfied": [
+              "runner result is ADVANCED",
+              "authoritative downstream contracts accepted",
+              "existing authorization was supplied where required",
+              "external side effects are false"
+            ]
+          },
+          "nextLegalAction": "STOP-BEFORE-PRODUCTION-MATERIALIZATION",
+          "rawUnit": null,
+          "rawValue": "42.1 psi (2.9 bar), Driver with passenger and/or load, with cold tire",
+          "reasonCodes": [
+            "SAFE-RUNNER-ADVANCED"
+          ],
+          "route": "GREEN",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.17dd0b5a88cac424df30331e",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-118",
+              "page": 118,
+              "printedPage": 116,
+              "section": "Technical data / Wheels and tires",
+              "tableOrSubsection": "Tire pressure; driver with passenger and/or load; cold tire",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "19994e9ca68b09249754b63942b6f12471f424238e7ef54d88a3c4821ebbdfec",
+          "upstreamIdentity": {
+            "digest": "19994e9ca68b09249754b63942b6f12471f424238e7ef54d88a3c4821ebbdfec",
+            "id": "promotion-review-packet.884caa97481269f10d509649"
+          }
+        },
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "ruleApplicable": false,
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.front-axle-torque",
+          "condition": null,
+          "contractVersions": {
+            "evaluation": "RuleEvaluationResult/v1",
+            "routing": "RoutingResult/v1",
+            "rule": "DeterministicRule/v1"
+          },
+          "currentStage": "DETERMINISTIC-RULE",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "routing-result.671c368419c6b6eb71ded349",
+          "inputIdentity": {
+            "digest": "655e40c78d0fed16a1646d0e823a511d19b2e107a546c7401c04459d074c9a51",
+            "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+          },
+          "invariants": {
+            "failed": [
+              "RULE-NOT-APPLICABLE"
+            ],
+            "satisfied": [
+              "rule applicability explicitly false"
+            ]
+          },
+          "nextLegalAction": "SUPPLY-RECORD-LOCAL-HUMAN-INTERPRETATION",
+          "rawUnit": null,
+          "rawValue": "22 lb/ft (30 Nm)",
+          "reasonCodes": [
+            "RULE-NOT-APPLICABLE"
+          ],
+          "route": "YELLOW",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.a1776a1a72a0e955c485c3e2",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+              "page": 90,
+              "printedPage": 88,
+              "section": "Maintenance / Front wheel",
+              "tableOrSubsection": "Quick-release axle in axle mount",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "655e40c78d0fed16a1646d0e823a511d19b2e107a546c7401c04459d074c9a51",
+          "upstreamIdentity": {
+            "digest": "655e40c78d0fed16a1646d0e823a511d19b2e107a546c7401c04459d074c9a51",
+            "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+          }
+        },
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.front-axle-torque",
+          "condition": null,
+          "contractVersions": {
+            "conversion": "SchemaConversionProjection/v1",
+            "decision": "PromotionReviewDecision/v1",
+            "packet": "PromotionReviewPacket/v1",
+            "routing": "RoutingResult/v1",
+            "runner": "SafeStageRunner/v1"
+          },
+          "currentStage": "SCHEMA-CONVERSION",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "routing-result.b8144ffa832668c0b6d7cba9",
+          "inputIdentity": {
+            "digest": "9c704367ed9e6fd83fc76ffa4994594c2e53f6447e3400e57e246c02ac538c6f",
+            "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+          },
+          "invariants": {
+            "failed": [],
+            "satisfied": [
+              "runner result is ADVANCED",
+              "authoritative downstream contracts accepted",
+              "existing authorization was supplied where required",
+              "external side effects are false"
+            ]
+          },
+          "nextLegalAction": "STOP-BEFORE-PRODUCTION-MATERIALIZATION",
+          "rawUnit": null,
+          "rawValue": "22 lb/ft (30 Nm)",
+          "reasonCodes": [
+            "SAFE-RUNNER-ADVANCED"
+          ],
+          "route": "GREEN",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.a1776a1a72a0e955c485c3e2",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-90",
+              "page": 90,
+              "printedPage": 88,
+              "section": "Maintenance / Front wheel",
+              "tableOrSubsection": "Quick-release axle in axle mount",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "9c704367ed9e6fd83fc76ffa4994594c2e53f6447e3400e57e246c02ac538c6f",
+          "upstreamIdentity": {
+            "digest": "9c704367ed9e6fd83fc76ffa4994594c2e53f6447e3400e57e246c02ac538c6f",
+            "id": "promotion-review-packet.31d6a95253fbb04ab0b61b05"
+          }
+        },
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "tires_wheels.rear-axle-torque",
+          "condition": null,
+          "contractVersions": {
+            "evaluation": "RuleEvaluationResult/v1",
+            "routing": "RoutingResult/v1",
+            "rule": "DeterministicRule/v1"
+          },
+          "currentStage": "DETERMINISTIC-RULE",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "routing-result.64a1e776fdc1af79bef18614",
+          "inputIdentity": {
+            "digest": "67374799bf3e43e5f2d47a25c422543b0cc58a6cbb876a0d050cc8e48bc2681a",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          },
+          "invariants": {
+            "failed": [
+              "this rule requires units to remain explicit in rawValue",
+              "UNSUPPORTED-UNIT"
+            ],
+            "satisfied": []
+          },
+          "nextLegalAction": "REPAIR-OR-RESEARCH-RULE-INPUT",
+          "rawUnit": "kN-m",
+          "rawValue": "61 kN-m",
+          "reasonCodes": [
+            "RULE-EVALUATION-REJECTED"
+          ],
+          "route": "RED",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.8eeb55f455ceec36e18c5438",
+            "candidateId": "extraction-candidate.35795700854a58780ebb2ef4",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.e49a609a799ac4a869a17fd3",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-92",
+              "page": 92,
+              "printedPage": 90,
+              "section": "Maintenance / Rear wheel",
+              "tableOrSubsection": "Rear wheel on output shaft",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "67374799bf3e43e5f2d47a25c422543b0cc58a6cbb876a0d050cc8e48bc2681a",
+          "upstreamIdentity": {
+            "digest": "67374799bf3e43e5f2d47a25c422543b0cc58a6cbb876a0d050cc8e48bc2681a",
+            "id": "promotion-review-packet.6cce152a0167d317e6dfbfbf"
+          }
+        },
+        {
+          "applicability": {
+            "abs": "KNOWN",
+            "context": "SUFFICIENT",
+            "equipment": "SUFFICIENT",
+            "market": "KNOWN",
+            "modelYear": "KNOWN",
+            "transmission": "KNOWN"
+          },
+          "canonicalFieldId": "lubrication.capacity-filter",
+          "condition": null,
+          "contractVersions": {
+            "conversion": "SchemaConversionProjection/v1",
+            "decision": "PromotionReviewDecision/v1",
+            "packet": "PromotionReviewPacket/v1",
+            "routing": "RoutingResult/v1",
+            "runner": "SafeStageRunner/v1"
+          },
+          "currentStage": "SCHEMA-CONVERSION",
+          "duplicateCount": 1,
+          "externalSideEffects": false,
+          "id": "routing-result.7b37f9f626a87c72f687c120",
+          "inputIdentity": {
+            "digest": "b019caadd221d384972328bea0417851dd6edbfff585695079f2c8ce8753b35f",
+            "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+          },
+          "invariants": {
+            "failed": [],
+            "satisfied": [
+              "runner result is ADVANCED",
+              "authoritative downstream contracts accepted",
+              "existing authorization was supplied where required",
+              "external side effects are false"
+            ]
+          },
+          "nextLegalAction": "STOP-BEFORE-PRODUCTION-MATERIALIZATION",
+          "rawUnit": null,
+          "rawValue": "Approx. 3.3 quarts (Approx. 3.1 l), with filter change",
+          "reasonCodes": [
+            "SAFE-RUNNER-ADVANCED"
+          ],
+          "route": "GREEN",
+          "schemaVersion": 1,
+          "sourceIdentity": {
+            "authority": "BMW Motorrad",
+            "documentId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "officialPath": "https://manuals.bmw-motorrad.com/manuals/BA-Extern/IN/BA-INTERNET-COM/PDF/C_0132_RM_0912_C600Sport_07.pdf",
+            "prospectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+            "sourceId": "C_0132_RM_0912_C600Sport_07.pdf",
+            "tier": "A"
+          },
+          "sourceProvenance": {
+            "artifactId": "artifact.0648e55b8687641e6d58d51f",
+            "candidateId": "extraction-candidate.10cbaffd2c1e7e0cf9eb43fa",
+            "extractionMethod": "LOCAL-PDF-TEXT-BOUND-RAW",
+            "extractionResultId": "extraction-result.c08607ff8b77d5665a51d35b",
+            "sourceLocation": {
+              "applicabilityStatement": "BMW C 600 Sport Rider's Manual (US Model), MY2012, USA; ABS=true; CVT; standard C 600 Sport",
+              "locator": "C_0132_RM_0912_C600Sport_07.pdf#pdf-page-115",
+              "page": 115,
+              "printedPage": 113,
+              "section": "Technical data / Engine oil",
+              "tableOrSubsection": "Engine oil capacity",
+              "unitsContext": "raw source wording and source units preserved"
+            }
+          },
+          "targetIdentity": {
+            "catalogVariantKey": "bmw.c-scooter.c600-sport",
+            "equipment": "standard C 600 Sport",
+            "id": "bmw.c-scooter.c600-sport.2012",
+            "market": "USA",
+            "model": "bmw.c-scooter.c600-sport.2012",
+            "state": "KNOWN",
+            "year": 2012
+          },
+          "upstreamDigest": "b019caadd221d384972328bea0417851dd6edbfff585695079f2c8ce8753b35f",
+          "upstreamIdentity": {
+            "digest": "b019caadd221d384972328bea0417851dd6edbfff585695079f2c8ce8753b35f",
+            "id": "promotion-review-packet.b35918cc6e3a05b351e4dd9f"
+          }
+        }
+      ]
+    },
+    "schemaVersion": 1
+  },
+  "batchSummary": {
+    "aggregate": {
+      "automaticStageAdvancements": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 9
+      },
+      "automaticallyProcessedRecords": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 3
+      },
+      "duplicateSemanticInputs": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 2
+      },
+      "evidenceRowsCreated": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 0
+      },
+      "exceptionGroups": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 5
+      },
+      "exceptionRecords": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 6
+      },
+      "existingHumanAuthorizationsConsumed": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 3
+      },
+      "externalSideEffects": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 0
+      },
+      "green": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 3
+      },
+      "humanActionRequiredRecords": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 2
+      },
+      "newHumanAuthorizationsCreated": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 0
+      },
+      "productionWrites": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 0
+      },
+      "red": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 4
+      },
+      "ruleEvaluations": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 9
+      },
+      "rulesApplied": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 3
+      },
+      "rulesNeedsHumanReview": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 1
+      },
+      "rulesNotApplicable": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 1
+      },
+      "rulesRejected": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 4
+      },
+      "safeStageInvocations": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 3
+      },
+      "totalInputRecords": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 9
+      },
+      "yellow": {
+        "measurementState": "MEASURED",
+        "reason": "Directly observed pipeline count",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 2
+      }
+    },
+    "boundary": {
+      "catalogueMutation": false,
+      "cloudMutation": false,
+      "evidenceMaterialization": false,
+      "productionMaterialization": false,
+      "registryMutation": false,
+      "serviceCoreMutation": false,
+      "uiMutation": false
+    },
+    "contractVersions": {
+      "batchSummary": "BatchSummary/v2",
+      "evaluation": "RuleEvaluationResult/v1",
+      "exceptionProjection": "ExceptionProjection/v1",
+      "routing": "RoutingResult/v1",
+      "rule": "DeterministicRule/v1",
+      "runner": "SafeStageRunner/v1"
+    },
+    "fixtures": [
+      {
+        "comparability": "DIRECT-PIPELINE-FIXTURE-ONLY",
+        "counts": {
+          "automaticStageAdvancements": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 9
+          },
+          "automaticallyProcessedRecords": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 3
+          },
+          "duplicateSemanticInputs": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 2
+          },
+          "evidenceRowsCreated": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 0
+          },
+          "exceptionGroups": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 5
+          },
+          "exceptionRecords": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 6
+          },
+          "existingHumanAuthorizationsConsumed": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 3
+          },
+          "externalSideEffects": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 0
+          },
+          "green": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 3
+          },
+          "humanActionRequiredRecords": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 2
+          },
+          "newHumanAuthorizationsCreated": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 0
+          },
+          "productionWrites": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 0
+          },
+          "red": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 4
+          },
+          "ruleEvaluations": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 9
+          },
+          "rulesApplied": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 3
+          },
+          "rulesNeedsHumanReview": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 1
+          },
+          "rulesNotApplicable": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 1
+          },
+          "rulesRejected": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 4
+          },
+          "safeStageInvocations": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 3
+          },
+          "totalInputRecords": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 9
+          },
+          "yellow": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 2
+          }
+        },
+        "fixtureId": "wave-e-bounded-bmw-automatic-pipeline",
+        "humanActions": {
+          "existingAuthorizationReused": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 3
+          },
+          "newAuthorizationCreated": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 0
+          },
+          "recordLocalReview": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 2
+          }
+        },
+        "lifecycleGeneration": "throughput-v2-wave-e",
+        "metrics": {
+          "autoAdvanceRate": {
+            "contractVersions": [
+              "DeterministicRule/v1",
+              "RuleEvaluationResult/v1",
+              "SafeStageRunner/v1",
+              "RoutingResult/v1",
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "MEASURED",
+              "reason": "Directly observed pipeline count",
+              "scope": "Wave E bounded BMW pipeline fixture",
+              "value": 9
+            },
+            "measurementState": "MEASURED",
+            "name": "autoAdvanceRate",
+            "numerator": {
+              "measurementState": "MEASURED",
+              "reason": "Directly observed pipeline count",
+              "scope": "Wave E bounded BMW pipeline fixture",
+              "value": 3
+            },
+            "reason": "Three records completed the bounded automatic path",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 0.3333333333333333
+          },
+          "automaticSafeRecordRate": {
+            "contractVersions": [
+              "DeterministicRule/v1",
+              "RuleEvaluationResult/v1",
+              "SafeStageRunner/v1",
+              "RoutingResult/v1",
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "MEASURED",
+              "reason": "Directly observed pipeline count",
+              "scope": "Wave E bounded BMW pipeline fixture",
+              "value": 9
+            },
+            "measurementState": "MEASURED",
+            "name": "automaticSafeRecordRate",
+            "numerator": {
+              "measurementState": "MEASURED",
+              "reason": "Directly observed pipeline count",
+              "scope": "Wave E bounded BMW pipeline fixture",
+              "value": 3
+            },
+            "reason": "Three records reached GREEN without new human work",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 0.3333333333333333
+          },
+          "exceptionRate": {
+            "contractVersions": [
+              "DeterministicRule/v1",
+              "RuleEvaluationResult/v1",
+              "SafeStageRunner/v1",
+              "RoutingResult/v1",
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "MEASURED",
+              "reason": "Directly observed pipeline count",
+              "scope": "Wave E bounded BMW pipeline fixture",
+              "value": 9
+            },
+            "measurementState": "MEASURED",
+            "name": "exceptionRate",
+            "numerator": {
+              "measurementState": "MEASURED",
+              "reason": "Directly observed pipeline count",
+              "scope": "Wave E bounded BMW pipeline fixture",
+              "value": 6
+            },
+            "reason": "All non-GREEN records are directly projected",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 0.6666666666666666
+          },
+          "humanTouchRate": {
+            "contractVersions": [
+              "DeterministicRule/v1",
+              "RuleEvaluationResult/v1",
+              "SafeStageRunner/v1",
+              "RoutingResult/v1",
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "MEASURED",
+              "reason": "Directly observed pipeline count",
+              "scope": "Wave E bounded BMW pipeline fixture",
+              "value": 9
+            },
+            "measurementState": "MEASURED",
+            "name": "humanTouchRate",
+            "numerator": {
+              "measurementState": "MEASURED",
+              "reason": "Directly observed pipeline count",
+              "scope": "Wave E bounded BMW pipeline fixture",
+              "value": 2
+            },
+            "reason": "Two records stopped at human/rule interpretation boundaries",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 0.2222222222222222
+          },
+          "researchDuplicationRate": {
+            "contractVersions": [
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Unavailable or non-comparable",
+              "scope": "Wave E",
+              "value": null
+            },
+            "measurementState": "NOT-MEASURED",
+            "name": "researchDuplicationRate",
+            "numerator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Unavailable or non-comparable",
+              "scope": "Wave E",
+              "value": null
+            },
+            "reason": "Historical denominator unavailable",
+            "scope": "Wave E",
+            "value": null
+          },
+          "sourceReuseRate": {
+            "contractVersions": [
+              "BatchSummary/v2"
+            ],
+            "denominator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Unavailable or non-comparable",
+              "scope": "Wave E",
+              "value": null
+            },
+            "measurementState": "NOT-MEASURED",
+            "name": "sourceReuseRate",
+            "numerator": {
+              "measurementState": "NOT-MEASURED",
+              "reason": "Unavailable or non-comparable",
+              "scope": "Wave E",
+              "value": null
+            },
+            "reason": "Source cache is a later wave",
+            "scope": "Wave E",
+            "value": null
+          }
+        },
+        "notes": [
+          "Existing approved BMW decisions are consumed only for three GREEN continuations.",
+          "No new human decision is created by the pipeline.",
+          "Wave A historical unknown metrics remain unchanged."
+        ],
+        "safeStop": "PRE-MATERIALIZATION",
+        "scope": {
+          "ruleClasses": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 3
+          },
+          "targetRecords": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 9
+          },
+          "targets": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 1
+          }
+        },
+        "sourceIdentity": {
+          "authenticatedSourceReuse": null
+        },
+        "stageStates": {
+          "green": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 3
+          },
+          "red": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 4
+          },
+          "yellow": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 2
+          }
+        },
+        "workCounters": {
+          "pipelineRecords": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 9
+          },
+          "runnerInvocations": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 3
+          },
+          "stageAdvancements": {
+            "measurementState": "MEASURED",
+            "reason": "Directly observed pipeline count",
+            "scope": "Wave E bounded BMW pipeline fixture",
+            "value": 9
+          }
+        }
+      }
+    ],
+    "id": "batch-summary.e6ee0958814875a4106c5fa0",
+    "metrics": {
+      "autoAdvanceRate": {
+        "contractVersions": [
+          "DeterministicRule/v1",
+          "RuleEvaluationResult/v1",
+          "SafeStageRunner/v1",
+          "RoutingResult/v1",
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "MEASURED",
+          "reason": "Directly observed pipeline count",
+          "scope": "Wave E bounded BMW pipeline fixture",
+          "value": 9
+        },
+        "measurementState": "MEASURED",
+        "name": "autoAdvanceRate",
+        "numerator": {
+          "measurementState": "MEASURED",
+          "reason": "Directly observed pipeline count",
+          "scope": "Wave E bounded BMW pipeline fixture",
+          "value": 3
+        },
+        "reason": "Three records completed the bounded automatic path",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 0.3333333333333333
+      },
+      "automaticSafeRecordRate": {
+        "contractVersions": [
+          "DeterministicRule/v1",
+          "RuleEvaluationResult/v1",
+          "SafeStageRunner/v1",
+          "RoutingResult/v1",
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "MEASURED",
+          "reason": "Directly observed pipeline count",
+          "scope": "Wave E bounded BMW pipeline fixture",
+          "value": 9
+        },
+        "measurementState": "MEASURED",
+        "name": "automaticSafeRecordRate",
+        "numerator": {
+          "measurementState": "MEASURED",
+          "reason": "Directly observed pipeline count",
+          "scope": "Wave E bounded BMW pipeline fixture",
+          "value": 3
+        },
+        "reason": "Three records reached GREEN without new human work",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 0.3333333333333333
+      },
+      "exceptionRate": {
+        "contractVersions": [
+          "DeterministicRule/v1",
+          "RuleEvaluationResult/v1",
+          "SafeStageRunner/v1",
+          "RoutingResult/v1",
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "MEASURED",
+          "reason": "Directly observed pipeline count",
+          "scope": "Wave E bounded BMW pipeline fixture",
+          "value": 9
+        },
+        "measurementState": "MEASURED",
+        "name": "exceptionRate",
+        "numerator": {
+          "measurementState": "MEASURED",
+          "reason": "Directly observed pipeline count",
+          "scope": "Wave E bounded BMW pipeline fixture",
+          "value": 6
+        },
+        "reason": "All non-GREEN records are directly projected",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 0.6666666666666666
+      },
+      "humanTouchRate": {
+        "contractVersions": [
+          "DeterministicRule/v1",
+          "RuleEvaluationResult/v1",
+          "SafeStageRunner/v1",
+          "RoutingResult/v1",
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "MEASURED",
+          "reason": "Directly observed pipeline count",
+          "scope": "Wave E bounded BMW pipeline fixture",
+          "value": 9
+        },
+        "measurementState": "MEASURED",
+        "name": "humanTouchRate",
+        "numerator": {
+          "measurementState": "MEASURED",
+          "reason": "Directly observed pipeline count",
+          "scope": "Wave E bounded BMW pipeline fixture",
+          "value": 2
+        },
+        "reason": "Two records stopped at human/rule interpretation boundaries",
+        "scope": "Wave E bounded BMW pipeline fixture",
+        "value": 0.2222222222222222
+      },
+      "researchDuplicationRate": {
+        "contractVersions": [
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Unavailable or non-comparable",
+          "scope": "Wave E",
+          "value": null
+        },
+        "measurementState": "NOT-MEASURED",
+        "name": "researchDuplicationRate",
+        "numerator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Unavailable or non-comparable",
+          "scope": "Wave E",
+          "value": null
+        },
+        "reason": "Historical denominator unavailable",
+        "scope": "Wave E",
+        "value": null
+      },
+      "sourceReuseRate": {
+        "contractVersions": [
+          "BatchSummary/v2"
+        ],
+        "denominator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Unavailable or non-comparable",
+          "scope": "Wave E",
+          "value": null
+        },
+        "measurementState": "NOT-MEASURED",
+        "name": "sourceReuseRate",
+        "numerator": {
+          "measurementState": "NOT-MEASURED",
+          "reason": "Unavailable or non-comparable",
+          "scope": "Wave E",
+          "value": null
+        },
+        "reason": "Source cache is a later wave",
+        "scope": "Wave E",
+        "value": null
+      }
+    },
+    "safeStop": "PRE-MATERIALIZATION",
+    "schemaVersion": 2,
+    "scope": {
+      "id": "technical-research-factory-wave-e",
+      "label": "Wave E bounded multi-record automatic pipeline"
+    }
+  },
+  "assertions": {
+    "greenCount": 3,
+    "yellowCount": 2,
+    "redCount": 4,
+    "existingAuthorizationsConsumed": 3,
+    "newAuthorizationsCreated": 0,
+    "greenExcludedFromExceptions": true,
+    "allInputsAccountedFor": true,
+    "noAuthorizationFabricated": true,
+    "noRuleActivated": true,
+    "rawValuesPreserved": true,
+    "noEvidenceRows": true,
+    "productionChanged": false,
+    "serviceCoreChanged": false,
+    "cloudChanged": false,
+    "externalSideEffects": false
+  },
+  "next": "No later throughput wave is authorized by this result; any continuation must be separately authorized from the measured Wave E exceptions and must not be executed in Wave E."
+}

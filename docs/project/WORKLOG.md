@@ -1532,6 +1532,27 @@ production, Service Core, catalogue, registry, cloud or UI state changed.
 Exact NEXT is Wave E: integrate the versioned rule library into a bounded
 multi-record automatic pipeline; it was not executed.
 
+## 2026-09-20 — Technical Research Factory Throughput v2 Wave E
+
+Integrated the existing Wave D deterministic rules, Wave B safe-stage runner,
+Wave C routing and grouped exception projection into one bounded read-only
+multi-record pipeline over 9 real BMW C 600 Sport MY2012 research records.
+Three records completed the GREEN automatic path using existing approved
+promotion decisions and schema projections; two records stopped at explicit
+rule/human boundaries; four remained RED, including missing input, unsupported
+input and two duplicate semantic records. Rule results were 3 `APPLIED`, 1
+`NOT-APPLICABLE`, 1 `NEEDS-HUMAN-REVIEW` and 4 `REJECTED`. The pipeline consumed
+3 existing human authorizations and created 0 new authorizations. Directly
+observed metrics are AUTO-ADVANCE 3/9, HUMAN-TOUCH 2/9, EXCEPTION 6/9 and
+AUTOMATIC-SAFE 3/9; source reuse and historical duplication remain
+`NOT-MEASURED`. Six exception records remain independently traceable in five
+groups, duplicate inputs remain visible, and raw values, source identity,
+provenance, applicability and conditions remain preserved. No evidence,
+production, Service Core, catalogue, registry, cloud or UI state changed;
+Wave A historical unknown metrics and Wave B-D reports remain unchanged. Exact
+NEXT is a separately authorized continuation derived from the measured Wave E
+result; no later throughput wave was executed.
+
 ## 2026-09-20 — Technical Research Factory Throughput v2 Wave C
 
 Implemented only deterministic GREEN/YELLOW/RED routing over

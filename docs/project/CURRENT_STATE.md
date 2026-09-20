@@ -414,3 +414,15 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   1.0.0 identities remain independent, and Wave A/B/C semantics are unchanged.
   NEXT is Wave E: integrate the versioned rule library into a bounded
   multi-record automatic pipeline; it is not executed.
+- Technical Research Factory Throughput v2 Wave E now composes the existing
+  deterministic rule library, SafeStageRunner/v1, RoutingResult/v1 and grouped
+  exception projection over 9 real BMW C 600 Sport MY2012 records. The bounded
+  read-only pipeline produced 3 GREEN, 2 YELLOW and 4 RED results; 3 existing
+  promotion decisions were consumed, no new authorization was created, and 6
+  exception records were retained in 5 groups. Direct measurements are
+  AUTO-ADVANCE 3/9, HUMAN-TOUCH 2/9, EXCEPTION 6/9 and AUTOMATIC-SAFE 3/9.
+  Rule results were 3 APPLIED, 1 NOT-APPLICABLE, 1 NEEDS-HUMAN-REVIEW and 4
+  REJECTED. No evidence, production, Service Core, catalogue, registry, cloud
+  or UI state changed; historical Wave A unknown metrics remain unchanged.
+  NEXT is a separately authorized continuation derived from the measured Wave
+  E result; no later throughput wave is executed here.

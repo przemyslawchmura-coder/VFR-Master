@@ -17,7 +17,9 @@ const ROUTING_REASONS = Object.freeze([
   "UNSUPPORTED-STAGE",
   "DUPLICATE-SEMANTIC-INPUT",
   "INCOMPATIBLE-STATE",
-  "EXTERNAL-WORK-NOT-AUTHORIZED"
+  "EXTERNAL-WORK-NOT-AUTHORIZED",
+  "RULE-NOT-APPLICABLE",
+  "RULE-EVALUATION-REJECTED"
 ]);
 const fields = new Set(["schemaVersion", "id", "inputIdentity", "route", "reasonCodes", "invariants", "currentStage", "nextLegalAction", "targetIdentity", "canonicalFieldId", "sourceIdentity", "sourceProvenance", "rawValue", "rawUnit", "applicability", "condition", "upstreamIdentity", "upstreamDigest", "contractVersions", "externalSideEffects", "duplicateCount"]);
 const assert = (condition, message) => { if (!condition) throw new TypeError(message); };
@@ -95,4 +97,16 @@ function routeBatch(records) {
   return json.immutableClone({ routes, duplicateSemanticInputCount: [...multiplicity.values()].filter(count => count > 1).reduce((sum, count) => sum + count, 0) });
 }
 
-module.exports = Object.freeze({ ROUTING_SCHEMA_VERSION, ROUTES, ROUTING_REASONS, validateRoutingResult, classify, routeBatch });
+function classifyRuleEvaluation({ input, evaluation, duplicateCount = 1 }) {
+  const ruleContracts = require("./deterministic-rule-contracts.js");
+  ruleContracts.validateRuleEvaluationResult(evaluation);
+  assert(input && typeof input === "object", "Rule-routing input is required");
+  const record = recordFromInput(input);
+  const route = evaluation.state === "NEEDS-HUMAN-REVIEW" || evaluation.state === "NOT-APPLICABLE" ? "YELLOW" : "RED";
+  const reasonCode = evaluation.reasonCode === "DUPLICATE-SEMANTIC-INPUT" ? "DUPLICATE-SEMANTIC-INPUT" : evaluation.state === "NEEDS-HUMAN-REVIEW" ? "HUMAN-REVIEW-REQUIRED" : evaluation.state === "NOT-APPLICABLE" ? "RULE-NOT-APPLICABLE" : "RULE-EVALUATION-REJECTED";
+  const result = { schemaVersion: ROUTING_SCHEMA_VERSION, id: "placeholder", inputIdentity: identity(record, input), route, reasonCodes: [reasonCode], invariants: { satisfied: evaluation.invariants.passed, failed: [...evaluation.invariants.failed, evaluation.reasonCode] }, currentStage: "DETERMINISTIC-RULE", nextLegalAction: route === "YELLOW" ? "SUPPLY-RECORD-LOCAL-HUMAN-INTERPRETATION" : reasonCode === "DUPLICATE-SEMANTIC-INPUT" ? "REJECT-DUPLICATE-AND-RETAIN-EACH-FAILURE" : "REPAIR-OR-RESEARCH-RULE-INPUT", targetIdentity: record && record.targetIdentity ? record.targetIdentity : null, canonicalFieldId: record && typeof record.canonicalFieldId === "string" ? record.canonicalFieldId : evaluation.canonicalFieldId, sourceIdentity: record && record.sourceIdentity ? record.sourceIdentity : null, sourceProvenance: record && record.provenance ? record.provenance : null, rawValue: record && Object.prototype.hasOwnProperty.call(record, "rawValue") ? record.rawValue : null, rawUnit: record && Object.prototype.hasOwnProperty.call(record, "rawUnit") ? record.rawUnit : null, applicability: record && record.applicability ? record.applicability : null, condition: record && Object.prototype.hasOwnProperty.call(record, "condition") ? record.condition : null, upstreamIdentity: identity(record, input), upstreamDigest: evaluation.upstreamDigest, contractVersions: { routing: "RoutingResult/v1", rule: "DeterministicRule/v1", evaluation: "RuleEvaluationResult/v1" }, externalSideEffects: false, duplicateCount };
+  result.id = routeId(result);
+  return validateRoutingResult(result);
+}
+
+module.exports = Object.freeze({ ROUTING_SCHEMA_VERSION, ROUTES, ROUTING_REASONS, validateRoutingResult, classify, classifyRuleEvaluation, routeBatch });
