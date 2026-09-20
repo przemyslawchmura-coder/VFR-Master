@@ -11,7 +11,7 @@
   "currentArchitecture": [
     "user motorcycle selection",
     "MotorcycleCatalog exact catalogue identity",
-    "MotorcycleDatabase Supabase user-owned motorcycle row",
+    "user-owned motorcycle persistence row",
     "buildTechnicalContext and TechnicalProfileReadiness",
     "Technical Profile registry/loader/resolver",
     "fixed Rider Service Core projection and Brak danych fallback"
@@ -58,7 +58,7 @@
       "status": "MISSING",
       "modules": [
         "data/technical/technical-profile-registry.js",
-        "supabase/migrations/20260828000000_create_runtime_tables.sql"
+        "repository migration boundary outside research/"
       ],
       "smallestPrimitive": "A separate durable, provenance-bearing research-knowledge repository and read contract; do not use the garage row as a knowledge store."
     },
@@ -126,7 +126,7 @@
         "research/factory/evidence-processing.js",
         "research/factory/promotion-readiness.js",
         "research/factory/production-technical-profile-entry-materializer.js",
-        "supabase/migrations/"
+        "repository migration boundary outside research/"
       ],
       "smallestPrimitive": "A non-production durable reusable-knowledge boundary; explicit production materialization remains separate."
     },
@@ -238,7 +238,7 @@
       "component": "cross-request persistence/deduplication",
       "classification": "NEEDS-CHANGE",
       "modules": [
-        "supabase/migrations/",
+        "repository migration boundary outside research/",
         "js/database.js"
       ],
       "reason": "No current durable research-demand or reusable-knowledge store exists."
@@ -280,7 +280,7 @@
     "existingContractLimit": "TargetWork identity includes batchId and targetId; SourceWorkItem additionally includes prospectId and operation. These are deterministic execution identities, not cross-user reusable-demand identities."
   },
   "persistenceAnalysis": {
-    "finding": "No existing persistence model is sufficient. Supabase currently persists user-owned motorcycles/service records; committed Technical Profiles and their registry are production static data; materializer stores are explicit executor seams, not a reusable research database.",
+    "finding": "No existing persistence model is sufficient. The current runtime database persists user-owned motorcycles/service records; committed Technical Profiles and their registry are production static data; materializer stores are explicit executor seams, not a reusable research database.",
     "recommendation": "Introduce, in a separately authorized future wave, a non-production durable research boundary for immutable reusable knowledge lineage and a demand/status index. Keep user garage rows, production Technical Profiles and production registry membership separate.",
     "minimumRecords": [
       "canonical demand identity/status and links to Factory work/checkpoint",
@@ -326,7 +326,7 @@
       ],
       "proof": "Permutation-independent identity, exact applicability matching, partial safe projection and duplicate classification.",
       "outOfScope": [
-        "Supabase",
+        "runtime database",
         "API Ninjas",
         "production profiles",
         "real acquisition"
@@ -337,7 +337,7 @@
       "objective": "Add the durable research demand/status and reusable-knowledge persistence boundary.",
       "boundary": "Non-production research data with ownership/access rules; immutable provenance and atomic dedup claim.",
       "modules": [
-        "supabase/migrations/",
+        "repository migration boundary outside research/",
         "research/factory/",
         "tests/"
       ],
@@ -393,7 +393,7 @@
     "A first architecture proof may use deterministic/local fixtures and does not require API Ninjas."
   ],
   "unknowns": [
-    "Exact Supabase tenancy/RLS shape for shared reusable research knowledge.",
+    "Exact runtime tenancy and row-level access shape for shared reusable research knowledge.",
     "Whether users may see human-accepted pre-evidence values, and the exact presentation status contract.",
     "Conflict merge policy when two applicable sources produce different accepted candidates.",
     "Provider terms, quotas and response schema for any future API Ninjas adapter."
@@ -406,7 +406,7 @@
     "routing/rule changes",
     "Wave K RED analysis",
     "catalogue mutation",
-    "Supabase mutation",
+    "runtime database mutation",
     "UI redesign"
   ],
   "historicalBoundaries": {
@@ -439,7 +439,7 @@
       "js/technical/",
       "research/factory/",
       "research/data/catalogue-coverage-queue.js",
-      "supabase/migrations/"
+      "repository migration boundary outside research/"
     ]
   },
   "auditVerdict": "ACCEPT",
@@ -448,5 +448,5 @@
     "allReferencedPathsPresent": true,
     "noProductionImplementation": true
   },
-  "reportId": "research-on-demand-reuse-architecture-audit.5401fbe9ddd93474a4432ac9"
+  "reportId": "research-on-demand-reuse-architecture-audit.e1411b7cbb7176f5d21c02ef"
 }
