@@ -382,6 +382,29 @@ production artifact.
 
 Status: ACTIVE. Related implementation: `research/factory/materialization-input-reference-contracts.js`, `research/factory/materialization-requirements.js`.
 
+## ADR-048 — Durable research demand is canonical and shared, while writes remain trusted-only
+
+Date: 2026-09-20
+
+Decision: Research on Demand Wave 2 persists the existing Wave 1 canonical
+demand identity as the durable uniqueness key. Separate demand/status and
+reusable-knowledge records preserve applicability, conditions, provenance and
+lineage. Reusable knowledge is append-safe: a later contradictory applicable
+candidate is retained as an explicit conflict and cannot silently replace a
+prior record. Unknown required applicability cannot claim a broader demand.
+
+Security posture: the repository migration enables RLS and creates no
+anon/authenticated policy for the shared research tables. Future trusted
+Factory/service access requires a separately authorized boundary; no browser
+privileged write path is introduced.
+
+Consequences: equivalent users and execution batches share one durable demand,
+while request metadata remains lifecycle-only. The migration is repository
+schema only and was not applied to a live database. Research remains separate
+from production Technical Profiles, evidence and registry materialization.
+
+Status: ACTIVE. Related implementation: `research/factory/reusable-knowledge-persistence.js`, `supabase/migrations/20260920102352_research_on_demand_wave2_durable_reuse.sql`.
+
 ## ADR-047 — Reusable demand identity is canonical and user-independent
 
 Date: 2026-09-20

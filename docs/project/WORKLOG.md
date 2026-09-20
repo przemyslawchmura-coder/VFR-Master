@@ -1708,3 +1708,19 @@ evidence, production, Service Core, catalogue, registry, cloud or UI state
 changed. NEXT requires new repository evidence or an existing formal
 lossless contract prerequisite; no contract-design wave is authorized by
 this report.
+
+## 2026-09-20 — Research on Demand Wave 2
+
+Implemented the smallest repository-only durable persistence boundary after
+Wave 1. The Wave 1 canonical demand/knowledge identities are reused without
+user, garage, batch, TargetWork or SourceWorkItem contamination. A pure local
+repository proof supports atomic-equivalent claim/reuse, explicit lifecycle
+states, unknown-context fail-closed behavior, safe partial reuse, persistence
+failure isolation and append-safe contradictory knowledge. Migration
+`20260920102352_research_on_demand_wave2_durable_reuse.sql` adds separate
+durable demand/status and reusable-knowledge storage with a unique demand key,
+content uniqueness, lineage foreign key and RLS with no anon/authenticated
+browser policy. No live database mutation, app integration, external provider,
+acquisition, production promotion or routing change occurred. NEXT is Wave 3:
+bridge active motorcycle context to reusable lookup and missing-field demand
+through deterministic/local fixtures.

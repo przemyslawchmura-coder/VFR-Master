@@ -526,3 +526,17 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   catalogue, Service Core or routing state changed. Wave K remains 8 GREEN /
   1 YELLOW / 23 RED; Wave I battery semantics, pressure YELLOW ownership and
   Wave G hostile 3/2/4 remain unchanged.
+
+- Research on Demand Wave 2 is implemented as a repository-only durable
+  boundary. `research/factory/reusable-knowledge-persistence.js` reuses the
+  Wave 1 demand/knowledge identities, rejects unknown required applicability
+  before claim, provides deterministic local claim/status/lookup behavior and
+  preserves provenance, applicability, conditions and lineage. The ordered
+  migration `20260920102352_research_on_demand_wave2_durable_reuse.sql` adds
+  separate durable demand and append-safe reusable-knowledge tables, a unique
+  canonical demand key, conflict-preserving content uniqueness, foreign-key
+  lineage and RLS with no browser/client policies. No live database was
+  changed, no app integration/provider/acquisition/production promotion was
+  performed, and Wave K remains 8 GREEN / 1 YELLOW / 23 RED. NEXT is Wave 3:
+  bridge active motorcycle context to reusable lookup and missing-field demand
+  through deterministic/local fixtures.
