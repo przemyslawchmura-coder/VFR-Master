@@ -2,6 +2,25 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-20 — Research on Demand + Persistent Reuse architecture audit
+
+Audited the actual garage/catalogue/context flow, Technical Profile registry and
+Rider Service Core projection, Supabase runtime persistence, and the complete
+Technical Research Factory lifecycle. The Factory primitives remain reusable:
+identity/applicability, GapPlan, deterministic orchestration, checkpoints,
+bounded acquisition, extraction, Review Queue, Human Review, Evidence
+Processing and explicit production authorization are not obsolete. The audit
+found no cross-request reusable-knowledge store, demand/status ledger or
+profileless partial-reuse projection. Existing TargetWork and SourceWorkItem
+identities are batch-scoped execution identities, not reusable-demand keys.
+The proposed architecture keeps production profiles and garage rows separate
+and requires a future non-production durable research boundary keyed by
+canonical catalogue/context/field applicability. No API was called, no source
+was acquired, no production or routing state changed, and Wave K remains
+8 GREEN / 1 YELLOW / 23 RED. NEXT: a separately authorized bounded
+implementation wave for deterministic demand/reuse contracts using local
+fixtures only.
+
 ## 2026-09-07 — Research-to-runtime identity mapping contract foundation
 
 Added the generic non-production mapping contract that separates research

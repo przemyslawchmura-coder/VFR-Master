@@ -1,0 +1,452 @@
+{
+  "schemaVersion": "revlog-research-on-demand-reuse-architecture-audit/v1",
+  "audit": "Research on Demand + Persistent Reuse",
+  "startingCheckpoint": "b8b1c3d7cdb7f94b7255dc7bdf2cce21cd2d54eb",
+  "designOnly": true,
+  "implementationPerformed": false,
+  "externalApisCalled": false,
+  "sourcesAcquired": false,
+  "productionChanged": false,
+  "waveKReinterpreted": false,
+  "currentArchitecture": [
+    "user motorcycle selection",
+    "MotorcycleCatalog exact catalogue identity",
+    "MotorcycleDatabase Supabase user-owned motorcycle row",
+    "buildTechnicalContext and TechnicalProfileReadiness",
+    "Technical Profile registry/loader/resolver",
+    "fixed Rider Service Core projection and Brak danych fallback"
+  ],
+  "currentResearchArchitecture": [
+    "ResearchTarget + ApplicabilityScope",
+    "GapPlan",
+    "ExecutionPlanner",
+    "ResearchBatch/TargetWork/SourceWorkItem",
+    "events/reducer/checkpoint",
+    "ExecutionAgent + acquisition adapter",
+    "raw artifact custody + extraction",
+    "Review Queue + Human Review",
+    "Evidence Processing + Promotion Readiness",
+    "explicit production authorization/materialization boundary"
+  ],
+  "targetArchitecture": [
+    "user motorcycle demand/context",
+    "reusable-knowledge lookup",
+    "safe partial projection",
+    "missing-field/context determination",
+    "deterministic research-demand deduplication",
+    "existing Factory lifecycle",
+    "accepted reusable-knowledge persistence",
+    "profile refresh/projection",
+    "future equivalent-context reuse"
+  ],
+  "targetTransitions": [
+    {
+      "id": "demand-context",
+      "transition": "user demand -> canonical context",
+      "status": "PARTIAL",
+      "modules": [
+        "js/app.js",
+        "js/motorcycle-catalog.js",
+        "js/technical/motorcycle-technical-context.js",
+        "research/factory/contracts.js"
+      ],
+      "smallestPrimitive": "A demand adapter that binds the existing catalogue/context contract to a research request."
+    },
+    {
+      "id": "lookup",
+      "transition": "canonical context -> reusable knowledge lookup",
+      "status": "MISSING",
+      "modules": [
+        "data/technical/technical-profile-registry.js",
+        "supabase/migrations/20260828000000_create_runtime_tables.sql"
+      ],
+      "smallestPrimitive": "A separate durable, provenance-bearing research-knowledge repository and read contract; do not use the garage row as a knowledge store."
+    },
+    {
+      "id": "projection",
+      "transition": "known reusable knowledge -> user-visible safe fields",
+      "status": "PARTIAL",
+      "modules": [
+        "js/technical/technical-profile-resolver.js",
+        "js/technical/technical-profile-ui.js",
+        "js/technical/technical-profile-core-matrix.js"
+      ],
+      "smallestPrimitive": "A projection adapter for profileless/partial research knowledge that retains status and never presents RED/YELLOW as verified Technical Profile data."
+    },
+    {
+      "id": "missing",
+      "transition": "context/knowledge -> missing fields",
+      "status": "PARTIAL",
+      "modules": [
+        "research/factory/gap-plan.js",
+        "research/data/catalogue-coverage-queue.js",
+        "research/factory/execution-planner.js"
+      ],
+      "smallestPrimitive": "A demand-side deterministic GapPlan input adapter; existing GapPlan remains the semantic owner."
+    },
+    {
+      "id": "dedup",
+      "transition": "missing fields -> one research demand",
+      "status": "MISSING",
+      "modules": [
+        "research/factory/ids.js",
+        "research/factory/orchestrator.js",
+        "research/factory/execution-planner.js"
+      ],
+      "smallestPrimitive": "A durable demand identity/status index distinct from batch-scoped TargetWork and SourceWorkItem identities."
+    },
+    {
+      "id": "reuse-status",
+      "transition": "complete/in-progress/review/unsupported -> reuse decision",
+      "status": "MISSING",
+      "modules": [
+        "research/factory/reducer.js",
+        "research/factory/checkpoint.js",
+        "research/factory/readiness.js"
+      ],
+      "smallestPrimitive": "Cross-request status lookup with explicit terminal, human-review, blocked and unsupported states."
+    },
+    {
+      "id": "factory",
+      "transition": "new demand -> existing Factory",
+      "status": "EXISTS",
+      "modules": [
+        "research/factory/orchestrator.js",
+        "research/factory/execution-agent.js",
+        "research/factory/reducer.js",
+        "research/factory/checkpoint.js"
+      ],
+      "smallestPrimitive": null
+    },
+    {
+      "id": "persist",
+      "transition": "accepted result -> reusable persistence",
+      "status": "PARTIAL",
+      "modules": [
+        "research/factory/evidence-processing.js",
+        "research/factory/promotion-readiness.js",
+        "research/factory/production-technical-profile-entry-materializer.js",
+        "supabase/migrations/"
+      ],
+      "smallestPrimitive": "A non-production durable reusable-knowledge boundary; explicit production materialization remains separate."
+    },
+    {
+      "id": "refresh",
+      "transition": "new reusable knowledge -> refreshed profile view",
+      "status": "PARTIAL",
+      "modules": [
+        "js/technical/technical-profile-readiness.js",
+        "js/technical/technical-profile-ui.js",
+        "js/database.js"
+      ],
+      "smallestPrimitive": "A narrow reload/invalidation and projection seam; no mutation of committed profiles is implied."
+    },
+    {
+      "id": "future-reuse",
+      "transition": "equivalent future demand -> existing result",
+      "status": "MISSING",
+      "modules": [
+        "research/factory/ids.js",
+        "research/data/catalogue-coverage-queue.js"
+      ],
+      "smallestPrimitive": "A lookup keyed by canonical applicability and field identity, with immutable provenance lineage."
+    }
+  ],
+  "componentReuseMatrix": [
+    {
+      "component": "catalogue/context identity and applicability",
+      "classification": "REUSED-AS-IS",
+      "modules": [
+        "js/motorcycle-catalog.js",
+        "js/technical/motorcycle-technical-context.js",
+        "research/factory/contracts.js",
+        "research/factory/applicability.js"
+      ],
+      "reason": "Exact catalogue keys, explicit context states and fail-closed applicability already exist."
+    },
+    {
+      "component": "TargetWork/SourceWork lifecycle",
+      "classification": "REUSED-AS-IS",
+      "modules": [
+        "research/factory/orchestrator.js",
+        "research/factory/ids.js",
+        "research/factory/events.js",
+        "research/factory/reducer.js",
+        "research/factory/checkpoint.js"
+      ],
+      "reason": "Deterministic batch execution, replay and bounded retry semantics remain useful after a demand adapter supplies work."
+    },
+    {
+      "component": "GapPlan and execution planner",
+      "classification": "REUSED-WITH-NARROW-ADAPTER",
+      "modules": [
+        "research/factory/gap-plan.js",
+        "research/factory/execution-planner.js"
+      ],
+      "reason": "They need demand-to-target input, not a replacement planner or new field semantics."
+    },
+    {
+      "component": "acquisition/execution agent",
+      "classification": "REUSED-AS-IS",
+      "modules": [
+        "research/factory/source-acquisition-adapters.js",
+        "research/factory/execution-agent.js",
+        "research/factory/execution-contracts.js"
+      ],
+      "reason": "Artifact custody, bounded requests and adapter validation already enforce the source boundary."
+    },
+    {
+      "component": "extraction/review/evidence",
+      "classification": "REUSED-AS-IS",
+      "modules": [
+        "research/factory/extraction-contracts.js",
+        "research/factory/review-queue.js",
+        "research/factory/review-decisions.js",
+        "research/factory/evidence-processing.js"
+      ],
+      "reason": "Raw values, provenance and human decision semantics remain required for on-demand work."
+    },
+    {
+      "component": "promotion/materialization",
+      "classification": "REUSED-WITH-NARROW-ADAPTER",
+      "modules": [
+        "research/factory/promotion-readiness.js",
+        "research/factory/production-materialization-authorization.js",
+        "research/factory/production-technical-profile-entry-materializer.js"
+      ],
+      "reason": "Existing explicit authorization boundary stays intact; a reusable research store must not be confused with production materialization."
+    },
+    {
+      "component": "automatic routing pipeline",
+      "classification": "REUSED-AS-IS",
+      "modules": [
+        "research/factory/automatic-pipeline.js",
+        "research/factory/routing.js"
+      ],
+      "reason": "Wave K and existing GREEN/YELLOW/RED contracts are historical and must not be changed."
+    },
+    {
+      "component": "catalogue-wide coverage projection",
+      "classification": "REUSED-AS-IS",
+      "modules": [
+        "research/data/catalogue-coverage-queue.js",
+        "research/factory/catalogue-coverage-queue-contracts.js"
+      ],
+      "reason": "Batch/pre-seeding remains a valid optional producer of demand inputs, not an on-demand replacement."
+    },
+    {
+      "component": "cross-request persistence/deduplication",
+      "classification": "NEEDS-CHANGE",
+      "modules": [
+        "supabase/migrations/",
+        "js/database.js"
+      ],
+      "reason": "No current durable research-demand or reusable-knowledge store exists."
+    },
+    {
+      "component": "existing Factory as a whole",
+      "classification": "POTENTIALLY-OBSOLETE: NONE",
+      "modules": [
+        "research/factory/index.js"
+      ],
+      "reason": "On-demand changes intake and reuse, not the bounded acquisition, extraction, review or authorization layers."
+    }
+  ],
+  "reusablePrimitives": [
+    "catalogVariantKey and exact catalogue validation",
+    "explicit ApplicabilityScope with UNKNOWN/PARTIAL states",
+    "ResearchTarget and GapPlan contracts",
+    "deterministic Factory IDs, events, reducer and checkpoints",
+    "bounded execution/acquisition artifact custody",
+    "raw extraction, Review Queue, Human Review and Evidence Processing",
+    "Promotion Readiness and explicit production authorization",
+    "fixed Rider Service Core projection with Brak danych",
+    "read-only deterministic catalogue coverage projection"
+  ],
+  "identityAnalysis": {
+    "recommendation": "Use a separate reusable-demand key anchored by the existing catalogVariantKey/ResearchTarget identity plus canonical field identity and the exact applicable context. Do not use user ID, display strings or batch ID.",
+    "requiredDimensions": [
+      "catalogVariantKey",
+      "exact model year or explicit applicable range",
+      "market/region state",
+      "ABS state",
+      "transmission state when applicable",
+      "equipment/variant state when applicable",
+      "canonical field or operation",
+      "conditions",
+      "source applicability/policy version when the demand is source-specific"
+    ],
+    "sourceIdentityRule": "Include source identity only for source-specific work; reusable knowledge must retain source identity and provenance but must not be keyed solely by a provider.",
+    "existingContractLimit": "TargetWork identity includes batchId and targetId; SourceWorkItem additionally includes prospectId and operation. These are deterministic execution identities, not cross-user reusable-demand identities."
+  },
+  "persistenceAnalysis": {
+    "finding": "No existing persistence model is sufficient. Supabase currently persists user-owned motorcycles/service records; committed Technical Profiles and their registry are production static data; materializer stores are explicit executor seams, not a reusable research database.",
+    "recommendation": "Introduce, in a separately authorized future wave, a non-production durable research boundary for immutable reusable knowledge lineage and a demand/status index. Keep user garage rows, production Technical Profiles and production registry membership separate.",
+    "minimumRecords": [
+      "canonical demand identity/status and links to Factory work/checkpoint",
+      "accepted reusable knowledge with field value, raw value, provenance, source identity, applicability and conditions",
+      "conflict/blocked/unsupported state without erasing prior safe knowledge"
+    ],
+    "productionBoundary": "Only the existing explicit promotion-review/authorization/materialization path may create or change production Technical Profile data."
+  },
+  "partialProfiles": {
+    "currentBehavior": "A loaded production profile projects safe applicable Core cells and uses exactly Brak danych for missing cells; ambiguous applicability fails closed.",
+    "targetBehavior": "Add a separate research/reuse projection that can show safe known fields while a demand is running, awaiting review or unsupported. Preserve state labels and provenance; never turn ACCEPT into verified production evidence, and never display RED/YELLOW as verified data.",
+    "unknownContext": "Unknown market/ABS/equipment/transmission remains unresolved where required; no lookup or research request may broaden applicability."
+  },
+  "duplicateDemand": {
+    "complete": "Return the immutable reusable result and project it.",
+    "inProgress": "Join the existing demand/status record and its Factory work; do not create another acquisition.",
+    "awaitingHumanReview": "Join the same work without retrying acquisition or creating a second candidate.",
+    "unsupportedOrBlocked": "Reuse the explicit state for that field/context and continue unrelated fields or demands.",
+    "concurrencyRequirement": "The future repository needs an atomic deterministic identity claim/upsert; current batch-local IDs cannot provide this across users."
+  },
+  "profileRefresh": "The narrow path is lookup/recompute of the research projection followed by the existing context-aware Core projection. Committed Technical Profile modules and registry membership remain unchanged until explicit production authorization; no broad profile merge is safe by default.",
+  "apiNinjasBoundary": {
+    "adapter": "research/factory/source-acquisition-adapters.js",
+    "contract": "An explicitly declared adapter consumes an existing planned source work request and returns the existing bounded acquisition outcome/artifact contract.",
+    "custody": "The raw bounded response is an acquisition artifact with digest, byte length, media, locator and provider attribution; it is not evidence.",
+    "secrets": "API key is environment/secret configuration only and must never enter source code, reports, logs or artifact metadata.",
+    "downstream": "Existing extraction, provenance, applicability, Human Review, Evidence Processing and explicit promotion boundaries remain unchanged.",
+    "reuseAndFailure": "The future demand/status index prevents repeated equivalent requests; rate limits/provider failure become scoped transient/blocked outcomes and preserve existing safe knowledge."
+  },
+  "failureIsolation": {
+    "principle": "One missing/RED/YELLOW field does not block unrelated safe fields; one source failure does not invalidate reusable knowledge; one motorcycle demand failure does not stop another demand.",
+    "repositorySupport": "Record-local Factory reducer/execution contracts and fixed Core projection support the principle within their current boundaries.",
+    "missingSupport": "Cross-request durable demand state, field-level lookup and a scheduler/refresh seam are still absent."
+  },
+  "minimumImplementationPath": [
+    {
+      "wave": 1,
+      "objective": "Define deterministic demand/reuse contracts and pure lookup/projection over local fixtures.",
+      "boundary": "Research/non-production contracts only; no schema, production or API adapter.",
+      "modules": [
+        "research/factory/",
+        "tests/"
+      ],
+      "proof": "Permutation-independent identity, exact applicability matching, partial safe projection and duplicate classification.",
+      "outOfScope": [
+        "Supabase",
+        "API Ninjas",
+        "production profiles",
+        "real acquisition"
+      ]
+    },
+    {
+      "wave": 2,
+      "objective": "Add the durable research demand/status and reusable-knowledge persistence boundary.",
+      "boundary": "Non-production research data with ownership/access rules; immutable provenance and atomic dedup claim.",
+      "modules": [
+        "supabase/migrations/",
+        "research/factory/",
+        "tests/"
+      ],
+      "proof": "Two equivalent requests share one demand; terminal/review/blocked states survive reload; unrelated fields remain usable.",
+      "outOfScope": [
+        "production promotion",
+        "API Ninjas",
+        "UI redesign"
+      ]
+    },
+    {
+      "wave": 3,
+      "objective": "Bridge active motorcycle context to missing-field demand and run the existing Factory with deterministic/local fixtures.",
+      "boundary": "Thin app/research adapter; existing Factory lifecycle remains authoritative.",
+      "modules": [
+        "js/app.js",
+        "js/database.js",
+        "js/technical/",
+        "research/factory/",
+        "tests/"
+      ],
+      "proof": "Known field projects immediately, one missing demand runs, accepted reusable result persists, profile projection refreshes, second equivalent request performs no acquisition.",
+      "outOfScope": [
+        "external provider",
+        "catalogue broadening",
+        "routing changes"
+      ]
+    },
+    {
+      "wave": 4,
+      "objective": "Separately authorize a provider adapter and production-promotion decision only after the local proof is stable.",
+      "boundary": "Existing acquisition adapter and explicit production authorization boundaries.",
+      "modules": [
+        "research/factory/source-acquisition-adapters.js",
+        "research/factory/production-*.js"
+      ],
+      "proof": "Provider failure/rate-limit isolation, attribution and no secret leakage; promotion remains explicit.",
+      "outOfScope": [
+        "automatic truth",
+        "automatic production promotion"
+      ]
+    }
+  ],
+  "risks": [
+    "A reusable accepted state could be mistaken for verified production evidence if the projection contract is not separate.",
+    "Applicability intersection and unknown dimensions can cause unsafe false reuse if identity normalization is permissive.",
+    "Concurrent demand claims require atomic persistence semantics not present in current tables.",
+    "Production Technical Profile refresh must not mutate committed registry/profile data implicitly."
+  ],
+  "assumptions": [
+    "catalogVariantKey and existing context fields remain the canonical identity inputs.",
+    "The current 44-field Rider Service Core matrix remains closed.",
+    "A first architecture proof may use deterministic/local fixtures and does not require API Ninjas."
+  ],
+  "unknowns": [
+    "Exact Supabase tenancy/RLS shape for shared reusable research knowledge.",
+    "Whether users may see human-accepted pre-evidence values, and the exact presentation status contract.",
+    "Conflict merge policy when two applicable sources produce different accepted candidates.",
+    "Provider terms, quotas and response schema for any future API Ninjas adapter."
+  ],
+  "explicitNonGoals": [
+    "API Ninjas implementation or calls",
+    "source acquisition or motorcycle data",
+    "production changes",
+    "Rider Service Core changes",
+    "routing/rule changes",
+    "Wave K RED analysis",
+    "catalogue mutation",
+    "Supabase mutation",
+    "UI redesign"
+  ],
+  "historicalBoundaries": {
+    "waveK": {
+      "routingBefore": {
+        "green": 8,
+        "yellow": 1,
+        "red": 23
+      },
+      "routingAfter": {
+        "green": 8,
+        "yellow": 1,
+        "red": 23
+      },
+      "preserved": true
+    },
+    "pressure": "YELLOW/human-owned; unchanged",
+    "waveI": "battery-capacity explicit-Ah scalar semantics remain valid and untouched",
+    "waveG": "hostile regression 3/2/4 remains historical and untouched"
+  },
+  "validationClaims": {
+    "deterministic": true,
+    "readOnly": true,
+    "repositoryEvidenceOnly": true,
+    "externalSideEffects": false,
+    "reportTrackedInputs": [
+      "js/app.js",
+      "js/database.js",
+      "js/motorcycle-catalog.js",
+      "js/technical/",
+      "research/factory/",
+      "research/data/catalogue-coverage-queue.js",
+      "supabase/migrations/"
+    ]
+  },
+  "auditVerdict": "ACCEPT",
+  "next": "A separately authorized bounded implementation wave for deterministic research-demand and reusable-knowledge contracts, beginning with the local fixture proof; do not execute API Ninjas or production promotion in that wave.",
+  "repositoryEvidenceCheck": {
+    "allReferencedPathsPresent": true,
+    "noProductionImplementation": true
+  },
+  "reportId": "research-on-demand-reuse-architecture-audit.5401fbe9ddd93474a4432ac9"
+}

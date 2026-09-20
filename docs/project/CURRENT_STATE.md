@@ -494,3 +494,20 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   Wave G 3/2/4 and historical reports preserved. The prerequisite for any
   future contract-design wave is new repository evidence or an existing
   formal lossless contract; no such wave is authorized here.
+
+- Research on Demand + Persistent Reuse architecture audit: the current
+  motorcycle/catalogue/context flow and the full non-production Research
+  Factory were traced. Existing identity, applicability, GapPlan,
+  deterministic orchestration/checkpoints, acquisition, extraction, review,
+  evidence-processing and explicit production-authorization boundaries remain
+  reusable; no Factory layer is obsolete. The repository has no durable
+  cross-request reusable-knowledge store, research-demand/status ledger or
+  profileless partial-reuse projection. Existing TargetWork and SourceWorkItem
+  IDs are batch-scoped execution identities, so they cannot by themselves
+  deduplicate equivalent user demands. This is PROPOSED/AUDITED only: a future
+  separately authorized wave may add a non-production persistence boundary
+  keyed by canonical catalogue/context/field applicability, then connect it to
+  the existing Factory through a thin adapter. No API was called, no source
+  was acquired, and no production, Service Core, routing, catalogue, registry,
+  Supabase or UI state changed. Wave K remains valid at 8 GREEN / 1 YELLOW /
+  23 RED.

@@ -584,6 +584,30 @@ a separate pending boundary; no production profile, registry membership or
 technical data is created. The bounded CBR500R reevaluation is the first
 instance and does not add target-specific logic to the Factory.
 
+## ADR-046 — Research on Demand + Persistent Reuse remains a separate boundary
+
+Date: 2026-09-20
+
+Decision: Research on Demand + Persistent Reuse is PROPOSED/AUDITED only. The
+existing catalogue/context, applicability, Research Factory lifecycle,
+provenance, human-review and explicit production-authorization contracts remain
+the reusable foundation. Future on-demand work must add a separate durable
+non-production research-demand/status and reusable-knowledge boundary keyed by
+canonical catalogue/context/field applicability; it must not use a user garage
+row or committed production Technical Profile as a cache.
+
+Rationale: repository inspection found no cross-request reusable-knowledge
+store, demand ledger or profileless partial-reuse projection. TargetWork and
+SourceWorkItem IDs are deterministic but batch-scoped execution identities.
+The Factory is therefore not obsolete; only a thin demand/reuse adapter and
+durable boundary are missing. A local-fixture proof should precede any API
+provider or production-promotion work.
+
+Consequences: known safe fields may be projected progressively, while unknown
+applicability, RED, YELLOW, pre-evidence ACCEPT and source failures remain
+explicit and fail closed. API Ninjas, schema changes, UI changes and production
+profile mutation are separate future authorizations. Wave K remains unchanged.
+
 Status: ACTIVE. Related implementation: `research/factory/technical-profile-entry-reference-contracts.js`, `research/factory/materialization-requirements.js`.
 
 ## ADR-038 — Typed non-production registry insertion references
