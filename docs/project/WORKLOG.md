@@ -1453,3 +1453,23 @@ evidence rows, production, catalogue, registry, Rider Service Core or cloud
 state changed. Independent audit and targeted validation passed. NEXT is a
 separately authorized bounded evidence-materialization review for exactly
 these 24 projections; it was not executed.
+
+## 2026-09-20 — Technical Research Factory Maximum Automation / Throughput v2 Design
+
+Completed a repository-backed design and architecture audit without runtime
+implementation. The current lifecycle was traced from target creation,
+source planning/acquisition and extraction through Review Queue, Human Review,
+Evidence Processing, readiness, promotion review, schema conversion and the
+separate production/materialization boundary. The audit found that the main
+throughput waste is manual advancement across deterministic-safe stages, not a
+reason to weaken existing gates. The design in
+`docs/project/RESEARCH_FACTORY_THROUGHPUT_V2.md` proposes one orchestration
+layer around existing contracts, event reducer/checkpoint replay, source and
+extraction content-addressed reuse, incremental gap planning,
+applicability-safe fan-out, bounded concurrency, grouped GREEN/YELLOW/RED
+exceptions, versioned deterministic rules and machine-readable human-effort
+metrics. BMW, Ducati, CBR500R and Honda/Yamaha cases were used as evidence;
+no current percentages were fabricated. Production, evidence, Rider Service
+Core, catalogue, registry, cloud and UI state remain unchanged. Exact NEXT is
+implementation wave A: deterministic throughput baseline and `BatchSummary/v2`
+fixture projection; no runtime automation or BMW materialization was executed.

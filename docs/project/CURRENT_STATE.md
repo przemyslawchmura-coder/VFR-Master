@@ -3,7 +3,7 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-09-20
-Snapshot basis: BMW C 600 Sport MY2012 Schema Conversion Projection at the current bounded-wave commit.
+Snapshot basis: Technical Research Factory Maximum Automation / Throughput v2 design at the current bounded-wave commit.
 
 - Phase 6 promotion foundation: generic `PromotionPacket/v1` and fail-closed `PROMOTION-READY`/`BLOCKED` gate are implemented and exported from `research/factory/index.js`. The foundation preserves raw values/units/provenance, rejects unresolved/non-accepted processing states and insufficient scope, and performs no production conversion, evidence write, registry insertion or automatic promotion.
 - Held promotion projection: the real 27 Ducati and 13 BMW pre-promotion records were read-only projected through `PromotionPacket/v1`; Ducati produced 27 `PROMOTION-READY`, BMW 11 `PROMOTION-READY` and 2 `BLOCKED` conflict records. Upstream research objects and all production state remained unchanged.
@@ -360,3 +360,12 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   registry, Rider Service Core or cloud state changed. NEXT is a separately
   authorized bounded evidence-materialization review for exactly these 24
   projections; it is not executed.
+- Technical Research Factory Maximum Automation / Throughput v2 is now a
+  design-only repository-audited plan. It proposes one orchestration layer
+  around the existing contracts, reducer/checkpoint history, content-addressed
+  source/extraction reuse, explicit GREEN/YELLOW/RED routing, grouped
+  exception review, applicability-safe fan-out, incremental gap planning,
+  bounded concurrency and deterministic batch summaries. Existing production,
+  evidence, Rider Service Core, catalogue, registry, cloud and UI boundaries
+  remain unchanged. The next implementation wave is A: throughput baseline and
+  `BatchSummary/v2` fixture projection; no runtime automation is implemented.

@@ -32,8 +32,9 @@ Planning items only; none are executed by this stocktake.
 
 - **Technical Profile user-facing textual-value localization** — future bounded presentation work for source values containing human-readable descriptions, such as Ducati `Front/rear brake circuit: DOT 4`. Preserve the canonical technical/source value internally while allowing the Polish UI to present a natural Polish description; do not alter the stored value or technical identity.
 - Complete the deferred Technical Research Factory waves after the completed contract/orchestrator/planner/execution-agent/extraction-agent/review-queue/human-decision/evidence-processing foundations: interrupted/resumed Ténéré Batch Pilot, then measured 10/25-target scale-up. Do not attempt 100 targets before checkpoint/review bottlenecks are measured.
-- **Research Factory throughput optimization / OEM-direct fast path** — explicitly
-  deferred until the current Technical Research Factory scope is formally closed
+- **Research Factory throughput optimization / OEM-direct fast path** — design
+  baseline is now documented in `docs/project/RESEARCH_FACTORY_THROUGHPUT_V2.md`;
+  implementation remains deferred until the current Technical Research Factory scope is formally closed
   out. Verify the authoritative OEM publication and exact applicability first;
   an authenticated publication may eventually support straight-through handling
   of a directly stated, losslessly representable value without mandatory
