@@ -1,5 +1,39 @@
 # Architectural decisions
 
+## ADR-050 — Wave 5 uses a trusted server service over Supabase RPC contracts
+
+Date: 2026-09-20
+
+Decision: The Wave 5 trusted boundary foundation is a server-side
+`server/research-on-demand-boundary.js` service backed by repository-controlled
+Supabase RPC functions. The service is not imported by browser/runtime code.
+The SQL functions own storage-enforced canonical demand uniqueness, durable
+status lookup/transitions and append-safe reusable-knowledge writes. The
+service derives Wave 1 identity, rejects browser-supplied identity/status/
+provenance/lifecycle fields, hands only newly created claims to the existing
+Factory boundary and persists only trusted Factory results.
+
+Rationale: The repository has no existing deployed server or Edge Function to
+extend. Supabase is already the repository persistence/deployment platform,
+and RPC functions provide the smallest backend-safe transaction boundary
+without adding a VPS, framework or browser write policy. The local proof uses
+an atomic storage double; live functions are repository-controlled but were
+not deployed or applied. The existing Factory remains the owner of research
+lifecycle semantics, while Wave 2 identity, RLS and conflict-safe knowledge
+contracts remain authoritative.
+
+Consequences: Ordinary browser clients retain no shared research-table or
+function access and receive no credentials. Equivalent concurrent claims
+resolve to one durable demand; only `CREATED` claims are Factory-handoff
+eligible. Claims that outlive a request remain `IN_PROGRESS`, and blocked,
+unsupported, review and reusable states remain explicit. Synthetic/local
+Factory results preserve raw values, provenance, applicability and lineage but
+remain non-production. No provider, UI, live migration or production profile
+integration is included.
+
+Status: ACTIVE. Related implementation: `server/research-on-demand-boundary.js`,
+`supabase/migrations/20260920120000_research_on_demand_wave5_trusted_boundary.sql`.
+
 ## ADR-049 — Trusted Research on Demand persistence precedes provider and UI integration
 
 Date: 2026-09-20

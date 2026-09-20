@@ -1776,3 +1776,32 @@ handoff, lifecycle/checkpoints and provenance/lineage persistence. No runtime,
 provider, live database, migration, UI or production state changed; no external
 call was made. Wave K remains 8 GREEN / 1 YELLOW / 23 RED and pressure remains
 YELLOW/human-owned. The selected NEXT is not executed here.
+
+## 2026-09-20 — Research on Demand Wave 5
+
+Implemented the smallest trusted execution foundation selected by Wave 4.
+Because the repository has no existing server or Edge Function runtime, the
+foundation is a server-side service module backed by repository-controlled
+Supabase RPC contracts, with no new framework or deployment. The service
+reuses Wave 1 canonical demand identity and Wave 2 persistence semantics,
+rejects browser-supplied demand IDs, knowledge keys, statuses, provenance,
+lineage and lifecycle identifiers, and exposes only trusted claim/status/
+knowledge operations.
+
+The Wave 5 migration adds service-role-only RPC functions for atomic
+`ON CONFLICT (demand_id)` claim/deduplication, durable status reads/transitions
+and append-safe reusable-knowledge writes. Only a `CREATED` claim is eligible
+for the existing Factory handoff; a request ending after claim remains
+durable `IN_PROGRESS` and an equivalent later request joins it. Synthetic
+local Factory results preserve raw value, provenance, applicability and
+lineage, while blocked, unsupported, awaiting-review, reusable, incompatible
+and unknown-context behavior remains explicit and fail-closed. Conflicting
+knowledge cannot overwrite existing content.
+
+No browser write path, provider, external network call, secret, deployment,
+live migration, UI integration, production Technical Profile/registry change
+or Service Core/catalogue/routing change occurred. Wave K remains 8 GREEN / 1
+YELLOW / 23 RED and pressure remains YELLOW/human-owned. Focused and shared
+regressions passed; the full suite is the single final validation run. NEXT is
+Wave 6: trusted-boundary deployment and non-production live-persistence/RPC
+verification, separately authorized and not executed here.

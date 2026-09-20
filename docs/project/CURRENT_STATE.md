@@ -572,3 +572,21 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   deferred; this audit did not implement the NEXT or apply any live migration.
   Wave K remains 8 GREEN / 1 YELLOW / 23 RED and pressure remains
   YELLOW/human-owned.
+
+- Research on Demand Wave 5 implements the trusted boundary foundation in
+  `server/research-on-demand-boundary.js`, backed by the repository-controlled
+  migration `20260920120000_research_on_demand_wave5_trusted_boundary.sql`.
+  The server service reuses Wave 1 identity and Wave 2 persistence contracts,
+  rejects browser-forged demand/status/provenance/lifecycle fields, and
+  exposes authoritative durable claim/status/knowledge operations through
+  service-role-only RPC grants. Storage-enforced `ON CONFLICT (demand_id)`
+  claim semantics ensure equivalent concurrent requests produce one demand and
+  only the creator is Factory-handoff eligible. Existing Factory lifecycle
+  remains authoritative; local proof covers in-progress, blocked, review,
+  unsupported, reusable, failure-isolation, provenance, lineage and conflict
+  behavior. No Edge Function was deployed, migration was applied remotely,
+  provider was called, UI was changed or production data/profile/registry was
+  mutated. NEXT is Wave 6: separately authorize trusted-boundary deployment
+  and non-production live-persistence/RPC verification; do not add a provider
+  or UI integration automatically. Wave K remains 8 GREEN / 1 YELLOW / 23 RED
+  and pressure remains YELLOW/human-owned.
