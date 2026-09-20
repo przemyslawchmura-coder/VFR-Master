@@ -590,3 +590,21 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   and non-production live-persistence/RPC verification; do not add a provider
   or UI integration automatically. Wave K remains 8 GREEN / 1 YELLOW / 23 RED
   and pressure remains YELLOW/human-owned.
+
+- Research on Demand Wave 6 completed controlled non-production live
+  verification against Supabase project `vfr-master` (`espwnhiwflsklkphxitb`)
+  on 2026-09-20. Repository Wave 2 and Wave 5 migrations were applied in
+  order, with no unrelated migrations; live research tables exist with RLS
+  enabled and no policies, and only service_role can execute the five trusted
+  RPCs. Two concurrent synthetic claims produced exactly one `CREATED` and one
+  `REUSED`; a fresh read verified durable state and the trusted status path;
+  synthetic reusable knowledge preserved digest, raw value, applicability,
+  conditions, provenance and Factory lineage; identical content was `REUSED`
+  and conflicting content was `CONFLICT` without overwrite. Anon and
+  authenticated direct table/RPC mutation was denied. Exact Wave 6 synthetic
+  rows were deleted and live research row counts are zero. No provider,
+  network acquisition, UI, user/Garage/motorcycle data, production Profile,
+  registry, Service Core, catalogue, auth, routing or pressure state changed.
+  NEXT is Wave 7: trusted asynchronous Factory execution with durable
+  checkpoint/retry ownership, before any provider or UI integration. Wave K
+  remains 8 GREEN / 1 YELLOW / 23 RED and pressure remains YELLOW/human-owned.

@@ -1805,3 +1805,37 @@ YELLOW / 23 RED and pressure remains YELLOW/human-owned. Focused and shared
 regressions passed; the full suite is the single final validation run. NEXT is
 Wave 6: trusted-boundary deployment and non-production live-persistence/RPC
 verification, separately authorized and not executed here.
+
+## 2026-09-20 — Research on Demand Wave 6 live persistence verification
+
+Performed the controlled live-infrastructure verification against Supabase
+project `vfr-master` (`espwnhiwflsklkphxitb`). Read-only preflight confirmed
+the expected project identity and healthy PostgreSQL 17 instance, with only
+the three pre-existing runtime migrations deployed and no research objects.
+The repository Wave 2 durable-reuse migration and Wave 5 trusted-boundary
+migration were then applied in order; the migration tool recorded the
+repository migration names under its generated live history versions
+`20260920114444` and `20260920114454`.
+
+Live verification confirmed both research tables have RLS enabled and no
+policies, anon/authenticated have no table privileges or privileged RPC
+execution, and service_role has only the intended RPC execution surface. Two
+concurrent trusted synthetic claims produced one `CREATED` and one `REUSED`;
+a fresh read verified durable state, then the trusted status RPC moved the
+record to `AWAITING_HUMAN_REVIEW`. One synthetic reusable-knowledge record
+was written through the trusted RPC and read back with canonical identity,
+content digest, raw/normalized fixture values, applicability, conditions,
+provenance and Factory lineage intact. Identical content returned `REUSED`;
+different content returned explicit `CONFLICT` without overwriting prior
+knowledge. Direct anon/authenticated inserts and privileged RPC calls were
+denied.
+
+Cleanup deleted only the exact Wave 6 demand and two exact Wave 6 knowledge
+record IDs, guarded by Wave 6 verification provenance. Post-cleanup counts
+are zero while schema, RLS and RPCs remain deployed. No provider, external
+network, UI, production/user/Garage/motorcycle data, auth, Technical Profile,
+registry, Service Core, catalogue, routing or pressure state changed. Security
+advisor INFO findings for intentional no-policy RLS and the pre-existing
+external leaked-password warning remain unchanged. NEXT is Wave 7: trusted
+asynchronous Factory execution with durable checkpoint/retry ownership before
+provider or UI integration.

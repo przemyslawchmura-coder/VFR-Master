@@ -1,5 +1,40 @@
 # Architectural decisions
 
+## ADR-051 — Wave 6 verifies the trusted persistence boundary without provider execution
+
+Date: 2026-09-20
+
+Decision: The Wave 2/5 Research on Demand persistence boundary is verified in
+the configured non-production Supabase project `vfr-master`
+(`espwnhiwflsklkphxitb`) using only synthetic data. The repository Wave 2 and
+Wave 5 SQL contracts were applied in order; RLS remains enabled with no
+anon/authenticated policies, privileged RPC execution is service-role-only,
+and exact synthetic demand/knowledge rows were removed after verification.
+No provider, UI, production profile, user data or motorcycle data was touched.
+
+Evidence: two concurrent trusted claims against live storage returned exactly
+one `CREATED` and one `REUSED`; a fresh read retained the durable demand and an
+`IN_PROGRESS` → `AWAITING_HUMAN_REVIEW` transition; synthetic reusable
+knowledge preserved canonical identity, digest, raw value, applicability,
+conditions, provenance and Factory lineage; identical content returned
+`REUSED`; different content returned `CONFLICT` without overwriting the first
+record. Direct anon/authenticated table writes and privileged RPC execution
+were denied. Post-cleanup research row counts are zero and tables/RLS/RPCs
+remain present.
+
+Consequences: The trusted persistence boundary is live-verified but no durable
+trusted worker or post-request Factory executor exists yet. The next bounded
+wave must therefore address trusted asynchronous Factory execution and
+checkpoint/retry ownership before any real provider acquisition. Provider and
+UI integration remain deferred. Supabase security-advisor INFO findings for
+the intentional fail-closed no-policy research tables and the pre-existing
+external leaked-password setting remain unchanged and are not repaired here.
+
+Status: ACTIVE. Related implementation: Wave 5 trusted boundary and the
+controlled live migration history entries named
+`research_on_demand_wave2_durable_reuse` and
+`research_on_demand_wave5_trusted_boundary`.
+
 ## ADR-050 — Wave 5 uses a trusted server service over Supabase RPC contracts
 
 Date: 2026-09-20
