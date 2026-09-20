@@ -1752,3 +1752,27 @@ Research on Demand — Wave 4 decision-only: use repository evidence to select
 the smallest safe production-adjacent prerequisite among provider-adapter
 authorization, trusted live persistence integration or UI integration; do not
 enable API Ninjas or execute the selected step automatically.
+
+## 2026-09-20 — Research on Demand Wave 4 decision audit
+
+Audited the active motorcycle/garage boundary, Technical Profile projection,
+Wave 1/2/3 contracts, Factory lifecycle, acquisition/review/evidence stages,
+Supabase migrations/RLS and the static deployment/runtime boundary. The
+repository has no trusted server or Edge Function writer/worker for the shared
+Wave 2 research tables: their migration is ordered and structurally ready,
+but RLS is fail-closed with anon/authenticated access revoked. The browser
+currently writes only authenticated user-owned garage/service data and cannot
+safely claim shared research, persist reusable knowledge, run retries or hold
+provider credentials.
+
+The decision is dependency order A → B → C: trusted live
+persistence/execution boundary first, real provider/source adapter second,
+application/UI integration third. Provider-first would permit work without a
+durable atomic claim and could lose deduplication, retry and provenance state;
+UI-first would expose ephemeral or misleading status and cannot safely mutate
+shared research. The bounded NEXT is therefore a trusted live-persistence
+boundary wave owning canonical validation, atomic claim/deduplication, Factory
+handoff, lifecycle/checkpoints and provenance/lineage persistence. No runtime,
+provider, live database, migration, UI or production state changed; no external
+call was made. Wave K remains 8 GREEN / 1 YELLOW / 23 RED and pressure remains
+YELLOW/human-owned. The selected NEXT is not executed here.

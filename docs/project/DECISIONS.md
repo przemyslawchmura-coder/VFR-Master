@@ -1,5 +1,47 @@
 # Architectural decisions
 
+## ADR-049 — Trusted Research on Demand persistence precedes provider and UI integration
+
+Date: 2026-09-20
+
+Decision: The next production-adjacent Research on Demand implementation must
+establish a trusted execution and persistence boundary for the Wave 2 durable
+demand/status and reusable-knowledge contracts before any real provider or
+application/UI integration. The boundary must own canonical-input validation,
+atomic demand claim/deduplication, Factory execution handoff, lifecycle/status
+transitions, retries/checkpoints and provenance/lineage persistence. Browser
+code may later request or read a status-aware projection, but it must not write
+shared research state or hold provider credentials.
+
+Rationale: The repository is a primarily static/browser application. Its
+current database path gives authenticated users own-row garage/service access,
+while the Wave 2 research tables intentionally enable RLS and revoke anon and
+authenticated table access without a trusted writer. The Wave 2 migration is
+ordered and structurally reproducible, but no deployed server or Edge Function
+execution boundary, transaction/RPC claim path or shared research writer is
+present. The Wave 3 bridge proves the semantics only with an in-memory local
+repository and synthetic acquisition. A provider-first path could launch work
+before durable deduplication and lose retry/provenance state; a UI-first path
+could expose ephemeral or misleading research status and cannot safely mutate
+shared state. Therefore A (trusted live persistence/execution) precedes B
+(real provider adapter), followed by C (application/UI integration), with
+provider authorization and UI work explicitly deferred.
+
+Consequences: The exact next bounded wave is a repository-authorized trusted
+live-persistence boundary for Research on Demand, including the smallest
+server-side claim/status/knowledge transaction contract and authorization
+surface, without enabling a real provider or changing the UI. Concurrent
+equivalent requests must resolve through the canonical Wave 1 identity and one
+durable claim; crashes, timeouts, blocked/unsupported outcomes and review
+states remain Factory-owned explicit lifecycle states. Raw acquisition,
+provenance, applicability and lineage remain separate from review/evidence
+and production Technical Profiles. No migration is applied remotely by this
+decision audit.
+
+Status: ACTIVE. Related implementation: Wave 2 migration
+`20260920102352_research_on_demand_wave2_durable_reuse.sql`, Wave 3 bridge
+`research/factory/research-on-demand-bridge.js`.
+
 ## ADR-023 — Rider Service Core and Source Trust Model
 
 Date: 2026-09-03

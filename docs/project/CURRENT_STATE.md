@@ -556,7 +556,19 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   context fields. No API, external acquisition, live database, browser write,
   production profile/registry, catalogue, Service Core or routing state
   changed. Wave K remains 8 GREEN / 1 YELLOW / 23 RED and pressure remains
-  YELLOW/human-owned. NEXT is Research on Demand — Wave 4 decision-only:
-  determine from repository evidence whether provider-adapter authorization,
-  trusted live persistence integration or UI integration is the smallest safe
-  production-adjacent prerequisite; do not execute it automatically.
+  YELLOW/human-owned.
+
+- Research on Demand Wave 4 is a decision-only architecture audit. Repository
+  evidence selects dependency order A → B → C: establish a trusted live
+  persistence/execution boundary first, authorize a real provider second and
+  connect the application/UI third. The Wave 2 migration is structurally
+  ordered and fail-closed but intentionally has no anon/authenticated write
+  policy; the current static/browser runtime has no trusted server or Edge
+  Function writer for shared demand/status or reusable knowledge. The exact
+  NEXT is one bounded trusted live-persistence boundary wave owning canonical
+  validation, atomic claim/deduplication, Factory handoff, lifecycle,
+  retries/checkpoints and provenance/lineage persistence. Provider credentials,
+  external acquisition, UI writes and production profile changes remain
+  deferred; this audit did not implement the NEXT or apply any live migration.
+  Wave K remains 8 GREEN / 1 YELLOW / 23 RED and pressure remains
+  YELLOW/human-owned.
