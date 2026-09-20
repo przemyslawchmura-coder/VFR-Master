@@ -3,7 +3,7 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-09-20
-Snapshot basis: BMW C 600 Sport MY2012 pending Promotion Review Packet creation at `8467053870e744b23524d29bdf4a3d227e100a66`.
+Snapshot basis: BMW C 600 Sport MY2012 Human Promotion Review Decisions at `9df6c117c68d0421c405fc91d185505c83188a5e`.
 
 - Phase 6 promotion foundation: generic `PromotionPacket/v1` and fail-closed `PROMOTION-READY`/`BLOCKED` gate are implemented and exported from `research/factory/index.js`. The foundation preserves raw values/units/provenance, rejects unresolved/non-accepted processing states and insufficient scope, and performs no production conversion, evidence write, registry insertion or automatic promotion.
 - Held promotion projection: the real 27 Ducati and 13 BMW pre-promotion records were read-only projected through `PromotionPacket/v1`; Ducati produced 27 `PROMOTION-READY`, BMW 11 `PROMOTION-READY` and 2 `BLOCKED` conflict records. Upstream research objects and all production state remained unchanged.
@@ -341,3 +341,12 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   identity and applicability remain preserved; no evidence, production,
   catalogue, registry, Service Core or cloud state changed. NEXT is a separate
   explicit human promotion-review decision only.
+- BMW C 600 Sport MY2012 Human Promotion Review Decisions now consume exactly
+  those 24 pending packets once and create exactly 24 generic
+  `APPROVED-FOR-CONVERSION` decisions. All nine conditional contexts remain
+  explicit; raw values, provenance, source identity and applicability are
+  unchanged. These decisions authorize only a separately bounded future
+  schema-conversion review; no conversion, evidence row, production,
+  catalogue, registry, Service Core or cloud state was created. NEXT is that
+  separate schema-conversion projection for exactly these 24 decisions; it is
+  not executed by this wave.

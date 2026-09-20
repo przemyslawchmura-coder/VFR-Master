@@ -1422,3 +1422,19 @@ readiness, and no evidence, production, catalogue, registry, Service Core or
 cloud change. Targeted validation passed (16 tests including generic lifecycle
 tests), syntax and diff checks passed. The next step remains a separate
 explicit human promotion-review decision; it was not executed.
+
+## 2026-09-20 — BMW C 600 Sport Human Promotion Review Decisions
+
+Reviewed exactly the 24 existing BMW C 600 Sport MY2012 pending
+`PromotionReviewPacket/v1` packets through the generic
+`PromotionReviewDecision/v1` contract. Each packet received exactly one
+`APPROVED-FOR-CONVERSION` decision: 24 approved, 0 rejected, 0 deferred and 0
+needs-more-review. The decisions preserve packet identity, raw source values,
+all nine conditional contexts, source identity, provenance and applicability.
+Approval is limited to a separately authorized downstream schema-conversion
+review; no conversion, evidence row, production, catalogue, registry, Service
+Core or cloud state was created. Independent audit confirmed no missing or
+duplicate inputs/decisions, unchanged BMW readiness and preserved Research
+Human Review semantics. Targeted validation passed (22 tests), syntax and diff
+checks passed. NEXT is schema-conversion projection for exactly these 24
+approved decisions; it was not executed.

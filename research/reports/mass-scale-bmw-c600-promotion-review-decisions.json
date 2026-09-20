@@ -1,0 +1,538 @@
+{
+  "schemaVersion": "revlog-mass-scale-bmw-c600-promotion-review-decisions/v1",
+  "targetId": "bmw.c-scooter.c600-sport.2012",
+  "catalogVariantKey": "bmw.c-scooter.c600-sport",
+  "year": 2012,
+  "sourceProspectId": "prospect.source-discovery-prospect.6a66a2fb8190733a8e58c20b",
+  "reviewerId": "human-promotion-review.bmw-c600.batch1",
+  "input": {
+    "pendingPackets": 24,
+    "promotionReady": 24,
+    "blocked": 0
+  },
+  "decisions": [
+    {
+      "canonicalFieldId": "lubrication.capacity-filter",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.f1741a54c219cb696775592f",
+      "id": "promotion-review-decision.0300f37e6519ae8ea678f903",
+      "promotionPacketId": "promotion-candidate.78325525cc4c0a98c4ce06c6",
+      "promotionReviewPacketId": "promotion-review-packet.b35918cc6e3a05b351e4dd9f",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state. Conditional context remains explicit and unchanged: with filter change.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "lighting.front-position",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.cda5126257223abdbcff6379",
+      "id": "promotion-review-decision.144f64b437acf36461011301",
+      "promotionPacketId": "promotion-candidate.d8db354f765b700fe65d54f0",
+      "promotionReviewPacketId": "promotion-review-packet.72b737dd0737320926ef99c6",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "brakes.pad-thickness-limit",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.3ad7ce62db4808e8d5a0d3e6",
+      "id": "promotion-review-decision.2219db2fe7d19e1d425638bc",
+      "promotionPacketId": "promotion-candidate.b13989fed3a1a8150dd23db2",
+      "promotionReviewPacketId": "promotion-review-packet.6fea8fa9e76cecd4f0a569d0",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state. Conditional context remains explicit and unchanged: friction material without carrier plate.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "lighting.low-beam",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.fae805d5dd666bd433036fa9",
+      "id": "promotion-review-decision.4039a35b3a0bf359278c7b89",
+      "promotionPacketId": "promotion-candidate.e9f6ecb5fc5409bf06f4b68f",
+      "promotionReviewPacketId": "promotion-review-packet.c788fee93ddd819b47431870",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "ignition.plug-gap",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.9c9d775eb78a2b0393e0f9d5",
+      "id": "promotion-review-decision.61c8c7a5b75674cfc5464f0f",
+      "promotionPacketId": "promotion-candidate.bceeac2cb73ad4b046fd44fd",
+      "promotionReviewPacketId": "promotion-review-packet.f2b9c05b8f972574ed219a51",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "electrical.fuse-ratings",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.b683ad09ebebe217625fece7",
+      "id": "promotion-review-decision.66de9ff489ad45b8b3c8fe8a",
+      "promotionPacketId": "promotion-candidate.c485d0fa265f51189953ad46",
+      "promotionReviewPacketId": "promotion-review-packet.9ebecb078bbc466003478ca3",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state. Conditional context remains explicit and unchanged: named fuse circuits; source line breaks retained as one raw compound value.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "electrical.battery-specification",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.bb47ae3e12427f411f670f7e",
+      "id": "promotion-review-decision.695d3a9fe80fa3329d43bd40",
+      "promotionPacketId": "promotion-candidate.6fd7d4199c37665f26dd02a0",
+      "promotionReviewPacketId": "promotion-review-packet.76c0ed4a065e106c69a221ec",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "fuel_intake.tank-capacity",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.11a1441db295bda36d496d74",
+      "id": "promotion-review-decision.75775d22c5be52853918fd7f",
+      "promotionPacketId": "promotion-candidate.31c6731e56419652f1d28dff",
+      "promotionReviewPacketId": "promotion-review-packet.24c8f0cf593d3d2c1c4caa80",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "lighting.rear-tail",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.4b3031cad8b9712e1c65fa66",
+      "id": "promotion-review-decision.75d810c9144965cc8680e07d",
+      "promotionPacketId": "promotion-candidate.dc79b2337fbcfe696d47ff3a",
+      "promotionReviewPacketId": "promotion-review-packet.dbbcabda70dacc11f860df94",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "tires_wheels.front-axle-torque",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.ccfde6c746b84dbf15ea44c8",
+      "id": "promotion-review-decision.7b2a89079785cee6715a9991",
+      "promotionPacketId": "promotion-candidate.a95fc2af37f301eca77c65b6",
+      "promotionReviewPacketId": "promotion-review-packet.31d6a95253fbb04ab0b61b05",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "transmission_clutch.transmission-type",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.24503220ccd9be944e9745d6",
+      "id": "promotion-review-decision.a8220ba544c5d713efb91c44",
+      "promotionPacketId": "promotion-candidate.e2bae508d4b8fe838f280a32",
+      "promotionReviewPacketId": "promotion-review-packet.9f49100ae773c9bb59ae7987",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "electrical.battery-capacity",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.997eac27177fb970d245790e",
+      "id": "promotion-review-decision.ab43cd957a299a01a8a00737",
+      "promotionPacketId": "promotion-candidate.572a0b7ed02fe9e15fb47ae6",
+      "promotionReviewPacketId": "promotion-review-packet.ba58acc50a54791ddbd89312",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "lighting.front-indicators",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.b5864a522f81293e3aaa73f8",
+      "id": "promotion-review-decision.ab6aae866ff08c7b37586bef",
+      "promotionPacketId": "promotion-candidate.1232701182b4e8239a58a690",
+      "promotionReviewPacketId": "promotion-review-packet.2ad992f252eec3d1858b1c80",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state. Conditional context remains explicit and unchanged: standard bulb and optional LED turn indicators kept distinct.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "lighting.rear-indicators",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.44c433538293f8fd00c8c674",
+      "id": "promotion-review-decision.b1676fe140c5682da7d592a4",
+      "promotionPacketId": "promotion-candidate.b0d198c7c54d01dc5b93eb70",
+      "promotionReviewPacketId": "promotion-review-packet.8df714d6cca0eb63bba60c02",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state. Conditional context remains explicit and unchanged: standard bulb and optional LED turn indicators kept distinct.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "brakes.brake-fluid",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.5e6419825fc812c4eb1b17e2",
+      "id": "promotion-review-decision.bb336533aa9db47c611a5dfc",
+      "promotionPacketId": "promotion-candidate.7f13065631fc9c335c7e9dac",
+      "promotionReviewPacketId": "promotion-review-packet.3287b2c64001d151b7b3f3ed",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state. Conditional context remains explicit and unchanged: front brake reservoir; rear section states the same DOT4 value.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "tires_wheels.front-size",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.62baef1ffdbbb9c4cc2bc68d",
+      "id": "promotion-review-decision.bd63975e4e6d151345a30425",
+      "promotionPacketId": "promotion-candidate.c5bc5b0bd5f829c235769bd9",
+      "promotionReviewPacketId": "promotion-review-packet.22451b716ca3eec2261f8794",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "tires_wheels.rear-axle-torque",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.ef26bf96da5d4fdd2611931e",
+      "id": "promotion-review-decision.c603d746197e4e8cb4c21dd6",
+      "promotionPacketId": "promotion-candidate.9440eca448ce20ebc18b61e0",
+      "promotionReviewPacketId": "promotion-review-packet.6cce152a0167d317e6dfbfbf",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "lubrication.oil-specification",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.d78384a78957fff41d3113ff",
+      "id": "promotion-review-decision.cfc6966e66e90d2ec62ae523",
+      "promotionPacketId": "promotion-candidate.905dbf078945ebe7b30fa43c",
+      "promotionReviewPacketId": "promotion-review-packet.c7d501675a55cd731db569cf",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state. Conditional context remains explicit and unchanged: BMW recommendation; engine oil.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "lighting.license-plate",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.11a0e354e3baada18fad8f1c",
+      "id": "promotion-review-decision.d5d124677236c69d8c49331c",
+      "promotionPacketId": "promotion-candidate.a28457a1143cd0e6c9d5727d",
+      "promotionReviewPacketId": "promotion-review-packet.308fd2766797fc648e115f9a",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "tires_wheels.rim-sizes",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.39357b9fc0664eadee3b0e4b",
+      "id": "promotion-review-decision.ddb4d1f2b5f2816d6ec7bb33",
+      "promotionPacketId": "promotion-candidate.b8d02cf97a7eb17088c6aec1",
+      "promotionReviewPacketId": "promotion-review-packet.0f7198304fbd44a800b8334f",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "tires_wheels.loaded-pressures",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.6938103b20db2561b96d2b12",
+      "id": "promotion-review-decision.dfe988e1ec2250a9b6bb48fa",
+      "promotionPacketId": "promotion-candidate.29e2a8111a5754b71e0bab0d",
+      "promotionReviewPacketId": "promotion-review-packet.884caa97481269f10d509649",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state. Conditional context remains explicit and unchanged: driver with passenger and/or load; cold tire.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "torques.brake-calipers",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.e6700ffc1d5a5211ae335b27",
+      "id": "promotion-review-decision.e2509bfab74133a90e90009d",
+      "promotionPacketId": "promotion-candidate.4412b4be9f4d815d7e1bc38a",
+      "promotionReviewPacketId": "promotion-review-packet.8ac2083b39b84d378d847034",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "tires_wheels.solo-pressures",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.34fc75e4df192d5e23c6ed93",
+      "id": "promotion-review-decision.e665b16733e937318bd2fa71",
+      "promotionPacketId": "promotion-candidate.ac069ed188655b0c7e4c1d59",
+      "promotionReviewPacketId": "promotion-review-packet.6da8ee105490e42d6211aaaa",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state. Conditional context remains explicit and unchanged: single rider; cold tires.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    },
+    {
+      "canonicalFieldId": "tires_wheels.rear-size",
+      "decision": "APPROVED-FOR-CONVERSION",
+      "evidenceProcessingRecordId": "evidence-processing.0f6b4d69380baa3e4ef2dec6",
+      "id": "promotion-review-decision.f8f0e129bc7b53d4cca11f42",
+      "promotionPacketId": "promotion-candidate.48dbd546ff6ce96c8b63a304",
+      "promotionReviewPacketId": "promotion-review-packet.c9c77db6bafcfa886e3d0c56",
+      "rationale": "Exact BMW C 600 Sport MY2012 field identity, raw value, source identity, locator, provenance and target applicability are present in the existing pending packet. Approve only for a separately authorized bounded schema-conversion review; preserve the raw source wording and do not create evidence or production state.",
+      "reviewerId": "human-promotion-review.bmw-c600.batch1",
+      "schemaVersion": 1,
+      "targetIdentity": {
+        "catalogVariantKey": "bmw.c-scooter.c600-sport",
+        "equipment": "standard C 600 Sport",
+        "id": "bmw.c-scooter.c600-sport.2012",
+        "market": "USA",
+        "model": "bmw.c-scooter.c600-sport.2012",
+        "state": "KNOWN",
+        "year": 2012
+      }
+    }
+  ],
+  "counts": {
+    "reviewed": 24,
+    "approvedForConversion": 24,
+    "rejectedForPromotion": 0,
+    "needsPromotionReview": 0,
+    "conditionalContextsReviewed": 9
+  },
+  "assertions": {
+    "exactly24Inputs": true,
+    "exactly24Decisions": true,
+    "noMissingPackets": true,
+    "noDuplicateDecisions": true,
+    "noDuplicatePackets": true,
+    "packetIdsPreserved": true,
+    "provenancePreserved": true,
+    "sourceIdentityPreserved": true,
+    "applicabilityPreserved": true,
+    "rawValuesPreserved": true,
+    "conditionsPreserved": true,
+    "researchHumanReviewAcceptNotReused": true,
+    "readinessNotAutoApproval": true,
+    "conversionPerformed": false,
+    "evidenceRowsCreated": 0,
+    "productionChanged": false,
+    "catalogueChanged": false,
+    "registryChanged": false,
+    "serviceCoreCoverageChanged": false,
+    "cloudChanged": false,
+    "upstreamUnchanged": true
+  },
+  "audit": {
+    "classification": "ACCEPT-WITH-RISKS",
+    "conclusion": "Exactly the 24 existing BMW C 600 Sport MY2012 pending packets received one explicit APPROVED-FOR-CONVERSION decision through the generic contract. Approval permits only a separately authorized downstream schema-conversion review; no conversion, evidence creation, production materialization or Service Core change occurred.",
+    "rejected": [],
+    "deferred": [],
+    "needsMoreReview": [],
+    "risks": [
+      "APPROVED-FOR-CONVERSION is not schema conversion or production approval",
+      "conditional raw contexts remain bounded and must be preserved downstream",
+      "research Human Review ACCEPT and PROMOTION-READY were not treated as this decision"
+    ]
+  },
+  "next": "Create a separately authorized bounded schema-conversion projection for exactly these 24 APPROVED-FOR-CONVERSION decisions; do not materialize or promote automatically."
+}
