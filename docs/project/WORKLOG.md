@@ -1438,3 +1438,18 @@ duplicate inputs/decisions, unchanged BMW readiness and preserved Research
 Human Review semantics. Targeted validation passed (22 tests), syntax and diff
 checks passed. NEXT is schema-conversion projection for exactly these 24
 approved decisions; it was not executed.
+
+## 2026-09-20 — BMW C 600 Sport Schema Conversion Projection
+
+Consumed exactly the 24 unchanged BMW C 600 Sport MY2012
+`APPROVED-FOR-CONVERSION` decisions through the existing generic
+`SchemaConversionProjection/v1` contract. Produced exactly 24 deterministic
+`CONVERSION-READY` read-only projections, with 0 blocked outcomes. Each keeps
+the raw source wording as text, preserving imperial/metric pairs, compound
+values, conditions, source identity, provenance, applicability and complete
+lineage; no numeric normalization, unit conversion or compound decomposition
+was performed. All nine conditional contexts remain linked and unchanged. No
+evidence rows, production, catalogue, registry, Rider Service Core or cloud
+state changed. Independent audit and targeted validation passed. NEXT is a
+separately authorized bounded evidence-materialization review for exactly
+these 24 projections; it was not executed.

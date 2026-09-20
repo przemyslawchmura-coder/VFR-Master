@@ -3,7 +3,7 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-09-20
-Snapshot basis: BMW C 600 Sport MY2012 Human Promotion Review Decisions at `9df6c117c68d0421c405fc91d185505c83188a5e`.
+Snapshot basis: BMW C 600 Sport MY2012 Schema Conversion Projection at the current bounded-wave commit.
 
 - Phase 6 promotion foundation: generic `PromotionPacket/v1` and fail-closed `PROMOTION-READY`/`BLOCKED` gate are implemented and exported from `research/factory/index.js`. The foundation preserves raw values/units/provenance, rejects unresolved/non-accepted processing states and insufficient scope, and performs no production conversion, evidence write, registry insertion or automatic promotion.
 - Held promotion projection: the real 27 Ducati and 13 BMW pre-promotion records were read-only projected through `PromotionPacket/v1`; Ducati produced 27 `PROMOTION-READY`, BMW 11 `PROMOTION-READY` and 2 `BLOCKED` conflict records. Upstream research objects and all production state remained unchanged.
@@ -350,3 +350,13 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   catalogue, registry, Service Core or cloud state was created. NEXT is that
   separate schema-conversion projection for exactly these 24 decisions; it is
   not executed by this wave.
+- BMW C 600 Sport MY2012 Schema Conversion Projection consumed exactly the 24
+  unchanged `APPROVED-FOR-CONVERSION` decisions through the generic
+  `SchemaConversionProjection/v1` contract. All 24 are deterministic
+  `CONVERSION-READY` lossless raw-text projections; numeric/unit conversion
+  and compound decomposition were not performed. Raw values, source identity,
+  provenance, applicability, complete lineage and all nine conditional
+  contexts remain preserved. No evidence rows, production, catalogue,
+  registry, Rider Service Core or cloud state changed. NEXT is a separately
+  authorized bounded evidence-materialization review for exactly these 24
+  projections; it is not executed.
