@@ -1602,4 +1602,21 @@ repository-backed legitimate BMW set contains 7 records: 6 GREEN, 1 YELLOW,
 exception group. Both batches completed without operator interruption; no
 evidence, production, Service Core, catalogue, registry, cloud or UI state
 changed. Exact NEXT is a separately authorized larger existing-repository
-batch run; it was not executed.
+  batch run; it was not executed.
+
+## 2026-09-20 — Technical Research Factory Throughput v2 Wave H
+
+Validated the autonomous pipeline over the largest defensible existing
+repository-backed legitimate set: 32 records, consisting of 24 BMW C 600
+Sport MY2012, 7 Ducati Monster 937 MY2021 and 1 Honda CBR500R MY2024. No
+candidate was excluded: all have existing packet/decision/conversion lineage,
+raw values, source identity, provenance and applicability. The batch produced
+6 GREEN, 1 YELLOW and 25 RED, with 26 exception records in 26 groups; 7 narrow
+rules were evaluated, 6 existing authorizations were consumed and 0 new
+authorizations were created. The YELLOW pressure boundary remains intact; RED
+records are explicit unsupported-rule capability gaps or fail-closed results.
+The batch completed without operator interruption, remained permutation
+independent, and caused no evidence, production, Service Core, catalogue,
+registry, cloud or UI change. Exact NEXT is a separately authorized bounded
+capability-extension decision for repeated legitimate unsupported field
+classes; it was not executed.

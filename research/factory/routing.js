@@ -22,7 +22,8 @@ const ROUTING_REASONS = Object.freeze([
   "RULE-EVALUATION-REJECTED",
   "EXACT-DUPLICATE",
   "CONFLICTING-DUPLICATE",
-  "MALFORMED-INPUT"
+  "MALFORMED-INPUT",
+  "UNSUPPORTED-RULE-CAPABILITY"
 ]);
 const fields = new Set(["schemaVersion", "id", "inputIdentity", "route", "reasonCodes", "invariants", "currentStage", "nextLegalAction", "targetIdentity", "canonicalFieldId", "sourceIdentity", "sourceProvenance", "rawValue", "rawUnit", "applicability", "condition", "upstreamIdentity", "upstreamDigest", "contractVersions", "externalSideEffects", "duplicateCount"]);
 const assert = (condition, message) => { if (!condition) throw new TypeError(message); };
@@ -122,4 +123,13 @@ function classifyInputHygiene({ input, hygiene }) {
   return validateRoutingResult(result);
 }
 
-module.exports = Object.freeze({ ROUTING_SCHEMA_VERSION, ROUTES, ROUTING_REASONS, validateRoutingResult, classify, classifyRuleEvaluation, classifyInputHygiene, routeBatch });
+function classifyCapabilityGap({ input, reason = "no existing deterministic rule supports this canonical field" }) {
+  assert(input && typeof input === "object", "Capability-gap routing input is required");
+  const record = recordFromInput(input);
+  const upstream = identity(record, input);
+  const result = { schemaVersion: ROUTING_SCHEMA_VERSION, id: "placeholder", inputIdentity: upstream, route: "RED", reasonCodes: ["UNSUPPORTED-RULE-CAPABILITY"], invariants: { satisfied: ["input hygiene is valid"], failed: [reason] }, currentStage: "DETERMINISTIC-RULE", nextLegalAction: "SUPPLY-EXISTING-DETERMINISTIC-RULE-OR-HUMAN-REVIEW", targetIdentity: record && record.targetIdentity ? record.targetIdentity : null, canonicalFieldId: record && typeof record.canonicalFieldId === "string" ? record.canonicalFieldId : null, sourceIdentity: record && record.sourceIdentity ? record.sourceIdentity : null, sourceProvenance: record && record.provenance ? record.provenance : null, rawValue: record && Object.prototype.hasOwnProperty.call(record, "rawValue") ? record.rawValue : null, rawUnit: record && Object.prototype.hasOwnProperty.call(record, "rawUnit") ? record.rawUnit : null, applicability: record && record.applicability ? record.applicability : null, condition: record && Object.prototype.hasOwnProperty.call(record, "condition") ? record.condition : null, upstreamIdentity: upstream, upstreamDigest: upstream.digest, contractVersions: { routing: "RoutingResult/v1", hygiene: "InputHygiene/v1" }, externalSideEffects: false, duplicateCount: 1 };
+  result.id = routeId(result);
+  return validateRoutingResult(result);
+}
+
+module.exports = Object.freeze({ ROUTING_SCHEMA_VERSION, ROUTES, ROUTING_REASONS, validateRoutingResult, classify, classifyRuleEvaluation, classifyInputHygiene, classifyCapabilityGap, routeBatch });

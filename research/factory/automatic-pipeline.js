@@ -55,7 +55,10 @@ function runAutonomousBatch(items) {
   const sourceBySemantic = new Map(items.map(item => [hygiene.semanticKey(item), item]));
   const processableStatuses = new Set(["VALID-UNIQUE-RECORD", "DISTINCT-CONDITIONAL-RECORD", "DISTINCT-APPLICABILITY-RECORD"]);
   const processed = new Map();
-  hygieneBatch.records.filter(record => processableStatuses.has(record.status)).forEach(record => processed.set(record.semanticKey, runBatch([sourceBySemantic.get(record.semanticKey)]).records[0]));
+  hygieneBatch.records.filter(record => processableStatuses.has(record.status)).forEach(record => {
+    const source = sourceBySemantic.get(record.semanticKey);
+    if (source.rule) processed.set(record.semanticKey, runBatch([source]).records[0]);
+  });
   hygieneBatch.records.filter(record => record.status === "EXACT-DUPLICATE" && record.occurrence === 1).forEach(record => {
     const source = sourceBySemantic.get(record.semanticKey);
     if (source && record.reason !== "raw value is missing") processed.set(record.semanticKey, runBatch([source]).records[0]);
@@ -63,7 +66,7 @@ function runAutonomousBatch(items) {
   const records = hygieneBatch.records.map(hygieneRecord => {
     const source = sourceBySemantic.get(hygieneRecord.semanticKey);
     const pipelineRecord = processed.get(hygieneRecord.semanticKey) && (hygieneRecord.status !== "EXACT-DUPLICATE" || hygieneRecord.occurrence === 1) ? processed.get(hygieneRecord.semanticKey) : null;
-    const routingResult = pipelineRecord ? pipelineRecord.routingResult : routing.classifyInputHygiene({ input: source, hygiene: hygieneRecord });
+    const routingResult = pipelineRecord ? pipelineRecord.routingResult : hygieneRecord.status === "VALID-UNIQUE-RECORD" && !source.rule ? routing.classifyCapabilityGap({ input: source }) : routing.classifyInputHygiene({ input: source, hygiene: hygieneRecord });
     return { schemaVersion: 1, id: `autonomous-pipeline-record.${digest({ hygiene: hygieneRecord.id, pipeline: pipelineRecord && pipelineRecord.id, route: routingResult.id }).slice(0, 24)}`, inputIdentity: hygieneRecord.inputIdentity, hygiene: hygieneRecord, pipelineRecord, routingResult, downstreamWorkSuppressed: hygieneRecord.status === "EXACT-DUPLICATE" && hygieneRecord.occurrence > 1, externalSideEffects: false };
   }).sort((a, b) => a.id.localeCompare(b.id));
   const routed = { routes: records.map(record => record.routingResult), duplicateSemanticInputCount: records.filter(record => record.hygiene.status === "EXACT-DUPLICATE").length };

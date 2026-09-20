@@ -19,7 +19,7 @@ function contextKey(item) { const value = identityPayload(item); return digest({
 function semanticKey(item) { return digest(identityPayload(item)); }
 function baseKey(item) { return digest(basePayload(item)); }
 function malformedReason(item) {
-  if (!item || typeof item !== "object" || !item.input || typeof item.input !== "object" || !item.rule) return "input record or rule is missing";
+  if (!item || typeof item !== "object" || !item.input || typeof item.input !== "object") return "input record is missing";
   if (typeof item.input.canonicalFieldId !== "string" || item.input.canonicalFieldId.length === 0) return "canonical field identity is missing";
   if (!item.input.sourceIdentity) return "source identity is missing";
   if (!item.input.provenance || !item.input.provenance.sourceLocation) return "source location provenance is missing";

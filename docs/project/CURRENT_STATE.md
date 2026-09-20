@@ -446,3 +446,13 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   effects. Exact duplicates are auditable and suppressed from duplicate work;
   conflicts, malformed input and the pressure boundary remain fail-closed.
   NEXT is a separately authorized larger existing-repository batch run.
+- Technical Research Factory Throughput v2 Wave H validated the autonomous
+  batch over 32 legitimate repository-backed records: 24 BMW C 600 Sport
+  MY2012, 7 Ducati Monster 937 MY2021 and 1 Honda CBR500R MY2024. Results are
+  6 GREEN, 1 YELLOW and 25 RED, with 26 exception records in 26 groups; the
+  RED records are explicit unsupported-rule capability gaps or fail-closed
+  conditions, not discarded data. Six existing authorizations were consumed,
+  none were created, both dataset accounting and batch completion were
+  deterministic, and no production/evidence/Service Core/cloud state changed.
+  NEXT is a separately authorized bounded capability-extension decision for
+  the repeated legitimate unsupported field classes.
