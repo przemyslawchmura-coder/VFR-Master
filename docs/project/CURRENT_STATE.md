@@ -3,7 +3,7 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-09-20
-Snapshot basis: Technical Research Factory Throughput v2 Wave A deterministic baseline at the current bounded-wave commit.
+Snapshot basis: Research on Demand Wave 7 durable execution substrate at canonical commit `96871ac9608e2c81739e4c50ff85677361a0ba73`.
 
 - Phase 6 promotion foundation: generic `PromotionPacket/v1` and fail-closed `PROMOTION-READY`/`BLOCKED` gate are implemented and exported from `research/factory/index.js`. The foundation preserves raw values/units/provenance, rejects unresolved/non-accepted processing states and insufficient scope, and performs no production conversion, evidence write, registry insertion or automatic promotion.
 - Held promotion projection: the real 27 Ducati and 13 BMW pre-promotion records were read-only projected through `PromotionPacket/v1`; Ducati produced 27 `PROMOTION-READY`, BMW 11 `PROMOTION-READY` and 2 `BLOCKED` conflict records. Upstream research objects and all production state remained unchanged.

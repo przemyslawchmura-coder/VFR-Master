@@ -1865,3 +1865,18 @@ advisor INFO findings for intentional no-policy RLS and the pre-existing
 external leaked-password warning remain unchanged. NEXT is Wave 7: trusted
 asynchronous Factory execution with durable checkpoint/retry ownership before
 provider or UI integration.
+
+## 2026-09-20 — Research on Demand Wave 7 durable execution substrate
+
+Completed the trusted asynchronous Factory execution substrate. The durable
+execution-job boundary uses service-role-only trusted RPCs for atomic claim,
+one active lease, lease expiry/reclaim, durable checkpoints and status, and
+bounded maximum-three-attempt retry classification. The trusted adapter hands
+execution to the existing Technical Research Factory, preserving checkpoint
+identity, provenance and lineage. Bounded non-production synthetic proof
+completed, including cleanup of exact verification rows.
+
+No provider integration, UI integration, production or user-data promotion,
+or automatic worker invocation/deployment occurred. NEXT is one bounded
+trusted non-production worker invocation/deployment wave, only after explicit
+deployment-target selection and authorization.
