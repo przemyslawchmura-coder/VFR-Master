@@ -2,6 +2,26 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-23 — Research on Demand Wave 9 user-demand intake foundation
+
+Implemented the server-side intake boundary before the existing Research on
+Demand execution substrate. It reuses the canonical motorcycle technical
+context, Wave 1/2 deterministic demand identity, reusable-knowledge lookup and
+the Wave 5 trusted persistence boundary. Existing compatible knowledge returns
+`REUSED`; missing knowledge produces or reuses one canonical
+`RESEARCH-REQUIRED` demand; incompatible applicability and unknown critical
+context return `CONFLICT-AMBIGUOUS` without silent reuse or persistence.
+Known model-code and emissions context is preserved in the generic demand
+conditions without introducing a second motorcycle identity model.
+
+Focused Wave 2/Wave 3/Wave 5/Wave 9 tests passed 29/29 and syntax checks
+passed. The intake is server-only, does not invoke the worker, expose trusted
+credentials or modify Supabase schema/RLS. No API Ninjas/provider call, UI,
+scheduler, production/user data, Service Core or promotion path was added.
+Research on Demand remains user-demand-driven rather than a bulk
+all-motorcycles crawler. NEXT: a separately authorized provider-neutral
+Research on Demand provider wave; API Ninjas remains a future candidate.
+
 ## 2026-09-23 — Research on Demand Wave 8 bounded Edge worker foundation
 
 Implemented the minimum trusted Supabase Edge Function target selected for

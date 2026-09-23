@@ -3,7 +3,7 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-09-20
-Snapshot basis: Research on Demand Wave 8 bounded Supabase Edge worker foundation with live non-production synthetic proof verified.
+Snapshot basis: Research on Demand Wave 9 user-demand intake foundation verified on top of the live-verified Wave 8 bounded Supabase Edge worker.
 
 - Phase 6 promotion foundation: generic `PromotionPacket/v1` and fail-closed `PROMOTION-READY`/`BLOCKED` gate are implemented and exported from `research/factory/index.js`. The foundation preserves raw values/units/provenance, rejects unresolved/non-accepted processing states and insufficient scope, and performs no production conversion, evidence write, registry insertion or automatic promotion.
 - Held promotion projection: the real 27 Ducati and 13 BMW pre-promotion records were read-only projected through `PromotionPacket/v1`; Ducati produced 27 `PROMOTION-READY`, BMW 11 `PROMOTION-READY` and 2 `BLOCKED` conflict records. Upstream research objects and all production state remained unchanged.
@@ -644,3 +644,15 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   execution and knowledge counts were verified at zero after cleanup. The
   worker secrets remained server-side; no bulk motorcycle research, provider,
   scheduler or UI integration is authorized.
+
+- Research on Demand Wave 9 user-demand intake: the server-side boundary reuses
+  canonical motorcycle technical context, Wave 1/2 deterministic demand
+  identity, reusable-knowledge lookup and the Wave 5 trusted persistence
+  boundary. Compatible knowledge is reused first; missing knowledge produces
+  or reuses one canonical research demand; incompatible applicability and
+  unknown critical context remain `CONFLICT-AMBIGUOUS` and fail closed.
+  Repeated demand does not create duplicate logical work. Model-code and
+  emissions context is preserved when known without a second identity model.
+  No worker invocation, provider/API Ninjas call, scheduler, UI, production
+  promotion or production/user mutation was added. Research remains
+  user-demand-driven, not bulk motorcycle crawling.
