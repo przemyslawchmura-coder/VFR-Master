@@ -6,9 +6,9 @@
   "baseCommit": "b1c8575105c981d4eb39370bd32cff4c6dba4280",
   "commitsFromBaseThroughContaining": 1,
   "repository": {
-    "files": 714,
-    "javascriptFiles": 481,
-    "testFiles": 170,
+    "files": 716,
+    "javascriptFiles": 483,
+    "testFiles": 171,
     "documentationFiles": 99,
     "researchAndToolingFiles": 380
   },
