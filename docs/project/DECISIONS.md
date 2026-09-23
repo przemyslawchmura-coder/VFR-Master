@@ -15,11 +15,12 @@ step and does not poll, schedule, call providers, expose a public research API
 or promote evidence to production.
 
 Evidence: the repository function bundle deployed to non-production project
-`vfr-master` (`espwnhiwflsklkphxitb`), focused Wave 8/Wave 7 tests pass, and an
-unauthenticated live request returned HTTP 503 without creating a job because
-the two explicit worker secrets are not configured. No live synthetic job was
-executed. The live proof remains a separate bounded follow-up after explicit
-secret configuration.
+`vfr-master` (`espwnhiwflsklkphxitb`), focused Wave 8/Wave 7 tests pass, and
+exactly one synthetic demand completed through the deployed function with
+one claim, a durable `FACTORY-COMPLETED` checkpoint, terminal `COMPLETED`
+status at attempt 1/3 and duplicate-claim exclusion. Exact demand, execution
+and knowledge rows were cleaned up and verified absent. Secrets remained
+server-side; no provider, scheduler, UI or production path was used.
 
 Status: ACTIVE. Related implementation: `supabase/functions/research-on-demand-worker/index.ts`, `supabase/functions/_shared/research-on-demand-worker.mjs` and `tests/research-on-demand-wave8.test.js`.
 

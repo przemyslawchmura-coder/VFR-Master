@@ -3,7 +3,7 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-09-20
-Snapshot basis: Research on Demand Wave 8 bounded Supabase Edge worker foundation; live synthetic proof remains pending trusted non-production secret configuration.
+Snapshot basis: Research on Demand Wave 8 bounded Supabase Edge worker foundation with live non-production synthetic proof verified.
 
 - Phase 6 promotion foundation: generic `PromotionPacket/v1` and fail-closed `PROMOTION-READY`/`BLOCKED` gate are implemented and exported from `research/factory/index.js`. The foundation preserves raw values/units/provenance, rejects unresolved/non-accepted processing states and insufficient scope, and performs no production conversion, evidence write, registry insertion or automatic promotion.
 - Held promotion projection: the real 27 Ducati and 13 BMW pre-promotion records were read-only projected through `PromotionPacket/v1`; Ducati produced 27 `PROMOTION-READY`, BMW 11 `PROMOTION-READY` and 2 `BLOCKED` conflict records. Upstream research objects and all production state remained unchanged.
@@ -636,10 +636,11 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   it requires non-production configuration and a separate trusted worker token,
   performs no scheduling, provider call or production promotion, and does not
   expose secrets to browser code. Repository-focused proof passes, and the
-  function is deployed to the non-production `vfr-master` project, but the
-  live synthetic job proof is pending because `RESEARCH_WORKER_TOKEN` and
-  `RESEARCH_WORKER_ENVIRONMENT=non-production` are not configured. An
-  unauthenticated live request failed closed with HTTP 503 and created no job.
-  NEXT is one bounded non-production secret-configuration and synthetic Edge
-  invocation proof; no bulk motorcycle research, provider or UI integration
-  is authorized.
+  function is deployed to the non-production `vfr-master` project and the
+  live synthetic proof passed: demand `reusable-demand.31c0e3567b8b711259e8a5d6`
+  reached execution `research-execution.3c05c361a6488df2195c37a1`, claimed
+  once, persisted `FACTORY-COMPLETED`, finished `COMPLETED` at attempt 1/3,
+  and rejected a duplicate claim without reacquiring a lease. Exact demand,
+  execution and knowledge counts were verified at zero after cleanup. The
+  worker secrets remained server-side; no bulk motorcycle research, provider,
+  scheduler or UI integration is authorized.
