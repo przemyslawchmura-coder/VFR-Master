@@ -3,7 +3,7 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-09-20
-Snapshot basis: Research on Demand Wave 7 durable execution substrate at canonical commit `96871ac9608e2c81739e4c50ff85677361a0ba73`.
+Snapshot basis: Research on Demand Wave 8 bounded Supabase Edge worker foundation; live synthetic proof remains pending trusted non-production secret configuration.
 
 - Phase 6 promotion foundation: generic `PromotionPacket/v1` and fail-closed `PROMOTION-READY`/`BLOCKED` gate are implemented and exported from `research/factory/index.js`. The foundation preserves raw values/units/provenance, rejects unresolved/non-accepted processing states and insufficient scope, and performs no production conversion, evidence write, registry insertion or automatic promotion.
 - Held promotion projection: the real 27 Ducati and 13 BMW pre-promotion records were read-only projected through `PromotionPacket/v1`; Ducati produced 27 `PROMOTION-READY`, BMW 11 `PROMOTION-READY` and 2 `BLOCKED` conflict records. Upstream research objects and all production state remained unchanged.
@@ -628,3 +628,18 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   bounded trusted worker invocation/deployment wave before provider or UI
   integration. Wave K remains 8 GREEN / 1 YELLOW / 23 RED and pressure
   remains YELLOW/human-owned.
+
+- Research on Demand Wave 8 adds the bounded trusted Supabase Edge Function
+  `research-on-demand-worker` and its shared one-invocation orchestration
+  core. The function reuses the Wave 7 service-role RPC boundary for durable
+  demand/job creation, atomic claim, one active lease, checkpoint and finish;
+  it requires non-production configuration and a separate trusted worker token,
+  performs no scheduling, provider call or production promotion, and does not
+  expose secrets to browser code. Repository-focused proof passes, and the
+  function is deployed to the non-production `vfr-master` project, but the
+  live synthetic job proof is pending because `RESEARCH_WORKER_TOKEN` and
+  `RESEARCH_WORKER_ENVIRONMENT=non-production` are not configured. An
+  unauthenticated live request failed closed with HTTP 503 and created no job.
+  NEXT is one bounded non-production secret-configuration and synthetic Edge
+  invocation proof; no bulk motorcycle research, provider or UI integration
+  is authorized.

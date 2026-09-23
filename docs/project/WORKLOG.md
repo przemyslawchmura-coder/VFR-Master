@@ -2,6 +2,27 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-09-23 — Research on Demand Wave 8 bounded Edge worker foundation
+
+Implemented the minimum trusted Supabase Edge Function target selected for
+Research on Demand. `research-on-demand-worker` uses a shared bounded
+orchestration core and the existing Wave 7 service-role-only RPC contracts for
+durable demand/job creation, atomic claim, one active lease, checkpoint and
+finish. It requires explicit non-production configuration and a separate
+trusted worker token, processes one bounded demand step, and has no scheduler,
+provider integration, UI path, browser secret exposure or production
+promotion path. The Factory execution seam remains the only execution
+boundary; no bulk all-motorcycles crawler was added.
+
+Focused Wave 8 and Wave 7 tests passed 12/12. The function deployed to the
+non-production `vfr-master` project, but the live synthetic job proof is
+pending because `RESEARCH_WORKER_TOKEN` and
+`RESEARCH_WORKER_ENVIRONMENT=non-production` are not configured. One
+unauthenticated live request verified fail-closed HTTP 503 behavior and no
+job creation. No provider, user, production, Service Core, catalogue or
+registry state changed. NEXT is one bounded non-production secret-configuration
+and synthetic Edge invocation proof.
+
 ## 2026-09-20 — Research on Demand Wave 7 durable asynchronous Factory execution substrate
 
 Implemented the smallest trusted post-request execution foundation. Canonical

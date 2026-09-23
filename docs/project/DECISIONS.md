@@ -1,5 +1,28 @@
 # Architectural decisions
 
+## ADR-053 — Wave 8 uses a bounded Supabase Edge Function as the trusted worker target
+
+Date: 2026-09-23
+
+Decision: Research on Demand worker invocation uses the manually invoked
+Supabase Edge Function `research-on-demand-worker` in the configured
+non-production project. The function requires explicit
+`RESEARCH_WORKER_ENVIRONMENT=non-production` and a separate
+`RESEARCH_WORKER_TOKEN`, keeps Supabase secret keys server-side, and delegates
+durable demand/job claim, lease, checkpoint and finish operations to the Wave 7
+service-role-only RPC contracts. Each invocation processes one bounded demand
+step and does not poll, schedule, call providers, expose a public research API
+or promote evidence to production.
+
+Evidence: the repository function bundle deployed to non-production project
+`vfr-master` (`espwnhiwflsklkphxitb`), focused Wave 8/Wave 7 tests pass, and an
+unauthenticated live request returned HTTP 503 without creating a job because
+the two explicit worker secrets are not configured. No live synthetic job was
+executed. The live proof remains a separate bounded follow-up after explicit
+secret configuration.
+
+Status: ACTIVE. Related implementation: `supabase/functions/research-on-demand-worker/index.ts`, `supabase/functions/_shared/research-on-demand-worker.mjs` and `tests/research-on-demand-wave8.test.js`.
+
 ## ADR-052 — Wave 7 adds durable execution substrate without claiming autonomous invocation
 
 Date: 2026-09-20
