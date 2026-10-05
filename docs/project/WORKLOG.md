@@ -2,6 +2,29 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-10-05 — Research on Demand Wave 10 trusted Factory composition
+
+Closed the repository-side trusted execution seam after Wave 9. The existing
+Wave 7 trusted execution service now catches Factory and trusted reusable-
+knowledge persistence exceptions and records bounded non-success rather than
+reporting a completed job. Added the server-only deterministic adapter
+`server/research-on-demand-factory.js`, which invokes the existing
+`factory.executeFactoryBridge` with local repository inputs and passes an
+eligible result through the Wave 5 `persistFactoryResult` boundary.
+
+Focused Wave 10 proof confirms durable claim, actual Factory execution,
+`FACTORY-COMPLETED` checkpointing, accepted-pre-evidence lineage, reusable
+knowledge persistence, later identical-demand reuse, incompatible and unknown
+applicability rejection, and Factory/persistence failure isolation. The
+combined Wave 2/3/5/7/8/9/10 targeted set passed 45/45. No provider/network
+acquisition, Edge deployment, live Supabase change, scheduler, UI, production
+promotion, Service Core mutation or production/user write occurred. The
+deployed Edge function remains unchanged and its synthetic adapter is not
+claimed as live Factory execution.
+
+NEXT: separately authorize a provider-neutral source-acquisition wave only
+after establishing an exact applicable source route; do not execute it here.
+
 ## 2026-09-23 — Research on Demand Wave 9 user-demand intake foundation
 
 Implemented the server-side intake boundary before the existing Research on

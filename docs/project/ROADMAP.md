@@ -209,4 +209,20 @@ mutation was added. Research remains user-demand-driven, not bulk crawling.
 The exact NEXT is a separately authorized provider-neutral Research on Demand
 provider wave; API Ninjas remains only a future candidate.
 
+Research on Demand Wave 10 is COMPLETE for the repository-side trusted worker
+composition. The existing Wave 7 execution service now treats Factory or
+trusted-persistence exceptions as non-successful bounded failures. A new
+server-only adapter invokes the existing Technical Research Factory through
+`factory.executeFactoryBridge`, uses deterministic repository-backed local
+inputs, and passes the eligible pre-evidence result through the Wave 5 trusted
+`persistFactoryResult` boundary. Focused proof covers durable claim, actual
+Factory execution, checkpoint completion, provenance/lineage, reusable
+knowledge persistence, later identical-demand reuse, applicability failure and
+failure isolation. No provider, network acquisition, UI, scheduler, live
+Supabase change, Edge deployment or production mutation occurred. The existing
+deployed Edge function remains unchanged and its synthetic adapter is not
+claimed as live Factory execution. The exact NEXT is a separately authorized
+provider-neutral source-acquisition wave with an exact applicable route; do not
+execute it automatically.
+
 Objective: verify auth, persistence, RLS, deployment and operational error handling. Entry: selected test backend and deployment environment. Completed: repository-controlled ownership/RLS baseline applied and verified live; repository-side password recovery flow implemented with fail-closed callback handling; general production user journey was operator-smoke-tested; post-repair production password-recovery smoke test passed with legitimate callback, new-password login, old-password rejection and marker-only fail-closed behavior; deployment/recovery hardening now requires an explicit production callback URL, binds recovery UI to a Supabase recovery event/session identity, and documents the operator boundary; permanent owner-first Rider Service Core and Source Trust Model governance recorded; repository clean-baseline migration foundation added, normalized to valid ordered identifiers, and replayed twice successfully in local PostgreSQL 17. The Dashboard allow-list remains an external configuration boundary, and browser-console inspection was not part of the smoke test. The original recovery startup race was repaired in `a5e1639`; final live password-recovery verification is CLOSED with operator verdict `ACCEPT`. Leaked-password protection is externally blocked because project `vfr-master` is on the Free plan and Supabase makes the setting available only on Pro plan and above. The three-Honda fast-path package, authenticated CBR500R continuation, Review Queue construction, Human Review, Evidence Processing and read-only promotion-readiness evaluation are complete. BMW C 600 Sport MY2012 now has 24 generic pending packets, 24 explicit `APPROVED-FOR-CONVERSION` human promotion-review decisions and 24 generic `CONVERSION-READY` lossless raw-text schema-conversion projections; numeric/unit conversion, compound decomposition and production materialization remain separate future stages. Technical Research Factory Maximum Automation / Throughput v2 design and Waves A-E are complete for the audited scope. Wave E measured a bounded 9-record BMW automatic pipeline at 3 GREEN, 2 YELLOW and 4 RED, with 3 existing authorization reuses and zero new authorization; this is a fixture measurement, not a historical improvement claim. Separately authorized migration-history reconciliation and future lawful source-link presentation and Garage/Service maintenance-due integration remain deferred. Exit: evidence-backed release readiness. Status: ACTIVE.

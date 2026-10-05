@@ -78,11 +78,17 @@ function createTrustedAsyncExecutionService({ store, factoryExecutor, reusableWr
   async function runOnce({ demand, executionId, workerId: owner, leaseSeconds = 60 }) {
     assertIdentity(demand, executionId); const claimed = store.claim({ executionId, workerId: owner, leaseSeconds }); if (claimed.outcome !== "CLAIMED") return claimed;
     const job = claimed.record; const handoff = { phase: "FACTORY-HANDOFF", executionId: job.executionId, demandId: job.demandId, attempt: job.attemptCount, claimedAt: job.claimedAt }; const saved = checkpoint({ executionId: job.executionId, workerId: owner, value: handoff }); if (!saved.ok) return saved;
-    const result = await factoryExecutor({ demand: clone(demand), execution: clone(saved.record), checkpoint: clone(handoff) });
-    if (!result || typeof result.outcome !== "string") throw new TypeError("Factory executor result is invalid");
-    if (result.outcome === "SUCCESS" && reusableWriter) await reusableWriter({ demand: clone(demand), result: clone(result.result) });
-    const finished = store.finish({ executionId: job.executionId, workerId: owner, outcome: result.outcome, failure: result.failure, checkpoint: result.checkpoint === undefined ? handoff : result.checkpoint });
-    return Object.freeze({ ...finished, factory: result });
+    try {
+      const result = await factoryExecutor({ demand: clone(demand), execution: clone(saved.record), checkpoint: clone(handoff) });
+      if (!result || typeof result.outcome !== "string") throw new TypeError("Factory executor result is invalid");
+      if (result.outcome === "SUCCESS" && reusableWriter) await reusableWriter({ demand: clone(demand), result: clone(result.result) });
+      const finished = store.finish({ executionId: job.executionId, workerId: owner, outcome: result.outcome, failure: result.failure, checkpoint: result.checkpoint === undefined ? handoff : result.checkpoint });
+      return Object.freeze({ ...finished, factory: result });
+    } catch (error) {
+      const failure = { reason: error instanceof Error ? error.message : "trusted Factory execution failed" };
+      const finished = store.finish({ executionId: job.executionId, workerId: owner, outcome: "RETRYABLE", failure, checkpoint: { ...handoff, phase: "FACTORY-FAILED" } });
+      return Object.freeze({ ...finished, factory: { outcome: "RETRYABLE", failure } });
+    }
   }
   return Object.freeze({ ensure, claim, checkpoint, runOnce, read: store.read, store });
 }

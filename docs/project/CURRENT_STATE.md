@@ -2,8 +2,8 @@
 
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
-Snapshot date: 2026-09-20
-Snapshot basis: Research on Demand Wave 9 user-demand intake foundation verified on top of the live-verified Wave 8 bounded Supabase Edge worker.
+Snapshot date: 2026-10-05
+Snapshot basis: Research on Demand Wave 10 trusted server-side worker-to-Factory-to-reusable-knowledge composition verified on top of the Wave 9 intake foundation and the live-verified Wave 8 bounded Supabase Edge worker.
 
 - Phase 6 promotion foundation: generic `PromotionPacket/v1` and fail-closed `PROMOTION-READY`/`BLOCKED` gate are implemented and exported from `research/factory/index.js`. The foundation preserves raw values/units/provenance, rejects unresolved/non-accepted processing states and insufficient scope, and performs no production conversion, evidence write, registry insertion or automatic promotion.
 - Held promotion projection: the real 27 Ducati and 13 BMW pre-promotion records were read-only projected through `PromotionPacket/v1`; Ducati produced 27 `PROMOTION-READY`, BMW 11 `PROMOTION-READY` and 2 `BLOCKED` conflict records. Upstream research objects and all production state remained unchanged.
@@ -152,6 +152,12 @@ complete for this lineage; future work requires a separately authorized wave.
 Supabase production migration-history reconciliation remains separately
 unresolved and unauthorized, and leaked-password protection remains
 externally blocked until the project is upgraded to Pro or above.
+
+The active Research-on-Demand NEXT is a separately authorized provider-neutral
+source-acquisition wave only after an exact applicable source route is
+established. The repository-side Wave 10 proof remains server-only; the
+unchanged deployed Edge synthetic adapter is not claimed as live Factory
+execution.
 
 The generated `research/reports/project-state-audit.json` remains intentionally scoped to the completed Triumph implementation wave. Its 2026-09-03 snapshot date, historical base commit and 681/681 validation record are deterministic historical evidence, not claims that this memory wave reran that suite.
 
@@ -656,3 +662,17 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   No worker invocation, provider/API Ninjas call, scheduler, UI, production
   promotion or production/user mutation was added. Research remains
   user-demand-driven, not bulk motorcycle crawling.
+
+- Research on Demand Wave 10 closes the repository-side trusted execution seam.
+  The existing Wave 7 trusted execution service now fails closed on Factory or
+  reusable-persistence exceptions instead of reporting success, and the new
+  server-only adapter invokes the existing `factory.executeFactoryBridge` with
+  deterministic local inputs before passing an eligible result through the
+  Wave 5 `persistFactoryResult` boundary. Focused proof completed actual
+  Factory execution, `FACTORY-COMPLETED` checkpointing, accepted-pre-evidence
+  lineage, reusable-knowledge persistence, later identical-demand reuse,
+  incompatible/unknown applicability rejection and failure isolation. No Edge
+  deployment, live Supabase change, provider/network acquisition, UI,
+  scheduler, production promotion or production/user mutation occurred. The
+  deployed Edge function remains unchanged and its synthetic adapter is not
+  claimed as live Factory execution.
