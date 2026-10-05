@@ -2,6 +2,43 @@
 
 Historical entries reconstructed from git; newest first.
 
+## 2026-10-05 — Research on Demand Wave 11 bounded source acquisition
+
+Implemented the first exact-route, provider-neutral source-acquisition layer
+on top of the Wave 7/10 trusted execution path. Canonical demand is matched
+fail-closed against one authenticated Honda CBR500R PC70 MY2024 USA/Canada
+route before network access. The existing asynchronous Factory HTTP adapter
+acquires only the exact allow-listed URL and verifies the expected SHA-256;
+complete bytes are then published atomically into temporary local,
+content-addressed custody. The checkpoint stops at `SOURCE-ACQUIRED` with
+`BLOCKED / EXTRACTION-REQUIRED`.
+
+Behavioral coverage verifies all applicability dimensions, exact conditions,
+unsupported fields, redirects, HTTP classification, document identity,
+duplicate execution, custody corruption and partial-write cleanup. Response-
+body transport failures remain retryable, byte-budget failures remain
+permanent, each outer retry has a distinct deterministic Factory identity,
+and forged outer execution identity is rejected before network I/O. Large
+manual-sized Base64 payload validation was changed from a stack-exhausting
+regular expression to bounded iteration after the public proof exposed the
+failure. Final review additionally bound acquisition to a claimed `RUNNING`
+execution and its stored handoff checkpoint, classified corrupt custody as a
+non-retrying integrity block, and required directory sync before custody can
+report success. Expired execution leases are rejected before network I/O on a
+trusted injectable clock. Wave 11 passed 30/30 tests and the focused Wave
+7/9/10/11 plus HTTP adapter set passed 54/54. The one final full-suite run
+passed 1110, failed 0 and skipped 3 across 1113 tests; the affected Wave 11
+and focused sets were rerun after the final lease check.
+
+The local public-source proof downloaded far enough to expose the large-
+payload defect; after its repair, the repeat was externally blocked by DNS
+resolution of `cdn.powersports.honda.com` and recorded `NETWORK_FAILURE`.
+Controlled transport still proves the complete acquisition/custody path.
+No PDF is committed, and no extraction, candidate, review decision, reusable
+knowledge, production data, live Supabase, Edge deployment, scheduler, UI or
+user data changed. NEXT is a separately bounded custody-to-derivation/
+extraction wave; deployment remains a separate operator decision.
+
 ## 2026-10-05 — Research on Demand Wave 10 trusted Factory composition
 
 Closed the repository-side trusted execution seam after Wave 9. The existing

@@ -3,7 +3,7 @@
 > **THIS DOCUMENT DESCRIBES CURRENT PROJECT STATE. HISTORICAL CLAIMS DO NOT OVERRIDE IT.**
 
 Snapshot date: 2026-10-05
-Snapshot basis: Research on Demand Wave 10 trusted server-side worker-to-Factory-to-reusable-knowledge composition verified on top of the Wave 9 intake foundation and the live-verified Wave 8 bounded Supabase Edge worker.
+Snapshot basis: Research on Demand Wave 11 exact-route source acquisition and local content-addressed custody verified on top of the Wave 10 trusted worker composition.
 
 - Phase 6 promotion foundation: generic `PromotionPacket/v1` and fail-closed `PROMOTION-READY`/`BLOCKED` gate are implemented and exported from `research/factory/index.js`. The foundation preserves raw values/units/provenance, rejects unresolved/non-accepted processing states and insufficient scope, and performs no production conversion, evidence write, registry insertion or automatic promotion.
 - Held promotion projection: the real 27 Ducati and 13 BMW pre-promotion records were read-only projected through `PromotionPacket/v1`; Ducati produced 27 `PROMOTION-READY`, BMW 11 `PROMOTION-READY` and 2 `BLOCKED` conflict records. Upstream research objects and all production state remained unchanged.
@@ -153,11 +153,13 @@ Supabase production migration-history reconciliation remains separately
 unresolved and unauthorized, and leaked-password protection remains
 externally blocked until the project is upgraded to Pro or above.
 
-The active Research-on-Demand NEXT is a separately authorized provider-neutral
-source-acquisition wave only after an exact applicable source route is
-established. The repository-side Wave 10 proof remains server-only; the
-unchanged deployed Edge synthetic adapter is not claimed as live Factory
-execution.
+Research on Demand Wave 11 has completed the repository-side exact-route
+source-acquisition boundary. The active NEXT is a separately bounded
+custody-to-derivation/extraction wave that must preserve the existing playbook,
+provenance and Human Review boundaries. It is not authorized automatically.
+The repository-side path remains server-only; the unchanged deployed Edge
+synthetic adapter is not claimed as live Factory execution, and deployment of
+the Wave 11 path remains a separate operator decision.
 
 The generated `research/reports/project-state-audit.json` remains intentionally scoped to the completed Triumph implementation wave. Its 2026-09-03 snapshot date, historical base commit and 681/681 validation record are deterministic historical evidence, not claims that this memory wave reran that suite.
 
@@ -676,3 +678,22 @@ Operator-reported live fact (not independently verified by Codex): Supabase Auth
   scheduler, production promotion or production/user mutation occurred. The
   deployed Edge function remains unchanged and its synthetic adapter is not
   claimed as live Factory execution.
+
+- Research on Demand Wave 11 closes the bounded exact-source acquisition seam.
+  One authenticated Honda CBR500R PC70 MY2024 USA/Canada oil-specification
+  route is matched against canonical demand and full applicability before
+  network I/O. The existing Factory HTTP adapter allows only the exact URL,
+  verifies response type, size and SHA-256, and stores complete bytes in
+  atomic content-addressed local custody. Success stops at `SOURCE-ACQUIRED`
+  with `BLOCKED / EXTRACTION-REQUIRED`; it cannot create candidates, reusable
+  knowledge, evidence or production data. Acquisition requires a claimed
+  `RUNNING` execution and its exact stored handoff checkpoint. Retry identities
+  are deterministic per outer attempt; forged, stale or expired execution
+  state fails before network. Corrupt custody blocks without reacquisition, directory
+  entries are synced before success, transport body errors remain retryable,
+  and partial custody writes are cleaned without publishing a final digest
+  path. Large manual-sized payload validation is stack-safe. Focused
+  controlled-transport validation passes; the post-fix
+  public proof was externally blocked by DNS and is not claimed as a successful
+  live acquisition. No PDF, deployment, live Supabase, scheduler, UI or
+  production/user mutation was added.

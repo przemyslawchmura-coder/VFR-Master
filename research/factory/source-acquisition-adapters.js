@@ -80,7 +80,12 @@ async function readBoundedBody(response, maxResponseBytes) {
   while (true) {
     const { done, value } = await reader.read(); if (done) break;
     length += value.byteLength;
-    if (length > maxResponseBytes) { await reader.cancel(); throw new RangeError("HTTP response exceeds configured byte limit"); }
+    if (length > maxResponseBytes) {
+      await reader.cancel();
+      const error = new RangeError("HTTP response exceeds configured byte limit");
+      error.code = "HTTP_RESPONSE_TOO_LARGE";
+      throw error;
+    }
     chunks.push(Buffer.from(value));
   }
   return Buffer.concat(chunks, length);
@@ -89,11 +94,15 @@ async function readBoundedBody(response, maxResponseBytes) {
 function createHttpAdapter(options = {}) {
   const adapterId = Object.prototype.hasOwnProperty.call(options, "adapterId") ? options.adapterId : "http.public-bounded";
   if (typeof adapterId !== "string" || adapterId.length === 0) throw new TypeError("HTTP adapterId is required");
+  const allowedUrls = options.allowedUrls === undefined ? null : options.allowedUrls;
+  if (allowedUrls !== null && (!Array.isArray(allowedUrls) || !allowedUrls.length || allowedUrls.some(url => typeof url !== "string" || validatePublicHttpUrl(url, false).toString() !== url))) throw new TypeError("HTTP allowed URLs must be exact public URLs");
+  const exactUrls = allowedUrls === null ? null : new Set(allowedUrls);
   return Object.freeze({ adapterId, adapterVersion: HTTP_ADAPTER_VERSION, supportedOperations: Object.freeze(["attempt-existing-source"]), supportedSourceClasses: Object.freeze(["*"]), supportedMediaTypes: HTTP_SUPPORTED_MEDIA_TYPES, authenticationRequired: false, networkRequired: true, async execute(input) {
     let request;
     try { request = validateHttpRequest(input, options); } catch (error) { return failure(HTTP_RESULT.permanent, "INVALID_HTTP_REQUEST", "CONTENT-UNAVAILABLE", "INVALID_REQUEST", { message: error.message }); }
     let currentUrl = request.url; let redirectCount = 0;
     while (true) {
+      if (exactUrls && !exactUrls.has(currentUrl)) return failure(HTTP_RESULT.blocked, "EXACT_SOURCE_URL_REQUIRED", "CONTENT-UNAVAILABLE", "URL_NOT_ALLOWED");
       let response;
       try {
         response = await fetch(currentUrl, { method: "GET", redirect: "manual", signal: AbortSignal.timeout(request.timeoutMs), headers: { "accept": request.allowedMediaTypes.join(", ") } });
@@ -118,7 +127,13 @@ function createHttpAdapter(options = {}) {
       const contentLength = Number(response.headers.get("content-length"));
       if (Number.isInteger(contentLength) && contentLength > request.maxResponseBytes) return failure(HTTP_RESULT.permanent, "RESPONSE_TOO_LARGE", "CONTENT-UNAVAILABLE", "BYTE_LIMIT", { contentLength, maxResponseBytes: request.maxResponseBytes });
       let body;
-      try { body = await readBoundedBody(response, request.maxResponseBytes); } catch { return failure(HTTP_RESULT.permanent, "RESPONSE_TOO_LARGE", "CONTENT-UNAVAILABLE", "BYTE_LIMIT", { maxResponseBytes: request.maxResponseBytes }); }
+      try {
+        body = await readBoundedBody(response, request.maxResponseBytes);
+      } catch (error) {
+        if (error && error.code === "HTTP_RESPONSE_TOO_LARGE") return failure(HTTP_RESULT.permanent, "RESPONSE_TOO_LARGE", "CONTENT-UNAVAILABLE", "BYTE_LIMIT", { maxResponseBytes: request.maxResponseBytes });
+        const timedOut = error && (error.name === "TimeoutError" || error.name === "AbortError");
+        return failure(HTTP_RESULT.transient, timedOut ? "REQUEST_TIMEOUT" : "NETWORK_FAILURE", "CONTENT-UNAVAILABLE", timedOut ? "TIMEOUT" : "NETWORK_ERROR");
+      }
       if (body.length === 0) return failure(HTTP_RESULT.empty, "EMPTY_RESPONSE", "CONTENT-UNAVAILABLE", "EMPTY_BODY", { requestedUrl: request.url, finalUrl: currentUrl });
       const contentDigest = sha256Bytes(body);
       const artifact = contracts.validateArtifact({

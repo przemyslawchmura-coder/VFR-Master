@@ -21,7 +21,16 @@ const hasSecretShapeExcept = (value, path = [], exemptPaths = []) => {
 };
 const assertNoSecretsExceptPaths = (value, exemptPaths, message) => assert(!hasSecretShapeExcept(value, [], exemptPaths), message);
 const derivedPayloadPaths = input => input && input.originClassification === "DERIVED-FROM-ACQUIRED-ARTIFACT" && input.acquisitionMethod === "LOCAL-DETERMINISTIC-TRANSFORM" ? [["metadata", "contentBase64"], ["metadata", "content"], ["content"]] : [OPAQUE_PAYLOAD_PATH];
-const isBase64 = value => typeof value === "string" && value.length > 0 && value.length % 4 === 0 && /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(value);
+const isBase64 = value => {
+  if (typeof value !== "string" || value.length === 0 || value.length % 4 !== 0) return false;
+  const padding = value.endsWith("==") ? 2 : value.endsWith("=") ? 1 : 0;
+  for (let index = 0; index < value.length - padding; index += 1) {
+    const code = value.charCodeAt(index);
+    const allowed = (code >= 65 && code <= 90) || (code >= 97 && code <= 122) || (code >= 48 && code <= 57) || code === 43 || code === 47;
+    if (!allowed) return false;
+  }
+  return true;
+};
 const digest = value => crypto.createHash("sha256").update(json.canonicalSerialize(value)).digest("hex").slice(0, 24);
 
 function validateAcquisitionRequest(input) {
